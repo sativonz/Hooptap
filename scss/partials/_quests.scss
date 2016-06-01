@@ -1,0 +1,91 @@
+.quest--container{
+  ul.quest--container--list{
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	padding-top: 10px;
+	.quest--row{
+		&:not(:first-child) {
+		  margin-top:20px;
+		}
+		background: #fff;
+	  	cursor: pointer;
+		box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+		border-radius: 5px;
+		padding: 10px 8px;
+	  	position: relative;
+
+	  	.quest--row--image-holder{
+			display: inline-block;
+		}
+	  	.quest--row--text-holder{
+		  	display: inline-block;
+		}
+
+		.quest--row--title{
+		  font-weight: 400;
+		}
+	  	.quest--row--desc{
+		  font-size: 12px;
+		  max-width: 220px;
+		}
+		.quest--row--image{
+		  width: 35px;
+		  margin-right: 6px;
+		}
+	  	.quest--row--status-label{
+		  font-size: 9px;
+		  padding: 0px 7px 1px 7px;
+		  color: #fff;
+		  position: absolute;
+		  left: 5px;
+		  top: 5px;
+		  border-radius: 4px;
+		  font-weight: 800;
+		}
+	}
+  }
+}
+
+table.stepbar {
+  margin: 0;
+  padding: 0;
+  margin-top: 5px;
+  background-color: transparent;
+  tr.stepbar-row td {
+	padding: 1px;
+	&:first-child div {
+	  border-radius: 15px 0px 0px 15px;
+	}
+	&:last-child div {
+	  border-radius: 0px 15px 15px 0px;
+	}
+	&:only-child div{
+	  border-radius: 15px;
+	}
+  }
+  .stepbar-step {
+	height: 12px;
+	background-color: $border;
+
+  }
+}
+.is-active{
+  background: $yellow!important;
+}
+.is-completed{
+  background: $green!important;
+}
+.actual-step--num {
+  font-size: 12px;
+  font-weight: 800;
+  color: $c_text_light;
+}
+
+.quest--row--actual-step{
+  display:none;
+  font-size: 12px;
+  padding: 10px 15px;
+  border-top: 1px solid $border;
+  margin-top: 15px;
+}

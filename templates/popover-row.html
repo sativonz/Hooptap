@@ -1,0 +1,50 @@
+<div class="popover animated fadeInRight">
+    <div class="popover__content">
+        <div class="icon icon--close icon--close--popover close-popover-js"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path d="M6.4,5l3.3-3.3c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0L5,3.6L1.7,0.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4L3.6,5L0.3,8.3 c-0.4,0.4-0.4,1,0,1.4C0.5,9.9,0.7,10,1,10s0.5-0.1,0.7-0.3L5,6.4l3.3,3.3C8.5,9.9,8.7,10,9,10s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L6.4,5z"></path></svg></div>
+
+        <div class="popover__content__image">
+
+            <% if(itemType == 'Point'){ %>
+                <% if(image){ %>
+                    <img src="<%- image %>" style="display: inline-block; margin: 0 auto;">
+                <% }else{ %>
+                    <svg width="36px" height="36px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"> <title>ic-point</title> <defs> <circle id="path-1" cx="10" cy="10" r="10"></circle> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="ic-point" sketch:type="MSLayerGroup"> <circle id="Oval" fill="#FFBC2A" sketch:type="MSShapeGroup" cx="10" cy="10" r="10"></circle> <g id="Clipped"> <mask id="mask-2" sketch:name="a" fill="white"> <use xlink:href="#path-1"></use> </mask> <g id="a"></g> <g id="Group" mask="url(#mask-2)" stroke="#FFFFFF" stroke-width="2" sketch:type="MSShapeGroup" opacity="0.3"> <g transform="translate(-3.000000, -3.000000)" id="Shape"> <path d="M16,0.999 L0.999,16"></path> <path d="M12,0.936 L0.936,12"></path> </g> </g> </g> <path d="M10,2.5 C14.136,2.5 17.5,5.864 17.5,10 C17.5,14.136 14.136,17.5 10,17.5 C5.864,17.5 2.5,14.136 2.5,10 C2.5,5.864 5.864,2.5 10,2.5 L10,2.5 Z M10,1.5 C5.305,1.5 1.5,5.305 1.5,10 C1.5,14.695 5.305,18.5 10,18.5 C14.695,18.5 18.5,14.695 18.5,10 C18.5,5.305 14.695,1.5 10,1.5 L10,1.5 Z" id="Shape" opacity="0.249183769" fill="#000000" sketch:type="MSShapeGroup"></path> <path d="M7.96,7.699 L9.411,9.152 L10.001,9.742 L10.591,9.152 L12.042,7.7 L13.822,9.481 L10.001,13.302 L6.179,9.481 L7.96,7.699 L7.96,7.699 Z M12.041,6.52 L10.001,8.562 L7.961,6.52 L5,9.481 L10.001,14.48 L15,9.481 L12.041,6.52 L12.041,6.52 Z" id="Shape" fill="#BF8C1F" sketch:type="MSShapeGroup"></path> <path d="M6.001,9.481 L13.999,9.481" id="Shape" stroke="#BF8C1F" stroke-width="0.833" sketch:type="MSShapeGroup"></path> <path d="M10,13.812 L12.041,9.481 L12.041,7.521" id="Shape" stroke="#BF8C1F" stroke-width="0.833" sketch:type="MSShapeGroup"></path> <path d="M7.961,7.521 L7.961,9.481 L10,13.812" id="Shape" stroke="#BF8C1F" stroke-width="0.833" sketch:type="MSShapeGroup"></path> </g> </g> </svg>
+                <% } %>
+            <% } %>
+
+            <% if(itemType == 'Badge'){ %>
+                <% if(image){ %>
+                    <img src="<%- image %>" style="display: inline-block; margin: 0 auto;">
+                <% }else{ %>
+                    <svg width="36px" height="36px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"> <title>ic-badge</title> <defs> <circle id="path-1" cx="10" cy="10" r="10"></circle> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="ic-badge" sketch:type="MSLayerGroup"> <circle id="Oval" fill="#00CAFF" sketch:type="MSShapeGroup" cx="10" cy="10" r="10"></circle> <g id="Clipped"> <mask id="mask-2" sketch:name="a" fill="white"> <use xlink:href="#path-1"></use> </mask> <g id="a"></g> <g id="Group" mask="url(#mask-2)" stroke="#FFFFFF" stroke-width="2" sketch:type="MSShapeGroup" opacity="0.3"> <g transform="translate(-3.000000, -3.000000)" id="Shape"> <path d="M16,0.999 L0.999,16"></path> <path d="M12,0.936 L0.936,12"></path> </g> </g> </g> <path d="M10,2.5 C14.136,2.5 17.5,5.864 17.5,10 C17.5,14.136 14.136,17.5 10,17.5 C5.864,17.5 2.5,14.136 2.5,10 C2.5,5.864 5.864,2.5 10,2.5 L10,2.5 Z M10,1.5 C5.305,1.5 1.5,5.305 1.5,10 C1.5,14.695 5.305,18.5 10,18.5 C14.695,18.5 18.5,14.695 18.5,10 C18.5,5.305 14.695,1.5 10,1.5 L10,1.5 Z" id="Shape" opacity="0.248484142" fill="#000000" sketch:type="MSShapeGroup"></path> <path d="M8.2046132,6 L7.68595489,7.59759229 L9.06761804,8.60226331 C7.67597007,8.97022113 6.65,10.2388469 6.65,11.7473 C6.65,13.5437166 8.10507456,15 9.9,15 C11.6949254,15 13.15,13.5437166 13.15,11.7473 C13.15,10.2355393 12.1195256,8.96465878 10.7232222,8.59985581 L12.1015744,7.59759229 L11.5829161,6 L8.2046132,6 Z M8.36693819,5.5 L8.52926318,5 L11.2582661,5 L11.4205911,5.5 L8.36693819,5.5 Z M9.9,12.9091599 L11.3912484,13.8092408 L10.9967191,12.1117177 L12.3130233,10.9701339 L10.5778182,10.8211267 L9.9,9.22068763 L9.22218176,10.8211267 L7.4869767,10.9701339 L8.80328091,12.1117177 L8.4087516,13.8092408 L9.9,12.9091599 Z" id="badge" opacity="0.249708489" fill="#000000" sketch:type="MSShapeGroup"></path> </g> </g> </svg>
+                <% } %>
+            <% } %>
+
+            <% if(itemType == 'Step'){ %>
+                <% if(image){ %>
+                    <img src="<%- image %>" style="display: inline-block; margin: 0 auto;">
+                <% }else{ %>
+                    <svg width="36px" height="36px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"> <title>ic-step</title> <defs> <circle id="path-1" cx="10" cy="10" r="10"></circle> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="ic-step" sketch:type="MSLayerGroup"> <circle id="Oval" fill="#66D2DD" sketch:type="MSShapeGroup" cx="10" cy="10" r="10"></circle> <g id="Clipped"> <mask id="mask-2" sketch:name="a" fill="white"> <use xlink:href="#path-1"></use> </mask> <g id="a"></g> <g id="Group" mask="url(#mask-2)" stroke="#FFFFFF" stroke-width="2" sketch:type="MSShapeGroup" opacity="0.3"> <g transform="translate(-3.000000, -3.000000)" id="Shape"> <path d="M16,0.999 L0.999,16"></path> <path d="M12,0.936 L0.936,12"></path> </g> </g> </g> <path d="M10,2.5 C14.136,2.5 17.5,5.864 17.5,10 C17.5,14.136 14.136,17.5 10,17.5 C5.864,17.5 2.5,14.136 2.5,10 C2.5,5.864 5.864,2.5 10,2.5 L10,2.5 Z M10,1.5 C5.305,1.5 1.5,5.305 1.5,10 C1.5,14.695 5.305,18.5 10,18.5 C14.695,18.5 18.5,14.695 18.5,10 C18.5,5.305 14.695,1.5 10,1.5 L10,1.5 Z" id="Shape" opacity="0.248484142" fill="#000000" sketch:type="MSShapeGroup"></path> <path d="M10.6281365,12.6723789 C11.2258526,12.8696657 11.7536399,12.9953268 12.5119579,13.2199213 C12.2206345,16.7677692 8.73982229,15.3588114 10.6281365,12.6723789 L10.6281365,12.6723789 Z M13.7359592,9.4132303 C13.6967062,8.34796015 13.502032,6.95056357 11.9513667,7.16952253 C11.2244553,7.35236818 10.68736,8.12181168 10.4347521,9.44934361 C10.2960123,10.1792552 10.3766895,11.2037916 10.5403439,11.8179458 C10.6897676,12.2507461 10.6389494,12.2241429 10.7995513,12.3063354 C11.4211502,12.4412993 12.0365151,12.5907044 12.6631658,12.7430516 C13.2997695,12.309754 13.8226125,10.0093796 13.7359592,9.4132303 L13.7359592,9.4132303 Z M8.95049007,9.33147291 C9.11401556,8.71723584 9.19469272,7.69269936 9.05601743,6.96287069 C8.80360303,5.6352766 8.26644318,4.86570879 7.53940286,4.68298745 C5.9887375,4.46402849 5.79406327,5.86140435 5.75481027,6.92673666 C5.66815702,7.5227824 6.19106456,9.82330181 6.82773269,10.2565165 C7.45434037,10.1041693 8.06961928,9.95488852 8.69141169,9.81980029 C8.85182016,9.73769068 8.80100193,9.76427323 8.95049007,9.33147291 L8.95049007,9.33147291 Z M6.9787471,10.7335106 C7.26996306,14.281317 10.7507753,12.8723592 8.86250402,10.1859681 C8.26478793,10.3832757 7.73704364,10.508916 6.9787471,10.7335106 L6.9787471,10.7335106 Z" id="step" opacity="0.248484142" fill="#000000" sketch:type="MSShapeGroup"></path> </g> </g> </svg>
+                <% } %>
+            <% } %>
+
+
+        </div>
+        <div class="popover__content__message">
+
+            <% if(itemType == 'Point'){ %>
+                <%- text %>
+                <%- 'You won ' + quantity + ' '+ itemType +'s \n' %>
+            <% } %>
+
+            <% if(itemType == 'Badge'){ %>
+                <b><%- name %> </b> <%- desc %>
+            <% } %>
+
+            <% if(itemType == 'Step'){ %>
+                <%- desc %>
+            <% } %>
+
+        </div>
+    </div>
+</div>

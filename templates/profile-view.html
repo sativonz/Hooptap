@@ -1,0 +1,80 @@
+
+<div class="widget--container__header" data-actualView="profileView" data-self="<%-self%>">
+    <% if (self == false){ %>
+        <div class="icon icon--back" data-view=" <%-actualView %>"><svg xmlns="http://www.w3.org/2000/svg" width="13" height="10" viewBox="0 0 13 10"><path d="M12,4H3.4l2.3-2.3c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0l-4,4C0.2,4.4,0.1,4.5,0.1,4.6C0,4.9,0,5.1,0.1,5.4 c0.1,0.1,0.1,0.2,0.2,0.3l4,4C4.5,9.9,4.7,10,5,10s0.5-0.1,0.7-0.3c0.4-0.4,0.4-1,0-1.4L3.4,6H12c0.6,0,1-0.4,1-1S12.6,4,12,4z"></path></svg></div>
+    <%} else {%>
+        <div class="icon icon--menu" data-view="menuView"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path d="M0.989949494,4 C0.424264069,4 0,4.42426407 1.11022302e-16,4.98994949 C0,5.55563492 0.424264069,5.97989899 0.989949494,5.97989899 L12.303658,5.97989899 C12.5865007,5.97989899 12.7986327,5.90918831 13.0107648,5.69705627 C13.2228968,5.48492424 13.2936075,5.27279221 13.2936075,4.98994949 C13.2936075,4.42426407 12.8693434,4 12.303658,4 L0.989949494,4 Z M2.24056114,3.33066907e-16 C2.11338752,1.11022302e-16 1.9862139,3.33066907e-16 1.85904028,0 C1.56934335,-4.4408921e-16 0.989949494,-1.11022302e-16 0.989949494,-1.11022302e-16 C0.424264069,-4.4408921e-16 5.55111512e-17,0.424264069 2.22044605e-16,0.989949494 C5.55111512e-17,1.55563492 0.424264069,1.97989899 0.989949494,1.97989899 L12.303658,1.97989899 C12.5865007,1.97989899 12.7986327,1.90918831 13.0107648,1.69705627 C13.2228968,1.48492424 13.2936075,1.27279221 13.2936075,0.989949494 C13.2936075,0.424264069 12.8693434,1.42108547e-14 12.303658,1.77635684e-15 L2.24056114,3.33066907e-16 Z M0.989949494,8 C0.424264069,8 0,8.42426407 1.11022302e-16,8.98994949 C0,9.55563492 0.424264069,9.97989899 0.989949494,9.97989899 L12.303658,9.97989899 C12.5865007,9.97989899 12.7986327,9.90918831 13.0107648,9.69705627 C13.2228968,9.48492424 13.2936075,9.27279221 13.2936075,8.98994949 C13.2936075,8.42426407 12.8693434,8 12.303658,8 L0.989949494,8 Z"></path></svg></div>
+    <%}%>
+
+    <div class="icon icon--close close-widget-js"><svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10"><path d="M6.4,5l3.3-3.3c0.4-0.4,0.4-1,0-1.4s-1-0.4-1.4,0L5,3.6L1.7,0.3c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4L3.6,5L0.3,8.3 c-0.4,0.4-0.4,1,0,1.4C0.5,9.9,0.7,10,1,10s0.5-0.1,0.7-0.3L5,6.4l3.3,3.3C8.5,9.9,8.7,10,9,10s0.5-0.1,0.7-0.3 c0.4-0.4,0.4-1,0-1.4L6.4,5z"></path></svg></div>
+
+    <div class="icon icon--maximize maximize-widget-js"><svg width="11" height="11" viewBox="0 0 11 11" xmlns="http://www.w3.org/2000/svg"><path d="M0.424115207,10.8657414 C0.493946833,10.9099587 0.570429818,10.9423761 0.652027119,10.9611359 C0.755013001,10.9887005 0.865653469,11 0.9899495,11 C1.06934777,11 1.14596001,10.9930839 1.21900412,10.979899 L10.1808511,10.979899 C10.4148936,10.979899 10.5904255,10.9091883 10.7659575,10.6970563 C10.9414893,10.4849242 11,10.2727922 11,9.98994949 C11,9.42426407 10.6489361,9 10.1808511,9 L1.97989899,9 L1.97989899,0.819148936 C1.97989899,0.35106383 1.55563492,-3.91847762e-16 0.9899495,-4.03895376e-16 C0.42426407,-5.99677215e-16 8.8817842e-16,0.35106383 6.66133815e-16,0.819148936 L-8.8817842e-16,10.1808511 C-1.11022302e-15,10.4148936 0.07071068,10.5904255 0.28284272,10.7659575 C0.329679852,10.8047136 0.376516983,10.837765 0.424115207,10.8657414 Z M10.9,0.6 C10.8,0.4 10.6,0.2 10.4,0.1 C10.3,-2.22044605e-16 10.1,-2.22044605e-16 10,-2.22044605e-16 L5,-2.22044605e-16 C4.4,-2.22044605e-16 4,0.4 4,1 C4,1.6 4.4,2 5,2 L7.6,2 L3.3,6.3 C2.9,6.7 2.9,7.3 3.3,7.7 C3.5,7.9 3.7,8 4,8 C4.3,8 4.5,7.9 4.7,7.7 L9,3.4 L9,6 C9,6.6 9.4,7 10,7 C10.6,7 11,6.6 11,6 L11,1 C11,0.9 11,0.7 10.9,0.6 Z"></path></svg></div>
+
+    <div class="widget--container__title">
+        <span class="widget--container__title--text"><% if (self == true){%> Your <%}%>Profile</span>
+    </div>
+</div>
+
+<div class="widget--container__content">
+    <div class="profile">
+        <div class="profile--image--holder">
+
+            <div class="profile--image--input--holder">
+                <div class="fileUpload" data-self="<%-self%>">
+                    <input type="file" class="upload" />
+                    <div class="icon--upload--holder">
+                        <svg class="svg--icon--upload" xmlns="http://www.w3.org/2000/svg" version="1.1" width="24" height="24" viewBox="0 0 24 24"><path d="M4,4H7L9,2H15L17,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9Z" /></svg>                    </div>
+                </div>
+            </div>
+
+            <div style="background-image: url('<%-image%>')" class="profile--image"></div>
+        </div>
+        <div class="info--name">
+            <%-username%>
+        </div>
+
+        <% if (typeof level != 'undefined'){ %>
+        <div class="info--level">
+            Level <%- level.name %>
+        </div>
+        <% }%>
+
+        <div class="info--holder">
+            <div class="info">
+                <div class="info--label">Points</div>
+                <div class="info--data">
+                    <div class="info--data--wrap">
+                        <%-(points) ? points : '0' %>
+                    </div>
+                </div>
+            </div>
+
+            <div class="v-divider"></div>
+
+            <div class="info">
+                <div class="info--label">Badges</div>
+                <div class="info--data">
+                    <% if(!badges_earned.length) { %>
+                        0
+                    <% } %>
+                    <% for (i = 0; i < badges_earned.length; i++) { %>
+                        <div class="tooltip--wrap" badge-data="<%=badges_earned[i]%>">
+                            <img class="info--image-badge" src="<%-badges_earned[i].image%>" alt="<%-badges_earned[i].name%>"/>
+                            <span><%-badges_earned[i].name%></span>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!--div class="activity--btn" data-view="activityView">View recent activity</div-->
+
+    </div>
+</div>
+<div class="widget--container__footer">
+    <div class="footer__copy">Running on <a href="http://www.hooptap.com" target="_blank">Hooptap</a></div>
+     ·
+    <div class="logout logout-js">Logout</div>
+</div>

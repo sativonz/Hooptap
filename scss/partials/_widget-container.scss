@@ -1,0 +1,135 @@
+.widget--container{
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: $z-container;
+  width: 342px;
+  padding-bottom: 30px;
+  color: $c_text;
+  margin: 15px;
+  border-radius: .66667rem;
+  box-shadow: 0 0 .5rem 0 rgba(0,0,0,.2);
+  box-sizing: border-box;
+  background: $bg_widget;
+
+  opacity: 0;
+  @include css3-prefix(transform, matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 480, 0, 1));
+
+  @include transition(transform 0.4s ease-in);
+
+  @media (max-width: $mobile) {
+	width: 100%;
+	border-radius: 0;
+	right: 0px;
+	bottom: 0px;
+	margin: 0;
+	box-shadow: 0 0 50px 0 rgba(0, 0, 0, 0.3)
+  }
+
+  &.animateInWidget{
+	@include css3-prefix(transform, matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1));
+	opacity: 1;
+  }
+
+  .widget--container__header{
+	height:45px;
+	border-bottom: 1px solid $border;
+	text-align: center;
+	padding: 10px 20px;
+	.widget--container__title{
+	  font-size: 14px;
+	  font-weight: bold;
+	}
+	.icon{
+	  display: inline-block;
+	  fill: $c_icon;
+	  cursor: pointer;
+	  position: relative;
+	  @include transition(all 0.2s ease-in);
+	  &:hover{
+		fill: $black;
+		@include transition(all 0.2s ease-in);
+	  }
+	}
+	.icon--back{
+	  float: left;
+	}
+	.icon--close{
+	  float: right;
+	}
+	.icon--menu{
+	  float: left;
+	}
+	.icon--menu{
+	  float: left;
+	}
+	.icon--maximize{
+	  float: right;
+	  margin-right: 8px;
+	  margin-top: 1px;
+	}
+  }
+  .widget--container__content{
+	padding: 5px 20px 10px 20px;
+	overflow-y: scroll;
+	height: 230px;//without footer-> 250px;
+	&::-webkit-scrollbar {
+	  box-shadow: none;
+	  width: .25rem;
+	}
+	&::-webkit-scrollbar-thumb {
+	  background: #e4e4e4;
+	  border-radius: .25rem;
+	}
+	&::-webkit-scrollbar-track {
+	  margin: 1.25rem 0;
+	}
+  }
+}
+
+
+.widget--container__footer{
+  width: 100%;
+  text-align: center;
+  font-size: 11px;
+  color: $c_text_light;
+  position: fixed;
+  bottom: 10px;
+
+  a{
+	text-decoration: underline;
+  }
+  .footer__copy{
+	display: inline;
+  }
+  .logout{
+	cursor: pointer;
+	display: inline;
+
+	@include transition(all 0.2s ease-in);
+	&:hover{
+	  color: $c_text;
+	  @include transition(all 0.2s ease-in);
+	}
+  }
+
+}
+
+
+
+.widget--container.widget-full-height{
+	height: 100%;
+	margin: 0;
+	top: 0;
+	right: 0;
+	border-radius: 0;
+  .widget--container__content {
+	height: calc(100% - 45px);
+
+  }
+  .icon--maximize{
+	>svg{
+	  transform:rotate(180deg);
+	}
+  }
+}

@@ -1,0 +1,124 @@
+.popover--badge--points{
+  background: $bg_badge_points;
+  position: fixed;
+  bottom: 80px;
+  right: 70px;
+  z-index: $z-popover-points;
+  border-radius: 4px;
+
+  -webkit-animation: popover--badge--points 2.5s ease-in-out; /* Safari 4+ */
+  -moz-animation:    popover--badge--points 2.5s ease-in-out; /* Fx 5+ */
+  -o-animation:      popover--badge--points 2.5s ease-in-out; /* Opera 12+ */
+  animation:         popover--badge--points 2.5s ease-in-out; /* IE 10+, Fx 29+ */
+
+  -webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+  animation-fill-mode: forwards;
+
+  .popover--badge--points--count{
+	color: #fff;
+	font-weight: bolder;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	display: block;
+	padding: 5px;
+	font-size: 15px;
+	line-height: 15px;
+  }
+}
+
+@-webkit-keyframes popover--badge--points {
+  0%   {
+	opacity: 0;
+	-webkit-transform: scale(0.1);
+  }
+  10%{
+	opacity: 1;
+	-webkit-transform: scale(1.2);
+  }
+  13%{
+	-webkit-transform: scale(0.9);
+  }
+  15%{
+	-webkit-transform: scale(1);
+  }
+  50%{
+	opacity: 1;
+	transform: translateY(0);
+  }
+  100% {
+	opacity: 0;
+	transform: translateY(-40px);
+  }
+
+}
+
+@-moz-keyframes popover--badge--points {
+  0%   {
+	opacity: 0;
+	-moz-transform: scale(0.1);
+  }
+  10%{
+	opacity: 1;
+	-moz-transform: scale(1.2);
+  }
+  13%{
+	-moz-transform: scale(0.9);
+  }
+  15%{
+	-moz-transform: scale(1);
+  }
+  50%{
+	opacity: 1;
+	transform: translateY(0);
+  }
+  100% {
+	opacity: 0;
+	transform: translateY(-40px);
+  }
+}
+@-o-keyframes popover--badge--points {
+  0%   {
+	opacity: 0;
+	-o-transform: scale(0.1);
+  }
+  30%{
+	opacity: 1;
+	-o-transform: scale(1);
+  }
+  50%{
+	opacity: 1;
+	transform: translateY(0);
+  }
+  90%{
+	opacity: 1;
+  }
+  100% {
+	opacity: 0;
+	transform: translateY(-60px);
+  }
+}
+@keyframes popover--badge--points {
+  0%   {
+	opacity: 0;
+	transform: scale(0.1);
+  }
+  10%{
+	opacity: 1;
+	transform: scale(1.2);
+  }
+  13%{
+	transform: scale(0.9);
+  }
+  15%{
+	transform: scale(1);
+  }
+  50%{
+	opacity: 1;
+	transform: translateY(0);
+  }
+  100% {
+	opacity: 0;
+	transform: translateY(-40px);
+  }
+}

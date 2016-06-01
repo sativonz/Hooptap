@@ -1,0 +1,17 @@
+.welcome--screen{
+  svg{
+	fill:$green;
+
+  }
+  .welcome--screen--title{
+    position: absolute;
+    text-align: center;
+    display: inline-block;
+    top: 130px;
+    font-size: 35px;
+    font-weight: 800;
+    margin: 0 auto;
+    width: 85%;
+    line-height: 32px;
+  }
+}

@@ -1,0 +1,47 @@
+.widget--container__content{
+  .widget--form{
+	padding-top: 5px;
+  }
+  label{
+	font-size: 12px;
+	width: 100%;
+	display: block;
+	margin-top: 6px;
+  }
+  input[type="text"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], textarea, .input-text{
+	width: 100%;
+	display: block;
+	background: #fff;
+	padding: .75rem .83333rem .83333rem;
+	color: #939393;
+	height: 38px;
+	font-size:12px;
+	border-radius: 4px;
+	box-shadow: none;
+	border: 1px solid #cfd8dc;
+  }
+  .button--submit{
+	border-radius: 50%;
+	background: $bg_btn;
+	padding: 12px 10px;
+	width: 100%;
+	margin-top: 12px;
+	font-size: 12px;
+	border-radius: 20px;
+	color:#fff;
+	font-weight: bold;
+
+  }
+  .form--error{
+	color:$red;
+	font-size: 11px;
+	width: 100%;
+	text-align: center;
+	padding: 4px;
+	display: block;
+	border-radius: 4px;
+  }
+  .err{
+	border: 1px solid $red;
+  }
+}

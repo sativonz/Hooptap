@@ -1,0 +1,35 @@
+<li id="<%-_id%>" class="quest--row" data-finished="<%-finished%>" data-active="<%-active%>">
+
+    <div class="quest--row--image-holder">
+        <img class="quest--row--image" src="<%-image%>" alt="<%-name%>"/>
+    </div>
+    <div class="quest--row--text-holder">
+        <div class="quest--row--title"><%-name%></div>
+        <div class="quest--row--desc"><%-desc%></div>
+    </div>
+    <% if (finished) { %>
+        <div class="quest--row--status-label bg-black">Finished</div>
+    <% } else {%>
+        <% if (!active) { %>
+            <!--div class="quest--row--status-label bg-green">New</div-->
+        <% } else {%>
+            <div class="quest--row--status-label bg-yellow">Active</div>
+        <% } %>
+    <% } %>
+
+    <table class="stepbar">
+        <tbody>
+            <tr class="stepbar-row" data-totalSteps="<%-steps.length%>" data-actualStep="<%-completed_steps.length%>">
+                <% for (i = 0; i < steps.length; i++) { %>
+                    <td><div class="stepbar-step  <%= steps[i].name %>  <% if( i <= (completed_steps.length -1) ){ %>  is-completed <% } %>"></div></td>
+                <% } %>
+            </tr>
+        </tbody>
+    </table>
+    <% if (!finished) { %>
+        <div class="quest--row--actual-step">
+            <span class="actual-step--num">Currently in step <%= (completed_steps.length + 1) %> of <%= steps.length %></span>
+            <div class="actual-step--name"><%= steps[completed_steps.length].name %></div>
+        </div>
+    <% } %>
+</li>
