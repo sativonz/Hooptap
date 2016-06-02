@@ -1,0 +1,21 @@
+{
+  "name": "sdk-webcomponents",
+  "version": "1.0.0",
+  "description": "Vistas html con sus respectivos scss para poder usar en cualquiera de las aplicaciones front",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hooptap/sdk-webcomponents.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hooptap/sdk-webcomponents/issues"
+  },
+  "homepage": "https://github.com/Hooptap/sdk-webcomponents#readme"
+}
