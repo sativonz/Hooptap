@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Vistas html con sus respectivos scss para poder usar en cualquiera de las aplicaciones front",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "jade": "^1.11.0"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
