@@ -1,6 +1,42 @@
-form(id="login_form" action="submit")
-    label(for="email") Email
-    input.input-text(type="text" name="email")
-    label(for="password") Password
-    input.input-text(type="password" name="password")
-    .Button.button--submit(id="login_submit")
+.wrapper_login_form
+	form
+		.group
+			input(type='text')
+			span.highlight
+			span.bar
+			label Nombre
+		.group
+			input(type='email')
+			span.highlight
+			span.bar
+			label Contraseña
+		button.button-login-form(type='button')
+			| Login
+			.ripples.buttonRipples
+				span.ripplesCircle
+script.
+	$(window, document, undefined).ready(function() {
+		$('input').blur(function() {
+			var $this = $(this);
+			if ($this.val())
+				$this.addClass('used');
+			else
+				$this.removeClass('used');
+		});
+		var $ripples = $('.ripples');
+		$ripples.on('click.Ripples', function(e) {
+			var $this = $(this);
+			var $offset = $this.parent().offset();
+			var $circle = $this.find('.ripplesCircle');
+			var x = e.pageX - $offset.left;
+			var y = e.pageY - $offset.top;
+			$circle.css({
+				top: y + 'px',
+				left: x + 'px'
+			});
+			$this.addClass('is-active');
+		});
+		$ripples.on('animationend webkitAnimationEnd mozAnimationEnd oanimationend MSAnimationEnd', function(e) {
+			$(this).removeClass('is-active');
+		});
+	});
