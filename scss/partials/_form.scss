@@ -235,4 +235,13 @@ input:focus ~ .highlight {
   }
 }
 
+.icon--close.close-widget-js svg path {
+  fill: #425563;
+}
 
+.icon--close.close-widget-js {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  cursor: pointer;
+}
