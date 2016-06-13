@@ -1,6 +1,7 @@
+- var numberBadges = 4;
 div.badges-wrapper
 	div.container-col-badges
-		- for (var i = 1; i < 4; ++i)
+		- for (var i = 1; i < numberBadges; ++i)
 			div.one-third-col(class='badge-container-'+i)
 				each val in [1, 2, 3]
 					span(class='badge-img'+val)
