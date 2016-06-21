@@ -1,4 +1,3 @@
-# Web components SDK
-Vistas html con sus respectivos scss para poder usar en cualquiera de las aplicaciones front
-
+# SDK-Widgets V1
+Repositorio con los widgets usando el Framework AngularJS 1.5.7
 
