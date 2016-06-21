@@ -17,7 +17,7 @@ module.exports = function makeWebpackConfig() {
     var config = {};
 
     //Entry
-    config.entry = {app: "./app/app.js"};
+    config.entry = {app: "./src/index.js"};
 
     //Output
     config.output = isTest ? {} : {
@@ -129,4 +129,4 @@ module.exports = function makeWebpackConfig() {
 
     return config;
 
-};
+}();
