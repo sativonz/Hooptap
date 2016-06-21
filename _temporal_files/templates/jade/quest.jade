@@ -1,8 +1,8 @@
 - var numberQuests = 7;
-div.quest-steps
-	- for (var q = 1; q < numberQuests; ++q)
-		div.quest-step(id='quest-step-'+q)
-			span.quest-number 1
-			div.quest-step--title Login
-			div.quest-step--description Ya eres miembro de Club Premier. Te regalamos 100 puntos para darte la bienvenida.
-
+div.quests--wrapper
+	div.quest-steps
+		- for (var q = 1; q < numberQuests; ++q)
+			div.quest-step(id='quest-step-'+q)
+				span.quest-number 1
+				div.quest-step--title Login
+				div.quest-step--description Ya eres miembro de Club Premier. Te regalamos 100 puntos para darte la bienvenida.
