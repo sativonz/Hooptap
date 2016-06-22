@@ -48,7 +48,7 @@ module.exports = function makeWebpackConfig() {
     config.module = {
         preLoaders: [],
         loaders: [
-            {test: /\.js$/, loaders: ['ng-annotate', 'babel'], exclude: /node_modules/},
+            {test: /\.js$/, loaders: ['babel'], exclude: /node_modules/},
             {
                 test: /stampit\.js$/, loader: 'string-replace',
                 query: {
