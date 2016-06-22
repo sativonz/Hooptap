@@ -39,6 +39,7 @@ import './common/services/angular-sdk.js';
         ])
     //Controller for widget
         .controller('htWidgetCtrl', ($scope, $compile, Member, Badge)=> {
+            //hooptapSDK object for sdk on javascript
             window.hooptapSDK = {};
             window.hooptapSDK.Member = Member;
             window.hooptapSDK.Badge = Badge;
