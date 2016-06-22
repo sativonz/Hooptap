@@ -56,7 +56,26 @@
       white-space: nowrap;
       display: inline;
       font-size: 13px; }
-
+    .popover .popover__content .icon--close--popover {
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      fill: #B4BDC1;
+      cursor: pointer;
+      -webkit-transition: all 0.2s ease-in;
+      -khtml-transition: all 0.2s ease-in;
+      -moz-transition: all 0.2s ease-in;
+      -ms-transition: all 0.2s ease-in;
+      -o-transition: all 0.2s ease-in;
+      transition: all 0.2s ease-in; }
+      .popover .popover__content .icon--close--popover:hover {
+        fill: #455a64;
+        -webkit-transition: all 0.2s ease-in;
+        -khtml-transition: all 0.2s ease-in;
+        -moz-transition: all 0.2s ease-in;
+        -ms-transition: all 0.2s ease-in;
+        -o-transition: all 0.2s ease-in;
+        transition: all 0.2s ease-in; }
 
 @media only screen and (max-width: 40em) {
   .popover .popover-content .notification-message {
