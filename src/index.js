@@ -14,6 +14,7 @@ import './common/services/angular-sdk.js';
 //Plugins
 
 (function () {
+
     /*var body = angular.element('body').html();
      angular.element('body').remove();
      angular.element('html').append('<body></body>');
@@ -37,8 +38,10 @@ import './common/services/angular-sdk.js';
             require('./modules/widgets/widget-prueba').default
         ])
     //Controller for widget
-        .controller('htWidgetCtrl', ($scope, $compile)=> {
-
+        .controller('htWidgetCtrl', ($scope, $compile, Member, Badge)=> {
+            window.hooptapSDK = {};
+            window.hooptapSDK.Member = Member;
+            window.hooptapSDK.Badge = Badge;
             //Example of widget render
             console.log(angular.element('#ht-widget').html());
             $compile(angular.element('#ht-widget').html())($scope);

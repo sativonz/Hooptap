@@ -2,9 +2,6 @@
 
 // Modules
 var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 // Identify the environment
 var ENV = process.env.npm_lifecycle_event;
@@ -51,7 +48,7 @@ module.exports = function makeWebpackConfig() {
     config.module = {
         preLoaders: [],
         loaders: [
-            {test: /\.js$/, loader: 'babel', exclude: /node_modules/},
+            {test: /\.js$/, loaders: ['ng-annotate', 'babel'], exclude: /node_modules/},
             {
                 test: /stampit\.js$/, loader: 'string-replace',
                 query: {
@@ -119,7 +116,7 @@ module.exports = function makeWebpackConfig() {
         }),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: false,
-            mangle: true,
+            mangle: false,
             compress: {
                 warnings: false
             }
