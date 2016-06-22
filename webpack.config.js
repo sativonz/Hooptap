@@ -73,8 +73,8 @@ module.exports = function makeWebpackConfig() {
                 }
             },
             {test: /\.jade/, loader: 'jade'},
-            //{ test: /\.css$/, loader: isTest ? 'null' : 'style!css' },
-            //{ test: /\.scss$/, loader: isTest ? 'null' : 'style!css!sass' },
+            {test: /\.css$/, loader: isTest ? 'null' : 'style!css' },
+            {test: /\.scss$/, loader: isTest ? 'null' : 'style!css!sass' },
 
             // Images
             {test: /\.(png|jpg|jpeg|gif)$/, loader: 'file?name=images/[name].[ext]'},
