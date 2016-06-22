@@ -1,6 +1,4 @@
-/**
- * Created by fernando on 6/9/16.
- */
+
 var jade = require('jade');
 
 // compile
