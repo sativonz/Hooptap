@@ -10,8 +10,6 @@
 
 (function() {
     'use strict';
-    
-    console.log(typeof window.angular);
     var firstScriptTag = document.getElementsByTagName('head')[0];
     var bundle = document.createElement('script');
     bundle.src = "http://localhost:8080/bundle.js";

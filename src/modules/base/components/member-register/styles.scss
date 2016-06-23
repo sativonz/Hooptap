@@ -113,7 +113,7 @@ c-member-register {
 
   /* Button */
 
-  .ht-form--button__register {
+  .ht-form--button__register, .ht-form--button__activationMail {
     position: relative;
     display: inline-block;
     padding: 12px 24px;
@@ -133,16 +133,17 @@ c-member-register {
     transition: all 0.15s ease;
   }
   .ht-form--button__register:focus { outline: 0; }
-
+  .ht-form--button__activationMail:focus { outline: 0; }
 
   /* Button modifiers */
 
-  .ht-form--button__register {
+  .ht-form--button__register, .ht-form--button__activationMail {
     background: #4a89dc;
     text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
   }
 
   .ht-form--button__register:hover { background: #357bd8; }
+  .ht-form--button__activationMail:hover { background: #357bd8; }
 
 
   /* Ripples container */

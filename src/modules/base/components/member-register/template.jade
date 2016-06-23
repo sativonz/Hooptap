@@ -1,6 +1,6 @@
-.ht-wrapper--register__form
+.ht-wrapper--register__form(ng-init='goActivateEmailForm = false')
     c-button-close
-    form.ht-form--register
+    form.ht-form--register(ng-hide='goActivateEmailForm')
         .ht-form__group
             input.ht-form__input(type='text')
             span.ht-form__highlight
@@ -16,7 +16,20 @@
             span.ht-form__highlight
             span.ht-form__bar
             label.ht-form__label Contraseña
+        .ht-form__group
+            a(href='#' ng-click='goActivateEmailForm = !goActivateEmailForm') Activate my account
         button.ht-form--button__register(type='button')
             | Register
             .ht-form__ripples.buttonRipples
                 span.ht-form__ripplesCircle
+    //ACTIVATE FORM
+    form.ht-form--reset(ng-show='goActivateEmailForm')
+        .ht-form__group-activateEmail
+            input.ht-form__input(ng-model='emailActivation' placeholder='Activation code' type='text')
+            span.ht-form__highlight
+            span.ht-form__bar
+            a(href='#' ng-click='goActivateEmailForm = !goActivateEmailForm') Go to register form
+            button.ht-form--button__activationMail(type='button' ng-click='userActivationEmail()')
+                | Activate my account
+                .ht-form__ripples.buttonRipples
+                    span.ht-form__ripplesCircle
