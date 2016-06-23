@@ -1,15 +1,18 @@
-c-member-login {
-  .ht-wrapper--login__form {
+c-member-update {
+  .ht-wrapper--update__form {
   }
 
-  form.ht-form--login {
+  form.ht-form--update {
     width: 380px;
     padding: 3em 2em 2em 2em;
     background: #fafafa;
     border: 1px solid #ebebeb;
     box-shadow: rgba(0,0,0,0.14902) 0px 1px 1px 0px,rgba(0,0,0,0.09804) 0px 1px 2px 0px;
   }
+  .ht-form__label--email{
 
+
+  }
   .ht-form__group {
     position: relative;
     margin-bottom: 45px;
@@ -48,8 +51,8 @@ c-member-login {
   /* active */
 
   input.ht-form__input:focus ~ label.ht-form__label, input.ht-form__input.used ~ label.ht-form__label {
-    top: -20px;
-    transform: scale(.75); left: -2px;
+    top: -34px;
+    transform: scale(.75); left: -11px;
     /* font-size: 14px; */
     color: #4a89dc;
   }
@@ -113,7 +116,7 @@ c-member-login {
 
   /* Button */
 
-  .ht-form--button__login, .ht-form--button__reset {
+  .ht-form--button__update, .ht-form--button__reset {
     position: relative;
     display: inline-block;
     padding: 12px 24px;
@@ -132,17 +135,17 @@ c-member-login {
     cursor: pointer;
     transition: all 0.15s ease;
   }
-  .ht-form--button__login:focus { outline: 0; }
+  .ht-form--button__update:focus { outline: 0; }
   .ht-form--button__reset:focus { outline: 0; }
 
   /* Button modifiers */
 
-  .ht-form--button__login, .ht-form--button__reset {
+  .ht-form--button__update, .ht-form--button__reset {
     background: #4a89dc;
     text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
   }
 
-  .ht-form--button__login:hover { background: #357bd8; }
+  .ht-form--button__update:hover { background: #357bd8; }
   .ht-form--button__reset:hover { background: #357bd8; }
 
 

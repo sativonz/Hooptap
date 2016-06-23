@@ -48,8 +48,8 @@ c-member-login {
   /* active */
 
   input.ht-form__input:focus ~ label.ht-form__label, input.ht-form__input.used ~ label.ht-form__label {
-    top: -20px;
-    transform: scale(.75); left: -2px;
+    top: -34px;
+    transform: scale(.75); left: -15px;
     /* font-size: 14px; */
     color: #4a89dc;
   }

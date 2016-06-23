@@ -1,30 +1,20 @@
-.ht-wrapper--login__form(ng-init='goResetForm = false')
+.ht-wrapper--update__form
 	c-button-close
-	form.ht-form.ht-form--login(ng-hide='goResetForm')
+	form.ht-form.ht-form--update
+		p Update your account
 		.ht-form__group
-			input.ht-form__input(ng-model='emailLogin' type='text')
+			input.ht-form__input(ng-model='emailUpdate' type='text')
 			span.ht-form__highlight
 			span.ht-form__bar
 			label.ht-form__label Email
 		.ht-form__group
-			input.ht-form__input(ng-model='password' type='password')
+			input.ht-form__input(ng-model='passwordUpdate' type='password')
 			span.ht-form__highlight
 			span.ht-form__bar
 			label.ht-form__label Contraseña
-		.ht-form__group
+		//.ht-form__group
 			a(href='#' ng-click='goResetForm = !goResetForm') Reset password
-		button.ht-form--button__login(type='button' ng-click='userLogin()')
-			| Login
+		button.ht-form--button__update(type='button' ng-click='userUpdate()')
+			| Update
 			.ht-form__ripples.buttonRipples
 				span.ht-form__ripplesCircle
-	//RESET FORM
-	form.ht-form--reset(ng-show='goResetForm')
-		.ht-form__group-reset
-			input.ht-form__input(ng-model='emailReset' placeholder='Contraseña' type='text')
-			span.ht-form__highlight
-			span.ht-form__bar
-			a(href='#' ng-click='goResetForm = !goResetForm') Go to login
-			button.ht-form--button__reset(type='button' ng-click='userReset()')
-				| Reset password
-				.ht-form__ripples.buttonRipples
-					span.ht-form__ripplesCircle

@@ -7,6 +7,7 @@ let module = angular.module('app.base', [])
     .directive('cProfileSimple', require('./components/profile-simple').default)
     .directive('cMemberLogin', require('./components/member-login').default)
     .directive('cMemberRegister', require('./components/member-register').default)
+    .directive('cMemberUpdate', require('./components/member-update').default)
     .directive('cMemberNav', require('./components/member-nav').default)
     .directive('cMemberLogout', require('./components/member-logout').default);
 
