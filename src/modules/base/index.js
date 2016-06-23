@@ -1,5 +1,6 @@
 import angular from 'angular-mod';
 import './main.scss';
+import '../../common/scripts/script-form-md.js';
 
 let module = angular.module('app.base', [])
     .directive('cButtonClose', require('./components/button-close').default)

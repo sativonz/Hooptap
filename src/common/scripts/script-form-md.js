@@ -1,8 +1,10 @@
 /**
  * Created by fer-hooptap on 21/06/16.
  */
-$(window, document, undefined).ready(function() {
+var $ = require("jquery");
 
+export default () => {
+    console.log($);
     $('.ht-form__input').blur(function() {
         var $this = $(this);
         if ($this.val())
@@ -35,4 +37,6 @@ $(window, document, undefined).ready(function() {
         $(this).removeClass('is-active');
     });
 
-});
+}
+
+
