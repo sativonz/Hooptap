@@ -1,14 +1,14 @@
 .ht-wrapper--update__form
 	c-button-close
-	form.ht-form.ht-form--update
+	form.ht-form.ht-form--update(name="ht-form__login")
 		p Update your account
 		.ht-form__group
-			input.ht-form__input(ng-model='emailUpdate' type='text')
+			input.ht-form__input(ng-model='email' type='text' name="email")
 			span.ht-form__highlight
 			span.ht-form__bar
 			label.ht-form__label Email
 		.ht-form__group
-			input.ht-form__input(ng-model='passwordUpdate' type='password')
+			input.ht-form__input(ng-model='password' type='password' name="password")
 			span.ht-form__highlight
 			span.ht-form__bar
 			label.ht-form__label Contraseña
