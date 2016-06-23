@@ -3,7 +3,7 @@
  */
 $(window, document, undefined).ready(function() {
 
-    $('input').blur(function() {
+    $('.ht-form__input').blur(function() {
         var $this = $(this);
         if ($this.val())
             $this.addClass('used');
@@ -11,13 +11,13 @@ $(window, document, undefined).ready(function() {
             $this.removeClass('used');
     });
 
-    var $ripples = $('.ripples');
+    var $ripples = $('.ht-form__ripples');
 
     $ripples.on('click.Ripples', function(e) {
 
         var $this = $(this);
         var $offset = $this.parent().offset();
-        var $circle = $this.find('.ripplesCircle');
+        var $circle = $this.find('.ht-form__ripplesCircle');
 
         var x = e.pageX - $offset.left;
         var y = e.pageY - $offset.top;

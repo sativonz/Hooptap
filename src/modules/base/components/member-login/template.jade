@@ -1,17 +1,30 @@
-script(src='../../common/scripts/script-form-md.js')
-.ht-wrapper--login__form
+.ht-wrapper--login__form(ng-init='goResetForm = false')
 	c-button-close
-	form.form.ht-form.ht-form--login
-		.group
-			input(type='text')
-			span.highlight
-			span.bar
-			label Nombre
-		.group
-			input(type='password')
-			span.highlight
-			span.bar
-			label Contraseña
-		button.button-login-form(type='button')
+	form.ht-form--login(ng-hide='goResetForm')
+		.ht-form__group
+			input.ht-form__input(ng-model='emailLogin' type='text')
+			span.ht-form__highlight
+			span.ht-form__bar
+			label.ht-form__label Email
+		.ht-form__group
+			input.ht-form__input(ng-model='password' type='password')
+			span.ht-form__highlight
+			span.ht-form__bar
+			label.ht-form__label Contraseña
+		.ht-form__group
+			a(href='#' ng-click='goResetForm = !goResetForm') Reset password
+		button.ht-form--button__login(type='button' ng-click='userLogin()')
 			| Login
-			.ripples.buttonRipples
+			.ht-form__ripples.buttonRipples
+				span.ht-form__ripplesCircle
+	//RESET FORM
+	form.ht-form--reset(ng-show='goResetForm')
+		.ht-form__group-reset
+			input.ht-form__input(ng-model='emailReset' placeholder='Contraseña' type='text')
+			span.ht-form__highlight
+			span.ht-form__bar
+			a(href='#' ng-click='goResetForm = !goResetForm') Go to login
+			button.ht-form--button__reset(type='button' ng-click='userReset()')
+				| Reset password
+				.ht-form__ripples.buttonRipples
+					span.ht-form__ripplesCircle

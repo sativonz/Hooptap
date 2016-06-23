@@ -44,7 +44,7 @@ import './common/services/angular-sdk.js';
             window.hooptapSDK.Member = Member;
             window.hooptapSDK.Badge = Badge;
             //Example of widget render
-            console.log(angular.element('#ht-widget').html());
+            //console.log(angular.element('#ht-widget').html());
             $compile(angular.element('#ht-widget').html())($scope);
             // angular.element('#htWidget').append('<widget1></widget1>');
 

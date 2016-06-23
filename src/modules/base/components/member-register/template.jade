@@ -1,23 +1,22 @@
-script(src='../scripts/form-md.js')
-.ht-wrapper--login__form
-	c-button-close
-	form.form.ht-form.ht-form--registe
-        .group
-            input(type='text')
-            span.highlight
-            span.bar
-            label Nombre
-        .group
-            input(type='email')
-            span.highlight
-            span.bar
-            label Email
-        .group
-            input(type='password')
-            span.highlight
-            span.bar
-            label Contraseña
-        button.button-login-form(type='button')
-            | Login
-            .ripples.buttonRipples
-                span.ripplesCircle
+.ht-wrapper--register__form
+    c-button-close
+    form.ht-form--register
+        .ht-form__group
+            input.ht-form__input(type='text')
+            span.ht-form__highlight
+            span.ht-form__bar
+            label.ht-form__label Nombre
+        .ht-form__group
+            input.ht-form__input(type='email')
+            span.ht-form__highlight
+            span.ht-form__bar
+            label.ht-form__label Email
+        .ht-form__group
+            input.ht-form__input(type='password')
+            span.ht-form__highlight
+            span.ht-form__bar
+            label.ht-form__label Contraseña
+        button.ht-form--button__register(type='button')
+            | Register
+            .ht-form__ripples.buttonRipples
+                span.ht-form__ripplesCircle

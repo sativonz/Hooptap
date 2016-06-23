@@ -2,8 +2,11 @@ c-button-close{
   .icon--close {
     float: right;
     cursor: pointer;
+    right: 15px;
+    position: absolute;
+    top: 15px;
     svg {
-      fill: white;
+      fill: #4a89dc;
     }
   }
 
