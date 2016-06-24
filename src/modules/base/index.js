@@ -1,5 +1,6 @@
 import angular from 'angular-mod';
-import './main.scss';
+import '../../common/css/main.scss';
+import '../../common/css/ht-bootstrap-min.scss';
 import '../../common/scripts/script-form-md.js';
 
 let module = angular.module('app.base', [])

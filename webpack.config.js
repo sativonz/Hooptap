@@ -116,7 +116,9 @@ module.exports = function makeWebpackConfig() {
         }),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: false,
-            mangle: false,
+            mangle: {
+                except: ['angular-mod']
+            },
             compress: {
                 warnings: false
             }

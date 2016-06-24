@@ -2,8 +2,7 @@ c-member-login {
   .ht-wrapper--login__form {
   }
 
-  form.ht-form--login {
-    width: 380px;
+  form.ht-form--login, .ht-form--reset {
     padding: 3em 2em 2em 2em;
     background: #fafafa;
     border: 1px solid #ebebeb;
@@ -12,7 +11,7 @@ c-member-login {
 
   .ht-form__group {
     position: relative;
-    margin-bottom: 45px;
+    margin-bottom: 15px;
   }
 
   input.ht-form__input {
@@ -25,7 +24,6 @@ c-member-login {
     width: 100%;
     border: none;
     border-radius: 0;
-    border-bottom: 1px solid #757575;
   }
 
   input.ht-form__input:focus { outline: none; }

@@ -1,5 +1,6 @@
 .wrapper--nav_form
-	.col-xs-6
-		p.center.link-go-login--form Login
-	.col-xs-6
-		p.center.link-go-register--form Register
+	uib-tabset(active="active")
+		uib-tab.link-go-login--form(index="0" heading="Login")
+			c-member-login
+		uib-tab.link-go-register--form(index="$index + 1" heading="Registro" )
+			c-member-register

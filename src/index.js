@@ -7,6 +7,7 @@ import template from './index.jade';
 //Vendor
 import 'angular-storage';
 import 'angular-resource';
+import tabs from 'angular-ui-bootstrap/src/tabs';
 
 //Import Loopback Angular SDK
 import './common/services/angular-sdk.js';
@@ -27,6 +28,7 @@ import './common/services/angular-sdk.js';
         [
             //Vendor injectors
             'ngResource', /*angular resources*/
+            tabs,
             //Plugins
             //SDK Services
             //SDK Loopback services

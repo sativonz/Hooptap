@@ -2,33 +2,30 @@
     c-button-close
     form.ht-form.ht-form--register(ng-hide='goActivateEmailForm')
         .ht-form__group
-            input.ht-form__input(ng-model='name' type='text' name="name")
+            input.ht-form__input(ng-model='name' type='text' name="name" placeholder="Nombre")
             span.ht-form__highlight
             span.ht-form__bar
-            label.ht-form__label Nombre
         .ht-form__group
-            input.ht-form__input(ng-model='email' type='email' name="email")
+            input.ht-form__input(ng-model='email' type='email' name="email" placeholder="Email")
             span.ht-form__highlight
             span.ht-form__bar
-            label.ht-form__label.ht-form__label--email Email
         .ht-form__group
-            input.ht-form__input(ng-model='password' type='password' name="password")
+            input.ht-form__input(ng-model='password' type='password' name="password" placeholder="Contraseña")
             span.ht-form__highlight
             span.ht-form__bar
-            label.ht-form__label Contraseña
-        .ht-form__group
+        .ht-form__group-link
             a(href='#' ng-click='goActivateEmailForm = !goActivateEmailForm') Activate my account
         button.ht-form--button__register(type='button')
             | Register
             .ht-form__ripples.buttonRipples
                 span.ht-form__ripplesCircle
     //ACTIVATE FORM
-    form.ht-form--reset(ng-show='goActivateEmailForm')
-        .ht-form__group-activateEmail
+    form.ht-form--activate(ng-show='goActivateEmailForm' name="goActivateEmailForm")
+        .ht-form__group
             input.ht-form__input(ng-model='emailActivation' placeholder='Activation code' type='text' name="emailActivation")
             span.ht-form__highlight
             span.ht-form__bar
-        .ht-form__group
+        .ht-form__group-link
             a(href='#' ng-click='goActivateEmailForm = !goActivateEmailForm') Go to register form
             button.ht-form--button__activationMail(type='button' ng-click='userActivationEmail()')
                 | Activate my account
