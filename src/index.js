@@ -33,11 +33,13 @@ import './common/services/angular-sdk.js';
             //SDK Services
             //SDK Loopback services
             'lbServices',
+
             //Modules
             require('./modules/base').default,
 
             //Widgets
-            require('./modules/widgets/widget-prueba').default
+            require('./modules/widgets/widget-prueba').default,
+            require('./modules/widgets/widget-notifications').default
         ])
     //Controller for widget
         .controller('htWidgetCtrl', ($scope, $compile, Member, Badge)=> {

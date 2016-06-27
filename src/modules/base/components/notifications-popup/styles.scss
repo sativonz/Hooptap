@@ -1,0 +1,25 @@
+c-notifications-popup {
+  position: fixed;
+  top: 15px;
+  background-color: #323232;
+  border-radius: 1px;
+  color: white;
+  text-align: center;
+  width: 325px;
+  right: 15px;
+  height: 73px;
+
+  .ht-widget-notifications p {
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    padding: 10px;
+    padding: 10px 30px 10px 10px;
+  }
+
+  .widget-notifications__list {
+    position: fixed;
+    right: 140px;
+    bottom: 48px;
+  }
+}

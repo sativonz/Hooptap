@@ -11,7 +11,9 @@ let module = angular.module('app.base', [])
     .directive('cMemberRegister', require('./components/member-register').default)
     .directive('cMemberUpdate', require('./components/member-update').default)
     .directive('cMemberNav', require('./components/member-nav').default)
-    .directive('cMemberLogout', require('./components/member-logout').default);
+    .directive('cMemberLogout', require('./components/member-logout').default)
+    .directive('cNotificationsPopup', require('./components/notifications-popup').default)
+    .directive('cNotificationsList', require('./components/notifications-list').default);
 
 
 export default module.name;
