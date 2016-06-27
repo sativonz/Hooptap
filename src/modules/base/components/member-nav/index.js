@@ -1,11 +1,14 @@
 import template from './template.jade';
 import './styles.scss';
-import controller from './controller';
 
 export default() => ({
     restrict: 'E',
     scope: {},
     template,
-    controller
+    link: (attrs, scope, element) => {
+        scope.model = {
+            name: 'Tabs'
+        };
+    }
 
 });

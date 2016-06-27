@@ -1,6 +1,6 @@
-//
-// export default ($rootScope) => {
-//
-//     $rootScope.route = 'login';
-//
-// }
+
+export default ($rootScope) => {
+
+    $rootScope.route = 'login';
+
+}

@@ -3,6 +3,10 @@ import './styles.scss';
 
 export default() => ({
     restrict: 'E',
-    template
-
+    template,
+    link: (attrs, scope, element) => {
+        $('.close-widget-js').click(function() {
+            $('#ht-widget').hide(500);
+        });
+    }
 });

@@ -51,8 +51,8 @@ import './common/services/angular-sdk.js';
             // angular.element('#htWidget').append('<widget1></widget1>');
 
         })
-        .config(require('./config').default);
-    //.run(require('./boot').default);
+        .config(require('./config').default)
+        .run(require('./boot').default);
 
     //Angular bootstrap to render #htWidget div with htWidget Module
     angular.bootstrap('#ht-widget', ['htWidget']);
