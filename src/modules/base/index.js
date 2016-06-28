@@ -18,7 +18,8 @@ let module = angular.module('app.base', [])
     .directive('cRankingScoreUnits', require('./components/rankings/ranking-score-units').default)
     .directive('cProfileSimple', require('./components/profile/profile-simple').default)
     .directive('cProfileAdvanced', require('./components/profile/profile-advanced').default)
-    .directive('cProfileFull', require('./components/profile/profile-full').default);
+    .directive('cProfileFull', require('./components/profile/profile-full').default)
+    .directive('cLevelActual', require('./components/levels/level-actual').default);
 
 
 export default module.name;

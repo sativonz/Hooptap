@@ -43,7 +43,8 @@ import './common/services/angular-sdk.js';
             require('./modules/widgets/widget-rankings').default,
             require('./modules/widgets/widget-profile-advanced').default,
             require('./modules/widgets/widget-profile-full').default,
-            require('./modules/widgets/widget-profile-simple').default
+            require('./modules/widgets/widget-profile-simple').default,
+            require('./modules/widgets/widget-levels').default
         ])
     //Controller for widget
         .controller('htWidgetCtrl', ($scope, $compile, Member, Badge)=> {
