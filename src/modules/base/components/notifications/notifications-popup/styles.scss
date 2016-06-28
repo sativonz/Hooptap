@@ -1,35 +1,57 @@
 c-notifications-popup {
-  position: fixed;
-  top: 15px;
-  background-color: #323232;
-  border-radius: 1px;
-  color: white;
-  text-align: center;
-  width: 325px;
-  right: 15px;
-  height: 73px;
-  border: 1px solid rgba(255, 255, 255, 0.29);
-
-  .ht-widget-notifications p {
+  #TOASTER {
+    z-index: 999999999999999999;
+    position: fixed;
+    top: 7px;
+    right: 7px;
+    max-width: 350px;
+    min-width: 323px;
+    width: 300px;
+    height: 70px;
     color: white;
     font-weight: bold;
     letter-spacing: 0.5px;
-    padding: 10px;
     padding: 10px 30px 10px 10px;
-  }
 
-  .widget-notifications__list {
-    position: fixed;
-    right: 140px;
-    bottom: 48px;
-  }
+    .TOAST {
+      position: relative;
+      text-align: center;
+      height: 70px;
+      border: 1px solid rgba(255, 255, 255, 0.29);
 
-  .TOAST {
-    text-align:center;
-  }
+      .toast-close {
+        position: absolute;
+        top: 2px;
+        right: 5px;
+        color: white;
+        font-weight: 500;
+        font-size: 16px;
+        cursor: pointer;
 
-  .toast-content {
-    display:inline-block;
-    padding:4px 8px
+      }
+
+      .toast-content {
+        display: inline-block;
+        padding: 10px 30px 10px 10px;
+      }
+
+      .toast-content--span {
+        color: black;
+        background: white;
+        margin-left: 4px;
+        padding: 4px 8px;
+        border-radius: 4px;
+        cursor: pointer
+      }
+
+      .toast-content--href {
+        color: black;
+        background: white;
+        margin-left: 4px;
+        padding: 4px 8px;
+        border-radius: 4px;
+        tcursor: pointer
+      }
+    }
   }
 }
