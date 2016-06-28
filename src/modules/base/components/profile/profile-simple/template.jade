@@ -1,0 +1,27 @@
+div.ht-profile--simple(ng-switch on="$root.view")
+    div.profile--simple__container(ng-switch-when="1")
+        div.profile--simple-item__wrapper
+            img.profile--simple-item__img(ng-src="{{image}}")
+        div.profile--simple-item__name {{name}}
+        div.profile--simple-item__username {{username}}
+        div.col-xs-4
+            div.profile--simple-item__score-units
+                a(ng-click="$root.viewHandler('2')") Score units
+        div.col-xs-4
+            div.profile--simple-item__badges
+                p(ng-click="$root.viewHandler('3')") Badges
+        div.col-xs-4
+            div.profile--simple-item__levels
+                p(ng-click="$root.viewHandler('4')") Levels
+    div.profile--simple__container__su(ng-switch-when="2")
+        c-button-back
+        c-member-register
+    div.profile--simple__container__bdgs(ng-switch-when="3")
+        c-button-back
+        c-member-login
+    div.profile--simple__container__lvls(ng-switch-when="4")
+        c-button-back
+        c-member-update
+
+
+
