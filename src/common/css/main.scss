@@ -1,7 +1,10 @@
 //////////////////--------STYLES---------//////////////////////
+@import "fonticons";
+
 .center{
   text-align: center;
 }
+
 #ht-widget {
   min-width: 300px;
   max-width: 340px;
@@ -14,6 +17,7 @@
   box-shadow: 0 0 5px #000;
   z-index:9999999999;
 }
+
 .ht-form__group.ht-form__group-link {
   margin: -25px 0 8px 0;
 }
