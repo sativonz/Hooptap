@@ -39,7 +39,8 @@ import './common/services/angular-sdk.js';
 
             //Widgets
             require('./modules/widgets/widget-prueba').default,
-            require('./modules/widgets/widget-notifications').default
+            require('./modules/widgets/widget-notifications').default,
+            require('./modules/widgets/widget-rankings').default
         ])
     //Controller for widget
         .controller('htWidgetCtrl', ($scope, $compile, Member, Badge)=> {

@@ -4,8 +4,7 @@ import './styles.scss';
 export default() => ({
     restrict: 'E',
     scope: {
-        items: '=',
-        columns: '='
+        message: '@'
     },
     link: (element, attrs, scope)=>{
     },

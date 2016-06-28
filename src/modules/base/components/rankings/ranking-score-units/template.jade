@@ -1,0 +1,8 @@
+.widget--ranking__score-units(type="{{rankingType}}")
+    .widget--ranking__score-units__wrapper(ng-repeat="item in items | orderBy:'-score'")
+        .col-xs-2 Pos.
+            p {{item.position}}
+        .col-xs-5 Username
+            p {{item.username}}
+        .col-xs-5 Scores
+            p {{item.score}}

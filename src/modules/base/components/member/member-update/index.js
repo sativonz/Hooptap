@@ -3,11 +3,7 @@ import './styles.scss';
 
 export default() => ({
     restrict: 'E',
-    scope: {
-        item: '='
-    },
-    link: (scope, element, attrs)=> {
-    },
+    scope: {},
     template
 
 });

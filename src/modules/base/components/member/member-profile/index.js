@@ -4,10 +4,13 @@ import './styles.scss';
 export default() => ({
     restrict: 'E',
     scope: {
-        items: '=',
-        columns: '='
+        name: '@',
+        username: '@',
+        email: '@',
+        image: '@',
+        imageverified: '@'
     },
-    link: (element, attrs, scope)=>{
+    link: (scope, element, attrs)=> {
     },
     template
 

@@ -1,0 +1,7 @@
+.widget-notifications__list
+	.row-notifications-list(ng-repeat="item in items track by $index")
+		.row-notifications-list__wrapper(class="[{{$index + 1}}]")
+			.col-xs-10
+				p.title {{item.title}}
+			.col-xs-2
+				img(ng-src="{{item.state}}")
