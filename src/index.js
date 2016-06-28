@@ -40,7 +40,10 @@ import './common/services/angular-sdk.js';
             //Widgets
             require('./modules/widgets/widget-prueba').default,
             require('./modules/widgets/widget-notifications').default,
-            require('./modules/widgets/widget-rankings').default
+            require('./modules/widgets/widget-rankings').default,
+            require('./modules/widgets/widget-profile-advanced').default,
+            require('./modules/widgets/widget-profile-full').default,
+            require('./modules/widgets/widget-profile-simple').default
         ])
     //Controller for widget
         .controller('htWidgetCtrl', ($scope, $compile, Member, Badge)=> {

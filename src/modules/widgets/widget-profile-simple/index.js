@@ -1,0 +1,8 @@
+/**First widget. Un pequeño paso para hooptap, un gran paso para los frontenders**/
+
+import angular from 'angular-mod';
+
+let module = angular.module('app.widgetProfileSimple', [])
+    .directive('cWidgetProfileSimple', require('./component').default);
+
+export default module.name;

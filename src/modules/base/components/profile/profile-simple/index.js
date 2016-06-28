@@ -11,6 +11,8 @@ export default() => ({
         imageverified: '@'
     },
     link: (scope, element, attrs)=> {
+
+
     },
     template
 
