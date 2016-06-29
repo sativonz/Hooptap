@@ -18,11 +18,13 @@ let module = angular.module('app.base', [])
     .directive('cNotificationsPopup', require('./components/notifications/notifications-popup').default)
     .directive('cNotificationsList', require('./components/notifications/notifications-list').default)
     .directive('cRankingSimple', require('./components/rankings/ranking-simple').default)
+    .directive('cRankingTotal', require('./components/rankings/ranking-total').default)
     .directive('cProfileSimple', require('./components/profile/profile-simple').default)
     .directive('cProfileAdvanced', require('./components/profile/profile-advanced').default)
     .directive('cProfileFull', require('./components/profile/profile-full').default)
     .directive('cLevelActual', require('./components/levels/level-actual').default)
-    .directive('cQuestsList', require('./components/quests/quests-list').default);
+    .directive('cQuestsList', require('./components/quests/quests-list').default)
+    .directive('cMarkerListSu', require('./components/marker/marker-list-su').default);
 
 
 export default module.name;
