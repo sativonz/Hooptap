@@ -1,8 +1,6 @@
-.widget--ranking__score-units
-    .widget--ranking__score-units__wrapper(ng-repeat="r in rankings | orderBy:'-name'")
-        .col-xs-2 Pos.
-            p {{item.position}}
-        .col-xs-5 Username
-            p {{item.username}}
-        .col-xs-5 Scores
-            p {{item.score}}
+.widget--ranking-total
+    .widget--ranking-total__wrapper.col-xs-12(ng-repeat="r in rankings | orderBy:'-typeRanking'")
+        .col-xs-5.widget--ranking-total__img
+            img(ng-src="{{r.img}}")
+        .col-xs-5.widget--ranking-total__desc
+            p {{r.desc}}

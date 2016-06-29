@@ -1,6 +1,17 @@
 c-ranking-total {
   overflow: auto;
-  height: 100%;
-  width: 100%;
   position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  right: 0px;
+
+  .col-xs-5.widget--ranking-total__img img {
+    height: 35px;
+  }
+
+  .widget--ranking-total__wrapper.col-xs-12 {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #c3c3c3;
+  }
 }

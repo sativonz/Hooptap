@@ -1,5 +1,5 @@
-.widget--ranking__score-units(type="{{rankingType}}")
-    .widget--ranking__score-units__wrapper(ng-repeat="item in items | orderBy:'-score'")
+.widget--ranking-simple(type="{{rankingType}}")
+    .widget--ranking-simple__wrapper(ng-repeat="item in items | orderBy:'-score'")
         .col-xs-2 Pos.
             p {{item.position}}
         .col-xs-5 Username
