@@ -11,12 +11,10 @@ c-level-actual {
     width: 135px;
   }
 
-  .progress {
-    height: 3em;
-    i { line-height: 3.5em; }
+
+  .level-actual_wrapper--progressbar, .level-actual_wrapper--detailsNextLevel {
+    padding: 0 15px 0 15px;
   }
 
-  .progress-bar {
-    transition: width 1s ease-in-out;
-  }
+
 }

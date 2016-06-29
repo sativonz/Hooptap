@@ -7,6 +7,7 @@ import '../../common/scripts/script-toast-notifications.js';
 let module = angular.module('app.base', [])
     .directive('cButtonClose', require('./components/buttons/button-close').default)
     .directive('cButtonBack', require('./components/buttons/button-back').default)
+    .directive('cButtonInit', require('./components/buttons/button-init').default)
     .directive('cBadgesList', require('./components/badges-list').default)
     .directive('cMemberLogin', require('./components/member/member-login').default)
     .directive('cMemberRegister', require('./components/member/member-register').default)

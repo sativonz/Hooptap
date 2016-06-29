@@ -7,6 +7,7 @@ import template from './index.jade';
 //Vendor
 import 'angular-storage';
 import 'angular-resource';
+import 'angular-animate';
 import tabs from 'angular-ui-bootstrap/src/tabs';
 import progressBar from 'angular-ui-bootstrap/src/progressbar';
 
@@ -28,7 +29,8 @@ import './common/services/angular-sdk.js';
     angular.module('htWidget',
         [
             //Vendor injectors
-            'ngResource', /*angular resources*/
+            'ngResource',   /*angular resources*/
+            'ngAnimate',    /*angular animate*/
             tabs,
             progressBar,
             //Plugins

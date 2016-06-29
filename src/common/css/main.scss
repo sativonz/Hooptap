@@ -6,10 +6,10 @@
 }
 
 #ht-widget {
-  min-width: 300px;
-  max-width: 340px;
-  min-height: 340px;
-  max-height: 490px;
+  //min-width: 300px;
+  //max-width: 340px;
+  //min-height: 340px;
+  //max-height: 490px;
   background: white;
   position:fixed;
   right:15px;
@@ -20,4 +20,10 @@
 
 .ht-form__group.ht-form__group-link {
   margin: -25px 0 8px 0;
+}
+
+#ht-widgets {
+  display: none;
+  min-width: 300px;
+  max-width: 340px;
 }
