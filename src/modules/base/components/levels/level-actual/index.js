@@ -11,7 +11,7 @@ export default($timeout) => ({
 
         scope.random = function() {
             //TODO pasar valor a la función dinamicamente
-            var value = 179;
+            var value = 49;
             var type;
 
             if (value < 20) {
@@ -36,7 +36,7 @@ export default($timeout) => ({
                 type = 'Expert!';
             }
 
-            scope.showWarning = type === 'danger' || type === 'warning';
+            scope.showWarning = type === 'Senior' || type === 'Expert';
 
             scope.dynamic = value;
             scope.type = type;

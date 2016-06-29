@@ -1,0 +1,5 @@
+div.ht-badges--list__wrapper
+	div.badge-item(ng-repeat="badge in items track by $index" id="badge-item-{{$index}}")
+		div(class='badge-item__img')
+		div.badge-item__title(title='{{::badge.desc}}') {{::badge.name}}
+		div.badge-item__desc {{::badge.desc}}

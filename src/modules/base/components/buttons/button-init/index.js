@@ -3,6 +3,9 @@ import './styles.scss';
 
 export default() => ({
     restrict: 'E',
+    scope: {
+        text: '@',
+    },
     template,
     link: (attrs, scope, element) => {
 
