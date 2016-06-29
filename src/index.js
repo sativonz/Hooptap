@@ -8,6 +8,7 @@ import template from './index.jade';
 import 'angular-storage';
 import 'angular-resource';
 import tabs from 'angular-ui-bootstrap/src/tabs';
+import progressBar from 'angular-ui-bootstrap/src/progressbar';
 
 //Import Loopback Angular SDK
 import './common/services/angular-sdk.js';
@@ -29,6 +30,7 @@ import './common/services/angular-sdk.js';
             //Vendor injectors
             'ngResource', /*angular resources*/
             tabs,
+            progressBar,
             //Plugins
             //SDK Services
             //SDK Loopback services

@@ -3,7 +3,9 @@ div.ht-level-actual
         div.level-actual_wrapper
             img.level-actual__img(ng-src="{{image}}")
         div.level-actual_wrapper--progressbar
-            p Progress bar
+            progressbar.progress-striped.active(animate="true" max="100" value="progressValue" type="success")
+                i
+                    span(count-to="{{countTo}}" duration="1" count-from="{{countFrom}}")
         div.level-actual_wrapper--detailsNextLevel
             p Detalles del siguiente nivel
 

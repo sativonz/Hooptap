@@ -7,7 +7,15 @@ export default() => ({
         image: '@',
     },
     link: (scope, element, attrs)=> {
-        
+        var amt = 66;
+
+        scope.countTo = amt;
+        scope.countFrom = 0;
+
+        setTimeout(function(){
+            scope.progressValue = amt;
+        }, 200);
+
     },
     template
 
