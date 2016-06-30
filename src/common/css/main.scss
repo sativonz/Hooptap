@@ -1,5 +1,7 @@
 //////////////////--------STYLES---------//////////////////////
 @import "fonticons";
+$fa-font-path: "~font-awesome/fonts";
+@import "~font-awesome/scss/font-awesome";
 
 .center{
   text-align: center;
