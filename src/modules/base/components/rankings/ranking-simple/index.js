@@ -1,12 +1,21 @@
 import template from './template.jade';
 import './styles.scss';
 
+/**
+ * TODO
+ * @ngdoc directive
+ * @name 
+ * @module 
+ * @description 
+ * @restrict E
+ * @param {Object} rankingItem (Put all attributes as param like this)
+ * @element ANY
+ */
 export default() => ({
     restrict: 'E',
     scope: {
-        rankingType: '@'
     },
-
+    transclude:true,
 
     link: (scope, element, attrs)=>{
 

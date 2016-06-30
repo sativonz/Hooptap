@@ -24,6 +24,8 @@ let module = angular.module('app.base', [])
     .directive('cProfileFull', require('./components/profile/profile-full').default)
     .directive('cLevelActual', require('./components/levels/level-actual').default)
     .directive('cQuestsList', require('./components/quests/quests-list').default)
+    .directive('cGameWrapper', require('./components/game/game-wrapper').default)
+    .directive('cGameContainer', require('./components/game/game-container').default)
     .directive('cMarkerListSu', require('./components/marker/marker-list-su').default);
 
 

@@ -1,6 +1,8 @@
-.widget--ranking-total
-    .widget--ranking-total__wrapper.col-xs-12(ng-repeat="r in rankings | orderBy:'-typeRanking'")
-        .col-xs-5.widget--ranking-total__img
-            img(ng-src="{{r.img}}")
-        .col-xs-5.widget--ranking-total__desc
-            p {{r.desc}}
+.widget--ranking-total(ng-if="!showDetailView")
+    .widget--ranking-total__wrapper.col-xs-12(ng-repeat="r in rankings | orderBy:'-typeRanking'"  ng-click="toggleDetailView(r)"  )
+            .col-xs-3.widget--ranking-total__img
+                img(ng-src="{{r.img}}")
+            .col-xs-9.widget--ranking-total__desc
+                p {{r.desc}}
+c-ranking-simple(ng-if="showDetailView" type="{{rankingSelected.rankingType}}")
+c-button-back(ng-click="toggleDetailView()" ng-if="showDetailView")

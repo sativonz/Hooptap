@@ -51,7 +51,9 @@ import './common/services/angular-sdk.js';
             require('./modules/widgets/widget-profile-simple').default,
             require('./modules/widgets/widget-levels').default,
             require('./modules/widgets/widget-quests').default,
-            require('./modules/widgets/widget-marker-su').default
+            require('./modules/widgets/widget-marker-su').default,
+            require('./modules/widgets/widget-game-wrapper').default,
+            require('./modules/widgets/widget-game-container').default
         ])
     //Controller for widget
         .controller('htWidgetCtrl', ($scope, $compile, Member, Badge)=> {

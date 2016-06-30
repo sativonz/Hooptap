@@ -7,7 +7,7 @@ export default($timeout) => ({
         image: '@',
     },
     link: (scope, element, attrs)=> {
-        scope.max = 200;
+        scope.max =  200;
 
         scope.random = function() {
             //TODO pasar valor a la función dinamicamente

@@ -1,7 +1,7 @@
 import template from './template.jade';
 import './styles.scss';
 
-export default() => ({
+export default($rootScope) => ({
     restrict: 'E',
     scope: {
     },
@@ -9,16 +9,26 @@ export default() => ({
 
     link: (scope, element, attrs)=>{
 
+        //init
+        scope.showDetailView = false;
+        //Methods
+        scope.toggleDetailView = (item)=>{
+            scope.showDetailView  = !scope.showDetailView;
+            if(item){
+                scope.rankingSelected = item;
+            }
+
+        };
+
+        //init
+
         scope.rankings = [
-            {desc: 'sat1', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-            {desc: 'jos1', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-            {desc: 'blan', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-            {desc: 'vonz', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-            {desc: 'vonz', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-            {desc: 'vonz', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-            {desc: 'vonz', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-            {desc: 'sergux', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-            {desc: 'korsakof', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
+            {desc: 'Ranking mensual', rankingType:'monthly', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
+            {desc: 'Los mas jugones', rankingType:'jugones', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
+            {desc: 'Ranking semanal', rankingType:'weekly', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
+            {desc: 'Los mas malos', rankingType:'malos', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
+            {desc: 'Ranking diario', rankingType:'daily', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
+            {desc: 'Histórico', rankingType:'historicco', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
 
         ];
     },
