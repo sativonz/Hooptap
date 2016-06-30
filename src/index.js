@@ -53,7 +53,11 @@ import './common/services/angular-sdk.js';
             require('./modules/widgets/widget-quests').default,
             require('./modules/widgets/widget-marker-su').default,
             require('./modules/widgets/widget-game-wrapper').default,
-            require('./modules/widgets/widget-game-container').default
+            require('./modules/widgets/widget-game-container').default,
+            require('./modules/widgets/widget-global-feed').default,
+            require('./modules/widgets/widget-marketplace-container').default,
+            require('./modules/widgets/widget-call-to-action').default,
+            require('./modules/widgets/widget-awards-list').default
         ])
     //Controller for widget
         .controller('htWidgetCtrl', ($scope, $compile, Member, Badge)=> {
