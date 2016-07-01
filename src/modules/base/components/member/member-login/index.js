@@ -1,6 +1,14 @@
 import template from './template.jade';
 import './styles.scss';
-
+/**
+ * @ngdoc directive
+ * @name Member login
+ * @module Component
+ * @description For add login component (reset view is in)
+ * @restrict E
+ * @param
+ * @element ANY
+ */
 export default($rootScope,Member) => ({
     restrict: 'E',
     scope: {},
@@ -18,7 +26,9 @@ export default($rootScope,Member) => ({
             }).then(user => {
                 scope.member = user;
             }).then(()=>{
-                $rootScope.route = 'login-success';
+                //TODO woooorse
+                $rootScope.route.login =  'succes';          
+                
             });
         };
     }

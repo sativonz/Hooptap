@@ -57,6 +57,7 @@ import './common/services/angular-sdk.js';
             require('./modules/widgets/widget-global-feed').default,
             require('./modules/widgets/widget-marketplace-container').default,
             require('./modules/widgets/widget-call-to-action').default,
+            require('./modules/widgets/widget-full').default,
             require('./modules/widgets/widget-awards-list').default
         ])
     //Controller for widget

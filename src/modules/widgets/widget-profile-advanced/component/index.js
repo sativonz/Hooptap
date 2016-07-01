@@ -34,7 +34,7 @@ export default() => ({
                 type = 'Expert!';
             }
 
-            scope.showWarning = type === 'Senior' || type === 'Expert';
+            //scope.showWarning = type === 'Senior' || type === 'Expert';
 
             scope.dynamic = value;
             scope.type = type;

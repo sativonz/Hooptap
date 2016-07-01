@@ -20,11 +20,12 @@ export default() => ({
         username: '@',
         email: '@',
         image: '@',
-        imageverified: '@'
+        imageverified: '@',
+        type: '=',
+        dynamic: '='
     },
     link: (scope, element, attrs)=> {
         attrs.name = attrs.name || 'Anonymous';
-        
     },
     template
 

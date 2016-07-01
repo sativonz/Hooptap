@@ -4,7 +4,8 @@ export default() => ({
     restrict: 'E',
     scope: {},
     link:(scope,element,attrs)=>{
-
+        
+        //Progressbar config
         scope.max =  200;
 
         scope.random = function() {
@@ -34,7 +35,7 @@ export default() => ({
                 type = 'Expert!';
             }
 
-            scope.showWarning = type === 'Senior' || type === 'Expert';
+            //scope.showWarning = type === 'Senior' || type === 'Expert';
 
             scope.dynamic = value;
             scope.type = type;
