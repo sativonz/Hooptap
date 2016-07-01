@@ -1,6 +1,6 @@
 import angular from 'angular-mod';
 
 let module = angular.module('app.widgetNotifications', [])
-    .directive('cWidgetNotifications', require('./component').default);
+    .directive('wWidgetNotifications', require('./component').default);
 
 export default module.name;

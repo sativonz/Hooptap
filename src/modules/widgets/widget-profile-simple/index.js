@@ -3,6 +3,6 @@
 import angular from 'angular-mod';
 
 let module = angular.module('app.widgetProfileSimple', [])
-    .directive('cWidgetProfileSimple', require('./component').default);
+    .directive('wWidgetProfileSimple', require('./component').default);
 
 export default module.name;
