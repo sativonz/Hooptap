@@ -30,7 +30,8 @@ let module = angular.module('app.base', [])
     .directive('cGameGlobalFeed', require('./components/game/game-global-feed').default)
     .directive('cMarketplaceContainer', require('./components/marketplace/marketplace-container').default)
     .directive('cAwardsList', require('./components/awards/awards-list').default)
-    .directive('cMarkerListSu', require('./components/marker/marker-list-su').default);
+    .directive('cMarkerListSu', require('./components/marker/marker-list-su').default)
+    .directive('cProgressbar', require('./components/notifications/progressbar').default);
 
 
 export default module.name;

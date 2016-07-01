@@ -7,10 +7,25 @@ export default() => ({
         name: '@',
         username: '@',
         email: '@',
+        id: '@',
         image: '@',
-        imageverified: '@'
+        imageverified: '@',
+        imagegender: '@',
+        points: '@',
+        dynamic: '=',
+        type: '='
+
     },
+    transclude: true,
     link: (scope, element, attrs)=> {
+        
+        //Definir el numero de columnas
+        scope.numberCols = new Array(2);
+
+        //Definir el numero de badges en cada columna
+        scope.numberBadges = new Array(3);
+        
+
     },
     template
 

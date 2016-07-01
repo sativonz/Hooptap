@@ -20,7 +20,6 @@ export default($rootScope) => ({
 
         };
 
-        //init
 
         scope.rankings = [
             {desc: 'Ranking mensual', rankingType:'monthly', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
