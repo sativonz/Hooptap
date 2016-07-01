@@ -3,10 +3,12 @@ import '../../common/css/main.scss';
 import '../../common/css/ht-bootstrap-min.scss';
 import '../../common/scripts/script-form-md.js';
 import '../../common/scripts/script-toast-notifications.js';
+import '../../common/scripts/script-button-menu.js';
 
 let module = angular.module('app.base', [])
     .directive('cButtonClose', require('./components/buttons/button-close').default)
     .directive('cButtonBack', require('./components/buttons/button-back').default)
+    .directive('cButtonMenu', require('./components/buttons/button-menu').default)
     .directive('cButtonInit', require('./components/buttons/button-init').default)
     .directive('cButtonCallToAction', require('./components/buttons/button-call-to-action').default)
     .directive('cBadgesList', require('./components/badges/badges-list').default)
