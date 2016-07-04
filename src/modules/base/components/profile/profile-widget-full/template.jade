@@ -1,0 +1,41 @@
+div.ht-profile-widget-full(ng-switch="$root.view")
+    div.profile-widget-full__container(ng-switch-when="1")
+        div.profile-widget-full-item__wrapper
+            img.profile-widget-full-item__img(ng-src="{{image}}")
+        div.profile-widget-full-item__name {{name}}
+        div.profile-widget-full-item__username {{username}}
+        div.profile-widget-full-item__email {{email}}
+        div.col-xs-3
+            p.p-level-name Nivel
+        div.col-xs-9
+            div.progessbar
+                ng-transclude
+                    c-progressbar(type="type" dynamic="dynamic")
+        //TODO  los dos primeros enlaces no están claros/definidos en el wireframe
+        div.col-xs-3.center.profile-widget-full-item__score-units1(ng-click="$root.viewHandler('2')")
+            a Coins
+            p 500
+        div.col-xs-3.center.profile-widget-full-item__score-units2(ng-click="$root.viewHandler('3')")
+            a Points
+            p 1500
+        div.col-xs-3.center.profile-widget-full-item__badges(ng-click="$root.viewHandler('4')")
+            a Badges
+            p 5
+        div.col-xs-3.center.profile-widget-full-item__levels(ng-click="$root.viewHandler('5')")
+            a Goods
+            p 10
+    div.profile-widget-full__container__ranking(ng-switch-when="2")
+        c-button-back
+        c-ranking-simple
+    div.profile-widget-full__container__ranking(ng-switch-when="3")
+        c-button-back
+        c-marker-list-su
+    div.profile-widget-full__container__badges(ng-switch-when="4")
+        c-button-back
+        c-badges-list
+    div.profile-widget-full__container__levels(ng-switch-when="5")
+        c-button-back
+        c-level-actual(image="https://wednesdaynighthop.com/wordpress/wp-content/uploads/2015/03/level-1-icon.png" type="type" dynamic="dynamic")
+
+
+

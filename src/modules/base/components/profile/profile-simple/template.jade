@@ -1,9 +1,10 @@
-div.ht-profile--simple(ng-switch on="$root.view")
+div.ht-profile--simple(ng-switch="$root.view")
     div.profile--simple__container(ng-switch-when="1")
         div.profile--simple-item__wrapper
             img.profile--simple-item__img(ng-src="{{image}}")
         div.profile--simple-item__name {{name}}
         div.profile--simple-item__username {{username}}
+        div.progess
         div.col-xs-4
             div.profile--simple-item__score-units
                 a(ng-click="$root.viewHandler('2')") Score units
