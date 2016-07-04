@@ -4,12 +4,6 @@ c-profile-simple {
     background: #00caff;
     background: -webkit-linear-gradient(180deg,#00caff,#fff);
     background: linear-gradient(180deg,#00caff,#fff);
-    min-height: 340px;
-  }
-
-  .profile--simple-item__wrapper {
-    height: 130px;
-    border-bottom: 2px solid white;
   }
 
   .profile--simple-item__img {
@@ -52,6 +46,14 @@ c-profile-simple {
     margin-left: 15px;
     position: relative;
     top: 3px;
+  }
+
+  .profile--simple-item__score-units, .profile--simple-item__badges, .profile--simple-item__levels {
+    text-align: center;
+  }
+
+  .wrapper-item--sbl {
+    margin-top: 15px;
   }
 
 

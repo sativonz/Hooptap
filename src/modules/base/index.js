@@ -27,6 +27,7 @@ let module = angular.module('app.base', [])
     .directive('cProfileFull', require('./components/profile/profile-full').default)
     .directive('cProfileWidgetFull', require('./components/profile/profile-widget-full').default)
     .directive('cLevelActual', require('./components/levels/level-actual').default)
+    .directive('cLevelList', require('./components/levels/level-list').default)
     .directive('cQuestsList', require('./components/quests/quests-list').default)
     .directive('cGameWrapper', require('./components/game/game-wrapper').default)
     .directive('cGameContainer', require('./components/game/game-container').default)
@@ -34,6 +35,7 @@ let module = angular.module('app.base', [])
     .directive('cMarketplaceContainer', require('./components/marketplace/marketplace-container').default)
     .directive('cAwardsList', require('./components/awards/awards-list').default)
     .directive('cMarkerListSu', require('./components/marker/marker-list-su').default)
+    .directive('cMarkerGridSu', require('./components/marker/marker-grid-su').default)
     .directive('cProgressbar', require('./components/notifications/progressbar').default);
 
 

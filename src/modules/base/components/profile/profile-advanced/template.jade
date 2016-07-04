@@ -22,13 +22,16 @@
             .col-xs-2
                 p B
         .col-xs-12.item__badges-list__container
-            .col-xs-12.item__badges-list__wrapper(ng-repeat="nc in numberCols track by $index")
-                .col-xs-4.item__badges-list__wrapper-badges(ng-repeat="nb in numberBadges track by $index")
-                    p b {{$index +1}}
-                    p {{$index +1}}0 %
+            .row.item__badges-list__wrapper-badges(ng-repeat="nb in numberBadges track by $index" id="item-grid-su-{{$index +1}}" ng-class="{'col-xs-{{colWidth}}': true}")
+                p b {{$index +1}}
+                p {{$index +1}}0 %
 
 
 
+
+
+
+                +
 
 
 

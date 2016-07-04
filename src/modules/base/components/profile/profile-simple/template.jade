@@ -1,19 +1,23 @@
 div.ht-profile--simple(ng-switch="$root.view")
     div.profile--simple__container(ng-switch-when="1")
-        div.profile--simple-item__wrapper
+        div.col-xs-5
             img.profile--simple-item__img(ng-src="{{image}}")
-        div.profile--simple-item__name {{name}}
-        div.profile--simple-item__username {{username}}
-        div.progess
-        div.col-xs-4
-            div.profile--simple-item__score-units
-                a(ng-click="$root.viewHandler('2')") Score units
-        div.col-xs-4
-            div.profile--simple-item__badges
-                p(ng-click="$root.viewHandler('3')") Badges
-        div.col-xs-4
-            div.profile--simple-item__levels
-                p(ng-click="$root.viewHandler('4')") Levels
+        div.col-xs-7
+            div.profile--simple-item__name {{name}}
+            //div.profile--simple-item__username {{username}}
+            div.col-xs-12.wrapper-item--sbl
+                div.col-xs-4
+                    div.profile--simple-item__score-units
+                        a(ng-click="$root.viewHandler('2')") P
+                        P 1500
+                div.col-xs-4
+                    div.profile--simple-item__badges
+                        a(ng-click="$root.viewHandler('3')") B
+                        p 12
+                div.col-xs-4
+                    div.profile--simple-item__levels
+                        a(ng-click="$root.viewHandler('4')") N
+                        p Expert
     div.profile--simple__container__ranking(ng-switch-when="2")
         c-button-back
         c-ranking-simple

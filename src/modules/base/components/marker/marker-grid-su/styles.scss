@@ -1,0 +1,21 @@
+c-marker-grid-su {
+  padding-top: 45px;
+  .marker-grid-su__wrapper {
+    height: 55px;
+    width: 100%;
+    padding: 10px 15px 10px 15px;
+    border-bottom: 1px solid #e3e3e3;
+  }
+  .marker--grid-su__img img {
+    height: 35px;
+  }
+
+  .marker--grid-su__type.ng-binding {
+    padding-top: 10px;
+  }
+
+  .marker--list-su__wrapper {
+    text-align: center;
+  }
+
+}
