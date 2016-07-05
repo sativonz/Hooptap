@@ -23,7 +23,7 @@ export default() => ({
             } else if (value < 100) {
                 type = 'Skilled!';
             } else if (value < 120) {
-                type = 'Intermediate!';
+                type = 'Intermediate';
             } else if (value < 140) {
                 type = 'Skillful!';
             } else if (value < 160) {
@@ -44,10 +44,10 @@ export default() => ({
 
         scope.randomStacked = function() {
             scope.stacked = [];
-            var types = ['success', 'info', 'warning', 'danger'];
+            var types = ['Newbie', 'Rookie', 'Beginner', 'Talented', 'Skilled', 'Intermediate', 'Skillful!', 'Advanced!', 'Senior!', 'Expert!'];
 
-            for (var i = 0, n = Math.floor(Math.random() * 4 + 1); i < n; i++) {
-                var index = Math.floor(Math.random() * 4);
+            for (var i = 0, n = Math.floor(Math.random() * 10 + 1); i < n; i++) {
+                var index = Math.floor(Math.random() * 10);
                 scope.stacked.push({
                     value: Math.floor(Math.random() * 30 + 1),
                     type: types[index]
