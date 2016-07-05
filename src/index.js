@@ -58,7 +58,8 @@ import './common/services/angular-sdk.js';
             require('./modules/widgets/widget-global-feed').default,
             require('./modules/widgets/widget-marketplace-container').default,
             require('./modules/widgets/widget-call-to-action').default,
-            require('./modules/widgets/widget-awards-list').default
+            require('./modules/widgets/widget-awards-list').default,
+            require('./modules/widgets/widget-member-login-register').default
         ])
     //Controller for widget
         .controller('htWidgetCtrl', ($scope, $compile, Member, Badge)=> {

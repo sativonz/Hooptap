@@ -13,10 +13,13 @@
             input.ht-form__input(ng-model='password' type='password' name="password" placeholder="Contraseña")
             span.ht-form__highlight
             span.ht-form__bar
+        .ht-form__group-terms
+            input(type="checkbox" name="terms" id="checkbox_terms" value="terms" ng-model="checkboxEnableRegister")
+            label.checkbox_terms(for="checkbox_terms") Acepto los términos y condiciones.
         .ht-form__group-link
-            a(href='#' ng-click='goActivateEmailForm = !goActivateEmailForm') Activate my account
-        button.ht-form--button__register(type='button')
-            | Register
+            a(hr.ef='#' ng-click='goActivateEmailForm = !goActivateEmailForm') Activate my account
+        button.ht-form--button__register(type='button' ng-disabled="!checkboxEnableRegister")
+            | Registrar
             .ht-form__ripples.buttonRipples
                 span.ht-form__ripplesCircle
     //ACTIVATE FORM
@@ -30,4 +33,4 @@
             button.ht-form--button__activationMail(type='button' ng-click='userActivationEmail()')
                 | Activate my account
                 .ht-form__ripples.buttonRipples
-                    span.ht-form__ripplesCircle
+                    span.ht-form__ripplesCircle2

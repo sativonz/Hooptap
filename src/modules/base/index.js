@@ -29,6 +29,7 @@ let module = angular.module('app.base', [])
     .directive('cLevelActual', require('./components/levels/level-actual').default)
     .directive('cLevelList', require('./components/levels/level-list').default)
     .directive('cQuestsList', require('./components/quests/quests-list').default)
+    .directive('cQuestsGrid', require('./components/quests/quests-grid').default)
     .directive('cGameWrapper', require('./components/game/game-wrapper').default)
     .directive('cGameContainer', require('./components/game/game-container').default)
     .directive('cGameGlobalFeed', require('./components/game/game-global-feed').default)
@@ -36,7 +37,8 @@ let module = angular.module('app.base', [])
     .directive('cAwardsList', require('./components/awards/awards-list').default)
     .directive('cMarkerListSu', require('./components/marker/marker-list-su').default)
     .directive('cMarkerGridSu', require('./components/marker/marker-grid-su').default)
-    .directive('cProgressbar', require('./components/notifications/progressbar').default);
+    .directive('cProgressbar', require('./components/notifications/progressbar').default)
+    .directive('cProgressbarQuests', require('./components/notifications/progressbar-quests').default);
 
 
 export default module.name;
