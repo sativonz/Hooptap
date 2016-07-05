@@ -44,7 +44,8 @@ import './common/services/angular-sdk.js';
             //Widgets
             require('./modules/widgets/widget-prueba').default,
             require('./modules/widgets/widget-full').default,
-            require('./modules/widgets/widget-notifications').default,
+            require('./modules/widgets/widget-notifications-popup').default,
+            require('./modules/widgets/widget-notifications-list').default,
             require('./modules/widgets/widget-ranking-list').default,
             require('./modules/widgets/widget-rankings-total').default,
             require('./modules/widgets/widget-profile-advanced').default,

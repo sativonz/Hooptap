@@ -1,6 +1,15 @@
 import template from './template.jade';
 import './styles.scss';
-
+/**
+ * @ngdoc directive
+ * @name Notification list
+ * @module Components
+ * @description List of all notifications received and their status , read or not.
+ * @restrict E
+ * @param {String} title => Title or name of the notification
+ * @param {Img} image => Image boolean to see the state of the notificaion (read or not)
+ * @element ANY
+ */
 export default() => ({
     restrict: 'E',
     scope: {
