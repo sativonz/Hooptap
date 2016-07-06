@@ -14,7 +14,6 @@ import progressBar from 'angular-ui-bootstrap/src/progressbar';
 //Import Loopback Angular SDK
 import './common/services/angular-sdk.js';
 
-//Plugins
 
 (function () {
 
@@ -33,6 +32,7 @@ import './common/services/angular-sdk.js';
             'ngAnimate',    /*angular animate*/
             tabs,
             progressBar,
+
             //Plugins
             //SDK Services
             //SDK Loopback services
@@ -47,7 +47,7 @@ import './common/services/angular-sdk.js';
             require('./modules/widgets/widget-notifications-popup').default,
             require('./modules/widgets/widget-notifications-list').default,
             require('./modules/widgets/widget-ranking-list').default,
-            require('./modules/widgets/widget-rankings-total').default,
+            require('./modules/widgets/widget-ranking-total').default,
             require('./modules/widgets/widget-profile-advanced').default,
             require('./modules/widgets/widget-profile-full').default,
             require('./modules/widgets/widget-profile-simple').default,
@@ -62,7 +62,9 @@ import './common/services/angular-sdk.js';
             require('./modules/widgets/widget-call-to-action').default,
             require('./modules/widgets/widget-awards-list').default,
             require('./modules/widgets/widget-member-login-register').default
-        ])
+        ]).service('viewHandler', require('./common/services/viewHandler').default)
+
+
     //Controller for widget
         .controller('htWidgetCtrl', ($scope, $compile, Member, Badge)=> {
             //hooptapSDK object for sdk on javascript

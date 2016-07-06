@@ -2,7 +2,7 @@
  * Created by fer-hooptap on 21/06/16.
  */
 import $ from 'jquery';
-
+//TODO revisar funcionalidades porque solo se quiere el efecto de las lineas del menu a la x
 export default (function () {
 
     $(document).ready(()=> {
@@ -45,5 +45,7 @@ export default (function () {
         toggleClass(this, 'on');
         return false;
     }
+
+
 
 })})()

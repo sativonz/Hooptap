@@ -1,5 +1,5 @@
 div.ht-profile-widget-full(ng-switch="$root.view")
-    div.profile-widget-full__container(ng-switch-when="1")
+    div.profile-widget-full__container(ng-switch-default="profileWidgetFull.default")
         div.profile-widget-full-item__wrapper
             img.profile-widget-full-item__img(ng-src="{{image}}")
         div.profile-widget-full-item__name {{name}}
@@ -12,28 +12,28 @@ div.ht-profile-widget-full(ng-switch="$root.view")
                 ng-transclude
                     c-progressbar(type="type" dynamic="dynamic")
         //TODO  los dos primeros enlaces no están claros/definidos en el wireframe
-        div.col-xs-3.center.profile-widget-full-item__score-units1(ng-click="$root.viewHandler('2')")
+        div.col-xs-3.center.profile-widget-full-item__score-units1(ng-click="$root.changeView('profileWidgetFull.su.coins')")
             a Coins
             p 500
-        div.col-xs-3.center.profile-widget-full-item__score-units2(ng-click="$root.viewHandler('3')")
+        div.col-xs-3.center.profile-widget-full-item__score-units2(ng-click="$root.changeView('profileWidgetFull.su.points')")
             a Points
             p 1500
-        div.col-xs-3.center.profile-widget-full-item__badges(ng-click="$root.viewHandler('4')")
+        div.col-xs-3.center.profile-widget-full-item__badges(ng-click="$root.changeView('profileWidgetFull.badges')")
             a Badges
             p 5
-        div.col-xs-3.center.profile-widget-full-item__levels(ng-click="$root.viewHandler('5')")
+        div.col-xs-3.center.profile-widget-full-item__levels(ng-click="$root.changeView('profileWidgetFull.goods')")
             a Goods
             p 10
-    div.profile-widget-full__container__ranking(ng-switch-when="2")
-        c-button-back
-        c-ranking-simple
-    div.profile-widget-full__container__ranking(ng-switch-when="3")
+    div.profile-widget-full__container__ranking(ng-switch-when="profileWidgetFull.su.coins")
         c-button-back
         c-marker-list-su
-    div.profile-widget-full__container__badges(ng-switch-when="4")
+    div.profile-widget-full__container__ranking(ng-switch-when="profileWidgetFull.su.points")
+        c-button-back
+        c-marker-list-su
+    div.profile-widget-full__container__badges(ng-switch-when="profileWidgetFull.badgesList")
         c-button-back
         c-badges-list
-    div.profile-widget-full__container__levels(ng-switch-when="5")
+    div.profile-widget-full__container__levels(ng-switch-when="profileWidgetFull.levelActual")
         c-button-back
         c-level-actual(image="https://wednesdaynighthop.com/wordpress/wp-content/uploads/2015/03/level-1-icon.png" type="type" dynamic="dynamic")
 

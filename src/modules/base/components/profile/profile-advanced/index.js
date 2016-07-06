@@ -4,7 +4,7 @@ import './styles.scss';
  * @ngdoc directive
  * @name Profile advanced
  * @module Components
- //TODO revisar description porque en el excel salen mas cosas que en el wireframe
+ //TODO revisar description porque en el excel salen mas cosas que en el wireframe/mockup
  * @description Component for advanced profile, where it is displayed the name, username, email, gender, email verified, profile image, level actual, points for next level
  * list of badges
  * @restrict E

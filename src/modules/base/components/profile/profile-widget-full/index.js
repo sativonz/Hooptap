@@ -19,6 +19,7 @@ import './styles.scss';
  */
 export default() => ({
     restrict: 'E',
+    transclude: true,
     scope: {
         name: '@',
         username: '@',

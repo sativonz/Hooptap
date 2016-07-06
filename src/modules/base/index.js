@@ -38,7 +38,8 @@ let module = angular.module('app.base', [])
     .directive('cMarkerListSu', require('./components/marker/marker-list-su').default)
     .directive('cMarkerGridSu', require('./components/marker/marker-grid-su').default)
     .directive('cProgressbar', require('./components/notifications/progressbar').default)
-    .directive('cProgressbarQuests', require('./components/notifications/progressbar-quests').default);
+    .directive('cProgressbarQuests', require('./components/notifications/progressbar-quests').default)
+    .directive('cWidgetHeader', require('./components/ui/widget-header').default);
 
 
 export default module.name;

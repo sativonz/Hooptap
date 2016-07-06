@@ -13,7 +13,8 @@ export default() => ({
     scope: {
     },
     template,
-    link: (attrs, scope, element) => {
-
+    link: (scope, element, attrs)=> {
     }
+
+
 });
