@@ -12,7 +12,7 @@ export default($rootScope) => ({
         //init
         scope.showDetailView = false;
         //Methods
-        scope.toggleDetailView = (item)=>{
+        scope.$root.toggleDetailView = (item)=>{
             //Para cambiar de header
             scope.$root.showMainHeader = !scope.$root.showMainHeader;
             //Para la vista de detalle
