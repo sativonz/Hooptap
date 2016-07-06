@@ -1,14 +1,38 @@
-div.ht-profile--full(style="background:{{color}}")
-    div.profile--full__container
-        div.profile--full-item__wrapper
-            img.profile--full-item__img(ng-src="{{image}}")
-        div.profile--full-item__name {{name}}
-        div.profile--full-item__username {{username}}
-        div.profile--full-item__email {{email}}
-            span.profile--full-item__email--verified-wrapper
-                img.profile--full-item__email--verified(ng-src="{{imageverified}}")
-        div.change-color
-            input(placeholder="Introduzca un color de fondo" ng-model="color")
-
-
-
+.ht-profile--full
+    .profile--full__container
+        .col-xs-3.img__wrapper
+            img.item__img(ng-src="{{image}}")
+        .col-xs-9.data__wrapper
+            .item__name {{name}}
+                img.item__img-gender(ng-src="{{imagegender}}")
+            //.item__username {{username}}
+            .item__email {{email}}
+                span.item__email--verified-wrapper
+                    img.item__email--verified(ng-src="{{imageverified}}")
+            .item__direction {{direction}}
+            .item__country {{city}}  {{postalCode}} , {{country}}
+            //.item__id {{id}}
+        .col-xs-12.us__wrapper
+            .col-xs-4(ng-repeat="su in customer.scoreUnit" id="item-su-{{$index}}")
+                .marker--list-su__img
+                    img(ng-src="{{su.img}}")
+                    p {{su.quantity}}
+        .col-xs-12.item__progressbar
+            ng-transclude
+                c-progressbar(dynamic="dynamic" type="type")
+        .col-xs-12
+            .col-xs-2.item_actual-level
+                p A
+            .col-xs-8
+                .item__progressbar
+                    ng-transclude
+                        c-progressbar(dynamic="dynamic" type="type")
+                .item__points
+                    p {{points}}
+                        span.item__points-types  pts
+            .col-xs-2.item_next-level
+                p B
+        .col-xs-12.item__badges-list__container.row
+            .item__badges-list__wrapper-badges(ng-repeat="nb in numberBadges track by $index" id="item-grid-su-{{$index +1}}" ng-class="{'col-xs-{{colWidth}}': true}")
+                p b {{$index +1}}
+                p {{$index +1}}0 %

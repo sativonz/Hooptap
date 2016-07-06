@@ -1,6 +1,7 @@
 c-widget-header(title="Ranking total" ng-if="$root.showMainHeader")
-ng-transclude
     c-button-close
     c-button-back(ng-click="$root.toggleDetailView()" ng-if="!$root.showMainHeader")
 c-widget-header(title="{{$root.rankingSelected.desc}}" ng-if="!$root.showMainHeader")
+    c-button-close
+    c-button-back(ng-click="$root.toggleDetailView()" ng-if="!$root.showMainHeader")
 c-ranking-total
