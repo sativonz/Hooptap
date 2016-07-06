@@ -13,9 +13,12 @@ export default($rootScope) => ({
         scope.showDetailView = false;
         //Methods
         scope.toggleDetailView = (item)=>{
+            //Para cambiar de header
+            scope.$root.showMainHeader = !scope.$root.showMainHeader;
+            //Para la vista de detalle
             scope.showDetailView  = !scope.showDetailView;
             if(item){
-                scope.rankingSelected = item;
+                scope.$root.rankingSelected = item;
             }
 
         };

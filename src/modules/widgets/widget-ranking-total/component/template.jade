@@ -1,3 +1,4 @@
-c-widget-header(title="Ranking total")
+c-widget-header(title="Ranking total" ng-if="$root.showMainHeader")
+c-widget-header(title="{{$root.rankingSelected.rankingType}}" ng-if="!$root.showMainHeader")
 c-button-close
 c-ranking-total
