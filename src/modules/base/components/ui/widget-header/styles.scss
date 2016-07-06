@@ -1,18 +1,9 @@
 c-widget-header {
   margin: 0;
   border-bottom: 2px solid #d3d3d3;
-  z-index: 9;
-  background: #fff none repeat scroll 0 0;
-  display: block;
-  position: fixed;
-  //TODO tendr áel mismo tamaño que el widget
-  max-width: 290px;
-  padding-top: 12px;
-  min-width: 290px;
-
-  header {
-    p{
-      font-weight: bold;
-    }
+  .widget-header__title{
+    padding: 15px;
+    font-weight: bold;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.22);
   }
 }

@@ -1,5 +1,5 @@
 .widget--ranking-total(ng-if="!showDetailView")
-    .widget--ranking-total__wrapper.col-xs-12(ng-repeat="r in rankings | orderBy:'-typeRanking'"  ng-click="toggleDetailView(r)"  )
+    .widget--ranking-total__wrapper.row(ng-repeat="r in rankings | orderBy:'-typeRanking'"  ng-click="toggleDetailView(r)" id="ranking{{$index+1}}" )
             .col-xs-3.widget--ranking-total__img
                 img(ng-src="{{r.img}}")
             .col-xs-9.widget--ranking-total__desc
