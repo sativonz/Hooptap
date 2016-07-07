@@ -11,8 +11,8 @@
  * @param {String} name => name of actual user
  * @param {String} username => username of actual user
  * @param {String} email => email of actual user
- * @param {image} imagegender => Image boolean for the gender of actual user
- * @param {image} emailverified => Image boolean for verifieds mails
+ * @param {image} imageGender => Image boolean for the gender of actual user
+ * @param {image} emailVerified => Image boolean for verifieds mails
  * @param {image} image => Profile image
  * @param {String} points => Point of actual level
  * @param {String} type => Name of the state in which the user is at the current level
@@ -22,6 +22,7 @@
  * @param {String} country => Name of the country of actual user
  * @param {String} city => Name of the city of actual user
  * @param {String} postalCode => Name of the postal code of actual user
+ * @param {String} actualLevel => Name of the actual level
  * @element ANY
  */
 export default() => ({
@@ -32,8 +33,8 @@ export default() => ({
         email: '@',
         id: '@',
         image: '@',
-        imageverified: '@',
-        imagegender: '@',
+        imageVerified: '@',
+        imageGender: '@',
         points: '@',
         dynamic: '=',
         type: '=',
@@ -41,6 +42,7 @@ export default() => ({
         country: '@',
         city: '@',
         postalCode: '@',
+        actualLevel: '@'
 
     },
     transclude: true,

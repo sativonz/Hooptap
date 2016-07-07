@@ -4,35 +4,36 @@
             img.item__img(ng-src="{{image}}")
         .col-xs-9.data__wrapper
             .item__name {{name}}
-                img.item__img-gender(ng-src="{{imagegender}}")
+                img.item__img-gender(ng-src="{{imageGender}}")
             //.item__username {{username}}
             .item__email {{email}}
                 span.item__email--verified-wrapper
-                    img.item__email--verified(ng-src="{{imageverified}}")
+                    img.item__email--verified(ng-src="{{imageVerified}}")
             .item__direction {{direction}}
             .item__country {{city}}  {{postalCode}} , {{country}}
             //.item__id {{id}}
-        .col-xs-12.us__wrapper
+        .us__wrapper.row
             .col-xs-4(ng-repeat="su in customer.scoreUnit" id="item-su-{{$index}}")
                 .marker--list-su__img
                     img(ng-src="{{su.img}}")
                     p {{su.quantity}}
-        .col-xs-12.item__progressbar
-            ng-transclude
-                c-progressbar(dynamic="dynamic" type="type")
-        .col-xs-12
+        .progressbar__wrapper.row
             .col-xs-2.item_actual-level
-                p A
+                div A
             .col-xs-8
                 .item__progressbar
                     ng-transclude
                         c-progressbar(dynamic="dynamic" type="type")
-                .item__points
-                    p {{points}}
-                        span.item__points-types  pts
+                .item__actual-level
+                        div Nivel
+                            span {{actualLevel}}
             .col-xs-2.item_next-level
-                p B
-        .col-xs-12.item__badges-list__container.row
-            .item__badges-list__wrapper-badges(ng-repeat="nb in numberBadges track by $index" id="item-grid-su-{{$index +1}}" ng-class="{'col-xs-{{colWidth}}': true}")
-                p b {{$index +1}}
-                p {{$index +1}}0 %
+                div B
+        .row.tabs__wrapper
+            uib-tabset(active="active")
+                uib-tab.link-go-login--form(index="0" heading="Actividad")
+                    c-game-global-feed
+                uib-tab.link-go-register--form(index="$index + 1" heading="Badges" )
+                    c-badges-list
+                uib-tab.link-go-register--form(index="$index + 2" heading="Premios" )
+                    c-marketplace-container
