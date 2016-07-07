@@ -14,8 +14,7 @@ export default() => ({
         text: '@',
     },
     template,
-    link: (attrs, scope, element) => {
-
+    link: (scope, element, attrs)=>{
         $('c-button-init').click(function(ev) {
             $('#ht-widgets').show("slow");
             $('c-button-init').hide(100);

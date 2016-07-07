@@ -5,10 +5,7 @@ export default() => ({
     restrict: 'E',
     scope: {},
     template,
-    link: (attrs, scope, element) => {
-        scope.model = {
-            name: 'Tabs'
-        };
+    link: (scope, element, attrs)=>{
     }
 
 });

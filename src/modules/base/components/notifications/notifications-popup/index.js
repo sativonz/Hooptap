@@ -14,7 +14,7 @@ export default() => ({
     scope: {
         message: '@'
     },
-    link: (element, attrs, scope)=>{
+     link: (scope, element, attrs)=>{
 
         
 

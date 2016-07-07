@@ -60,7 +60,8 @@ import './common/services/angular-sdk.js';
             require('./modules/widgets/widget-marketplace-container').default,
             require('./modules/widgets/widget-call-to-action').default,
             require('./modules/widgets/widget-awards-list').default,
-            require('./modules/widgets/widget-member-login-register').default
+            require('./modules/widgets/widget-member-login-register').default,
+            require('./modules/widgets/widget-badges-list').default
         ]).service('viewHandler', require('./common/services/viewHandler').default)
 
 

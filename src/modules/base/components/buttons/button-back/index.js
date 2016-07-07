@@ -11,7 +11,7 @@ import './styles.scss';
 export default() => ({
     restrict: 'E',
     template,
-    link: (attrs, scope, element) => {
+    link: (scope, element, attrs)=>{
         
     }
 });
