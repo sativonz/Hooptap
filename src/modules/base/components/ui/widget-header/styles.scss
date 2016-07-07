@@ -4,8 +4,9 @@ c-widget-header {
   display: block;
   height: 100%;
   .widget-header__title{
-    padding: 15px 15px 15px 37px;
-    font-weight: bold;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.22);
+    padding: 15px 20px 15px 0px;
+    font-weight: 700;
+    border-bottom: 2px solid rgba(0,0,0,.22);
+    text-align: center;
   }
 }
