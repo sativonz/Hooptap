@@ -1,6 +1,7 @@
-//TODO Es una copia de badges-list, falta modificarlo... a la espera del mockup
-div.ht-badges--marker__wrapper
-	div.badge-item(ng-repeat="badge in items track by $index" id="badge-item-{{$index}}")
-		div(class='badge-item__img')
-		div.badge-item__title(title='{{::badge.desc}}') {{::badge.name}}
-		div.badge-item__desc {{::badge.desc}}
+.ht-badges--list__wrapper.row
+	.badge-item(ng-repeat="item in badges" id="badge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true, 'hidden': !item.state}")
+		div(ng-if="item.state")
+			.badge-item__img
+				img(ng-src="{{item.img}}")
+			.badge-item__desc(title='{{item.desc}}') {{item.desc}}
+

@@ -1,6 +1,8 @@
 c-widget-header {
   margin: 0;
   border-bottom: 2px solid #d3d3d3;
+  display: block;
+  height: 100%;
   .widget-header__title{
     padding: 15px 15px 15px 37px;
     font-weight: bold;

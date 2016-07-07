@@ -1,8 +1,33 @@
-c-badges-marker {
+c-badges-grid {
+  display: block;
+  position: absolute;
+  overflow: auto;
+  //TODO Revisar calc porque en los navegadores de android admite por encima de 4.3
+  height: -moz-calc(100% - 50px);
+  height: -o-calc(100% - 50px);
+  height: -webkit-calc(100% - 50px);
+  height: calc(100% - 50px);
+  .ht-badges--list__wrapper {
+    min-height: 340px;
+    padding: 10px 15px 10px 0px;
+  }
+  .badge-item-3 {
+    display: none;
+  }
+  .badge-item__img img{
+  }
 
-  .ht-badges--marker__wrapper {
-    padding: 5px;
-    background: blue;
+  .badge-item__desc.ng-binding {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .badge-item {
+    margin-bottom: 6px;
+  }
+
+  .badge-item.hidden {
+    display: none!important;
   }
 
 }
