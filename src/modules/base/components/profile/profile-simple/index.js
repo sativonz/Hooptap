@@ -15,6 +15,7 @@ import './styles.scss';
  */
 export default() => ({
     restrict: 'E',
+    transclude: true,
     scope: {
         name: '@',
         image: '@',
@@ -23,6 +24,19 @@ export default() => ({
     link: (scope, element, attrs)=> {
         attrs.name = attrs.name || 'Anonymous';
         attrs.username = attrs.username || 'Debe registrarse';
+
+
+        scope.history=[];
+
+        scope.setCurrentView = (view) => {
+            scope.history.push(scope.currentView);
+            scope.currentView=view;
+        };
+
+        scope.goBack = ()=>{
+            scope.currentView=scope.history.pop();
+            
+        }
     },
     template
 

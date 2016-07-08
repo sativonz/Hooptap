@@ -1,32 +1,60 @@
-div.ht-profile--simple(ng-switch="$root.view")
-    div.profile--simple__container(ng-switch-default)
-        div.col-xs-5
-            img.profile--simple-item__img(ng-src="{{image}}")
-        div.col-xs-7
-            div.profile--simple-item__name {{name}}
-            //div.profile--simple-item__username {{username}}
-            div.col-xs-12.wrapper-item--sbl
-                div.col-xs-4
-                    div.profile--simple-item__score-units
-                        a(ng-click="$root.viewHandler('2')") P
-                        P 1500
-                div.col-xs-4
-                    div.profile--simple-item__badges
-                        a(ng-click="$root.viewHandler('3')") B
-                        p 12
-                div.col-xs-4
-                    div.profile--simple-item__levels
-                        a(ng-click="$root.viewHandler('4')") N
-                        p Expert
-    div.profile--simple__container__ranking(ng-switch-when="2")
-        c-button-back
-        c-ranking-simple
-    div.profile--simple__container__badges(ng-switch-when="3")
-        c-button-back
-        c-badges-list
-    div.profile--simple__container__levels(ng-switch-when="4")
-        c-button-back
-        c-level-actual(image="https://wednesdaynighthop.com/wordpress/wp-content/uploads/2015/03/level-1-icon.png" type="type" dynamic="dynamic")
+
+
+button(ng-click="setCurrentView('tem1')") Template 1
+button(ng-click="setCurrentView('tem2')") Template 2
+button(ng-click="setCurrentView('tem3')") Template 3
+
+div Current:{{currentView}}
+
+div History {{history}}
+div(ng-show="currentView==='tem2'")
+    ng-transclude
+        include template2.jade
+
+div(ng-show="currentView==='tem3'")
+    ng-transclude
+        include template3.jade
+
+button(ng-click="goBack()") Back
 
 
 
+
+
+
+
+
+
+
+//div.ht-profile--simple(ng-switch="$root.view")
+//    div.profile--simple__container(ng-switch-default)
+//        div.col-xs-5
+//            img.profile--simple-item__img(ng-src="{{image}}")
+//        div.col-xs-7
+//            div.profile--simple-item__name {{name}}
+//            //div.profile--simple-item__username {{username}}
+//            div.col-xs-12.wrapper-item--sbl
+//                div.col-xs-4
+//                    div.profile--simple-item__score-units
+//                        a(ng-click="$root.viewHandler('2')") P
+//                        P 1500
+//                div.col-xs-4
+//                    div.profile--simple-item__badges
+//                        a(ng-click="$root.viewHandler('3')") B
+//                        p 12
+//                div.col-xs-4
+//                    div.profile--simple-item__levels
+//                        a(ng-click="$root.viewHandler('4')") N
+//                        p Expert
+//    div.profile--simple__container__ranking(ng-switch-when="2")
+//        c-button-back
+//        c-ranking-simple
+//    div.profile--simple__container__badges(ng-switch-when="3")
+//        c-button-back
+//        c-badges-list
+//    div.profile--simple__container__levels(ng-switch-when="4")
+//        c-button-back
+//        c-level-actual(image="https://wednesdaynighthop.com/wordpress/wp-content/uploads/2015/03/level-1-icon.png" type="type" dynamic="dynamic")
+//
+//
+//
