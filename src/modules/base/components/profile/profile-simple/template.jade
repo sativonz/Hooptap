@@ -1,21 +1,22 @@
 
 
-button(ng-click="setCurrentView('tem1')") Template 1
-button(ng-click="setCurrentView('tem2')") Template 2
-button(ng-click="setCurrentView('tem3')") Template 3
+button(ng-click="$root.setCurrentView('tem1')") Template 1
+button(ng-click="$root.setCurrentView('tem2')") Template 2
+button(ng-click="$root.setCurrentView('tem3')") Template 3
 
-div Current:{{currentView}}
+div Customer: {{$root.customer}}
+div Current:{{$root.currentView}}
 
-div History {{history}}
-div(ng-show="currentView==='tem2'")
+div History {{$root.history}}
+div(ng-show="$root.currentView==='tem2'")
     ng-transclude
         include template2.jade
 
-div(ng-show="currentView==='tem3'")
+div(ng-show="$root.currentView==='tem3'")
     ng-transclude
         include template3.jade
 
-button(ng-click="goBack()") Back
+button(ng-click="$root.goBack()") Back
 
 
 

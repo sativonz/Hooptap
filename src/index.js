@@ -36,7 +36,7 @@ import './common/services/angular-sdk.js';
             //Plugins
             //SDK Services
             //SDK Loopback services
-            'lbServices',
+            'apiServices',
 
             //Modules
             require('./modules/base').default,
@@ -67,15 +67,16 @@ import './common/services/angular-sdk.js';
 
 
     //Controller for widget
-        .controller('htWidgetCtrl', ($scope, $compile, Member, Badge)=> {
+        .controller('htWidgetCtrl', ($scope, $compile, Admin, Badge)=> {
             //hooptapSDK object for sdk on javascript
             window.hooptapSDK = {};
-            window.hooptapSDK.Member = Member;
+            window.hooptapSDK.Admin = Admin;
             window.hooptapSDK.Badge = Badge;
             //Example of widget render
             //console.log(angular.element('#ht-widget').html());
             $compile(angular.element('#ht-widget').html())($scope);
             // angular.element('#htWidget').append('<widget1></widget1>');
+       
 
         })
         .config(require('./config').default)

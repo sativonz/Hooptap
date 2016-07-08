@@ -25,18 +25,7 @@ export default() => ({
         attrs.name = attrs.name || 'Anonymous';
         attrs.username = attrs.username || 'Debe registrarse';
 
-
-        scope.history=[];
-
-        scope.setCurrentView = (view) => {
-            scope.history.push(scope.currentView);
-            scope.currentView=view;
-        };
-
-        scope.goBack = ()=>{
-            scope.currentView=scope.history.pop();
-            
-        }
+        
     },
     template
 

@@ -1,2 +1,4 @@
 c-button-close
-c-profile-simple(image="http://www.busquefotografo.com.br/images/fallback/avatar/thumb_default.png" name="Fernando Garcia" username="sativonz" email="fgarcia@hooptap.com" imageverified="http://www.iconsdb.com/icons/preview/green/checked-checkbox-xxl.png")
+c-member-nav(ng-if="!$root.logged")
+
+c-profile-simple(ng-if="$root.logged" image="http://www.busquefotografo.com.br/images/fallback/avatar/thumb_default.png" name="Fernando Garcia" username="sativonz" email="fgarcia@hooptap.com" imageverified="http://www.iconsdb.com/icons/preview/green/checked-checkbox-xxl.png")
