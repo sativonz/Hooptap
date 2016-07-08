@@ -1,11 +1,14 @@
 .ht-profile--advanced
+    .logout
+        ng-transclude
+            c-member-logout
     .profile--advanced__container
         .col-xs-3.img__wrapper
             img.item__img(ng-src="{{image}}")
         .col-xs-9.data__wrapper
-            .item__name {{name}}
+            .item__name {{$root.customer.username}}
             //div.item__username {{username}}
-            .item__email {{email}}
+            .item__email {{$root.customer.email}}
                 span.item__email--verified-wrapper
                     img.item__email--verified(ng-src="{{imageverified}}")
             .item__id {{id}}

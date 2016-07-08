@@ -15,12 +15,15 @@ export default($rootScope,Customer,LoopBackAuth) => ({
     template,
     link:(scope, element, attrs)=>{
         var token;
+        function getCurrent(){
+            Customer.getCurrent().$promise.then((response)=>{
+                $rootScope.customer = response;
+                $rootScope.logged = true;
+            });
+        }
         $rootScope.logged = false;
         if(LoopBackAuth.rememberMe){
-            $rootScope.logged = true;
-            Customer.getCurrent().$promise.then((response)=>{
-               $rootScope.customer = response;
-            });
+            getCurrent();
         }
         scope.login = ()=>{
             //TODO Cambiar email y password por modelos de inputs
@@ -28,9 +31,7 @@ export default($rootScope,Customer,LoopBackAuth) => ({
                 "email": "paco@paco.com",
                 "password": "paco"
             }).$promise.then((response)=> {
-                console.log(response);
-                $rootScope.customer = response;
-                $rootScope.logged = true;
+                getCurrent();
             });
         };
 

@@ -17,7 +17,6 @@ export default() => ({
     restrict: 'E',
     transclude: true,
     scope: {
-        name: '@',
         image: '@',
         id: '@'
     },

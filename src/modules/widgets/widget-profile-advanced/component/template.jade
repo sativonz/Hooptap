@@ -1,2 +1,10 @@
 c-button-close
-c-profile-advanced(image="http://www.busquefotografo.com.br/images/fallback/avatar/thumb_default.png" id="8946352" points="24234" dynamic="dynamic" type='type' name="Fernando Garcia" username="sativonz" email="fgarcia@hooptap.com" imagegender="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Mars_symbol.svg/50px-Mars_symbol.svg.png" imageverified="http://www.iconsdb.com/icons/preview/green/checked-checkbox-xxl.png")
+c-member-nav(ng-if="!$root.logged")
+c-profile-advanced(ng-if="$root.logged"
+image="http://www.busquefotografo.com.br/images/fallback/avatar/thumb_default.png"
+id="8946352"
+points="24234"
+dynamic="dynamic"
+type='type'
+imagegender="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Mars_symbol.svg/50px-Mars_symbol.svg.png"
+imageverified="http://www.iconsdb.com/icons/preview/green/checked-checkbox-xxl.png")

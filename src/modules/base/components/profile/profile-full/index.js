@@ -28,9 +28,6 @@
 export default() => ({
     restrict: 'E',
     scope: {
-        name: '@',
-        username: '@',
-        email: '@',
         id: '@',
         image: '@',
         imageVerified: '@',
