@@ -1,7 +1,6 @@
-c-button-menu
+c-button-menu(ng-if="$root.logged" value="menuItems")
 c-button-close
-c-profile-widget-full(image="http://static.avivamiento.com/img/profile.png" email="fernandogarcia@gmail.com" type="type" dynamic="dynamic")
-
-
-
-
+c-member-nav(ng-if="!$root.logged")
+c-profile-widget-full(ng-if="$root.logged" image="http://static.avivamiento.com/img/profile.png"
+email="fernandogarcia@gmail.com"
+type="type" dynamic="dynamic")

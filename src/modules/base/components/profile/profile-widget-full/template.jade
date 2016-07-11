@@ -1,10 +1,10 @@
-div.ht-profile-widget-full(ng-switch="$root.view")
-    div.profile-widget-full__container(ng-switch-default="profileWidgetFull.default")
+div.ht-profile-widget-full
+    div.profile-widget-full__container(ng-show="$root.currentView==='profileWidgetFull.default'")
         div.profile-widget-full-item__wrapper
             img.profile-widget-full-item__img(ng-src="{{image}}")
-        div.profile-widget-full-item__name {{name}}
-        div.profile-widget-full-item__username {{username}}
-        div.profile-widget-full-item__email {{email}}
+        div.profile-widget-full-item__name {{$root.customer.username}}
+        //div.profile-widget-full-item__username {{username}}
+        div.profile-widget-full-item__email {{$root.customer.email}}
         div.col-xs-3
             p.p-level-name Nivel
         div.col-xs-9
@@ -12,30 +12,32 @@ div.ht-profile-widget-full(ng-switch="$root.view")
                 ng-transclude
                     c-progressbar(type="type" dynamic="dynamic")
         //TODO  los dos primeros enlaces no están claros/definidos en el wireframe
-        div.col-xs-3.center.profile-widget-full-item__score-units1(ng-click="$root.changeView('profileWidgetFull.su.coins')")
+        div.col-xs-3.center.profile-widget-full-item__score-units1(ng-click="$root.setCurrentView('profileWidgetFull.su.coins')")
             a Coins
             p 500
-        div.col-xs-3.center.profile-widget-full-item__score-units2(ng-click="$root.changeView('profileWidgetFull.su.points')")
+        div.col-xs-3.center.profile-widget-full-item__score-units2(ng-click="$root.setCurrentView('profileWidgetFull.su.points')")
             a Points
             p 1500
-        div.col-xs-3.center.profile-widget-full-item__badges(ng-click="$root.changeView('profileWidgetFull.badges')")
+        div.col-xs-3.center.profile-widget-full-item__badges(ng-click="$root.setCurrentView('profileWidgetFull.badgesList')")
             a Badges
             p 5
-        div.col-xs-3.center.profile-widget-full-item__levels(ng-click="$root.changeView('profileWidgetFull.goods')")
+        div.col-xs-3.center.profile-widget-full-item__levels(ng-click="$root.setCurrentView('profileWidgetFull.levelActual')")
             a Goods
             p 10
-    div.profile-widget-full__container__ranking(ng-switch-when="profileWidgetFull.su.coins")
+    div.profile-widget-full__container__ranking(ng-show="$root.currentView==='profileWidgetFull.su.coins'")
         c-button-back
         c-marker-list-su
-    div.profile-widget-full__container__ranking(ng-switch-when="profileWidgetFull.su.points")
+    div.profile-widget-full__container__ranking(ng-show="$root.currentView==='profileWidgetFull.su.points'")
         c-button-back
         c-marker-list-su
-    div.profile-widget-full__container__badges(ng-switch-when="profileWidgetFull.badgesList")
+    div.profile-widget-full__container__badges(ng-show="$root.currentView==='profileWidgetFull.badgesList'")
         c-button-back
         c-badges-list
-    div.profile-widget-full__container__levels(ng-switch-when="profileWidgetFull.levelActual")
+    div.profile-widget-full__container__levels(ng-show="$root.currentView==='profileWidgetFull.levelActual'")
         c-button-back
         c-level-actual(image="https://wednesdaynighthop.com/wordpress/wp-content/uploads/2015/03/level-1-icon.png" type="type" dynamic="dynamic")
-
+    div.profile-widget-full__container__quests-list(ng-show="$root.currentView==='profileWidgetFull.questsList'")
+        c-button-back
+        c-quests-list
 
 

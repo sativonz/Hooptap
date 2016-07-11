@@ -1,10 +1,12 @@
 import template from './template.jade';
-
+import controller from './controller';
 
 export default($rootScope) => ({
     restrict: 'E',
     scope: {},
     link: (scope, element, attrs)=>{
+        $rootScope.currentView = 'profileWidgetFull.default';
+
         //Progressbar config
         scope.max =  200;
 
@@ -58,6 +60,8 @@ export default($rootScope) => ({
         scope.randomStacked();
 
     },
+    transclude: true,
+    controller,
     template
 
 });

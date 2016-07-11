@@ -17,7 +17,7 @@ import './styles.scss';
  * @param {Int} id => Identification number of the current user
  * @element ANY
  */
-export default() => ({
+export default($rootScope) => ({
     restrict: 'E',
     transclude: true,
     scope: {
@@ -33,6 +33,7 @@ export default() => ({
     link: (scope, element, attrs)=> {
         attrs.name = attrs.name || 'Anonymous';
         attrs.username = attrs.username || 'Debe registrarse';
+        
     },
     template
 

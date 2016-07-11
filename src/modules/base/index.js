@@ -3,7 +3,7 @@ import '../../common/css/main.scss';
 import '../../common/css/ht-bootstrap-min.scss';
 import '../../common/scripts/script-form-md.js';
 import '../../common/scripts/script-toast-notifications.js';
-import '../../common/scripts/script-button-menu.js';
+//import '../../common/scripts/script-button-menu.js';
 
 let module = angular.module('app.base', [])
     .directive('cButtonClose', require('./components/buttons/button-close').default)

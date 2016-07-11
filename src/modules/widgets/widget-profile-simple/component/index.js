@@ -5,20 +5,6 @@ export default($rootScope, Customer, LoopBackAuth) => ({
     scope: {},
     link: (scope, element, attrs)=> {
 
-
-        $rootScope.history = [];
-
-        $rootScope.setCurrentView = (view, data) => {
-            $rootScope.history.push($rootScope.currentView);
-            $rootScope.currentView = view;
-            $rootScope.viewData = data;
-        };
-
-        $rootScope.goBack = ()=> {
-            $rootScope.currentView = $rootScope.history.pop();
-
-        };
-
     },
     controller:()=>{
       

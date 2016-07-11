@@ -1,9 +1,9 @@
 c-button-back {
   z-index: 999999999999999;
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 36px;
+  right: 12px;
   transform: rotate(-182deg);
   cursor: pointer;
-
+  border-bottom: 1px solid white;
 }

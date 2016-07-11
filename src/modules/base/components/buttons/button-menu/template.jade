@@ -1,16 +1,12 @@
 div.button--menu.open-menu(id="button-menu")
-    a(href="#menu" id="toggle")
-        span
-    div(id="menu")
+    a(href="" id="toggle" ng-click="toggleDropdown()") Menu
+    span
+    div(id="menu" ng-show="showDropdown === true")
         ul
+            li(ng-repeat="item in value" ng-click="hideMenu()")
+                a(ng-click="$root.setCurrentView(item.view)") {{item.title}}
             li
-                a(ng-click="$root.changeView('quest')") Quests
-            li
-                a(ng-click="$root.changeView('Ranking')") Ranking
-            li
-                a(ng-click="$root.changeView('Editar')") Editar
-            li
-                a(ng-click="$root.changeView('Logout')") Logout
+                a(ng-if="logout" ng-click="logout()") Logout
 
 
 
