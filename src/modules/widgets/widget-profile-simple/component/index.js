@@ -1,10 +1,10 @@
 import template from './template.jade';
 
-export default($rootScope, Customer, LoopBackAuth) => ({
+export default($rootScope, Customer, LoopBackAuth, viewHandler) => ({
     restrict: 'E',
     scope: {},
     link: (scope, element, attrs)=> {
-
+        $rootScope.currentView = 'profileSimple.default';
     },
     controller:()=>{
       

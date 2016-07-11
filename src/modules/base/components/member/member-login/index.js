@@ -28,8 +28,8 @@ export default($rootScope,Customer,LoopBackAuth) => ({
         scope.login = ()=>{
             //TODO Cambiar email y password por modelos de inputs
             Customer.login({
-                "email": "paco@paco.com",
-                "password": "paco"
+                "email": scope.email,
+                "password": scope.password
             }).$promise.then((response)=> {
                 getCurrent();
             });

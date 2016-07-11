@@ -44,14 +44,6 @@ export default() => ({
     },
     transclude: true,
     link: (scope, element, attrs)=> {
-
-        //Definir el numero de cols
-        scope.numberCols = 3;
-        scope.colWidth = 12/ scope.numberCols;
-
-        //Definir el numero de badges en cada columna
-        scope.numberBadges = new Array(6);
-        
         //TODO Fake response
         scope.customer = {
             "productId": "string",

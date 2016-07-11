@@ -1,53 +1,11 @@
 c-button-menu {
   width: 50px;
   position: absolute;
-  left: 0px;
-  top: -10px;
+  left: 11px;
+  top: 10PX;
+
   #toggle {
-    display: block;
-    width: 28px;
-    height: 30px;
-    margin: 30px auto 10px;
-  }
-
-  #toggle span:after,
-  #toggle span:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: -9px;
-  }
-  #toggle span:after{
-    top: 9px;
-  }
-  #toggle span {
-    position: relative;
-    display: block;
-  }
-
-  #toggle span,
-  #toggle span:after,
-  #toggle span:before {
-    width: 22px;
-    height: 5px;
-    background-color: red;
-    backface-visibility: hidden;
-    border-radius: 2px;
-  }
-
-  /* on activation */
-  #toggle.on span {
-    background-color: transparent;
-  }
-  #toggle.on span:before {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  #toggle.on span:after {
-    transform: rotate(-45deg) translate(7px, -8px);
-  }
-  #toggle.on + #menu {
-    opacity: 1;
-    visibility: visible;
+    color:  black;
   }
 
   /* menu appearance*/

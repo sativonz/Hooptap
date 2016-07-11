@@ -2,7 +2,7 @@
     c-button-close
     form.ht-form.ht-form--register(ng-hide='goActivateEmailForm')
         .ht-form__group
-            input.ht-form__input(ng-model='name' type='text' name="name" placeholder="Nombre")
+            input.ht-form__input(ng-model='username' type='text' name="name" placeholder="Nombre")
             span.ht-form__highlight
             span.ht-form__bar
         .ht-form__group
@@ -18,7 +18,7 @@
             label.checkbox_terms(for="checkbox_terms") Acepto los términos y condiciones.
         .ht-form__group-link
             a(hr.ef='#' ng-click='goActivateEmailForm = !goActivateEmailForm') Activate my account
-        button.ht-form--button__register(type='button' ng-disabled="!checkboxEnableRegister")
+        button.ht-form--button__register(type='button' ng-disabled="!checkboxEnableRegister" ng-click='register()')
             | Registrar
             .ht-form__ripples.buttonRipples
                 span.ht-form__ripplesCircle

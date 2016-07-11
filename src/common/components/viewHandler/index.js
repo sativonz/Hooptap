@@ -1,3 +1,4 @@
+//TODO por rehacer, está activo el servicio services/viewHandler.js
 import angular from 'angular-mod';
 
 let module  = angular.module('htRoute', []);

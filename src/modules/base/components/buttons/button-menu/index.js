@@ -22,9 +22,9 @@ export default(Customer, $rootScope) => ({
         };
         scope.logout = () => {
             Customer.logout();
-
+            $rootScope.view = "";
             $rootScope.logged = false;
-        }
+        };
 
         scope.hideMenu = () => {
             scope.showDropdown =  false;

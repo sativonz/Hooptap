@@ -1,8 +1,8 @@
-div.ht-profile--simple(ng-switch="$root.view")
+div.ht-profile--simple
     .logout
         ng-transclude
             c-member-logout
-    div.profile--simple__container(ng-switch-default)
+    div.profile--simple__container(ng-show="$root.currentView==='profileSimple.default'")
         div.col-xs-5
             img.profile--simple-item__img(ng-src="{{image}}")
         div.col-xs-7
@@ -11,23 +11,23 @@ div.ht-profile--simple(ng-switch="$root.view")
             div.col-xs-12.wrapper-item--sbl
                 div.col-xs-4
                     div.profile--simple-item__score-units
-                        a(ng-click="$root.viewHandler('2')") P
+                        a(ng-click="$root.setCurrentView('profileSimple.points')") P
                         P 1500
                 div.col-xs-4
                     div.profile--simple-item__badges
-                        a(ng-click="$root.viewHandler('3')") B
+                        a(ng-click="$root.setCurrentView('profileSimple.badges')") B
                         p 12
                 div.col-xs-4
                     div.profile--simple-item__levels
-                        a(ng-click="$root.viewHandler('4')") N
+                        a(ng-click="$root.setCurrentView('profileSimple.level')") N
                         p Expert
-    div.profile--simple__container__ranking(ng-switch-when="2")
+    div.profile--simple__container__ranking(ng-show="$root.currentView==='profileSimple.points'")
         c-button-back
         c-ranking-simple
-    div.profile--simple__container__badges(ng-switch-when="3")
+    div.profile--simple__container__badges(ng-show="$root.currentView==='profileSimple.badges'")
         c-button-back
         c-badges-list
-    div.profile--simple__container__levels(ng-switch-when="4")
+    div.profile--simple__container__levels(ng-show="$root.currentView==='profileSimple.level'")
         c-button-back
         c-level-actual(image="https://wednesdaynighthop.com/wordpress/wp-content/uploads/2015/03/level-1-icon.png" type="type" dynamic="dynamic")
 

@@ -25,8 +25,8 @@ export default() => ({
     scope: {
         id: '@',
         image: '@',
-        imageverified: '@',
-        imagegender: '@',
+        imageVerified: '@',
+        imageGender: '@',
         points: '@',
         dynamic: '=',
         type: '=',
@@ -34,14 +34,31 @@ export default() => ({
     },
     transclude: true,
     link: (scope, element, attrs)=> {
-        
         //Definir el numero de cols
         scope.numberCols = 3;
-        scope.colWidth = 12/ scope.numberCols;
 
-        //Definir el numero de badges en cada columna
+        switch (scope.numberCols) {
+            case 2:
+                scope.colWidth = 6;
+                break;
+            case 3:
+                scope.colWidth = 4;
+                break;
+            case 5:
+                scope.htCol5 = "width: 20%;float:left;padding-right:10px;padding-left:10px;";
+                break;
+            case 6:
+                scope.colWidth = 2;
+                break;
+            case 4:
+            default:
+                scope.colWidth = 3;
+                break;
+        }
+
+        //Definir el numero de badges totales
         scope.numberBadges = new Array(6);
-        
+
 
     },
     template

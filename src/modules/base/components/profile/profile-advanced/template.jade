@@ -10,9 +10,9 @@
             //div.item__username {{username}}
             .item__email {{$root.customer.email}}
                 span.item__email--verified-wrapper
-                    img.item__email--verified(ng-src="{{imageverified}}")
+                    img.item__email--verified(ng-src="{{imageVerified}}")
             .item__id {{id}}
-                img.item__img-gender(ng-src="{{imagegender}}")
+                img.item__img-gender(ng-src="{{imageGender}}")
         .col-xs-12.item__progressbar
             ng-transclude
                 c-progressbar(dynamic="dynamic" type="type")
@@ -25,6 +25,6 @@
             .col-xs-2
                 p B
         .col-xs-12.item__badges-list__container
-            .row.item__badges-list__wrapper-badges(ng-repeat="nb in numberBadges track by $index" id="item-grid-su-{{$index +1}}" ng-class="{'col-xs-{{colWidth}}': true}")
+            .row.item__badges-list__wrapper-badges(ng-repeat="nb in numberBadges track by $index" id="item-grid-su-{{$index +1}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true}")
                 p b {{$index +1}}
                 p {{$index +1}}0 %
