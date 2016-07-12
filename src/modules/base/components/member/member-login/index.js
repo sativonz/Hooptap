@@ -38,7 +38,7 @@ export default($rootScope,Customer,LoopBackAuth) => ({
             }).$promise
                 .then((response)=> {
                     getCurrent();
-                    TOAST("Bienvenido " + $rootScope.customer.username + "!!!", 'info');
+                    TOAST("Bienvenido " + $rootScope.customer.username + "!", 'info');
                 })
                 .catch((error)=>{
                 });
