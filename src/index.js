@@ -40,6 +40,7 @@ import './common/services/angular-sdk.js';
 
             //Modules
             require('./modules/base').default,
+            require('./common').default,
 
             //Widgets
             require('./modules/widgets/widget-full').default,
@@ -85,6 +86,6 @@ import './common/services/angular-sdk.js';
     //Angular bootstrap to render #htWidget div with htWidget Module
     angular.bootstrap('#ht-widget', ['htWidget']);
 
-    console.log(angular.version.full);
+    //console.log(angular.version.full);
 
 }());
