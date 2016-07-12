@@ -11,14 +11,7 @@ import './styles.scss';
   */
 export default() => ({
     restrict: 'E',
-    scope: {
-        message: '@'
-    },
-     link: (scope, element, attrs)=>{
-
-        
-
-    },
-    template
-
+    scope: {},
+    template,
+    link: (scope, element, attrs)=>{}
 });

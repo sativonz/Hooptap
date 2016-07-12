@@ -1,12 +1,14 @@
 import template from './template.jade';
 import './styles.scss';
 
-export default($rootScope,Customer,LoopBackAuth) => ({
+export default($rootScope, Customer,LoopBackAuth) => ({
     restrict: 'E',
     scope: {},
     template,
     link:(scope, element, attrs)=> {
+
         scope.register = ()=> {
+
             Customer.logout();
             Customer.create({
                 "username": scope.username,

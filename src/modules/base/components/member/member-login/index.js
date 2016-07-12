@@ -14,6 +14,7 @@ export default($rootScope,Customer,LoopBackAuth) => ({
     scope: {},
     template,
     link:(scope, element, attrs)=>{
+
         var token;
         function getCurrent(){
             Customer.getCurrent().$promise
@@ -37,7 +38,7 @@ export default($rootScope,Customer,LoopBackAuth) => ({
             }).$promise
                 .then((response)=> {
                     getCurrent();
-                    alert("Logeo realizado con exito");
+                    TOAST("Bienvenido " + $rootScope.customer.username + "!!!", 'info');
                 })
                 .catch((error)=>{
                 });
