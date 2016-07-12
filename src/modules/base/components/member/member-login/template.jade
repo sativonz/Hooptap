@@ -9,10 +9,12 @@
 			input.ht-form__input(ng-model='password' type='password' name="password" placeholder="Contraseña")
 			span.ht-form__highlight
 			span.ht-form__bar
-			p {{member.email}}
+		.ht-form__group-terms
+			input(type="checkbox" name="terms" id="checkbox_terms" value="terms" ng-model="checkboxEnableRegister")
+			label.checkbox_terms(for="checkbox_terms") Acepto los términos y condiciones.
 		.ht-form__group-link
 			a(href='#' ng-click='goResetForm = !goResetForm') Reset password
-		button.ht-form--button__login(type='button' ng-click='login()')
+		button.ht-form--button__login(type='button' ng-disabled="!checkboxEnableRegister" ng-click='login()')
 			| Login
 			.ht-form__ripples.buttonRipples
 				span.ht-form__ripplesCircle
