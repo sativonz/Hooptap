@@ -1,6 +1,6 @@
-.ht-wrapper--register__form(ng-init='goActivateEmailForm = false' name="ht-form__register")
+.ht-wrapper--register__form
     c-button-close
-    form.ht-form.ht-form--register(ng-hide='goActivateEmailForm')
+    form.ht-form.ht-form--register(ng-show='!$root.goActivateForm' name="ht-form__register")
         .ht-form__group
             input.ht-form__input(ng-model='username' type='text' name="name" placeholder="Nombre")
             span.ht-form__highlight
@@ -15,22 +15,13 @@
             span.ht-form__bar
         .ht-form__group-terms
             input(type="checkbox" name="terms" id="checkbox_terms" value="terms" ng-model="checkboxEnableRegister")
-            label.checkbox_terms(for="checkbox_terms") Acepto los términos y condiciones.
+            label.checkbox_terms(for="checkbox_terms")
+                //TODO Cambiar href, es provisional porque no está acabada la web nueva
+                a(href="http://new.hooptap.com/en/terms-conditions/" target="_blank") Acepto los términos y condiciones.
         .ht-form__group-link
-            a(hr.ef='#' ng-click='goActivateEmailForm = !goActivateEmailForm') Activate my account
+            a(hr.ef='#' ng-click='$root.goActivateForm = true;') Activar cuenta
         button.ht-form--button__register(type='button' ng-disabled="!checkboxEnableRegister" ng-click='register()')
             | Registrar
             .ht-form__ripples.buttonRipples
                 span.ht-form__ripplesCircle
-    //ACTIVATE FORM
-    form.ht-form--activate(ng-show='goActivateEmailForm' name="activateEmailForm")
-        .ht-form__group
-            input.ht-form__input(ng-model='emailActivation' placeholder='Activation code' type='text' name="emailActivation")
-            span.ht-form__highlight
-            span.ht-form__bar
-        .ht-form__group-link
-            a(href='#' ng-click='goActivateEmailForm = !goActivateEmailForm') Go to register form
-            button.ht-form--button__activationMail(type='button' ng-click='userActivationEmail()')
-                | Activate my account
-                .ht-form__ripples.buttonRipples
-                    span.ht-form__ripplesCircle2
+        //TODO refactorizar el cambio de vistas

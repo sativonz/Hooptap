@@ -1,4 +1,4 @@
-c-member-register {
+c-member-register, c-member-activate {
   .ht-wrapper--register__form {
   }
 
@@ -195,6 +195,10 @@ c-member-register {
     font-size: 14px;
     position: relative;
     top: -2px;
+    a {
+      color: #1c1c1c;
+    }
+
   }
 
 

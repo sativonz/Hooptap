@@ -1,5 +1,4 @@
 import template from './template.jade';
-import './styles.scss';
 
 export default($rootScope, Customer,LoopBackAuth) => ({
     restrict: 'E',
@@ -18,8 +17,6 @@ export default($rootScope, Customer,LoopBackAuth) => ({
             }).$promise.then((registered)=> {
                 $rootScope.logged = false;
                 TOAST("Bienvenido " + $rootScope.customer.username + "!" + " Registro realizado con éxito.", 'info');
-                //TODO refactor
-                $root.goActivateForm = true;
             }).catch((error)=>{
                 console.log(error);
             });
