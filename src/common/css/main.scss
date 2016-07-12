@@ -1,4 +1,4 @@
-//////////////////--------STYLES---------//////////////////////
+//////////////////--------GENERAL STYLES---------//////////////////////
 @import "fonticons";
 $fa-font-path: "~font-awesome/fonts";
 @import "~font-awesome/scss/font-awesome";
@@ -24,6 +24,7 @@ $fa-font-path: "~font-awesome/fonts";
   margin: -25px 0 8px 0;
 }
 
+//TODO Revisar tamaños del widget
 #ht-widgets {
   //padding: 15px 10px 15px 10px;
   display: none;

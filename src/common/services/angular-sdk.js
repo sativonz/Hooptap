@@ -3272,6 +3272,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
                         method: "GET"
                     },
 
+                    // INTERNAL. Use RuleHistory.author() instead.
+                    "::get::RuleHistory::author": {
+                        url: urlBase + "/RuleHistories/:id/author",
+                        method: "GET"
+                    },
+
                     /**
                      * @ngdoc method
                      * @name apiServices.Admin#getCurrent
@@ -4966,15 +4972,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
                         method: "GET"
                     },
 
-                    // INTERNAL. Use Rule.product() instead.
-                    "::get::Rule::product": {
-                        url: urlBase + "/Rules/:id/product",
-                        method: "GET"
-                    },
-
                     // INTERNAL. Use ScoreUnit.product() instead.
                     "::get::ScoreUnit::product": {
                         url: urlBase + "/ScoreUnits/:id/product",
+                        method: "GET"
+                    },
+
+                    // INTERNAL. Use Segment.product() instead.
+                    "::get::Segment::product": {
+                        url: urlBase + "/Segments/:id/product",
                         method: "GET"
                     },
                 }
@@ -9517,92 +9523,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
                         method: "DELETE"
                     },
 
-                    // INTERNAL. Use Ranking.levels.findById() instead.
-                    "::findById::Ranking::levels": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rankings/:id/levels/:fk",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.destroyById() instead.
-                    "::destroyById::Ranking::levels": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rankings/:id/levels/:fk",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.updateById() instead.
-                    "::updateById::Ranking::levels": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rankings/:id/levels/:fk",
-                        method: "PUT"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.link() instead.
-                    "::link::Ranking::levels": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rankings/:id/levels/rel/:fk",
-                        method: "PUT"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.unlink() instead.
-                    "::unlink::Ranking::levels": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rankings/:id/levels/rel/:fk",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.exists() instead.
-                    "::exists::Ranking::levels": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rankings/:id/levels/rel/:fk",
-                        method: "HEAD"
-                    },
-
-                    // INTERNAL. Use Ranking.levels() instead.
-                    "::get::Ranking::levels": {
-                        isArray: true,
-                        url: urlBase + "/Rankings/:id/levels",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.create() instead.
-                    "::create::Ranking::levels": {
-                        url: urlBase + "/Rankings/:id/levels",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.createMany() instead.
-                    "::createMany::Ranking::levels": {
-                        isArray: true,
-                        url: urlBase + "/Rankings/:id/levels",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.destroyAll() instead.
-                    "::delete::Ranking::levels": {
-                        url: urlBase + "/Rankings/:id/levels",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.count() instead.
-                    "::count::Ranking::levels": {
-                        url: urlBase + "/Rankings/:id/levels/count",
-                        method: "GET"
-                    },
-
                     // INTERNAL. Use ScoreUnit.levels.findById() instead.
                     "::findById::ScoreUnit::levels": {
                         params: {
@@ -10542,1274 +10462,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
 
     /**
      * @ngdoc object
-     * @name apiServices.Listener
-     * @header apiServices.Listener
-     * @object
-     *
-     * @description
-     *
-     * A $resource object for interacting with the `Listener` model.
-     *
-     * ## Example
-     *
-     * See
-     * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
-     * for an example of using this object.
-     *
-     */
-    module.factory(
-        "Listener",
-        ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
-            var R = Resource(
-                urlBase + "/Listeners/:id",
-                { 'id': '@id' },
-                {
-
-                    // INTERNAL. Use Listener.rule() instead.
-                    "prototype$__get__rule": {
-                        url: urlBase + "/Listeners/:id/rule",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.findById() instead.
-                    "prototype$__findById__ruleInstances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Listeners/:id/ruleInstances/:fk",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.destroyById() instead.
-                    "prototype$__destroyById__ruleInstances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Listeners/:id/ruleInstances/:fk",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.updateById() instead.
-                    "prototype$__updateById__ruleInstances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Listeners/:id/ruleInstances/:fk",
-                        method: "PUT"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.link() instead.
-                    "prototype$__link__ruleInstances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Listeners/:id/ruleInstances/rel/:fk",
-                        method: "PUT"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.unlink() instead.
-                    "prototype$__unlink__ruleInstances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Listeners/:id/ruleInstances/rel/:fk",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.exists() instead.
-                    "prototype$__exists__ruleInstances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Listeners/:id/ruleInstances/rel/:fk",
-                        method: "HEAD"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances() instead.
-                    "prototype$__get__ruleInstances": {
-                        isArray: true,
-                        url: urlBase + "/Listeners/:id/ruleInstances",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.create() instead.
-                    "prototype$__create__ruleInstances": {
-                        url: urlBase + "/Listeners/:id/ruleInstances",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.destroyAll() instead.
-                    "prototype$__delete__ruleInstances": {
-                        url: urlBase + "/Listeners/:id/ruleInstances",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.count() instead.
-                    "prototype$__count__ruleInstances": {
-                        url: urlBase + "/Listeners/:id/ruleInstances/count",
-                        method: "GET"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Listener#create
-                     * @methodOf apiServices.Listener
-                     *
-                     * @description
-                     *
-                     * Create a new instance of the model and persist it into the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *   This method does not accept any parameters.
-                     *   Supply an empty object or omit this argument altogether.
-                     *
-                     * @param {Object} postData Request data.
-                     *
-                     * This method expects a subset of model properties as request parameters.
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * <em>
-                     * (The remote method definition does not provide any description.
-                     * This usually means the response is a `Listener` object.)
-                     * </em>
-                     */
-                    "create": {
-                        url: urlBase + "/Listeners",
-                        method: "POST"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Listener#createMany
-                     * @methodOf apiServices.Listener
-                     *
-                     * @description
-                     *
-                     * Create a new instance of the model and persist it into the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *   This method does not accept any parameters.
-                     *   Supply an empty object or omit this argument altogether.
-                     *
-                     * @param {Object} postData Request data.
-                     *
-                     * This method expects a subset of model properties as request parameters.
-                     *
-                     * @param {function(Array.<Object>,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Array.<Object>} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * <em>
-                     * (The remote method definition does not provide any description.
-                     * This usually means the response is a `Listener` object.)
-                     * </em>
-                     */
-                    "createMany": {
-                        isArray: true,
-                        url: urlBase + "/Listeners",
-                        method: "POST"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Listener#upsert
-                     * @methodOf apiServices.Listener
-                     *
-                     * @description
-                     *
-                     * Update an existing model instance or insert a new one into the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *   This method does not accept any parameters.
-                     *   Supply an empty object or omit this argument altogether.
-                     *
-                     * @param {Object} postData Request data.
-                     *
-                     * This method expects a subset of model properties as request parameters.
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * <em>
-                     * (The remote method definition does not provide any description.
-                     * This usually means the response is a `Listener` object.)
-                     * </em>
-                     */
-                    "upsert": {
-                        url: urlBase + "/Listeners",
-                        method: "PUT"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Listener#exists
-                     * @methodOf apiServices.Listener
-                     *
-                     * @description
-                     *
-                     * Check whether a model instance exists in the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *  - `id` â€“ `{*}` - Model id
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * Data properties:
-                     *
-                     *  - `exists` â€“ `{boolean=}` -
-                     */
-                    "exists": {
-                        url: urlBase + "/Listeners/:id/exists",
-                        method: "GET"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Listener#findById
-                     * @methodOf apiServices.Listener
-                     *
-                     * @description
-                     *
-                     * Find a model instance by id from the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *  - `id` â€“ `{*}` - Model id
-                     *
-                     *  - `filter` â€“ `{object=}` - Filter defining fields and include
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * <em>
-                     * (The remote method definition does not provide any description.
-                     * This usually means the response is a `Listener` object.)
-                     * </em>
-                     */
-                    "findById": {
-                        url: urlBase + "/Listeners/:id",
-                        method: "GET"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Listener#find
-                     * @methodOf apiServices.Listener
-                     *
-                     * @description
-                     *
-                     * Find all instances of the model matched by filter from the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *  - `filter` â€“ `{object=}` - Filter defining fields, where, include, order, offset, and limit
-                     *
-                     * @param {function(Array.<Object>,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Array.<Object>} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * <em>
-                     * (The remote method definition does not provide any description.
-                     * This usually means the response is a `Listener` object.)
-                     * </em>
-                     */
-                    "find": {
-                        isArray: true,
-                        url: urlBase + "/Listeners",
-                        method: "GET"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Listener#findOne
-                     * @methodOf apiServices.Listener
-                     *
-                     * @description
-                     *
-                     * Find first instance of the model matched by filter from the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *  - `filter` â€“ `{object=}` - Filter defining fields, where, include, order, offset, and limit
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * <em>
-                     * (The remote method definition does not provide any description.
-                     * This usually means the response is a `Listener` object.)
-                     * </em>
-                     */
-                    "findOne": {
-                        url: urlBase + "/Listeners/findOne",
-                        method: "GET"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Listener#updateAll
-                     * @methodOf apiServices.Listener
-                     *
-                     * @description
-                     *
-                     * Update instances of the model matched by where from the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *  - `where` â€“ `{object=}` - Criteria to match model instances
-                     *
-                     * @param {Object} postData Request data.
-                     *
-                     * This method expects a subset of model properties as request parameters.
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * The number of instances updated
-                     */
-                    "updateAll": {
-                        url: urlBase + "/Listeners/update",
-                        method: "POST"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Listener#deleteById
-                     * @methodOf apiServices.Listener
-                     *
-                     * @description
-                     *
-                     * Delete a model instance by id from the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *  - `id` â€“ `{*}` - Model id
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * <em>
-                     * (The remote method definition does not provide any description.
-                     * This usually means the response is a `Listener` object.)
-                     * </em>
-                     */
-                    "deleteById": {
-                        url: urlBase + "/Listeners/:id",
-                        method: "DELETE"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Listener#count
-                     * @methodOf apiServices.Listener
-                     *
-                     * @description
-                     *
-                     * Count instances of the model matched by where from the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *  - `where` â€“ `{object=}` - Criteria to match model instances
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * Data properties:
-                     *
-                     *  - `count` â€“ `{number=}` -
-                     */
-                    "count": {
-                        url: urlBase + "/Listeners/count",
-                        method: "GET"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Listener#prototype$updateAttributes
-                     * @methodOf apiServices.Listener
-                     *
-                     * @description
-                     *
-                     * Update attributes for a model instance and persist it into the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *  - `id` â€“ `{*}` - PersistedModel id
-                     *
-                     * @param {Object} postData Request data.
-                     *
-                     * This method expects a subset of model properties as request parameters.
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * <em>
-                     * (The remote method definition does not provide any description.
-                     * This usually means the response is a `Listener` object.)
-                     * </em>
-                     */
-                    "prototype$updateAttributes": {
-                        url: urlBase + "/Listeners/:id",
-                        method: "PUT"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Listener#createChangeStream
-                     * @methodOf apiServices.Listener
-                     *
-                     * @description
-                     *
-                     * Create a change stream.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *   This method does not accept any parameters.
-                     *   Supply an empty object or omit this argument altogether.
-                     *
-                     * @param {Object} postData Request data.
-                     *
-                     *  - `options` â€“ `{object=}` -
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * Data properties:
-                     *
-                     *  - `changes` â€“ `{ReadableStream=}` -
-                     */
-                    "createChangeStream": {
-                        url: urlBase + "/Listeners/change-stream",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use Rule.listeners.findById() instead.
-                    "::findById::Rule::listeners": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/listeners/:fk",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Rule.listeners.destroyById() instead.
-                    "::destroyById::Rule::listeners": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/listeners/:fk",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Rule.listeners.updateById() instead.
-                    "::updateById::Rule::listeners": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/listeners/:fk",
-                        method: "PUT"
-                    },
-
-                    // INTERNAL. Use Rule.listeners() instead.
-                    "::get::Rule::listeners": {
-                        isArray: true,
-                        url: urlBase + "/Rules/:id/listeners",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Rule.listeners.create() instead.
-                    "::create::Rule::listeners": {
-                        url: urlBase + "/Rules/:id/listeners",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use Rule.listeners.createMany() instead.
-                    "::createMany::Rule::listeners": {
-                        isArray: true,
-                        url: urlBase + "/Rules/:id/listeners",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use Rule.listeners.destroyAll() instead.
-                    "::delete::Rule::listeners": {
-                        url: urlBase + "/Rules/:id/listeners",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Rule.listeners.count() instead.
-                    "::count::Rule::listeners": {
-                        url: urlBase + "/Rules/:id/listeners/count",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use RuleInstance.listeners.findById() instead.
-                    "::findById::RuleInstance::listeners": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/RuleInstances/:id/listeners/:fk",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use RuleInstance.listeners.destroyById() instead.
-                    "::destroyById::RuleInstance::listeners": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/RuleInstances/:id/listeners/:fk",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use RuleInstance.listeners.updateById() instead.
-                    "::updateById::RuleInstance::listeners": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/RuleInstances/:id/listeners/:fk",
-                        method: "PUT"
-                    },
-
-                    // INTERNAL. Use RuleInstance.listeners.link() instead.
-                    "::link::RuleInstance::listeners": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/RuleInstances/:id/listeners/rel/:fk",
-                        method: "PUT"
-                    },
-
-                    // INTERNAL. Use RuleInstance.listeners.unlink() instead.
-                    "::unlink::RuleInstance::listeners": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/RuleInstances/:id/listeners/rel/:fk",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use RuleInstance.listeners.exists() instead.
-                    "::exists::RuleInstance::listeners": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/RuleInstances/:id/listeners/rel/:fk",
-                        method: "HEAD"
-                    },
-
-                    // INTERNAL. Use RuleInstance.listeners() instead.
-                    "::get::RuleInstance::listeners": {
-                        isArray: true,
-                        url: urlBase + "/RuleInstances/:id/listeners",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use RuleInstance.listeners.create() instead.
-                    "::create::RuleInstance::listeners": {
-                        url: urlBase + "/RuleInstances/:id/listeners",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use RuleInstance.listeners.createMany() instead.
-                    "::createMany::RuleInstance::listeners": {
-                        isArray: true,
-                        url: urlBase + "/RuleInstances/:id/listeners",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use RuleInstance.listeners.destroyAll() instead.
-                    "::delete::RuleInstance::listeners": {
-                        url: urlBase + "/RuleInstances/:id/listeners",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use RuleInstance.listeners.count() instead.
-                    "::count::RuleInstance::listeners": {
-                        url: urlBase + "/RuleInstances/:id/listeners/count",
-                        method: "GET"
-                    },
-                }
-            );
-
-
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Listener#updateOrCreate
-             * @methodOf apiServices.Listener
-             *
-             * @description
-             *
-             * Update an existing model instance or insert a new one into the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Listener` object.)
-             * </em>
-             */
-            R["updateOrCreate"] = R["upsert"];
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Listener#update
-             * @methodOf apiServices.Listener
-             *
-             * @description
-             *
-             * Update instances of the model matched by where from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `where` â€“ `{object=}` - Criteria to match model instances
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * The number of instances updated
-             */
-            R["update"] = R["updateAll"];
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Listener#destroyById
-             * @methodOf apiServices.Listener
-             *
-             * @description
-             *
-             * Delete a model instance by id from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - Model id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Listener` object.)
-             * </em>
-             */
-            R["destroyById"] = R["deleteById"];
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Listener#removeById
-             * @methodOf apiServices.Listener
-             *
-             * @description
-             *
-             * Delete a model instance by id from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - Model id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Listener` object.)
-             * </em>
-             */
-            R["removeById"] = R["deleteById"];
-
-
-            /**
-             * @ngdoc property
-             * @name apiServices.Listener#modelName
-             * @propertyOf apiServices.Listener
-             * @description
-             * The name of the model represented by this $resource,
-             * i.e. `Listener`.
-             */
-            R.modelName = "Listener";
-
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Listener#rule
-             * @methodOf apiServices.Listener
-             *
-             * @description
-             *
-             * Fetches belongsTo relation rule.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `refresh` â€“ `{boolean=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Rule` object.)
-             * </em>
-             */
-            R.rule = function() {
-                var TargetResource = $injector.get("Rule");
-                var action = TargetResource["::get::Listener::rule"];
-                return action.apply(R, arguments);
-            };
-            /**
-             * @ngdoc object
-             * @name apiServices.Listener.ruleInstances
-             * @header apiServices.Listener.ruleInstances
-             * @object
-             * @description
-             *
-             * The object `Listener.ruleInstances` groups methods
-             * manipulating `RuleInstance` instances related to `Listener`.
-             *
-             * Call {@link apiServices.Listener#ruleInstances Listener.ruleInstances()}
-             * to query all related instances.
-             */
-
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Listener#ruleInstances
-             * @methodOf apiServices.Listener
-             *
-             * @description
-             *
-             * Queries ruleInstances of Listener.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `filter` â€“ `{object=}` -
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RuleInstance` object.)
-             * </em>
-             */
-            R.ruleInstances = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::get::Listener::ruleInstances"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Listener.ruleInstances#count
-             * @methodOf apiServices.Listener.ruleInstances
-             *
-             * @description
-             *
-             * Counts ruleInstances of Listener.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `where` â€“ `{object=}` - Criteria to match model instances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `count` â€“ `{number=}` -
-             */
-            R.ruleInstances.count = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::count::Listener::ruleInstances"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Listener.ruleInstances#create
-             * @methodOf apiServices.Listener.ruleInstances
-             *
-             * @description
-             *
-             * Creates a new instance in ruleInstances of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RuleInstance` object.)
-             * </em>
-             */
-            R.ruleInstances.create = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::create::Listener::ruleInstances"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Listener.ruleInstances#createMany
-             * @methodOf apiServices.Listener.ruleInstances
-             *
-             * @description
-             *
-             * Creates a new instance in ruleInstances of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RuleInstance` object.)
-             * </em>
-             */
-            R.ruleInstances.createMany = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::createMany::Listener::ruleInstances"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Listener.ruleInstances#destroyAll
-             * @methodOf apiServices.Listener.ruleInstances
-             *
-             * @description
-             *
-             * Deletes all ruleInstances of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            R.ruleInstances.destroyAll = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::delete::Listener::ruleInstances"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Listener.ruleInstances#destroyById
-             * @methodOf apiServices.Listener.ruleInstances
-             *
-             * @description
-             *
-             * Delete a related item by id for ruleInstances.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for ruleInstances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            R.ruleInstances.destroyById = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::destroyById::Listener::ruleInstances"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Listener.ruleInstances#exists
-             * @methodOf apiServices.Listener.ruleInstances
-             *
-             * @description
-             *
-             * Check the existence of ruleInstances relation to an item by id.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for ruleInstances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RuleInstance` object.)
-             * </em>
-             */
-            R.ruleInstances.exists = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::exists::Listener::ruleInstances"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Listener.ruleInstances#findById
-             * @methodOf apiServices.Listener.ruleInstances
-             *
-             * @description
-             *
-             * Find a related item by id for ruleInstances.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for ruleInstances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RuleInstance` object.)
-             * </em>
-             */
-            R.ruleInstances.findById = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::findById::Listener::ruleInstances"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Listener.ruleInstances#link
-             * @methodOf apiServices.Listener.ruleInstances
-             *
-             * @description
-             *
-             * Add a related item by id for ruleInstances.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for ruleInstances
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RuleInstance` object.)
-             * </em>
-             */
-            R.ruleInstances.link = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::link::Listener::ruleInstances"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Listener.ruleInstances#unlink
-             * @methodOf apiServices.Listener.ruleInstances
-             *
-             * @description
-             *
-             * Remove the ruleInstances relation to an item by id.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for ruleInstances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            R.ruleInstances.unlink = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::unlink::Listener::ruleInstances"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Listener.ruleInstances#updateById
-             * @methodOf apiServices.Listener.ruleInstances
-             *
-             * @description
-             *
-             * Update a related item by id for ruleInstances.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for ruleInstances
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RuleInstance` object.)
-             * </em>
-             */
-            R.ruleInstances.updateById = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::updateById::Listener::ruleInstances"];
-                return action.apply(R, arguments);
-            };
-
-            return R;
-        }]);
-
-    /**
-     * @ngdoc object
      * @name apiServices.Ranking
      * @header apiServices.Ranking
      * @object
@@ -11842,85 +10494,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
                     // INTERNAL. Use Ranking.scoreUnit() instead.
                     "prototype$__get__scoreUnit": {
                         url: urlBase + "/Rankings/:id/scoreUnit",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.findById() instead.
-                    "prototype$__findById__levels": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rankings/:id/levels/:fk",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.destroyById() instead.
-                    "prototype$__destroyById__levels": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rankings/:id/levels/:fk",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.updateById() instead.
-                    "prototype$__updateById__levels": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rankings/:id/levels/:fk",
-                        method: "PUT"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.link() instead.
-                    "prototype$__link__levels": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rankings/:id/levels/rel/:fk",
-                        method: "PUT"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.unlink() instead.
-                    "prototype$__unlink__levels": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rankings/:id/levels/rel/:fk",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.exists() instead.
-                    "prototype$__exists__levels": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rankings/:id/levels/rel/:fk",
-                        method: "HEAD"
-                    },
-
-                    // INTERNAL. Use Ranking.levels() instead.
-                    "prototype$__get__levels": {
-                        isArray: true,
-                        url: urlBase + "/Rankings/:id/levels",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.create() instead.
-                    "prototype$__create__levels": {
-                        url: urlBase + "/Rankings/:id/levels",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.destroyAll() instead.
-                    "prototype$__delete__levels": {
-                        url: urlBase + "/Rankings/:id/levels",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Ranking.levels.count() instead.
-                    "prototype$__count__levels": {
-                        url: urlBase + "/Rankings/:id/levels/count",
                         method: "GET"
                     },
                 }
@@ -12011,416 +10584,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
                 var action = TargetResource["::get::Ranking::scoreUnit"];
                 return action.apply(R, arguments);
             };
-            /**
-             * @ngdoc object
-             * @name apiServices.Ranking.levels
-             * @header apiServices.Ranking.levels
-             * @object
-             * @description
-             *
-             * The object `Ranking.levels` groups methods
-             * manipulating `Level` instances related to `Ranking`.
-             *
-             * Call {@link apiServices.Ranking#levels Ranking.levels()}
-             * to query all related instances.
-             */
-
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#levels
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Queries levels of Ranking.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - Model id
-             *
-             *  - `filter` â€“ `{object=}` -
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Level` object.)
-             * </em>
-             */
-            R.levels = function() {
-                var TargetResource = $injector.get("Level");
-                var action = TargetResource["::get::Ranking::levels"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking.levels#count
-             * @methodOf apiServices.Ranking.levels
-             *
-             * @description
-             *
-             * Counts levels of Ranking.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - Model id
-             *
-             *  - `where` â€“ `{object=}` - Criteria to match model instances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `count` â€“ `{number=}` -
-             */
-            R.levels.count = function() {
-                var TargetResource = $injector.get("Level");
-                var action = TargetResource["::count::Ranking::levels"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking.levels#create
-             * @methodOf apiServices.Ranking.levels
-             *
-             * @description
-             *
-             * Creates a new instance in levels of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - Model id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Level` object.)
-             * </em>
-             */
-            R.levels.create = function() {
-                var TargetResource = $injector.get("Level");
-                var action = TargetResource["::create::Ranking::levels"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking.levels#createMany
-             * @methodOf apiServices.Ranking.levels
-             *
-             * @description
-             *
-             * Creates a new instance in levels of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - Model id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Level` object.)
-             * </em>
-             */
-            R.levels.createMany = function() {
-                var TargetResource = $injector.get("Level");
-                var action = TargetResource["::createMany::Ranking::levels"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking.levels#destroyAll
-             * @methodOf apiServices.Ranking.levels
-             *
-             * @description
-             *
-             * Deletes all levels of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - Model id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            R.levels.destroyAll = function() {
-                var TargetResource = $injector.get("Level");
-                var action = TargetResource["::delete::Ranking::levels"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking.levels#destroyById
-             * @methodOf apiServices.Ranking.levels
-             *
-             * @description
-             *
-             * Delete a related item by id for levels.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - Model id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for levels
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            R.levels.destroyById = function() {
-                var TargetResource = $injector.get("Level");
-                var action = TargetResource["::destroyById::Ranking::levels"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking.levels#exists
-             * @methodOf apiServices.Ranking.levels
-             *
-             * @description
-             *
-             * Check the existence of levels relation to an item by id.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - Model id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for levels
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Level` object.)
-             * </em>
-             */
-            R.levels.exists = function() {
-                var TargetResource = $injector.get("Level");
-                var action = TargetResource["::exists::Ranking::levels"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking.levels#findById
-             * @methodOf apiServices.Ranking.levels
-             *
-             * @description
-             *
-             * Find a related item by id for levels.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - Model id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for levels
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Level` object.)
-             * </em>
-             */
-            R.levels.findById = function() {
-                var TargetResource = $injector.get("Level");
-                var action = TargetResource["::findById::Ranking::levels"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking.levels#link
-             * @methodOf apiServices.Ranking.levels
-             *
-             * @description
-             *
-             * Add a related item by id for levels.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - Model id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for levels
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Level` object.)
-             * </em>
-             */
-            R.levels.link = function() {
-                var TargetResource = $injector.get("Level");
-                var action = TargetResource["::link::Ranking::levels"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking.levels#unlink
-             * @methodOf apiServices.Ranking.levels
-             *
-             * @description
-             *
-             * Remove the levels relation to an item by id.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - Model id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for levels
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            R.levels.unlink = function() {
-                var TargetResource = $injector.get("Level");
-                var action = TargetResource["::unlink::Ranking::levels"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking.levels#updateById
-             * @methodOf apiServices.Ranking.levels
-             *
-             * @description
-             *
-             * Update a related item by id for levels.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - Model id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for levels
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Level` object.)
-             * </em>
-             */
-            R.levels.updateById = function() {
-                var TargetResource = $injector.get("Level");
-                var action = TargetResource["::updateById::Ranking::levels"];
-                return action.apply(R, arguments);
-            };
 
             return R;
         }]);
@@ -12449,168 +10612,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
                 urlBase + "/Rules/:id",
                 { 'id': '@id' },
                 {
-
-                    // INTERNAL. Use Rule.listeners.findById() instead.
-                    "prototype$__findById__listeners": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/listeners/:fk",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Rule.listeners.destroyById() instead.
-                    "prototype$__destroyById__listeners": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/listeners/:fk",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Rule.listeners.updateById() instead.
-                    "prototype$__updateById__listeners": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/listeners/:fk",
-                        method: "PUT"
-                    },
-
-                    // INTERNAL. Use Rule.product() instead.
-                    "prototype$__get__product": {
-                        url: urlBase + "/Rules/:id/product",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Rule.triggers.findById() instead.
-                    "prototype$__findById__triggers": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/triggers/:fk",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Rule.triggers.destroyById() instead.
-                    "prototype$__destroyById__triggers": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/triggers/:fk",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Rule.triggers.updateById() instead.
-                    "prototype$__updateById__triggers": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/triggers/:fk",
-                        method: "PUT"
-                    },
-
-                    // INTERNAL. Use Rule.instances.findById() instead.
-                    "prototype$__findById__instances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/instances/:fk",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Rule.instances.destroyById() instead.
-                    "prototype$__destroyById__instances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/instances/:fk",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Rule.instances.updateById() instead.
-                    "prototype$__updateById__instances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/instances/:fk",
-                        method: "PUT"
-                    },
-
-                    // INTERNAL. Use Rule.listeners() instead.
-                    "prototype$__get__listeners": {
-                        isArray: true,
-                        url: urlBase + "/Rules/:id/listeners",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Rule.listeners.create() instead.
-                    "prototype$__create__listeners": {
-                        url: urlBase + "/Rules/:id/listeners",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use Rule.listeners.destroyAll() instead.
-                    "prototype$__delete__listeners": {
-                        url: urlBase + "/Rules/:id/listeners",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Rule.listeners.count() instead.
-                    "prototype$__count__listeners": {
-                        url: urlBase + "/Rules/:id/listeners/count",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Rule.triggers() instead.
-                    "prototype$__get__triggers": {
-                        isArray: true,
-                        url: urlBase + "/Rules/:id/triggers",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Rule.triggers.create() instead.
-                    "prototype$__create__triggers": {
-                        url: urlBase + "/Rules/:id/triggers",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use Rule.triggers.destroyAll() instead.
-                    "prototype$__delete__triggers": {
-                        url: urlBase + "/Rules/:id/triggers",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Rule.triggers.count() instead.
-                    "prototype$__count__triggers": {
-                        url: urlBase + "/Rules/:id/triggers/count",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Rule.instances() instead.
-                    "prototype$__get__instances": {
-                        isArray: true,
-                        url: urlBase + "/Rules/:id/instances",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Rule.instances.create() instead.
-                    "prototype$__create__instances": {
-                        url: urlBase + "/Rules/:id/instances",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use Rule.instances.destroyAll() instead.
-                    "prototype$__delete__instances": {
-                        url: urlBase + "/Rules/:id/instances",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Rule.instances.count() instead.
-                    "prototype$__count__instances": {
-                        url: urlBase + "/Rules/:id/instances/count",
-                        method: "GET"
-                    },
 
                     /**
                      * @ngdoc method
@@ -13034,21 +11035,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
                         method: "POST"
                     },
 
-                    // INTERNAL. Use Listener.rule() instead.
-                    "::get::Listener::rule": {
-                        url: urlBase + "/Listeners/:id/rule",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Trigger.rule() instead.
-                    "::get::Trigger::rule": {
-                        url: urlBase + "/Triggers/:id/rule",
-                        method: "GET"
-                    },
-
                     // INTERNAL. Use RuleInstance.Rule() instead.
                     "::get::RuleInstance::Rule": {
                         url: urlBase + "/RuleInstances/:id/Rule",
+                        method: "GET"
+                    },
+
+                    // INTERNAL. Use RuleHistory.rule() instead.
+                    "::get::RuleHistory::rule": {
+                        url: urlBase + "/RuleHistories/:id/rule",
                         method: "GET"
                     },
                 }
@@ -13193,1638 +11188,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
              */
             R.modelName = "Rule";
 
-            /**
-             * @ngdoc object
-             * @name apiServices.Rule.listeners
-             * @header apiServices.Rule.listeners
-             * @object
-             * @description
-             *
-             * The object `Rule.listeners` groups methods
-             * manipulating `Listener` instances related to `Rule`.
-             *
-             * Call {@link apiServices.Rule#listeners Rule.listeners()}
-             * to query all related instances.
-             */
-
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule#listeners
-             * @methodOf apiServices.Rule
-             *
-             * @description
-             *
-             * Queries listeners of Rule.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `filter` â€“ `{object=}` -
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Listener` object.)
-             * </em>
-             */
-            R.listeners = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::get::Rule::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.listeners#count
-             * @methodOf apiServices.Rule.listeners
-             *
-             * @description
-             *
-             * Counts listeners of Rule.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `where` â€“ `{object=}` - Criteria to match model instances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `count` â€“ `{number=}` -
-             */
-            R.listeners.count = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::count::Rule::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.listeners#create
-             * @methodOf apiServices.Rule.listeners
-             *
-             * @description
-             *
-             * Creates a new instance in listeners of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Listener` object.)
-             * </em>
-             */
-            R.listeners.create = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::create::Rule::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.listeners#createMany
-             * @methodOf apiServices.Rule.listeners
-             *
-             * @description
-             *
-             * Creates a new instance in listeners of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Listener` object.)
-             * </em>
-             */
-            R.listeners.createMany = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::createMany::Rule::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.listeners#destroyAll
-             * @methodOf apiServices.Rule.listeners
-             *
-             * @description
-             *
-             * Deletes all listeners of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            R.listeners.destroyAll = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::delete::Rule::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.listeners#destroyById
-             * @methodOf apiServices.Rule.listeners
-             *
-             * @description
-             *
-             * Delete a related item by id for listeners.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for listeners
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            R.listeners.destroyById = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::destroyById::Rule::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.listeners#findById
-             * @methodOf apiServices.Rule.listeners
-             *
-             * @description
-             *
-             * Find a related item by id for listeners.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for listeners
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Listener` object.)
-             * </em>
-             */
-            R.listeners.findById = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::findById::Rule::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.listeners#updateById
-             * @methodOf apiServices.Rule.listeners
-             *
-             * @description
-             *
-             * Update a related item by id for listeners.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for listeners
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Listener` object.)
-             * </em>
-             */
-            R.listeners.updateById = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::updateById::Rule::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule#product
-             * @methodOf apiServices.Rule
-             *
-             * @description
-             *
-             * Fetches belongsTo relation product.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `refresh` â€“ `{boolean=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Product` object.)
-             * </em>
-             */
-            R.product = function() {
-                var TargetResource = $injector.get("Product");
-                var action = TargetResource["::get::Rule::product"];
-                return action.apply(R, arguments);
-            };
-            /**
-             * @ngdoc object
-             * @name apiServices.Rule.triggers
-             * @header apiServices.Rule.triggers
-             * @object
-             * @description
-             *
-             * The object `Rule.triggers` groups methods
-             * manipulating `Trigger` instances related to `Rule`.
-             *
-             * Call {@link apiServices.Rule#triggers Rule.triggers()}
-             * to query all related instances.
-             */
-
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule#triggers
-             * @methodOf apiServices.Rule
-             *
-             * @description
-             *
-             * Queries triggers of Rule.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `filter` â€“ `{object=}` -
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Trigger` object.)
-             * </em>
-             */
-            R.triggers = function() {
-                var TargetResource = $injector.get("Trigger");
-                var action = TargetResource["::get::Rule::triggers"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.triggers#count
-             * @methodOf apiServices.Rule.triggers
-             *
-             * @description
-             *
-             * Counts triggers of Rule.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `where` â€“ `{object=}` - Criteria to match model instances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `count` â€“ `{number=}` -
-             */
-            R.triggers.count = function() {
-                var TargetResource = $injector.get("Trigger");
-                var action = TargetResource["::count::Rule::triggers"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.triggers#create
-             * @methodOf apiServices.Rule.triggers
-             *
-             * @description
-             *
-             * Creates a new instance in triggers of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Trigger` object.)
-             * </em>
-             */
-            R.triggers.create = function() {
-                var TargetResource = $injector.get("Trigger");
-                var action = TargetResource["::create::Rule::triggers"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.triggers#createMany
-             * @methodOf apiServices.Rule.triggers
-             *
-             * @description
-             *
-             * Creates a new instance in triggers of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Trigger` object.)
-             * </em>
-             */
-            R.triggers.createMany = function() {
-                var TargetResource = $injector.get("Trigger");
-                var action = TargetResource["::createMany::Rule::triggers"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.triggers#destroyAll
-             * @methodOf apiServices.Rule.triggers
-             *
-             * @description
-             *
-             * Deletes all triggers of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            R.triggers.destroyAll = function() {
-                var TargetResource = $injector.get("Trigger");
-                var action = TargetResource["::delete::Rule::triggers"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.triggers#destroyById
-             * @methodOf apiServices.Rule.triggers
-             *
-             * @description
-             *
-             * Delete a related item by id for triggers.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for triggers
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            R.triggers.destroyById = function() {
-                var TargetResource = $injector.get("Trigger");
-                var action = TargetResource["::destroyById::Rule::triggers"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.triggers#findById
-             * @methodOf apiServices.Rule.triggers
-             *
-             * @description
-             *
-             * Find a related item by id for triggers.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for triggers
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Trigger` object.)
-             * </em>
-             */
-            R.triggers.findById = function() {
-                var TargetResource = $injector.get("Trigger");
-                var action = TargetResource["::findById::Rule::triggers"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.triggers#updateById
-             * @methodOf apiServices.Rule.triggers
-             *
-             * @description
-             *
-             * Update a related item by id for triggers.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for triggers
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Trigger` object.)
-             * </em>
-             */
-            R.triggers.updateById = function() {
-                var TargetResource = $injector.get("Trigger");
-                var action = TargetResource["::updateById::Rule::triggers"];
-                return action.apply(R, arguments);
-            };
-            /**
-             * @ngdoc object
-             * @name apiServices.Rule.instances
-             * @header apiServices.Rule.instances
-             * @object
-             * @description
-             *
-             * The object `Rule.instances` groups methods
-             * manipulating `RuleInstance` instances related to `Rule`.
-             *
-             * Call {@link apiServices.Rule#instances Rule.instances()}
-             * to query all related instances.
-             */
-
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule#instances
-             * @methodOf apiServices.Rule
-             *
-             * @description
-             *
-             * Queries instances of Rule.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `filter` â€“ `{object=}` -
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RuleInstance` object.)
-             * </em>
-             */
-            R.instances = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::get::Rule::instances"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.instances#count
-             * @methodOf apiServices.Rule.instances
-             *
-             * @description
-             *
-             * Counts instances of Rule.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `where` â€“ `{object=}` - Criteria to match model instances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `count` â€“ `{number=}` -
-             */
-            R.instances.count = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::count::Rule::instances"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.instances#create
-             * @methodOf apiServices.Rule.instances
-             *
-             * @description
-             *
-             * Creates a new instance in instances of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RuleInstance` object.)
-             * </em>
-             */
-            R.instances.create = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::create::Rule::instances"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.instances#createMany
-             * @methodOf apiServices.Rule.instances
-             *
-             * @description
-             *
-             * Creates a new instance in instances of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RuleInstance` object.)
-             * </em>
-             */
-            R.instances.createMany = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::createMany::Rule::instances"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.instances#destroyAll
-             * @methodOf apiServices.Rule.instances
-             *
-             * @description
-             *
-             * Deletes all instances of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            R.instances.destroyAll = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::delete::Rule::instances"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.instances#destroyById
-             * @methodOf apiServices.Rule.instances
-             *
-             * @description
-             *
-             * Delete a related item by id for instances.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for instances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            R.instances.destroyById = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::destroyById::Rule::instances"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.instances#findById
-             * @methodOf apiServices.Rule.instances
-             *
-             * @description
-             *
-             * Find a related item by id for instances.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for instances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RuleInstance` object.)
-             * </em>
-             */
-            R.instances.findById = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::findById::Rule::instances"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Rule.instances#updateById
-             * @methodOf apiServices.Rule.instances
-             *
-             * @description
-             *
-             * Update a related item by id for instances.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for instances
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RuleInstance` object.)
-             * </em>
-             */
-            R.instances.updateById = function() {
-                var TargetResource = $injector.get("RuleInstance");
-                var action = TargetResource["::updateById::Rule::instances"];
-                return action.apply(R, arguments);
-            };
-
-            return R;
-        }]);
-
-    /**
-     * @ngdoc object
-     * @name apiServices.Trigger
-     * @header apiServices.Trigger
-     * @object
-     *
-     * @description
-     *
-     * A $resource object for interacting with the `Trigger` model.
-     *
-     * ## Example
-     *
-     * See
-     * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
-     * for an example of using this object.
-     *
-     */
-    module.factory(
-        "Trigger",
-        ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
-            var R = Resource(
-                urlBase + "/Triggers/:id",
-                { 'id': '@id' },
-                {
-
-                    // INTERNAL. Use Trigger.rule() instead.
-                    "prototype$__get__rule": {
-                        url: urlBase + "/Triggers/:id/rule",
-                        method: "GET"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Trigger#create
-                     * @methodOf apiServices.Trigger
-                     *
-                     * @description
-                     *
-                     * Create a new instance of the model and persist it into the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *   This method does not accept any parameters.
-                     *   Supply an empty object or omit this argument altogether.
-                     *
-                     * @param {Object} postData Request data.
-                     *
-                     * This method expects a subset of model properties as request parameters.
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * <em>
-                     * (The remote method definition does not provide any description.
-                     * This usually means the response is a `Trigger` object.)
-                     * </em>
-                     */
-                    "create": {
-                        url: urlBase + "/Triggers",
-                        method: "POST"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Trigger#createMany
-                     * @methodOf apiServices.Trigger
-                     *
-                     * @description
-                     *
-                     * Create a new instance of the model and persist it into the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *   This method does not accept any parameters.
-                     *   Supply an empty object or omit this argument altogether.
-                     *
-                     * @param {Object} postData Request data.
-                     *
-                     * This method expects a subset of model properties as request parameters.
-                     *
-                     * @param {function(Array.<Object>,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Array.<Object>} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * <em>
-                     * (The remote method definition does not provide any description.
-                     * This usually means the response is a `Trigger` object.)
-                     * </em>
-                     */
-                    "createMany": {
-                        isArray: true,
-                        url: urlBase + "/Triggers",
-                        method: "POST"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Trigger#upsert
-                     * @methodOf apiServices.Trigger
-                     *
-                     * @description
-                     *
-                     * Update an existing model instance or insert a new one into the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *   This method does not accept any parameters.
-                     *   Supply an empty object or omit this argument altogether.
-                     *
-                     * @param {Object} postData Request data.
-                     *
-                     * This method expects a subset of model properties as request parameters.
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * <em>
-                     * (The remote method definition does not provide any description.
-                     * This usually means the response is a `Trigger` object.)
-                     * </em>
-                     */
-                    "upsert": {
-                        url: urlBase + "/Triggers",
-                        method: "PUT"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Trigger#exists
-                     * @methodOf apiServices.Trigger
-                     *
-                     * @description
-                     *
-                     * Check whether a model instance exists in the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *  - `id` â€“ `{*}` - Model id
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * Data properties:
-                     *
-                     *  - `exists` â€“ `{boolean=}` -
-                     */
-                    "exists": {
-                        url: urlBase + "/Triggers/:id/exists",
-                        method: "GET"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Trigger#findById
-                     * @methodOf apiServices.Trigger
-                     *
-                     * @description
-                     *
-                     * Find a model instance by id from the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *  - `id` â€“ `{*}` - Model id
-                     *
-                     *  - `filter` â€“ `{object=}` - Filter defining fields and include
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * <em>
-                     * (The remote method definition does not provide any description.
-                     * This usually means the response is a `Trigger` object.)
-                     * </em>
-                     */
-                    "findById": {
-                        url: urlBase + "/Triggers/:id",
-                        method: "GET"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Trigger#find
-                     * @methodOf apiServices.Trigger
-                     *
-                     * @description
-                     *
-                     * Find all instances of the model matched by filter from the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *  - `filter` â€“ `{object=}` - Filter defining fields, where, include, order, offset, and limit
-                     *
-                     * @param {function(Array.<Object>,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Array.<Object>} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * <em>
-                     * (The remote method definition does not provide any description.
-                     * This usually means the response is a `Trigger` object.)
-                     * </em>
-                     */
-                    "find": {
-                        isArray: true,
-                        url: urlBase + "/Triggers",
-                        method: "GET"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Trigger#findOne
-                     * @methodOf apiServices.Trigger
-                     *
-                     * @description
-                     *
-                     * Find first instance of the model matched by filter from the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *  - `filter` â€“ `{object=}` - Filter defining fields, where, include, order, offset, and limit
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * <em>
-                     * (The remote method definition does not provide any description.
-                     * This usually means the response is a `Trigger` object.)
-                     * </em>
-                     */
-                    "findOne": {
-                        url: urlBase + "/Triggers/findOne",
-                        method: "GET"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Trigger#updateAll
-                     * @methodOf apiServices.Trigger
-                     *
-                     * @description
-                     *
-                     * Update instances of the model matched by where from the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *  - `where` â€“ `{object=}` - Criteria to match model instances
-                     *
-                     * @param {Object} postData Request data.
-                     *
-                     * This method expects a subset of model properties as request parameters.
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * The number of instances updated
-                     */
-                    "updateAll": {
-                        url: urlBase + "/Triggers/update",
-                        method: "POST"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Trigger#deleteById
-                     * @methodOf apiServices.Trigger
-                     *
-                     * @description
-                     *
-                     * Delete a model instance by id from the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *  - `id` â€“ `{*}` - Model id
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * <em>
-                     * (The remote method definition does not provide any description.
-                     * This usually means the response is a `Trigger` object.)
-                     * </em>
-                     */
-                    "deleteById": {
-                        url: urlBase + "/Triggers/:id",
-                        method: "DELETE"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Trigger#count
-                     * @methodOf apiServices.Trigger
-                     *
-                     * @description
-                     *
-                     * Count instances of the model matched by where from the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *  - `where` â€“ `{object=}` - Criteria to match model instances
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * Data properties:
-                     *
-                     *  - `count` â€“ `{number=}` -
-                     */
-                    "count": {
-                        url: urlBase + "/Triggers/count",
-                        method: "GET"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Trigger#prototype$updateAttributes
-                     * @methodOf apiServices.Trigger
-                     *
-                     * @description
-                     *
-                     * Update attributes for a model instance and persist it into the data source.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *  - `id` â€“ `{*}` - PersistedModel id
-                     *
-                     * @param {Object} postData Request data.
-                     *
-                     * This method expects a subset of model properties as request parameters.
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * <em>
-                     * (The remote method definition does not provide any description.
-                     * This usually means the response is a `Trigger` object.)
-                     * </em>
-                     */
-                    "prototype$updateAttributes": {
-                        url: urlBase + "/Triggers/:id",
-                        method: "PUT"
-                    },
-
-                    /**
-                     * @ngdoc method
-                     * @name apiServices.Trigger#createChangeStream
-                     * @methodOf apiServices.Trigger
-                     *
-                     * @description
-                     *
-                     * Create a change stream.
-                     *
-                     * @param {Object=} parameters Request parameters.
-                     *
-                     *   This method does not accept any parameters.
-                     *   Supply an empty object or omit this argument altogether.
-                     *
-                     * @param {Object} postData Request data.
-                     *
-                     *  - `options` â€“ `{object=}` -
-                     *
-                     * @param {function(Object,Object)=} successCb
-                     *   Success callback with two arguments: `value`, `responseHeaders`.
-                     *
-                     * @param {function(Object)=} errorCb Error callback with one argument:
-                     *   `httpResponse`.
-                     *
-                     * @returns {Object} An empty reference that will be
-                     *   populated with the actual data once the response is returned
-                     *   from the server.
-                     *
-                     * Data properties:
-                     *
-                     *  - `changes` â€“ `{ReadableStream=}` -
-                     */
-                    "createChangeStream": {
-                        url: urlBase + "/Triggers/change-stream",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use Rule.triggers.findById() instead.
-                    "::findById::Rule::triggers": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/triggers/:fk",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Rule.triggers.destroyById() instead.
-                    "::destroyById::Rule::triggers": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/triggers/:fk",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Rule.triggers.updateById() instead.
-                    "::updateById::Rule::triggers": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/triggers/:fk",
-                        method: "PUT"
-                    },
-
-                    // INTERNAL. Use Rule.triggers() instead.
-                    "::get::Rule::triggers": {
-                        isArray: true,
-                        url: urlBase + "/Rules/:id/triggers",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Rule.triggers.create() instead.
-                    "::create::Rule::triggers": {
-                        url: urlBase + "/Rules/:id/triggers",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use Rule.triggers.createMany() instead.
-                    "::createMany::Rule::triggers": {
-                        isArray: true,
-                        url: urlBase + "/Rules/:id/triggers",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use Rule.triggers.destroyAll() instead.
-                    "::delete::Rule::triggers": {
-                        url: urlBase + "/Rules/:id/triggers",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Rule.triggers.count() instead.
-                    "::count::Rule::triggers": {
-                        url: urlBase + "/Rules/:id/triggers/count",
-                        method: "GET"
-                    },
-                }
-            );
-
-
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Trigger#updateOrCreate
-             * @methodOf apiServices.Trigger
-             *
-             * @description
-             *
-             * Update an existing model instance or insert a new one into the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Trigger` object.)
-             * </em>
-             */
-            R["updateOrCreate"] = R["upsert"];
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Trigger#update
-             * @methodOf apiServices.Trigger
-             *
-             * @description
-             *
-             * Update instances of the model matched by where from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `where` â€“ `{object=}` - Criteria to match model instances
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * The number of instances updated
-             */
-            R["update"] = R["updateAll"];
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Trigger#destroyById
-             * @methodOf apiServices.Trigger
-             *
-             * @description
-             *
-             * Delete a model instance by id from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - Model id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Trigger` object.)
-             * </em>
-             */
-            R["destroyById"] = R["deleteById"];
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Trigger#removeById
-             * @methodOf apiServices.Trigger
-             *
-             * @description
-             *
-             * Delete a model instance by id from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - Model id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Trigger` object.)
-             * </em>
-             */
-            R["removeById"] = R["deleteById"];
-
-
-            /**
-             * @ngdoc property
-             * @name apiServices.Trigger#modelName
-             * @propertyOf apiServices.Trigger
-             * @description
-             * The name of the model represented by this $resource,
-             * i.e. `Trigger`.
-             */
-            R.modelName = "Trigger";
-
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Trigger#rule
-             * @methodOf apiServices.Trigger
-             *
-             * @description
-             *
-             * Fetches belongsTo relation rule.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `refresh` â€“ `{boolean=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Rule` object.)
-             * </em>
-             */
-            R.rule = function() {
-                var TargetResource = $injector.get("Rule");
-                var action = TargetResource["::get::Trigger::rule"];
-                return action.apply(R, arguments);
-            };
 
             return R;
         }]);
@@ -14854,7 +11217,36 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
                 { 'id': '@id' },
                 {
 
-                    // INTERNAL. Use RuleInstance.listeners.findById() instead.
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleInstance#prototype$__findById__listeners
+                     * @methodOf apiServices.RuleInstance
+                     *
+                     * @description
+                     *
+                     * Find a related item by id for listeners.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - PersistedModel id
+                     *
+                     *  - `fk` â€“ `{*}` - Foreign key for listeners
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `RuleInstance` object.)
+                     * </em>
+                     */
                     "prototype$__findById__listeners": {
                         params: {
                             'fk': '@fk'
@@ -14863,7 +11255,33 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
                         method: "GET"
                     },
 
-                    // INTERNAL. Use RuleInstance.listeners.destroyById() instead.
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleInstance#prototype$__destroyById__listeners
+                     * @methodOf apiServices.RuleInstance
+                     *
+                     * @description
+                     *
+                     * Delete a related item by id for listeners.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - PersistedModel id
+                     *
+                     *  - `fk` â€“ `{*}` - Foreign key for listeners
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * This method returns no data.
+                     */
                     "prototype$__destroyById__listeners": {
                         params: {
                             'fk': '@fk'
@@ -14872,7 +11290,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
                         method: "DELETE"
                     },
 
-                    // INTERNAL. Use RuleInstance.listeners.updateById() instead.
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleInstance#prototype$__updateById__listeners
+                     * @methodOf apiServices.RuleInstance
+                     *
+                     * @description
+                     *
+                     * Update a related item by id for listeners.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - PersistedModel id
+                     *
+                     *  - `fk` â€“ `{*}` - Foreign key for listeners
+                     *
+                     * @param {Object} postData Request data.
+                     *
+                     * This method expects a subset of model properties as request parameters.
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `RuleInstance` object.)
+                     * </em>
+                     */
                     "prototype$__updateById__listeners": {
                         params: {
                             'fk': '@fk'
@@ -14881,7 +11332,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
                         method: "PUT"
                     },
 
-                    // INTERNAL. Use RuleInstance.listeners.link() instead.
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleInstance#prototype$__link__listeners
+                     * @methodOf apiServices.RuleInstance
+                     *
+                     * @description
+                     *
+                     * Add a related item by id for listeners.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - PersistedModel id
+                     *
+                     *  - `fk` â€“ `{*}` - Foreign key for listeners
+                     *
+                     * @param {Object} postData Request data.
+                     *
+                     * This method expects a subset of model properties as request parameters.
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `RuleInstance` object.)
+                     * </em>
+                     */
                     "prototype$__link__listeners": {
                         params: {
                             'fk': '@fk'
@@ -14890,7 +11374,33 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
                         method: "PUT"
                     },
 
-                    // INTERNAL. Use RuleInstance.listeners.unlink() instead.
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleInstance#prototype$__unlink__listeners
+                     * @methodOf apiServices.RuleInstance
+                     *
+                     * @description
+                     *
+                     * Remove the listeners relation to an item by id.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - PersistedModel id
+                     *
+                     *  - `fk` â€“ `{*}` - Foreign key for listeners
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * This method returns no data.
+                     */
                     "prototype$__unlink__listeners": {
                         params: {
                             'fk': '@fk'
@@ -14899,7 +11409,36 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
                         method: "DELETE"
                     },
 
-                    // INTERNAL. Use RuleInstance.listeners.exists() instead.
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleInstance#prototype$__exists__listeners
+                     * @methodOf apiServices.RuleInstance
+                     *
+                     * @description
+                     *
+                     * Check the existence of listeners relation to an item by id.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - PersistedModel id
+                     *
+                     *  - `fk` â€“ `{*}` - Foreign key for listeners
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `RuleInstance` object.)
+                     * </em>
+                     */
                     "prototype$__exists__listeners": {
                         params: {
                             'fk': '@fk'
@@ -14920,26 +11459,138 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
                         method: "GET"
                     },
 
-                    // INTERNAL. Use RuleInstance.listeners() instead.
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleInstance#prototype$__get__listeners
+                     * @methodOf apiServices.RuleInstance
+                     *
+                     * @description
+                     *
+                     * Queries listeners of RuleInstance.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - PersistedModel id
+                     *
+                     *  - `filter` â€“ `{object=}` -
+                     *
+                     * @param {function(Array.<Object>,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Array.<Object>} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `RuleInstance` object.)
+                     * </em>
+                     */
                     "prototype$__get__listeners": {
                         isArray: true,
                         url: urlBase + "/RuleInstances/:id/listeners",
                         method: "GET"
                     },
 
-                    // INTERNAL. Use RuleInstance.listeners.create() instead.
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleInstance#prototype$__create__listeners
+                     * @methodOf apiServices.RuleInstance
+                     *
+                     * @description
+                     *
+                     * Creates a new instance in listeners of this model.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - PersistedModel id
+                     *
+                     * @param {Object} postData Request data.
+                     *
+                     * This method expects a subset of model properties as request parameters.
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `RuleInstance` object.)
+                     * </em>
+                     */
                     "prototype$__create__listeners": {
                         url: urlBase + "/RuleInstances/:id/listeners",
                         method: "POST"
                     },
 
-                    // INTERNAL. Use RuleInstance.listeners.destroyAll() instead.
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleInstance#prototype$__delete__listeners
+                     * @methodOf apiServices.RuleInstance
+                     *
+                     * @description
+                     *
+                     * Deletes all listeners of this model.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - PersistedModel id
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * This method returns no data.
+                     */
                     "prototype$__delete__listeners": {
                         url: urlBase + "/RuleInstances/:id/listeners",
                         method: "DELETE"
                     },
 
-                    // INTERNAL. Use RuleInstance.listeners.count() instead.
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleInstance#prototype$__count__listeners
+                     * @methodOf apiServices.RuleInstance
+                     *
+                     * @description
+                     *
+                     * Counts listeners of RuleInstance.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - PersistedModel id
+                     *
+                     *  - `where` â€“ `{object=}` - Criteria to match model instances
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * Data properties:
+                     *
+                     *  - `count` â€“ `{number=}` -
+                     */
                     "prototype$__count__listeners": {
                         url: urlBase + "/RuleInstances/:id/listeners/count",
                         method: "GET"
@@ -15366,151 +12017,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
                         url: urlBase + "/RuleInstances/change-stream",
                         method: "POST"
                     },
-
-                    // INTERNAL. Use Listener.ruleInstances.findById() instead.
-                    "::findById::Listener::ruleInstances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Listeners/:id/ruleInstances/:fk",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.destroyById() instead.
-                    "::destroyById::Listener::ruleInstances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Listeners/:id/ruleInstances/:fk",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.updateById() instead.
-                    "::updateById::Listener::ruleInstances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Listeners/:id/ruleInstances/:fk",
-                        method: "PUT"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.link() instead.
-                    "::link::Listener::ruleInstances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Listeners/:id/ruleInstances/rel/:fk",
-                        method: "PUT"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.unlink() instead.
-                    "::unlink::Listener::ruleInstances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Listeners/:id/ruleInstances/rel/:fk",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.exists() instead.
-                    "::exists::Listener::ruleInstances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Listeners/:id/ruleInstances/rel/:fk",
-                        method: "HEAD"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances() instead.
-                    "::get::Listener::ruleInstances": {
-                        isArray: true,
-                        url: urlBase + "/Listeners/:id/ruleInstances",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.create() instead.
-                    "::create::Listener::ruleInstances": {
-                        url: urlBase + "/Listeners/:id/ruleInstances",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.createMany() instead.
-                    "::createMany::Listener::ruleInstances": {
-                        isArray: true,
-                        url: urlBase + "/Listeners/:id/ruleInstances",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.destroyAll() instead.
-                    "::delete::Listener::ruleInstances": {
-                        url: urlBase + "/Listeners/:id/ruleInstances",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Listener.ruleInstances.count() instead.
-                    "::count::Listener::ruleInstances": {
-                        url: urlBase + "/Listeners/:id/ruleInstances/count",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Rule.instances.findById() instead.
-                    "::findById::Rule::instances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/instances/:fk",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Rule.instances.destroyById() instead.
-                    "::destroyById::Rule::instances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/instances/:fk",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Rule.instances.updateById() instead.
-                    "::updateById::Rule::instances": {
-                        params: {
-                            'fk': '@fk'
-                        },
-                        url: urlBase + "/Rules/:id/instances/:fk",
-                        method: "PUT"
-                    },
-
-                    // INTERNAL. Use Rule.instances() instead.
-                    "::get::Rule::instances": {
-                        isArray: true,
-                        url: urlBase + "/Rules/:id/instances",
-                        method: "GET"
-                    },
-
-                    // INTERNAL. Use Rule.instances.create() instead.
-                    "::create::Rule::instances": {
-                        url: urlBase + "/Rules/:id/instances",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use Rule.instances.createMany() instead.
-                    "::createMany::Rule::instances": {
-                        isArray: true,
-                        url: urlBase + "/Rules/:id/instances",
-                        method: "POST"
-                    },
-
-                    // INTERNAL. Use Rule.instances.destroyAll() instead.
-                    "::delete::Rule::instances": {
-                        url: urlBase + "/Rules/:id/instances",
-                        method: "DELETE"
-                    },
-
-                    // INTERNAL. Use Rule.instances.count() instead.
-                    "::count::Rule::instances": {
-                        url: urlBase + "/Rules/:id/instances/count",
-                        method: "GET"
-                    },
                 }
             );
 
@@ -15653,416 +12159,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
              */
             R.modelName = "RuleInstance";
 
-            /**
-             * @ngdoc object
-             * @name apiServices.RuleInstance.listeners
-             * @header apiServices.RuleInstance.listeners
-             * @object
-             * @description
-             *
-             * The object `RuleInstance.listeners` groups methods
-             * manipulating `Listener` instances related to `RuleInstance`.
-             *
-             * Call {@link apiServices.RuleInstance#listeners RuleInstance.listeners()}
-             * to query all related instances.
-             */
-
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RuleInstance#listeners
-             * @methodOf apiServices.RuleInstance
-             *
-             * @description
-             *
-             * Queries listeners of RuleInstance.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `filter` â€“ `{object=}` -
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Listener` object.)
-             * </em>
-             */
-            R.listeners = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::get::RuleInstance::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RuleInstance.listeners#count
-             * @methodOf apiServices.RuleInstance.listeners
-             *
-             * @description
-             *
-             * Counts listeners of RuleInstance.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `where` â€“ `{object=}` - Criteria to match model instances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `count` â€“ `{number=}` -
-             */
-            R.listeners.count = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::count::RuleInstance::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RuleInstance.listeners#create
-             * @methodOf apiServices.RuleInstance.listeners
-             *
-             * @description
-             *
-             * Creates a new instance in listeners of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Listener` object.)
-             * </em>
-             */
-            R.listeners.create = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::create::RuleInstance::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RuleInstance.listeners#createMany
-             * @methodOf apiServices.RuleInstance.listeners
-             *
-             * @description
-             *
-             * Creates a new instance in listeners of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Listener` object.)
-             * </em>
-             */
-            R.listeners.createMany = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::createMany::RuleInstance::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RuleInstance.listeners#destroyAll
-             * @methodOf apiServices.RuleInstance.listeners
-             *
-             * @description
-             *
-             * Deletes all listeners of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            R.listeners.destroyAll = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::delete::RuleInstance::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RuleInstance.listeners#destroyById
-             * @methodOf apiServices.RuleInstance.listeners
-             *
-             * @description
-             *
-             * Delete a related item by id for listeners.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for listeners
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            R.listeners.destroyById = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::destroyById::RuleInstance::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RuleInstance.listeners#exists
-             * @methodOf apiServices.RuleInstance.listeners
-             *
-             * @description
-             *
-             * Check the existence of listeners relation to an item by id.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for listeners
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Listener` object.)
-             * </em>
-             */
-            R.listeners.exists = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::exists::RuleInstance::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RuleInstance.listeners#findById
-             * @methodOf apiServices.RuleInstance.listeners
-             *
-             * @description
-             *
-             * Find a related item by id for listeners.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for listeners
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Listener` object.)
-             * </em>
-             */
-            R.listeners.findById = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::findById::RuleInstance::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RuleInstance.listeners#link
-             * @methodOf apiServices.RuleInstance.listeners
-             *
-             * @description
-             *
-             * Add a related item by id for listeners.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for listeners
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Listener` object.)
-             * </em>
-             */
-            R.listeners.link = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::link::RuleInstance::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RuleInstance.listeners#unlink
-             * @methodOf apiServices.RuleInstance.listeners
-             *
-             * @description
-             *
-             * Remove the listeners relation to an item by id.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for listeners
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            R.listeners.unlink = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::unlink::RuleInstance::listeners"];
-                return action.apply(R, arguments);
-            };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RuleInstance.listeners#updateById
-             * @methodOf apiServices.RuleInstance.listeners
-             *
-             * @description
-             *
-             * Update a related item by id for listeners.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` â€“ `{*}` - PersistedModel id
-             *
-             *  - `fk` â€“ `{*}` - Foreign key for listeners
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Listener` object.)
-             * </em>
-             */
-            R.listeners.updateById = function() {
-                var TargetResource = $injector.get("Listener");
-                var action = TargetResource["::updateById::RuleInstance::listeners"];
-                return action.apply(R, arguments);
-            };
 
             /**
              * @ngdoc method
@@ -16133,6 +12229,682 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
             R.Rule = function() {
                 var TargetResource = $injector.get("Rule");
                 var action = TargetResource["::get::RuleInstance::Rule"];
+                return action.apply(R, arguments);
+            };
+
+            return R;
+        }]);
+
+    /**
+     * @ngdoc object
+     * @name apiServices.RuleHistory
+     * @header apiServices.RuleHistory
+     * @object
+     *
+     * @description
+     *
+     * A $resource object for interacting with the `RuleHistory` model.
+     *
+     * ## Example
+     *
+     * See
+     * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+     * for an example of using this object.
+     *
+     */
+    module.factory(
+        "RuleHistory",
+        ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
+            var R = Resource(
+                urlBase + "/RuleHistories/:id",
+                { 'id': '@id' },
+                {
+
+                    // INTERNAL. Use RuleHistory.author() instead.
+                    "prototype$__get__author": {
+                        url: urlBase + "/RuleHistories/:id/author",
+                        method: "GET"
+                    },
+
+                    // INTERNAL. Use RuleHistory.rule() instead.
+                    "prototype$__get__rule": {
+                        url: urlBase + "/RuleHistories/:id/rule",
+                        method: "GET"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleHistory#create
+                     * @methodOf apiServices.RuleHistory
+                     *
+                     * @description
+                     *
+                     * Create a new instance of the model and persist it into the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *   This method does not accept any parameters.
+                     *   Supply an empty object or omit this argument altogether.
+                     *
+                     * @param {Object} postData Request data.
+                     *
+                     * This method expects a subset of model properties as request parameters.
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `RuleHistory` object.)
+                     * </em>
+                     */
+                    "create": {
+                        url: urlBase + "/RuleHistories",
+                        method: "POST"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleHistory#createMany
+                     * @methodOf apiServices.RuleHistory
+                     *
+                     * @description
+                     *
+                     * Create a new instance of the model and persist it into the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *   This method does not accept any parameters.
+                     *   Supply an empty object or omit this argument altogether.
+                     *
+                     * @param {Object} postData Request data.
+                     *
+                     * This method expects a subset of model properties as request parameters.
+                     *
+                     * @param {function(Array.<Object>,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Array.<Object>} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `RuleHistory` object.)
+                     * </em>
+                     */
+                    "createMany": {
+                        isArray: true,
+                        url: urlBase + "/RuleHistories",
+                        method: "POST"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleHistory#upsert
+                     * @methodOf apiServices.RuleHistory
+                     *
+                     * @description
+                     *
+                     * Update an existing model instance or insert a new one into the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *   This method does not accept any parameters.
+                     *   Supply an empty object or omit this argument altogether.
+                     *
+                     * @param {Object} postData Request data.
+                     *
+                     * This method expects a subset of model properties as request parameters.
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `RuleHistory` object.)
+                     * </em>
+                     */
+                    "upsert": {
+                        url: urlBase + "/RuleHistories",
+                        method: "PUT"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleHistory#exists
+                     * @methodOf apiServices.RuleHistory
+                     *
+                     * @description
+                     *
+                     * Check whether a model instance exists in the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - Model id
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * Data properties:
+                     *
+                     *  - `exists` â€“ `{boolean=}` -
+                     */
+                    "exists": {
+                        url: urlBase + "/RuleHistories/:id/exists",
+                        method: "GET"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleHistory#findById
+                     * @methodOf apiServices.RuleHistory
+                     *
+                     * @description
+                     *
+                     * Find a model instance by id from the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - Model id
+                     *
+                     *  - `filter` â€“ `{object=}` - Filter defining fields and include
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `RuleHistory` object.)
+                     * </em>
+                     */
+                    "findById": {
+                        url: urlBase + "/RuleHistories/:id",
+                        method: "GET"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleHistory#find
+                     * @methodOf apiServices.RuleHistory
+                     *
+                     * @description
+                     *
+                     * Find all instances of the model matched by filter from the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `filter` â€“ `{object=}` - Filter defining fields, where, include, order, offset, and limit
+                     *
+                     * @param {function(Array.<Object>,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Array.<Object>} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `RuleHistory` object.)
+                     * </em>
+                     */
+                    "find": {
+                        isArray: true,
+                        url: urlBase + "/RuleHistories",
+                        method: "GET"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleHistory#findOne
+                     * @methodOf apiServices.RuleHistory
+                     *
+                     * @description
+                     *
+                     * Find first instance of the model matched by filter from the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `filter` â€“ `{object=}` - Filter defining fields, where, include, order, offset, and limit
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `RuleHistory` object.)
+                     * </em>
+                     */
+                    "findOne": {
+                        url: urlBase + "/RuleHistories/findOne",
+                        method: "GET"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleHistory#updateAll
+                     * @methodOf apiServices.RuleHistory
+                     *
+                     * @description
+                     *
+                     * Update instances of the model matched by where from the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `where` â€“ `{object=}` - Criteria to match model instances
+                     *
+                     * @param {Object} postData Request data.
+                     *
+                     * This method expects a subset of model properties as request parameters.
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * The number of instances updated
+                     */
+                    "updateAll": {
+                        url: urlBase + "/RuleHistories/update",
+                        method: "POST"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleHistory#deleteById
+                     * @methodOf apiServices.RuleHistory
+                     *
+                     * @description
+                     *
+                     * Delete a model instance by id from the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - Model id
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `RuleHistory` object.)
+                     * </em>
+                     */
+                    "deleteById": {
+                        url: urlBase + "/RuleHistories/:id",
+                        method: "DELETE"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleHistory#count
+                     * @methodOf apiServices.RuleHistory
+                     *
+                     * @description
+                     *
+                     * Count instances of the model matched by where from the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `where` â€“ `{object=}` - Criteria to match model instances
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * Data properties:
+                     *
+                     *  - `count` â€“ `{number=}` -
+                     */
+                    "count": {
+                        url: urlBase + "/RuleHistories/count",
+                        method: "GET"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleHistory#prototype$updateAttributes
+                     * @methodOf apiServices.RuleHistory
+                     *
+                     * @description
+                     *
+                     * Update attributes for a model instance and persist it into the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - PersistedModel id
+                     *
+                     * @param {Object} postData Request data.
+                     *
+                     * This method expects a subset of model properties as request parameters.
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `RuleHistory` object.)
+                     * </em>
+                     */
+                    "prototype$updateAttributes": {
+                        url: urlBase + "/RuleHistories/:id",
+                        method: "PUT"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.RuleHistory#createChangeStream
+                     * @methodOf apiServices.RuleHistory
+                     *
+                     * @description
+                     *
+                     * Create a change stream.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *   This method does not accept any parameters.
+                     *   Supply an empty object or omit this argument altogether.
+                     *
+                     * @param {Object} postData Request data.
+                     *
+                     *  - `options` â€“ `{object=}` -
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * Data properties:
+                     *
+                     *  - `changes` â€“ `{ReadableStream=}` -
+                     */
+                    "createChangeStream": {
+                        url: urlBase + "/RuleHistories/change-stream",
+                        method: "POST"
+                    },
+                }
+            );
+
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.RuleHistory#updateOrCreate
+             * @methodOf apiServices.RuleHistory
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RuleHistory` object.)
+             * </em>
+             */
+            R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.RuleHistory#update
+             * @methodOf apiServices.RuleHistory
+             *
+             * @description
+             *
+             * Update instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` â€“ `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+            R["update"] = R["updateAll"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.RuleHistory#destroyById
+             * @methodOf apiServices.RuleHistory
+             *
+             * @description
+             *
+             * Delete a model instance by id from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` â€“ `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RuleHistory` object.)
+             * </em>
+             */
+            R["destroyById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.RuleHistory#removeById
+             * @methodOf apiServices.RuleHistory
+             *
+             * @description
+             *
+             * Delete a model instance by id from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` â€“ `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RuleHistory` object.)
+             * </em>
+             */
+            R["removeById"] = R["deleteById"];
+
+
+            /**
+             * @ngdoc property
+             * @name apiServices.RuleHistory#modelName
+             * @propertyOf apiServices.RuleHistory
+             * @description
+             * The name of the model represented by this $resource,
+             * i.e. `RuleHistory`.
+             */
+            R.modelName = "RuleHistory";
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.RuleHistory#author
+             * @methodOf apiServices.RuleHistory
+             *
+             * @description
+             *
+             * Fetches belongsTo relation author.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` â€“ `{*}` - PersistedModel id
+             *
+             *  - `refresh` â€“ `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Admin` object.)
+             * </em>
+             */
+            R.author = function() {
+                var TargetResource = $injector.get("Admin");
+                var action = TargetResource["::get::RuleHistory::author"];
+                return action.apply(R, arguments);
+            };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.RuleHistory#rule
+             * @methodOf apiServices.RuleHistory
+             *
+             * @description
+             *
+             * Fetches belongsTo relation rule.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` â€“ `{*}` - PersistedModel id
+             *
+             *  - `refresh` â€“ `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Rule` object.)
+             * </em>
+             */
+            R.rule = function() {
+                var TargetResource = $injector.get("Rule");
+                var action = TargetResource["::get::RuleHistory::rule"];
                 return action.apply(R, arguments);
             };
 
@@ -19175,6 +15947,640 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' && module.ex
             R.level = function() {
                 var TargetResource = $injector.get("Level");
                 var action = TargetResource["::get::ScoreUnitSummary::level"];
+                return action.apply(R, arguments);
+            };
+
+            return R;
+        }]);
+
+    /**
+     * @ngdoc object
+     * @name apiServices.Segment
+     * @header apiServices.Segment
+     * @object
+     *
+     * @description
+     *
+     * A $resource object for interacting with the `Segment` model.
+     *
+     * ## Example
+     *
+     * See
+     * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+     * for an example of using this object.
+     *
+     */
+    module.factory(
+        "Segment",
+        ['LoopBackResource', 'LoopBackAuth', '$injector', function(Resource, LoopBackAuth, $injector) {
+            var R = Resource(
+                urlBase + "/Segments/:id",
+                { 'id': '@id' },
+                {
+
+                    // INTERNAL. Use Segment.product() instead.
+                    "prototype$__get__product": {
+                        url: urlBase + "/Segments/:id/product",
+                        method: "GET"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.Segment#create
+                     * @methodOf apiServices.Segment
+                     *
+                     * @description
+                     *
+                     * Create a new instance of the model and persist it into the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *   This method does not accept any parameters.
+                     *   Supply an empty object or omit this argument altogether.
+                     *
+                     * @param {Object} postData Request data.
+                     *
+                     * This method expects a subset of model properties as request parameters.
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `Segment` object.)
+                     * </em>
+                     */
+                    "create": {
+                        url: urlBase + "/Segments",
+                        method: "POST"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.Segment#createMany
+                     * @methodOf apiServices.Segment
+                     *
+                     * @description
+                     *
+                     * Create a new instance of the model and persist it into the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *   This method does not accept any parameters.
+                     *   Supply an empty object or omit this argument altogether.
+                     *
+                     * @param {Object} postData Request data.
+                     *
+                     * This method expects a subset of model properties as request parameters.
+                     *
+                     * @param {function(Array.<Object>,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Array.<Object>} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `Segment` object.)
+                     * </em>
+                     */
+                    "createMany": {
+                        isArray: true,
+                        url: urlBase + "/Segments",
+                        method: "POST"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.Segment#upsert
+                     * @methodOf apiServices.Segment
+                     *
+                     * @description
+                     *
+                     * Update an existing model instance or insert a new one into the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *   This method does not accept any parameters.
+                     *   Supply an empty object or omit this argument altogether.
+                     *
+                     * @param {Object} postData Request data.
+                     *
+                     * This method expects a subset of model properties as request parameters.
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `Segment` object.)
+                     * </em>
+                     */
+                    "upsert": {
+                        url: urlBase + "/Segments",
+                        method: "PUT"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.Segment#exists
+                     * @methodOf apiServices.Segment
+                     *
+                     * @description
+                     *
+                     * Check whether a model instance exists in the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - Model id
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * Data properties:
+                     *
+                     *  - `exists` â€“ `{boolean=}` -
+                     */
+                    "exists": {
+                        url: urlBase + "/Segments/:id/exists",
+                        method: "GET"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.Segment#findById
+                     * @methodOf apiServices.Segment
+                     *
+                     * @description
+                     *
+                     * Find a model instance by id from the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - Model id
+                     *
+                     *  - `filter` â€“ `{object=}` - Filter defining fields and include
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `Segment` object.)
+                     * </em>
+                     */
+                    "findById": {
+                        url: urlBase + "/Segments/:id",
+                        method: "GET"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.Segment#find
+                     * @methodOf apiServices.Segment
+                     *
+                     * @description
+                     *
+                     * Find all instances of the model matched by filter from the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `filter` â€“ `{object=}` - Filter defining fields, where, include, order, offset, and limit
+                     *
+                     * @param {function(Array.<Object>,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Array.<Object>} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `Segment` object.)
+                     * </em>
+                     */
+                    "find": {
+                        isArray: true,
+                        url: urlBase + "/Segments",
+                        method: "GET"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.Segment#findOne
+                     * @methodOf apiServices.Segment
+                     *
+                     * @description
+                     *
+                     * Find first instance of the model matched by filter from the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `filter` â€“ `{object=}` - Filter defining fields, where, include, order, offset, and limit
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `Segment` object.)
+                     * </em>
+                     */
+                    "findOne": {
+                        url: urlBase + "/Segments/findOne",
+                        method: "GET"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.Segment#updateAll
+                     * @methodOf apiServices.Segment
+                     *
+                     * @description
+                     *
+                     * Update instances of the model matched by where from the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `where` â€“ `{object=}` - Criteria to match model instances
+                     *
+                     * @param {Object} postData Request data.
+                     *
+                     * This method expects a subset of model properties as request parameters.
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * The number of instances updated
+                     */
+                    "updateAll": {
+                        url: urlBase + "/Segments/update",
+                        method: "POST"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.Segment#deleteById
+                     * @methodOf apiServices.Segment
+                     *
+                     * @description
+                     *
+                     * Delete a model instance by id from the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - Model id
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `Segment` object.)
+                     * </em>
+                     */
+                    "deleteById": {
+                        url: urlBase + "/Segments/:id",
+                        method: "DELETE"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.Segment#count
+                     * @methodOf apiServices.Segment
+                     *
+                     * @description
+                     *
+                     * Count instances of the model matched by where from the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `where` â€“ `{object=}` - Criteria to match model instances
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * Data properties:
+                     *
+                     *  - `count` â€“ `{number=}` -
+                     */
+                    "count": {
+                        url: urlBase + "/Segments/count",
+                        method: "GET"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.Segment#prototype$updateAttributes
+                     * @methodOf apiServices.Segment
+                     *
+                     * @description
+                     *
+                     * Update attributes for a model instance and persist it into the data source.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *  - `id` â€“ `{*}` - PersistedModel id
+                     *
+                     * @param {Object} postData Request data.
+                     *
+                     * This method expects a subset of model properties as request parameters.
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * <em>
+                     * (The remote method definition does not provide any description.
+                     * This usually means the response is a `Segment` object.)
+                     * </em>
+                     */
+                    "prototype$updateAttributes": {
+                        url: urlBase + "/Segments/:id",
+                        method: "PUT"
+                    },
+
+                    /**
+                     * @ngdoc method
+                     * @name apiServices.Segment#createChangeStream
+                     * @methodOf apiServices.Segment
+                     *
+                     * @description
+                     *
+                     * Create a change stream.
+                     *
+                     * @param {Object=} parameters Request parameters.
+                     *
+                     *   This method does not accept any parameters.
+                     *   Supply an empty object or omit this argument altogether.
+                     *
+                     * @param {Object} postData Request data.
+                     *
+                     *  - `options` â€“ `{object=}` -
+                     *
+                     * @param {function(Object,Object)=} successCb
+                     *   Success callback with two arguments: `value`, `responseHeaders`.
+                     *
+                     * @param {function(Object)=} errorCb Error callback with one argument:
+                     *   `httpResponse`.
+                     *
+                     * @returns {Object} An empty reference that will be
+                     *   populated with the actual data once the response is returned
+                     *   from the server.
+                     *
+                     * Data properties:
+                     *
+                     *  - `changes` â€“ `{ReadableStream=}` -
+                     */
+                    "createChangeStream": {
+                        url: urlBase + "/Segments/change-stream",
+                        method: "POST"
+                    },
+                }
+            );
+
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Segment#updateOrCreate
+             * @methodOf apiServices.Segment
+             *
+             * @description
+             *
+             * Update an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Segment` object.)
+             * </em>
+             */
+            R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Segment#update
+             * @methodOf apiServices.Segment
+             *
+             * @description
+             *
+             * Update instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` â€“ `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+            R["update"] = R["updateAll"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Segment#destroyById
+             * @methodOf apiServices.Segment
+             *
+             * @description
+             *
+             * Delete a model instance by id from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` â€“ `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Segment` object.)
+             * </em>
+             */
+            R["destroyById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Segment#removeById
+             * @methodOf apiServices.Segment
+             *
+             * @description
+             *
+             * Delete a model instance by id from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` â€“ `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Segment` object.)
+             * </em>
+             */
+            R["removeById"] = R["deleteById"];
+
+
+            /**
+             * @ngdoc property
+             * @name apiServices.Segment#modelName
+             * @propertyOf apiServices.Segment
+             * @description
+             * The name of the model represented by this $resource,
+             * i.e. `Segment`.
+             */
+            R.modelName = "Segment";
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Segment#product
+             * @methodOf apiServices.Segment
+             *
+             * @description
+             *
+             * Fetches belongsTo relation product.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` â€“ `{*}` - PersistedModel id
+             *
+             *  - `refresh` â€“ `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Product` object.)
+             * </em>
+             */
+            R.product = function() {
+                var TargetResource = $injector.get("Product");
+                var action = TargetResource["::get::Segment::product"];
                 return action.apply(R, arguments);
             };
 
