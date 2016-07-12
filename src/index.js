@@ -40,7 +40,7 @@ import './common/services/angular-sdk.js';
 
             //Modules
             require('./modules/base').default,
-            require('./common').default,
+            //require('./common').default,
 
             //Widgets
             require('./modules/widgets/widget-full').default,
@@ -62,6 +62,8 @@ import './common/services/angular-sdk.js';
             require('./modules/widgets/widget-call-to-action').default,
             require('./modules/widgets/widget-awards-list').default,
             require('./modules/widgets/widget-member-login-register').default,
+            require('./modules/widgets/widget-member-register').default,
+            require('./modules/widgets/widget-member-login').default,
             require('./modules/widgets/widget-badges-list').default,
             require('./modules/widgets/widget-badges-grid').default
         ]).service('viewHandler', require('./common/services/viewHandler').default)

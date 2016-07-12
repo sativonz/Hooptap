@@ -16,23 +16,33 @@ export default($rootScope,Customer,LoopBackAuth) => ({
     link:(scope, element, attrs)=>{
         var token;
         function getCurrent(){
-            Customer.getCurrent().$promise.then((response)=>{
-                $rootScope.customer = response;
-                $rootScope.logged = true;
-            });
+            Customer.getCurrent().$promise
+                .then((response)=>{
+                    $rootScope.customer = response;
+                    $rootScope.logged = true;
+                });
         }
         $rootScope.logged = false;
         if(LoopBackAuth.rememberMe){
             getCurrent();
         }
         scope.login = ()=>{
+
+            Customer.logout();
+
             //TODO Cambiar email y password por modelos de inputs
             Customer.login({
                 "email": scope.email,
                 "password": scope.password
-            }).$promise.then((response)=> {
-                getCurrent();
-            });
+            }).$promise
+                .then((response)=> {
+                    getCurrent();
+                    alert("Logeo realizado con exito");
+                })
+                .catch((error)=>{
+                });
+
+
         };
 
     }
