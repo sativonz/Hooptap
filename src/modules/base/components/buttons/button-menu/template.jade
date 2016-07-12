@@ -1,33 +1,15 @@
-div.button--menu.open-menu(id="button-menu")
-    a(href="" id="toggle" ng-click="toggleDropdown()") Menu
-    span
-    div(id="menu" ng-show="showDropdown === true")
+div#button-menu
+    div.nav-icon(id="toggle" ng-click="toggleDropdown()")
+        span
+        span
+        span
+        span
+    div#menu
         ul
             li(ng-repeat="item in value" ng-click="hideMenu()")
                 a(ng-click="$root.setCurrentView(item.view)") {{item.title}}
             li
                 a(ng-if="logout" ng-click="logout()") Logout
-
-
-
-//div.button--menu.open-menu(id="button-menu")
-//    a(id="toggle")
-//        span
-//    div(id="menu")
-//        uib-tabset.tabset-menu(active="active")
-//            uib-tab.link-go-register--form(index="0" heading="Home")
-//                c-profile-widget-full(image="http://static.avivamiento.com/img/profile.png" email="fernandogarcia@gmail.com" type="type" dynamic="dynamic")
-//            uib-tab.link-go-register--form(index="$index + 1" heading="Quests")
-//                c-quests-list
-//            uib-tab.link-go-register--form(index="$index + 2" heading="Ranking" )
-//                c-ranking-total
-//            uib-tab.link-go-register--form(index="$index + 3" heading="Editar" )
-//                c-member-register
-//            uib-tab.link-go-register--form(index="$index + 4" heading="Logout" )
-//                c-member-register
-
-
-
 
 
 

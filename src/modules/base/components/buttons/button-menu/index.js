@@ -16,19 +16,49 @@ export default(Customer, $rootScope) => ({
     },
     template,
     link: (scope, element, attrs)=>{
-        scope.showDropdown = false;
-        scope.toggleDropdown = (event)=>{
-            scope.showDropdown = !scope.showDropdown;
-        };
         scope.logout = () => {
             Customer.logout();
             $rootScope.view = "";
             $rootScope.logged = false;
         };
 
-        scope.hideMenu = () => {
-            scope.showDropdown =  false;
-        }
+        //
+        // $rootScope.hideMenu = () => {
+        //     $('#button-menu').removeClass('open-menu').toggleClass('close-menu');
+        //     $('.nav-icon').toggleClass('open');
+        // }
+        //
+        // scope.toggleDropdown = ()=>{
+        //     $('#button-menu').toggleClass('open-menu');
+        //     $('.nav-icon').toggleClass('open');
+        // };
+
+
+
+        var $nav_icon = $('.nav-icon');
+        var $mnu = $('#menu');
+        var $btn_mnu = $('#button-menu');
+
+        $nav_icon
+            .click( function(e) {
+                $btn_mnu.toggleClass('open-menu');
+            });
+        //TODO No funciona el metodo blur... Revisar......
+        $mnu
+            .on( 'blur focusout click', function(e) {
+                $btn_mnu.removeClass('open-menu');
+            });
+
+        $("#ht-widget").hover(function() {
+            $btn_mnu.removeClass('open-menu');
+        
+        });
+
+
+
+
+
+
     }
 
 

@@ -15,7 +15,7 @@
 				//TODO Cambiar href, es provisional porque no está acabada la web nueva
 				a(href="http://new.hooptap.com/en/terms-conditions/" target="_blank") Acepto los términos y condiciones.
 		.ht-form__group-link
-			a(href='#' ng-click='$rootScope.goResetForm = true;') Reset password
+			a(href='#' ng-click='$root.goResetForm = true;') Reset password
 		button.ht-form--button__login(type='button' ng-disabled="!checkboxEnableRegister" ng-click='login()')
 			| Login
 			.ht-form__ripples.buttonRipples
