@@ -10,6 +10,7 @@ import 'angular-resource';
 import 'angular-animate';
 import 'valdr';
 import 'valdr/valdr-message';
+import './common/vendor/animate.css';
 import tabs from 'angular-ui-bootstrap/src/tabs';
 import progressBar from 'angular-ui-bootstrap/src/progressbar';
 
@@ -36,6 +37,7 @@ import './common/services/angular-sdk.js';
             progressBar,
             'valdr',
             //Plugins
+
             //SDK Services
             //SDK Loopback services
             'apiServices',

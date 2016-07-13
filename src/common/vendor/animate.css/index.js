@@ -1,0 +1,3 @@
+
+
+import './animate.min.css';
