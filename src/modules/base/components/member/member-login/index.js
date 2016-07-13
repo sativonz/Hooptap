@@ -15,11 +15,6 @@ export default($rootScope,Customer,LoopBackAuth) => ({
     template,
     link:(scope, element, attrs)=>{
 
-   /*     console.log(scope.htFormLogin);
-        if($('input.htEmailInput').hasClass('ng-invalid-email')){
-            alert("asdfasdf");
-        };*/
-
         var token;
         function getCurrent(){
             Customer.getCurrent().$promise
@@ -32,6 +27,7 @@ export default($rootScope,Customer,LoopBackAuth) => ({
         if(LoopBackAuth.rememberMe){
             getCurrent();
         }
+        
         scope.login = ()=>{
 
             Customer.logout();

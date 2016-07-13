@@ -1,11 +1,11 @@
 .ht-wrapper--register__form
     c-button-close
-    form.ht-form.ht-form--register(name="htFormRegister" ng-show='!$root.goActivateForm')
-        .ht-form__group
+    form.ht-form.ht-form--register(name="htFormRegister" ng-show='!$root.goActivateForm' valdr-type="CustomerRegister")
+        .ht-form__group(valdr-form-group)
             input.ht-form__input(ng-model='username' type='text' name="name" placeholder="Nombre")
             span.ht-form__highlight
             span.ht-form__bar
-        .ht-form__group
+        .ht-form__group(valdr-form-group)
             input.ht-form__input(ng-model='email' type='email' name="email" placeholder="Email")
             span.ht-form__highlight
             span.ht-form__bar

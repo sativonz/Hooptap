@@ -1,12 +1,12 @@
 .ht-wrapper--login__form
 	c-button-close
-	form.ht-form.ht-form--login(name="htFormLogin" ng-show='!$root.goResetForm' valdr-type="Customer")
+	form.ht-form.ht-form--login(name="htFormLogin" ng-show='!$root.goResetForm' valdr-type="CustomerLogin")
 		.ht-form__group(valdr-form-group)
-			input.ht-form__input(ng-model='email' id="customerEmail" type='text' name="email" placeholder="Email")
+			input.ht-form__input.htFormLogin-email(ng-model='email' type='email' name="email" placeholder="Email")
 			span.ht-form__highlight
 			span.ht-form__bar
 		.ht-form__group
-			input.ht-form__input(ng-model='password' type='password' name="password" placeholder="Contraseña")
+			input.ht-form__input.htFormLogin-pass(ng-model='password' type='password' name="password" placeholder="Contraseña")
 			span.ht-form__highlight
 			span.ht-form__bar
 		.ht-form__group-terms
