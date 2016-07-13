@@ -40,6 +40,7 @@ import './common/services/angular-sdk.js';
 
             //Modules
             require('./modules/base').default,
+            require('./common/plugins/greeting').default,
 
             //Widgets
             require('./modules/widgets/widget-full').default,
