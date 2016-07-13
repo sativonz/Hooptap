@@ -1,0 +1,196 @@
+@charset "UTF-8";
+
+@font-face {
+  font-family: "hooptap-font";
+  src:url("../fonts/hooptap-fonticons/hooptap-font.eot");
+  src:url("../fonts/hooptap-fonticons/hooptap-font.eot?#iefix") format("embedded-opentype"),
+  url("../fonts/hooptap-fonticons/hooptap-font.woff") format("woff"),
+  url("../fonts/hooptap-fonticons/hooptap-font.ttf") format("truetype"),
+  url("../fonts/hooptap-fonticons/hooptap-font.svg#hooptap-font") format("svg");
+  font-weight: normal;
+  font-style: normal;
+
+}
+
+[data-icon]:before {
+  font-family: "hooptap-font" !important;
+  content: attr(data-icon);
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+[class^="ic-"]:before,
+[class*=" ic-"]:before {
+  font-family: "hooptap-font" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ic-action:before {
+  content: "\61";
+}
+.ic-client:before {
+  content: "\62";
+}
+.ic-lesson:before {
+  content: "\63";
+}
+.ic-rules:before {
+  content: "\64";
+}
+.ic-second-screen:before {
+  content: "\65";
+}
+.ic-level:before {
+  content: "\66";
+}
+.ic-custom:before {
+  content: "\67";
+}
+.ic-add-folder:before {
+  content: "\68";
+}
+.ic-add-item:before {
+  content: "\69";
+}
+.ic-edit:before {
+  content: "\6a";
+}
+.ic-link:before {
+  content: "\6b";
+}
+.ic-segment:before {
+  content: "\6c";
+}
+.ic-settings:before {
+  content: "\6d";
+}
+.ic-login:before {
+  content: "\6e";
+}
+.ic-folder:before {
+  content: "\6f";
+}
+.ic-analytics:before {
+  content: "\70";
+}
+.ic-audio:before {
+  content: "\71";
+}
+.ic-full:before {
+  content: "\72";
+}
+.ic-logout:before {
+  content: "\73";
+}
+.ic-share:before {
+  content: "\74";
+}
+.ic-star:before {
+  content: "\75";
+}
+.ic-news:before {
+  content: "\76";
+}
+.ic-game:before {
+  content: "\77";
+}
+.ic-badge:before {
+  content: "\78";
+}
+.ic-banner:before {
+  content: "\79";
+}
+.ic-gift:before {
+  content: "\7a";
+}
+.ic-poll:before {
+  content: "\41";
+}
+.ic-text:before {
+  content: "\42";
+}
+.ic-style:before {
+  content: "\43";
+}
+.ic-good:before {
+  content: "\44";
+}
+.ic-book:before {
+  content: "\45";
+}
+.ic-puzzle:before {
+  content: "\46";
+}
+.ic-quest:before {
+  content: "\47";
+}
+.ic-guides:before {
+  content: "\48";
+}
+.ic-brand:before {
+  content: "\49";
+}
+.ic-user:before {
+  content: "\4a";
+}
+.ic-video:before {
+  content: "\4b";
+}
+.ic-quiz:before {
+  content: "\4c";
+}
+.ic-home:before {
+  content: "\4d";
+}
+.ic-buy:before {
+  content: "\4e";
+}
+.ic-check:before {
+  content: "\4f";
+}
+.ic-image:before {
+  content: "\50";
+}
+.ic-read:before {
+  content: "\51";
+}
+.ic-visit:before {
+  content: "\52";
+}
+.ic-visit-detail:before {
+  content: "\53";
+}
+.ic-register:before {
+  content: "\54";
+}
+.ic-info:before {
+  content: "\55";
+}
+.ic-check-o:before {
+  content: "\56";
+}
+.ic-click:before {
+  content: "\57";
+}
+.ic-item:before {
+  content: "\58";
+}
+.ic-reward:before {
+  content: "\59";
+}
+.ic-step:before {
+  content: "\5a";
+}

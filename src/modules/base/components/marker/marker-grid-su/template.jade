@@ -1,0 +1,14 @@
+.ht-marker--list-su__container
+    .row.itemow__badges-list__container
+        .marker--list-su__wrapper(ng-repeat="su in customer.scoreUnit" id="item-grid-su-{{$index +1}}" ng-class="{'col-xs-{{colWidth}}': true}")
+            .marker--list-su__img
+                img(ng-src="{{su.img}}")
+            .marker--list-su__type {{su.quantity}} {{su.name}}
+
+
+
+
+
+
+
+

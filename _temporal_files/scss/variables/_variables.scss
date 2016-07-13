@@ -1,0 +1,32 @@
+$green			: #1FB570;
+$red    		: #E06F6F;
+$blue       	: #7AA6FD;
+$black			: #455a64;
+$yellow         : #FBCB32;
+$orange			: #FD9902;
+
+$c_text	 		: #455a64;
+$c_text_light	: #90a4ae;
+$border     	: #DDE1E3;
+$c_icon		 	: #B4BDC1;
+$bg_widget		: #fff;
+
+$bg_btn 		: $green;
+$bg_badge_points: $green;
+$bg_image		: $c_text;
+$bg_level_label : $c_text_light;
+$bg_ranking_user_points		: $c_text_light;
+$bg_ranking_user_position	: $c_text;
+
+// --z-index
+$z-popover-points	:10000000000001;
+$z-container	 	:10000000000000;
+$z-button		 	: 9999999999999;
+
+
+
+$mobile  : 768px;
+$tablet  : 768px;
+$desktop : 992px;
+$large   : 1200px;
+

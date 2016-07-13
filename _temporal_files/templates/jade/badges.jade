@@ -1,0 +1,16 @@
+- var numberBadges = 4;
+- var TwoColumns = false;
+- var ThreeColumns = true;
+- var FourColumns = false;
+- var FiveColumns = false;
+- var SixColumns = false;
+
+div.badges-wrapper
+	div.container-col-badges
+		- for (var i = 1; i < numberBadges; ++i)
+			if ThreeColumns
+				div.one-third-col(class='badge-container-'+i)
+					each val in [1, 2, 3]
+						span(class='badge-img'+val)
+						div.badges-wrapper-title
+						span.title_badge El curioso

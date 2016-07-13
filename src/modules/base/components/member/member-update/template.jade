@@ -1,0 +1,18 @@
+.ht-wrapper--update__form
+	c-button-close
+	form.ht-form.ht-form--update(name="ht-form__login")
+		p Update your account
+		.ht-form__group
+			input.ht-form__input(ng-model='email' type='text' name="email" placeholder="Email")
+			span.ht-form__highlight
+			span.ht-form__bar
+		.ht-form__group
+			input.ht-form__input(ng-model='password' type='password' name="password" placeholder="Contraseña")
+			span.ht-form__highlight
+			span.ht-form__bar
+		//.ht-form__group
+			a(href='#' ng-click='goResetForm = !goResetForm') Reset password
+		button.ht-form--button__update(type='button' ng-click='userUpdate()')
+			| Update
+			.ht-form__ripples.buttonRipples
+				span.ht-form__ripplesCircle

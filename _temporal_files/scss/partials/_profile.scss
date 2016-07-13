@@ -1,0 +1,243 @@
+$imageWidth : 100px;
+.profile{
+  /*padding: 10px 12px 10px;
+  background-color: #fff;
+  overflow: hidden;
+  box-shadow: 0 0 3px rgba(0,0,0,.2);
+  border-radius: 5px;
+  margin-top: 7px;*/
+
+  .profile--image--holder{
+	position: relative;
+	.profile--image{
+	  width: $imageWidth;
+	  height: $imageWidth;
+	  border:2px solid $border;
+	  border-radius: 50%;
+	  display: block;
+	  margin: 0 auto;
+
+	  background-size: contain;
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  background-color: $border;
+	}
+  }
+  .info--name{
+	width: 100%;
+	text-align: center;
+	margin-top: 6px;
+	font-weight: 500;
+	font-size: 15px;
+	line-height: 1.8;
+  }
+  .info--level{
+	text-align: center;
+	font-size: 11px;
+	font-weight: 900;
+	background: $bg_level_label;
+	border-radius: 4px;
+	padding: 0px 6px;
+	color: #fff;
+	display: table;
+	margin: 0 auto;
+  }
+  .info--holder{
+	display: -ms-flex;
+	display: -webkit-flex;
+	display: flex;
+
+	.info{
+	  width: 50%;
+	  padding: 2px;
+
+	  font-weight: bold;
+	  text-align: center;
+	  display: inline-block;
+	  margin-top: 4px;
+	  font-size: 12px;
+	}
+    .info--label {
+      display: block;
+      font-size: 12px;
+      text-transform: uppercase;
+	  margin-bottom: 4px;
+      color: $c_text_light;
+	  line-height: 16px;
+    }
+	.info--data{
+	  display: inline-block;
+	  width: 100%;
+
+	  &:hover .tooltip--wrap:not(:first-child){
+		margin-left: -5px;
+		@include transition(all 0.2s ease-in);
+	  }
+	}
+	.info--image-badge {
+	  width: 20px;
+	  display: inline-block;
+	  @include transition(all 0.2s ease-in);
+	  &:hover{
+		transform: scale(1.2);
+		z-index: 10000;
+		position: inherit;
+		@include transition(all 0.2s ease-in);
+	  }
+	}
+  }
+}
+
+
+
+// --INPUT FILE IMAGE
+.profile--image--input--holder{
+  position: absolute;
+  width: 100%;
+  height: $imageWidth;
+}
+.fileUpload {
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  width: $imageWidth;
+  height: $imageWidth;
+  margin: 0 auto;
+  background: rgba($bg_image, 0.25);
+  border-radius: 50%;
+  @include transition(all 0.2s ease-in);
+  &[data-self="true"]:hover{
+	  opacity: 1;
+	  @include transition(all 0.2s ease-in);
+	  input.upload{
+		cursor: pointer;
+		pointer-events: auto;
+	  }
+  }
+
+  > .icon--upload--holder{
+	height: $imageWidth;
+	padding-top: 30px;
+	fill: #fff;
+  }
+}
+.fileUpload input.upload {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  height: 100px;
+  width: 100px;
+}
+
+// --TOOLTIP
+.tooltip--wrap{
+  display: inline-block;
+  position: relative;
+  @include transition(all 0.2s ease-in);
+  &:not(:first-child){
+	margin-left: -10px;
+	@include transition(all 0.2s ease-in);
+  }
+
+  span{
+	visibility: hidden;
+	display: none;
+	position: absolute;
+	top: -28px;
+	left: -150%;
+	background: $black;
+	border-radius: 4px;
+	padding: 2px 8px 3px 8px;
+	white-space: nowrap;
+	color: #fff;
+	font-size: 10px;
+
+	&:after {
+	  content: '';
+	  position: absolute;
+	  top: 100%;
+	  left: 50%;
+	  margin-left: -4px;
+	  width: 0;
+	  height: 0;
+	  border-top: 4px solid $black;
+	  border-right: 6px solid transparent;
+	  border-left: 6px solid transparent;
+	}
+
+  }
+  &:hover span {
+	visibility: visible;
+	display: initial;
+
+	-webkit-animation: tooltip-anim 0.5s ease-in-out; /* Safari 4+ */
+	-moz-animation:    tooltip-anim 0.5s ease-in-out; /* Fx 5+ */
+	-o-animation:      tooltip-anim 0.5s ease-in-out; /* Opera 12+ */
+	animation:         tooltip-anim 0.5s ease-in-out; /* IE 10+, Fx 29+ */
+	animation:         tooltip-anim 0.5s ease-in-out; /* IE 10+, Fx 29+ */
+
+	-webkit-animation-fill-mode: forwards; /* Chrome, Safari, Opera */
+	animation-fill-mode: forwards;
+
+  }
+}
+
+
+.v-divider{
+  width: 1px;
+  height: 20px;
+  background: $border;
+  display: inline-block;
+  margin-top: 30px;
+}
+
+
+// --Activity BTN
+
+.activity--btn{
+  padding: 2px 15px;
+  font-size: 11px;
+  border-radius: 30px;
+  border: 1px solid $border;
+  color: #999;
+  display: inline-block;
+  margin: 0 auto;
+  text-align: center;
+  cursor: pointer;
+  @include transition(all 0.2s ease-in);
+  &:hover{
+	color: $c_text_light;
+	fill: $c_text;
+	@include transition(all 0.2s ease-in);
+  }
+
+}
+
+
+
+// --Animations
+@-webkit-keyframes tooltip-anim {
+  0%,80%   {
+	opacity: 0;
+	-webkit-transform: translateY(4px);
+  }
+  100% {
+	opacity: 1;
+	transform: translateY(0px);
+  }
+
+}
+
+@-moz-keyframes popover--badge--points {
+}
+@-o-keyframes popover--badge--points {
+}
+@keyframes popover--badge--points {
+}

@@ -1,0 +1,8 @@
+.widget--ranking-simple(type="{{rankingType}}")
+    .widget--ranking-simple__wrapper(ng-repeat="item in items | orderBy:'-score'")
+        .col-xs-2 Pos.
+            p {{item.position}}
+        .col-xs-5(ng-click="$root.changeView('profile-simple', item)") Username
+            p {{item.username}}
+        .col-xs-5 Scores
+            p {{item.score}}

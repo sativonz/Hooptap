@@ -1,0 +1,84 @@
+.popover-box{
+  z-index: 1000001;
+  position: fixed;
+  top: 85px;
+  right: 20px;
+  @media (max-width: $mobile) {
+    width: 100%;
+    top: 0;
+    right: 0;
+  }
+}
+.popover {
+  opacity: 0;
+  width: 400px;
+  margin-bottom:20px;
+  @media (max-width: $mobile) {
+    width: 100%;
+    margin-bottom:1px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+
+    -webkit-box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+  }
+
+  text-align: left;
+  background-color: #fff;
+  background-clip: padding-box;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+
+  -webkit-box-shadow: 0 5px 50px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 5px 50px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 5px 50px rgba(0, 0, 0, 0.25);
+
+  font-size: 15px;
+  white-space: normal;
+  //padding: 10px;
+  .popover__content {
+	padding: 10px;
+	height: 70px;
+	.popover__content__image {
+	  max-width: 40px;
+	  padding: 2px;
+	  display: inline-block;
+	  border-radius: 50%;
+	  margin-right: 10px;
+      float: left;
+	}
+	.popover__content__message {
+	  color: $c_text;
+	  display: inline-block;
+	  width: 80%;
+      margin: 0 auto;
+      height: 100%;
+      vertical-align: sub;
+	}
+	.popover__content__datetime {
+	  color: $c_text;
+	  white-space: nowrap;
+	  display: inline;
+	  font-size: 13px;
+    }
+    .icon--close--popover{
+      position: absolute;
+      right: 15px;
+      top: 10px;
+      fill: $c_icon;
+      cursor: pointer;
+      @include transition(all 0.2s ease-in);
+      &:hover{
+        fill: $black;
+        @include transition(all 0.2s ease-in);
+      }
+    }
+  }
+}
+@media only screen and (max-width: 40em) {
+  .popover .popover-content .notification-message {
+	width: 280px; }
+}

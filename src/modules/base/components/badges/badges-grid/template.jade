@@ -1,0 +1,7 @@
+.ht-badges--list__wrapper.row
+	.badge-item(ng-repeat="item in badges" id="badge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true, 'hidden': !item.state}")
+		div(ng-if="item.state")
+			.badge-item__img
+				img(ng-src="{{item.img}}")
+			.badge-item__desc(title='{{item.desc}}') {{item.desc}}
+

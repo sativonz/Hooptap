@@ -1,0 +1,14 @@
+c-button-close {
+  right: 15px;
+  position: absolute;
+  top: 15px;
+  z-index: 999999999999999;
+  .icon--close {
+    float: right;
+    cursor: pointer;
+    svg {
+      fill: #4a89dc;
+    }
+  }
+
+}

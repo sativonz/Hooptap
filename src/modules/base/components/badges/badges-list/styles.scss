@@ -1,0 +1,17 @@
+c-badges-list{
+
+  .ht-badges--list__wrapper {
+    min-height: 340px;
+    padding: 10px 15px 10px 0px;
+  }
+
+  .badge-item__img img{
+    width: 50px;
+  }
+
+  .badge-item {
+    padding: 9px 0 7px 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  }
+
+}

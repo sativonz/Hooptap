@@ -1,0 +1,9 @@
+- var numberBadges = 4;
+div.marketplace-wrapper
+	div.container-col-marketplace
+		- for (var i = 1; i < numberBadges; ++i)
+			div.one-third-col(class='marketplace-container'+i)
+				each val in [1, 2, 3]
+					span(class='marketplace-img1-'+val)
+					div.marketplace-wrapper-title
+					span.title_marketplace Cañonismo Molinillo 7.000

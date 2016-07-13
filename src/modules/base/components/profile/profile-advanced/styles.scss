@@ -1,0 +1,83 @@
+c-profile-advanced {
+
+  .ht-profile--advanced {
+    min-height: 340px;
+    padding: 10px 15px 10px 0px;
+
+    .item__wrapper {
+      height: 130px;
+      border-bottom: 2px solid white;
+    }
+
+    .item__img {
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      border-radius: 50%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      height: inherit;
+      margin-top: 10px;
+    }
+
+    .item__name {
+      padding: 10px 0 0 0;
+      font-size: 17px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      border-bottom: 1px solid white;
+    }
+
+    .item__username {
+      font-size: 14px;
+      padding: 5px;
+      color: grey;
+      letter-spacing: 1px;
+      border-bottom: 1px solid white;
+    }
+
+    .item__email {
+      font-size: 14px;
+      letter-spacing: 1px;
+      padding: 5px 0 0 0;
+    }
+    .item__email--verified {
+      width: 7%;
+      margin-left: 15px;
+      position: relative;
+      top: 4px;
+    }
+    .item__id {
+      font-size: 16px;
+      letter-spacing: 1px;
+      padding: 5px 0px 0px;
+    }
+
+    .item__img-gender {
+      padding: 5px 0px 0px;
+      height: 17px;
+      margin-left: 12px;
+    }
+
+    .item__progressbar {
+      height: 50px;
+    }
+
+    .item__points p {
+      text-align: center;
+      font-size:35px;
+    }
+
+    .item__points-types {
+      font-size: 18px;
+    }
+
+    .item__badges-list__wrapper-badges {
+      border: 1px solid grey;
+      //width: 60px;
+      height: 60px;
+      //margin: 10px;
+    }
+  }
+
+}
