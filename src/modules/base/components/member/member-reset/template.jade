@@ -1,4 +1,4 @@
-form.ht-form--reset(ng-show='$root.goResetForm' ng-init="$root.goResetForm = false;" name="resetForm")
+form.ht-form--reset(name="htFormReset" ng-show='$root.goResetForm' ng-init="$root.goResetForm = false;" )
 	.ht-form__group
 		input.ht-form__input(ng-model='emailReset' placeholder='Password' type='text' name="emailReset")
 		span.ht-form__highlight

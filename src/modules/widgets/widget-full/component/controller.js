@@ -10,8 +10,4 @@ export default  ($scope, Customer, LoopBackAuth, $rootScope, viewHandler)=>{
         {view: 'profileWidgetFull.questsList', title:'Quests'},
         {view: 'profileWidgetFull.badgesList', title: 'Badges'}
     ];
-    //TODO refactor hecho para probar porque no va sdk
-    $rootScope.logged = true;
-
-    
 };

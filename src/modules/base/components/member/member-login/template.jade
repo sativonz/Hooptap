@@ -1,8 +1,8 @@
 .ht-wrapper--login__form
 	c-button-close
-	form.ht-form.ht-form--login(name="ht-form__login" ng-show='!$root.goResetForm')
-		.ht-form__group
-			input.ht-form__input(ng-model='email' type='text' name="email" placeholder="Email")
+	form.ht-form.ht-form--login(name="htFormLogin" ng-show='!$root.goResetForm' valdr-type="Customer")
+		.ht-form__group(valdr-form-group)
+			input.ht-form__input(ng-model='email' id="customerEmail" type='text' name="customerEmail" placeholder="Email")
 			span.ht-form__highlight
 			span.ht-form__bar
 		.ht-form__group

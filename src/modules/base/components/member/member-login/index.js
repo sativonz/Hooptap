@@ -4,7 +4,7 @@ import './styles.scss';
  * @ngdoc directive
  * @name Admin login
  * @module Component
- * @description For add login component (reset view is in)
+ * @description For add login component
  * @restrict E
  * @param
  * @element ANY
@@ -14,6 +14,11 @@ export default($rootScope,Customer,LoopBackAuth) => ({
     scope: {},
     template,
     link:(scope, element, attrs)=>{
+
+   /*     console.log(scope.htFormLogin);
+        if($('input.htEmailInput').hasClass('ng-invalid-email')){
+            alert("asdfasdf");
+        };*/
 
         var token;
         function getCurrent(){
@@ -45,7 +50,9 @@ export default($rootScope,Customer,LoopBackAuth) => ({
 
 
         };
+
         
+
 
     }
 });

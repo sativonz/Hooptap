@@ -1,4 +1,4 @@
-form.ht-form--activate(ng-show='$root.goActivateForm' ng-init="$root.goActivateForm = false;" name="activateEmailForm")
+form.ht-form--activate(name="htActivateEmailForm" ng-show='$root.goActivateForm' ng-init="$root.goActivateForm = false;" )
     .ht-form__group
         input.ht-form__input(ng-model='emailActivation' placeholder='Activation code' type='text' name="emailActivation")
         span.ht-form__highlight
