@@ -3,30 +3,30 @@ export default (valdrProvider)=> {
         'CustomerLogin': {
             'email': {
                 'email': {
-                    'message': 'Debe introducir un email valido.'
+                    'message': 'valdr.email'
                 },
                 'required': {
-                    'message': 'Introduzca un email.'
+                    'message': 'valdr.required'
                 }
             }
         },
         'CustomerRegister': {
             'email': {
                 'email': {
-                    'message': 'Debe introducir un email valido.'
+                    'message': 'valdr.email'
                 },
                 'required': {
-                    'message': 'Introduzca un email.'
+                    'message': 'valdr.required'
                 }
             },
             'name': {
                 'size': {
                     'min': 4,
                     'max': 25,
-                    'message': 'Introduzca un nombre de usuario, 25 carácteres máx.'
+                    'message': 'valdr.nameSize'
                 },
                 'required': {
-                    'message': 'Introduzca un nombre de usuario.'
+                    'message': 'valdr.required'
                 }
             }
         }

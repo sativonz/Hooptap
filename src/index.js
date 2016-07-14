@@ -41,7 +41,11 @@ import './common/services/angular-sdk.js';
             //SDK Services
             //SDK Loopback services
             'apiServices',
-
+            
+            //Components
+            require('./common/components/translations').default,
+            
+            
             //Modules
             require('./modules/base').default,
             //require('./common').default,
