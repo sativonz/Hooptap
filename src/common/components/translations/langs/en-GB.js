@@ -15,6 +15,12 @@ let dict = {
 		register: {
 			title			: 'Register',
 			desc			: 'Register an account'
+		},
+		reset: {
+			title			: 'Reset password',
+			desc			: 'Reset your password account',
+			goLogin			: 'Go to login',
+			setEmail		: 'Set your email'
 		}
 	},
 	

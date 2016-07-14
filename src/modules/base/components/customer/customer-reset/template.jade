@@ -1,10 +1,10 @@
 form.ht-form--reset(name="htFormReset" ng-show='$root.goResetForm' ng-init="$root.goResetForm = false;" )
 	.ht-form__group
-		input.ht-form__input(ng-model='emailReset' placeholder='Password' type='text' name="emailReset")
+		input.ht-form__input(ng-model='emailReset' placeholder="{{ 'CUSTOMER.reset.setEmail' | translate }}" type='password' name="emailReset")
 		span.ht-form__highlight
 		span.ht-form__bar
 	.ht-form__group-link
-		a(href='#' ng-click='$root.goResetForm = false;') Go to login
+		a(href='#' ng-click='$root.goResetForm = false;') {{ 'CUSTOMER.reset.goLogin' | translate }}
 		button.ht-form--button__reset(type='button' ng-click='userReset()')
 			| Reset password
 			.ht-form__ripples.buttonRipples
