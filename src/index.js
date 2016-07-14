@@ -47,7 +47,7 @@ import './common/services/angular-sdk.js';
             
             
             //Modules
-            require('./modules/base').default,
+            require('./modules/components').default,
             //require('./common').default,
 
             //Widgets
@@ -79,7 +79,8 @@ import './common/services/angular-sdk.js';
 
     //Controller for widget
         .controller('htWidgetCtrl', ($q, $scope, $compile, Event, Customer, Admin, Rule)=> {
-
+            var count = 0;
+            console.log(count++);
             //hooptapSDK object for sdk on javascript
 
             var TEST = true;
@@ -245,13 +246,7 @@ import './common/services/angular-sdk.js';
                 };
 
 
-                $compile(angular.element('#htroot').html())($scope);
-
             }
-            //Example of widget render
-            //console.log(angular.element('#ht-widget').html());
-            $compile(angular.element('#ht-widget').html())($scope);
-            // angular.element('#htWidget').append('<widget1></widget1>');
 
 
         })

@@ -28,6 +28,11 @@ export default (valdrProvider)=> {
                 'required': {
                     'message': 'valdr.required'
                 }
+            },
+            'password': {
+                'required': {
+                    'message': 'valdr.required'
+                }
             }
         }
     });

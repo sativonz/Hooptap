@@ -6,21 +6,33 @@ let dict = {
 
 	CUSTOMER: {
 		common: {
-			password			: 'Password',
+			password		: 'Password',
+			email			: 'Email',
+			name			: 'Username',
 		},
 		login: {
 			title			: 'Log in',
-			desc			: 'Access your account'
+			desc			: 'Access your account',
+			button			: 'GO'
 		},
 		register: {
 			title			: 'Register',
-			desc			: 'Register an account'
+			desc			: 'Register an account',
+			button			: 'OK'
 		},
 		reset: {
-			title			: 'Reset password',
+			title			: 'Forgot your password?',
 			desc			: 'Reset your password account',
+			button			: 'Restore',
 			goLogin			: 'Go to login',
 			setEmail		: 'Set your email'
+		},
+		activate: {
+			title			: 'Activation code',
+			desc			: 'You will receive a code by email to enter and reset your password',
+			linkTitle		: 'Activate my account',
+			goReg			: 'Volver al registro',
+			button			: 'Activar'
 		}
 	},
 	

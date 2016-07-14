@@ -1,0 +1,23 @@
+.ht-wrapper--login__form
+	c-button-close
+	form.ht-form.ht-form--login(name="htFormLogin" ng-show='!$root.goResetForm' valdr-type="CustomerLogin")
+		.ht-form__group(valdr-form-group)
+			input.ht-form__input.htFormLogin-email(ng-model='email' type='email' name="email" required)
+			span.ht-form__highlight
+			span.ht-form__bar
+			label.ht-form__label {{ 'CUSTOMER.common.email' | translate }}
+		.ht-form__group
+			input.ht-form__input.htFormLogin-pass(ng-model='password' type='password' name="password" required)
+			span.ht-form__highlight
+			span.ht-form__bar
+			label.ht-form__label {{ 'CUSTOMER.common.password' | translate }}
+		//.ht-form__group-terms
+		//	input#checkbox_terms(type="checkbox" name="terms" value="terms" ng-model="checkboxEnableRegister")
+		//	label.checkbox_terms(for="checkbox_terms")
+		//		//TODO Cambiar href, es provisional porque no está acabada la web nueva
+		//		a(href="http://new.hooptap.com/en/terms-conditions/" target="_blank") {{ 'valdr.generics.terms' | translate }}
+		.ht-form__group-button
+				button.animated.bounceInDown.ht-form--button__login(type='submit' ng-click='login()')
+					| {{ 'CUSTOMER.login.button' | translate }}
+		.ht-form__group-link
+			span.link-to-reset(ng-click='$root.goResetForm = true;') {{ 'CUSTOMER.reset.title' | translate }}

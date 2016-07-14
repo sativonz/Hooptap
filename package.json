@@ -87,6 +87,7 @@
     "node-waves": "^0.7.5",
     "npm-ls-scripts": "^0.1.2",
     "null-loader": "^0.1.1",
+    "q": "^1.4.1",
     "rimraf": "^2.5.2",
     "sass-loader": "^3.2.0",
     "stampit": "^2.1.1",
