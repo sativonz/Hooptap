@@ -8,6 +8,7 @@ let dict = {
 			password		: 'Contraseña',
 			email			: 'Email',
 			name			: 'Nombre de usuario',
+			update			: 'Actualizar'
 		},
 		login: {
 			title			: 'Login',
@@ -24,7 +25,7 @@ let dict = {
 			desc			: 'Restaura la contraseña de tu cuenta',
 			button			: 'Restaurar',
 			goLogin			: 'Volver al login',
-			setEmail		: 'Introduzca tu email'
+			setEmail		: 'Introduzca su email'
 		},
 		activate: {
 			title			: 'Código de activación',
@@ -32,6 +33,13 @@ let dict = {
 			linkTitle		: 'Activar mi cuenta',
 			goReg			: 'Volver al registro',
 			button			: 'Activar'
+		},
+		update: {
+			title			: 'Editar perfil',
+			actualPassword	: 'Contraseña actual',
+			newPassword1	: 'Contraseña nueva',
+			newPassword2	: 'Repita la contraseña nueva',
+
 		}
 	},
 
@@ -48,6 +56,20 @@ let dict = {
 		email	: 'El email',
 		password: 'La contraseña',
 		terms	: 'Acepto los términos y condiciones'
+	},
+
+	/*	CUSTOMER
+	 ---------------------------------------------------------------------------------*/
+
+	BADGES: {
+		title				: 'Logros',
+	},
+
+	/*	QUESTS
+	 ---------------------------------------------------------------------------------*/
+
+	QUESTS: {
+		title				: 'Misiones',
 	}
 
 

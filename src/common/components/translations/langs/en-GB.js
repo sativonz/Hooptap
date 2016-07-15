@@ -9,6 +9,7 @@ let dict = {
 			password		: 'Password',
 			email			: 'Email',
 			name			: 'Username',
+			update			: 'Update'
 		},
 		login: {
 			title			: 'Log in',
@@ -33,6 +34,13 @@ let dict = {
 			linkTitle		: 'Activate my account',
 			goReg			: 'Volver al registro',
 			button			: 'Activar'
+		},
+		update: {
+			title			: 'Edit profile',
+			actualPassword	: 'Actual password',
+			newPassword1	: 'New password',
+			newPassword2	: 'Repeat new password',
+
 		}
 	},
 	
@@ -48,6 +56,20 @@ let dict = {
 		email	: 'The email',
 		password: 'The password',
 		terms	: 'I accept the terms and conditions'
+	},
+
+	/*	BADGES
+	 ---------------------------------------------------------------------------------*/
+
+	BADGES: {
+		title				: 'Badges',
+	},
+
+	/*	QUESTS
+	 ---------------------------------------------------------------------------------*/
+
+	QUESTS: {
+		title				: 'Quests',
 	}
 
 

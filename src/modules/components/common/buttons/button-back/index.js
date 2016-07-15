@@ -8,10 +8,13 @@ import './styles.scss';
  * @restrict E
  * @element ANY
  */
-export default() => ({
+export default($rootScope) => ({
     restrict: 'E',
     template,
     link: (scope, element, attrs)=>{
-        
+        scope.goBack = ()=> {
+            console.log("asdf");
+            $rootScope.selectItem = false;
+        }
     }
 });

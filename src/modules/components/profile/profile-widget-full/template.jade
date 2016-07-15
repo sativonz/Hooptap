@@ -1,5 +1,6 @@
 div.ht-profile-widget-full
     div.profile-widget-full__container(ng-show="$root.currentView==='profileWidgetFull.default'")
+        c-widget-header
         div.profile-widget-full-item__wrapper
             img.profile-widget-full-item__img(ng-src="{{image}}")
         div.profile-widget-full-item__name {{$root.customer.username}}
@@ -39,5 +40,9 @@ div.ht-profile-widget-full
     div.profile-widget-full__container__quests-list(ng-show="$root.currentView==='profileWidgetFull.questsList'")
         c-button-back
         c-quests-list
+    div.profile-widget-full__container__customer-update(ng-show="$root.currentView==='profileWidgetFull.customerUpdate'")
+        c-button-back
+        c-widget-header(title="{{ 'CUSTOMER.update.title' | translate }}")
+        c-customer-update
 
 

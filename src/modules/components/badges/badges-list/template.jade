@@ -1,4 +1,5 @@
 .ht-badges--list__wrapper
+	c-widget-header(title="{{ 'BADGES.title' | translate }}")
 	.badge-item.row(ng-repeat="item in badges" id="badge-item-{{$index}}")
 		div(ng-if="item.state")
 			.badge-item__img.col-xs-3

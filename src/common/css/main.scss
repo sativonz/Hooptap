@@ -57,7 +57,7 @@ div#ht-widget {
   margin: -25px 0 8px 0;
 }
 
-form.ht-form--login, .ht-form--reset, .ht-form--register, .ht-form--activate {
+form.ht-form--login, .ht-form--reset, .ht-form--register, .ht-form--activate, .ht-form--update {
   padding: 2em 1em 2em 1em;
 }
 
@@ -69,7 +69,7 @@ input.ht-form__input {
   border-top: none!important;
 }
 
-.ht-form--button__login, .ht-form--button__register, .ht-form--button__reset, .ht-form--button__activationMail {
+.ht-form--button__login, .ht-form--button__update, .ht-form--button__register, .ht-form--button__reset, .ht-form--button__activationMail {
   width:115px;
   height:30px;
   font-size: 13pt;

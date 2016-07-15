@@ -22,6 +22,7 @@ export default(Customer, $rootScope) => ({
             $rootScope.logged = false;
         };
 
+
         //
         // $rootScope.hideMenu = () => {
         //     $('#button-menu').removeClass('open-menu').toggleClass('close-menu');

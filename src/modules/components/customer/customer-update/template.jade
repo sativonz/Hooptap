@@ -1,18 +1,26 @@
 .ht-wrapper--update__form
 	c-button-close
 	form.ht-form.ht-form--update(name="htFormUpdate")
-		p Update your account
-		.ht-form__group
-			input.ht-form__input(ng-model='email' type='text' name="email" placeholder="Email")
-			span.ht-form__highlight
-			span.ht-form__bar
-		.ht-form__group
-			input.ht-form__input(ng-model='password' type='password' name="password" placeholder="Contraseña")
-			span.ht-form__highlight
-			span.ht-form__bar
 		//.ht-form__group
-			a(href='#' ng-click='goResetForm = !goResetForm') Reset password
-		button.ht-form--button__update(type='button' ng-click='userUpdate()')
-			| Update
-			.ht-form__ripples.buttonRipples
-				span.ht-form__ripplesCircle
+		//	input.ht-form__input(ng-model='email' type='text' name="email" placeholder="Email")
+		//	span.ht-form__highlight
+		//	span.ht-form__bar
+		//	label.ht-form__label {{ 'CUSTOMER.common.email' | translate }}
+		.ht-form__group
+			input.ht-form__input(ng-model='actualPassword' type='password' name="actualPassword" required)
+			span.ht-form__highlight
+			span.ht-form__bar
+			label.ht-form__label {{ 'CUSTOMER.update.actualPassword' | translate }}
+		.ht-form__group
+			input.ht-form__input(ng-model='newPassword1' type='password' name="password" required)
+			span.ht-form__highlight
+			span.ht-form__bar
+			label.ht-form__label {{ 'CUSTOMER.update.newPassword1' | translate }}
+		.ht-form__group
+			input.ht-form__input(ng-model='newPassword2' type='password' name="password" required)
+			span.ht-form__highlight
+			span.ht-form__bar
+			label.ht-form__label {{ 'CUSTOMER.update.newPassword2' | translate }}
+		.ht-form__group-button
+			button.ht-form--button__update(type='button' ng-click='userUpdate()')
+				| {{ 'CUSTOMER.common.update' | translate }}

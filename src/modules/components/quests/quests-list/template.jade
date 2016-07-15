@@ -1,4 +1,5 @@
 .ht-quests--list__container
+	c-widget-header(title="{{ 'QUESTS.title' | translate }}")
 	.quest--list__wrapper(data-finished='false', data-active='true' ng-repeat="q in [a, b] track by $index")
 		//TODO falta mas logica en el onclick ya que oculta todas las misiones...(mi head is going to crash)
 		.col-xs-12.quest--row(ng-click="toggleDetailQuest()")
