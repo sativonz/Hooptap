@@ -8,7 +8,7 @@ export default() => ({
     link: (scope, element, attrs)=>{
         
         //Definir el numero de cols
-        scope.numberCols = 5;
+        scope.numberCols = 4;
 
         switch (scope.numberCols) {
             case 2:

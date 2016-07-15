@@ -1,5 +1,5 @@
 c-button-menu {
-  width: 50px;
+  width: 23px;
   position: absolute;
   left: 11px;
   top: 10PX;
@@ -12,21 +12,22 @@ c-button-menu {
     padding: 0;
   }
   li a {
-    padding: 5px;
+    padding: 14px;
     color: #888;
     text-decoration: none;
     transition: all .2s;
   }
   li a:hover,
   li a:focus {
-    background: #1ABC9C;
+    background-color: rgba(0, 101, 145, 0.69);
     color: #fff;
   }
 
   #menu {
     position: relative;
     color: #999;
-    width: 125px;
+    width: 380px;
+    height: 333px;
     padding: 10px;
     margin: auto;
     font-family: "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
@@ -38,20 +39,20 @@ c-button-menu {
     left: 0px;
     top: 8px;
   }
-  #menu:after {
-    position: absolute;
-    top: -16px;
-    left: 10px;
-    content: "";
-    display: block;
-    border-left: 15px solid transparent;
-    border-right: 15px solid transparent;
-    border-bottom: 20px solid white;
-  }
+  //#menu:after {
+  //  position: absolute;
+  //  top: -16px;
+  //  left: 10px;
+  //  content: "";
+  //  display: block;
+  //  border-left: 15px solid transparent;
+  //  border-right: 15px solid transparent;
+  //  border-bottom: 20px solid white;
+  //}
 
   .nav-icon {
-    width: 30px;
-    height: 30px;
+    width: 23px;
+    height: 23px;
     position: relative;
     margin: 0 auto;
     -webkit-transform: rotate(0deg);
@@ -68,9 +69,9 @@ c-button-menu {
   .nav-icon span {
     display: block;
     position: absolute;
-    height: 4px;
+    height: 2px;
     width: 100%;
-    background: #d3531a;
+    background: white;
     border-radius: 9px;
     opacity: 1;
     left: 0;
@@ -89,11 +90,11 @@ c-button-menu {
   }
 
   .nav-icon span:nth-child(2),.nav-icon span:nth-child(3) {
-    top: 9px;
+    top: 8px;
   }
 
   .nav-icon span:nth-child(4) {
-    top: 18px;
+    top: 16px;
   }
 
 

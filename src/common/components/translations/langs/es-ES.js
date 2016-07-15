@@ -8,7 +8,8 @@ let dict = {
 			password		: 'Contraseña',
 			email			: 'Email',
 			name			: 'Nombre de usuario',
-			update			: 'Actualizar'
+			update			: 'Actualizar',
+			edit			: 'Editar'
 		},
 		login: {
 			title			: 'Login',
@@ -70,6 +71,26 @@ let dict = {
 
 	QUESTS: {
 		title				: 'Misiones',
+	},
+
+	/*	LEVELS
+	 ---------------------------------------------------------------------------------*/
+
+	LEVELS: {
+		title				: 'Nivel',
+	},
+
+	/*	SCORE UNITS
+	 ---------------------------------------------------------------------------------*/
+
+	SCOREUNITS: {
+		types: {
+			diamonds: 'Diamantes',
+			points: 'Puntos',
+			rubys: 'Rubys',
+			coins: 'Monedas',
+			stars: 'Estrellas'
+		}
 	}
 
 

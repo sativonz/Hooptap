@@ -7,8 +7,8 @@ export default  ($scope, Customer, LoopBackAuth, $rootScope, viewHandler)=>{
     );
     
     $scope.menuItems = [
-        {view: 'profileWidgetFull.questsList', title:'Quests'},
-        {view: 'profileWidgetFull.badgesList', title: 'Badges'},
-        {view: 'profileWidgetFull.customerUpdate', title: 'Edit'}
+        {view: 'profileWidgetFull.questsList', title: 'QUESTS.title'},
+        {view: 'profileWidgetFull.badgesList', title: 'BADGES.title'},
+        {view: 'profileWidgetFull.customerUpdate', title: 'CUSTOMER.common.edit'}
     ];
 };
