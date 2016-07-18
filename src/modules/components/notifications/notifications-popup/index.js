@@ -13,5 +13,6 @@ export default() => ({
     restrict: 'E',
     scope: {},
     template,
-    link: (scope, element, attrs)=>{}
+    link: (scope, element, attrs)=>{
+    }
 });

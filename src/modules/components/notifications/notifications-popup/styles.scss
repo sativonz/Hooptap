@@ -4,9 +4,9 @@ c-notifications-popup {
     position: fixed;
     top: 7px;
     right: 7px;
-    max-width: 350px;
-    min-width: 323px;
-    width: 300px;
+    max-width: 4000px;
+    min-width: 400px;
+    width: 400px;
     height: 70px;
     color: white;
     font-weight: bold;
@@ -15,7 +15,6 @@ c-notifications-popup {
 
     .TOAST {
       position: relative;
-      text-align: center;
       height: 70px;
       border: 1px solid rgba(255, 255, 255, 0.29);
 
@@ -31,8 +30,32 @@ c-notifications-popup {
       }
 
       .toast-content {
-        display: inline-block;
-        padding: 10px 30px 10px 10px;
+        display: block;
+        padding: 10px 30px 10px 57px;
+
+        .toast-title {
+          width: 100%;
+          display: list-item;
+          list-style: none;
+        }
+        .toast-img {
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          bottom: 5px;
+          width: 20%;
+
+          img {
+            display: block;
+            max-height: 100%;
+            max-width: 100%;
+          }
+
+        }
+        .toast-img + .toast-title {
+          width: 67%;
+        }
+
       }
 
       .toast-content--span {

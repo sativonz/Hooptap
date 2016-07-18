@@ -9,7 +9,8 @@ let dict = {
 			email			: 'Email',
 			name			: 'Nombre de usuario',
 			update			: 'Actualizar',
-			edit			: 'Editar'
+			edit			: 'Editar',
+			logout			: 'Cerrar sesión'
 		},
 		login: {
 			title			: 'Login',

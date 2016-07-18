@@ -15,7 +15,7 @@ export default() => ({
     scope: {},
     template,
     controller: ($scope, $rootScope, Customer, LoopBackAuth)=> {
-        $rootScope.logged = false;
+
         if (LoopBackAuth.rememberMe) {
             getCurrent();
         }
@@ -39,8 +39,8 @@ export default() => ({
                 .then((response)=> {
                     $rootScope.customer = response;
                     $rootScope.logged = true;
-                    TOAST("Bienvenido " + $rootScope.customer.username + "!", 'info');
-                    console.log("Hola");
+                    TOAST("Bienvenido " + $rootScope.customer.username + "!", 0, {persist:true,style: 'info', img: 'http://googledrive.com/host/0B5NVIiWQoHUhWGxUTHNtb3JWZG8/welcome.gif'});
+
                 });
         }
 

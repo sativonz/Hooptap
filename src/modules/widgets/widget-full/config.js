@@ -1,15 +1,5 @@
 export default (valdrProvider)=> {
     valdrProvider.addConstraints({
-        'CustomerLogin': {
-            'email': {
-                'email': {
-                    'message': 'valdr.email'
-                },
-                'required': {
-                    'message': 'valdr.required'
-                }
-            }
-        },
         'CustomerRegister': {
             'email': {
                 'email': {

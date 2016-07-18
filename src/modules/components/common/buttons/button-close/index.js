@@ -13,9 +13,8 @@ export default() => ({
     template,
     link: (scope, element, attrs)=>{
         $('c-button-close').click(function(ev) {
-            $('#ht-widgets').fadeOut().css("display" , "none");
             $('c-button-init').show("slow");
-
+            $('#ht-widgets').fadeOut().css("display" , "none");
         });
     }
 });

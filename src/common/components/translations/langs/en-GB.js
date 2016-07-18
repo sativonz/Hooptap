@@ -1,6 +1,5 @@
 let dict = {
-
-
+	
 	/*	CUSTOMER
 	 ---------------------------------------------------------------------------------*/
 
@@ -10,7 +9,8 @@ let dict = {
 			email			: 'Email',
 			name			: 'Username',
 			update			: 'Update',
-			edit			: 'Edit'
+			edit			: 'Edit',
+			logout			: 'Logout'
 		},
 		login: {
 			title			: 'Log in',

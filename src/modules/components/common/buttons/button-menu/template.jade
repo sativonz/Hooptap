@@ -9,7 +9,8 @@ div#button-menu
             li(ng-repeat="item in value" ng-click="hideMenu()")
                 a(ng-click="$root.setCurrentView(item.view); $root.selectItem=true;", translate="{{ item.title }}")
             li
-                a(ng-if="logout" ng-click="formLogout()") Logout
+                a(ng-if="!logout" ng-click="formLogout()")
+                    | {{ 'CUSTOMER.common.logout' | translate }}
 
 
 

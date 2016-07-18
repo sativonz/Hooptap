@@ -19,17 +19,23 @@ export default (function () {
  * color: HEX format OR rgb format OR rgba format
  * background: HEX format OR rgb format OR rgba format
  */
-var TOAST = function (msg, params) {
-    if (!msg) return false;
+//TODO falta controlar cuando no tien e mensaje que no muestre object object+
+var TOAST = function (title, desc, params) {
+    if (!title) return false;
+    if (!desc) desc='';
+
     if ($('c-notifications-popup #TOASTER').length == 0) $('<div id="TOASTER"></div>').appendTo($('c-notifications-popup'));
+
     var timeStay = 3000;
     var timeIn = 1000;
     var timeOut = 1000;
     var persist = false;
     var TOASTER = $('c-notifications-popup #TOASTER');
 
-    var toast = $('<div class="TOAST"><div class="toast-content"><span class="toast-msg">'
-        + msg
+    var toast = $('<div class="TOAST"><div class="toast-content"><span class="toast-title">'
+        + title
+        + '</span><span class="toast-desc">'
+        + desc
         + '</span></div></div>')
         .click(function () {
             $(this).remove();
@@ -71,20 +77,22 @@ var TOAST = function (msg, params) {
     var setStyle = function (styleType) {
         switch (styleType) {
             case 'info':
-                toast.css({color: '#fff', background: '#0086cb'});
+                toast.css({color: 'white', background: '#0086cb'});
                 break;
             case 'success':
                 toast.css({color: '#000', background: '#90fb61'});
                 break;
             case 'warning':
-                toast.css({color: '#000', background: '#f79300'});
+                toast.css({color: 'white', background: 'orange'});
                 break;
             case 'danger':
+                toast.css({color: 'black', background: '#FFF307'});
+                break;
             case 'alert':
-                toast.css({color: '#fff', background: '#d90000'});
+                toast.css({color: 'white', background: 'red'}).addClass("animated wobble");
                 break;
             default:
-                toast.css({color: '#ccc', background: '#333'});
+                toast.css({color: 'white', background: '#333'});
                 break;
         }
     };
@@ -103,6 +111,10 @@ var TOAST = function (msg, params) {
             if (params.click && typeof params.click == 'function') setClick(params.click, params.buttonText);
             if (params.href && typeof params.href == 'string') setLink(params.href, params.linkText);
             if (params.closeButton) setCloseButton();
+            if (params.img) {
+                toast.find('.toast-content').prepend( $('<div class="toast-img"></div>') );
+                toast.find('.toast-img').html( $('<div/>').append($('<img/>').attr('src', params.img)).html() );
+            }
         } else if (typeof params == 'function') {
             setClick(params);
         } else if (typeof params == 'string') {
@@ -123,6 +135,7 @@ var TOAST = function (msg, params) {
     ;
     toast.appendTo(TOASTER);
     toast.animate({opacity: 1}, timeIn, function () {
+        
 
         if (persist) return;
 
@@ -134,12 +147,20 @@ var TOAST = function (msg, params) {
         }, timeStay);
     });
     if (params == undefined)
-        return {msg: msg, toast: toast};
-    else return {
-        msg: msg,
-        params: params,
-        toast: toast
+        return {
+            title: title,
+            desc: desc,
+            toast: toast
+        };
+    else
+        return {
+            title: title,
+            desc: desc,
+            params: params,
+            toast: toast
     };
+
+
 };
 
 window.TOAST = TOAST;

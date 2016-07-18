@@ -16,12 +16,14 @@ export default(Customer, $rootScope) => ({
     },
     template,
     link: (scope, element, attrs)=>{
-        scope.logout = () => {
-            Customer.logout();
-            $rootScope.view = "";
-            $rootScope.logged = false;
+        scope.formLogout = () => {
+            Customer.logout().$promise
+                .then((response)=> {
+                    $rootScope.customer = {};
+                    scope.showDropdown = false;
+                    $rootScope.logged = false;
+                });
         };
-
 
         //
         // $rootScope.hideMenu = () => {
