@@ -8,6 +8,7 @@ import template from './index.jade';
 import 'angular-storage';
 import 'angular-resource';
 import 'angular-animate';
+import 'angular-wizard';
 import 'valdr';
 import 'valdr/valdr-message';
 import './common/vendor/animate.css';
@@ -35,6 +36,7 @@ import './common/services/angular-sdk.js';
             'ngAnimate', /*angular animate*/
             tabs,
             progressBar,
+            'mgo-angular-wizard',
             'valdr',
             //Plugins
 

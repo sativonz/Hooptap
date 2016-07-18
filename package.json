@@ -40,7 +40,7 @@
     "es6"
   ],
   "author": "Hooptap",
-  "repository": "https://github.com/Hooptap/sdk-widgets-v1",
+  "repository": "https://github.com/Hooptap/client-3",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.5.5",
@@ -55,6 +55,7 @@
     "angular-ui-bootstrap": "^1.3.2",
     "angular-ui-notification": "^0.2.0",
     "angular-ui-router": "^0.2.18",
+    "angular-wizard": "^0.6.1",
     "angularjs-scroll-glue": "^2.0.4",
     "autosize": "^3.0.15",
     "babel-core": "^6.7.7",
