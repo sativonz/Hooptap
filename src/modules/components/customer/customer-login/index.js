@@ -40,8 +40,7 @@ export default() => ({
                     $rootScope.customer = response;
                     $rootScope.logged = true;
                     TOAST(
-                        "Bienvenido " + $rootScope.customer.username + "!", {
-                        persist: true,
+                        "Bienvenido " + $rootScope.customer.username + "!", null, {
                         style: 'info',
                         img: 'http://googledrive.com/host/0B5NVIiWQoHUhWGxUTHNtb3JWZG8/welcome.gif'
                     });
