@@ -1,3 +1,4 @@
+c-widget-header(title="{{ 'RANKING.titleList' | translate }}")
 .widget--ranking-simple(type="{{rankingType}}")
     .widget--ranking-simple__wrapper(ng-repeat="item in items | orderBy:'-score'")
         .col-xs-2 Pos.

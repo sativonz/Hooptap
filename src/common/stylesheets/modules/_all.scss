@@ -1,9 +1,4 @@
 //////////////////--------ALL STYLES---------//////////////////////
-$center: center;
-$hide: none;
-$not-outline: none!important;
-$z-index-10: 99999999999;
-$z-index-9: 9999999999;
 
 @mixin border-radius($radius) {
   border-radius: $radius;
@@ -68,6 +63,12 @@ $z-index-9: 9999999999;
   -ms-animation: #{$str};
   -o-animation: #{$str};
   animation: #{$str};
+}
+
+@mixin calc($property, $expression) {
+  #{$property}: -moz-calc(#{$expression});
+  #{$property}: -webkit-calc(#{$expression});
+  #{$property}: calc(#{$expression});
 }
 
 

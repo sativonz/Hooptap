@@ -21,7 +21,6 @@ export default() => ({
         }
         $scope.login = ()=> {
 
-            //TODO Cambiar email y password por modelos de inputs
             Customer.login({
                 "email": $scope.email,
                 "password": $scope.password

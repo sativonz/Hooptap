@@ -81,16 +81,17 @@ let dict = {
 
 	LEVELS: {
 		title				: 'Nivel',
-		// newbie				: 'Nuevo',
-		// rookie				: 'Principiante',
+		nextLevelDetails	: 'Detalles del siguiente nivel'
+		// newbie			: 'Nuevo',
+		// rookie			: 'Principiante',
 		// beginner			: 'Principiante',
 		// talented			: 'Talentoso',
-		// skilled				: 'Skilled',
+		// skilled			: 'Skilled',
 		// intermediate		: 'Intermediate',
 		// skillful			: 'Skillful',
 		// advanced			: 'Advanced',
-		// senior				: 'Senior',
-		// expert				: 'Expert'
+		// senior			: 'Senior',
+		// expert			: 'Expert'
 	},
 
 	/*	SCORE UNITS
@@ -98,12 +99,21 @@ let dict = {
 
 	SCOREUNITS: {
 		types: {
-			diamonds: 'Diamantes',
-			points: 'Puntos',
-			rubys: 'Rubys',
-			coins: 'Monedas',
-			stars: 'Estrellas'
+			diamonds		: 'Diamantes',
+			points			: 'Puntos',
+			rubys			: 'Rubys',
+			coins			: 'Monedas',
+			stars			: 'Estrellas'
 		}
+	},
+
+	/*	RANKINGS
+	 ---------------------------------------------------------------------------------*/
+
+	RANKING: {
+			titleList		: 'Ranking',
+			titleTotal		: 'Ranking total',
+
 	}
 
 

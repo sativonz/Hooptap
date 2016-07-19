@@ -13,7 +13,6 @@ export default($rootScope) => ({
     template,
     link: (scope, element, attrs)=>{
         scope.goBack = ()=> {
-            console.log("asdf");
             $rootScope.selectItem = false;
         }
     }

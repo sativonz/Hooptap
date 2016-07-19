@@ -1,8 +1,10 @@
 c-ranking-simple {
-  overflow: auto;
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  bottom: 0px;
-  right: 0px;
+  .widget--ranking-simple  {
+    overflow: auto;
+    position: absolute;
+    left: 0;
+    top: 40px;
+    bottom: 0;
+    right: 0;
+  }
 }
