@@ -3,6 +3,13 @@
 @import "modules/colors";
 @import "modules/utility";
 
+// Components
+@import "components/nav";
+@import "components/header";
+
+// Widget Components
+@import "../../modules/components/main";
+
 // Partials
 @import "partials/typography";
 @import "partials/buttons";
@@ -147,9 +154,8 @@ label.checkbox_terms {
   font-size:14px;
   color: $_1_bar-color-effect;
 }
+c-customer-nav {
 
-.nav-tabs > li > a {
-  color: $_1_header-color-text-inactive;
 }
 
 /* BOTTOM BARS ================================= */
@@ -223,7 +229,7 @@ button[disabled], .button.disabled, .button[disabled] {
 
 .ng-valid span:after, .ng-valid span:before {
 
-  background-color: #006591!important;
+  background-color: $_1_header-color;
 }
 
 .ng-invalid-valdr-required span:after, .ng-invalid-valdr-required span:before {
