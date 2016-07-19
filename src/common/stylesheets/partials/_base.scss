@@ -12,11 +12,17 @@ $base-font-size: 13px;
 $base-line-height: 1.4;
 
 // Fixed Font
-$fixed-font-family: monospace;
+$fixed-font-family: Helvetica;
 $fixed-font-size: 85%;
 $fixed-line-height: $base-line-height;
 
 // Headings
 $header-font-weight: $bold;
 
-@import "../modules/all";
+// Size template 1
+@mixin template-1-size {
+  min-width: 400px;
+  max-width: 400px;
+  min-height: 300px;
+  max-height: 700px;
+}
