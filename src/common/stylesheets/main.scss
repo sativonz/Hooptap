@@ -83,9 +83,6 @@ input.ht-form__input {
   padding: 0 0 2px 0;
   border-radius: 5px;
   font-weight: $bold;
-}
-
-.ht-form--button__login, .ht-form--button__register {
   background-color: $_1_btn-active;
 }
 
@@ -151,6 +148,10 @@ label.checkbox_terms {
   color: $_1_bar-color-effect;
 }
 
+.nav-tabs > li > a {
+  color: $_1_header-color-text-inactive;
+}
+
 /* BOTTOM BARS ================================= */
 .ht-form__bar {
   position:relative;
@@ -197,6 +198,11 @@ label.checkbox_terms {
   opacity:0.5;
 }
 
+button[disabled], .button.disabled, .button[disabled] {
+  background-color: #ff5f63!important;
+  border-color: #ff5f63!important;
+}
+
 /* active state */
 .ht-form__input:focus ~ .highlight {
   @include animation('inputHighlighter 0.3s ease');
@@ -214,3 +220,13 @@ label.checkbox_terms {
   margin: 10px 0px 10px 0px;
   font-size: 14px;
 }
+
+.ng-valid span:after, .ng-valid span:before {
+
+  background-color: #006591!important;
+}
+
+.ng-invalid-valdr-required span:after, .ng-invalid-valdr-required span:before {
+  background-color: $_1_btn-error;
+}
+
