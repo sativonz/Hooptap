@@ -1,6 +1,6 @@
 import angular from 'angular-mod';
-import '../../common/css/main.scss';
-import '../../common/css/ht-bootstrap-min.scss';
+import '../../common/stylesheets/main.scss';
+import '../../common/stylesheets/vendor/animate.min.css';
 import '../../common/components/toast-notifications/script-toast-notifications.js';
 
 let module = angular.module('app.base', [])

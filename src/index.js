@@ -11,7 +11,6 @@ import 'angular-animate';
 import 'angular-wizard';
 import 'valdr';
 import 'valdr/valdr-message';
-import './common/vendor/animate.css';
 import tabs from 'angular-ui-bootstrap/src/tabs';
 import progressBar from 'angular-ui-bootstrap/src/progressbar';
 

@@ -1,7 +1,19 @@
-//////////////////--------FONTS---------//////////////////////
-@import "fonticons";
-$fa-font-path: "~font-awesome/fonts";
-@import "~font-awesome/scss/font-awesome";
+// Modules and Variables
+@import "modules/all";
+@import "modules/colors";
+@import "modules/utility";
+
+// Partials
+@import "partials/typography";
+@import "partials/buttons";
+@import "partials/figures";
+@import "partials/grids";
+@import "partials/base";
+
+// Third-party
+@import "vendor/animate.min.css";
+@import "vendor/ht-bootstrap-min";
+
 
 
 //////////////////--------GENERAL STYLES---------//////////////////////
@@ -76,6 +88,10 @@ input.ht-form__input {
   padding: 0 0 2px 0;
   border-radius: 5px;
   font-weight:bold;
+}
+
+.ht-form--button__login {
+  background-color: $btn-active;
 }
 
 .ht-form__group-link {

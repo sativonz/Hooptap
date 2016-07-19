@@ -80,6 +80,16 @@ let dict = {
 
 	LEVELS: {
 		title				: 'Level',
+		// newbie				: 'Newbie',
+		// rookie				: 'Rookie',
+		// beginner			: 'Beginner',
+		// talented			: 'Talented',
+		// skilled				: 'Skilled',
+		// intermediate		: 'Intermediate',
+		// skillful			: 'Skillful',
+		// advanced			: 'Advanced',
+		// senior				: 'Senior',
+		// expert				: 'Expert'
 	},
 
 	/*	SCORE UNITS
