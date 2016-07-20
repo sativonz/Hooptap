@@ -40,8 +40,6 @@ import './common/services/angular-sdk.js';
 
             require('./modules/components').default,
 
-            require('./modules/base').default,
-
             //Widgets
             require('./modules/widgets/widget-full').default,
             require('./modules/widgets/widget-notifications-popup').default,
