@@ -1,6 +1,18 @@
 import template from './template.jade';
 import './styles.scss';
-
+/**
+ * @ngdoc directive
+ * @name Badges list
+ * @module Components
+ * @description Component for see the badges of the user in a list
+ * @restrict E
+ * //TODO revisar params
+ * @param {String} title => Title of the badge
+ * @param {String} desc => Description of the badge
+ * @param {Image} img => Image of the badge
+ * @param {Boolean} state => State of the badge active/inactive
+ * @element ANY
+ */
 export default() => ({
     restrict: 'E',
     scope: {

@@ -1,5 +1,14 @@
 import template from './template.jade';
-
+/**
+ * @ngdoc directive
+ * @name Badges grid
+ * @module Components
+ * @description Component for see the badges of the user in a grid
+ * @restrict E
+ * //TODO revisar params
+ * @param {String} title => Title of the badge
+ * @element ANY
+ */
 export default() => ({
     restrict: 'E',
     scope: {
