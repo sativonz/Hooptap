@@ -1,6 +1,17 @@
 import template from './template.jade';
 import './styles.scss';
-
+/**
+ * @ngdoc directive
+ * @name Ranking total
+ * @module Components
+ * @description Component for see the total ranking
+ * @restrict E
+ * //TODO revisar params
+ * @param {String} title => Title of the ranking
+ * @param {String} rankingType => Type of the ranking
+ * @param {String} img => Image of the ranking
+ * @element ANY
+ */
 export default($rootScope) => ({
     restrict: 'E',
     scope: {
