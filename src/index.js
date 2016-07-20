@@ -19,14 +19,6 @@ import './common/services/angular-sdk.js';
 
 
 (function () {
-
-    /*var body = angular.element('body').html();
-     angular.element('body').remove();
-     angular.element('html').append('<body></body>');
-     angular.element('body').append('<div id="originalBody"></div>');
-     angular.element('#originalBody').append(body);
-     angular.element('body').append('<div id="htbody"></div>');
-     angular.element('#htbody').append(template());*/
     angular.element('body').append(template());
     angular.module('htWidget',
         [
@@ -37,19 +29,15 @@ import './common/services/angular-sdk.js';
             progressBar,
             'mgo-angular-wizard',
             'valdr',
-            //Plugins
 
-            //SDK Services
             //SDK Loopback services
             'apiServices',
             
             //Components
             require('./common/components/translations').default,
-            
-            
+
             //Modules
             require('./modules/components').default,
-            //require('./common').default,
 
             //Widgets
             require('./modules/widgets/widget-full').default,

@@ -6,10 +6,10 @@ import './styles.scss';
  * @module Components
  * @description Component for show the marker of the score units in a grid
  * @restrict E
- * @param {String} name => name of the score unit
- * @param {String} quantity => Quantity of the score unit
- * @param {Image} img => Image of the score unit
- * @param {Int} numberCols => Number of cols to show the score units in the grid
+ * @param {String} name name of the score unit
+ * @param {String} quantiy Quantity of the score unit
+ * @param {Image} img Image of the score unit
+ * @param {Int} numberCols Number of cols to show the score units in the grid
  * @element ANY
  */
 export default($timeout) => ({

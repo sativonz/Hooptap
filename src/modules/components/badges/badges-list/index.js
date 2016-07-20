@@ -7,10 +7,10 @@ import './styles.scss';
  * @description Component for see the badges of the user in a list
  * @restrict E
  * //TODO revisar params
- * @param {String} title => Title of the badge
- * @param {String} desc => Description of the badge
- * @param {Image} img => Image of the badge
- * @param {Boolean} state => State of the badge active/inactive
+ * @param {String} title Title of the badge
+ * @param {String} desc Description of the badge
+ * @param {Image} img Image of the badge
+ * @param {Boolean} state State of the badge active/inactive
  * @element ANY
  */
 export default() => ({

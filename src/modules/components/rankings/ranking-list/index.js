@@ -7,9 +7,9 @@ import './styles.scss';
  * @description Component for see the total ranking
  * @restrict E
  * //TODO revisar params
- * @param {String} username => Username of the user of the ranking
- * @param {String} position => Position in the ranking of the user
- * @param {String} score => Score in the ranking of the user
+ * @param {String} username Username of the user of the ranking
+ * @param {String} position Position in the ranking of the user
+ * @param {String} score Score in the ranking of the user
  * @element ANY
  */
 export default() => ({

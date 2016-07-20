@@ -6,9 +6,9 @@ import './styles.scss';
  * @module Components
  * @description Component for see the quest in a grid
  * @restrict E
- * @param {String} title => Title of the quests
- * @param {String} desc => Description of the quests
- * @param {Image} img => Image of the quests
+ * @param {String} title Title of the quests
+ * @param {String} desc Description of the quests
+ * @param {Image} img Image of the quests
  * @element ANY
  */
 export default() => ({

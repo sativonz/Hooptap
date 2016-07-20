@@ -6,9 +6,9 @@ import template from './template.jade';
  * @description Component for Login a user with username/email and password
  * @restrict E
  * //TODO revisar los parametros opcionales
- * @param {String=} username => Username of user
- * @param {String=} email => User email
- * @param {String} password => User password
+ * @param {String=} username Username of user
+ * @param {String=} email User email
+ * @param {String} password User password
  * @element ANY
  */
 export default() => ({

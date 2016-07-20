@@ -6,7 +6,7 @@ import template from './template.jade';
  * @description Component for see the badges of the user in a grid
  * @restrict E
  * //TODO revisar params
- * @param {String} title => Title of the badge
+ * @param {String} title Title of the badge
  * @element ANY
  */
 export default() => ({

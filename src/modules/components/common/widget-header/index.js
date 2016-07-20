@@ -4,7 +4,7 @@ import template from './template.jade';
  * @name Widget header
  * @module Components
  * @description Header for the widgets
- * @params {String} title => Title of the header
+ * @params {String} title Title of the header
  * @restrict E
  * @element ANY
  */

@@ -6,8 +6,8 @@ import './styles.scss';
  * @module Components
  * @description Component to see the user's progress at the current level
  * @restrict E
- * @param {String} type => Name of the state in which the user is at the current level
- * @param {Int} dynamic => The numerical value of 200, of the user's progress at the current level
+ * @param {String} type Name of the state in which the user is at the current level
+ * @param {Int} dynamic The numerical value of 200, of the user's progress at the current level
  * @element ANY
  */
 export default() => ({
