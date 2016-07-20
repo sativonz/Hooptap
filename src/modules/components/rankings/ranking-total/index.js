@@ -9,7 +9,7 @@ import './styles.scss';
  * //TODO revisar params
  * @param {String} title => Title of the ranking
  * @param {String} rankingType => Type of the ranking
- * @param {String} img => Image of the ranking
+ * @param {Image} img => Image of the ranking
  * @element ANY
  */
 export default($rootScope) => ({

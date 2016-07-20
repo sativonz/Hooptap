@@ -80,6 +80,7 @@ let dict = {
 
 	LEVELS: {
 		title				: 'Level',
+		ptitle				: 'Levels',
 		nextLevelDetails	: 'Details next level'
 		// newbie			: 'Newbie',
 		// rookie			: 'Rookie',
