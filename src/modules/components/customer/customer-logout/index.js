@@ -1,6 +1,5 @@
 import template from './template.jade';
-import './styles.scss';
-import Q from 'q';
+
 //TODO ngDocs
 export default(Customer, $rootScope, $q) => ({
     restrict: 'E',

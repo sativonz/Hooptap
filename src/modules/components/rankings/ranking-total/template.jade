@@ -4,4 +4,4 @@
                 img(ng-src="{{r.img}}")
             .col-xs-9.widget--ranking-total__desc
                 p {{r.desc}}
-c-ranking-simple(ng-if="showDetailView" type="{{$root.rankingSelected.rankingType}}")
+c-ranking-list(ng-if="showDetailView" type="{{$root.rankingSelected.rankingType}}")

@@ -113,6 +113,20 @@ let dict = {
 		titleList			: 'Ranking',
 		titleTotal			: 'Total ranking',
 
+	},
+
+	/*	GLOBAL FEED
+	 ---------------------------------------------------------------------------------*/
+
+	GLOBAL_FEED: {
+		title				: 'Global feed'
+	},
+
+	/*	MARKETPLACE
+	 ---------------------------------------------------------------------------------*/
+
+	MARKETPLACE: {
+		title				: 'Marketplace'
 	}
 
 
