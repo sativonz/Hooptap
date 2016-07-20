@@ -1,15 +1,16 @@
 import template from './template.jade';
-
 /**
  * @ngdoc directive
- * @name Admin login
- * @module Component
- * @description For add login component
+ * @name Customer login
+ * @module Components
+ * @description Component for Login a user with username/email and password
  * @restrict E
- * @param
+ * //TODO revisar los parametros opcionales
+ * @param {String=} username => Username of user
+ * @param {String=} email => User email
+ * @param {String} password => User password
  * @element ANY
  */
-
 export default() => ({
     restrict: 'E',
     scope: {},
@@ -30,7 +31,6 @@ export default() => ({
                 })
                 .catch((error)=> {
                 });
-
         };
 
         function getCurrent() {
@@ -46,6 +46,5 @@ export default() => ({
 
                 });
         }
-
     }
 });

@@ -1,6 +1,12 @@
 import template from './template.jade';
-
-//TODO ngDocs
+/**
+ * @ngdoc directive
+ * @name Customer logut
+ * @module Components
+ * @description Component for log out
+ * @restrict E
+ * @element ANY
+ */
 export default(Customer, $rootScope, $q) => ({
     restrict: 'E',
     scope: {},
@@ -14,8 +20,6 @@ export default(Customer, $rootScope, $q) => ({
                     scope.showDropdown = false;
                     $rootScope.logged = false;
                 });
-
         }
 }
-
 });

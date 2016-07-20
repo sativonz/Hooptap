@@ -1,6 +1,6 @@
 form.ht-form--activate(name="htActivateEmailForm" ng-show='$root.goActivateForm' ng-init="$root.goActivateForm = false;")
     .ht-form__group
-        input.ht-form__input(ng-model='emailActivation' type='text' name="emailActivation" required)
+        input.ht-form__input(ng-model='codeEmailActivation' type='text' name="emailActivation" required)
         span.ht-form__highlight
         span.ht-form__bar
         label.ht-form__label {{ 'CUSTOMER.activate.title' | translate }}
