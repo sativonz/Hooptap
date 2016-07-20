@@ -1,6 +1,8 @@
-export default (greetingServiceProvider)=> {
+//TODO ngDocs
+// Default config of viewHandler
+export default (viewHandlerServiceProvider)=> {
 
-    greetingServiceProvider
+    viewHandlerServiceProvider
         .setView('pepe',{
             name: 'hola',
             view: 'adios'
