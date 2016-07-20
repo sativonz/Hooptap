@@ -7,9 +7,9 @@ import './styles.scss';
  * @description Component for see the total ranking
  * @restrict E
  * //TODO revisar params
- * @param {String} title => Title of the ranking
- * @param {String} rankingType => Type of the ranking
- * @param {Image} img => Image of the ranking
+ * @param {String} title Title of the ranking
+ * @param {String} rankingType Type of the ranking
+ * @param {Image} img Image of the ranking
  * @element ANY
  */
 export default($rootScope) => ({

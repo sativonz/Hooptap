@@ -1,8 +1,6 @@
 div#ht-widget(ng-app="htWidget" ng-controller="htWidgetCtrl")
     c-button-init(text="Juegue ahora")
 
-    div#ht-widgets
-
     div(id="ht-widgets")
         button(vh-ref='pepe') PEPE
         button(vh-ref='pepe.detail') PEPE.Detail
@@ -12,4 +10,6 @@ div#ht-widget(ng-app="htWidget" ng-controller="htWidgetCtrl")
         //w-widget-badges-grid
         w-widget-badges-list
         //w-widget-levels
+
+        w-widget-full
     c-notifications-popup

@@ -6,7 +6,7 @@ import './styles.scss';
  * @module Components
  * @description Button to open the widgets, it is the first button you see.
  * @restrict E
- * @params {String} text => Text of the button
+ * @params {String} text Text of the button
  * @element ANY
  */
 export default() => ({

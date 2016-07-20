@@ -6,7 +6,7 @@ import template from './template.jade';
  * @description Component for update instances of the model matched by where from the data sourceg
  * @restrict E
  * //TODO revisar params...
- * @param {String} email => User email
+ * @param {String} email  User email
  * @element ANY
  */
 export default() => ({

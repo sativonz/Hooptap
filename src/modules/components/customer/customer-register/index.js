@@ -6,9 +6,9 @@ import template from './template.jade';
  * @description Component for register a new user
  * @restrict E
  * //TODO revisar params...
- * @param {String} username => Username of the user
- * @param {String} email => User email
- * @param {String} password => User password
+ * @param {String} username Username of the user
+ * @param {String} email User email
+ * @param {String} password User password
  * @element ANY
  */
 export default($rootScope, Customer,LoopBackAuth) => ({

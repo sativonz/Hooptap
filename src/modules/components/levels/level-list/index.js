@@ -7,8 +7,8 @@ import './styles.scss';
  * @description Component for see a list with the all levels
  * @restrict E
  * //TODO revisar params
- * @param {String} title => Title of the level
- * @param {Image} image => Image of the level
+ * @param {String} title Title of the level
+ * @param {Image} image Image of the level
  * @element ANY
  */
 export default($timeout) => ({
