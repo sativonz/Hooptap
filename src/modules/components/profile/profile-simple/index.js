@@ -18,7 +18,9 @@ export default() => ({
     transclude: true,
     scope: {
         image: '@',
-        id: '@'
+        id: '@',
+        type: '=',
+        dynamic: '='
     },
     link: (scope, element, attrs)=> {
         attrs.name = attrs.name || 'Anonymous';
