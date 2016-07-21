@@ -115,6 +115,11 @@ module.exports = function makeWebpackConfig() {
             angular: 'angular-mod',
             'window.angular': 'angular-mod'
         }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
+        }),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: false,
             mangle: {

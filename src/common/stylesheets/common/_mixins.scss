@@ -1,4 +1,4 @@
-//////////////////--------ALL STYLES---------//////////////////////
+//////////////////--------ALL MIXINS---------//////////////////////
 
 @mixin border-radius($radius) {
   border-radius: $radius;
@@ -72,3 +72,14 @@
 }
 
 
+
+/**** MIXIN TEMPLATES SIZE**/
+
+
+// Size template 1
+@mixin template-1-size {
+  min-width: 400px;
+  max-width: 400px;
+  min-height: 300px;
+  max-height: 700px;
+}

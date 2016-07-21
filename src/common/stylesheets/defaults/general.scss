@@ -1,0 +1,42 @@
+
+//////////////////--------GENERAL STYLES---------//////////////////////
+
+.center{
+  text-align: $center;
+}
+
+.hide{
+  display: $hide;
+}
+
+a, a:active, a:focus, a:hover {
+  outline: $not-outline;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+}
+
+//font widget
+div#ht-widget {
+  font-family: $base-font-family
+}
+
+//////////////////--------WIDGET W&H---------//////////////////////
+//TODO Revisar tamaños del widget
+
+#ht-widget {
+  background: $white;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  box-shadow: 0 0 5px #000;
+  z-index: $z-index-9;
+  border-radius: 14px;
+}
+
+#ht-widgets {
+  display: $hide;
+  @include template-1-size;
+  @include border-radius(10px);
+}

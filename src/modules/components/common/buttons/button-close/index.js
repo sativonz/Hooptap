@@ -1,5 +1,4 @@
 import template from './template.jade';
-import $ from 'jquery';
 import './styles.scss';
 /**
  * @ngdoc directive

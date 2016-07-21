@@ -1,5 +1,8 @@
 /////////////////--------BASE---------//////////////////////
 
+
+/////--------FONTS---------/////
+$fa-font-path: "~font-awesome/fonts/fontawesome-webfont.ttf";
 // Font weights
 $light: 100;
 $regular: 300;
@@ -18,11 +21,3 @@ $fixed-line-height: $base-line-height;
 
 // Headings
 $header-font-weight: $bold;
-
-// Size template 1
-@mixin template-1-size {
-  min-width: 400px;
-  max-width: 400px;
-  min-height: 300px;
-  max-height: 700px;
-}
