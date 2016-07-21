@@ -1,13 +1,15 @@
 import template from './template.jade';
 import './styles.scss';
 /**
+ * //TODO REVISAR NGDOCS...
  * @ngdoc directive
  * @name Notification list
  * @module Components
  * @description List of all notifications received and their status , read or not.
  * @restrict E
- * @param {String} title => Title or name of the notification
- * @param {Img} image => Image boolean to see the state of the notificaion (read or not)
+ * @param {String} title Title or name of the notification
+ * @param {String} desc Description of the notification
+ * @param {Img} image Image boolean to see the state of the notificaion (read or not)
  * @element ANY
  */
 export default() => ({

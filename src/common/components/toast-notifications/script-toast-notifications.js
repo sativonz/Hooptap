@@ -19,7 +19,7 @@ export default (function () {
  * color: HEX format OR rgb format OR rgba format
  * background: HEX format OR rgb format OR rgba format
  */
-//TODO falta controlar cuando no tien e mensaje que no muestre object object+
+
 var TOAST = function (title, desc, params) {
     if (!title) return false;
     if (!desc) desc='';

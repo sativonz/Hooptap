@@ -80,6 +80,7 @@ let dict = {
 
 	LEVELS: {
 		title				: 'Level',
+		ptitle				: 'Levels',
 		nextLevelDetails	: 'Details next level'
 		// newbie			: 'Newbie',
 		// rookie			: 'Rookie',
@@ -113,6 +114,20 @@ let dict = {
 		titleList			: 'Ranking',
 		titleTotal			: 'Total ranking',
 
+	},
+
+	/*	GLOBAL FEED
+	 ---------------------------------------------------------------------------------*/
+
+	GLOBAL_FEED: {
+		title				: 'Global feed'
+	},
+
+	/*	MARKETPLACE
+	 ---------------------------------------------------------------------------------*/
+
+	MARKETPLACE: {
+		title				: 'Marketplace'
 	}
 
 

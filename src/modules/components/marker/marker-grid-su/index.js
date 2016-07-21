@@ -1,14 +1,42 @@
 import template from './template.jade';
 import './styles.scss';
-
+/**
+ * @ngdoc directive
+ * @name Marker grid score units
+ * @module Components
+ * @description Component for show the marker of the score units in a grid
+ * @restrict E
+ * @param {String} name name of the score unit
+ * @param {String} quantiy Quantity of the score unit
+ * @param {Image} img Image of the score unit
+ * @param {Int} numberCols Number of cols to show the score units in the grid
+ * @element ANY
+ */
 export default($timeout) => ({
     restrict: 'E',
     scope: {},
     link: (scope, element, attrs)=> {
-
         //Definir el numero de cols
-        scope.numberCols = 4;
-        scope.colWidth = 12/ scope.numberCols;
+        scope.numberCols = 3;
+
+        switch (scope.numberCols) {
+            case 2:
+                scope.colWidth = 6;
+                break;
+            case 3:
+                scope.colWidth = 4;
+                break;
+            case 5:
+                scope.htCol5 = "width: 20%;float:left;padding-right:10px;padding-left:10px;";
+                break;
+            case 6:
+                scope.colWidth = 2;
+                break;
+            case 4:
+            default:
+                scope.colWidth = 3;
+                break;
+        }
 
 
         //TODO Fake response

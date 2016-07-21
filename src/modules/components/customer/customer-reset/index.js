@@ -1,11 +1,12 @@
 import template from './template.jade';
 /**
  * @ngdoc directive
- * @name Admin login
- * @module Component
- * @description For add login component (reset view is in)
+ * @name Customer reset
+ * @module Components
+ * @description Component for reset password for a user with email
  * @restrict E
- * @param
+ * //TODO revisar params...
+ * @param {String} email User email
  * @element ANY
  */
 export default($rootScope,Customer,LoopBackAuth) => ({

@@ -62,7 +62,7 @@ let dict = {
 		terms	: 'Acepto los términos y condiciones'
 	},
 
-	/*	CUSTOMER
+	/*	BADGES
 	 ---------------------------------------------------------------------------------*/
 
 	BADGES: {
@@ -81,6 +81,7 @@ let dict = {
 
 	LEVELS: {
 		title				: 'Nivel',
+		ptitle				: 'Levels',
 		nextLevelDetails	: 'Detalles del siguiente nivel'
 		// newbie			: 'Nuevo',
 		// rookie			: 'Principiante',
@@ -114,6 +115,20 @@ let dict = {
 			titleList		: 'Ranking',
 			titleTotal		: 'Ranking total',
 
+	},
+
+	/*	GLOBAL FEED
+	 ---------------------------------------------------------------------------------*/
+
+	GLOBAL_FEED: {
+		title				: 'Actividad global'
+	},
+
+	/*	MARKETPLACE
+	 ---------------------------------------------------------------------------------*/
+
+	MARKETPLACE: {
+		title				: 'Marketplace'
 	}
 
 

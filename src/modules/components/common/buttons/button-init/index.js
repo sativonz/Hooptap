@@ -1,4 +1,5 @@
 import template from './template.jade';
+import $ from 'jquery';
 import './styles.scss';
 /**
  * @ngdoc directive
@@ -6,6 +7,7 @@ import './styles.scss';
  * @module Components
  * @description Button to open the widgets, it is the first button you see.
  * @restrict E
+ * @params {String} text Text of the button
  * @element ANY
  */
 export default() => ({

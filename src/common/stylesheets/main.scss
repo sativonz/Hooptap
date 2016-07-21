@@ -151,8 +151,13 @@ label.checkbox_terms {
   font-size:14px;
   color: $_1_bar-color-effect;
 }
-c-customer-nav {
 
+.ht-profile--full .logout {
+  position: absolute;
+  left: 5px;
+  top: 5px;
+  cursor: pointer;
+  z-index: $z-index-12;
 }
 
 /* BOTTOM BARS ================================= */
