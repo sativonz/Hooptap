@@ -60,7 +60,6 @@ export default($rootScope, Customer, LoopBackAuth) => ({
 
         Customer.findById(LoopBackAuth.currentUserId).$promise.then(
             (response)=>{
-                console.log(response);
                 $rootScope.customer = response;
             }
         );

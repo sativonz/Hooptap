@@ -1,0 +1,59 @@
+c-profile-simple {
+
+  .ht-profile--simple {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .profile--simple-item__img {
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: inherit;
+    padding: 15px;
+  }
+
+  .profile--simple-item__name {
+    text-align: center;
+    padding: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid white;
+  }
+
+  .profile--simple-item__username {
+    text-align: center;
+    font-size: 14px;
+    padding: 5px;
+    color: grey;
+    letter-spacing: 1px;
+    border-bottom: 1px solid white;
+  }
+
+  .profile--simple-item__email {
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 1px;
+    padding: 10px;
+  }
+  .profile--simple-item__email--verified {
+    width: 5%;
+    margin-left: 15px;
+    position: relative;
+    top: 3px;
+  }
+
+  .profile--simple-item__score-units, .profile--simple-item__badges, .profile--simple-item__levels {
+    text-align: center;
+  }
+
+  .wrapper-item--sbl {
+    margin-top: 15px;
+  }
+
+
+}

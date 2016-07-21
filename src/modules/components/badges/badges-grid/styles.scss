@@ -1,0 +1,30 @@
+c-badges-grid {
+  display: block;
+  position: absolute;
+  overflow: auto;
+  @include calc( height, '100% - 50px');
+
+  .ht-badges--list__wrapper {
+    min-height: 340px;
+    padding: 10px 15px 10px 0px;
+  }
+  .badge-item-3 {
+    display: $hide;
+  }
+  .badge-item__img img{
+  }
+
+  .badge-item__desc.ng-binding {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .badge-item {
+    margin-bottom: 6px;
+  }
+
+  .badge-item.hidden {
+    display: none!important;
+  }
+
+}

@@ -72,6 +72,7 @@ module.exports = function makeWebpackConfig() {
                     ]
                 }
             },
+            {test: /\.json/, loader:'json'},
             {test: /\.jade/, loader: 'jade'},
             {test: /\.css$/, loader: isTest ? 'null' : 'style!css'},
             {test: /\.scss$/, loader: isTest ? 'null' : 'style!css!sass'},

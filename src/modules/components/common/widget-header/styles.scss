@@ -1,0 +1,15 @@
+c-widget-header {
+  margin: 0;
+  border-bottom: 2px solid #d3d3d3;
+  display: block;
+  height: 40px;
+  background-color: $_1_header-color;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  .widget-header__title{
+    padding: 15px 20px 15px 0px;
+    font-weight: 700;
+    color: white;
+    text-align: center;
+  }
+}

@@ -1,0 +1,7 @@
+.widget--ranking-total(ng-if="!showDetailView" ng-init="$root.showMainHeader=true" ng-model="$root.showMainHeader")
+    .widget--ranking-total__wrapper.row(ng-repeat="r in rankings | orderBy:'-typeRanking'"  ng-click="$root.toggleDetailView(r)" id="ranking{{$index+1}}" )
+            .col-xs-3.widget--ranking-total__img
+                img(ng-src="{{r.img}}")
+            .col-xs-9.widget--ranking-total__title
+                p {{r.title}}
+c-ranking-list(ng-if="showDetailView" type="{{$root.rankingSelected.rankingType}}")

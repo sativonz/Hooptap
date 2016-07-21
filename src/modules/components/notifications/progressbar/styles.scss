@@ -1,0 +1,17 @@
+c-progressbar{
+  .level-actual_wrapper--progressbar{
+    padding: 10px 15px;
+  }
+
+  .progress-bar.progress-bar-type span {
+    z-index: 9999;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-align: center !important;
+    width: 305px !important;
+    padding-left: 8px;
+    top: 2px;
+    position: relative;
+  }
+}

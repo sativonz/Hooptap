@@ -18,7 +18,4 @@ export default ($rootScope) => {
         $rootScope.currentView = $rootScope.history.pop();
 
     };
-
-
-
 }

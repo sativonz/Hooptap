@@ -1,0 +1,18 @@
+//TODO por hacer cadenas de texto y mockup
+.ht-quests--list__container
+	c-widget-header(title="{{ 'QUESTS.title' | translate }}")
+	.quest--list__wrapper(data-finished='false', data-active='true' ng-repeat="q in [a, b] track by $index")
+		//TODO falta mas logica en el onclick ya que oculta todas las misiones...(mi head is going to crash)
+		.col-xs-12.quest--row(ng-click="toggleDetailQuest()")
+			.col-xs-12.quest-row__img_wrapper
+				.col-xs-3.quest--row--image-holder
+					img.quest--row--image(src='https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png', alt='On-boarding mission')
+				.col-xs-9.quest--row--text-holder
+					.quest--row--title On-boarding mission
+					.quest--row--desc Take a look around the store
+			.quest--row--status-label.hide.bg-yellow Active
+			ng-transclude
+				c-progressbar-quests
+			.col-xs-12.quest--row--actual-step(ng-show="showDetailQuests")
+				span.actual-step--num Currently in step 1 of 3
+				.actual-step--name Visit our blog

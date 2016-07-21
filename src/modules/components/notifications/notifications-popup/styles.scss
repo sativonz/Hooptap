@@ -1,0 +1,80 @@
+c-notifications-popup {
+  #TOASTER {
+    z-index: 999999999999999999;
+    position: fixed;
+    top: 7px;
+    right: 7px;
+    max-width: 4000px;
+    min-width: 400px;
+    width: 400px;
+    height: 70px;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    padding: 10px 30px 10px 10px;
+
+    .TOAST {
+      position: relative;
+      height: 70px;
+      border: 1px solid rgba(255, 255, 255, 0.29);
+
+      .toast-close {
+        position: absolute;
+        top: 2px;
+        right: 5px;
+        color: white;
+        font-weight: 500;
+        font-size: 16px;
+        cursor: pointer;
+
+      }
+
+      .toast-content {
+        display: block;
+        padding: 10px 30px 10px 57px;
+
+        .toast-title {
+          width: 100%;
+          display: list-item;
+          list-style: none;
+        }
+        .toast-img {
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          bottom: 5px;
+          width: 20%;
+
+          img {
+            display: block;
+            max-height: 100%;
+            max-width: 100%;
+          }
+
+        }
+        .toast-img + .toast-title {
+          width: 67%;
+        }
+
+      }
+
+      .toast-content--span {
+        color: black;
+        background: white;
+        margin-left: 4px;
+        padding: 4px 8px;
+        border-radius: 4px;
+        cursor: pointer
+      }
+
+      .toast-content--href {
+        color: black;
+        background: white;
+        margin-left: 4px;
+        padding: 4px 8px;
+        border-radius: 4px;
+        tcursor: pointer
+      }
+    }
+  }
+}

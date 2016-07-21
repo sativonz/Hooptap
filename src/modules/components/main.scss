@@ -1,0 +1,55 @@
+//////////-----ALL COMPONENTS-----\\\\\\\\\\
+
+/// Awards
+@import "awards/awards-list/styles";
+
+/// Badges
+@import "badges/badges-grid/styles";
+@import "badges/badges-list/styles";
+
+/// Common
+@import "common/buttons/button-back/styles";
+@import "common/buttons/button-call-to-action/styles";
+@import "common/buttons/button-close/styles";
+@import "common/buttons/button-init/styles";
+@import "common/buttons/button-menu/styles";
+@import "common/widget-header/styles";
+
+/// Customer
+@import "customer/customer-nav/styles";
+
+/// Game
+@import "game/game-container/styles";
+@import "game/game-global-feed/styles";
+@import "game/game-wrapper/styles";
+
+/// Levels
+@import "levels/level-actual/styles";
+@import "levels/level-list/styles";
+
+/// Marker
+@import "marker/marker-grid-su/styles";
+@import "marker/marker-list-su/styles";
+
+/// Marketplace
+@import "marketplace/marketplace-container/styles";
+
+/// Notifications
+@import "notifications/notifications-list/styles";
+@import "notifications/notifications-popup/styles";
+@import "notifications/progressbar/styles";
+@import "notifications/progressbar-quests/styles";
+
+/// Profile
+@import "profile/profile-advanced/styles";
+@import "profile/profile-simple/styles";
+@import "profile/profile-widget-full/styles";
+@import "profile/profile-full/styles";
+
+/// Quests
+@import "quests/quests-grid/styles";
+@import "quests/quests-list/styles";
+
+/// Rankings
+@import "rankings/ranking-list/styles";
+@import "rankings/ranking-total/styles";
