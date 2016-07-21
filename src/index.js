@@ -68,7 +68,7 @@ import './common/services/angular-sdk.js';
 
 
     //Controller for widget
-        .controller('htWidgetCtrl', ($q, $scope, $compile, Event, Customer, Admin, Rule)=> {
+        .controller('htWidgetCtrl', ($q, $scope, $compile, $injector, Event, Customer, Admin)=> {
 
 
             //hooptapSDK object for sdk on javascript
@@ -125,6 +125,22 @@ import './common/services/angular-sdk.js';
 
             };
 
+            window.Hooptap.api = ( model, method, params, _then, _catch ) => {
+                // TODO improve Hooptap.api method
+
+                model = $injector.get(model);
+                method = model[method];
+
+                let promise = method( params ).$promise;
+                if(!promise) {
+                    return method( params );
+                }
+                if(_then) promise.then( (response) => { _then(response) } );
+                if(_catch) promise.catch( (error) => { _catch(error) } );
+
+                return promise;
+            };
+
             window.Hooptap.sendEvent = function( params )
             {
                 var typeOf = {
@@ -161,7 +177,7 @@ import './common/services/angular-sdk.js';
                             if(ctxTriggers && typeof ctxTriggers == 'object' && Object.keys( ctxTriggers ))
                             {
                                 console.log( 'EventTriggers', ctxTriggers );
-                                processTriggers(ctxTriggers);
+                                //processTriggers(ctxTriggers);
                             }
                             else
                                 console.log( 'No Event Triggers' );
@@ -215,14 +231,6 @@ import './common/services/angular-sdk.js';
 
             if(TEST)
             {
-                Object.assign(
-                    window.Hooptap,
-                    {
-                        Admin       : Admin,
-                        Customer    : Customer,
-                        Event       : Event
-                    }
-                );
 
                 window.Hooptap.loginAdmin = function( params )
                 {
