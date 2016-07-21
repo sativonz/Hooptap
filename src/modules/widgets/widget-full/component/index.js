@@ -1,16 +1,21 @@
 import template from './template.jade';
 import controller from './controller';
+import angular from 'angular-mod';
 
 export default($rootScope) => ({
     restrict: 'E',
     scope: {},
-    link: (scope, element, attrs)=>{
+    link: (scope, element, attrs)=> {
+        
+        if (angular.element(".grid-right").length > 0) {
+            angular.element(".grid-right").append(element);
+        }
+
         $rootScope.currentView = 'profileWidgetFull.default';
 
         //Progressbar config
-        scope.max =  200;
-
-        scope.random = function() {
+        scope.max = 200;
+        scope.random = function () {
             //TODO pasar valor a la función dinamicamente
             var value = 49;
             var type;
@@ -45,7 +50,7 @@ export default($rootScope) => ({
 
         scope.random();
 
-        scope.randomStacked = function() {
+        scope.randomStacked = function () {
             scope.stacked = [];
             var types = ['success', 'info', 'warning', 'danger'];
 
