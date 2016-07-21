@@ -1,6 +1,5 @@
 div#ht-widget(ng-app="htWidget" ng-controller="htWidgetCtrl")
     c-button-init(text="Juegue ahora")
-
     div(id="ht-widgets")
-    w-widget-full
+        w-widget-profile-simple(id-widget="12345" , config="{'editable': true, rewardsList: ['scoreunits','badges','levels'], 'showImage': false}")
     c-notifications-popup

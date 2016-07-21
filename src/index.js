@@ -41,14 +41,16 @@ import './common/services/angular-sdk.js';
             require('./modules/components').default,
 
             //Widgets
-            require('./modules/widgets/widget-full').default,
+            require('./modules/widgets/widget-profile-simple').default
+
+/*            require('./modules/widgets/widget-full').default,
             require('./modules/widgets/widget-notifications-popup').default,
             require('./modules/widgets/widget-notifications-list').default,
             require('./modules/widgets/widget-ranking-list').default,
             require('./modules/widgets/widget-ranking-total').default,
             require('./modules/widgets/widget-profile-advanced').default,
             require('./modules/widgets/widget-profile-full').default,
-            require('./modules/widgets/widget-profile-simple').default,
+
             require('./modules/widgets/widget-levels').default,
             require('./modules/widgets/widget-quests').default,
             require('./modules/widgets/widget-marker-su-grid').default,
@@ -63,7 +65,7 @@ import './common/services/angular-sdk.js';
             require('./modules/widgets/widget-member-register').default,
             require('./modules/widgets/widget-member-login').default,
             require('./modules/widgets/widget-badges-list').default,
-            require('./modules/widgets/widget-badges-grid').default
+            require('./modules/widgets/widget-badges-grid').default*/
         ]).service('viewHandler', require('./common/services/viewHandler').default)
 
 

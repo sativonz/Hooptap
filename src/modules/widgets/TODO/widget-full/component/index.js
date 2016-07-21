@@ -4,7 +4,10 @@ import angular from 'angular-mod';
 
 export default($rootScope) => ({
     restrict: 'E',
-    scope: {},
+   /* scope: {idWidget: '=',
+            rewardsList: '=',
+            showImage: '='
+            },*/
     link: (scope, element, attrs)=> {
 
         if (angular.element("body").length > 0) {
