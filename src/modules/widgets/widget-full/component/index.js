@@ -6,9 +6,9 @@ export default($rootScope) => ({
     restrict: 'E',
     scope: {},
     link: (scope, element, attrs)=> {
-        
-        if (angular.element(".grid-right").length > 0) {
-            angular.element(".grid-right").append(element);
+
+        if (angular.element("body").length > 0) {
+            angular.element("body").append(element);
         }
 
         $rootScope.currentView = 'profileWidgetFull.default';
