@@ -1,5 +1,15 @@
 div#ht-widget(ng-app="htWidget" ng-controller="htWidgetCtrl")
     c-button-init(text="Juegue ahora")
     div(id="ht-widgets")
-        w-widget-profile-simple(id-widget="12345" , config="{'editable': true, rewardsList: ['scoreunits','badges','levels'], 'showImage': false}")
+        //w-widget-profile-simple(id-widget="12345" , config="{'editable': true, rewardsList: ['scoreunits','badges','levels'], 'showImage': false}")
+        w-widget-full(
+            id-widget="12345" ,
+            config="{" +
+            "'editable': true, " +
+            "'showImage': false, " +
+            "'badgesView': 'list' , " +
+            "'showProgressBar': true, " +
+            "'showGlobalActivity': true, " +
+            "rewardsList: ['scoreunits','badges','levels']" +
+        "}")
     c-notifications-popup

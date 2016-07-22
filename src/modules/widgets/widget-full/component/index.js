@@ -1,18 +1,52 @@
 import template from './template.jade';
-import controller from './controller';
-import angular from 'angular-mod';
 
-export default($rootScope) => ({
+export default(Customer, LoopBackAuth, $rootScope) => ({
     restrict: 'E',
-   /* scope: {idWidget: '=',
-            rewardsList: '=',
-            showImage: '='
-            },*/
+    transclude: true,
+    template,
+    scope: {
+        idWidget: '=',
+        config: '='
+    },
     link: (scope, element, attrs)=> {
 
-        if (angular.element("body").length > 0) {
-            angular.element("body").append(element);
+        Customer.findById(LoopBackAuth.currentUserId).$promise.then(
+            (response)=>{
+                $rootScope.customer = response;
+            }
+        );
+
+        //Default Widget values
+        if (!scope.config) {
+
+            scope.config.editable = scope.config.editable || true;
+            scope.config.showImage = scope.config.showImage || true;
+            scope.config.showProgressBar = scope.config.showProgressBar || true;
+            scope.config.showGlobalActivity = scope.config.showGlobalActivity || true;
+            scope.config.badgesView = scope.config.badgesView || 'list';
+            scope.config.rewardsList = scope.config.rewardsList || Array('');
+
+            scope.config = {'editable': true, 'showImage': true, 'badgesView': 'list' , 'showProgressBar': true, 'showGlobalActivity': true, rewardsList: []}
         }
+
+        Customer.getCurrent({
+            filter: {include: scope.config.rewardsList}
+        }).$promise.then((response)=> {
+            scope.user = response;
+
+        }).catch(()=> {
+            //TODO
+        });
+
+        //cuando exista un ENDPOINT del API
+        /*     Widget.findById({id: scope.idWidget}).$promise.then(()=>{
+         });*/
+
+        scope.menuItems = [
+            {view: 'profileWidgetFull.questsList', title: 'QUESTS.title'},
+            {view: 'profileWidgetFull.badgesList', title: 'BADGES.title'},
+            {view: 'profileWidgetFull.customerUpdate', title: 'CUSTOMER.common.edit'}
+        ];
 
         $rootScope.currentView = 'profileWidgetFull.default';
 
@@ -67,9 +101,5 @@ export default($rootScope) => ({
         };
         scope.randomStacked();
 
-    },
-    transclude: true,
-    controller,
-    template
-
+    }
 });

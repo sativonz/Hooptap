@@ -20,6 +20,7 @@ import './styles.scss';
 export default($rootScope) => ({
     restrict: 'E',
     transclude: true,
+    //TODO revisar...
     scope: {
         name: '@',
         username: '@',

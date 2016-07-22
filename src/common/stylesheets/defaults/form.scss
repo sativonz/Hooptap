@@ -15,6 +15,11 @@ input.ht-form__input {
   border-left: none!important;
   border-right: none!important;
   border-top: none!important;
+  font-size:18px;
+  padding:10px 10px 0px 5px;
+  display:block;
+  width:100%;
+  border-bottom:1px solid #757575;
 }
 
 .ht-form--button__login, .ht-form--button__update, .ht-form--button__register, .ht-form--button__reset, .ht-form--button__activationMail {
@@ -25,6 +30,9 @@ input.ht-form__input {
   border-radius: 5px;
   font-weight: $bold;
   background-color: $_1_btn-active;
+  color: $white!important;
+  border: none!important;
+  cursor: pointer;
 }
 
 .ht-form__group-link {
@@ -33,6 +41,11 @@ input.ht-form__input {
   bottom: 10px;
   left: 0;
   right: 0;
+}
+
+.ht-form__group-terms {
+  padding-bottom: 10px;
+  padding-top: 15px;
 }
 
 .ht-form__group.password {
@@ -44,7 +57,7 @@ label.checkbox_terms {
   position: relative;
   top: -1px;
   a {
-    color: $black;
+    color: black!important;
     letter-spacing: 0.2px;
   }
 }
@@ -52,15 +65,6 @@ label.checkbox_terms {
 .ht-form__group 			  {
   position:relative;
   margin-bottom:25px;
-}
-
-.ht-form__input 				{
-  font-size:18px;
-  padding:10px 10px 10px 5px;
-  display:block;
-  width:300px;
-  border:none;
-  border-bottom:1px solid #757575;
 }
 
 .ht-form__input:focus {

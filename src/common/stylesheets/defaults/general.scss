@@ -9,6 +9,10 @@
   display: $hide;
 }
 
+a {
+  color: rgba(59, 178, 208, 0.47);
+}
+
 a, a:active, a:focus, a:hover {
   outline: $not-outline;
 }

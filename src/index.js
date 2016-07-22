@@ -41,7 +41,8 @@ import './common/services/angular-sdk.js';
             require('./modules/components').default,
 
             //Widgets
-            require('./modules/widgets/widget-profile-simple').default
+            require('./modules/widgets/widget-profile-simple').default,
+            require('./modules/widgets/widget-full').default,
 
 /*            require('./modules/widgets/widget-full').default,
             require('./modules/widgets/widget-notifications-popup').default,
@@ -323,7 +324,5 @@ import './common/services/angular-sdk.js';
     
     //Angular bootstrap to render #htWidget div with htWidget Module
     angular.bootstrap('#ht-widget', ['htWidget']);
-
-    //console.log(angular.version.full);
 
 }());

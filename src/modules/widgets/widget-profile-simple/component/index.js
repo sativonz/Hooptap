@@ -1,5 +1,4 @@
 import template from './template.jade';
-import controller from './controller';
 
 export default($rootScope, Customer, LoopBackAuth, viewHandler) => ({
     restrict: 'E',
@@ -7,14 +6,22 @@ export default($rootScope, Customer, LoopBackAuth, viewHandler) => ({
         idWidget: '=',
         config: '='
     },
-    controller,
     template,
     link: (scope, element, attrs)=> {
+
         $rootScope.currentView = 'profileSimple.default';
 
-        debugger;
+
+        Customer.findById(LoopBackAuth.currentUserId).$promise.then(
+            (response)=> {
+                $rootScope.customer = response;
+            }
+        );
+
         //Default Widget values
         if (!scope.config) {
+            scope.config.editable = scope.config.editable || true;
+            scope.config.showImage = scope.config.showImage || true;
             scope.config = {'editable': true, rewardsList: [], 'showImage': false};
         }
         Customer.getCurrent({
@@ -27,8 +34,6 @@ export default($rootScope, Customer, LoopBackAuth, viewHandler) => ({
 
         //cuando exista un ENDPOINT del API
         /*     Widget.findById({id: scope.idWidget}).$promise.then(()=>{
-
-
          });*/
     }
 });
