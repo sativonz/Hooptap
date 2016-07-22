@@ -1,5 +1,6 @@
- import template from './template.jade';
+import template from './template.jade';
 import './styles.scss';
+import $ from "jquery";
  /**
   * @ngdoc directive
   * @name Notification popup
@@ -14,7 +15,5 @@ import './styles.scss';
 export default() => ({
     restrict: 'E',
     scope: {},
-    template,
-    link: (scope, element, attrs)=>{
-    }
+    template
 });

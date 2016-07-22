@@ -29,7 +29,10 @@ var TOAST = function (title, desc, params) {
     var timeOut = 1000;
     var persist = false;
     var TOASTER = $('c-notifications-popup #TOASTER');
-
+    //TODO revisar
+    //Tamaño del popup en el template 1
+    TOASTER.addClass('template-1-popup');
+    //
     var toast = $('<div class="TOAST"><div class="toast-content"><span class="toast-title">'
         + title
         + '</span><span class="toast-desc">'

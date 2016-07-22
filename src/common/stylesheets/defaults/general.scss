@@ -41,6 +41,5 @@ div#ht-widget {
 
 #ht-widgets {
   display: $hide;
-  @include template-1-size;
   @include border-radius(10px);
 }
