@@ -2,8 +2,8 @@ c-notifications-popup {
   #TOASTER {
     z-index: 999999999999999999;
     position: fixed;
-    top: 7px;
-    right: 7px;
+    top: 5px;
+    right: 24px;
     color: white;
     font-weight: bold;
     letter-spacing: 0.5px;
@@ -11,7 +11,10 @@ c-notifications-popup {
 
     .TOAST {
       position: relative;
-      height: 70px;
+      height: 88px;
+      width: 400px;
+      //TODO no deja hacer mixin de border-radius
+      border-radius: 10px;
       border: 1px solid rgba(255, 255, 255, 0.29);
 
       .toast-close {
@@ -24,14 +27,22 @@ c-notifications-popup {
         cursor: pointer;
 
       }
+//TODO Idem que arriba no me deeja usar sass
+      .toast-des {
+        //color: $_1_popup-text-desc;
+        color: #545454;
+        font-size: 12pt;
+      }
 
       .toast-content {
         display: block;
-        padding: 10px 30px 10px 57px;
+        padding: 10px 30px 10px 10px;
 
         .toast-title {
           width: 100%;
           display: list-item;
+          color: #006594;
+          //TODO color: $_1_popup-text-title;
           list-style: none;
         }
         .toast-img {
@@ -48,8 +59,9 @@ c-notifications-popup {
           }
 
         }
-        .toast-img + .toast-title {
-          width: 67%;
+        .toast-img + .toast-title, .toast-img ~ span.toast-desc {
+          width: 100%;
+          margin-left: 22%;
         }
 
       }

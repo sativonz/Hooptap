@@ -41,8 +41,7 @@ export default() => ({
                     TOAST(
                         "Bienvenido " + $rootScope.customer.username + "!", null, {
                         style: 'info',
-                        img: 'http://googledrive.com/host/0B5NVIiWQoHUhWGxUTHNtb3JWZG8/welcome.gif',
-                            persist: true
+                        img: 'http://hooptap.s3.amazonaws.com/widgets/img.png'
                     });
 
                 });

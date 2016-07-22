@@ -78,8 +78,11 @@ var TOAST = function (title, desc, params) {
     var setStyle = function (styleType) {
         switch (styleType) {
             case 'info':
-                toast.css({color: 'white', background: '#0086cb'});
+                toast.css({color: '#006594', background: 'white'});
                 break;
+            // case 'info':
+            //     toast.css({color: 'white', background: '#0086cb'});
+            //     break;
             case 'success':
                 toast.css({color: '#000', background: '#90fb61'});
                 break;
