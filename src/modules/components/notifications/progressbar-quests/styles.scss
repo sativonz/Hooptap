@@ -1,19 +1,34 @@
-c-progressbar-quests{
+@import "../../../../common/stylesheets/common/colors";
+
+c-progressbar-quests {
   .stepbar-step {
-    height: 10px;
+    height: 7px;
     background: grey !important;
     display: inline;
     border: 1px solid grey !important;
-    width: 13% !important;
-    float: right;
+    width: 4vw !important;
+    float: left;
     position: relative;
     margin: 2px;
   }
+  //Stepbar states
+  .stepbar-step.active {
+    background: $_1_progress-bar__active;
+  }
+
+  .stepbar-step.inactive {
+    background: $_1_progress-bar__inactive;
+  }
+
+  .stepbar-step.lapsed {
+    background: $_1_progress-bar__lapsed;
+  }
+  //
 
   #stepbar-step-1 {
-    border-radius: 0px 5px 5px 0px !important;
+    border-radius: 5px 0px 0px 5px !important;
   }
   .stepbar > div:last-child {
-    border-radius: 5px 0px 0px 5px !important;
+    border-radius: 0px 5px 5px 0px !important;
   }
 }

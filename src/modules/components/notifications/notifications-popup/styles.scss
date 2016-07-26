@@ -59,9 +59,16 @@ c-notifications-popup {
           }
 
         }
-        .toast-img + .toast-title, .toast-img ~ span.toast-desc {
+        .toast-img + .toast-title {
           width: 100%;
           margin-left: 22%;
+        }
+
+        .toast-img ~ span.toast-desc{
+          position: absolute;
+          top: 30px;
+          margin-left: 20%;
+          width: 300px;
         }
 
       }

@@ -44,6 +44,7 @@ import './common/services/angular-sdk.js';
             require('./modules/widgets/widget-profile-simple').default,
             require('./modules/widgets/widget-full').default,
             require('./modules/widgets/widget-notifications-popup').default,
+            require('./modules/widgets/widget-quests').default,
 
 /*            require('./modules/widgets/widget-full').default,
             require('./modules/widgets/widget-notifications-popup').default,
@@ -54,7 +55,6 @@ import './common/services/angular-sdk.js';
             require('./modules/widgets/widget-profile-full').default,
 
             require('./modules/widgets/widget-levels').default,
-            require('./modules/widgets/widget-quests').default,
             require('./modules/widgets/widget-marker-su-grid').default,
             require('./modules/widgets/widget-marker-su-list').default,
             require('./modules/widgets/widget-game-wrapper').default,

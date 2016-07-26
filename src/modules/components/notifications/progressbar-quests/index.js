@@ -16,7 +16,7 @@ export default() => ({
     link: (scope, element, attrs)=>{
 
         //Number of steps in the quests
-        scope.numberStepsQuest = new Array(4);
+        scope.numberStepsQuest = new Array(9);
 
     },
     template

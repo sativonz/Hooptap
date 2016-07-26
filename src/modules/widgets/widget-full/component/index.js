@@ -1,12 +1,37 @@
 import template from './template.jade';
-
+import './styles.scss';
+/**
+ * @ngdoc directive
+ * @name Profile widget full
+ * @module Components
+ //TODO revisar description y parametros porque en el excel salen mas cosas que en el wireframe
+ * @description Component for widget full view profile, where it is displayed the image, username, email, badges, rewards and the actual level with details
+ * of the next level
+ * @restrict E
+ * @param {String} username username of actual user
+ * @param {String} email email of actual user
+ * @param {image} image Profile image
+ * @param {String} type Name of the state in which the user is at the current level
+ * @param {Int} dynamic The numerical value of 200, of the user's progress at the current level
+ * @param {Boolean} editable If avoidable or not by the user
+ * @param {Boolean} showImage Whether to display the user's image
+ * @param {Boolean} showProgressBar Whether to display the progress bar
+ * @param {String} badgesView Show the badges in list or grid
+ * @param {Object} rewardsList The list user rewards
+ * @element ANY
+ */
 export default(Customer, LoopBackAuth, $rootScope) => ({
     restrict: 'E',
     transclude: true,
     template,
     scope: {
         idWidget: '=',
-        config: '='
+        image: '@',
+        editable: '=',
+        showImage: '=',
+        showProgressBar: '=',
+        badgesView: '=',
+        rewardsList: '@'
     },
     link: (scope, element, attrs)=> {
 
@@ -17,20 +42,20 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
         );
 
         //Default Widget values
-        if (!scope.config) {
+        //TODO add config parameter when api returns config object
 
-            scope.config.editable = scope.config.editable || true;
-            scope.config.showImage = scope.config.showImage || true;
-            scope.config.showProgressBar = scope.config.showProgressBar || true;
-            scope.config.showGlobalActivity = scope.config.showGlobalActivity || true;
-            scope.config.badgesView = scope.config.badgesView || 'list';
-            scope.config.rewardsList = scope.config.rewardsList || Array('');
+        scope.editable = angular.isDefined(scope.editable)? scope.editable :  true;
+        //TODO cambiar img por definitiva
+        scope.image = angular.isDefined(scope.image)? scope.image : 'https://case.edu/medicine/admissions/media/school-of-medicine/admissions/classprofile.png';
+        scope.showImage = angular.isDefined(scope.showImage)? scope.showImage : true;
+        scope.showProgressBar = angular.isDefined(scope.showProgressBar)? scope.showProgressBar :  true;
+        scope.badgesView = angular.isDefined(scope.badgesView)? scope.badgesView : 'list';
+        scope.rewardsList = angular.isDefined(scope.rewardsList)? scope.rewardsList : [];
 
-            scope.config = {'editable': true, 'showImage': true, 'badgesView': 'list' , 'showProgressBar': true, 'showGlobalActivity': true, rewardsList: []}
-        }
+
 
         Customer.getCurrent({
-            filter: {include: scope.config.rewardsList}
+            filter: {include: scope.rewardsList}
         }).$promise.then((response)=> {
             scope.user = response;
 

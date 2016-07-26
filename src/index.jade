@@ -2,14 +2,18 @@ div#ht-widget(ng-app="htWidget" ng-controller="htWidgetCtrl")
     c-button-init(text="Juegue ahora")
     div(id="ht-widgets").template-1
         //w-widget-profile-simple(id-widget="12345" , config="{'editable': true, rewardsList: ['scoreunits','badges','levels'], 'showImage': false}")
+
+
         w-widget-full(
-            id-widget="12345" ,
-            config="{" +
-            "'editable': true, " +
-            "'showImage': false, " +
-            "'badgesView': 'list' , " +
-            "'showProgressBar': true, " +
-            "'showGlobalActivity': true, " +
-            "rewardsList: ['scoreunits','badges','levels']" +
-        "}")
+            id-widget="12345",
+            editable="false",
+            show-image="true",
+            badges-view="list" ,
+            show-progress-bar="true",
+            rewardsList="['scoreunits','badges','levels']"
+        )
+
+
+
+        //w-widget-quests
     c-notifications-popup

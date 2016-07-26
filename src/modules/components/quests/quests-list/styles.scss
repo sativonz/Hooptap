@@ -1,15 +1,6 @@
 c-quests-list{
-  .quest--list__wrapper {
-    padding: 15px;
-  }
-
   .quest--row {
-    background: #fff;
-    cursor: pointer;
-    box-shadow: 1px 4px 4px 3px rgba(0,0,0,.2);
-    border-radius: 5px;
     padding: 15px 5px 18px;
-    margin-bottom: 15px;
   }
 
   .actual-step--num {
@@ -29,11 +20,35 @@ c-quests-list{
 
   .quest--row--title {
     font-weight:400;
+    font-size:14pt;
   }
 
   .quest--row--desc {
     font-size: 12px;
     max-width: 220px;
+  }
+
+  .quest--row--image-holder {
+    width: 50px;
+    height: 50px;
+    padding-left: 0;
+  }
+
+  .quest-row-image {
+    background: BLUE;
+    HEIGHT: 50px;
+    width: 50px;
+    border-radius: 7px;
+  }
+
+  .quest-row-image__number-quests {
+    text-align: center;
+    width: 50px;
+    top: 8px;
+    position: relative;
+    font-size: 24px;
+    font-weight: 400;
+    color: white;
   }
 
   .quest--row--status-label {
@@ -46,6 +61,15 @@ c-quests-list{
     border-radius: 4px;
     font-weight: 800;
   }
+
+  .quest--row--progresbar {
+    width: 340px;
+    display: block;
+    position: absolute;
+    top: 30px;
+    left: 0px;
+  }
+
   .bg-yellow {
     background: #FBCB32;
   }
@@ -53,9 +77,14 @@ c-quests-list{
   .quest--row--actual-step {
     font-size: 12px;
     padding: 15px 15px 0px 15px;
-    border-top: 1px solid rgba(128, 128, 128, 0.27);
-    margin-top: 15px;
+    margin-top: 10px;
     width: 81%;
+  }
+
+  .limit-quests {
+    border-bottom: 1px solid #b4b4b4;
+    margin-top: 16px;
+    margin-bottom: -16px;
   }
 
 }
