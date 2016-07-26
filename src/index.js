@@ -41,7 +41,6 @@ import './common/services/angular-sdk.js';
             require('./modules/components').default,
 
             //Widgets
-            require('./modules/widgets/widget-profile-simple').default,
             require('./modules/widgets/widget-full').default,
             require('./modules/widgets/widget-notifications-popup').default,
             require('./modules/widgets/widget-quests').default,

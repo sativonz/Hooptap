@@ -1,22 +1,23 @@
 //TODO por hacer cadenas de texto y mockup
 .ht-quests--list__container
-	c-widget-header(title="{{ 'QUESTS.title' | translate }}")
-	.quest--list__wrapper(data-finished='false', data-active='true' ng-repeat="item in [a, b] track by $index")
-		//TODO falta mas logica en el onclick ya que oculta todas las misiones
-		.col-xs-12.quest--row(ng-click="toggleDetailQuest()")
-			.col-xs-12.quest-row__img_wrapper
-				.col-xs-2.quest--row--image-holder
-					.quest-row-image
-						p.quest-row-image__number-quests {{ $index +1 }}
-					//img.quest--row--image(src='https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png', alt='On-boarding mission')
-				.col-xs-10.quest--row--text-holder
-					.quest--row--title(ng-class="{ 'active': item.active, 'inactive': item.active, 'lapsed': item.lapsed }") COMPLETE
-					.quest--row--progresbar
-						ng-transclude
-							c-progressbar-quests
-					//.quest--row--desc Take a look around the store
-					//.quest--row--status-label.hide.bg-yellow Active
-			.col-xs-12.quest--row--actual-step(ng-show="showDetailQuests")
-				span.actual-step--num Currently in step 1 of 3
-				.actual-step--name Visit our blog
-			.col-xs-12.limit-quests
+    c-widget-header(title="{{ 'QUESTS.title' | translate }}")
+    .quest--list__wrapper(data-finished='false', data-active='true' ng-repeat="item in [a, b, c ,d] track by $index")
+        //TODO falta mas logica en el onclick ya que oculta todas las misiones
+        .col-xs-12.quest--row(ng-click="showDetailQuests = !showDetailQuests")
+            .col-xs-12.quest-row__img_wrapper
+                .col-xs-2.quest--row__image-holder
+                    .quest-row-image
+                        p.quest-row-image__number-quests {{ $index +1 }}
+                    //img.quest--row--image(src='https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png', alt='On-boarding mission')
+                .col-xs-10.quest--row__text-holder
+                    .quest--row__title(ng-class="{ 'active': item.state.active, 'inactive': item.state.active, 'lapsed': item.state.lapsed, 'completed': item.state.completed }") COMPLETE
+                    .quest--row__date
+                        span 25/05/2016
+                    .quest--row__progresbar
+                        ng-transclude
+                            c-progressbar-quests
+                    //.quest--row--desc Take a look around the store
+                    //.quest--row__status-label.hide.bg-yellow Active
+            .col-xs-12.quest--row__actual-step(ng-show="showDetailQuests")
+                p.quest-step(ng-repeat="item in [a, b, c ,d] track by $index") Currently in step 1 of 3
+            .col-xs-12.limit-quests

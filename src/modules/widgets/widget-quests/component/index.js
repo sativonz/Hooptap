@@ -2,7 +2,10 @@ import template from './template.jade';
 
 export default() => ({
     restrict: 'E',
-    scope: {},
+    scope: {
+        idWidget: '=',
+        showCompleteQuests: '=',
+    },
     link: (scope, element, attrs)=>{
 
 
