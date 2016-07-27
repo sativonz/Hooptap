@@ -1,4 +1,6 @@
-c-quests-list{
+@import "../../../../common/stylesheets/common/colors";
+
+c-quests-list {
   .quest--row {
     padding: 5px 5px 16px 0px;
     cursor: s-resize;
@@ -20,14 +22,34 @@ c-quests-list{
   .quest--row.lapsed .step-inner,
   .quest--row.block .step-inner,
   .quest--row.off-date .step-inner,
-  .quest--row.inactive .step-inner{
-    background: #d2d2d2;
+  .quest--row.inactive .step-inner {
+    background: $_1_quest-title__inactive;
+  }
+
+  .quest--row.block .quest--row__title {
+    color: $_1_quest-steps-circle-color;
+  }
+
+  .quest--row.lapsed .quest--row__title,
+  .quest--row.off-date .quest--row__title,
+  .quest--row.inactive .quest--row__title {
+    color: $_1_quest-title__inactive;
+  }
+
+  .quest--row.off-date .quest--row__date > span {
+    color: $_1_quest-steps-circle-color;
   }
 
   .quest-step {
     font-size: 12px;
     font-weight: 800;
     color: #90a4ae;
+    .quest-step__name.c-red {
+      color: $_1_quest-steps-circle-color;
+    }
+    .quest-step__name.c-green {
+      color: $_1_progress-bar__active;
+    }
   }
 
   .quest--row__actual-step {
@@ -115,6 +137,30 @@ c-quests-list{
     margin-bottom: -16px;
     border-left: 100px solid white;
     border-right: 100px solid white;
+  }
+
+  .bullet-step {
+    height: 8px;
+    width: 8px;
+    background: $_1_quest-steps-circle-color;
+    display: block;
+    border-radius: 50%;
+    float: right;
+  }
+
+  .col-xs-2.bullet {
+    padding: 0;
+  }
+
+  .col-xs-10.title-step {
+    margin-bottom: 5px;
+  }
+
+  .bullet-step-complete img {
+
+    fill: $_1_progress-bar__active;
+    width: 14px;
+    float: right;
   }
 
 }

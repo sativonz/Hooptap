@@ -1,5 +1,6 @@
 import template from './template.jade';
 import './styles.scss';
+import moment from 'moment';
 /**
  * @ngdoc directive
  * @name Quests list
@@ -34,111 +35,136 @@ export default() => ({
 
         scope.quests = {
             "quest1": {
+                "name": "Block",
                 "state": "block",
                 "showCompleteQuests": false,
                 "img": "",
+                "expires": "2016-07-26",
                 "steps": {
 
                     "step1": {
                         "complete": true,
+                        "title": "Caza los murciegalos",
 
                     },
                     "step2": {
                         "complete": true,
-
+                        "title": "Encuentra a wally",
                     },
                     "step3": {
                         "complete": false,
-
+                        "title": "titulo 3",
                     },
                     "step4": {
                         "complete": false,
-
+                        "title": "titulo 4",
                     },
                     "step5": {
                         "complete": true,
+                        "title": "titulo 5",
                     },
                 },
             },
             "quest2": {
+                "name": "New",
                 "state": "new",
                 "showCompleteQuests": false,
                 "img": "https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png",
+                "expires": "2016-07-31",
                 "steps": {
 
                     "step1": {
-                        "complete": true
+                        "complete": true,
+                        "title": "Visita el video de youtube",
                     },
                     "step2": {
-                        "complete": true
+                        "complete": true,
+                        "title": "titulo",
 
                     },
                     "step3": {
-                        "complete": false
+                        "complete": false,
+                        "title": "titulo",
 
                     },
                     "step4": {
-                        "complete": false
+                        "complete": false,
+                        "title": "titulo",
 
                     },
                     "step5": {
-                        "complete": true
+                        "complete": false,
+                        "title": "titulo",
 
                     },
                 },
             },
             "quest3": {
+                "name": "Active",
                 "state": "active",
                 "showCompleteQuests": false,
                 "img": "https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png",
+                "expires": "",
                 "steps": {
 
                     "step1": {
-                        "complete": true
+                        "complete": true,
+                        "title": "Mirar paginas de patrocinadores",
 
                     },
                     "step2": {
-                        "complete": true
+                        "complete": true,
+                        "title": "titulo",
 
                     },
                     "step3": {
-                        "complete": false
+                        "complete": true,
+                        "title": "titulo",
 
                     },
                     "step4": {
-                        "complete": false
+                        "complete": false,
+                        "title": "titulo",
 
                     },
                     "step5": {
-                        "complete": true
+                        "complete": false,
+                        "title": "titulo",
 
                     },
                 },
             },
             "quest4": {
+                "name": "New",
                 "state": "new",
                 "showCompleteQuests": false,
                 "img": "",
+                "expires": "",
                 "steps": {
 
                     "step1": {
-                        "complete": true
+                        "complete": true,
+                        "title": "Cantar un cuento",
 
                     },
                     "step2": {
-                        "complete": true
+                        "complete": true,
+                        "title": "titulo",
 
                     },
                     "step3": {
-                        "complete": false
+                        "complete": true,
+                        "title": "titulo",
 
                     },
                     "step4": {
-                        "complete": false
+                        "complete": true,
+                        "title": "titulo",
 
                     },
                     "step5": {
-                        "complete": true
+                        "complete": true,
+                        "title": "titulo",
 
                     },
                 },
@@ -147,26 +173,33 @@ export default() => ({
                 "state": "off-date",
                 "showCompleteQuests": false,
                 "img": "https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png",
+                "expires": "2015-05-22",
+
                 "steps": {
 
                     "step1": {
-                        "complete": true
+                        "complete": false,
+                        "title": "Hacer 20 clicks en la nube",
 
                     },
                     "step2": {
-                        "complete": true
+                        "complete": false,
+                        "title": "titulo",
 
                     },
                     "step3": {
-                        "complete": false
+                        "complete": false,
+                        "title": "titulo",
 
                     },
                     "step4": {
-                        "complete": false
+                        "complete": false,
+                        "title": "titulo",
 
                     },
                     "step5": {
-                        "complete": true
+                        "complete": false,
+                        "title": "titulo",
 
                     },
                 },
@@ -175,26 +208,32 @@ export default() => ({
                 "state": "active",
                 "showCompleteQuests": false,
                 "img": "https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png",
+                "expires": "",
                 "steps": {
 
                     "step1": {
                         "complete": true,
+                        "title": "Hola que tal",
 
                     },
                     "step2": {
-                        "complete": true,
+                        "complete": false,
+                        "title": "titulo",
 
                     },
                     "step3": {
                         "complete": false,
+                        "title": "titulo",
 
                     },
                     "step4": {
                         "complete": false,
+                        "title": "titulo",
 
                     },
                     "step5": {
-                        "complete": true,
+                        "complete": false,
+                        "title": "titulo",
 
                     },
                 },
@@ -203,26 +242,32 @@ export default() => ({
                 "state": "inactive",
                 "showCompleteQuests": false,
                 "img": "https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png",
+                "expires": "",
                 "steps": {
 
                     "step1": {
                         "complete": true,
+                        "title": "Hola que dise",
 
                     },
                     "step2": {
                         "complete": true,
+                        "title": "titulo",
 
                     },
                     "step3": {
                         "complete": false,
+                        "title": "titulo",
 
                     },
                     "step4": {
                         "complete": false,
+                        "title": "titulo",
 
                     },
                     "step5": {
                         "complete": true,
+                        "title": "titulo",
 
                     },
                 },
@@ -231,33 +276,35 @@ export default() => ({
                 "state": "lapsed",
                 "showCompleteQuests": false,
                 "img": "https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png",
+                "expires": "",
                 "steps": {
 
                     "step1": {
                         "complete": true,
-
+                        "title": "Yeeeeeeeeeeeeeeeeeeeeeep",
                     },
                     "step2": {
                         "complete": true,
+                        "title": "titulo",
 
                     },
                     "step3": {
                         "complete": false,
+                    "title": "titulo",
 
                     },
                     "step4": {
                         "complete": false,
+                        "title": "titulo",
 
                     },
                     "step5": {
                         "complete": true,
-
+                        "title": "titulo",
                     },
                 },
             }
         };
-
-
     },
     template
 

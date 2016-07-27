@@ -37,7 +37,6 @@ import './common/services/angular-sdk.js';
             require('./common/components/translations').default,
 
             //Modules
-
             require('./modules/components').default,
 
             //Widgets

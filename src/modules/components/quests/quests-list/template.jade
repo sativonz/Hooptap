@@ -2,22 +2,28 @@
 .ht-quests--list
     c-widget-header(title="{{ 'QUESTS.title' | translate }}")
     .quest--list__container
-        .quest--list__wrapper(data-finished='false', data-active='true' ng-repeat="quest in quests track by $index")
-            .col-xs-12.quest--row(ng-show="!isActive" ng-click="showDetailQuests = !showDetailQuests; isActive != isActive" ng-class="{'quest-active': isActive, 'close': !isActive, 'lapsed': quest.state == 'lapsed', 'block': quest.state == 'block', 'off-date': quest.state == 'off-date', 'inactive': quest.state == 'inactive'}")
+        .quest--list__wrapper(ng-repeat="quest in quests track by $index")
+            .col-xs-12.quest--row(ng-click="showDetailQuests = !showDetailQuests; isActive != isActive" ng-class="{'quest-active': isActive, 'close': !isActive, 'lapsed': quest.state == 'lapsed', 'block': quest.state == 'block', 'off-date': quest.state == 'off-date', 'inactive': quest.state == 'inactive'}")
                 p {{isActive}}
                 .col-xs-12.quest-row__img_wrapper(ng-click="isOpen = !isOpen" ng-class="{'open': isOpen}")
                     .col-xs-2.quest--row__image-holder
                         .quest-row-default-image(ng-show="!quest.img")
-                            p.quest-row-default-image__number-quests {{ $index +1 }}
+                            p.quest-row-default-image__number-quests {{ $index+1 }}
                         .quest-row-image
                             img.quest--row--image(ng-src="{{ quest.img }}")
                     .col-xs-10.quest--row__text-holder
                         .quest--row__title(ng-class="{ 'active': item.state.active, 'inactive': item.state.active, 'lapsed': item.state.lapsed, 'completed': item.state.completed }") {{ quest.state }}
                         .quest--row__date
-                            span 25/05/2016
+                            span {{ quest.expires }}
                         .quest--row__progresbar
                             ng-transclude
                                 c-progressbar-quests(value="quest.steps")
-                .col-xs-12.quest--row__actual-step.animated.bounceIn(ng-show="showDetailQuests")
-                    p.quest-step(ng-repeat="item in [a, b, c ,d] track by $index") Currently in step 1 of 3
+                .col-xs-12.quest--row__actual-step(ng-show="showDetailQuests")
+                    .quest-step.row(ng-repeat="step in quest.steps track by $index")
+                        .col-xs-2.bullet
+                            .bullet-step-complete(ng-show="step.complete")
+                                img(ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-check.svg")
+                            .bullet-step(ng-show="!step.complete")
+                        .col-xs-10.title-step
+                            span.quest-step__name.animated.bounceIn(ng-class="{ 'c-red': !step.complete, 'c-green': step.complete }") {{step.title}}
                 .col-xs-12.limit-quests
