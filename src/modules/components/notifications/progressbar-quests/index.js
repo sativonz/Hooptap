@@ -12,40 +12,16 @@ import './styles.scss';
 export default() => ({
     restrict: 'E',
     scope: {
+        steps: '=value'
     },
     link: (scope, element, attrs)=>{
 
-        //Number of steps in the quests
-        scope.numberStepsQuest = new Array(10);
-
-
-        scope.quests = {
-            "steps": {
-
-                "step1": {
-                    "complete": true,
-                    "lapsed": false,
-                },
-                "step2": {
-                    "complete": true,
-                    "lapsed": true,
-                },
-                "step3": {
-                    "complete": false,
-                    "lapsed": true,
-                },
-                "step4": {
-                    "complete": false,
-                    "lapsed": false,
-                },
-                "step5": {
-                    "complete": true,
-                    "lapsed": false,
-                }
+        scope.$watch('steps',(steps)=>{
+            if (typeof steps !== 'undefined'){
+                scope.num_of_steps = Object.keys(scope.steps).length;
+                scope.width_of_step = Math.floor(100/scope.num_of_steps) + '%';
             }
-        };
-        scope.num_of_steps = Object.keys(scope.quests.steps).length;
-        scope.width_of_step = Math.floor(100/scope.num_of_steps) + '%';
+        });
     },
     template
 

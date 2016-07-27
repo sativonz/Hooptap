@@ -23,7 +23,9 @@ input::-moz-focus-inner {
 
 //font widget
 div#ht-widget {
-  font-family: $base-font-family
+  font-family: $base-font-family;
+  max-height: 480px;
+  min-height: 480px;
 }
 
 //////////////////--------WIDGET W&H---------//////////////////////

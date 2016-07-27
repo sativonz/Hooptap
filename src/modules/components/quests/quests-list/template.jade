@@ -1,23 +1,23 @@
-//TODO por hacer cadenas de texto y mockup
-.ht-quests--list__container
+//TODO por hacer cadenas de texto
+.ht-quests--list
     c-widget-header(title="{{ 'QUESTS.title' | translate }}")
-    .quest--list__wrapper(data-finished='false', data-active='true' ng-repeat="item in [a, b, c ,d] track by $index")
-        //TODO falta mas logica en el onclick ya que oculta todas las misiones
-        .col-xs-12.quest--row(ng-click="showDetailQuests = !showDetailQuests")
-            .col-xs-12.quest-row__img_wrapper
-                .col-xs-2.quest--row__image-holder
-                    .quest-row-image
-                        p.quest-row-image__number-quests {{ $index +1 }}
-                    //img.quest--row--image(src='https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png', alt='On-boarding mission')
-                .col-xs-10.quest--row__text-holder
-                    .quest--row__title(ng-class="{ 'active': item.state.active, 'inactive': item.state.active, 'lapsed': item.state.lapsed, 'completed': item.state.completed }") COMPLETE
-                    .quest--row__date
-                        span 25/05/2016
-                    .quest--row__progresbar
-                        ng-transclude
-                            c-progressbar-quests
-                    //.quest--row--desc Take a look around the store
-                    //.quest--row__status-label.hide.bg-yellow Active
-            .col-xs-12.quest--row__actual-step(ng-show="showDetailQuests")
-                p.quest-step(ng-repeat="item in [a, b, c ,d] track by $index") Currently in step 1 of 3
-            .col-xs-12.limit-quests
+    .quest--list__container
+        .quest--list__wrapper(data-finished='false', data-active='true' ng-repeat="quest in quests track by $index")
+            .col-xs-12.quest--row(ng-show="!isActive" ng-click="showDetailQuests = !showDetailQuests; isActive != isActive" ng-class="{'quest-active': isActive, 'close': !isActive, 'lapsed': quest.state == 'lapsed', 'block': quest.state == 'block', 'off-date': quest.state == 'off-date', 'inactive': quest.state == 'inactive'}")
+                p {{isActive}}
+                .col-xs-12.quest-row__img_wrapper(ng-click="isOpen = !isOpen" ng-class="{'open': isOpen}")
+                    .col-xs-2.quest--row__image-holder
+                        .quest-row-default-image(ng-show="!quest.img")
+                            p.quest-row-default-image__number-quests {{ $index +1 }}
+                        .quest-row-image
+                            img.quest--row--image(ng-src="{{ quest.img }}")
+                    .col-xs-10.quest--row__text-holder
+                        .quest--row__title(ng-class="{ 'active': item.state.active, 'inactive': item.state.active, 'lapsed': item.state.lapsed, 'completed': item.state.completed }") {{ quest.state }}
+                        .quest--row__date
+                            span 25/05/2016
+                        .quest--row__progresbar
+                            ng-transclude
+                                c-progressbar-quests(value="quest.steps")
+                .col-xs-12.quest--row__actual-step.animated.bounceIn(ng-show="showDetailQuests")
+                    p.quest-step(ng-repeat="item in [a, b, c ,d] track by $index") Currently in step 1 of 3
+                .col-xs-12.limit-quests
