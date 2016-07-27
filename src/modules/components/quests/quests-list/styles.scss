@@ -1,6 +1,8 @@
 @import "../../../../common/stylesheets/common/colors";
+@import "../../../../common/stylesheets/common/base";
 
 c-quests-list {
+  font-family: $base-font-family;
   .quest--row {
     padding: 5px 5px 16px 0px;
     cursor: s-resize;

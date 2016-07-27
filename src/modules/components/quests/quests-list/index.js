@@ -136,7 +136,6 @@ export default() => ({
             "quest4": {
                 "name": "New-Block",
                 "state": "new-block",
-                "showCompleteQuests": false,
                 "img": "",
                 "expires": "",
                 "steps": {
@@ -173,7 +172,6 @@ export default() => ({
                 "showCompleteQuests": false,
                 "img": "https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png",
                 "expires": "2015-05-22",
-
                 "steps": {
 
                     "step1": {
@@ -209,7 +207,6 @@ export default() => ({
                 "img": "https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png",
                 "expires": "",
                 "steps": {
-
                     "step1": {
                         "complete": true,
                         "title": "Hola que tal",
@@ -289,7 +286,7 @@ export default() => ({
                     },
                     "step3": {
                         "complete": false,
-                    "title": "titulo",
+                        "title": "titulo",
 
                     },
                     "step4": {

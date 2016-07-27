@@ -1,4 +1,7 @@
+@import "../../../../common/stylesheets/common/base";
+
 c-widget-header {
+  font-family: $base-font-family;
   margin: 0;
   border-bottom: 2px solid #d3d3d3;
   display: block;
