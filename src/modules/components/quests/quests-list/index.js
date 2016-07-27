@@ -1,6 +1,5 @@
 import template from './template.jade';
 import './styles.scss';
-import moment from 'moment';
 /**
  * @ngdoc directive
  * @name Quests list
@@ -135,8 +134,8 @@ export default() => ({
                 },
             },
             "quest4": {
-                "name": "New",
-                "state": "new",
+                "name": "New-Block",
+                "state": "new-block",
                 "showCompleteQuests": false,
                 "img": "",
                 "expires": "",

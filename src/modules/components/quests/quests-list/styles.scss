@@ -157,10 +157,28 @@ c-quests-list {
   }
 
   .bullet-step-complete img {
-
     fill: $_1_progress-bar__active;
     width: 14px;
     float: right;
+  }
+
+  span.quest-step__name img {
+    width: 11px;
+    margin-left: 7px;
+  }
+
+  .disable-quest-img, .new-quest-img {
+    position: absolute;
+    left: -4px;
+    width: 24px;
+    top: 41px;
+  }
+
+  .blocked-quest-img {
+    position: absolute;
+    left: 33px;
+    width: 24px;
+    top: 41px;
   }
 
 }
