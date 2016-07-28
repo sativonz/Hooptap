@@ -14,10 +14,9 @@ import './styles.scss';
  */
 export default($rootScope) => ({
     restrict: 'E',
+    template,
     scope: {
     },
-
-
     link: (scope, element, attrs)=>{
 
         //init
@@ -34,21 +33,33 @@ export default($rootScope) => ({
 
         };
 
+        scope.allRankings = {
+            "ranking1": {
+                "name": "Ranking de diamantes",
+                "rankingType": "diamond",
+                "showProfileImg": true,
+                "img": "http://es.seaicons.com/wp-content/uploads/2016/03/diamond-icon.png",
+            },
+            "ranking2": {
+                "name": "Ranking de puntos",
+                "rankingType": "diamond",
+                "showProfileImg": true,
+                "img": "http://vignette3.wikia.nocookie.net/battlefield/images/6/64/R048.png/revision/latest?cb=20100719191739",
+            },
+            "ranking3": {
+                "name": "Ranking de estrellas",
+                "rankingType": "diamond",
+                "showProfileImg": true,
+                "img": "http://findicons.com/files/icons/719/crystal_clear_actions/128/bookmark_256.png",
+            },
+            "ranking4": {
+                "name": "Ranking de rubys",
+                "rankingType": "diamond",
+                "showProfileImg": true,
+                "img": "http://www.file-extensions.org/imgs/app-icon/128/3544/ruby-icon.png",
+            },
+        }
 
-        scope.rankings = [
-            {desc: 'Ranking mensual', rankingType:'monthly', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-            {desc: 'Los mas jugones', rankingType:'jugones', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-            {desc: 'Ranking semanal', rankingType:'weekly', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-            {desc: 'Los mas malos', rankingType:'malos', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-            {desc: 'Ranking diario', rankingType:'daily', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-            {desc: 'Histórico', rankingType:'historicco', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-            {desc: 'Histórico', rankingType:'historicco', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-            {desc: 'Histórico', rankingType:'historicco', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-            {desc: 'Histórico', rankingType:'historicco', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-            {desc: 'Histórico', rankingType:'historicco', img: "http://vignette3.wikia.nocookie.net/alderapedia/images/5/5e/Ranking_icon.png/revision/latest?cb=20140822102748&path-prefix=es"},
-
-        ];
-    },
-    template
+    }
 
 });

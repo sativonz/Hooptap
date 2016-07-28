@@ -1,4 +1,5 @@
 @import "../../../../../common/stylesheets/common/base";
+@import "../../../../../common/stylesheets/common/mixins";
 
 c-button-menu {
   font-family: $base-font-family;
@@ -42,6 +43,7 @@ c-button-menu {
       height: 100%;
       border-top-left-radius: 10px;
       border-bottom-left-radius: 10px;
+      border-right: 1px solid #d0d0d0;
       li {
         border-bottom: 1px solid #bdbdbd;
       }
@@ -58,14 +60,8 @@ c-button-menu {
     height: 23px;
     position: relative;
     margin: 0 auto;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-    -webkit-transition: .5s ease-in-out;
-    -moz-transition: .5s ease-in-out;
-    -o-transition: .5s ease-in-out;
-    transition: .5s ease-in-out;
+    @include transform(rotate(0deg));
+    @include transition(.5s ease-in-out);
     cursor: pointer;
   }
 
@@ -78,14 +74,8 @@ c-button-menu {
     border-radius: 9px;
     opacity: 1;
     left: 0;
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    -o-transform: rotate(0deg);
-    transform: rotate(0deg);
-    -webkit-transition: .25s ease-in-out;
-    -moz-transition: .25s ease-in-out;
-    -o-transition: .25s ease-in-out;
-    transition: .25s ease-in-out;
+    @include transform(rotate(0deg));
+    @include transition(.25s ease-in-out);
   }
 
   .nav-icon span:nth-child(1) {
@@ -117,17 +107,11 @@ c-button-menu {
     }
 
     .nav-icon span:nth-child(2) {
-      -webkit-transform: rotate(45deg);
-      -moz-transform: rotate(45deg);
-      -o-transform: rotate(45deg);
-      transform: rotate(45deg);
+      @include transform(rotate(45deg));
     }
 
     .nav-icon span:nth-child(3) {
-      -webkit-transform: rotate(-45deg);
-      -moz-transform: rotate(-45deg);
-      -o-transform: rotate(-45deg);
-      transform: rotate(-45deg);
+      @include transform(rotate(-45deg));
     }
 
     .nav-icon span:nth-child(4) {
