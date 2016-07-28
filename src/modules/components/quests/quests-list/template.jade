@@ -30,7 +30,8 @@
                                 img(ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-check.svg")
                             .bullet-step(ng-show="!step.complete")
                         .col-xs-10.title-step
-                            span.quest-step__name.animated.bounceIn(ng-class="{ 'c-red': !step.complete, 'c-green': step.complete }") {{step.title}}
+                            //span.quest-step__name.animated.bounceIn(ng-class="{ 'c-red': !step.complete, 'c-green': step.complete }") {{step.title}}
+                            span.quest-step__name.animated.bounceIn {{step.title}}
                                 img(ng-show="" ng-src="http://hooptap.s3.amazonaws.com/widgets/boton-enlace.svg")
                                 //img(ng-show="" ng-src="http://hooptap.s3.amazonaws.com/widgets/boton-enlace.svg")
                 .col-xs-12.limit-quests

@@ -8,6 +8,7 @@ let dict = {
 			password		: 'Contraseña',
 			email			: 'Email',
 			name			: 'Nombre de usuario',
+			username		: 'Name',
 			update			: 'Actualizar',
 			edit			: 'Editar',
 			logout			: 'Cerrar sesión',
@@ -99,6 +100,7 @@ let dict = {
 	 ---------------------------------------------------------------------------------*/
 
 	SCOREUNITS: {
+		title				: 'Unidades de puntuación',
 		types: {
 			diamonds		: 'Diamantes',
 			points			: 'Puntos',

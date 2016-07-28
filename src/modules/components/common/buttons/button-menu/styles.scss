@@ -15,44 +15,37 @@ c-button-menu {
     padding: 0;
   }
   li a {
-    padding: 14px;
+    padding: 14px 14px 8px 0px;
     color: #888;
     text-decoration: none;
-    transition: all .2s;
     cursor: pointer;
-  }
-  li a:hover,
-  li a:focus {
-    background-color: rgba(0, 101, 145, 0.69);
-    color: #fff;
   }
 
   #menu {
     position: relative;
     color: #999;
-    width: 380px;
-    height: 333px;
-    padding: 10px;
+    width: 400px;
+    height: 430px;
+    padding: 10px 25px 10px 25px;
     margin: auto;
     font-family: $base-font-family;
-    text-align: center;
-    border-radius: 4px;
-    background: white;
-    box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+    font-size: 12pt;
+    background: #fff;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, .05);
     display: none;
-    left: 0px;
+    left: -11px;
     top: 8px;
+    ul {
+      li {
+        border-bottom: 1px solid #bdbdbd;
+      }
+    }
+
   }
-  //#menu:after {
-  //  position: absolute;
-  //  top: -16px;
-  //  left: 10px;
-  //  content: "";
-  //  display: block;
-  //  border-left: 15px solid transparent;
-  //  border-right: 15px solid transparent;
-  //  border-bottom: 20px solid white;
-  //}
+
+  #menu li:hover {
+    border-bottom: 2px solid grey;
+  }
 
   .nav-icon {
     width: 23px;
@@ -93,15 +86,13 @@ c-button-menu {
     top: 0px;
   }
 
-  .nav-icon span:nth-child(2),.nav-icon span:nth-child(3) {
+  .nav-icon span:nth-child(2), .nav-icon span:nth-child(3) {
     top: 8px;
   }
 
   .nav-icon span:nth-child(4) {
     top: 16px;
   }
-
-
 
   #button-menu #menu {
     display: none;
@@ -139,5 +130,9 @@ c-button-menu {
       left: 50%;
     }
 
+  }
+
+  .menu-logout {
+    font-weight: 600;
   }
 }

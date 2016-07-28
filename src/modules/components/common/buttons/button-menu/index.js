@@ -25,19 +25,6 @@ export default(Customer, $rootScope) => ({
                 });
         };
 
-        //
-        // $rootScope.hideMenu = () => {
-        //     $('#button-menu').removeClass('open-menu').toggleClass('close-menu');
-        //     $('.nav-icon').toggleClass('open');
-        // }
-        //
-        // scope.toggleDropdown = ()=>{
-        //     $('#button-menu').toggleClass('open-menu');
-        //     $('.nav-icon').toggleClass('open');
-        // };
-
-
-
         var $nav_icon = $('.nav-icon');
         var $mnu = $('#menu');
         var $btn_mnu = $('#button-menu');
@@ -54,15 +41,7 @@ export default(Customer, $rootScope) => ({
 
         $("#ht-widget").hover(function() {
             $btn_mnu.removeClass('open-menu');
-        
+
         });
-
-
-
-
-
-
     }
-
-
 });

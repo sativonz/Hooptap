@@ -13,6 +13,7 @@ import 'valdr';
 import 'valdr/valdr-message';
 import tabs from 'angular-ui-bootstrap/src/tabs';
 import progressBar from 'angular-ui-bootstrap/src/progressbar';
+import tooltip from 'angular-ui-bootstrap/src/tooltip';
 
 //Import Loopback Angular SDK
 import './common/services/angular-sdk.js';
@@ -27,6 +28,7 @@ import './common/services/angular-sdk.js';
             'ngAnimate', /*angular animate*/
             tabs,
             progressBar,
+            tooltip,
             'mgo-angular-wizard',
             'valdr',
 

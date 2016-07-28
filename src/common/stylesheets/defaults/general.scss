@@ -21,6 +21,10 @@ input::-moz-focus-inner {
   border: 0;
 }
 
+.not-padding {
+  padding: 0px!important;
+}
+
 //font widget
 div#ht-widget {
   font-family: $base-font-family;

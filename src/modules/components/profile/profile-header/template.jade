@@ -1,0 +1,12 @@
+.ht-profile__header
+    .ht-profile__header--container.row
+        .col-xs-5(ng-if="showImage")
+            img.profile-widget-full-item__img(ng-src="http://static.avivamiento.com/img/profile.png")
+            img.profile-widget-full__edit(ng-if="editable" ng-src="http://icon-icons.com/icons2/259/PNG/128/ic_edit_128_28238.png")
+            img.profile-widget-full__logout(ng-src="http://hooptap.s3.amazonaws.com/widgets/logout.svg")
+        .col-xs-2
+            p.profile-widget-full-title__name {{ 'CUSTOMER.common.username' | translate }}:
+            p.profile-widget-full-title__email {{ 'CUSTOMER.common.email' | translate }}:
+        .col-xs-5
+            p.profile-widget-full-item__name {{$root.customer.username}}
+            p.profile-widget-full-item__email {{$root.customer.email}}

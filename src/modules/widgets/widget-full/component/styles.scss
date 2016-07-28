@@ -1,55 +1,54 @@
-w-widget-full {
+@import '../../../../common/stylesheets/common/_base.scss';
 
+w-widget-full {
+  display: block;
+  position: relative;
+  font-family: $base-font-family;
   .ht-profile-widget-full {
     min-height: 340px;
   }
 
-  .profile-widget-full-item__wrapper {
-    height: 130px;
-    border-bottom: 2px solid white;
-  }
-
   .profile-widget-full-item__img {
-    -webkit-border-radius:50%;
-    -moz-border-radius:50%;
-    border-radius:50%;
+    border-radius: 50%;
     display: block;
     margin-left: auto;
     margin-right: auto;
     height: inherit;
-    padding: 15px;
-  }
-
-  .profile-widget-full-item__name {
-    text-align: center;
-    padding: 10px;
-    font-size: 17px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    border-bottom: 1px solid white;
-  }
-
-  .profile-widget-full-item__username {
-    text-align: center;
-    font-size: 14px;
     padding: 5px;
-    color: grey;
-    letter-spacing: 1px;
-    border-bottom: 1px solid white;
-  }
-
-  .profile-widget-full-item__email {
-    text-align: center;
-    font-size: 14px;
-    letter-spacing: 1px;
-    padding: 10px;
-  }
-  .profile-widget-full-item__email--verified {
-    width: 5%;
-    margin-left: 15px;
     position: relative;
-    top: 3px;
+    top: -18px;
   }
+  //
+  //.profile-widget-full-item__name {
+  //  text-align: center;
+  //  padding: 10px;
+  //  font-size: 17px;
+  //  font-weight: bold;
+  //  letter-spacing: 0.5px;
+  //  border-bottom: 1px solid white;
+  //}
+  //
+  //.profile-widget-full-item__username {
+  //  text-align: center;
+  //  font-size: 14px;
+  //  padding: 5px;
+  //  color: grey;
+  //  letter-spacing: 1px;
+  //  border-bottom: 1px solid white;
+  //}
+
+  //.profile-widget-full-item__email {
+  //  text-align: center;
+  //  font-size: 14px;
+  //  letter-spacing: 1px;
+  //  padding: 10px;
+  //}
+  //.profile-widget-full-item__email--verified {
+  //  width: 5%;
+  //  margin-left: 15px;
+  //  position: relative;
+  //  top: 3px;
+  //}
 
   .p-level-name{
     font-weight: bold;
@@ -59,8 +58,35 @@ w-widget-full {
   }
 
   .profile-widget-full-item__score-units1, .profile-widget-full-item__score-units2, .profile-widget-full-item__badges {
-    border-right: 1px solid grey;
+    border-right: 1px solid #d2d2d2;
     margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+  .profile-widget-full-item__levels {
+    cursor: pointer;
+  }
+
+  .wrapper__score-units {
+    height: 100px;
+    border-bottom: 1px solid #d2d2d2;
+    margin-left: 35px;
+    margin-right: 35px;
+    padding: 35px 0px 0px 0px;
+  }
+
+  p.title__score-units {
+    font-size: 14pt;
+    font-weight: bold;
+    color: #006591;
+    margin-top: 10px;
+  }
+
+  .wrapper__score-units-title {
+    position: relative;
+    top: -16px;
+    font-size: 10pt;
+    color: #006591;
   }
 
 

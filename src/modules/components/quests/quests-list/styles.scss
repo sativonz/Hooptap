@@ -46,6 +46,7 @@ c-quests-list {
     font-size: 12px;
     font-weight: 800;
     color: #90a4ae;
+    padding: 0px 0px 20px 0px;
     .quest-step__name.c-red {
       color: $_1_quest-steps-circle-color;
     }
@@ -133,6 +134,12 @@ c-quests-list {
     width: 81%;
   }
 
+  span.quest-step__name {
+    color: #8c8a8a;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
   .limit-quests {
     border-bottom: 1px solid rgba(180, 180, 180, 0.75);
     margin-top: 16px;
@@ -159,9 +166,9 @@ c-quests-list {
   }
 
   .bullet-step-complete img {
-    fill: $_1_progress-bar__active;
     width: 14px;
     float: right;
+    margin-right: -3px;
   }
 
   span.quest-step__name img {

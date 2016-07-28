@@ -8,6 +8,7 @@ let dict = {
 			password		: 'Password',
 			email			: 'Email',
 			name			: 'Username',
+			username		: 'Name',
 			update			: 'Update',
 			edit			: 'Edit',
 			logout			: 'Logout',
@@ -98,6 +99,7 @@ let dict = {
 	 ---------------------------------------------------------------------------------*/
 
 	SCOREUNITS: {
+		title				: 'Score units',
 		types: {
 			diamonds		: 'Diamonds',
 			points			: 'Points',

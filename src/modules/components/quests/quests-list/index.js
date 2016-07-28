@@ -267,38 +267,6 @@ export default() => ({
 
                     },
                 },
-            },
-            "quest8": {
-                "state": "lapsed",
-                "showCompleteQuests": false,
-                "img": "https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png",
-                "expires": "",
-                "steps": {
-
-                    "step1": {
-                        "complete": true,
-                        "title": "Yeeeeeeeeeeeeeeeeeeeeeep",
-                    },
-                    "step2": {
-                        "complete": true,
-                        "title": "titulo",
-
-                    },
-                    "step3": {
-                        "complete": false,
-                        "title": "titulo",
-
-                    },
-                    "step4": {
-                        "complete": false,
-                        "title": "titulo",
-
-                    },
-                    "step5": {
-                        "complete": true,
-                        "title": "titulo",
-                    },
-                },
             }
         };
     },
