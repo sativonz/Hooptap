@@ -25,10 +25,8 @@ export default(Customer, $rootScope) => ({
                 });
         };
 
-        var $nav_icon = $('.nav-icon');
         var $mnu = $('#menu');
         var $btn_mnu = $('#button-menu');
-        var $aaa = $('#ht-widget');
 
         $btn_mnu
             .click(function (e) {
@@ -38,23 +36,5 @@ export default(Customer, $rootScope) => ({
             .on( 'blur focusOut click', function(e) {
                 $mnu.toggle('slow');
             });
-
-
-        // $nav_icon
-        //     .click( function(e) {
-        //         $btn_mnu.toggleClass('open-menu');
-        //     });
-
-
-        //TODO No funciona el metodo blur... Revisar......
-        // $mnu
-        //     .on( 'blur focusout click', function(e) {
-        //         $btn_mnu.removeClass('open-menu');
-        //     });
-        //
-        // $("#ht-widget").hover(function() {
-        //     $btn_mnu.removeClass('open-menu');
-        //
-        // });
     }
 });
