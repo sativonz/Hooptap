@@ -15,7 +15,7 @@ export default(Customer, $rootScope) => ({
         value: '='
     },
     template,
-    link: (scope, element, attrs)=>{
+    link: (scope, element, attrs)=> {
         scope.formLogout = () => {
             Customer.logout().$promise
                 .then((response)=> {
@@ -28,20 +28,33 @@ export default(Customer, $rootScope) => ({
         var $nav_icon = $('.nav-icon');
         var $mnu = $('#menu');
         var $btn_mnu = $('#button-menu');
+        var $aaa = $('#ht-widget');
 
-        $nav_icon
-            .click( function(e) {
-                $btn_mnu.toggleClass('open-menu');
+        $btn_mnu
+            .click(function (e) {
+                $mnu.toggle('slow');
             });
-        //TODO No funciona el metodo blur... Revisar......
         $mnu
-            .on( 'blur focusout click', function(e) {
-                $btn_mnu.removeClass('open-menu');
+            .on( 'blur focusOut click', function(e) {
+                $mnu.toggle('slow');
             });
 
-        $("#ht-widget").hover(function() {
-            $btn_mnu.removeClass('open-menu');
 
-        });
+        // $nav_icon
+        //     .click( function(e) {
+        //         $btn_mnu.toggleClass('open-menu');
+        //     });
+
+
+        //TODO No funciona el metodo blur... Revisar......
+        // $mnu
+        //     .on( 'blur focusout click', function(e) {
+        //         $btn_mnu.removeClass('open-menu');
+        //     });
+        //
+        // $("#ht-widget").hover(function() {
+        //     $btn_mnu.removeClass('open-menu');
+        //
+        // });
     }
 });

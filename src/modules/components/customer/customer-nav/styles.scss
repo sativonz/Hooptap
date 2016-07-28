@@ -1,3 +1,5 @@
+@import '../../../../common/stylesheets/common/colors.scss';
+
 c-customer-nav {
     .link-go-login--form,
     .link-go-register--form {
@@ -41,7 +43,7 @@ c-customer-nav {
     }
 
     ul.nav.nav-tabs {
-        background-color: #006591!important;
+        background-color: $_1_quest-title;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
 

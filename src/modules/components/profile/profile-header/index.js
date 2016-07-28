@@ -12,11 +12,20 @@ import './styles.scss';
  * @param {image} image Profile image
  * @element ANY
  */
-export default() => ({
+export default(Customer, $rootScope, $q) => ({
     restrict: 'E',
     template,
     link: (scope, element, attrs)=> {
-
+        //TODO logica repetida del logout, ver como gestionarla
+        attrs.formLogout = attrs.formLogout || false; //default value
+        scope.formLogout = () => {
+            Customer.logout().$promise
+                .then((response)=> {
+                    $rootScope.customer = {};
+                    scope.showDropdown = false;
+                    $rootScope.logged = false;
+                });
+        }
 
     }
 

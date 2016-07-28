@@ -1,16 +1,17 @@
-@import '../../../../common/stylesheets/common/_base.scss';
+@import '../../../../common/stylesheets/common/base.scss';
+@import '../../../../common/stylesheets/common/colors.scss';
 
 c-profile-header {
   display: block;
   position: relative;
   font-family: $base-font-family;
   height: 140px;
-  background-color: #006591;
+  background-color: $_1_quest-title;
   img.profile-widget-full__edit {
     width: 26px;
     position: absolute;
-    top: 100px;
-    left: 25px;
+    top: 90px;
+    left: 28px;
     cursor: pointer;
   }
 
@@ -29,9 +30,9 @@ c-profile-header {
 
   img.profile-widget-full__logout {
     position: absolute;
-    top: 97px;
+    top: 99px;
     width: 18px;
-    left: 125px;
+    left: 126px;
     cursor: pointer;
   }
 

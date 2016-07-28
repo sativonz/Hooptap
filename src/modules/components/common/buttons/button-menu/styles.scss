@@ -7,6 +7,7 @@ c-button-menu {
   left: 11px;
   top: 10PX;
   z-index: 9999999999999;
+  height: 100%;
 
   ul, li, li a {
     list-style: none;
@@ -25,17 +26,22 @@ c-button-menu {
     position: relative;
     color: #999;
     width: 400px;
-    height: 430px;
-    padding: 10px 25px 10px 25px;
+    height: 100%;
     margin: auto;
     font-family: $base-font-family;
     font-size: 12pt;
-    background: #fff;
-    box-shadow: 0 1px 8px rgba(0, 0, 0, .05);
+    background: rgba(0, 0, 0, 0.32);
     display: none;
     left: -11px;
-    top: 8px;
+    top: -33px;
+    border-radius: 10px;
     ul {
+      background: white;
+      width:240px;
+      padding: 10px 25px;
+      height: 100%;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
       li {
         border-bottom: 1px solid #bdbdbd;
       }
@@ -98,7 +104,7 @@ c-button-menu {
     display: none;
   }
 
-  #button-menu.open-menu {
+  .open-menu {
 
     #menu {
       display: block;

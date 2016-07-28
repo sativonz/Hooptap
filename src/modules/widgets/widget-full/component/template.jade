@@ -1,7 +1,7 @@
 c-button-menu(ng-if="$root.logged" value="menuItems")
 c-button-close
 c-customer-nav(ng-if="!$root.logged")
-.ht-profile-widget-full
+.ht-profile-widget-full(ng-if="$root.logged")
     .profile-widget-full__container(ng-show="$root.currentView==='profileWidgetFull.default'")
         c-widget-header
         c-profile-header
@@ -11,7 +11,7 @@ c-customer-nav(ng-if="!$root.logged")
                 .col-xs-6.not-padding
                     p.title__score-units 500
                 .col-xs-6.not-padding
-                    img(ng-src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/star-128.png")
+                    img(ng-src="http://hooptap.s3.amazonaws.com/widgets/star.svg")
             .col-xs-4.center.profile-widget-full-item__badges(tooltip-placement="top" uib-tooltip="{{ 'BADGES.title' | translate }}" ng-click="$root.setCurrentView('profileWidgetFull.badgesList')")
                 .col-xs-6.not-padding
                     p.title__score-units 2
@@ -22,6 +22,23 @@ c-customer-nav(ng-if="!$root.logged")
                     p.title__score-units 1
                 .col-xs-6.not-padding
                     img(ng-src="http://hooptap.s3.amazonaws.com/widgets/level.svg")
-        .wrapper__level
+        .divider
+        .wrapper__level.row
+            .wrapper__levels-title {{ 'LEVELS.title' | translate }}
+            .col-xs-2.not-padding
+                img(ng-src="http://test.wednesdaynighthop.com/wordpress/wp-content/uploads/2015/03/level-1-icon.png")
+                p.name-actual-level Soldier
+            .col-xs-10
+                .col-xs-3
+                    img.img-next-level(ng-src="https://www.dharmamerchantservices.com/wp-content/uploads/2015/05/level-2-icon.png")
+                .col-xs-9.not-padding
+                    p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
+                    p.name-next-level Guardian
+                .col-xs-12
+                    .progressbar2
+                        .progressbar2-actual
+                            p.center 60%
+                        .progressbar2-next
+                            p.center 40%
 
 
