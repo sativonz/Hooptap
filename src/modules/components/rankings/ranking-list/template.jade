@@ -1,7 +1,7 @@
 c-widget-header(title="{{ 'RANKING.titleList' | translate }}" ng-if="$root.showMainHeader")
 .widget--ranking-list(type="{{rankingType}}")
     .widget--ranking-list__container(ng-repeat="ranking in rankings")
-        input.filterUsersRanking(ng-model="filterUsers")
+        input.filterUsersRanking(placeholder="Buscar.." ng-model="filterUsers")
         .widget--ranking-list__wrapper.row(ng-repeat="users in ranking.users | filter:filterUsers | orderBy:'-score'  ")
             .col-xs-2.not-padding.ranking--list__position
                 p {{$index+1}}

@@ -77,4 +77,9 @@ c-ranking-list{
     font-weight: bold;
     color: $_1_quest-title;
   }
+
+  .ranking--list__user-img > img {
+    border: 3px solid #006591;
+    border-radius: 50%;
+  }
 }
