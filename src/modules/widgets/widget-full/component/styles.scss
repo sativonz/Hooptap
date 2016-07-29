@@ -54,19 +54,16 @@ w-widget-full {
     margin-top: 10px;
   }
 
-  .wrapper__levels-title {
+  .wrapper__levels-title,
+  .wrapper__score-units-title,
+    .wrapper__gf-title {
     position: relative;
     top: -16px;
     font-size: 10pt;
     color: $_1_quest-title;
   }
 
-  .wrapper__score-units-title{
-    position: relative;
-    top: -16px;
-    font-size: 10pt;
-    color: $_1_quest-title;
-  }
+
 
   .wrapper__level.row {
     height: 150px;

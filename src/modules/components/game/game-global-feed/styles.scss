@@ -1,5 +1,21 @@
 c-game-global-feed {
+  display: block;
+  position: relative;
+  height: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  .wrapper-feed {
+    display: -webkit-box;
+    display: box;
+    padding:6px;
+  }
 
+  .ht-global-feed__date > p {
+    font-weight: 200;
+    color: grey;
+  }
 
-
+  .ht-global-feed__title {
+    color: grey;
+  }
 }
