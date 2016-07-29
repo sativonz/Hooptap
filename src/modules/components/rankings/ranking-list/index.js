@@ -21,38 +21,45 @@ export default() => ({
     link: (scope, element, attrs)=> {
 
 
-        scope.rankingDetail = {
+        scope.rankings = {
             "diamond": {
                 "name": "Ranking de diamantes",
                 "img": "http://es.seaicons.com/wp-content/uploads/2016/03/diamond-icon.png",
-                "showProfileImg": true,
-                "user1": {
-                    "username": "Sat1",
-                    "img": "https://www.uts.edu.au/sites/default/files/Andy%20So_circle.jpg",
-                    "score": "1120",
-                },
-                "user2": {
-                    "username": "Sergux",
-                    "img": "http://yuki-sato.com/profile_circle.png",
-                    "score": "1050",
-                },
-                "user3": {
-                    "username": "Paul Stak",
-                    "img": "http://quinnpalmer.co/wp-content/uploads/2013/04/Circle-Profile.png",
-                    "score": "900",
-                },
-                "user4": {
-                    "username": "Korsakof",
-                    "img": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRkjAbZruKW50DZ70xgI9l03MV1bUUPXriVYcCub3Go7rrSsDD4",
-                    "score": "1500",
-                },
-                "user5": {
-                    "username": "Jos1",
-                    "img": "https://www.uts.edu.au/sites/default/files/Alexandria%20Hipolito_circle.jpg",
-                    "score": "2000",
-                },
+                "users": [
+                    {
+                        "username": "Sat1",
+                        "showProfileImg": true,
+                        "img": "https://www.uts.edu.au/sites/default/files/Andy%20So_circle.jpg",
+                        "score": 1120,
+                    },
+                    {
+                        "username": "Sergux",
+                        "showProfileImg": true,
+                        "img": "http://yuki-sato.com/profile_circle.png",
+                        "score": 1050,
+                    },
+                    {
+                        "username": "Paul Stak",
+                        "showProfileImg": true,
+                        "img": "http://quinnpalmer.co/wp-content/uploads/2013/04/Circle-Profile.png",
+                        "score": 900,
+                    },
+                    {
+                        "username": "Korsakof",
+                        "showProfileImg": true,
+                        "img": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRkjAbZruKW50DZ70xgI9l03MV1bUUPXriVYcCub3Go7rrSsDD4",
+                        "score": 1500,
+                    },
+                    {
+                        "username": "Jos1",
+                        "showProfileImg": true,
+                        "img": "https://www.uts.edu.au/sites/default/files/Alexandria%20Hipolito_circle.jpg",
+                        "score": 2000,
+                    },
+
+                ]
             },
-        }
+        };
 
 
         scope.items = [
