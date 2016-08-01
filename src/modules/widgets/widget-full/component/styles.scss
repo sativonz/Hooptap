@@ -16,9 +16,12 @@ w-widget-full {
     margin-left: auto;
     margin-right: auto;
     height: inherit;
-    padding: 5px;
+    padding: 0px;
     position: relative;
     top: -18px;
+    border: 2px solid #fff;
+    width: 130px;
+    height: 130px;
   }
 
   .p-level-name{
@@ -63,13 +66,16 @@ w-widget-full {
     color: $_1_quest-title;
   }
 
-
+  .wrapper__gf-title {
+    padding: 36px 0 0;
+  }
 
   .wrapper__level.row {
     height: 150px;
     margin-left: 35px;
     margin-right: 35px;
     padding: 36px 0px 0px 0px;
+    border-bottom: 1px solid #d2d2d2;
   }
 
   p.name-actual-level {
@@ -94,7 +100,7 @@ w-widget-full {
   }
 
   .progressbar2 {
-    width: 270px;
+    width: 233px;
     height: 20px;
     background: grey;
     border-radius: 6px;
@@ -133,5 +139,17 @@ w-widget-full {
     -webkit-filter: grayscale(1);
     filter: grayscale(1);
     width: 32px;
+  }
+
+  .row.wrapper-components {
+    position: relative;
+    overflow: scroll;
+    height: 300px;
+    overflow-x: hidden;
+  }
+
+  .wrapper__gf.row {
+    margin-left: 35px;
+    margin-right: 35px;
   }
 }

@@ -3,13 +3,11 @@ c-widget-header(title="{{ 'RANKING.titleList' | translate }}" ng-if="$root.showM
     .widget--ranking-list__container(ng-repeat="ranking in rankings")
         input.filterUsersRanking(placeholder="Buscar.." ng-model="filterUsers")
         .widget--ranking-list__wrapper.row(ng-repeat="users in ranking.users | filter:filterUsers | orderBy:'-score'  ")
-            .col-xs-2.not-padding.ranking--list__position
-                p {{$index+1}}
-                //TODO ng-click esta mal, por hacer el handler view
-            .col-xs-6
-                .col-xs-6.ranking--list__user-img
+            .col-xs-8.not-padding
+                .col-xs-3.ranking--list__user-img
                     img(ng-if="users.showProfileImg" ng-src="{{users.img}}")
-                .col-xs-6.ranking--list__username
+                    span.ranking--list__position {{$index+1}}
+                .col-xs-9.ranking--list__username
                     p {{users.username}}
             .col-xs-4.ranking--list__wrapper-score-frame
                 .ranking--list__score-frame

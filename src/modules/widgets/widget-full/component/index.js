@@ -16,6 +16,9 @@ import './styles.scss';
  * @param {Boolean} editable If avoidable or not by the user
  * @param {Boolean} showImage Whether to display the user's image
  * @param {Boolean} showProgressBar Whether to display the progress bar
+ * @param {Boolean} showGlobalFeed Whether to display the global feed
+ * @param {Boolean} showLevel Whether to display the level block
+ * @param {Boolean} showScoreUnits Whether to display the score units block
  * @param {String} badgesView Show the badges in list or grid
  * @param {Object} rewardsList The list user rewards
  * @element ANY
@@ -30,6 +33,9 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
         editable: '=',
         showImage: '=',
         showProgressBar: '=',
+        showGlobalFeed: '=',
+        showLevel: '=',
+        showScoreUnits: '=',
         badgesView: '=',
         rewardsList: '@'
     },

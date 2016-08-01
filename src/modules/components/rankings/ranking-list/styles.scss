@@ -47,7 +47,7 @@ c-ranking-list{
 
   .ranking--list__score-frame-score {
     float: right;
-    padding: 1px 4px 2px 2px;
+    padding: 0px 4px 2px 2px;
     font-weight: bold;
     color: white;
     letter-spacing: 0.2px;
@@ -55,11 +55,11 @@ c-ranking-list{
   }
 
   .ranking--list__user-img {
-    padding:7px;
+    padding:5px;
   }
 
   .ranking--list__username {
-    padding: 20px 0px 0px 5px;
+    padding: 15px 0px 0px 5px;
   }
 
   .ranking--list__wrapper-score-frame {
@@ -67,19 +67,29 @@ c-ranking-list{
   }
 
   .ranking--list__username > p {
-    font-size: 11pt;
+    font-size: 10pt;
     color: #006499;
   }
 
-  .ranking--list__position > p{
+  .ranking--list__position {
     padding-top: 20px;
     font-size: 10pt;
     font-weight: bold;
-    color: $_1_quest-title;
+    color: #ffffff!important;
+    height: 20px;
+    background: #006591;
+    padding: 5px 5px 5px 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    letter-spacing: 0.3px;
   }
 
   .ranking--list__user-img > img {
     border: 3px solid #006591;
     border-radius: 50%;
+    width: 50px;
+    height:50px;
   }
 }
