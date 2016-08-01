@@ -14,6 +14,7 @@ import 'valdr/valdr-message';
 import tabs from 'angular-ui-bootstrap/src/tabs';
 import progressBar from 'angular-ui-bootstrap/src/progressbar';
 import tooltip from 'angular-ui-bootstrap/src/tooltip';
+import modal from 'angular-ui-bootstrap/src/modal';
 
 //Import Loopback Angular SDK
 import './common/services/angular-sdk.js';
@@ -29,6 +30,7 @@ import './common/services/angular-sdk.js';
             tabs,
             progressBar,
             tooltip,
+            modal,
             'mgo-angular-wizard',
             'valdr',
 
@@ -46,6 +48,7 @@ import './common/services/angular-sdk.js';
             require('./modules/widgets/widget-notifications-popup').default,
             require('./modules/widgets/widget-quests').default,
             require('./modules/widgets/widget-ranking-total').default,
+            require('./modules/widgets/widget-badges-grid').default,
 
 /*            require('./modules/widgets/widget-full').default,
             require('./modules/widgets/widget-notifications-popup').default,

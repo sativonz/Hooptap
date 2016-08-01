@@ -68,6 +68,11 @@ let dict = {
 
 	BADGES: {
 		title				: 'Logros',
+		tabs:	{
+			all				: 'Todos',
+			available		: 'Disponibles',
+			finished		: 'Completados'
+		}
 	},
 
 	/*	QUESTS

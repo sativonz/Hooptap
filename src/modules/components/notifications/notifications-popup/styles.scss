@@ -1,3 +1,6 @@
+@import '../../../../common/stylesheets/common/mixins.scss';
+@import '../../../../common/stylesheets/common/colors.scss';
+
 c-notifications-popup {
   #TOASTER {
     z-index: 999999999999999999;
@@ -13,9 +16,10 @@ c-notifications-popup {
       position: relative;
       height: 88px;
       width: 400px;
-      //TODO no deja hacer mixin de border-radius
-      border-radius: 10px;
+      @include border-radius(10px);
       border: 1px solid rgba(255, 255, 255, 0.29);
+      box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+      margin-bottom: 10px;
 
       .toast-close {
         position: absolute;
@@ -29,8 +33,7 @@ c-notifications-popup {
       }
 //TODO Idem que arriba no me deeja usar sass
       .toast-des {
-        //color: $_1_popup-text-desc;
-        color: #545454;
+        color: $_1_popup-text-desc;
         font-size: 12pt;
       }
 
