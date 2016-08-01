@@ -1,10 +1,11 @@
 c-widget-header(title="{{ 'RANKING.titleList' | translate }}" ng-if="$root.showMainHeader")
 .widget--ranking-list(type="{{rankingType}}")
     .widget--ranking-list__container(ng-repeat="ranking in rankings")
-        input.filterUsersRanking(placeholder="Buscar.." ng-model="filterUsers")
-        .widget--ranking-list__wrapper.row(ng-repeat="users in ranking.users | filter:filterUsers | orderBy:'-score'  ")
+        //input.filterUsersRanking(placeholder="Buscar.." ng-model="filterUsers")
+        .widget--ranking-list__wrapper.row(id="row-{{$index+1}}" ng-repeat="users in ranking.users | filter:filterUsers | orderBy:'-score'  " ng-class="{ 'mePosition': users.mePosition }")
             .col-xs-8.not-padding
                 .col-xs-3.ranking--list__user-img
+                    img(ng-if="!users.showProfileImg" ng-src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes/128/user-male-circle-blue-256.png")
                     img(ng-if="users.showProfileImg" ng-src="{{users.img}}")
                     span.ranking--list__position {{$index+1}}
                 .col-xs-9.ranking--list__username

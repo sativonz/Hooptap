@@ -28,13 +28,14 @@ export default() => ({
                 "users": [
                     {
                         "username": "Sat1",
-                        "showProfileImg": true,
+                        "showProfileImg": false,
                         "img": "https://www.uts.edu.au/sites/default/files/Andy%20So_circle.jpg",
                         "score": 1120,
                     },
                     {
                         "username": "Sergux",
                         "showProfileImg": true,
+                        "mePosition": true,
                         "img": "http://yuki-sato.com/profile_circle.png",
                         "score": 1050,
                     },
@@ -46,7 +47,7 @@ export default() => ({
                     },
                     {
                         "username": "Korsakof",
-                        "showProfileImg": true,
+                        "showProfileImg": false,
                         "img": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRkjAbZruKW50DZ70xgI9l03MV1bUUPXriVYcCub3Go7rrSsDD4",
                         "score": 1500,
                     },
@@ -56,6 +57,48 @@ export default() => ({
                         "img": "https://www.uts.edu.au/sites/default/files/Alexandria%20Hipolito_circle.jpg",
                         "score": 2000,
                     },
+                    {
+                        "username": "Jos1",
+                        "showProfileImg": true,
+                        "img": "https://www.uts.edu.au/sites/default/files/Alexandria%20Hipolito_circle.jpg",
+                        "score": 2000,
+                    },
+                    {
+                        "username": "Jos1",
+                        "showProfileImg": true,
+                        "img": "https://www.uts.edu.au/sites/default/files/Alexandria%20Hipolito_circle.jpg",
+                        "score": 2000,
+                    },
+                    {
+                        "username": "Jos1",
+                        "showProfileImg": true,
+                        "img": "https://www.uts.edu.au/sites/default/files/Alexandria%20Hipolito_circle.jpg",
+                        "score": 2000,
+                    },
+                    {
+                        "username": "Jos1",
+                        "showProfileImg": true,
+                        "img": "https://www.uts.edu.au/sites/default/files/Alexandria%20Hipolito_circle.jpg",
+                        "score": 2000,
+                    },
+                    {
+                        "username": "Jos1",
+                        "showProfileImg": true,
+                        "img": "https://www.uts.edu.au/sites/default/files/Alexandria%20Hipolito_circle.jpg",
+                        "score": 2000,
+                    },
+                    {
+                        "username": "Jos1",
+                        "showProfileImg": true,
+                        "img": "https://www.uts.edu.au/sites/default/files/Alexandria%20Hipolito_circle.jpg",
+                        "score": 2000,
+                    },
+                    {
+                        "username": "Jos1",
+                        "showProfileImg": true,
+                        "img": "https://www.uts.edu.au/sites/default/files/Alexandria%20Hipolito_circle.jpg",
+                        "score": 2000,
+                    }
 
                 ]
             },
