@@ -8,6 +8,9 @@
 					.badge-item__img
 						img(ng-src="{{item.img}}")
 					.badge-item__title(title='{{item.title}}') {{item.title}}
+					.badge-item__progresbar
+						ng-transclude
+							c-progressbar-badges(value="item.maxSteps")
 		uib-tab(index="$index + 1" heading="{{::'BADGES.tabs.available' | translate}}")
 			.badge-grid-wrapper.row
 				.badge-item.animated.bounceIn(ng-repeat="item in badges" id="availableBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true}" ng-if="item.available")

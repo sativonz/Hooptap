@@ -12,6 +12,7 @@ import template from './template.jade';
 export default() => ({
     restrict: 'E',
     template,
+    transclude: true,
     scope: {
     },
     link: (scope, element, attrs)=>{
