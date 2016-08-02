@@ -13,14 +13,14 @@ div#ht-widget(ng-app="htWidget" ng-controller="htWidgetCtrl")
         //    show-global-feed="true",
         //    show-level ="true",
         //    show-score-units="true",
-        //    rewardsList="['scoreunits','badges','levels']"
+        //    rewards-list="['scoreunits','badges','levels']"
         //)
 
 
         //-----WIDGET QUESTS-----\\
         //w-widget-quests(
         //    id-widget="123456",
-        //    showCompleteQuests="true",
+        //    show-complete-quests="true",
         //)
 
 
@@ -28,16 +28,26 @@ div#ht-widget(ng-app="htWidget" ng-controller="htWidgetCtrl")
         //-----WIDGET RANKING-----\\
         //w-widget-ranking-total(
         //    id-widget="123456",
-        //    showProfileImg="true",
+        //    show-profile-img="true",
         //)
+
 
         //-----WIDGET BADGES GRID-----\\
         //w-widget-badges-grid(
         //    id-widget="123456",
-        //    showTitle="true",
-        //    showDesc="true",
+        //    show-title="true",
+        //    show-desc="true",
         //)
 
-        c-game-wrapper
+
+        //-----COMPONENTE MODAL PREMIOS-----\\
+        c-notifications-awards(
+            show-image="true",
+            show-desc="false",
+            show-button="true",
+        )
+
+        //-----WRAPPER JUEGO-----\\
+        //c-game-wrapper
 
     c-notifications-popup
