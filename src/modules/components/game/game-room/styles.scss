@@ -1,0 +1,43 @@
+c-game-room {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: block;
+  .ht-game-room__row {
+    background: url('http://hooptap.s3.amazonaws.com/widgets/icono-default.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 90%;
+  }
+
+  .ht-game-room__container {
+    height: 100%;
+    padding: 15px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .ht-game-room__row p.desc {
+    padding-bottom: 42%;
+    text-align: center;
+    margin-top: -30%;
+    font-size: 11pt;
+    color: white;
+  }
+
+  .ht-game-room__row p.title {
+    padding: 20%;
+    text-align: center;
+    font-size: 14pt;
+    font-weight: bold;
+    color: white;
+  }
+  .ht-game-room__wraper.not-padding {
+    margin: 0px;
+  }
+
+  .ht-game-room__row.twoCols {
+    width: 130%;
+    margin-left: 5px;
+  }
+}
