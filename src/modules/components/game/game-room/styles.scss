@@ -3,41 +3,78 @@ c-game-room {
   height: 100%;
   width: 100%;
   display: block;
-  .ht-game-room__row {
+  .ht-game-room__item {
     background: url('http://hooptap.s3.amazonaws.com/widgets/icono-default.png');
     background-repeat: no-repeat;
     background-size: contain;
-    width: 90%;
+    background-position: center center;
+    width: 170px;
+    height: 170px;
+    display: inline-block;
+
   }
 
   .ht-game-room__container {
     height: 100%;
-    padding: 15px;
+    padding: 7px;
     overflow-y: auto;
     overflow-x: hidden;
   }
 
-  .ht-game-room__row p.desc {
-    padding-bottom: 42%;
+  .ht-game-room__item p.desc {
     text-align: center;
-    margin-top: -30%;
     font-size: 11pt;
     color: white;
   }
 
-  .ht-game-room__row p.title {
-    padding: 20%;
+  .ht-game-room__item p.title {
     text-align: center;
     font-size: 14pt;
     font-weight: bold;
     color: white;
   }
-  .ht-game-room__wraper.not-padding {
-    margin: 0px;
+
+  .ht-game-room__item:hover {
+    -webkit-filter: grayscale(80%);
+    filter: grayscale(80%);
   }
 
-  .ht-game-room__row.twoCols {
-    width: 130%;
-    margin-left: 5px;
+  .ht-game-room__wraper.not-padding {
+    margin: 7px;
+    width: 170px;
+    height: 170px;
+  }
+
+
+//-> For 3 columns
+  .ht-game-room__wraper.not-padding.ng-scope.ht-col-3 > .ht-game-room__item {
+    width: 112px;
+    height: 112px;
+  }
+  .ht-game-room__wraper.not-padding.ng-scope.ht-col-3 {
+    width: 112px;
+    height: 112px;
+  }
+
+
+//-> For 4 columns
+  .ht-game-room__wraper.not-padding.ng-scope.ht-col-4 > .ht-game-room__item {
+    width: 80px;
+    height: 80px;
+  }
+  .ht-game-room__wraper.not-padding.ng-scope.ht-col-4 {
+    width: 80px;
+    height: 80px;
+  }
+
+
+//-> For 5 columns
+  .ht-game-room__wraper.not-padding.ng-scope.ht-col-5 > .ht-game-room__item {
+    width: 60px;
+    height: 60px;
+  }
+  .ht-game-room__wraper.not-padding.ng-scope.ht-col-5 {
+    width: 60px;
+    height: 60px;
   }
 }

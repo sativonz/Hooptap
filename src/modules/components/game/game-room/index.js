@@ -11,25 +11,6 @@ export default($timeout) => ({
         //Definir el numero de cols
         scope.numberCols = 2;
 
-        switch (scope.numberCols) {
-            case 2:
-                scope.colWidth = 6;
-                break;
-            case 3:
-                scope.colWidth = 4;
-                break;
-            case 5:
-                scope.htCol5 = "width: 20%;float:left;padding-right:10px;padding-left:10px;";
-                break;
-            case 6:
-                scope.colWidth = 2;
-                break;
-            case 4:
-            default:
-                scope.colWidth = 3;
-                break;
-        }
-
         scope.gameroom = [
             {
                 "id": "5775397981dbc14a04530f73",

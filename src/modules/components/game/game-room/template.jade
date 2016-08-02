@@ -1,9 +1,8 @@
 .ht-game-room__container
-    .ht-game-room__wraper.not-padding(ng-repeat="games in gameroom"  style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true}")
-        .ht-game-room__row(ng-class="{'twoCols': colWidth === 6}")
-            div
-                p.title {{ games.title }}
-                p.desc {{ games.title }}
+    .ht-game-room__wraper.not-padding(ng-repeat="games in gameroom" ng-class="{'ht-col-{{numberCols}}': true}")
+        .ht-game-room__item
+            p.title {{ games.title }}
+            p.desc {{ games.title }}
 
 
 
