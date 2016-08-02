@@ -20,7 +20,6 @@ let module = angular.module('app.base', [])
     .directive('cCustomerActivate', require('./customer/customer-activate').default)
     .directive('cNotificationsPopup', require('./notifications/notifications-popup').default)
     .directive('cNotificationsList', require('./notifications/notifications-list').default)
-    .directive('cProgressbarBadges', require('./notifications/progressbar-badges').default)
     .directive('cRankingList', require('./rankings/ranking-list').default)
     .directive('cRankingTotal', require('./rankings/ranking-total').default)
     .directive('cProfileSimple', require('./profile/profile-simple').default)
@@ -38,8 +37,8 @@ let module = angular.module('app.base', [])
     .directive('cAwardsList', require('./awards/awards-list').default)
     .directive('cMarkerListSu', require('./marker/marker-list-su').default)
     .directive('cMarkerGridSu', require('./marker/marker-grid-su').default)
+    .directive('cProgressbarOld', require('./notifications/progressbar-old').default)
     .directive('cProgressbar', require('./notifications/progressbar').default)
-    .directive('cProgressbarQuests', require('./notifications/progressbar-quests').default)
     .directive('cWidgetHeader', require('./common/widget-header').default);
 
 

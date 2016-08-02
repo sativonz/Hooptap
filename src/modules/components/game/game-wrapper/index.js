@@ -1,6 +1,6 @@
 import template from './template.jade';
 import './styles.scss';
-import test from '../../levels/level-actual/template.jade';
+import test from '../../quests/quests-list/template.jade';
 
 
 //TODO ngDocs

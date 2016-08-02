@@ -1,17 +1,34 @@
-c-progressbar{
-  .level-actual_wrapper--progressbar{
-    padding: 10px 15px;
+@import "../../../../common/stylesheets/common/colors";
+
+c-progressbar {
+  .stepbar-step {
+    height: 9px;
+    display: inline;
+    float: left;
+    position: relative;
+    padding: 2px;
+  }
+  .step-inner {
+    height: 9px;
+    background: $_1_progress-bar__inactive;
   }
 
-  .progress-bar.progress-bar-type span {
-    z-index: 9999;
-    color: black;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    text-align: center !important;
-    width: 305px !important;
-    padding-left: 8px;
-    top: 2px;
-    position: relative;
+  //Stepbar states
+  .stepbar-step > .active {
+    background: $_1_progress-bar__active;
+  }
+
+  .stepbar-step.inactive {
+    background: $_1_progress-bar__inactive;
+  }
+
+  //
+
+  #stepbar-step-1, #stepbar-step-1 > .step-inner {
+    border-radius: 5px 0px 0px 5px !important;
+  }
+
+  .stepbar > div:last-child, .stepbar > div:last-child > .step-inner {
+    border-radius: 0px 5px 5px 0px !important;
   }
 }

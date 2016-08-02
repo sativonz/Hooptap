@@ -43,6 +43,33 @@ div#ht-widget {
   box-shadow: 0 0 5px #000;
   z-index: $z-index-9;
   border-radius: 14px;
+  .modal{
+    width: 100%;
+    display: -moz-box;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    display: box;
+    box-pack: center;
+    box-align: center;
+    .modal-dialog {
+      width: 960px;
+      height: 640px;
+      -webkit-transform: translate(0);
+      transform: translate(-50%,-50%);
+      position: absolute;
+      margin: 10px;
+      top: 50%;
+      left: 50%;
+      .modal-content {
+        height: 100%;
+        width: 100%;
+      }
+    }
+  }
+
 }
 
 #ht-widgets {

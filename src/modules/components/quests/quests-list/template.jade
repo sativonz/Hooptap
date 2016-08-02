@@ -22,7 +22,7 @@
                             span {{ quest.expires }}
                         .quest--row__progresbar
                             ng-transclude
-                                c-progressbar-quests(value="quest.steps")
+                                c-progressbar(steps="quest.steps")
                 .col-xs-12.quest--row__actual-step(ng-show="showDetailQuests")
                     .quest-step.row(ng-repeat="step in quest.steps track by $index")
                         .col-xs-2.bullet
