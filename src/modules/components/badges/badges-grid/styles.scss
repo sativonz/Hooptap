@@ -3,6 +3,7 @@
 c-badges-grid {
   display: block;
   position: absolute;
+  width: 100%;
   @include calc( height, '100% - 50px');
 
   .badge-item__img img{
@@ -13,10 +14,13 @@ c-badges-grid {
     text-align: center;
     color: #006591;
     font-weight: 400;
+    padding-top: 3px;
+    margin-left: -3px;
   }
 
   .badge-item {
     margin-bottom: 6px;
+    height: 105px!important;
   }
 
   .badge-item.badge-not-achieved {
@@ -75,6 +79,7 @@ c-badges-grid {
     font-size: 9pt;
     color: white;
     text-align: center;
+    z-index: 99999999999999999999;
     @include border-radius(5px);
     @include transition(width 0.75s, padding 2s);
     @include  transition-delay(0.75s);
@@ -96,5 +101,32 @@ c-badges-grid {
     visibility: visible;
     opacity:1;
   }
+
+  .badge-item__img {
+    height: 59px;
+    width: 59px;
+  }
+
+//-> Progressbar
+  c-progressbar .stepbar {
+    width: 102px;
+    margin-left: -38%;
+  }
+
+  c-progressbar .stepbar-step {
+    padding:0;
+    height: 15px;
+    top: 5px;
+  }
+
+  c-progressbar .step-inner {
+    height: 6px
+  }
+
+  c-progressbar .stepbar-step.active .step-inner{
+    background-color: greenyellow;
+  }
+
+
 
 }

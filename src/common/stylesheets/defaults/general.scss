@@ -44,6 +44,7 @@ div#ht-widget {
   z-index: $z-index-9;
   border-radius: 14px;
   .modal{
+    background-color: rgba(0, 0, 0, 0.75);
     width: 100%;
     display: -moz-box;
     -moz-box-pack: center;
@@ -66,6 +67,7 @@ div#ht-widget {
       .modal-content {
         height: 100%;
         width: 100%;
+        border-radius: 17px;
       }
     }
   }
