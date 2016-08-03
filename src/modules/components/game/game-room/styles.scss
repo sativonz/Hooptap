@@ -34,6 +34,39 @@ c-game-room {
     color: white;
   }
 
+  .ht-col-2 .ht-game-room__item p.title {
+    margin-top: 50px;
+  }
+
+  .ht-col-3 .ht-game-room__item p.title {
+    font-size: 12pt;
+    margin-top: 32px;
+  }
+
+  .ht-col-3 .ht-game-room__item p.desc {
+    font-size: 10pt;
+  }
+  .ht-col-4 .ht-game-room__item p.title {
+    font-size: 11pt;
+    margin-top: 22px;
+  }
+
+  .ht-col-4 .ht-game-room__item p.desc {
+    font-size: 9pt;
+    margin-top: -7px;
+  }
+
+  .ht-col-5 .ht-game-room__item p.title {
+    font-size: 9pt;
+    margin-top: 17px;
+  }
+
+  .ht-col-5 .ht-game-room__item p.desc {
+    font-size: 8pt;
+    margin-top: -9px;
+  }
+
+
   .ht-game-room__item:hover {
     -webkit-filter: grayscale(80%);
     filter: grayscale(80%);
@@ -70,11 +103,11 @@ c-game-room {
 
 //-> For 5 columns
   .ht-game-room__wraper.not-padding.ng-scope.ht-col-5 > .ht-game-room__item {
-    width: 60px;
-    height: 60px;
+    width: 63px;
+    height: 63px;
   }
   .ht-game-room__wraper.not-padding.ng-scope.ht-col-5 {
-    width: 60px;
-    height: 60px;
+    width: 63px;
+    height: 63px;
   }
 }

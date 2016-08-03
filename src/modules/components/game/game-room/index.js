@@ -9,7 +9,7 @@ export default($timeout) => ({
     link: (scope, element, attrs)=> {
 
         //Definir el numero de cols
-        scope.numberCols = 2;
+        scope.numberCols = 5;
 
         scope.gameroom = [
             {
