@@ -73,8 +73,9 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
         /*     Widget.findById({id: scope.idWidget}).$promise.then(()=>{
          });*/
 
+
         scope.menuItems = [
-            {view: 'profileWidgetFull.questsList', title: 'QUESTS.title'},
+            {view: 'C', title: 'QUESTS.title', routerName: 'test'},
             {view: 'profileWidgetFull.badgesList', title: 'BADGES.title'},
             {view: 'profileWidgetFull.customerUpdate', title: 'CUSTOMER.common.edit'}
         ];

@@ -23,6 +23,38 @@ c-customer-nav(ng-if="!$root.logged")
                         p.title__score-units 1
                     .col-xs-6.not-padding
                         img(ng-src="http://hooptap.s3.amazonaws.com/widgets/level.svg")
+            div(create-router, router-name='test')
+                .row
+                    p Contenido {{ view }}
+                    p(ng-if="isView('A')")
+                        span 'ES A!'
+                        span(create-router, router-name='testA')
+                            span(ng-if="isView('0')") 0
+                            span(ng-if="isView('1')") 1
+                            span(ng-if="isView('2')") 2
+                            br
+                            span(ng-click="changeView('0')") link 0
+                            span(ng-click="changeView('1')") link 1
+                            span(ng-click="changeView('2')") link 2
+                            span(ng-click="changeView('C')") link C malo
+                            span(ng-click="changeView('test', 'C')") link C
+                            span(ng-click="back()") back
+
+                    p(ng-if="isView('B')")
+                        span 'ES B!'
+                    p(ng-if="isView('C')")
+                        span 'ES C!'
+                    p(ng-if="isView(null)")
+                        span 'NULL'
+                .row
+                    .col-xs-4
+                        p(ng-click="changeView('A')") link A
+                    .col-xs-4
+                        p(ng-click="changeView('B')") link B
+                    .col-xs-4
+                        p(ng-click="changeView('C')") link C
+                    .col-xs-4
+                        p(ng-click="changeView('testA', '0')") link A0
             .wrapper__level.row(ng-if="showLevel")
                 .wrapper__levels-title {{ 'LEVELS.title' | translate }}
                 .col-xs-2.not-padding

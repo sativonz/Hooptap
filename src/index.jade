@@ -1,36 +1,45 @@
 div#ht-widget(ng-app="htWidget" ng-controller="htWidgetCtrl")
     c-button-init(text="Juegue ahora")
     div(id="ht-widgets").template-1
-        //w-widget-profile-simple(id-widget="12345" , config="{'editable': true, rewardsList: ['scoreunits','badges','levels'], 'showImage': false}")
+
+        //-----WIDGET LOGIN AND REGISTER-----\\
+        //w-widget-customer-access(
+        //    id-widget="12345",
+        //    show-mix-form="true"
+        //    show-register-form="false"
+        //    show-login-form="false"
+        //)
+
 
         //-----WIDGET FULL-----\\
-        //w-widget-full(
-        //    id-widget="12345",
-        //    editable="true",
-        //    show-image="true",
-        //    badges-view="list" ,
-        //    show-progress-bar="true",
-        //    show-global-feed="true",
-        //    show-level ="true",
-        //    show-score-units="true",
-        //    rewards-list="['scoreunits','badges','levels']"
-        //)
+        w-widget-full(
+            id-widget="12345",
+            editable="true",
+            show-image="true",
+            badges-view="list" ,
+            show-progress-bar="true",
+            show-global-feed="true",
+            show-level ="true",
+            show-score-units="true",
+            rewards-list="['scoreunits','badges','levels']"
+        )
+
 
 
         //-----WIDGET QUESTS-----\\
         //w-widget-quests(
+
+
+
         //    id-widget="123456",
-        //    show-complete-quests="true",
         //)
 
 
 
         //-----WIDGET RANKING-----\\
         //w-widget-ranking-total(
-        //    id-widget="123456",
-        //    show-profile-img="true",
+        //    id-widget="123456"
         //)
-
 
         //-----WIDGET BADGES GRID-----\\
         //w-widget-badges-grid(
@@ -41,19 +50,18 @@ div#ht-widget(ng-app="htWidget" ng-controller="htWidgetCtrl")
 
 
         //-----COMPONENTE GAME ROOM-----\\
-        c-game-room(
-            id-widget="123456",
-            show-image="true",
-            show-desc="true",
-            show-title="true",
-        )
+        //c-game-room(
+        //    id-widget="123456",
+        //    show-desc="true",
+        //    show-title="true",
+        //)
 
 
         ////-----COMPONENTE MODAL PREMIOS-----\\
         //c-notifications-awards(
         //    id-widget="123456",
         //    show-image="true",
-        //    show-desc="false",
+        //    show-desc="true",
         //    show-button="true",
         //)
 

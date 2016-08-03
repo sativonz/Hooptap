@@ -1,6 +1,4 @@
-/**
- * Created by fer-hooptap on 6/07/16.
- */
+
 export default ($rootScope) => {
 
     
@@ -18,4 +16,6 @@ export default ($rootScope) => {
         $rootScope.currentView = $rootScope.history.pop();
 
     };
+
+
 }

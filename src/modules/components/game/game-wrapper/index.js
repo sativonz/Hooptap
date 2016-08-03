@@ -12,9 +12,6 @@ export default($uibModal, $log) => ({
     link: (scope, element, attrs)=> {
         //TODO por hacer el titulo
         scope.open = function (size) {
-            // var svgTag = angular.element('<svg width="600" height="100" class="svg"></svg>');
-            // var modalContent = angular.element(document.querySelector( '.modal-content' )
-            // angular.element(modalContent).appendTo('Hi');
 
             var modalInstance = $uibModal.open({
                 animation: scope.animationsEnabled,

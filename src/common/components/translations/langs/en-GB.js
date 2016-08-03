@@ -136,6 +136,13 @@ let dict = {
 
 	MARKETPLACE: {
 		title				: 'Marketplace'
+	},
+
+	/*	GAMEROOM
+	 ---------------------------------------------------------------------------------*/
+
+	GAMEROOM: {
+		title				: 'Gameroom'
 	}
 
 

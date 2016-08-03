@@ -45,10 +45,10 @@ import './common/services/angular-sdk.js';
 
             //Widgets
             require('./modules/widgets/widget-full').default,
-            require('./modules/widgets/widget-notifications-popup').default,
             require('./modules/widgets/widget-quests').default,
             require('./modules/widgets/widget-ranking-total').default,
             require('./modules/widgets/widget-badges-grid').default,
+            require('./modules/widgets/widget-customer-access').default,
 
 /*            require('./modules/widgets/widget-full').default,
             require('./modules/widgets/widget-notifications-popup').default,
@@ -322,6 +322,79 @@ import './common/services/angular-sdk.js';
 
 
 
+        })
+        .directive('createRouter', function($rootScope) {
+
+            $rootScope.changeView = function(routerTargetName, viewName) {
+                if (!viewName) {
+                    viewName = routerTargetName;
+                    routerTargetName = routerName;
+                }
+                console.log('rooRouter', routerTargetName, viewName);
+
+                let handler = $rootScope.routerChangeFunctions[routerTargetName];
+                if (handler) {
+                    handler(viewName);
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+            $rootScope.routerChangeFunctions = {};
+            return {
+                restrict: 'A',
+                controller: function($scope, $attrs) {
+                    let routerName = $attrs.routerName;
+                    $scope.view = null;
+                    $scope.historic = [];
+                    $scope.back = function(routerTargetName, viewName) {
+                        if (!viewName) {
+                            viewName = routerTargetName;
+                            routerTargetName = routerName;
+                        }
+
+                        if (routerTargetName != routerName) {
+                            let parent = $scope.$parent;
+                            if (parent) {
+                                console.log(`El router ${routerName} pasa el back a su padre`);
+                                parent.back(routerTargetName, viewName);
+                            } else {
+                                console.log(`El router ${routerName} ignora vista ${viewName} que va a ${routerTargetName}.`);
+                            }
+                            return;
+                        }
+                        console.log($scope.historic);
+                        $scope.view = $scope.historic.pop();
+                    };
+                    $scope.changeView = function(routerTargetName, viewName) {
+
+                        if (!viewName) {
+                            viewName = routerTargetName;
+                            routerTargetName = routerName;
+                        }
+                        console.log('router', routerTargetName, viewName);
+                        if (routerTargetName != routerName) {
+                            if (!$rootScope.changeView(routerTargetName, viewName)) {
+                                console.log(`El router ${routerName} ignora vista ${viewName} que va a ${routerTargetName}.`);
+                            }
+                            return;
+                        }
+
+                        if (viewName != $scope.view) {
+                            $scope.historic.push($scope.view);
+                            $scope.view = viewName;
+                        }
+
+                    };
+                    $rootScope.routerChangeFunctions[routerName] = function() {
+                        return $scope.changeView.apply($scope, arguments);
+                    };
+
+                    $scope.isView = function(viewName) {
+                        return viewName == $scope.view;
+                    }
+                }
+            }
         })
         .config(require('./config').default)
         .run(require('./boot').default);

@@ -5,7 +5,6 @@ export default($timeout) => ({
     restrict: 'E',
     template,
     scope: {
-        showImage: '=',
         showTitle: '=',
         showDesc: '=',
     },
