@@ -4,7 +4,6 @@ c-game-room {
   width: 100%;
   display: block;
   .ht-game-room__item {
-    background: url('http://hooptap.s3.amazonaws.com/widgets/icono-default.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center center;
@@ -48,7 +47,7 @@ c-game-room {
   }
   .ht-col-4 .ht-game-room__item p.title {
     font-size: 11pt;
-    margin-top: 22px;
+    margin-top: 6px;
   }
 
   .ht-col-4 .ht-game-room__item p.desc {
@@ -58,12 +57,16 @@ c-game-room {
 
   .ht-col-5 .ht-game-room__item p.title {
     font-size: 9pt;
-    margin-top: 17px;
+    margin-top: 2px;
   }
 
   .ht-col-5 .ht-game-room__item p.desc {
     font-size: 8pt;
     margin-top: -9px;
+  }
+
+  .ht-col-2 > .ht-game-room__item > p.showOnlyDesc {
+    margin-top: 72px;
   }
 
 
@@ -110,4 +113,29 @@ c-game-room {
     width: 63px;
     height: 63px;
   }
+}
+
+//-> IMG 2 columns
+.ht-col-2 .ht-game-room__item.showCustomImage {
+  width: 170px!important;
+  height: 170px!important;
+  background-size: 170px 170px!important;
+}
+//-> IMG 3 columns
+.ht-col-3 .ht-game-room__item.showCustomImage {
+  width: 112px!important;
+  height: 112px!important;
+  background-size: 112px 112px!important;
+}
+//-> IMG 4 columns
+.ht-col-4 .ht-game-room__item.showCustomImage {
+  width: 80px!important;
+  height: 80px!important;
+  background-size: 80px 80px!important;
+}
+//-> IMG 5 columns
+.ht-col-5 .ht-game-room__item.showCustomImage {
+  width: 63px!important;
+  height: 63px!important;
+  background-size: 63px 63px!important;
 }

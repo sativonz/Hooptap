@@ -1,8 +1,7 @@
 .ht-game-room__container
-    .ht-game-room__wraper.not-padding(ng-repeat="games in gameroom" ng-class="{'ht-col-{{numberCols}}': true}")
-        .ht-game-room__item
-            p.title {{ games.title }}
-            p.desc {{ games.title }}
-
+    .ht-game-room__wraper.not-padding(ng-repeat="game in gameroom" ng-class="{'ht-col-{{numberCols}}': true}")
+        .ht-game-room__item(ng-class="{'showCustomImage': showImage}" ng-style="{'background-image': 'url( {{ game.customImage || defaultImage}} )'}")
+            p.title(ng-if="showTitle") {{ game.title }}
+            p.desc(ng-if="showDesc" ng-class="{'showOnlyDesc': !showTitle }") {{ game.desc }}
 
 
