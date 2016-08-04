@@ -72,7 +72,7 @@ import './common/services/angular-sdk.js';
             require('./modules/widgets/widget-member-login').default,
             require('./modules/widgets/widget-badges-list').default,
             require('./modules/widgets/widget-badges-grid').default*/
-        ]).service('viewHandler', require('./common/services/viewHandler').default)
+        ])
 
 
     //Controller for widget

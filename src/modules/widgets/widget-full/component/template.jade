@@ -2,60 +2,28 @@ c-button-menu(ng-if="$root.logged" value="menuItems")
 c-button-close
 c-customer-nav(ng-if="!$root.logged")
 .ht-profile-widget-full(ng-if="$root.logged")
-    .profile-widget-full__container(ng-show="$root.currentView==='profileWidgetFull.default'")
+    .profile-widget-full__container
         c-widget-header
-        c-profile-header
+        c-profile-header(ng-if="showScoreUnits && !$root.WPFviewBadges && !$root.WPFviewMarkerSU")
         .row.wrapper-components
-            .wrapper__score-units.row(ng-if="showScoreUnits")
+            .wrapper__score-units.row(ng-if="showScoreUnits && !$root.WPFviewBadges && !$root.WPFviewMarkerSU")
                 .wrapper__score-units-title {{ 'SCOREUNITS.title' | translate }}
-                .col-xs-4.center.profile-widget-full-item__score-units1(tooltip-placement="top" uib-tooltip="{{ 'SCOREUNITS.types.stars' | translate }}" ng-click="$root.setCurrentView('profileWidgetFull.su.coins')")
+                .col-xs-4.center.profile-widget-full-item__score-units1(tooltip-placement="top" uib-tooltip="{{ 'SCOREUNITS.types.stars' | translate }}" ng-click="$root.WPFviewMarkerSU = !$root.WPFviewMarkerSU ")
                     .col-xs-6.not-padding
                         p.title__score-units 500
                     .col-xs-6.not-padding
                         img(ng-src="http://hooptap.s3.amazonaws.com/widgets/star.svg")
-                .col-xs-4.center.profile-widget-full-item__badges(tooltip-placement="top" uib-tooltip="{{ 'BADGES.title' | translate }}" ng-click="$root.setCurrentView('profileWidgetFull.badgesList')")
+                .col-xs-4.center.profile-widget-full-item__badges(tooltip-placement="top" uib-tooltip="{{ 'BADGES.title' | translate }}" ng-click="$root.WPFviewBadges = !$root.WPFviewBadges")
                     .col-xs-6.not-padding
                         p.title__score-units 2
                     .col-xs-6.not-padding
                         img(ng-src="http://hooptap.s3.amazonaws.com/widgets/badge.svg")
-                .col-xs-4.center.profile-widget-full-item__levels(tooltip-placement="top" uib-tooltip="{{ 'LEVELS.title' | translate }}" ng-click="$root.setCurrentView('profileWidgetFull.levelActual')")
+                .col-xs-4.center.profile-widget-full-item__levels(tooltip-placement="top" uib-tooltip="{{ 'LEVELS.title' | translate }}")
                     .col-xs-6.not-padding
                         p.title__score-units 1
                     .col-xs-6.not-padding
                         img(ng-src="http://hooptap.s3.amazonaws.com/widgets/level.svg")
-            div(create-router, router-name='test')
-                .row
-                    p Contenido {{ view }}
-                    p(ng-if="isView('A')")
-                        span 'ES A!'
-                        span(create-router, router-name='testA')
-                            span(ng-if="isView('0')") 0
-                            span(ng-if="isView('1')") 1
-                            span(ng-if="isView('2')") 2
-                            br
-                            span(ng-click="changeView('0')") link 0
-                            span(ng-click="changeView('1')") link 1
-                            span(ng-click="changeView('2')") link 2
-                            span(ng-click="changeView('C')") link C malo
-                            span(ng-click="changeView('test', 'C')") link C
-                            span(ng-click="back()") back
-
-                    p(ng-if="isView('B')")
-                        span 'ES B!'
-                    p(ng-if="isView('C')")
-                        span 'ES C!'
-                    p(ng-if="isView(null)")
-                        span 'NULL'
-                .row
-                    .col-xs-4
-                        p(ng-click="changeView('A')") link A
-                    .col-xs-4
-                        p(ng-click="changeView('B')") link B
-                    .col-xs-4
-                        p(ng-click="changeView('C')") link C
-                    .col-xs-4
-                        p(ng-click="changeView('testA', '0')") link A0
-            .wrapper__level.row(ng-if="showLevel")
+            .wrapper__level.row(ng-if="showLevel && !$root.WPFviewBadges && !$root.WPFviewMarkerSU")
                 .wrapper__levels-title {{ 'LEVELS.title' | translate }}
                 .col-xs-2.not-padding
                     img(ng-src="http://test.wednesdaynighthop.com/wordpress/wp-content/uploads/2015/03/level-1-icon.png")
@@ -72,7 +40,12 @@ c-customer-nav(ng-if="!$root.logged")
                                 p.center 60%
                             .progressbar2-next
                                 p.center 40%
-            .wrapper__gf.row(ng-if="showGlobalFeed")
+            .wrapper__gf.row(ng-if="showGlobalFeed && !$root.WPFviewBadges && !$root.WPFviewMarkerSU")
                 .wrapper__gf-title {{ 'GLOBAL_FEED.title' | translate }}
                 c-game-global-feed
-
+            .wrapper__badges-component.row(ng-if="$root.WPFviewBadges")
+                c-button-back(ng-click="$root.WPFviewBadges = !$root.WPFviewBadges")
+                c-badges-grid
+            .wrapper__su-component.row(ng-if="$root.WPFviewMarkerSU")
+                c-button-back(ng-click="$root.WPFviewMarkerSU = !$root.WPFviewMarkerSU")
+                c-marker-list-su

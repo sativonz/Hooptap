@@ -10,20 +10,20 @@
                         .quest-row-default-image(ng-show="!quest.img")
                             p.quest-row-default-image__number-quests {{ $index+1 }}
                         .quest-row-image
-                            img.quest--row--image(ng-src="{{ quest.img }}")
+                            img.quest--row--image(ng-src="{{ quest.img }}" ng-class="{ 'active': item.state.active, 'inactive': !item.state.active, 'lapsed': item.state.lapsed, 'completed': item.state.completed }")
                             img.disable-quest-img(ng-show="quest.state == 'off-date'" ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-caducado.svg")
                             img.blocked-quest-img(ng-show="quest.state == 'block'" ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-block.svg")
                             img.new-quest-img(ng-show="quest.state == 'new'" ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-nuevo-mas.svg")
-                            img.blocked-quest-img(ng-show="quest.state == 'new-block'" ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-block.svg")
+                            img.completed-quest-img(ng-show="quest.state == 'completed'" ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-check.svg")
                             img.new-quest-img(ng-show="quest.state == 'new-block'" ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-nuevo-mas.svg")
                     .col-xs-10.quest--row__text-holder
-                        .quest--row__title(ng-class="{ 'active': item.state.active, 'inactive': item.state.active, 'lapsed': item.state.lapsed, 'completed': item.state.completed }") {{ quest.state }}
+                        .quest--row__title(ng-class="{ 'active': item.state.active, 'inactive': !item.state.active, 'lapsed': item.state.lapsed, 'completed': item.state.completed }") {{ quest.state }}
                         .quest--row__date
                             span {{ quest.expires }}
                         .quest--row__progresbar
                             ng-transclude
                                 c-progressbar(steps="quest.steps")
-                .col-xs-12.quest--row__actual-step(ng-show="showDetailQuests")
+                .col-xs-12.quest--row__actual-step(ng-show="showDetailQuests" ng-if="quest.state !== 'block'")
                     .quest-step.row(ng-repeat="step in quest.steps track by $index")
                         .col-xs-2.bullet
                             .bullet-step-complete(ng-show="step.complete")

@@ -21,6 +21,21 @@ c-quests-list {
     cursor: n-resize;
   }
 
+  img.completed-quest-img {
+    position: absolute;
+    left: -4px;
+    width: 24px;
+    top: 41px;
+  }
+
+  img.quest--row--image.inactive {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+  .inactive .bullet-step,  .off-date .bullet-step  {
+    background: #d2d2d2;
+  }
+
   .quest--row.lapsed .step-inner,
   .quest--row.block .step-inner,
   .quest--row.off-date .step-inner,
@@ -163,6 +178,7 @@ c-quests-list {
 
   .col-xs-10.title-step {
     margin-bottom: 5px;
+    white-space: nowrap;
   }
 
   .bullet-step-complete img {
@@ -188,6 +204,10 @@ c-quests-list {
     left: 33px;
     width: 24px;
     top: 41px;
+  }
+
+  .stepbar-step.active .step-inner {
+    background: $_1_progress-bar__active;
   }
 
 }

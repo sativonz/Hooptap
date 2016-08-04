@@ -37,7 +37,7 @@ export default() => ({
                         "showProfileImg": true,
                         "mePosition": true,
                         "img": "http://yuki-sato.com/profile_circle.png",
-                        "score": 1050,
+                        "score": 9991050,
                     },
                     {
                         "username": "Paul Stak",

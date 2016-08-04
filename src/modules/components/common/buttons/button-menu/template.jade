@@ -6,9 +6,16 @@ div#button-menu
         span
 div#menu
     ul
-        li.animated.slideInLeft(ng-repeat="item in value" ng-click="changeView(item.routerName, item.view)")
-            code {{item}}
-            p(ng-click="", translate="{{ item.title }}")
+        li.animated.slideInLeft
+            p(translate="{{ item.title }}" ng-click="changeView(item.view)")
+            code {{item.view}}
         li.animated.slideInLeft
             a.menu-logout(ng-if="!logout" ng-click="formLogout()")
                 | {{ 'CUSTOMER.common.logout' | translate }}
+
+
+
+
+
+
+

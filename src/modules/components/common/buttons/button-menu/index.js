@@ -36,5 +36,20 @@ export default(Customer, $rootScope) => ({
             .on( 'blur focusOut click', function(e) {
                 $mnu.toggle('slow');
             });
+
+        //
+        // scope.changeView = function(view) {
+        //     console.log(view);
+        //     // if($rootScope.view === true){
+        //     //     $rootScope.view = false
+        //     //
+        //     // }else if($rootScope.view === false) {
+        //     //     $rootScope.view = true
+        //     // }
+        //     //$rootScope.view =  !$rootScope.view;
+        //     console.log(view);
+        //     $rootScope.view = !view;
+        //     console.log($rootScope.view);
+        // }
     }
 });

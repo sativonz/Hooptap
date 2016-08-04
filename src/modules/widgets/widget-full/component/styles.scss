@@ -152,4 +152,9 @@ w-widget-full {
     margin-left: 35px;
     margin-right: 35px;
   }
+  
+  //->Badge component
+  c-badges-grid .tab-content {
+    overflow: hidden;
+  }
 }

@@ -34,12 +34,12 @@ c-ranking-list{
   }
 
   .ranking--list__score-frame {
-    width: 100px;
     height: 25px;
     background: #FFBA00;
     border-radius: 5px;
     padding: 5px;
     float: right;
+    padding-left: 7px;
   }
   .ranking--list__score-frame-img {
     float: right;

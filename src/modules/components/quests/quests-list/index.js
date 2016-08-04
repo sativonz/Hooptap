@@ -42,12 +42,12 @@ export default() => ({
                 "steps": {
 
                     "step1": {
-                        "complete": true,
+                        "complete": false,
                         "title": "Caza los murciegalos",
 
                     },
                     "step2": {
-                        "complete": true,
+                        "complete": false,
                         "title": "Encuentra a wally",
                     },
                     "step3": {
@@ -59,7 +59,7 @@ export default() => ({
                         "title": "titulo 4",
                     },
                     "step5": {
-                        "complete": true,
+                        "complete": false,
                         "title": "titulo 5",
                     },
                 },
@@ -77,7 +77,7 @@ export default() => ({
                         "title": "Visita el video de youtube",
                     },
                     "step2": {
-                        "complete": true,
+                        "complete": false,
                         "title": "titulo",
 
                     },
@@ -134,8 +134,8 @@ export default() => ({
                 },
             },
             "quest4": {
-                "name": "New-Block",
-                "state": "new-block",
+                "name": "Completed",
+                "state": "completed",
                 "img": "",
                 "expires": "",
                 "steps": {
@@ -202,39 +202,6 @@ export default() => ({
                 },
             },
             "quest6": {
-                "state": "active",
-                "showCompleteQuests": false,
-                "img": "https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png",
-                "expires": "",
-                "steps": {
-                    "step1": {
-                        "complete": true,
-                        "title": "Hola que tal",
-
-                    },
-                    "step2": {
-                        "complete": false,
-                        "title": "titulo",
-
-                    },
-                    "step3": {
-                        "complete": false,
-                        "title": "titulo",
-
-                    },
-                    "step4": {
-                        "complete": false,
-                        "title": "titulo",
-
-                    },
-                    "step5": {
-                        "complete": false,
-                        "title": "titulo",
-
-                    },
-                },
-            },
-            "quest7": {
                 "state": "inactive",
                 "showCompleteQuests": false,
                 "img": "https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png",
@@ -242,12 +209,12 @@ export default() => ({
                 "steps": {
 
                     "step1": {
-                        "complete": true,
+                        "complete": false,
                         "title": "Hola que dise",
 
                     },
                     "step2": {
-                        "complete": true,
+                        "complete": false,
                         "title": "titulo",
 
                     },
@@ -262,7 +229,7 @@ export default() => ({
 
                     },
                     "step5": {
-                        "complete": true,
+                        "complete": false,
                         "title": "titulo",
 
                     },
