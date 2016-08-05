@@ -4,8 +4,8 @@
             img.profile-widget-full-item__img(ng-src="https://media.creativemornings.com/uploads/user/avatar/120448/profile-circle.png")
             img.profile-widget-full__edit(ng-if="editable" ng-click="$root.WPFviewEditProfile = !$root.WPFviewEditProfile" ng-src="http://hooptap.s3.amazonaws.com/widgets/edit.svg")
             img.profile-widget-full__logout(ng-src="http://hooptap.s3.amazonaws.com/widgets/logout.svg" ng-click="formLogout()")
-        .col-xs-2
-            p.profile-widget-full-title__name {{ 'CUSTOMER.common.username' | translate }}:
+        .col-xs-2.not-padding
+            p.profile-widget-full-title__name {{ 'CUSTOMER.common.name' | translate }}:
             p.profile-widget-full-title__email {{ 'CUSTOMER.common.email' | translate }}:
         .col-xs-5.not-padding
             p.profile-widget-full-item__name {{$root.customer.username}}
