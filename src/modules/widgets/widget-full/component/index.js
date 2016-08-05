@@ -39,12 +39,6 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
     },
     link: (scope, element, attrs)=> {
 
-        Customer.findById(LoopBackAuth.currentUserId).$promise.then(
-            (response)=>{
-                $rootScope.customer = response;
-            }
-        );
-
         //Default Widget values
         //TODO add config parameter when api returns config object
 
@@ -59,14 +53,15 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
 
 
 
-        Customer.getCurrent({
-            filter: {include: scope.rewardsList}
-        }).$promise.then((response)=> {
-            scope.user = response;
-
-        }).catch(()=> {
-            //TODO
-        });
+        // Customer.getCurrent().$promise
+        //     .then((response)=> {
+        //     scope.user = response;
+        //     debugger;
+        // }).catch((error)=> {
+        //     //TODO
+        //     console.log( 'error', error );
+        //     debugger;
+        // });
 
         //cuando exista un ENDPOINT del API
         //->UNUSED

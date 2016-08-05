@@ -19,7 +19,6 @@ export default($rootScope, Customer,LoopBackAuth) => ({
 
         scope.register = ()=> {
 
-            Customer.logout();
             Customer.create({
                 "username": scope.username,
                 "email": scope.email,
@@ -27,9 +26,12 @@ export default($rootScope, Customer,LoopBackAuth) => ({
                 "productId": "57722deffc827f8e7dbafc33"//TODO PROVISIONAL
             }).$promise.then((registered)=> {
                 $rootScope.logged = false;
-                TOAST("Bienvenido " + scope.username + "!!", "Registro realizado con éxito.", {style: 'info'});
-                //TODO refactor
-                $root.goActivateForm = true;
+                $rootScope.goActivateForm = true;
+                TOAST(
+                    "Bienvenido " + scope.username + "!", "Registro realizado con éxito.", {
+                        style: 'info',
+                        img: 'http://hooptap.s3.amazonaws.com/widgets/img.png'
+                    });
             }).catch((error)=>{
                 console.log(error);
             });
