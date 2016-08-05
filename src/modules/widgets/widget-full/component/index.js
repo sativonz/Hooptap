@@ -35,7 +35,6 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
         showGlobalFeed: '=',
         showLevel: '=',
         showScoreUnits: '=',
-        badgesView: '=',
         rewardsList: '@'
     },
     link: (scope, element, attrs)=> {

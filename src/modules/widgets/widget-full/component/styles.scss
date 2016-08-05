@@ -1,5 +1,6 @@
 @import '../../../../common/stylesheets/common/_base.scss';
 @import '../../../../common/stylesheets/common/colors.scss';
+@import '../../../../common/stylesheets/common/mixins.scss';
 
 w-widget-full {
   display: block;
@@ -143,18 +144,60 @@ w-widget-full {
 
   .row.wrapper-components {
     position: relative;
-    overflow: scroll;
-    height: 300px;
-    overflow-x: hidden;
+    overflow: auto;
+    height: 299px;
+  }
+
+  .wrapper__ranking-component.row {
+    width: 400px;
   }
 
   .wrapper__gf.row {
     margin-left: 35px;
     margin-right: 35px;
   }
-  
-  //->Badge component
-  c-badges-grid .tab-content {
-    overflow: hidden;
+
+  c-ranking-list {
+    height: 428px;
+    overflow: auto;
+    width: 100%;
   }
+
+  .row.wrapper-components.viewStyle {
+    position: relative!important;
+    overflow: hidden!important;
+    height: 480px!important;
+    width: 100%;
+  }
+
+  //->Scrollbar
+  .row.wrapper-components::-webkit-scrollbar,
+  .quest--list__container::-webkit-scrollbar,
+  .tab-content::-webkit-scrollbar,
+  c-ranking-list::-webkit-scrollbar {
+    width: 10px;
+  }
+  .row.wrapper-components::-webkit-scrollbar-track,
+  .quest--list__container::-webkit-scrollbar-track,
+  .tab-content::-webkit-scrollbar-track,
+  c-ranking-list::-webkit-scrollbar-track {
+    -webkit-box-shadow: none;
+  }
+  .row.wrapper-components::-webkit-scrollbar-thumb,
+  .quest--list__container::-webkit-scrollbar-thumb,
+  .tab-content::-webkit-scrollbar-thumb,
+  c-ranking-list::-webkit-scrollbar-thumb {
+    background-color: #c2c2c2;
+    outline: 0px solid #c2c2c2;
+    @include border-radius(3px);
+  }
+
+  .wrapper__edit-profile {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+  }
+
+
 }

@@ -1,6 +1,5 @@
 //TODO por hacer cadenas de texto
 .ht-quests--list
-    c-widget-header(title="{{ 'QUESTS.title' | translate }}")
     .quest--list__container
         .quest--list__wrapper(ng-repeat="quest in quests track by $index")
             .col-xs-12.quest--row(ng-click="showDetailQuests = !showDetailQuests; isActive != isActive" ng-class="{'quest-active': isActive, 'close': !isActive, 'lapsed': quest.state == 'lapsed', 'block': quest.state == 'block', 'off-date': quest.state == 'off-date', 'inactive': quest.state == 'inactive'}")
@@ -10,19 +9,19 @@
                         .quest-row-default-image(ng-show="!quest.img")
                             p.quest-row-default-image__number-quests {{ $index+1 }}
                         .quest-row-image
-                            img.quest--row--image(ng-src="{{ quest.img }}" ng-class="{ 'active': item.state.active, 'inactive': !item.state.active, 'lapsed': item.state.lapsed, 'completed': item.state.completed }")
+                            img.quest--row--image(ng-src="{{ quest.img }}" ng-class="{ 'active': quest.state === 'active', 'inactive': quest.state === 'inactive', 'lapsed': quest.state === 'lapsed', 'completed': quest.state === 'completed' }")
                             img.disable-quest-img(ng-show="quest.state == 'off-date'" ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-caducado.svg")
                             img.blocked-quest-img(ng-show="quest.state == 'block'" ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-block.svg")
                             img.new-quest-img(ng-show="quest.state == 'new'" ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-nuevo-mas.svg")
                             img.completed-quest-img(ng-show="quest.state == 'completed'" ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-check.svg")
                             img.new-quest-img(ng-show="quest.state == 'new-block'" ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-nuevo-mas.svg")
                     .col-xs-10.quest--row__text-holder
-                        .quest--row__title(ng-class="{ 'active': item.state.active, 'inactive': !item.state.active, 'lapsed': item.state.lapsed, 'completed': item.state.completed }") {{ quest.state }}
+                        .quest--row__title(ng-class="{ 'active': quest.state === 'active', 'inactive': quest.state === 'inactive', 'lapsed': quest.state === 'lapsed', 'completed': quest.state === 'completed' }") {{ quest.state }}
                         .quest--row__date
                             span {{ quest.expires }}
                         .quest--row__progresbar
                             ng-transclude
-                                c-progressbar(steps="quest.steps")
+                                c-progressbar(steps="quest.steps" current-step="0")
                 .col-xs-12.quest--row__actual-step(ng-show="showDetailQuests" ng-if="quest.state !== 'block'")
                     .quest-step.row(ng-repeat="step in quest.steps track by $index")
                         .col-xs-2.bullet

@@ -210,4 +210,8 @@ c-quests-list {
     background: $_1_progress-bar__active;
   }
 
+  .col-xs-12.quest--row.block .quest-row__img_wrapper{
+    cursor: not-allowed;
+  }
+
 }

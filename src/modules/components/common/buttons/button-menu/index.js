@@ -12,19 +12,27 @@ import './styles.scss';
 export default(Customer, $rootScope) => ({
     restrict: 'E',
     scope: {
-        value: '='
+        showQuests: '=',
+        showBadges: '=',
+        showRanking: '=',
+        showLevel: '=',
+        showGlobalFeed: '=',
+        showMarketplace: '=',
+        showEditProfile: '=',
+        showGameRoom: '=',
     },
     template,
     link: (scope, element, attrs)=> {
         scope.formLogout = () => {
             Customer.logout().$promise
-                .then((response)=> {
+                .then( (response) => {
                     $rootScope.customer = {};
                     scope.showDropdown = false;
                     $rootScope.logged = false;
-                });
+                } );
         };
 
+        ///->Open menu
         var $mnu = $('#menu');
         var $btn_mnu = $('#button-menu');
 
@@ -37,19 +45,6 @@ export default(Customer, $rootScope) => ({
                 $mnu.toggle('slow');
             });
 
-        //
-        // scope.changeView = function(view) {
-        //     console.log(view);
-        //     // if($rootScope.view === true){
-        //     //     $rootScope.view = false
-        //     //
-        //     // }else if($rootScope.view === false) {
-        //     //     $rootScope.view = true
-        //     // }
-        //     //$rootScope.view =  !$rootScope.view;
-        //     console.log(view);
-        //     $rootScope.view = !view;
-        //     console.log($rootScope.view);
-        // }
+
     }
 });

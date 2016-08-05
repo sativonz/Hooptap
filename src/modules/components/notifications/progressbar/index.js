@@ -21,6 +21,7 @@ export default() => ({
         if(!scope.currentStep){
             scope.currentStep = 0;
         }
+
         if (typeof steps !== 'undefined'){
             let customSteps;
             //If steps is object is Quest Else Badge step
@@ -39,6 +40,8 @@ export default() => ({
             }
             scope.stepWidth = Math.floor(100/customSteps.length) + '%';
         }
+
+
     },
 
     template

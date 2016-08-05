@@ -1,19 +1,19 @@
-c-button-menu(ng-if="$root.logged" value="menuItems")
+c-button-menu(ng-if="$root.logged && !$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom" show-quests="true" show-badges="true" show-ranking="true" show-level="false" show-global-feed="false" show-marketplace="false" show-edit-profile="true" show-game-room="true")
 c-button-close
 c-customer-nav(ng-if="!$root.logged")
 .ht-profile-widget-full(ng-if="$root.logged")
     .profile-widget-full__container
-        c-widget-header
-        c-profile-header(ng-if="showScoreUnits && !$root.WPFviewBadges && !$root.WPFviewMarkerSU")
-        .row.wrapper-components
-            .wrapper__score-units.row(ng-if="showScoreUnits && !$root.WPFviewBadges && !$root.WPFviewMarkerSU")
+        c-widget-header(ng-if="!$root.WPFviewQuests && !$root.WPFviewBadges && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom")
+        c-profile-header(ng-if="showScoreUnits && !$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom")
+        .row.wrapper-components(ng-class="{'viewStyle': $root.WPFviewBadges || $root.WPFviewMarkerSU || $root.WPFviewQuests || $root.WPFviewRanking || $root.WPFviewEditProfile || $root.WPFviewGameRoom === true, 'defaultStyle': $root.WPFviewDefault}")
+            .wrapper__score-units.row(ng-if="showScoreUnits && !$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom")
                 .wrapper__score-units-title {{ 'SCOREUNITS.title' | translate }}
-                .col-xs-4.center.profile-widget-full-item__score-units1(tooltip-placement="top" uib-tooltip="{{ 'SCOREUNITS.types.stars' | translate }}" ng-click="$root.WPFviewMarkerSU = !$root.WPFviewMarkerSU ")
+                .col-xs-4.center.profile-widget-full-item__score-units1(tooltip-placement="top" uib-tooltip="{{ 'SCOREUNITS.types.stars' | translate }}" ng-click="$root.WPFviewMarkerSU = !$root.WPFviewMarkerSU; $root.WPFviewDefault = !$root.WPFviewDefault ")
                     .col-xs-6.not-padding
                         p.title__score-units 500
                     .col-xs-6.not-padding
                         img(ng-src="http://hooptap.s3.amazonaws.com/widgets/star.svg")
-                .col-xs-4.center.profile-widget-full-item__badges(tooltip-placement="top" uib-tooltip="{{ 'BADGES.title' | translate }}" ng-click="$root.WPFviewBadges = !$root.WPFviewBadges")
+                .col-xs-4.center.profile-widget-full-item__badges(tooltip-placement="top" uib-tooltip="{{ 'BADGES.title' | translate }}" ng-click="$root.WPFviewBadges = !$root.WPFviewBadges; $root.WPFviewDefault = !$root.WPFviewDefault")
                     .col-xs-6.not-padding
                         p.title__score-units 2
                     .col-xs-6.not-padding
@@ -23,7 +23,7 @@ c-customer-nav(ng-if="!$root.logged")
                         p.title__score-units 1
                     .col-xs-6.not-padding
                         img(ng-src="http://hooptap.s3.amazonaws.com/widgets/level.svg")
-            .wrapper__level.row(ng-if="showLevel && !$root.WPFviewBadges && !$root.WPFviewMarkerSU")
+            .wrapper__level.row(ng-if="showLevel && !$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom")
                 .wrapper__levels-title {{ 'LEVELS.title' | translate }}
                 .col-xs-2.not-padding
                     img(ng-src="http://test.wednesdaynighthop.com/wordpress/wp-content/uploads/2015/03/level-1-icon.png")
@@ -40,12 +40,30 @@ c-customer-nav(ng-if="!$root.logged")
                                 p.center 60%
                             .progressbar2-next
                                 p.center 40%
-            .wrapper__gf.row(ng-if="showGlobalFeed && !$root.WPFviewBadges && !$root.WPFviewMarkerSU")
+            .wrapper__gf.row(ng-if="showGlobalFeed && !$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom")
                 .wrapper__gf-title {{ 'GLOBAL_FEED.title' | translate }}
                 c-game-global-feed
             .wrapper__badges-component.row(ng-if="$root.WPFviewBadges")
                 c-button-back(ng-click="$root.WPFviewBadges = !$root.WPFviewBadges")
+                c-widget-header(title="{{'BADGES.title' | translate}}")
+                    p {{$root.WPFviewDefault}}
                 c-badges-grid
             .wrapper__su-component.row(ng-if="$root.WPFviewMarkerSU")
                 c-button-back(ng-click="$root.WPFviewMarkerSU = !$root.WPFviewMarkerSU")
                 c-marker-list-su
+            .wrapper__quests-component.row(ng-if="$root.WPFviewQuests")
+                c-button-back(ng-click="$root.WPFviewQuests = !$root.WPFviewQuests")
+                c-widget-header(title="{{ 'QUESTS.title' | translate }}")
+                c-quests-list
+            .wrapper__ranking-component.row(ng-if="$root.WPFviewRanking")
+                c-button-back(ng-click="$root.WPFviewRanking = !$root.WPFviewRanking")
+                c-widget-header(title="{{ 'RANKING.titleList' | translate }}")
+                c-ranking-list
+            .wrapper__edit-profile.row(ng-if="$root.WPFviewEditProfile")
+                c-button-back(ng-click="$root.WPFviewEditProfile = !$root.WPFviewEditProfile")
+                c-widget-header(title="{{ 'CUSTOMER.update.title' | translate }}")
+                c-customer-update
+            .wrapper__game-room.row(ng-if="$root.WPFviewGameRoom")
+                c-button-back(ng-click="$root.WPFviewGameRoom = !$root.WPFviewGameRoom")
+                c-game-room(show-desc="true" show-title="true")
+

@@ -6,12 +6,24 @@ div#button-menu
         span
 div#menu
     ul
-        li.animated.slideInLeft
-            p(translate="{{ item.title }}" ng-click="changeView(item.view)")
-            code {{item.view}}
-        li.animated.slideInLeft
-            a.menu-logout(ng-if="!logout" ng-click="formLogout()")
-                | {{ 'CUSTOMER.common.logout' | translate }}
+        li.animated.slideInLeft(ng-if="showQuests" ng-click="$root.WPFviewQuests = !$root.WPFviewQuests")
+            a {{ 'QUESTS.title' | translate }}
+        li.animated.slideInLeft(ng-if="showBadges" ng-click="$root.WPFviewBadges = !$root.WPFviewBadges")
+            a {{ 'BADGES.title' | translate }}
+        li.animated.slideInLeft(ng-if="showRanking" ng-click="$root.WPFviewRanking = !$root.WPFviewRanking")
+            a {{ 'RANKING.titleList' | translate }}
+        li.animated.slideInLeft(ng-if="showLevel")
+            a {{ 'LEVELS.title' | translate }}
+        li.animated.slideInLeft(ng-if="showGlobalFeed")
+            a {{ 'GLOBAL_FEED.title' | translate }}
+        li.animated.slideInLeft(ng-if="showMarketplace")
+            a {{ 'MARKETPLACE.title' | translate }}
+        li.animated.slideInLeft(ng-if="showGameRoom" ng-click="$root.WPFviewGameRoom = !$root.WPFviewGameRoom")
+            a {{ 'GAMEROOM.title' | translate }}
+        li.animated.slideInLeft(ng-if="showEditProfile" ng-click="$root.WPFviewEditProfile = !$root.WPFviewEditProfile")
+            a {{ 'CUSTOMER.update.title' | translate }}
+        li.animated.slideInLeft(ng-if="!logout")
+            a.menu-logout(ng-click="formLogout()") {{ 'CUSTOMER.common.logout' | translate }}
 
 
 

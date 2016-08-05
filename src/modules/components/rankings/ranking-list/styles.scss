@@ -2,6 +2,9 @@
 @import '../../../../common/stylesheets/common/colors.scss';
 
 c-ranking-list{
+  position: relative;
+  display: block;
+  height: 100%;
   .widget--ranking-list  {
     overflow: auto;
     position: relative;
@@ -19,6 +22,7 @@ c-ranking-list{
     margin-left: 15px;
     margin-right: 15px;
     height: 70px;
+    padding-top: 70PX;
   }
 
   input.filterUsersRanking {
@@ -104,9 +108,11 @@ c-ranking-list{
     top: 0;
     left: 0;
     right: 0;
+    border-bottom: 3px solid #006591;
+  }
+  
+  .widget--ranking-list__container > div:nth-child(2){
+    border-bottom: none;
   }
 
-  #row-1 {
-    margin-top: 70px;
-  }
 }

@@ -11,7 +11,7 @@ export default($timeout) => ({
     link: (scope, element, attrs)=> {
 
         //Definir el numero de cols
-        scope.numberCols = 4;
+        scope.numberCols = 3;
         scope.defaultImage = "http://hooptap.s3.amazonaws.com/widgets/icono-default.png";
         scope.gameroom = [
             {
