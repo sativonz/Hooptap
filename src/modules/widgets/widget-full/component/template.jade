@@ -8,7 +8,7 @@ c-customer-nav(ng-if="!$root.logged")
         .row.wrapper-components(ng-class="{'viewStyle': $root.WPFviewBadges || $root.WPFviewMarkerSU || $root.WPFviewQuests || $root.WPFviewRanking || $root.WPFviewEditProfile || $root.WPFviewGameRoom === true, 'defaultStyle': $root.WPFviewDefault}")
             .wrapper__score-units.row(ng-if="showScoreUnits && !$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom")
                 .wrapper__score-units-title {{ 'SCOREUNITS.title' | translate }}
-                .col-xs-4.center.profile-widget-full-item__score-units1(tooltip-placement="top" uib-tooltip="{{ 'SCOREUNITS.types.stars' | translate }}" ng-click="$root.WPFviewMarkerSU = !$root.WPFviewMarkerSU; $root.WPFviewDefault = !$root.WPFviewDefault ")
+                .col-xs-4.center.profile-widget-full-item__score-units1(tooltip-placement="top" uib-tooltip="{{ 'SCOREUNITS.types.stars' | translate }}" ng-click="$root.WPFviewDefault = !$root.WPFviewDefault ")
                     .col-xs-6.not-padding
                         p.title__score-units 500
                     .col-xs-6.not-padding
@@ -48,9 +48,9 @@ c-customer-nav(ng-if="!$root.logged")
                 c-widget-header(title="{{'BADGES.title' | translate}}")
                     p {{$root.WPFviewDefault}}
                 c-badges-grid
-            .wrapper__su-component.row(ng-if="$root.WPFviewMarkerSU")
-                c-button-back(ng-click="$root.WPFviewMarkerSU = !$root.WPFviewMarkerSU")
-                c-marker-list-su
+            //.wrapper__su-component.row(ng-if="$root.WPFviewMarkerSU")
+            //    c-button-back(ng-click="$root.WPFviewMarkerSU = !$root.WPFviewMarkerSU")
+            //    c-marker-list-su
             .wrapper__quests-component.row(ng-if="$root.WPFviewQuests")
                 c-button-back(ng-click="$root.WPFviewQuests = !$root.WPFviewQuests")
                 c-widget-header(title="{{ 'QUESTS.title' | translate }}")
