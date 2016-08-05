@@ -7,8 +7,8 @@ let dict = {
 		common: {
 			password		: 'Contraseña',
 			email			: 'Email',
-			name			: 'Nombre de usuario',
-			username		: 'Name',
+			name			: 'Nombre',
+			username		: 'Nombre de usuario',
 			update			: 'Actualizar',
 			edit			: 'Editar',
 			logout			: 'Cerrar sesión',

@@ -1,11 +1,16 @@
 .ht-wrapper--update__form
 	c-button-close
 	form.ht-form.ht-form--update(name="htFormUpdate")
-		//.ht-form__group
-		//	input.ht-form__input(ng-model='email' type='text' name="email" placeholder="Email")
-		//	span.ht-form__highlight
-		//	span.ht-form__bar
-		//	label.ht-form__label {{ 'CUSTOMER.common.email' | translate }}
+		.ht-form__group
+			input.ht-form__input(ng-model='username' type='text' name="username" required)
+			span.ht-form__highlight
+			span.ht-form__bar
+			label.ht-form__label {{ 'CUSTOMER.common.username' | translate }}
+		.ht-form__group
+			input.ht-form__input(ng-model='email' type='text' name="email" required)
+			span.ht-form__highlight
+			span.ht-form__bar
+			label.ht-form__label {{ 'CUSTOMER.common.email' | translate }}
 		.ht-form__group
 			input.ht-form__input(ng-model='actualPassword' type='password' name="actualPassword" required)
 			span.ht-form__highlight
