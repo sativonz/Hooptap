@@ -155,6 +155,11 @@ c-quests-list {
     letter-spacing: 0.5px;
   }
 
+  img.quest--row--image.lapsed {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+
   .limit-quests {
     border-bottom: 1px solid rgba(180, 180, 180, 0.75);
     margin-top: 16px;
@@ -201,7 +206,7 @@ c-quests-list {
 
   .blocked-quest-img {
     position: absolute;
-    left: 33px;
+    left: -4px;
     width: 24px;
     top: 41px;
   }

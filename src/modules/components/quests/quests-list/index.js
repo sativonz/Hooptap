@@ -168,6 +168,7 @@ export default() => ({
                 },
             },
             "quest5": {
+                "name": "off-date",
                 "state": "off-date",
                 "showCompleteQuests": false,
                 "img": "https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png",
@@ -202,6 +203,7 @@ export default() => ({
                 },
             },
             "quest6": {
+                "name": "inactive",
                 "state": "inactive",
                 "showCompleteQuests": false,
                 "img": "https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png",
