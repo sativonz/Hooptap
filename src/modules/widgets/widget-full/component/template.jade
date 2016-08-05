@@ -1,12 +1,15 @@
-c-button-menu(ng-if="$root.logged && !$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom" show-quests="true" show-badges="true" show-ranking="true" show-level="false" show-global-feed="false" show-marketplace="false" show-edit-profile="true" show-game-room="true")
+-var allViewsFalse = "!$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom"
+-var bodyStyle = "'viewStyle': $root.WPFviewBadges || $root.WPFviewMarkerSU || $root.WPFviewQuests || $root.WPFviewRanking || $root.WPFviewEditProfile || $root.WPFviewGameRoom"
+
+c-button-menu(ng-if="$root.logged && #{allViewsFalse}" show-quests="true" show-badges="true" show-ranking="true" show-level="false" show-global-feed="false" show-marketplace="false" show-edit-profile="true" show-game-room="true")
 c-button-close
 c-customer-nav(ng-if="!$root.logged")
 .ht-profile-widget-full(ng-if="$root.logged")
     .profile-widget-full__container
-        c-widget-header(ng-if="!$root.WPFviewQuests && !$root.WPFviewBadges && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom")
-        c-profile-header(ng-if="showScoreUnits && !$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom")
-        .row.wrapper-components(ng-class="{'viewStyle': $root.WPFviewBadges || $root.WPFviewMarkerSU || $root.WPFviewQuests || $root.WPFviewRanking || $root.WPFviewEditProfile || $root.WPFviewGameRoom === true, 'defaultStyle': $root.WPFviewDefault}")
-            .wrapper__score-units.row(ng-if="showScoreUnits && !$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom")
+        c-widget-header(ng-if="#{allViewsFalse}")
+        c-profile-header(ng-if="showScoreUnits && #{allViewsFalse}")
+        .row.wrapper-components(ng-class="{#{bodyStyle}, 'defaultStyle': $root.WPFviewDefault}")
+            .wrapper__score-units.row(ng-if="showScoreUnits && #{allViewsFalse}")
                 .wrapper__score-units-title {{ 'SCOREUNITS.title' | translate }}
                 .col-xs-4.center.profile-widget-full-item__score-units1(tooltip-placement="top" uib-tooltip="{{ 'SCOREUNITS.types.stars' | translate }}" ng-click="$root.WPFviewDefault = !$root.WPFviewDefault ")
                     .col-xs-6.not-padding
@@ -23,7 +26,7 @@ c-customer-nav(ng-if="!$root.logged")
                         p.title__score-units 1
                     .col-xs-6.not-padding
                         img(ng-src="http://hooptap.s3.amazonaws.com/widgets/level.svg")
-            .wrapper__level.row(ng-if="showLevel && !$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom")
+            .wrapper__level.row(ng-if="showLevel && #{allViewsFalse}")
                 .wrapper__levels-title {{ 'LEVELS.title' | translate }}
                 .col-xs-2.not-padding
                     img(ng-src="http://test.wednesdaynighthop.com/wordpress/wp-content/uploads/2015/03/level-1-icon.png")
@@ -40,7 +43,7 @@ c-customer-nav(ng-if="!$root.logged")
                                 p.center 60%
                             .progressbar2-next
                                 p.center 40%
-            .wrapper__gf.row(ng-if="showGlobalFeed && !$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom")
+            .wrapper__gf.row(ng-if="showGlobalFeed && #{allViewsFalse}")
                 .wrapper__gf-title {{ 'GLOBAL_FEED.title' | translate }}
                 c-game-global-feed
             .wrapper__badges-component.row(ng-if="$root.WPFviewBadges")
