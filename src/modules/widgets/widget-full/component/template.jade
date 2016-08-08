@@ -10,22 +10,7 @@ c-customer-nav(ng-if="!$root.logged")
         c-profile-header(ng-if="showScoreUnits && #{allViewsFalse}")
         .row.wrapper-components(ng-class="{#{bodyStyle}, 'defaultStyle': $root.WPFviewDefault}")
             .wrapper__score-units.row(ng-if="showScoreUnits && #{allViewsFalse}")
-                .wrapper__score-units-title {{ 'SCOREUNITS.title' | translate }}
-                .col-xs-4.center.profile-widget-full-item__score-units1(tooltip-placement="top" uib-tooltip="{{ 'SCOREUNITS.types.stars' | translate }}" ng-click="$root.WPFviewDefault = !$root.WPFviewDefault ")
-                    .col-xs-6.not-padding
-                        p.title__score-units 500
-                    .col-xs-6.not-padding
-                        img(ng-src="http://hooptap.s3.amazonaws.com/widgets/star.svg")
-                .col-xs-4.center.profile-widget-full-item__badges(tooltip-placement="top" uib-tooltip="{{ 'BADGES.title' | translate }}" ng-click="$root.WPFviewBadges = !$root.WPFviewBadges; $root.WPFviewDefault = !$root.WPFviewDefault")
-                    .col-xs-6.not-padding
-                        p.title__score-units 2
-                    .col-xs-6.not-padding
-                        img(ng-src="http://hooptap.s3.amazonaws.com/widgets/badge.svg")
-                .col-xs-4.center.profile-widget-full-item__levels(tooltip-placement="top" uib-tooltip="{{ 'LEVELS.title' | translate }}")
-                    .col-xs-6.not-padding
-                        p.title__score-units 1
-                    .col-xs-6.not-padding
-                        img(ng-src="http://hooptap.s3.amazonaws.com/widgets/level.svg")
+                c-marker-display(options="$root.scoreDisplayConfig")
             .wrapper__level.row(ng-if="showLevel && #{allViewsFalse}")
                 .wrapper__levels-title {{ 'LEVELS.title' | translate }}
                 .col-xs-2.not-padding
@@ -49,7 +34,6 @@ c-customer-nav(ng-if="!$root.logged")
             .wrapper__badges-component.row(ng-if="$root.WPFviewBadges")
                 c-button-back(ng-click="$root.WPFviewBadges = !$root.WPFviewBadges")
                 c-widget-header(title="{{'BADGES.title' | translate}}")
-                    p {{$root.WPFviewDefault}}
                 c-badges-grid
             //.wrapper__su-component.row(ng-if="$root.WPFviewMarkerSU")
             //    c-button-back(ng-click="$root.WPFviewMarkerSU = !$root.WPFviewMarkerSU")

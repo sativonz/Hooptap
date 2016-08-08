@@ -31,6 +31,9 @@
                         .col-xs-10.title-step
                             //span.quest-step__name.animated.bounceIn(ng-class="{ 'c-red': !step.complete, 'c-green': step.complete }") {{step.title}}
                             span.quest-step__name.animated.bounceIn {{step.title}}
-                                img(ng-show="" ng-src="http://hooptap.s3.amazonaws.com/widgets/boton-enlace.svg")
+                                a(href="{{ step.url }}")
+                                    img(ng-if="step.url" ng-show="quest.state == 'active' || quest.state == 'new'" ng-src="http://hooptap.s3.amazonaws.com/widgets/boton-enlace-activo.svg")
+                                a(href="{{ step.url }}")
+                                    img(ng-if="step.url" ng-show="quest.state == 'inactive' || quest.state == 'off-date' || quest.state == 'completed'" ng-src="http://hooptap.s3.amazonaws.com/widgets/boton-enlace-inactivo.svg")
                                 //img(ng-show="" ng-src="http://hooptap.s3.amazonaws.com/widgets/boton-enlace.svg")
                 .col-xs-12.limit-quests

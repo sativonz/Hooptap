@@ -35,24 +35,40 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
         showGlobalFeed: '=',
         showLevel: '=',
         showScoreUnits: '=',
-        rewardsList: '@'
     },
     link: (scope, element, attrs)=> {
 
-        //Default Widget values
-        //TODO add config parameter when api returns config object
+        let defaultMarkerOptions = {
+            zones: [
+                [
+                    {
+                        model: 'ScoreUnit'
+                    }, // por default, el primero que encuentre
+                    {
+                        model: 'Level'
+                    },     // por default, asociado al ScoreUnit anterior
+                    {
+                        model: 'Badge'
+                    }      // contador de badges
+                ],
+                [
+                    { model: 'Level' },     // por default, asociado al ScoreUnit anterior
+                    { model: 'Level' }  // por default, el primero que encuentre
+                ],
+                [
+                    { model: 'Badge' }      // contador de badges
+                ]
+            ]
+        };
 
-        //?
-        scope.editable = angular.isDefined(scope.editable)? scope.editable :  true;
-        //TODO cambiar img por definitiva
-        scope.image = angular.isDefined(scope.image)? scope.image : 'https://case.edu/medicine/admissions/media/school-of-medicine/admissions/classprofile.png';
-        scope.showImage = angular.isDefined(scope.showImage)? scope.showImage : true;
-        scope.showProgressBar = angular.isDefined(scope.showProgressBar)? scope.showProgressBar :  true;
-        scope.badgesView = angular.isDefined(scope.badgesView)? scope.badgesView : 'list';
-        scope.rewardsList = angular.isDefined(scope.rewardsList)? scope.rewardsList : [];
+        $rootScope.scoreDisplayConfig = $rootScope.scoreDisplayConfig || defaultMarkerOptions;
 
 
 
+        //->UNUSED
+        //
+        //
+        //
         // Customer.getCurrent().$promise
         //     .then((response)=> {
         //     scope.user = response;
@@ -62,9 +78,15 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
         //     console.log( 'error', error );
         //     debugger;
         // });
-
-        //cuando exista un ENDPOINT del API
-        //->UNUSED
+        //
+        //
+        // scope.editable = angular.isDefined(scope.editable)? scope.editable :  true;
+        // //TODO cambiar img por definitiva
+        // scope.image = angular.isDefined(scope.image)? scope.image : 'https://case.edu/medicine/admissions/media/school-of-medicine/admissions/classprofile.png';
+        // scope.showImage = angular.isDefined(scope.showImage)? scope.showImage : true;
+        // scope.showProgressBar = angular.isDefined(scope.showProgressBar)? scope.showProgressBar :  true;
+        // scope.badgesView = angular.isDefined(scope.badgesView)? scope.badgesView : 'list';
+        // scope.rewardsList = angular.isDefined(scope.rewardsList)? scope.rewardsList : [];
         //
         //
         // scope.menuItems = [
@@ -128,14 +150,15 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
         //     }
         // };
         // scope.randomStacked();
+        //
+        //
+        //cuando exista un ENDPOINT del API
+        //Widget.findById({id: scope.idWidget}).$promise.then(()=>{
+        //});
 
 
 
 
-
-
-        /*     Widget.findById({id: scope.idWidget}).$promise.then(()=>{
-         });*/
 
     }
 });

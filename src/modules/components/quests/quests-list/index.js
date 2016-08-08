@@ -44,23 +44,28 @@ export default() => ({
                     "step1": {
                         "complete": false,
                         "title": "Caza los murciegalos",
+                        "url": ""
 
                     },
                     "step2": {
                         "complete": false,
                         "title": "Encuentra a wally",
+                        "url": ""
                     },
                     "step3": {
                         "complete": false,
                         "title": "titulo 3",
+                        "url": ""
                     },
                     "step4": {
                         "complete": false,
                         "title": "titulo 4",
+                        "url": ""
                     },
                     "step5": {
                         "complete": false,
                         "title": "titulo 5",
+                        "url": ""
                     },
                 },
             },
@@ -75,26 +80,27 @@ export default() => ({
                     "step1": {
                         "complete": true,
                         "title": "Visita el video de youtube",
+                        "url": "https://www.youtube.com/watch?v=aSLZFdqwh7E"
                     },
                     "step2": {
                         "complete": false,
                         "title": "titulo",
-
+                        "url": ""
                     },
                     "step3": {
                         "complete": false,
                         "title": "titulo",
-
+                        "url": ""
                     },
                     "step4": {
                         "complete": false,
                         "title": "titulo",
-
+                        "url": ""
                     },
                     "step5": {
                         "complete": false,
                         "title": "titulo",
-
+                        "url": ""
                     },
                 },
             },
@@ -109,27 +115,27 @@ export default() => ({
                     "step1": {
                         "complete": true,
                         "title": "Mirar paginas de patrocinadores",
-
+                        "url": "asdfasdf"
                     },
                     "step2": {
                         "complete": true,
                         "title": "titulo",
-
+                        "url": "asdfasdf"
                     },
                     "step3": {
                         "complete": true,
                         "title": "titulo",
-
+                        "url": ""
                     },
                     "step4": {
                         "complete": false,
                         "title": "titulo",
-
+                        "url": ""
                     },
                     "step5": {
                         "complete": false,
                         "title": "titulo",
-
+                        "url": ""
                     },
                 },
             },
@@ -143,27 +149,27 @@ export default() => ({
                     "step1": {
                         "complete": true,
                         "title": "Cantar un cuento",
-
+                        "url": ""
                     },
                     "step2": {
                         "complete": true,
                         "title": "titulo",
-
+                        "url": ""
                     },
                     "step3": {
                         "complete": true,
                         "title": "titulo",
-
+                        "url": ""
                     },
                     "step4": {
                         "complete": true,
                         "title": "titulo",
-
+                        "url": ""
                     },
                     "step5": {
                         "complete": true,
                         "title": "titulo",
-
+                        "url": ""
                     },
                 },
             },
@@ -178,27 +184,29 @@ export default() => ({
                     "step1": {
                         "complete": false,
                         "title": "Hacer 20 clicks en la nube",
+                        "url": ""
 
                     },
                     "step2": {
                         "complete": false,
                         "title": "titulo",
+                        "url": "http://www.google.es"
 
                     },
                     "step3": {
                         "complete": false,
                         "title": "titulo",
-
+                        "url": ""
                     },
                     "step4": {
                         "complete": false,
                         "title": "titulo",
-
+                        "url": ""
                     },
                     "step5": {
                         "complete": false,
                         "title": "titulo",
-
+                        "url": ""
                     },
                 },
             },
@@ -213,27 +221,27 @@ export default() => ({
                     "step1": {
                         "complete": false,
                         "title": "Hola que dise",
-
+                        "url": ""
                     },
                     "step2": {
                         "complete": false,
                         "title": "titulo",
-
+                        "url": ""
                     },
                     "step3": {
                         "complete": false,
                         "title": "titulo",
-
+                        "url": "http://www.valenciacf.com/ver/59953/nani--posa-como-el-mejor-regateador-elegido-por-los-fans-de-ea-sports.html"
                     },
                     "step4": {
                         "complete": false,
                         "title": "titulo",
-
+                        "url": ""
                     },
                     "step5": {
                         "complete": false,
                         "title": "titulo",
-
+                        "url": "asdfasdf"
                     },
                 },
             }

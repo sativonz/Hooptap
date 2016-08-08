@@ -19,8 +19,7 @@
         .ht-form__group-terms
             input(type="checkbox" name="terms" id="checkbox_terms" value="terms" ng-model="checkboxEnableRegister")
             label.checkbox_terms(for="checkbox_terms")
-                //TODO Cambiar href, es provisional porque no está acabada la web nueva
-                a(href="http://new.hooptap.com/en/terms-conditions/" target="_blank") {{ 'valdr.generics.terms' | translate }}
+                a(href="http://hooptap.com/en/terms-and-conditions/" target="_blank") {{ 'valdr.generics.terms' | translate }}
         .ht-form__group-link
             span.link-to-activate(ng-click='$root.goActivateForm = true;') {{ 'CUSTOMER.activate.linkTitle' | translate }}
         .ht-form__group-button

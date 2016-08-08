@@ -1,4 +1,3 @@
-//TODO ngDocs
 // Default config of viewHandler
 export default (viewHandlerServiceProvider)=> {
 

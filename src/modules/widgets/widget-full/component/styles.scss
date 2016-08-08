@@ -33,9 +33,8 @@ w-widget-full {
     margin-top: 3px;
   }
 
-  .profile-widget-full-item__score-units1, .profile-widget-full-item__score-units2, .profile-widget-full-item__badges {
+  .profile-widget-full-items:not(:last-child) {
     border-right: 1px solid #d2d2d2;
-    margin-bottom: 20px;
     cursor: pointer;
   }
 
@@ -44,14 +43,12 @@ w-widget-full {
   }
 
   .wrapper__score-units {
-    height: 125px;
-    border-bottom: 1px solid #d2d2d2;
     margin-left: 35px;
     margin-right: 35px;
-    padding:  39px 0px 20px 0px;
+    padding:  39px 0px 0px 0px;
   }
 
-  p.title__score-units {
+  .title__score-units {
     font-size: 14pt;
     font-weight: bold;
     color: $_1_quest-title;
@@ -197,6 +194,10 @@ w-widget-full {
     top: 0;
     right: 0;
     left: 0;
+  }
+
+ .score-2 {
+    display: none;
   }
 
 

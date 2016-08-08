@@ -16,7 +16,8 @@ export default() => ({
     scope: {
     },
     link: (scope, element, attrs)=>{
-        
+
+
         //Definir el numero de cols
         scope.numberCols =4;
 

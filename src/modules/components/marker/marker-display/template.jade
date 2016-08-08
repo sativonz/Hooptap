@@ -1,0 +1,36 @@
+.wrapper__score-units-title {{ 'SCOREUNITS.title' | translate }}
+.row.zoneRow(ng-repeat="zoneRow in options.zones" id="zoneRow-{{$index+1}}")
+    .center.profile-widget-full-items(ng-repeat="zoneCol in zoneRow" ng-class="{ 'col-xs-12': zoneRow.length == 1, 'col-xs-6': zoneRow.length == 2, 'col-xs-4': zoneRow.length == 3 }")
+
+        //.row.default-zone
+            .col-xs-4.center.profile-widget-full-item__score-units1(tooltip-placement="top" uib-tooltip="{{ 'SCOREUNITS.types.stars' | translate }}" ng-click="$root.WPFviewDefault = !$root.WPFviewDefault ")
+                .col-xs-6.not-padding.score(ng-repeat="score in ::$root.customer.scoreUnits" class="score-{{ $index+1 }}")
+                    p.title__score-units {{ ::score.quantity }}
+                .col-xs-6.not-padding
+                    img(ng-src="http://hooptap.s3.amazonaws.com/widgets/star.svg")
+            .col-xs-4.center.profile-widget-full-item__badges(tooltip-placement="top" uib-tooltip="{{ 'BADGES.title' | translate }}" ng-click="$root.WPFviewBadges = !$root.WPFviewBadges; $root.WPFviewDefault = !$root.WPFviewDefault")
+                .col-xs-6.not-padding
+                    p.title__score-units 2
+                .col-xs-6.not-padding
+                    img(ng-src="http://hooptap.s3.amazonaws.com/widgets/badge.svg")
+            .col-xs-4.center.profile-widget-full-item__levels(tooltip-placement="top" uib-tooltip="{{ 'LEVELS.title' | translate }}")
+                .col-xs-6.not-padding
+                    p.title__score-units 1
+                .col-xs-6.not-padding
+                    img(ng-src="http://hooptap.s3.amazonaws.com/widgets/level.svg")
+
+        div(ng-if="zoneCol.model == 'ScoreUnit'")
+            .col-xs-6.not-padding.score
+                .title__score-units {{zoneCol.quantity}}
+            .col-xs-6.not-padding
+                img(ng-src="{{zoneCol.image}}")
+        div(ng-if="zoneCol.model == 'Level'")
+            .col-xs-6.not-padding
+                .title__score-units >{{zoneCol.minimum}}
+            .col-xs-6.not-padding
+                img(ng-src="{{zoneCol.image}}")
+        div(ng-if="zoneCol.model == 'Badge'")
+            .col-xs-6.not-padding
+                .title__score-units {{zoneCol.count}}
+            .col-xs-6.not-padding
+                img(ng-src="{{zoneCol.image}}")
