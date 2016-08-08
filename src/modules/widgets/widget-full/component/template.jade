@@ -8,14 +8,14 @@ c-customer-nav(ng-if="!$root.logged")
     .profile-widget-full__container
         c-widget-header(ng-if="#{allViewsFalse}")
         c-profile-header(ng-if="showScoreUnits && #{allViewsFalse}")
-        .row.wrapper-components(ng-class="{#{bodyStyle}, 'defaultStyle': $root.WPFviewDefault}")
+        .wrapper-components(ng-class="{#{bodyStyle}, 'defaultStyle': $root.WPFviewDefault}")
             .wrapper__score-units.row(ng-if="showScoreUnits && #{allViewsFalse}")
                 c-marker-display(options="$root.scoreDisplayConfig")
             .wrapper__level.row(ng-if="showLevel && #{allViewsFalse}")
                 .wrapper__levels-title {{ 'LEVELS.title' | translate }}
                 .col-xs-2.not-padding
                     img(ng-src="http://test.wednesdaynighthop.com/wordpress/wp-content/uploads/2015/03/level-1-icon.png")
-                    p.name-actual-level Soldier
+                    p.name-actual-level(ng-repeat="name in $root.customer.levels") {{name.name}}
                 .col-xs-10
                     .col-xs-3
                         img.img-next-level(ng-src="https://www.dharmamerchantservices.com/wp-content/uploads/2015/05/level-2-icon.png")

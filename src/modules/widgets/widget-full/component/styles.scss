@@ -43,8 +43,8 @@ w-widget-full {
   }
 
   .wrapper__score-units {
-    margin-left: 35px;
-    margin-right: 35px;
+    margin-left: 36px;
+    margin-right: 36px;
     padding:  39px 0px 0px 0px;
   }
 
@@ -139,7 +139,7 @@ w-widget-full {
     width: 32px;
   }
 
-  .row.wrapper-components {
+  .wrapper-components {
     position: relative;
     overflow: auto;
     height: 299px;
@@ -160,7 +160,7 @@ w-widget-full {
     width: 100%;
   }
 
-  .row.wrapper-components.viewStyle {
+  .wrapper-components.viewStyle {
     position: relative!important;
     overflow: hidden!important;
     height: 480px!important;
@@ -168,19 +168,19 @@ w-widget-full {
   }
 
   //->Scrollbar
-  .row.wrapper-components::-webkit-scrollbar,
+  .wrapper-components::-webkit-scrollbar,
   .quest--list__container::-webkit-scrollbar,
   .tab-content::-webkit-scrollbar,
   c-ranking-list::-webkit-scrollbar {
     width: 10px;
   }
-  .row.wrapper-components::-webkit-scrollbar-track,
+  .wrapper-components::-webkit-scrollbar-track,
   .quest--list__container::-webkit-scrollbar-track,
   .tab-content::-webkit-scrollbar-track,
   c-ranking-list::-webkit-scrollbar-track {
     -webkit-box-shadow: none;
   }
-  .row.wrapper-components::-webkit-scrollbar-thumb,
+  .wrapper-components::-webkit-scrollbar-thumb,
   .quest--list__container::-webkit-scrollbar-thumb,
   .tab-content::-webkit-scrollbar-thumb,
   c-ranking-list::-webkit-scrollbar-thumb {
@@ -194,10 +194,6 @@ w-widget-full {
     top: 0;
     right: 0;
     left: 0;
-  }
-
- .score-2 {
-    display: none;
   }
 
 

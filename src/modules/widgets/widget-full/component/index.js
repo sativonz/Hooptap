@@ -42,18 +42,18 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
             zones: [
                 [
                     {
-                        model: 'ScoreUnit'
-                    }, // por default, el primero que encuentre
+                        model: 'ScoreUnit'  // por default, el primero que encuentre
+                    },
                     {
-                        model: 'Level'
-                    },     // por default, asociado al ScoreUnit anterior
+                        model: 'Level'      // por default, asociado al ScoreUnit anterior
+                    },
                     {
-                        model: 'Badge'
-                    }      // contador de badges
+                        model: 'Badge'      // contador de badges
+                    }
                 ],
                 [
                     { model: 'Level' },     // por default, asociado al ScoreUnit anterior
-                    { model: 'Level' }  // por default, el primero que encuentre
+                    { model: 'ScoreUnit' }  // por default, el primero que encuentre
                 ],
                 [
                     { model: 'Badge' }      // contador de badges
@@ -162,3 +162,5 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
 
     }
 });
+
+

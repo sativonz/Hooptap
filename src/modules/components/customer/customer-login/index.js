@@ -110,6 +110,32 @@ export default() => ({
                             console.log(error);
                         });
 
+
+                    //-> Level
+                    Customer.findById($rootScope.customer.levels.nextId).$promise.then(
+                        (response)=>{
+                            console.log(response);
+                        }
+                    );
+                    // Levels.find( {
+                    //     // filter:
+                    //     // {
+                    //     //     fields: [ 'id','name', 'image' ] ,
+                    //     //     where: {
+                    //     //         id: { inq: keys }
+                    //     //     }
+                    //     // },
+                    //     locale: [ 'es' ]
+                    // } ).$promise
+                    //     .then((Levels)=>{
+                    //
+                    //
+                    //     })
+                    //     .catch((error)=>{
+                    //         console.log(error);
+                    //     });
+
+
                     console.log($rootScope.customer);
                     //console.log($rootScope.scoreDisplayConfig);
 
