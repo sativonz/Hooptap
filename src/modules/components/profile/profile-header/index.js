@@ -1,5 +1,6 @@
 import template from './template.jade';
 import './styles.scss';
+
 /**
  * @ngdoc directive
  * @name Profile header
@@ -27,6 +28,9 @@ export default(Customer, $rootScope, $q) => ({
                 });
         }
 
+        // //document.getElementsByClassName(".profile-widget-full-item__img").
+        // $('.profile-widget-full-item__img').hover(()=> {
+        //     $('.profile-widget-full-item__img-upload').css("display", "block");
+        // });
     }
-
 });

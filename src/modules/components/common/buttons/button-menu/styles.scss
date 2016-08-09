@@ -8,7 +8,7 @@ c-button-menu {
   left: 11px;
   top: 11PX;
   z-index: 9999999999999;
-  height: 100%;
+  height: 23px;
 
   ul, li, li a {
     list-style: none;
@@ -27,7 +27,7 @@ c-button-menu {
     position: relative;
     color: #999;
     width: 400px;
-    height: 100%;
+    height: 480px;
     margin: auto;
     font-family: $base-font-family;
     font-size: 12pt;

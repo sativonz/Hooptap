@@ -104,7 +104,7 @@ w-widget-full {
     border-radius: 6px;
     margin-top: 22px;
   }
-  
+
   .progressbar2-actual {
     width: 60%;
     background: $_1_progressbar-actual;
@@ -113,7 +113,7 @@ w-widget-full {
     border-bottom-left-radius: 6px;
 
   }
-  
+
   .progressbar2-next {
     width: 40%;
     float: right;
@@ -216,6 +216,18 @@ w-widget-full {
     width: 400px;
     height: 480px;
   }
+
+  .progressbar2-actual.levelComplete {
+    width: 100%!important;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+  }
+
+  .progressbar2-actual.levelComplete + .progressbar2-next {
+    display: none;
+  }
+
+
 
 
 }

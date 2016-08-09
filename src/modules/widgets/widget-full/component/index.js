@@ -56,7 +56,7 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
                     { model: 'ScoreUnit' }  // por default, el primero que encuentre
                 ],
                 [
-                    { model: 'Badge' }      // contador de badges
+                     { model: 'Badge' }      // contador de badges
                 ]
             ]
         };

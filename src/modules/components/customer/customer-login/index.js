@@ -15,7 +15,7 @@ export default() => ({
     restrict: 'E',
     scope: {},
     template,
-    controller: ($scope, $rootScope, Customer, ScoreUnit, LoopBackAuth)=> {
+    controller: ($scope, $rootScope, Customer, ScoreUnit, Level, LoopBackAuth)=> {
 
         if (LoopBackAuth.rememberMe) {
             getCurrent();
@@ -76,6 +76,15 @@ export default() => ({
                             let levels = $rootScope.customer.levels;
                             let badges = $rootScope.customer.badges;
 
+
+                            let scoreunitNames = {};
+                            //->Find score unit in level
+                            for( var index in scoreUnits ) {
+                                var su = scoreUnits[index];
+                                scoreunitNames[su.id] = su.name;
+                            }
+                            console.log("scoreunitNames", scoreunitNames);
+
                             //console.log( 'marker-display', $rootScope.customer );
 
                             for( var row in zones ) {
@@ -105,46 +114,37 @@ export default() => ({
 
                             }
 
+                            //-> Levels
+                            let levelIds = [];
+                            for( var lev in levels) {
+                                let level = levels[lev];
+                                if(level.nextId) levelIds.push(level.nextId);
+                            }
+
+                            Level.find( { filter: { where: { id: { inq: levelIds } } } } ).$promise
+                                .then( (response)=>{
+                                    $rootScope.customer.levels.nextLevel = response;
+                                    //Para calcular el tanto porciento de la barra de progreso
+                                    if($rootScope.customer.levels.nextLevel.hasOwnProperty("minimum") ){
+                                        $rootScope.progressbarValue =   $rootScope.customer.levels[0].minimum / $rootScope.customer.levels.nextLevel[0].minimum;
+                                    }
+
+                                });
+
+
+
+                            /*ScoreUnit.find( { filter: { where: { id: { inq: su.id} } } } ).$promise
+                                .then( (response)=>{
+                                    console.log("response", response)
+
+                                });*/
+
                         })
                         .catch((error)=>{
                             console.log(error);
                         });
 
-
-                    //-> Level
-                    Customer.findById($rootScope.customer.levels.nextId).$promise.then(
-                        (response)=>{
-                            console.log(response);
-                        }
-                    );
-                    // Levels.find( {
-                    //     // filter:
-                    //     // {
-                    //     //     fields: [ 'id','name', 'image' ] ,
-                    //     //     where: {
-                    //     //         id: { inq: keys }
-                    //     //     }
-                    //     // },
-                    //     locale: [ 'es' ]
-                    // } ).$promise
-                    //     .then((Levels)=>{
-                    //
-                    //
-                    //     })
-                    //     .catch((error)=>{
-                    //         console.log(error);
-                    //     });
-
-
-                    console.log($rootScope.customer);
-                    //console.log($rootScope.scoreDisplayConfig);
-
-
-
-
-                    /*$rootScope.customer.badges().$promise
-                        .then((response)=>{console.log(response); debugger})
-                        .catch((error)=>{console.log(error); debugger});*/
+                    console.log("Objeto Customer:", $rootScope.customer);
 
                 });
         }
