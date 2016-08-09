@@ -155,7 +155,7 @@ w-widget-full {
   }
 
   c-ranking-list {
-    height: 428px;
+    height: 437px;
     overflow: auto;
     width: 100%;
   }
@@ -194,6 +194,27 @@ w-widget-full {
     top: 0;
     right: 0;
     left: 0;
+  }
+
+  .wrapper__badges-component.row.ng-scope {
+    margin-left: 0!important;
+    margin-right: 0!important;
+  }
+
+  c-badges-grid .tab-content {
+    width: 415px;
+    height: 409px;
+    padding-right: 20px;
+    overflow: auto;
+    position: relative;
+    /* padding-bottom: 0; */
+    padding-left: 39px;
+    padding-top: 20px;
+  }
+
+  .wrapper__ranking-component.ng-scope {
+    width: 400px;
+    height: 480px;
   }
 
 

@@ -31,26 +31,26 @@ c-customer-nav(ng-if="!$root.logged")
             .wrapper__gf.row(ng-if="showGlobalFeed && #{allViewsFalse}")
                 .wrapper__gf-title {{ 'GLOBAL_FEED.title' | translate }}
                 c-game-global-feed
-            .wrapper__badges-component.row(ng-if="$root.WPFviewBadges")
+            .wrapper__badges-component(ng-if="$root.WPFviewBadges")
                 c-button-back(ng-click="$root.WPFviewBadges = !$root.WPFviewBadges")
                 c-widget-header(title="{{'BADGES.title' | translate}}")
                 c-badges-grid
             //.wrapper__su-component.row(ng-if="$root.WPFviewMarkerSU")
             //    c-button-back(ng-click="$root.WPFviewMarkerSU = !$root.WPFviewMarkerSU")
             //    c-marker-list-su
-            .wrapper__quests-component.row(ng-if="$root.WPFviewQuests")
+            .wrapper__quests-component(ng-if="$root.WPFviewQuests")
                 c-button-back(ng-click="$root.WPFviewQuests = !$root.WPFviewQuests")
                 c-widget-header(title="{{ 'QUESTS.title' | translate }}")
                 c-quests-list
-            .wrapper__ranking-component.row(ng-if="$root.WPFviewRanking")
+            .wrapper__ranking-component(ng-if="$root.WPFviewRanking")
                 c-button-back(ng-click="$root.WPFviewRanking = !$root.WPFviewRanking")
                 c-widget-header(title="{{ 'RANKING.titleList' | translate }}")
                 c-ranking-list
-            .wrapper__edit-profile.row(ng-if="$root.WPFviewEditProfile")
+            .wrapper__edit-profile(ng-if="$root.WPFviewEditProfile")
                 c-button-back(ng-click="$root.WPFviewEditProfile = !$root.WPFviewEditProfile")
                 c-widget-header(title="{{ 'CUSTOMER.update.title' | translate }}")
                 c-customer-update
-            .wrapper__game-room.row(ng-if="$root.WPFviewGameRoom")
+            .wrapper__game-room(ng-if="$root.WPFviewGameRoom")
                 c-button-back(ng-click="$root.WPFviewGameRoom = !$root.WPFviewGameRoom")
                 c-game-room(show-desc="true" show-title="true")
 
