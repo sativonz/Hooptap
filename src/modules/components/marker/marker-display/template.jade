@@ -5,17 +5,17 @@
             .col-xs-6.not-padding.score
                 .title__score-units {{zoneCol.quantity}}
             .col-xs-6.not-padding
-                img(ng-src="{{zoneCol.image}}")
+                img.marker-display__img(ng-src="{{zoneCol.image}}")
         div(ng-if="zoneCol.model == 'Level'" tooltip-placement="top" uib-tooltip="{{ 'LEVELS.title' | translate }}")
             .col-xs-6.not-padding
                 .title__score-units >{{zoneCol.minimum}}
             .col-xs-6.not-padding
-                img(ng-src="{{zoneCol.image}}")
+                img.marker-display__img(ng-src="{{zoneCol.image}}")
         div(ng-if="zoneCol.model == 'Badge'" tooltip-placement="top" uib-tooltip="{{ 'BADGES.title' | translate }}")
             .col-xs-6.not-padding
                 .title__score-units {{zoneCol.count}}
             .col-xs-6.not-padding
-                img(ng-src="{{zoneCol.image}}")
+                img.marker-display__img(ng-src="{{zoneCol.image}}")
 
 
 

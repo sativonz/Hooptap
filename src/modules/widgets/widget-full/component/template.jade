@@ -13,8 +13,9 @@ c-customer-nav(ng-if="!$root.logged")
                 c-marker-display(options="$root.scoreDisplayConfig")
             .wrapper__level.row(ng-if="showLevel && #{allViewsFalse}")
                 .wrapper__levels-title {{ 'LEVELS.title' | translate }}
-                .col-xs-2.not-padding
-                    img(ng-src="http://test.wednesdaynighthop.com/wordpress/wp-content/uploads/2015/03/level-1-icon.png")
+                .col-xs-2.not-padding(ng-repeat="level in $root.customer.levels")
+                    img(ng-if="!$rootScope.levels.scoreUnitImage" ng-src="http://test.wednesdaynighthop.com/wordpress/wp-content/uploads/2015/03/level-1-icon.png")
+                    img(ng-if="$rootScope.levels.scoreUnitImage" ng-src="{{level.scoreUnitImage}}")
                     p.name-actual-level(ng-repeat="actualLvl in $root.customer.levels") {{actualLvl.name}}
                 .col-xs-10
                     .col-xs-3(ng-if="$root.progressbarValue")
@@ -28,6 +29,8 @@ c-customer-nav(ng-if="!$root.logged")
                                 p.center(ng-repeat="actualLvl in $root.customer.levels") {{actualLvl.minimum}}
                             .progressbar2-next
                                 p.center(ng-repeat="nextLvl in $root.customer.levels.nextLevel") {{nextLvl.minimum}}
+                            .progressbar2-name
+                                p.center(ng-repeat="nameLvl in $root.customer.levels") {{nameLvl.scoreUnitName}}
             .wrapper__gf.row(ng-if="showGlobalFeed && #{allViewsFalse}")
                 .wrapper__gf-title {{ 'GLOBAL_FEED.title' | translate }}
                 c-game-global-feed

@@ -2,12 +2,12 @@
 	uib-tabset(active="active")
 		uib-tab(index="0" heading="{{::'BADGES.tabs.all' | translate}}")
 			.badge-grid-wrapper.row
-				.badge-item.animated.bounceIn(ng-repeat="item in badges" id="allBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true, 'badge-not-achieved': !item.state}")
-					.badge-item__desc(ng-if="item.desc")
-						span {{ item.desc }}
+				.badge-item.animated.bounceIn(ng-repeat="item in $root.customer.badges" id="allBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true, 'badge-not-achieved': !item.state}")
+					//.badge-item__desc(ng-if="item.desc")
+					//	span {{ item.desc }}
 					.badge-item__img
-						img(ng-src="{{item.img}}")
-					.badge-item__title(title='{{item.title}}') {{item.title}}
+						img(ng-src="{{item.image}}")
+					.badge-item__title(title='{{item.name}}') {{item.name}}
 					.badge-item__progresbar
 						ng-transclude
 							c-progressbar(steps="item.maxSteps" current-step="item.currentStep")

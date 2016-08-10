@@ -85,7 +85,20 @@ export default() => ({
                             }
                             console.log("scoreunitNames", scoreunitNames);
 
-                            //console.log( 'marker-display', $rootScope.customer );
+                            let scoreunitImages = {};
+                            //->Find score unit in level
+                            for( var index in scoreUnits ) {
+                                var su = scoreUnits[index];
+                                scoreunitImages[su.id] = su.image;
+                            }
+                            console.log("scoreunitNames", scoreunitNames);
+
+                            for( var index in levels ) {
+                                var level = levels[index];
+                                level.scoreUnitName = scoreunitNames[ level.scoreUnitId ];
+                                level.scoreUnitImage = scoreunitImages[ level.scoreUnitId ];
+                            }
+
 
                             for( var row in zones ) {
 
@@ -107,7 +120,7 @@ export default() => ({
                                     }
                                     if ( badges && zones[row][col].model == 'Badge' ) {
                                         zones[row][col].count = badges.length;
-                                        zones[row][col].image = badges[0].image || "http://hooptap.s3.amazonaws.com/widgets/badge.svg";
+                                        zones[row][col].image =  "http://hooptap.s3.amazonaws.com/widgets/badge.svg";
                                     }
 
                                 }
@@ -131,13 +144,6 @@ export default() => ({
 
                                 });
 
-
-
-                            /*ScoreUnit.find( { filter: { where: { id: { inq: su.id} } } } ).$promise
-                                .then( (response)=>{
-                                    console.log("response", response)
-
-                                });*/
 
                         })
                         .catch((error)=>{
