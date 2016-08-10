@@ -24,4 +24,9 @@ c-marker-display {
     padding-right: 6px!important;
     padding-left: 6px!important;
   }
+  .marker-display__badges,
+  .marker-display__level,
+  .marker-display__su {
+    cursor: pointer;
+  }
 }

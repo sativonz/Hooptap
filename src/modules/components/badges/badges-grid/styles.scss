@@ -110,7 +110,7 @@ c-badges-grid {
 //-> Progressbar
   c-progressbar .stepbar {
     width: 102px;
-    margin-left: -38%;
+    margin-left: -30.5%;
   }
 
   c-progressbar .stepbar-step {
@@ -120,7 +120,8 @@ c-badges-grid {
   }
 
   c-progressbar .step-inner {
-    height: 6px
+    height: 6px;
+    margin-right: 1px;
   }
 
   c-progressbar .stepbar-step.active .step-inner{
