@@ -29,4 +29,17 @@ c-marker-display {
   .marker-display__su {
     cursor: pointer;
   }
+
+  div#zoneRow-2 > div.col-xs-3 {
+    padding: 0!important;
+  }
+
+  div#zoneRow-2 > div.col-xs-3 .title__score-units {
+    font-size:10pt;
+  }
+
+  div#zoneRow-2 > div.col-xs-3 .marker-display__img {
+    height: 26px!important;
+    margin-top: 4px;
+  }
 }
