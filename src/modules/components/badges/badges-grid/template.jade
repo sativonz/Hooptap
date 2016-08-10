@@ -2,20 +2,23 @@
 	uib-tabset(active="active")
 		uib-tab(index="0" heading="{{::'BADGES.tabs.all' | translate}}")
 			.badge-grid-wrapper.row
-				.badge-item.animated.bounceIn(ng-repeat="item in $root.customer.badges" id="allBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true, 'badge-not-achieved': !item.state}")
+				//TODO cambiar el ng repeat por => $root.customer.badges, dejar este solo para test
+				.badge-item.animated.bounceIn(ng-repeat="item in badges" id="allBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true, 'badge-not-achieved': !item.state}")
 					//.badge-item__desc(ng-if="item.desc")
 					//	span {{ item.desc }}
 					.badge-item__img
-						img(ng-src="{{item.image}}")
+						//TODO cambiar img por image
+						img(ng-src="{{item.img}}")
 					.badge-item__title(title='{{item.name}}') {{item.name}}
 					.badge-item__progresbar
 						ng-transclude
 							c-progressbar(steps="item.parts" current-step="item.currentStep")
 		uib-tab(index="$index + 1" heading="{{::'BADGES.tabs.available' | translate}}")
 			.badge-grid-wrapper.row
-				//TODO cambiar el ng repeat como el primero, dejar este solo para test
+				//TODO cambiar el ng repeat por => $root.customer.badges, dejar este solo para test
 				.badge-item.animated.bounceIn(ng-repeat="item in badges" id="availableBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true}" ng-if="item.available")
 					.badge-item__img
+						//TODO cambiar img por image
 						img(ng-src="{{item.img}}")
 					.badge-item__title(title='{{item.title}}') {{item.title}}
 					.badge-item__progresbar
@@ -23,8 +26,9 @@
 							c-progressbar(steps="item.parts" current-step="item.currentStep")
 		uib-tab(index="$index + 2" heading="{{::'BADGES.tabs.finished' | translate}}")
 			.badge-grid-wrapper.row
-				//TODO cambiar el ng repeat como el primero, dejar este solo para test
+				//TODO cambiar el ng repeat por => $root.customer.badges, dejar este solo para test
 				.badge-item.animated.bounceIn(ng-repeat="item in badges" id="finishedBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true}" ng-if="item.finished")
 					.badge-item__img
+						//TODO cambiar img por image
 						img(ng-src="{{item.img}}")
 					.badge-item__title(title='{{item.title}}') {{item.title}}
