@@ -58,4 +58,8 @@ c-progressbar {
     border-radius: 3px;
     display: block;
   }
+
+  .progressbar2-actual.last {
+    display: none;
+  }
 }

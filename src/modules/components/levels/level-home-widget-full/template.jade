@@ -1,0 +1,26 @@
+.wrapper__levels-title {{ 'LEVELS.title' | translate }}
+    .col-xs-2.not-padding(ng-repeat="level in $root.customer.levels" ng-class="{'last':$last}")
+        img(ng-if="!$rootScope.levels.scoreUnitImage" ng-src="http://test.wednesdaynighthop.com/wordpress/wp-content/uploads/2015/03/level-1-icon.png")
+        img(ng-if="$rootScope.levels.scoreUnitImage" ng-src="{{level.scoreUnitImage}}")
+        p.name-actual-level(ng-repeat="actualLvl in $root.customer.levels" ng-class="{'last':$last}") {{actualLvl.name}}
+    .col-xs-10
+        .col-xs-3(ng-if="$root.progressbarValue")
+            img.img-next-level(ng-src="https://www.dharmamerchantservices.com/wp-content/uploads/2015/05/level-2-icon.png")
+        .col-xs-9.not-padding
+            p.title-next-level(ng-if="$root.progressbarValue") {{ 'LEVELS.nextLevel' | translate }}:
+            p.name-next-level(ng-repeat="nextLvl in $root.customer.levels.nextLevel") {{nextLvl.name}}
+        .col-xs-12(ng-if="showProgressBar")
+            //TODO renaming progressbar
+            .progressbar2
+                .progressbar2-actual
+                    p.center {{actualLvl.minimum}}
+                .progressbar2-next
+                    p.center(ng-repeat="nextLvl in $root.customer.levels.nextLevel") {{nextLvl.minimum}}
+                .progressbar2-name
+                    p.center(ng-repeat="nameLvl in $root.customer.levels" ng-class="{'last':$last}") {{nameLvl.scoreUnitName}}
+
+
+
+
+
+
