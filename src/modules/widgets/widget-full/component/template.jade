@@ -54,6 +54,6 @@ c-customer-nav(ng-if="!$root.logged")
                 c-widget-header(title="{{ 'CUSTOMER.update.title' | translate }}")
                 c-customer-update
             .wrapper__game-room(ng-if="$root.WPFviewGameRoom")
-                c-button-back(ng-click="$root.WPFviewGameRoom = !$root.WPFviewGameRoom")
+                c-button-back(ng-click="$root.WPFviewGameRoom = !$root.WPFviewGameRoom" ng-if="!$root.WPFviewGRdetail")
                 c-game-room(show-desc="true" show-title="true")
 

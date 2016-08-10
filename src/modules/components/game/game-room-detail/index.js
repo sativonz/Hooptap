@@ -11,23 +11,23 @@ export default($timeout) => ({
     link: (scope, element, attrs)=> {
 
         //Definir el numero de cols entre 2, 3, 4 y 5
-        scope.numberCols = 3;
+        scope.numberCols = 4;
         scope.defaultImage = "http://hooptap.s3.amazonaws.com/widgets/icono-default.png";
-        scope.gameroom = [
+        scope.gameromDetail = [
             {
                 "id": "5775397981dbc14a04530f73",
-                "name": "Colin McRae",
-                "title": "Colin McRae",
-                "desc": "Campeonato WRC",
-                "customImage": "http://www.cochesgt.com/wp-content/uploads/2015/09/Subaru-Impreza-Colin-McRae-2-750x400.jpg",
+                "name": "",
+                "title": "",
+                "desc": "",
+                "customImage": "https://lh3.googleusercontent.com/x07sJgv3AuWnD8ZC4zZeVbDXU-dfhznouXxuNekDhTNYNSc745rW21iGYmFj9fFe6g=w300",
                 "img" :  "http://hooptap.s3.amazonaws.com/widgets/icono-default.png",
             },
             {
                 "id": "5775397981dbc14a04530f73",
-                "name": "Título",
-                "title": "Título",
-                "desc": "Descripción",
-                "customImage": "",
+                "name": "",
+                "title": "",
+                "desc": "",
+                "customImage": "https://lh3.googleusercontent.com/x07sJgv3AuWnD8ZC4zZeVbDXU-dfhznouXxuNekDhTNYNSc745rW21iGYmFj9fFe6g=w300",
                 "img" :  "http://hooptap.s3.amazonaws.com/widgets/icono-default.png",
             },
             {

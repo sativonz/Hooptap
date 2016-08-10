@@ -143,6 +143,13 @@ let dict = {
 
 	GAMEROOM: {
 		title				: 'Gameroom'
+	},
+
+	/*	GAMEROOM DETAIL
+	 ---------------------------------------------------------------------------------*/
+
+	GAMEROOM_DETAIL: {
+		title				: 'Gameroom detail'
 	}
 
 
