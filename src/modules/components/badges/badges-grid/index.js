@@ -19,7 +19,7 @@ export default() => ({
 
 
         //Definir el numero de cols
-        scope.numberCols =4;
+        scope.numberCols = 4;
 
         switch (scope.numberCols) {
             case 2:

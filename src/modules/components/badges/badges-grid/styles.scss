@@ -128,6 +128,60 @@ c-badges-grid {
     background-color: greenyellow;
   }
 
+  //Styles for 2 cols
+  .badge-grid-wrapper .col-xs-6 .badge-item__img {
+    width: 155px;
+    height: 155px;
+  }
 
+  .badge-item.col-xs-6 {
+    height: 200px!important;
+  }
+
+  .badge-grid-wrapper .col-xs-6 c-progressbar .stepbar {
+    width: 169px;
+    margin-left: -5.5%;
+  }
+  .badge-grid-wrapper .col-xs-6 c-progressbar .step-inner {
+    height: 15px;
+  }
+
+  //Styles for 3 cols
+  .badge-grid-wrapper .col-xs-4 .badge-item__img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .badge-item.col-xs-4 {
+    height: 145px!important;
+    width: 128px!important;
+  }
+
+  .badge-grid-wrapper .col-xs-4 c-progressbar .stepbar {
+    width: 143px;
+    margin-left: -24.5%;
+  }
+  .badge-grid-wrapper .col-xs-4 c-progressbar .step-inner {
+    height: 10px;
+  }
+
+
+  //Styles for 3 cols
+  .badge-grid-wrapper .col-xs-4 .badge-item__img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .badge-item.col-xs-4 {
+    height: 145px!important;
+  }
+
+  .badge-grid-wrapper .col-xs-4 c-progressbar .stepbar {
+    width: 143px;
+    margin-left: -24.5%;
+  }
+  .badge-grid-wrapper .col-xs-4 c-progressbar .step-inner {
+    height: 10px;
+  }
 
 }
