@@ -15,8 +15,12 @@ import './styles.scss';
  */
 export default(Customer, $rootScope, $q) => ({
     restrict: 'E',
+    scope: {
+        editProfile: '='
+    },
     template,
     link: (scope, element, attrs)=> {
+
         //TODO logica repetida del logout, ver como gestionarla
         attrs.formLogout = attrs.formLogout || false; //default value
         scope.formLogout = () => {

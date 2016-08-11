@@ -83,6 +83,10 @@ c-game-room {
     height: 170px;
   }
 
+  .ht-game-room__item,
+  .ht-game-room-detail__wraper{
+    cursor: pointer;
+  }
 
 //-> For 3 columns
   .ht-game-room__wraper.not-padding.ng-scope.ht-col-3 > .ht-game-room__item {

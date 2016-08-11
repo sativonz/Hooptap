@@ -16,7 +16,7 @@ import './styles.scss';
  * @param {Boolean} titleGameRoom To put the title of the Game Room dinamically
  * @element ANY
  */
-export default(Customer, $rootScope) => ({
+export default(Customer, $rootScope, $parse) => ({
     restrict: 'E',
     scope: {
         showQuests: '=',
@@ -27,10 +27,12 @@ export default(Customer, $rootScope) => ({
         showMarketplace: '=',
         showEditProfile: '=',
         showGameRoom: '=',
-        titleGameRoom: '@'
+        titleGameRoom: '='
     },
     template,
     link: (scope, element, attrs)=> {
+
+        //->Link to logout
         scope.formLogout = () => {
             Customer.logout().$promise
                 .then( (response) => {
@@ -40,7 +42,20 @@ export default(Customer, $rootScope) => ({
                 } );
         };
 
-        ///->Open menu
+        //-> Default menu values
+        scope.titleGameRoom = scope.titleGameRoom || 'Gameroom';
+        scope.showQuests = typeof scope.showQuests !== 'undefined'? scope.showQuests :true ;
+        scope.showBadges = typeof scope.showBadges !== 'undefined'? scope.showBadges :true ;
+        scope.showRanking = typeof scope.showRanking !== 'undefined'? scope.showRanking :false ;
+        scope.showLevel = typeof scope.showLevel !== 'undefined'? scope.showLevel :false ;
+        scope.showGlobalFeed = typeof scope.showGlobalFeed !== 'undefined'? scope.showGlobalFeed :false ;
+        scope.showMarketplace = typeof scope.showMarketplace !== 'undefined'? scope.showMarketplace :false ;
+        scope.showEditProfile = typeof scope.showEditProfile !== 'undefined'? scope.showEditProfile :true ;
+        scope.showGameRoom = typeof scope.showGameRoom !== 'undefined'? scope.showGameRoom :false ;
+        //<-
+
+
+        //->Open menu
         var $mnu = $('#menu');
         var $btn_mnu = $('#button-menu');
 
@@ -52,7 +67,7 @@ export default(Customer, $rootScope) => ({
             .on( 'blur focusOut click', function(e) {
                 $mnu.toggle('slow');
             });
-
+        //<-
 
     }
 });

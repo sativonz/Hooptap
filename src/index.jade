@@ -13,15 +13,25 @@ div#ht-widget(ng-app="htWidget" ng-controller="htWidgetCtrl")
 
         //-----WIDGET FULL-----\\
         w-widget-full(
-            id-widget="12345",
-            editable="true",
-            show-image="true",
-            show-progress-bar="true",
-            show-global-feed="true",
-            show-level ="true",
-            show-score-units="true",
-            rewards-list="['scoreunits','badges','levels']",
-            zones="zone1"
+        id-widget="12345",
+        edit-profile="true",
+        show-global-feed="true",
+        show-score-units="true",
+        level-options="{" +
+            "showProgressBarLevel: true, " +
+            "showModule: true" +
+        "}",
+        menu-options="{" +
+            "titleGameRoom: 'Juegos Valencia', " +
+            "showQuests: true, " +
+            "showLevel: false," +
+            "showBadges: true," +
+            "showRanking: true," +
+            "showGlobalFeed: false," +
+            "showEditProfile: true," +
+            "showMarketplace: false," +
+            "showGameRoom: true," +
+            "}"
         )
 
 

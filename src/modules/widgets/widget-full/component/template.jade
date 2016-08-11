@@ -1,18 +1,18 @@
--var allViewsFalse = "!$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom"
--var bodyStyle = "'viewStyle': $root.WPFviewBadges || $root.WPFviewMarkerSU || $root.WPFviewQuests || $root.WPFviewRanking || $root.WPFviewEditProfile || $root.WPFviewGameRoom"
+-var allViewsFalse = "!$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom && !$root.WPFviewLevelList"
+-var bodyStyle = "'viewStyle': $root.WPFviewBadges || $root.WPFviewMarkerSU || $root.WPFviewQuests || $root.WPFviewRanking || $root.WPFviewEditProfile || $root.WPFviewGameRoom || $root.WPFviewLevelList"
 
-c-button-menu(ng-if="$root.logged && #{allViewsFalse}" title-game-room="Gameroom" show-quests="true" show-badges="true" show-ranking="true" show-level="false" show-global-feed="false" show-marketplace="false" show-edit-profile="true" show-game-room="true")
+c-button-menu(ng-if="$root.logged && #{allViewsFalse}" title-game-room="menuOptions.titleGameRoom" show-quests="menuOptions.showQuests" show-badges="menuOptions.showBadges" show-ranking="menuOptions.showRanking" show-level="menuOptions.showLevel" show-global-feed="menuOptions.showGlobalFeed" show-marketplace="menuOptions.showMarketplace" show-edit-profile="menuOptions.showEditProfile" show-game-room="menuOptions.showGameRoom")
 c-button-close
 c-customer-nav(ng-if="!$root.logged")
 .ht-profile-widget-full(ng-if="$root.logged")
     .profile-widget-full__container
         c-widget-header(ng-if="#{allViewsFalse}")
-        c-profile-header(ng-if="showScoreUnits && #{allViewsFalse}")
+        c-profile-header(ng-if="showScoreUnits && #{allViewsFalse}" edit-profile="editProfile")
         .wrapper-components(ng-class="{#{bodyStyle}, 'defaultStyle': $root.WPFviewDefault}")
             .wrapper__score-units.row(ng-if="showScoreUnits && #{allViewsFalse}")
                 c-marker-display(options="$root.scoreDisplayConfig")
-            .wrapper__level.row(ng-if="showLevel && #{allViewsFalse}" ng-repeat="level in $root.customer.levels")
-                c-level-row(show-progress-bar="true" level="level")
+            .wrapper__level.row(ng-if="levelOptions.showModule && #{allViewsFalse}" ng-repeat="level in $root.customer.levels")
+                c-level-row(show-progress-bar-level="levelOptions.showProgressBarLevel" level="level")
             .wrapper__gf.row(ng-if="showGlobalFeed && #{allViewsFalse}")
                 .wrapper__gf-title {{ 'GLOBAL_FEED.title' | translate }}
                 c-game-global-feed
@@ -20,9 +20,6 @@ c-customer-nav(ng-if="!$root.logged")
                 c-button-back(ng-click="$root.WPFviewBadges = !$root.WPFviewBadges")
                 c-widget-header(title="{{'BADGES.title' | translate}}")
                 c-badges-grid
-            //.wrapper__su-component.row(ng-if="$root.WPFviewMarkerSU")
-            //    c-button-back(ng-click="$root.WPFviewMarkerSU = !$root.WPFviewMarkerSU")
-            //    c-marker-list-su
             .wrapper__quests-component(ng-if="$root.WPFviewQuests")
                 c-button-back(ng-click="$root.WPFviewQuests = !$root.WPFviewQuests")
                 c-widget-header(title="{{ 'QUESTS.title' | translate }}")
@@ -38,5 +35,9 @@ c-customer-nav(ng-if="!$root.logged")
             .wrapper__game-room(ng-if="$root.WPFviewGameRoom")
                 c-button-back(ng-click="$root.WPFviewGameRoom = !$root.WPFviewGameRoom" ng-if="!$root.WPFviewGRdetail")
                 c-game-room(show-desc="true" show-title="true")
+            .wrapper__level-list(ng-if="$root.WPFviewLevelList")
+                c-button-back(ng-click="$root.WPFviewLevelList = !$root.WPFviewLevelList" ng-if="$root.WPFviewLevelList")
+                c-widget-header(title="{{ 'SCOREUNITS.title' | translate }}")
+                c-marker-list-su
 .footer-shadow
 

@@ -35,8 +35,8 @@
                 //TODO renaming progressbar
                 .progressbar2
                     .progressbar2-actual(style="width:{{level.nextLevel.percent}}%")
-                        p.center {{$root.customer.scores[ level.scoreUnitId ]}}
+                        p.center +{{$root.customer.scores[ level.scoreUnitId ]}}
                     .progressbar2-next
-                        p.center {{level.nextLevel.diff}}
-                    .progressbar2-name
-                        p.center {{level.nextLevel.scoreUnitName}}
+                        p.center -{{level.nextLevel.diff}}
+                    //.progressbar2-name
+                    //    p.center {{level.nextLevel.scoreUnitName}}

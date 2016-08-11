@@ -1,7 +1,7 @@
 .wrapper__score-units-title {{ 'SCOREUNITS.title' | translate }}
 .row.zoneRow(ng-repeat="zoneRow in options.zones" id="zoneRow-{{$index+1}}")
     .center.profile-widget-full-items(ng-repeat="zoneCol in zoneRow" ng-class="{ 'col-xs-12': zoneRow.length == 1, 'col-xs-6': zoneRow.length == 2, 'col-xs-4': zoneRow.length == 3, 'col-xs-3': zoneRow.length == 4 }")
-        .marker-display__su(ng-if="zoneCol.model == 'ScoreUnit'" tooltip-placement="top" uib-tooltip="{{ 'SCOREUNITS.types.stars' | translate }}")
+        .marker-display__su(ng-click="$root.WPFviewLevelList = !$root.WPFviewLevelList"   ng-if="zoneCol.model == 'ScoreUnit'" tooltip-placement="top" uib-tooltip="{{ 'SCOREUNITS.types.stars' | translate }}")
             .col-xs-6.not-padding.score
                 .title__score-units {{zoneCol.quantity}}
             .col-xs-6.not-padding

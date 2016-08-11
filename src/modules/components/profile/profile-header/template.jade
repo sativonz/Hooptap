@@ -6,7 +6,7 @@
                 label(for="file-input")
                     img.profile-widget-full-item__img-upload(ng-src="http://www.materialui.co/materialIcons/file/file_upload_white_96x96.png")
                 input.hide#file-input(type="file")
-            img.profile-widget-full__edit(ng-if="editableFields" ng-click="$root.WPFviewEditProfile = !$root.WPFviewEditProfile" ng-src="http://hooptap.s3.amazonaws.com/widgets/edit.svg")
+            img.profile-widget-full__edit(ng-if="editProfile" ng-click="$root.WPFviewEditProfile = !$root.WPFviewEditProfile" ng-src="http://hooptap.s3.amazonaws.com/widgets/edit.svg")
             //img.profile-widget-full__logout(ng-src="http://hooptap.s3.amazonaws.com/widgets/logout.svg" ng-click="formLogout()")
         .col-xs-2.not-padding
             p.profile-widget-full-title__name {{ 'CUSTOMER.common.name' | translate }}:

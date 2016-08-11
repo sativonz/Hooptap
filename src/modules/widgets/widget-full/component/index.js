@@ -6,13 +6,15 @@ import './styles.scss';
  * @module Components
  * @description Component for widget full view profile, where they are displayed all available components dynamically
  * @restrict E
- * @param {Boolean} editable If avoidable or not by the user
- * @param {Boolean} showImage Whether to display the user's image
- * @param {Boolean} showProgressBar Whether to display the progress bar
- * @param {Boolean} showGlobalFeed Whether to display the global feed
+ * @param {Boolean} editProfile If avoidable or not by the user
  * @param {Boolean} showLevel Whether to display the level block
+ * @param {Boolean} showProgressBarLevel Whether to display the progress bar in the level component
+ * @param {Boolean} showGlobalFeed Whether to display the global feed
  * @param {Boolean} showScoreUnits Whether to display the score units block
  * @param {String} titleGameRoom The title in the menu for the GameRoom
+ * @param {String} showImageNotificationAward: Whether to display in the notifications awards the image
+ * @param {String} showDescNotificationAward Whether to display in the notifications awards the description
+ * @param {String} showButtonNotificationAward Whether to display in the notifications awards the button
  * @element ANY
  */
 export default(Customer, LoopBackAuth, $rootScope) => ({
@@ -21,39 +23,26 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
     template,
     scope: {
         //Header home profile
-        editableFields: '=',
+        editProfile: '=',
         //Notification award
         showImageNotificationAward: '=',
         showDescNotificationAward: '=',
         showButtonNotificationAward: '=',
-        //Level in home
-        showLevel: '=',
-        showProgressBarLevel: '=',
         //Global feed in home
         showGlobalFeed: '=',
         //Score units in home
         showScoreUnits: '=',
-        //Title of GameRoom in menu
-        titleGameRoom: '@'
+
+        //Menu options
+        menuOptions: '=',
+
+        //Level options
+        levelOptions: '='
     },
     link: (scope, element, attrs)=> {
 
         let defaultMarkerOptions = {
             zones: [
-                [
-                    {
-                        model: 'ScoreUnit',  // por default, el primero que encuentre
-                        id: '5785e3d56d40563a4c409435'
-                    },
-
-                    {
-                        model: 'Level'      // por default, asociado al ScoreUnit anterior
-                    },
-
-                    {
-                        model: 'Badge'      // contador de badges
-                    }
-                ],
                 [
                     {
                         model: 'ScoreUnit'  // por default, el primero que encuentre
@@ -70,6 +59,20 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
                     {
                         model: 'Badge'      // contador de badges
                     },
+                ],
+                [
+                    {
+                        model: 'ScoreUnit',  // por default, el primero que encuentre
+                        id: '5785e3d56d40563a4c409435'
+                    },
+
+                    {
+                        model: 'Level'      // por default, asociado al ScoreUnit anterior
+                    },
+
+                    {
+                        model: 'Badge'      // contador de badges
+                    }
                 ],
                 [
                     { model: 'Level' },     // por default, asociado al ScoreUnit anterior

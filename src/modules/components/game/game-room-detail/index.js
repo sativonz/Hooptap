@@ -1,7 +1,7 @@
 import template from './template.jade';
 import './styles.scss';
 //TODO ngDocs
-export default($timeout) => ({
+export default($timeout, $uibModal, $log) => ({
     restrict: 'E',
     template,
     scope: {
@@ -9,6 +9,31 @@ export default($timeout) => ({
         showDesc: '=',
     },
     link: (scope, element, attrs)=> {
+
+        //Wrapper game
+        scope.openWrapperGame = function (size) {
+
+            var modalInstance = $uibModal.open({
+                animation: scope.animationsEnabled,
+                template: '<p>Wrapper game</p>',
+                controller: 'htWidgetCtrl',
+                size: size,
+            });
+
+            $('.modal-content').append('Hi');
+
+
+            //-> UNUSED
+            // scope.ok = function () {
+            //     $uibModalInstance.close($scope.selected.item);
+            // };
+            //
+            // scope.cancel = function () {
+            //     $uibModalInstance.dismiss('cancel');
+            // };
+
+        };
+
 
         //Definir el numero de cols entre 2, 3, 4 y 5
         scope.numberCols = 4;

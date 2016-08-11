@@ -6,7 +6,7 @@ c-customer-nav(ng-if="!$root.logged")
         c-widget-header
         .profile-widget-full-item__wrapper(ng-if="showImage")
             img.profile-widget-full-item__img(ng-src="{{image}}")
-        .profile-widget-full__edit(ng-if="editableFields")
+        .profile-widget-full__edit(ng-if="editProfile")
                 img(ng-src="http://icon-icons.com/icons2/259/PNG/128/ic_edit_128_28238.png")
         .profile-widget-full-item__name {{$root.customer.username}}
         //div.profile-widget-full-item__username {{username}}
