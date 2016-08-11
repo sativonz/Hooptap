@@ -31,7 +31,7 @@
                 p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
                 p.name-next-level {{level.nextLevel.name}}
                 p.name-next-level {{level.nextLevel.minimum}} {{level.scoreUnitName}}
-            .col-xs-12(ng-if="showProgressBar")
+            .col-xs-12(ng-if="showProgressBarLevel")
                 //TODO renaming progressbar
                 .progressbar2
                     .progressbar2-actual(style="width:{{level.nextLevel.percent}}%")

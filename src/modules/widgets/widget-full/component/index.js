@@ -2,24 +2,17 @@ import template from './template.jade';
 import './styles.scss';
 /**
  * @ngdoc directive
- * @name Profile widget full
+ * @name Widget full
  * @module Components
- //TODO revisar description y parametros porque en el excel salen mas cosas que en el wireframe
- * @description Component for widget full view profile, where it is displayed the image, username, email, badges, rewards and the actual level with details
- * of the next level
+ * @description Component for widget full view profile, where they are displayed all available components dynamically
  * @restrict E
- * @param {String} username username of actual user
- * @param {String} email email of actual user
- * @param {image} image Profile image
- * @param {String} type Name of the state in which the user is at the current level
- * @param {Int} dynamic The numerical value of 200, of the user's progress at the current level
  * @param {Boolean} editable If avoidable or not by the user
  * @param {Boolean} showImage Whether to display the user's image
  * @param {Boolean} showProgressBar Whether to display the progress bar
  * @param {Boolean} showGlobalFeed Whether to display the global feed
  * @param {Boolean} showLevel Whether to display the level block
  * @param {Boolean} showScoreUnits Whether to display the score units block
- * @param {Object} rewardsList The list user rewards
+ * @param {String} titleGameRoom The title in the menu for the GameRoom
  * @element ANY
  */
 export default(Customer, LoopBackAuth, $rootScope) => ({
@@ -27,14 +20,21 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
     transclude: true,
     template,
     scope: {
-        idWidget: '=',
-        image: '@',
-        editable: '=',
-        showImage: '=',
-        showProgressBar: '=',
-        showGlobalFeed: '=',
+        //Header home profile
+        editableFields: '=',
+        //Notification award
+        showImageNotificationAward: '=',
+        showDescNotificationAward: '=',
+        showButtonNotificationAward: '=',
+        //Level in home
         showLevel: '=',
+        showProgressBarLevel: '=',
+        //Global feed in home
+        showGlobalFeed: '=',
+        //Score units in home
         showScoreUnits: '=',
+        //Title of GameRoom in menu
+        titleGameRoom: '@'
     },
     link: (scope, element, attrs)=> {
 
@@ -45,9 +45,11 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
                         model: 'ScoreUnit',  // por default, el primero que encuentre
                         id: '5785e3d56d40563a4c409435'
                     },
+
                     {
                         model: 'Level'      // por default, asociado al ScoreUnit anterior
                     },
+
                     {
                         model: 'Badge'      // contador de badges
                     }
@@ -56,12 +58,15 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
                     {
                         model: 'ScoreUnit'  // por default, el primero que encuentre
                     },
+
                     {
                         model: 'Level'      // por default, asociado al ScoreUnit anterior
                     },
+
                     {
                         model: 'Badge'      // contador de badges
                     },
+
                     {
                         model: 'Badge'      // contador de badges
                     },
@@ -77,6 +82,11 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
         };
 
         $rootScope.scoreDisplayConfig = $rootScope.scoreDisplayConfig || defaultMarkerOptions;
+
+
+
+
+
 
 
 

@@ -29,7 +29,7 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
         image: '@',
         editable: '=',
         showImage: '=',
-        showProgressBar: '=',
+        showProgressBarLevel: '=',
         badgesView: '=',
         rewardsList: '@'
     },

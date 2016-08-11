@@ -1,7 +1,7 @@
 -var allViewsFalse = "!$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom"
 -var bodyStyle = "'viewStyle': $root.WPFviewBadges || $root.WPFviewMarkerSU || $root.WPFviewQuests || $root.WPFviewRanking || $root.WPFviewEditProfile || $root.WPFviewGameRoom"
 
-c-button-menu(ng-if="$root.logged && #{allViewsFalse}" show-quests="true" show-badges="true" show-ranking="true" show-level="false" show-global-feed="false" show-marketplace="false" show-edit-profile="true" show-game-room="true")
+c-button-menu(ng-if="$root.logged && #{allViewsFalse}" title-game-room="Gameroom" show-quests="true" show-badges="true" show-ranking="true" show-level="false" show-global-feed="false" show-marketplace="false" show-edit-profile="true" show-game-room="true")
 c-button-close
 c-customer-nav(ng-if="!$root.logged")
 .ht-profile-widget-full(ng-if="$root.logged")
@@ -12,7 +12,7 @@ c-customer-nav(ng-if="!$root.logged")
             .wrapper__score-units.row(ng-if="showScoreUnits && #{allViewsFalse}")
                 c-marker-display(options="$root.scoreDisplayConfig")
             .wrapper__level.row(ng-if="showLevel && #{allViewsFalse}" ng-repeat="level in $root.customer.levels")
-                c-level-home-widget-full(show-progress-bar="true" level="level")
+                c-level-row(show-progress-bar="true" level="level")
             .wrapper__gf.row(ng-if="showGlobalFeed && #{allViewsFalse}")
                 .wrapper__gf-title {{ 'GLOBAL_FEED.title' | translate }}
                 c-game-global-feed

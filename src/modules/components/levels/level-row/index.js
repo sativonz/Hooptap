@@ -16,7 +16,7 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
     restrict: 'E',
     template,
     scope: {
-        showProgressBar: '=',
+        showProgressBarLevel: '=',
         level: '='
     },
     transclude: true,

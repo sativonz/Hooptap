@@ -4,9 +4,16 @@ import './styles.scss';
  * @ngdoc directive
  * @name Button menu
  * @module Components
- * @description Button to open the menu.
- * @param {Array} value Array objects for menu items. default format: [{view: 'quest-list', title:'Quests'},{view: 'badges-list', title: 'Badges'}]
+ * @description Button to open the menu
  * @restrict E
+ * @param {Boolean} showQuests Whether to display the quests link
+ * @param {Boolean} showBadges Whether to display the badges link
+ * @param {Boolean} showRanking Whether to display the ranking link
+ * @param {Boolean} showLevel Whether to display the level link
+ * @param {Boolean} showGlobalFeed Whether to display the global feed link
+ * @param {Boolean} showEditProfile Whether to display edit profile link
+ * @param {Boolean} showGameRoom Whether to display the game room link
+ * @param {Boolean} titleGameRoom To put the title of the Game Room dinamically
  * @element ANY
  */
 export default(Customer, $rootScope) => ({
@@ -20,6 +27,7 @@ export default(Customer, $rootScope) => ({
         showMarketplace: '=',
         showEditProfile: '=',
         showGameRoom: '=',
+        titleGameRoom: '@'
     },
     template,
     link: (scope, element, attrs)=> {

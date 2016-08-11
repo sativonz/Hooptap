@@ -19,7 +19,7 @@ div#menu
         li.animated.slideInLeft(ng-if="showMarketplace")
             a {{ 'MARKETPLACE.title' | translate }}
         li.animated.slideInLeft(ng-if="showGameRoom" ng-click="$root.WPFviewGameRoom = !$root.WPFviewGameRoom")
-            a {{ 'GAMEROOM.title' | translate }}
+            a {{titleGameRoom}}
         li.animated.slideInLeft(ng-if="showEditProfile" ng-click="$root.WPFviewEditProfile = !$root.WPFviewEditProfile")
             a {{ 'CUSTOMER.update.title' | translate }}
         li.animated.slideInLeft(ng-if="!logout")
