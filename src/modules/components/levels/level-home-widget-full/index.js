@@ -17,6 +17,7 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
     template,
     scope: {
         showProgressBar: '=',
+        level: '='
     },
     transclude: true,
     link: (scope, element, attrs)=> {

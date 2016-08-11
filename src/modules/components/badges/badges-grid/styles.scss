@@ -28,6 +28,11 @@ c-badges-grid {
     -webkit-filter: grayscale(100%);
   }
 
+  .badge-started {
+    filter: sepia(100%);
+    -webkit-filter: sepia(100%);
+  }
+
   .nav-tabs > li {
     width:33.333333%;
     border-bottom: 3px solid #006591;
@@ -142,8 +147,14 @@ c-badges-grid {
     width: 169px;
     margin-left: -5.5%;
   }
+
   .badge-grid-wrapper .col-xs-6 c-progressbar .step-inner {
     height: 15px;
+  }
+
+  .badge-grid-wrapper .col-xs-6 c-progressbar .step-inner.last {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
 
   //Styles for 3 cols

@@ -11,8 +11,8 @@ c-customer-nav(ng-if="!$root.logged")
         .wrapper-components(ng-class="{#{bodyStyle}, 'defaultStyle': $root.WPFviewDefault}")
             .wrapper__score-units.row(ng-if="showScoreUnits && #{allViewsFalse}")
                 c-marker-display(options="$root.scoreDisplayConfig")
-            .wrapper__level.row(ng-if="showLevel && #{allViewsFalse}")
-                c-level-home-widget-full(show-progress-bar="true")
+            .wrapper__level.row(ng-if="showLevel && #{allViewsFalse}" ng-repeat="level in $root.customer.levels")
+                c-level-home-widget-full(show-progress-bar="true" level="level")
             .wrapper__gf.row(ng-if="showGlobalFeed && #{allViewsFalse}")
                 .wrapper__gf-title {{ 'GLOBAL_FEED.title' | translate }}
                 c-game-global-feed
@@ -38,4 +38,5 @@ c-customer-nav(ng-if="!$root.logged")
             .wrapper__game-room(ng-if="$root.WPFviewGameRoom")
                 c-button-back(ng-click="$root.WPFviewGameRoom = !$root.WPFviewGameRoom" ng-if="!$root.WPFviewGRdetail")
                 c-game-room(show-desc="true" show-title="true")
+.footer-shadow
 

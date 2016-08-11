@@ -42,7 +42,8 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
             zones: [
                 [
                     {
-                        model: 'ScoreUnit'  // por default, el primero que encuentre
+                        model: 'ScoreUnit',  // por default, el primero que encuentre
+                        id: '5785e3d56d40563a4c409435'
                     },
                     {
                         model: 'Level'      // por default, asociado al ScoreUnit anterior

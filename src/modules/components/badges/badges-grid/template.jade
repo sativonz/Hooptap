@@ -6,7 +6,7 @@
 				.badge-item.animated.bounceIn(ng-repeat="item in badges" id="allBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true, 'badge-not-achieved': !item.state}")
 					//.badge-item__desc(ng-if="item.desc")
 					//	span {{ item.desc }}
-					.badge-item__img
+					.badge-item__img(ng-class="{'badge-started': item.available}")
 						//TODO cambiar img por image
 						img(ng-src="{{item.img}}")
 					.badge-item__title(title='{{item.name}}') {{item.name}}
@@ -17,7 +17,7 @@
 			.badge-grid-wrapper.row
 				//TODO cambiar el ng repeat por => $root.customer.badges, dejar este solo para test
 				.badge-item.animated.bounceIn(ng-repeat="item in badges" id="availableBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true}" ng-if="item.available")
-					.badge-item__img
+					.badge-item__img(ng-class="{'badge-started': item.available}")
 						//TODO cambiar img por image
 						img(ng-src="{{item.img}}")
 					.badge-item__title(title='{{item.title}}') {{item.title}}

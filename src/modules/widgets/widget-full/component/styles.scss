@@ -69,7 +69,7 @@ w-widget-full {
   }
 
   .wrapper__level.row {
-    height: 150px;
+    height: 174px;
     margin-left: 35px;
     margin-right: 35px;
     padding: 36px 0px 0px 0px;
@@ -80,6 +80,7 @@ w-widget-full {
     font-size: 9pt;
     color: $_1_quest-title;
     text-align: center;
+    width: 100%;
   }
 
   p.title-next-level{
@@ -100,7 +101,7 @@ w-widget-full {
   .progressbar2 {
     width: 233px;
     height: 20px;
-    background: grey;
+    background: $_1_progressbar-next;
     border-radius: 6px;
     margin-top: 22px;
   }
@@ -115,14 +116,13 @@ w-widget-full {
   }
 
   .progressbar2-next {
-    width: 40%;
     float: right;
-    background: $_1_progressbar-next;
     height: 20px;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
     position: relative;
     top: -20px;
+    width: 100%;
   }
 
   .progressbar2 p {
@@ -233,6 +233,20 @@ w-widget-full {
 
   .wrapper__level.row.ng-scope .last {
     display: none;
+  }
+
+  .footer-shadow {
+      height: 30px;
+      width: 400px;
+      position: fixed;
+      bottom: 15px;
+      background: -moz-linear-gradient(top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);
+      background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.65) 0%,rgba(0,0,0,0) 100%);
+      background: linear-gradient(to top, rgba(255, 255, 255, 0.65) 0%,rgba(0,0,0,0) 100%);
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 );
+      z-index: 99999999999999999999999999999!important;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
   }
 
 

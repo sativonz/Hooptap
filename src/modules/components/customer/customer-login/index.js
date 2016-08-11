@@ -72,55 +72,69 @@ export default() => ({
                             $rootScope.customer.scoreUnits = ScoreUnits;
 
                             let zones = $rootScope.scoreDisplayConfig.zones;
-                            let scoreUnits = $rootScope.customer.scoreUnits;
-                            let levels = $rootScope.customer.levels;
+                            //let scoreUnits = $rootScope.customer.scoreUnits;
+                            //let levels = $rootScope.customer.levels;
                             let badges = $rootScope.customer.badges;
 
 
-                            let scoreunitNames = {};
-                            //->Find score unit in level
-                            for( var index in scoreUnits ) {
-                                var su = scoreUnits[index];
-                                scoreunitNames[su.id] = su.name;
-                            }
-                            console.log("scoreunitNames", scoreunitNames);
 
-                            let scoreunitImages = {};
-                            //->Find score unit in level
-                            for( var index in scoreUnits ) {
-                                var su = scoreUnits[index];
-                                scoreunitImages[su.id] = su.image;
+                            //create scoreunits index
+                            let scoreunits = {};
+                            for( var index in $rootScope.customer.scoreUnits ) {
+                                var scoreunit = $rootScope.customer.scoreUnits[index];
+                                scoreunits[ scoreunit.id ] = scoreunit;
                             }
-                            console.log("scoreunitNames", scoreunitNames);
+                            console.log("scoreunits", scoreunits);
 
-                            for( var index in levels ) {
-                                var level = levels[index];
-                                level.scoreUnitName = scoreunitNames[ level.scoreUnitId ];
-                                level.scoreUnitImage = scoreunitImages[ level.scoreUnitId ];
+
+                            let levels = {};
+                            for( var index in $rootScope.customer.levels ) {
+                                var level = $rootScope.customer.levels[index];
+                                levels[ level.id ] = level;
+                                levels[ level.id ].scoreUnitName = scoreunits[ level.scoreUnitId ].name;
+                                levels[ level.id ].scoreUnitImage = scoreunits[ level.scoreUnitId ].image;
                             }
+                            console.log("levels", levels);
+
 
 
                             for( var row in zones ) {
 
                                 for( var col in zones[row] ) {
 
-                                    //console.log(zones, [row], [col], zones[row][col], zones[row][col].model);
+                                    let zone_col = zones[row][col];
 
-                                    if ( scoreUnits && zones[row][col].model == 'ScoreUnit' ) {
-                                        zones[row][col].id = scoreUnits[0].id;
-                                        zones[row][col].name = scoreUnits[0].name;
-                                        zones[row][col].quantity = scoreUnits[0].quantity;
-                                        zones[row][col].image = scoreUnits[0].image || "http://hooptap.s3.amazonaws.com/widgets/star.svg";
+                                    //console.log(zones, [row], [col], zone_col, zone_col.model);
+
+                                    if ( scoreunits && zone_col.model == 'ScoreUnit' ) {
+                                        if ( zone_col.id ) {
+                                            zone_col.name = scoreunits[ zone_col.id ].name;
+                                            zone_col.quantity = scoreunits[ zone_col.id ].quantity;
+                                            zone_col.image = scoreunits[ zone_col.id ].image || "http://hooptap.s3.amazonaws.com/widgets/star.svg";
+                                        }
+                                        else { // default
+                                            zone_col.id = scoreunits[ Object.keys( scoreunits )[0] ].id;
+                                            zone_col.name = scoreunits[ Object.keys( scoreunits )[0] ].name;
+                                            zone_col.quantity = scoreunits[ Object.keys( scoreunits )[0] ].quantity;
+                                            zone_col.image = scoreunits[ Object.keys( scoreunits )[0] ].image || "http://hooptap.s3.amazonaws.com/widgets/star.svg";
+                                        }
                                     }
-                                    if ( levels && zones[row][col].model == 'Level' ) {
-                                        zones[row][col].id = levels[0].id;
-                                        zones[row][col].name = levels[0].name;
-                                        zones[row][col].minimum = levels[0].minimum;
-                                        zones[row][col].image = levels[0].image || "http://hooptap.s3.amazonaws.com/widgets/level.svg";
+                                    if ( levels && zone_col.model == 'Level' ) {
+                                        if ( zone_col.id ) {
+                                            zone_col.name = levels[ zone_col.id ].name;
+                                            zone_col.minimum = levels[ zone_col.id ].minimum;
+                                            zone_col.image = levels[ zone_col.id ].image;
+                                        }
+                                        else { // default
+                                            zone_col.id = levels[ Object.keys( levels )[0] ].id;
+                                            zone_col.name = levels[ Object.keys( levels )[0] ].name;
+                                            zone_col.minimum = levels[ Object.keys( levels )[0] ].minimum;
+                                            zone_col.image = levels[ Object.keys( levels )[0] ].image || "http://hooptap.s3.amazonaws.com/widgets/level.svg";
+                                        }
                                     }
-                                    if ( badges && zones[row][col].model == 'Badge' ) {
-                                        zones[row][col].count = badges.length;
-                                        zones[row][col].image =  "http://hooptap.s3.amazonaws.com/widgets/badge.svg";
+                                    if ( badges && zone_col.model == 'Badge' ) {
+                                        zone_col.count = badges.length;
+                                        zone_col.image = "http://hooptap.s3.amazonaws.com/widgets/badge.svg";
                                     }
 
                                 }
@@ -128,22 +142,49 @@ export default() => ({
                             }
 
                             //-> Levels
-                            let levelIds = [];
+                            let nextLevelIds = [];
                             for( var lev in levels) {
                                 let level = levels[lev];
-                                if(level.nextId) levelIds.push(level.nextId);
+                                if ( level.nextId ) nextLevelIds.push( level.nextId );
                             }
+                            console.log("nextLevelIds", nextLevelIds);
 
-                            Level.find( { filter: { where: { id: { inq: levelIds } } } } ).$promise
+                            if( nextLevelIds.length )
+                                Level.find( { filter: { where: { id: { inq: nextLevelIds } } } } ).$promise
                                 .then( (response)=>{
-                                    $rootScope.customer.levels.nextLevel = response;
+                                    console.log("nextLevels response", response);
+
+                                    /*$rootScope.customer.levels.nextLevel = response;
                                     //Para calcular el tanto porciento de la barra de progreso
                                     if($rootScope.customer.levels.nextLevel.hasOwnProperty("minimum") ){
                                         $rootScope.progressbarValue =   $rootScope.customer.levels[0].minimum / $rootScope.customer.levels.nextLevel[0].minimum;
+                                    }*/
+
+                                    let nextLevels = {};
+                                    for( var index in response ) {
+                                        var nextlevel = response[index];
+                                        nextLevels[ nextlevel.id ] = {
+                                            id: nextlevel.id,
+                                            name: nextlevel.name,
+                                            image: nextlevel.image,
+                                            minimum: nextlevel.minimum
+                                        };
                                     }
+
+                                    for( var lev in levels) {
+                                        let level = levels[lev];
+                                        if ( level.nextId ) {
+                                            level.nextLevel = nextLevels[ level.nextId ];
+                                            level.nextLevel.diff = level.nextLevel.minimum - $rootScope.customer.scores[ level.scoreUnitId ];
+                                            level.nextLevel.percent = $rootScope.customer.scores[ level.scoreUnitId ] / level.nextLevel.minimum * 100;
+                                        }
+                                    }
+                                    console.log("nextLevels levels", levels);
 
                                 });
 
+                            $rootScope.customer.levels = levels;
+                            $rootScope.customer.scoreUnits = scoreunits;
 
                         })
                         .catch((error)=>{
