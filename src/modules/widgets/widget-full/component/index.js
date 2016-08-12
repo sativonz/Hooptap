@@ -10,11 +10,11 @@ import './styles.scss';
  * @param {Boolean} showLevel Whether to display the level block
  * @param {Boolean} showProgressBarLevel Whether to display the progress bar in the level component
  * @param {Boolean} showGlobalFeed Whether to display the global feed
- * @param {Boolean} showScoreUnits Whether to display the score units block
+ * @param {Boolean} showMarker Whether to display the score units block
  * @param {String} titleGameRoom The title in the menu for the GameRoom
- * @param {String} showImageNotificationAward: Whether to display in the notifications awards the image
- * @param {String} showDescNotificationAward Whether to display in the notifications awards the description
- * @param {String} showButtonNotificationAward Whether to display in the notifications awards the button
+ * @param {String} showImg: Whether to display in the notifications awards the image
+ * @param {String} showDesc Whether to display in the notifications awards the description
+ * @param {String} showBtn Whether to display in the notifications awards the button
  * @element ANY
  */
 export default(Customer, LoopBackAuth, $rootScope) => ({
@@ -22,22 +22,26 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
     transclude: true,
     template,
     scope: {
-        //Header home profile
+        //Button for edit profile in home
         editProfile: '=',
-        //Notification award
-        showImageNotificationAward: '=',
-        showDescNotificationAward: '=',
-        showButtonNotificationAward: '=',
+
         //Global feed in home
         showGlobalFeed: '=',
+
+        //Profile header in home
+        showProfileHeader: '=',
+
         //Score units in home
-        showScoreUnits: '=',
+        showMarker: '=',
 
         //Menu options
         menuOptions: '=',
 
         //Level options
-        levelOptions: '='
+        levelRow: '=',
+
+        //Award options
+        awardOptions: '=',
     },
     link: (scope, element, attrs)=> {
 

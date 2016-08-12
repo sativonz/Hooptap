@@ -79,6 +79,54 @@ import './common/services/angular-sdk.js';
         .controller('htWidgetCtrl', ($q, $scope, $compile, $injector, Event, Customer, Admin)=> {
 
 
+            //-> WIDGET FULL: defaults values
+            $scope.widgetFullOptions = {
+
+                idWidget:"",
+                editProfile:true,
+                showGlobalGeed:true,
+                showMarker:true,
+                showProfileHeader:true,
+                levelRow:{
+                    showProgressBarLevel: true,
+                    showModule: false
+                },
+                menuOptions: {
+                    titleGameRoom: "Juegos Valencia",
+                    showQuests: true,
+                    showLevel: false,
+                    showBadges: true,
+                    showRanking: true,
+                    showGlobalFeed: false,
+                    showEditProfile: true,
+                    showMarketplace: false,
+                    showGameRoom: true,
+                },
+                //Award options not used
+                awardOptions: {
+                    showImg: true,
+                    showDesc: true,
+                    showBtn: true,
+                }
+            };
+
+            //-> WIDGET FULL: defaults values
+            let modified = {
+
+                idWidget:"12345",
+                showMarker:true,
+                levelRow:{
+                    showProgressBarLevel: true,
+                    showModule: true
+                },
+                showGlobalFeed: true,
+            };
+
+            Object.assign( $scope.widgetFullOptions, modified );
+
+            console.log( $scope.widgetFullOptions );
+
+
             //hooptapSDK object for sdk on javascript
 
             var TEST = false;

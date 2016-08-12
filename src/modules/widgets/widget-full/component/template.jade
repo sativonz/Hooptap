@@ -7,12 +7,12 @@ c-customer-nav(ng-if="!$root.logged")
 .ht-profile-widget-full(ng-if="$root.logged")
     .profile-widget-full__container
         c-widget-header(ng-if="#{allViewsFalse}")
-        c-profile-header(ng-if="showScoreUnits && #{allViewsFalse}" edit-profile="editProfile")
+        c-profile-header(ng-if="showProfileHeader && #{allViewsFalse}" edit-profile="editProfile")
         .wrapper-components(ng-class="{#{bodyStyle}, 'defaultStyle': $root.WPFviewDefault}")
-            .wrapper__score-units.row(ng-if="showScoreUnits && #{allViewsFalse}")
+            .wrapper__score-units.row(ng-if="showMarker && #{allViewsFalse}")
                 c-marker-display(options="$root.scoreDisplayConfig")
-            .wrapper__level.row(ng-if="levelOptions.showModule && #{allViewsFalse}" ng-repeat="level in $root.customer.levels")
-                c-level-row(show-progress-bar-level="levelOptions.showProgressBarLevel" level="level")
+            .wrapper__level.row(ng-if="levelRow.showModule && #{allViewsFalse}" ng-repeat="level in $root.customer.levels")
+                c-level-row(show-progress-bar-level="levelRow.showProgressBarLevel" level="level")
             .wrapper__gf.row(ng-if="showGlobalFeed && #{allViewsFalse}")
                 .wrapper__gf-title {{ 'GLOBAL_FEED.title' | translate }}
                 c-game-global-feed

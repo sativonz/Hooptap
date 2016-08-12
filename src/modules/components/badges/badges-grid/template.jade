@@ -1,6 +1,6 @@
 .ht-badges--list__wrapper.row
 	uib-tabset(active="active")
-		uib-tab(index="0" heading="{{::'BADGES.tabs.all' | translate}}")
+		uib-tab(index="0" heading="{{::'QUESTS.tabs.all' | translate}}")
 			.badge-grid-wrapper.row
 				//TODO cambiar el ng repeat por => $root.customer.badges, dejar este solo para test
 				.badge-item.animated.bounceIn(ng-repeat="item in badges" id="allBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true, 'badge-not-achieved': !item.state}")

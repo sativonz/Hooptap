@@ -17,11 +17,13 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
     template,
     scope: {
         showProgressBarLevel: '=',
-        level: '='
+        level: '=',
     },
     transclude: true,
     link: (scope, element, attrs)=> {
 
+        //->Default levels values
+        scope.showProgressBarLevel = typeof scope.showProgressBarLevel !== 'undefined'? scope.showProgressBarLevel :true ;
     }
 
 });

@@ -10,28 +10,16 @@ div#ht-widget(ng-app="htWidget" ng-controller="htWidgetCtrl")
         //    show-login-form="false"
         //)
 
-
         //-----WIDGET FULL-----\\
         w-widget-full(
-        id-widget="12345",
-        edit-profile="true",
-        show-global-feed="true",
-        show-score-units="true",
-        level-options="{" +
-            "showProgressBarLevel: true, " +
-            "showModule: true" +
-        "}",
-        menu-options="{" +
-            "titleGameRoom: 'Juegos Valencia', " +
-            "showQuests: true, " +
-            "showLevel: false," +
-            "showBadges: true," +
-            "showRanking: true," +
-            "showGlobalFeed: false," +
-            "showEditProfile: true," +
-            "showMarketplace: false," +
-            "showGameRoom: true," +
-            "}"
+        id-widget="widgetFullOptions.idWidget",
+        edit-profile="widgetFullOptions.editProfile",
+        show-global-feed="widgetFullOptions.showGlobalFeed",
+        show-marker="widgetFullOptions.showScoreUnits",
+        show-profile-header="widgetFullOptions.showProfileHeader",
+        level-row="widgetFullOptions.levelRow",
+        menu-options="widgetFullOptions.menuOptions",
+        award-options="widgetFullOptions.awardOptions"
         )
 
 

@@ -209,41 +209,6 @@ export default() => ({
                         "url": ""
                     },
                 },
-            },
-            "quest6": {
-                "name": "inactive",
-                "state": "inactive",
-                "showCompleteQuests": false,
-                "img": "https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png",
-                "expires": "",
-                "steps": {
-
-                    "step1": {
-                        "complete": false,
-                        "title": "Hola que dise",
-                        "url": ""
-                    },
-                    "step2": {
-                        "complete": false,
-                        "title": "titulo",
-                        "url": ""
-                    },
-                    "step3": {
-                        "complete": false,
-                        "title": "titulo",
-                        "url": "http://www.valenciacf.com/ver/59953/nani--posa-como-el-mejor-regateador-elegido-por-los-fans-de-ea-sports.html"
-                    },
-                    "step4": {
-                        "complete": false,
-                        "title": "titulo",
-                        "url": ""
-                    },
-                    "step5": {
-                        "complete": false,
-                        "title": "titulo",
-                        "url": "asdfasdf"
-                    },
-                },
             }
         };
     },

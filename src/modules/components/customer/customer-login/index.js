@@ -84,7 +84,7 @@ export default() => ({
                                 var scoreunit = $rootScope.customer.scoreUnits[index];
                                 scoreunits[ scoreunit.id ] = scoreunit;
                             }
-                            console.log("scoreunits", scoreunits);
+                            //console.log("scoreunits", scoreunits);
 
 
                             let levels = {};
@@ -94,7 +94,7 @@ export default() => ({
                                 levels[ level.id ].scoreUnitName = scoreunits[ level.scoreUnitId ].name;
                                 levels[ level.id ].scoreUnitImage = scoreunits[ level.scoreUnitId ].image;
                             }
-                            console.log("levels", levels);
+                            //console.log("levels", levels);
 
 
 
@@ -147,12 +147,12 @@ export default() => ({
                                 let level = levels[lev];
                                 if ( level.nextId ) nextLevelIds.push( level.nextId );
                             }
-                            console.log("nextLevelIds", nextLevelIds);
+                           // console.log("nextLevelIds", nextLevelIds);
 
                             if( nextLevelIds.length )
                                 Level.find( { filter: { where: { id: { inq: nextLevelIds } } } } ).$promise
                                 .then( (response)=>{
-                                    console.log("nextLevels response", response);
+                                   // console.log("nextLevels response", response);
 
                                     /*$rootScope.customer.levels.nextLevel = response;
                                     //Para calcular el tanto porciento de la barra de progreso
@@ -179,7 +179,7 @@ export default() => ({
                                             level.nextLevel.percent = $rootScope.customer.scores[ level.scoreUnitId ] / level.nextLevel.minimum * 100;
                                         }
                                     }
-                                    console.log("nextLevels levels", levels);
+                                    //console.log("nextLevels levels", levels);
 
                                 });
 
