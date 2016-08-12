@@ -82,8 +82,9 @@ let dict = {
 		title				: 'Misiones',
 		tabs:	{
 			all					: 'Todas',
+			available			: 'Disponibles',
 			locked				: 'Bloqueadas',
-			completed			: 'Completadas',
+			finished			: 'Completadas',
 		},
 	},
 

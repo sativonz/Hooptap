@@ -20,7 +20,6 @@ export default($timeout, $uibModal, $log) => ({
                 size: size,
             });
 
-            $('.modal-content').append('Hi');
 
 
             //-> UNUSED

@@ -2,17 +2,13 @@ c-game-global-feed {
   display: block;
   position: relative;
   height: 100%;
+  margin-left: 10px;
 
   .wrapper-feed {
     display: -webkit-box;
     display: box;
     padding:6px;
     border-bottom: 1px solid #c5c5c5;
-  }
-
-  .ht-global-feed__date > p {
-    font-weight: 200;
-    color: grey;
   }
 
   .ht-global-feed__title {
@@ -30,9 +26,12 @@ c-game-global-feed {
   }
 
   .ht-global-feed__date > p {
-    font-size: 8pt;
+    font-size: 7pt;
     position: absolute;
     top: -2px;
-    right: -7px;
+    right: -6px;
+    white-space: nowrap;
+    font-weight: 200;
+    color: grey;
   }
 }

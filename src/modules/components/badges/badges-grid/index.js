@@ -9,7 +9,7 @@ import template from './template.jade';
  * @param {String} title Title of the badge
  * @element ANY
  */
-export default() => ({
+export default($timeout, $uibModal, $log) => ({
     restrict: 'E',
     template,
     transclude: true,
@@ -17,6 +17,26 @@ export default() => ({
     },
     link: (scope, element, attrs)=>{
 
+        //Detail view
+        scope.badgeDetail = function (item) {
+
+            //$('body').append("<p class='text'>Hola</p>");
+
+            var modalInstance = $uibModal.open({
+                animation: scope.animationsEnabled,
+                appendTo: angular.element('c-badges-grid'),
+
+                template: '<p>{{item}}</p>',
+                controller: ['$scope','item', ($scope, item)=>{
+                    $scope.item = item;
+                }],
+                resolve: {
+                  item: ()=> {return item}
+                },
+                size: 'sm',
+            });
+
+        };
 
         //Definir el numero de cols
         scope.numberCols = 4;

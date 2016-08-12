@@ -3,7 +3,7 @@
 		uib-tab(index="0" heading="{{::'QUESTS.tabs.all' | translate}}")
 			.badge-grid-wrapper.row
 				//TODO cambiar el ng repeat por => $root.customer.badges, dejar este solo para test
-				.badge-item.animated.bounceIn(ng-repeat="item in badges" id="allBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true, 'badge-not-achieved': !item.state}")
+				.badge-item.animated.bounceIn(ng-repeat="item in badges" id="allBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true, 'badge-not-achieved': !item.state}" ng-click="badgeDetail(item)")
 					//.badge-item__desc(ng-if="item.desc")
 					//	span {{ item.desc }}
 					.badge-item__img(ng-class="{'badge-started': item.available}")

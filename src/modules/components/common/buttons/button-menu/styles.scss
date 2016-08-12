@@ -5,8 +5,8 @@ c-button-menu {
   font-family: $base-font-family;
   width: 23px;
   position: absolute;
-  left: 11px;
-  top: 11PX;
+  left: 8px;
+  top: 9PX;
   z-index: 9999999999999;
   height: 23px;
 
@@ -27,14 +27,14 @@ c-button-menu {
     position: relative;
     color: #999;
     width: 400px;
-    height: 480px;
+    height: 481px;
     margin: auto;
     font-family: $base-font-family;
     font-size: 12pt;
-    background: rgba(0, 0, 0, 0.32);
+    background: rgba(0,0,0,.32);
     display: none;
-    left: -11px;
-    top: -24px;
+    left: -8px;
+    top: -23px;
     border-radius: 10px;
     ul {
       background: white;
@@ -57,7 +57,7 @@ c-button-menu {
 
   .nav-icon {
     width: 17px;
-    height: 14px;
+    height: 13px;
     position: relative;
     margin: 0 auto;
     @include transform(rotate(0deg));
@@ -83,11 +83,11 @@ c-button-menu {
   }
 
   .nav-icon span:nth-child(2), .nav-icon span:nth-child(3) {
-    top: 6px;
+    top: 5px;
   }
 
   .nav-icon span:nth-child(4) {
-    top: 13px;
+    top: 11px;
   }
 
   #button-menu #menu {

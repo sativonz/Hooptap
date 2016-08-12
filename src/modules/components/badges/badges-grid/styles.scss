@@ -19,6 +19,7 @@ c-badges-grid {
   }
 
   .badge-item {
+    cursor: pointer;
     margin-bottom: 6px;
     height: 105px!important;
   }
@@ -45,7 +46,8 @@ c-badges-grid {
     font-size: 10pt;
     font-weight: 400;
     border: none;
-    color: #a7c353!important;
+    color: white!important;
+    font-weight: bold;
   }
 
   .nav-tabs > li > a {
@@ -61,8 +63,9 @@ c-badges-grid {
     height:30px;
   }
 
-  .nav-tabs > li.active {
-    border-bottom: 3px solid #A7C353;
+  .nav-tabs>li.active {
+    border-bottom: 3px solid #D7E0B4;
+    background: #B2C059;
   }
 
   .tab-content {
@@ -115,7 +118,7 @@ c-badges-grid {
 //-> Progressbar
   c-progressbar .stepbar {
     width: 102px;
-    margin-left: -30.5%;
+    margin-left: -29.5%;
   }
 
   c-progressbar .stepbar-step {
@@ -126,11 +129,16 @@ c-badges-grid {
 
   c-progressbar .step-inner {
     height: 6px;
-    margin-right: 1px;
+    margin-right: 2px;
   }
 
   c-progressbar .stepbar-step.active .step-inner{
     background-color: greenyellow;
+  }
+
+  .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    background-color: transparent!important;
+    border: 1px solid transparent!important;
   }
 
   //Styles for 2 cols
@@ -196,5 +204,19 @@ c-badges-grid {
   }
 
   //->
+
+  .modal-sm {
+    width: 200px!important;
+    height: 200px!important;
+    -webkit-transform: translate(0);
+    transform: translate(-50%,-50%);
+    position: absolute;
+    margin: 10px;
+    top: 50%;
+    left: 50%;
+    .modal-content {
+      padding: 20px!important;
+    }
+  }
 
 }

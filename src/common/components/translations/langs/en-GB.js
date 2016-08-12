@@ -81,8 +81,9 @@ let dict = {
 		title				: 'Quests',
 		tabs:	{
 			all					: 'All',
+			available			: 'Available',
 			locked				: 'Locked',
-			completed			: 'Completed',
+			finished			: 'Finished',
 		},
 	},
 

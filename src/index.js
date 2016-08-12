@@ -89,7 +89,7 @@ import './common/services/angular-sdk.js';
                 showProfileHeader:true,
                 levelRow:{
                     showProgressBarLevel: true,
-                    showModule: false
+                    showModule: false,
                 },
                 menuOptions: {
                     titleGameRoom: "Juegos Valencia",
@@ -107,7 +107,12 @@ import './common/services/angular-sdk.js';
                     showImg: true,
                     showDesc: true,
                     showBtn: true,
-                }
+                },
+                //Badge options not used
+                badgeOptions:{
+                    showImg: true,
+                    showTitle: true,
+                },
             };
 
             //-> WIDGET FULL: defaults values
@@ -117,7 +122,7 @@ import './common/services/angular-sdk.js';
                 showMarker:true,
                 levelRow:{
                     showProgressBarLevel: true,
-                    showModule: true
+                    showModule: true,
                 },
                 showGlobalFeed: true,
             };

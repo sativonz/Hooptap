@@ -19,10 +19,12 @@ w-widget-full {
     height: inherit;
     padding: 0px;
     position: relative;
-    top: -14px;
+    top: -7px;
+    left:11px;
     border: 2px solid #fff;
-    width: 130px;
-    height: 130px;
+    width: 80px;
+    height: 80px;
+    box-sizing: content-box;
   }
 
   .p-level-name{
@@ -43,8 +45,8 @@ w-widget-full {
   }
 
   .wrapper__score-units {
-    margin-left: 36px;
-    margin-right: 36px;
+    margin-left: 25px;
+    margin-right: 25px;
     padding:  39px 0px 0px 0px;
   }
 
@@ -140,9 +142,9 @@ w-widget-full {
   }
 
   .wrapper-components {
-    position: relative;
+    position: absolute;
     overflow: auto;
-    height: 299px;
+    height: 346px;
   }
 
   .wrapper__ranking-component.row {
@@ -150,8 +152,8 @@ w-widget-full {
   }
 
   .wrapper__gf.row {
-    margin-left: 35px;
-    margin-right: 35px;
+    margin-left: 25px;
+    margin-right: 25px;
   }
 
   c-ranking-list {
@@ -184,7 +186,7 @@ w-widget-full {
   .quest--list__container::-webkit-scrollbar-thumb,
   .tab-content::-webkit-scrollbar-thumb,
   c-ranking-list::-webkit-scrollbar-thumb {
-    background-color: #c2c2c2;
+    background-color: #b3b3b3;
     outline: 0px solid #c2c2c2;
     @include border-radius(3px);
   }

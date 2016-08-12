@@ -7,14 +7,12 @@ import './styles.scss';
  * @description Component for widget full view profile, where they are displayed all available components dynamically
  * @restrict E
  * @param {Boolean} editProfile If avoidable or not by the user
- * @param {Boolean} showLevel Whether to display the level block
- * @param {Boolean} showProgressBarLevel Whether to display the progress bar in the level component
  * @param {Boolean} showGlobalFeed Whether to display the global feed
- * @param {Boolean} showMarker Whether to display the score units block
- * @param {String} titleGameRoom The title in the menu for the GameRoom
- * @param {String} showImg: Whether to display in the notifications awards the image
- * @param {String} showDesc Whether to display in the notifications awards the description
- * @param {String} showBtn Whether to display in the notifications awards the button
+ * @param {Boolean} showProfileHeader Whether to display the profile header
+ * @param {Boolean} showMarker Whether to display the marker
+ * @param {Boolean} menuOptions Menu options to put title in the GameRoom and hide/show de links
+ * @param {Boolean} levelRow Level row options to hide/show the progressbar and the entire component
+ * @param {Boolean} awardOptions Award options to hide/show the image, description and button
  * @element ANY
  */
 export default(Customer, LoopBackAuth, $rootScope) => ({
@@ -42,6 +40,9 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
 
         //Award options
         awardOptions: '=',
+
+        //Badge options
+        badgeOptions: '=',
     },
     link: (scope, element, attrs)=> {
 
