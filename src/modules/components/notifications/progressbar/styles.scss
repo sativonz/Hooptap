@@ -2,14 +2,14 @@
 
 c-progressbar {
   .stepbar-step {
-    height: 9px;
+    height: 10px;
     display: inline;
     float: left;
     position: relative;
     padding: 2px;
   }
   .step-inner {
-    height: 9px;
+    height: 10px;
     background: $_1_progress-bar__inactive;
   }
 

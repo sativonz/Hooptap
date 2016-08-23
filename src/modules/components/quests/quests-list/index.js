@@ -34,10 +34,10 @@ export default() => ({
 
         scope.quests = {
             "quest1": {
-                "name": "Block",
+                "name": "Quest 1",
                 "state": "block",
                 "showCompleteQuests": false,
-                "img": "",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/quests/Icono-Quest-1.png",
                 "expires": "2016-07-26",
                 "steps": {
 
@@ -70,17 +70,17 @@ export default() => ({
                 },
             },
             "quest2": {
-                "name": "New",
+                "name": "Quest 2",
                 "state": "new",
                 "showCompleteQuests": false,
-                "img": "https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/quests/Icono-Quest-2.png",
                 "expires": "2016-07-31",
                 "steps": {
 
                     "step1": {
-                        "complete": true,
-                        "title": "Visita el video de youtube",
-                        "url": "https://www.youtube.com/watch?v=aSLZFdqwh7E"
+                        "complete": false,
+                        "title": "titulo",
+                        "url": ""
                     },
                     "step2": {
                         "complete": false,
@@ -105,10 +105,10 @@ export default() => ({
                 },
             },
             "quest3": {
-                "name": "Active",
+                "name": "Quest 3",
                 "state": "active",
                 "showCompleteQuests": false,
-                "img": "https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/quests/Icono-Quest-3.png",
                 "expires": "",
                 "steps": {
 
@@ -140,9 +140,9 @@ export default() => ({
                 },
             },
             "quest4": {
-                "name": "Completed",
+                "name": "Quest 4",
                 "state": "completed",
-                "img": "",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/quests/Icono-Quest-4.png",
                 "expires": "",
                 "steps": {
 
@@ -174,10 +174,10 @@ export default() => ({
                 },
             },
             "quest5": {
-                "name": "off-date",
+                "name": "Quest 5",
                 "state": "off-date",
                 "showCompleteQuests": false,
-                "img": "https://hooptap.s3.amazonaws.com/upload/cd63eb52f48752a742a13eac005de0dc.png",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/quests/Icono-Quest-5.png",
                 "expires": "2015-05-22",
                 "steps": {
 

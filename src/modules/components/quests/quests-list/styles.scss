@@ -4,28 +4,20 @@
 c-quests-list {
   font-family: $base-font-family;
   .quest--row {
-    padding: 5px 5px 16px 0px;
+    padding: 5px 5px 30px 0px;
     cursor: s-resize;
     margin-left: -8px;
   }
 
   .quest--list__container {
     position: absolute;
-    width: 100%;
-    height: 89%;
-    overflow: scroll;
+    width: 400px;
+    height: 100%;
     overflow-x: hidden;
   }
 
   .quest-row__img_wrapper.open {
     cursor: n-resize;
-  }
-
-  img.completed-quest-img {
-    position: absolute;
-    left: -4px;
-    width: 24px;
-    top: 41px;
   }
 
   img.quest--row--image.inactive {
@@ -123,7 +115,7 @@ c-quests-list {
   }
 
   .quest--row__progresbar {
-    width: 340px;
+    width: 310px;
     display: block;
     position: absolute;
     top: 43px;
@@ -144,7 +136,7 @@ c-quests-list {
 
   .quest--row__actual-step {
     font-size: 12px;
-    padding: 15px 15px 0px 21px;
+    padding: 30px 15px 0px 21px;
     margin-top: 5px;
     width: 81%;
   }
@@ -153,6 +145,7 @@ c-quests-list {
     color: #8c8a8a;
     font-weight: 500;
     letter-spacing: 0.5px;
+    font-size: 10.5pt;
   }
 
   img.quest--row--image.lapsed {
@@ -197,18 +190,14 @@ c-quests-list {
     margin-left: 7px;
   }
 
-  .disable-quest-img, .new-quest-img {
+  .blocked-quest-img,
+  .disable-quest-img,
+  .new-quest-img,
+  img.completed-quest-img {
     position: absolute;
-    left: -4px;
+    right: -6px!important;
     width: 24px;
-    top: 41px;
-  }
-
-  .blocked-quest-img {
-    position: absolute;
-    left: -4px;
-    width: 24px;
-    top: 41px;
+    top: 37px;
   }
 
   .stepbar-step.active .step-inner {
@@ -217,6 +206,55 @@ c-quests-list {
 
   .col-xs-12.quest--row.block .quest-row__img_wrapper{
     cursor: not-allowed;
+  }
+
+  //Tabs
+  .nav-tabs > li {
+    width:33.333333%;
+    border-bottom: 3px solid #006591;
+    height:35px;
+  }
+
+  .nav-tabs > li.active > a {
+    background: none;
+    text-align: center;
+    font-size: 10pt;
+    font-weight: 400;
+    border: none;
+    color: white!important;
+    font-weight: bold;
+  }
+
+  .nav-tabs > li > a {
+    text-align: center;
+    font-size: 10pt;
+    color: #006591!important;
+    font-weight: 400;
+    padding: 5px 1px 1px 1px;
+  }
+
+  .nav-tabs{
+    width: 100%;
+    height:35px;
+  }
+
+  .nav-tabs>li.active {
+    border-bottom: 3px solid #D7E0B4;
+    background: #B2C059!important;
+  }
+
+  .tab-content {
+    width: 100%;
+    height: 399px;
+    padding: 15px 15px 15px 20px;
+    overflow: auto;
+    position: relative;
+  }
+
+  .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+    background-color: transparent!important;
+    border: 1px solid transparent!important;
+    padding-top: 5px;
   }
 
 }
