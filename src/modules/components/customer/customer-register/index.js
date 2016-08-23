@@ -30,7 +30,7 @@ export default($rootScope, Customer,LoopBackAuth) => ({
                 TOAST(
                     "Bienvenido " + scope.username + "!", "Registro realizado con éxito.", {
                         style: 'info',
-                        img: 'http://hooptap.s3.amazonaws.com/widgets/img.png'
+                        img: 'http://hooptap.s3.amazonaws.com/widgets/notifications/default-img-popover.png'
                     });
             }).catch((error)=>{
                 console.log(error);

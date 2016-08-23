@@ -1,8 +1,11 @@
 c-button-close {
-  right: 15px;
+  right: 10px;
   position: absolute;
-  top: 15px;
+  top: 8px;
   z-index: 9;
+  img {
+    width: 12px;
+  }
   .icon--close {
     float: right;
     cursor: pointer;
@@ -10,5 +13,4 @@ c-button-close {
       fill: #4a89dc;
     }
   }
-
 }

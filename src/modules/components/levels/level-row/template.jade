@@ -17,12 +17,12 @@
 
 
         .col-xs-9(ng-if="level.nextId != null")
-            .col-xs-3
+            .col-xs-4
                 //si el siguiente nivel tiene imagen:
                 img.img-next-level(ng-if="level.nextLevel.image" ng-src="{{level.nextLevel.image}}")
                 //si el siguiente nivel NO tiene imagen:
                 img.img-next-level(ng-if="!level.nextLevel.image" ng-src="http://hooptap.s3.amazonaws.com/widgets/profile/Icon-Level.svg")
-            .col-xs-9.not-padding
+            .col-xs-8.not-padding.wrapper-next-level
                 p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
                 p.name-next-level {{level.nextLevel.name}}
                 p.name-next-level {{level.nextLevel.minimum}} {{level.scoreUnitName}}
@@ -30,8 +30,8 @@
                 //TODO renaming progressbar
                 .progressbar2
                     .progressbar2-actual(style="width:{{level.nextLevel.percent}}%")
-                        p.center +{{$root.customer.scores[ level.scoreUnitId ]}}
-                    .progressbar2-next
-                        p.center -{{level.nextLevel.diff}}
+                        div.center(style="width:233px;") {{$root.customer.scores[ level.scoreUnitId ]}}/{{level.nextLevel.diff}} {{level.scoreUnitName}}
+                    //.progressbar2-next
+                    //    p
                     //.progressbar2-name
                     //    p.center {{level.nextLevel.scoreUnitName}}

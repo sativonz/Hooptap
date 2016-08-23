@@ -48,7 +48,9 @@ module.exports = function makeWebpackConfig() {
     config.module = {
         preLoaders: [],
         loaders: [
-            {test: /\.js$/, loaders: ['babel'], exclude: /node_modules/},
+            {test: /\.js$/, loader: "babel-loader", exclude: /node_modules/, query: {
+                presets:['es2015', 'stage-0'],plugins: ['transform-runtime']
+            }},
             {
                 test: /stampit\.js$/, loader: 'string-replace',
                 query: {

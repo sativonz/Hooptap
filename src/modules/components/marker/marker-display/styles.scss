@@ -36,10 +36,29 @@ c-marker-display {
 
   .zoneRow > div.col-xs-3 .title__score-units {
     font-size:10pt;
+    text-align:right;
+    margin-top: 13px;
+  }
+
+  .zoneRow > div.col-xs-4 .title__score-units {
+    font-size:11pt;
+    text-align:right;
+    margin-top: 16px;
   }
 
   .zoneRow > div.col-xs-3 .marker-display__img {
     height: 26px!important;
     margin-top: 4px;
+  }
+  .zoneRow > div.col-xs-12 .marker-display-badges__img {
+    text-align: left;
+    position: relative;
+    left: 14px;
+  }
+
+  .zoneRow > div.col-xs-12 .title__score-units {
+    margin-right: 20px;
+    font-size: 35pt;
+    margin-top: -3px;
   }
 }

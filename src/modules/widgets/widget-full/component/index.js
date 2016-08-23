@@ -67,8 +67,7 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
                 ],
                 [
                     {
-                        model: 'ScoreUnit',  // por default, el primero que encuentre
-                        id: '5785e3d56d40563a4c409435'
+                        model: 'ScoreUnit'  // por default, el primero que encuentre
                     },
 
                     {

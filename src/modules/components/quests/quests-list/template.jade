@@ -11,10 +11,10 @@
                                     p.quest-row-default-image__number-quests {{ $index+1 }}
                                 .quest-row-image
                                     img.quest--row--image(ng-src="{{ quest.img }}" ng-class="{ #{questsClasses}}")
-                                    img.disable-quest-img(ng-show="quest.state == 'off-date'" ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-caducado.svg")
-                                    img.blocked-quest-img(ng-show="quest.state == 'block'" ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-block.svg")
-                                    img.new-quest-img(ng-show="quest.state == 'new'" ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-nuevo-mas.svg")
-                                    img.completed-quest-img(ng-show="quest.state == 'completed'" ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-check.svg")
+                                    img.disable-quest-img(ng-show="quest.state == 'off-date'" ng-src="http://hooptap.s3.amazonaws.com/widgets/quests/simbolo-caducado.svg")
+                                    img.blocked-quest-img(ng-show="quest.state == 'block'" ng-src="http://hooptap.s3.amazonaws.com/widgets/quests/Simbol-block.svg")
+                                    //img.new-quest-img(ng-show="quest.state == 'new'" ng-src="http://hooptap.s3.amazonaws.com/widgets/quests/simbolo-nuevo-mas.svg")
+                                    img.completed-quest-img(ng-show="quest.state == 'completed'" ng-src="http://hooptap.s3.amazonaws.com/widgets/quests/simbolo-check.svg")
                             .col-xs-10.quest--row__text-holder
                                 .quest--row__title(ng-class="{ #{questsClasses}}") {{ quest.name }}
                                 .quest--row__date
@@ -26,7 +26,7 @@
                             .quest-step.row(ng-repeat="step in quest.steps track by $index")
                                 .col-xs-2.bullet
                                     .bullet-step-complete(ng-show="step.complete")
-                                        img(ng-src="http://hooptap.s3.amazonaws.com/widgets/simbolo-check.svg")
+                                        img(ng-src="http://hooptap.s3.amazonaws.com/widgets/quests/simbolo-check-quest.svg")
                                     .bullet-step(ng-show="!step.complete")
                                 .col-xs-10.title-step
                                     //span.quest-step__name.animated.bounceIn(ng-class="{ 'c-red': !step.complete, 'c-green': step.complete }") {{step.title}}

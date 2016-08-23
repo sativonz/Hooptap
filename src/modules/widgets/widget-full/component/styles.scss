@@ -55,6 +55,7 @@ w-widget-full {
     font-weight: bold;
     color: $_1_quest-title;
     margin-top: 10px;
+    text-align: right;
   }
 
   .wrapper__levels-title,
@@ -127,18 +128,18 @@ w-widget-full {
     width: 100%;
   }
 
-  .progressbar2 p {
-    font-size: 10pt;
+  .progressbar2 div {
+    font-size: 9pt;
     margin: 0;
     color: white;
     letter-spacing: 0.5px;
-    padding-top: 1px;
+    padding-top: 2px;
   }
 
   .img-next-level{
     -webkit-filter: grayscale(1);
     filter: grayscale(1);
-    width: 32px;
+    width: 40px;
   }
 
   .wrapper-components {
