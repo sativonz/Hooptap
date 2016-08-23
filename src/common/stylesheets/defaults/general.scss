@@ -55,6 +55,7 @@ div#ht-widget {
     -webkit-box-pack: center;
     -webkit-box-align: center;
     display: box;
+    z-index: 99999999999!important;
     box-pack: center;
     box-align: center;
     .modal-dialog {
