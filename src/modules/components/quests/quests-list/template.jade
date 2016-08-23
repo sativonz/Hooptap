@@ -5,7 +5,7 @@
             uib-tab(index="0" heading="{{::'QUESTS.tabs.all' | translate}}")
                 .quest--list__wrapper(ng-repeat="quest in quests track by $index")
                     .col-xs-12.quest--row(ng-click="showDetailQuests = !showDetailQuests; isActive != isActive" ng-class="{'quest-active': isActive, 'close': !isActive, #{questsClasses}} ")
-                        p {{isActive}}
+                        //TODO p {{isActive}}
                         .col-xs-12.quest-row__img_wrapper(ng-click="isOpen = !isOpen" ng-class="{'open': isOpen}")
                             .col-xs-2.quest--row__image-holder
                                 .quest-row-default-image(ng-show="!quest.img")
@@ -38,7 +38,7 @@
                                             img(ng-if="step.url" ng-show="quest.state == 'off-date' || quest.state == 'completed'" ng-src="http://hooptap.s3.amazonaws.com/widgets/boton-enlace-inactivo.svg")
                                         //img(ng-show="" ng-src="http://hooptap.s3.amazonaws.com/widgets/boton-enlace.svg")
                         .col-xs-12.limit-quests
-            uib-tab(index="$index + 1" heading="{{::'QUESTS.tabs.locked' | translate}}")
+            uib-tab(index="$index + 1" heading="{{::'QUESTS.tabs.inscription' | translate}}")
                 p tab2
-            uib-tab(index="$index + 2" heading="{{::'QUESTS.tabs.completed' | translate}}")
+            uib-tab(index="$index + 2" heading="{{::'QUESTS.tabs.signed' | translate}}")
                 p tab3

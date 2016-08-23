@@ -1,10 +1,10 @@
 -var allViewsFalse = "!$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom && !$root.WPFviewLevelList"
 -var bodyStyle = "'viewStyle': $root.WPFviewBadges || $root.WPFviewMarkerSU || $root.WPFviewQuests || $root.WPFviewRanking || $root.WPFviewEditProfile || $root.WPFviewGameRoom || $root.WPFviewLevelList"
 
-c-button-menu(ng-if="!$root.logged && #{allViewsFalse}" title-game-room="menuOptions.titleGameRoom" show-quests="menuOptions.showQuests" show-badges="menuOptions.showBadges" show-ranking="menuOptions.showRanking" show-level="menuOptions.showLevel" show-global-feed="menuOptions.showGlobalFeed" show-marketplace="menuOptions.showMarketplace" show-edit-profile="menuOptions.showEditProfile" show-game-room="menuOptions.showGameRoom")
+c-button-menu(ng-if="$root.logged && #{allViewsFalse}" title-game-room="menuOptions.titleGameRoom" show-quests="menuOptions.showQuests" show-badges="menuOptions.showBadges" show-ranking="menuOptions.showRanking" show-level="menuOptions.showLevel" show-global-feed="menuOptions.showGlobalFeed" show-marketplace="menuOptions.showMarketplace" show-edit-profile="menuOptions.showEditProfile" show-game-room="menuOptions.showGameRoom")
 c-button-close
-c-customer-nav(ng-if="$root.logged")
-.ht-profile-widget-full(ng-if="!$root.logged")
+c-customer-nav(ng-if="!$root.logged")
+.ht-profile-widget-full(ng-if="$root.logged")
     .profile-widget-full__container
         c-widget-header(ng-if="#{allViewsFalse}")
         c-profile-header(ng-if="showProfileHeader && #{allViewsFalse}" edit-profile="editProfile")

@@ -24,7 +24,9 @@ export default() => ({
 
             Customer.login({
                 "email": $scope.email,
-                "password": $scope.password
+                "password": $scope.password,
+                //TODO Change for actual productId
+                "productId": '5784fda092cabc234005814b'
             }).$promise
                 .then((response)=> {
                     getCurrent();
@@ -48,10 +50,11 @@ export default() => ({
                     //-> Score Units
                     var customerScores = response.scores;
                     var keys = Object.keys( customerScores );
+
                     ScoreUnit.find( {
                         filter:
                         {
-                            fields: [ 'id','name', 'image' ] ,
+                            //fields: [ 'id','name', 'image' ] ,
                             where: {
                                 id: { inq: keys }
                             }
@@ -59,6 +62,10 @@ export default() => ({
                         locale: [ 'es' ]
                     } ).$promise
                         .then((ScoreUnits)=>{
+
+                            console.log( 'ScoreUnits', ScoreUnits );
+
+                            if(!ScoreUnits.length) return;
 
                             for( var index in ScoreUnits ) {
                                 var scoreunit = ScoreUnits[index];
@@ -87,6 +94,8 @@ export default() => ({
                             //console.log("scoreunits", scoreunits);
 
 
+                            console.log('name? 1');
+
                             let levels = {};
                             for( var index in $rootScope.customer.levels ) {
                                 var level = $rootScope.customer.levels[index];
@@ -96,7 +105,7 @@ export default() => ({
                             }
                             //console.log("levels", levels);
 
-
+                            console.log('name? 2');
 
                             for( var row in zones ) {
 
@@ -110,13 +119,13 @@ export default() => ({
                                         if ( zone_col.id ) {
                                             zone_col.name = scoreunits[ zone_col.id ].name;
                                             zone_col.quantity = scoreunits[ zone_col.id ].quantity;
-                                            zone_col.image = scoreunits[ zone_col.id ].image || "http://hooptap.s3.amazonaws.com/widgets/star.svg";
+                                            zone_col.image = scoreunits[ zone_col.id ].image || "http://hooptap.s3.amazonaws.com/widgets/profile/Simbol-Star.svg";
                                         }
                                         else { // default
                                             zone_col.id = scoreunits[ Object.keys( scoreunits )[0] ].id;
                                             zone_col.name = scoreunits[ Object.keys( scoreunits )[0] ].name;
                                             zone_col.quantity = scoreunits[ Object.keys( scoreunits )[0] ].quantity;
-                                            zone_col.image = scoreunits[ Object.keys( scoreunits )[0] ].image || "http://hooptap.s3.amazonaws.com/widgets/star.svg";
+                                            zone_col.image = scoreunits[ Object.keys( scoreunits )[0] ].image || "http://hooptap.s3.amazonaws.com/widgets/profile/Simbol-Star.svg";
                                         }
                                     }
                                     if ( levels && zone_col.model == 'Level' ) {
@@ -129,12 +138,12 @@ export default() => ({
                                             zone_col.id = levels[ Object.keys( levels )[0] ].id;
                                             zone_col.name = levels[ Object.keys( levels )[0] ].name;
                                             zone_col.minimum = levels[ Object.keys( levels )[0] ].minimum;
-                                            zone_col.image = levels[ Object.keys( levels )[0] ].image || "http://hooptap.s3.amazonaws.com/widgets/level.svg";
+                                            zone_col.image = levels[ Object.keys( levels )[0] ].image || "http://hooptap.s3.amazonaws.com/widgets/profile/Simbol-Level.svg";
                                         }
                                     }
                                     if ( badges && zone_col.model == 'Badge' ) {
                                         zone_col.count = badges.length;
-                                        zone_col.image = "http://hooptap.s3.amazonaws.com/widgets/badge.svg";
+                                        zone_col.image = "http://hooptap.s3.amazonaws.com/widgets/profile/Simbol-Badge.svg";
                                     }
 
                                 }
@@ -188,7 +197,7 @@ export default() => ({
 
                         })
                         .catch((error)=>{
-                            console.log(error);
+                            console.log("SU ERROR", error);
                         });
 
                     console.log("Objeto Customer:", $rootScope.customer);

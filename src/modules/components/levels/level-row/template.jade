@@ -7,11 +7,7 @@
             //si el nivel tiene imagen:
             img(ng-if="level.image" ng-src="{{level.image}}")
             //si el nivel NO tiene imagen:
-            //TODO (modificar img)
-            img(ng-if="!level.image" ng-src="http://test.wednesdaynighthop.com/wordpress/wp-content/uploads/2015/03/level-1-icon.png")
-
-            //img(ng-if="!$rootScope.levels.scoreUnitImage" ng-src="http://test.wednesdaynighthop.com/wordpress/wp-content/uploads/2015/03/level-1-icon.png")
-            //img(ng-if="$rootScope.levels.scoreUnitImage" ng-src="{{level.scoreUnitImage}}")
+            img(ng-if="!level.image" ng-src="http://hooptap.s3.amazonaws.com/widgets/profile/Icon-Level.svg")
 
             p.name-actual-level {{level.name}}
 
@@ -25,8 +21,7 @@
                 //si el siguiente nivel tiene imagen:
                 img.img-next-level(ng-if="level.nextLevel.image" ng-src="{{level.nextLevel.image}}")
                 //si el siguiente nivel NO tiene imagen:
-                //TODO (modificar img)
-                img.img-next-level(ng-if="!level.nextLevel.image" ng-src="https://www.dharmamerchantservices.com/wp-content/uploads/2015/05/level-2-icon.png")
+                img.img-next-level(ng-if="!level.nextLevel.image" ng-src="http://hooptap.s3.amazonaws.com/widgets/profile/Icon-Level.svg")
             .col-xs-9.not-padding
                 p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
                 p.name-next-level {{level.nextLevel.name}}

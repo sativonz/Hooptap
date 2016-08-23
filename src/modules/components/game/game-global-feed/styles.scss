@@ -9,6 +9,7 @@ c-game-global-feed {
     display: box;
     padding:6px;
     border-bottom: 1px solid #c5c5c5;
+    height:60px;
   }
 
   .ht-global-feed__title {
@@ -16,13 +17,15 @@ c-game-global-feed {
   }
 
   .ht-global-feed__img {
-    padding: 7px;
+    padding: 7px!important;
+    position: relative;
+    bottom: 6px;
   }
 
   .ht-global-feed__title > p {
     font-size: 10pt;
     margin-left: 13px;
-    padding: 11px 0px 0px 0px;
+    padding: 8px 0px 0px 0px;
   }
 
   .ht-global-feed__date > p {

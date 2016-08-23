@@ -81,10 +81,9 @@ let dict = {
 	QUESTS: {
 		title				: 'Misiones',
 		tabs:	{
-			all					: 'Todas',
-			available			: 'Disponibles',
-			locked				: 'Bloqueadas',
-			finished			: 'Completadas',
+			all				: 'Todas',
+			inscription		: 'Inscrito',
+			signed			: 'Completadas'
 		},
 	},
 

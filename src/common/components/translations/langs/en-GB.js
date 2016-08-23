@@ -80,10 +80,9 @@ let dict = {
 	QUESTS: {
 		title				: 'Quests',
 		tabs:	{
-			all					: 'All',
-			available			: 'Available',
-			locked				: 'Locked',
-			finished			: 'Finished',
+			all				: 'All',
+			inscription		: 'Inscription',
+			signed			: 'Signed'
 		},
 	},
 

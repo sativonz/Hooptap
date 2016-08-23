@@ -89,7 +89,7 @@ import './common/services/angular-sdk.js';
                 showProfileHeader:true,
                 levelRow:{
                     showProgressBarLevel: true,
-                    showModule: false,
+                    showModule: true,
                 },
                 menuOptions: {
                     titleGameRoom: "Juegos Valencia",
@@ -257,7 +257,7 @@ import './common/services/angular-sdk.js';
             window.Hooptap.loginCustomer = function( params )
             {
                 if (params === 'test')
-                    params = { email: 'pepe@pepe.com', password: 'pepe' };
+                    params = { email: 'pepe@pepe.com', password: 'pepe', productId: 'test' };
 
                 if ( arguments.length && typeof params == 'object' && Object.keys(params).length )
                 {
