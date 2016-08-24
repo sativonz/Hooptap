@@ -62,7 +62,7 @@ export default() => ({
                 } ).$promise
                     .then((ScoreUnits)=>{
 
-                        console.log( 'ScoreUnits', ScoreUnits );
+                        //console.log( 'ScoreUnits', ScoreUnits );
 
                         if(!ScoreUnits.length) return;
 
@@ -90,7 +90,7 @@ export default() => ({
                             var scoreunit = $rootScope.customer.scoreUnits[index];
                             scoreunits[ scoreunit.id ] = scoreunit;
                         }
-                        console.log("scoreunits", scoreunits);
+                        //console.log("scoreunits", scoreunits);
 
 
                         let levels = {};
@@ -100,10 +100,8 @@ export default() => ({
                             levels[ level.id ].scoreUnitName = scoreunits[ level.scoreUnitId ].name;
                             levels[ level.id ].scoreUnitImage = scoreunits[ level.scoreUnitId ].image;
                         }
-                        console.log("levels", levels);
+                        //console.log("levels", levels);
 
-
-                        console.log('name? 1');
                         for( var row in zones ) {
 
                             for( var col in zones[row] ) {
@@ -113,7 +111,7 @@ export default() => ({
                                 //console.log(zones, [row], [col], zone_col, zone_col.model);
 
                                 //console.log("zone_col",zone_col, 'id', zone_col.id, "model ", zone_col.model, scoreunits[zone_col.id]);
-                                console.log('zoneCOLLLL', scoreunits[zone_col]);
+                                //console.log('zoneCOLLLL', scoreunits[zone_col]);
                                 if ( scoreunits && zone_col.model == 'ScoreUnit' ) {
 
                                     if ( zone_col.id ) {
@@ -150,7 +148,6 @@ export default() => ({
 
                         }
 
-                        console.log('name? 2');
 
                         //-> Levels
                         let nextLevelIds = [];
@@ -196,12 +193,13 @@ export default() => ({
 
                         $rootScope.customer.levels = levels;
                         $rootScope.customer.scoreUnits = scoreunits;
+                        console.log("Objeto Customer:", $rootScope.customer);
 
                     })();
 
 
 
-                    console.log("Objeto Customer:", $rootScope.customer);
+
 
                 })();
         }

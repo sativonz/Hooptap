@@ -2,20 +2,14 @@
     .wrapper__levels-title
         span {{ 'LEVELS.title' | translate }}
     .level-home-widget-full__wrapper
-
         .col-xs-3.not-padding
             //si el nivel tiene imagen:
             img(ng-if="level.image" ng-src="{{level.image}}")
             //si el nivel NO tiene imagen:
             img(ng-if="!level.image" ng-src="http://hooptap.s3.amazonaws.com/widgets/profile/Icon-Level.svg")
-
             p.name-actual-level {{level.name}}
-
-
         .col-xs-9(ng-if="level.nextId == null")
             p YA estás en el último nivel, campeón
-
-
         .col-xs-9(ng-if="level.nextId != null")
             .col-xs-4
                 //si el siguiente nivel tiene imagen:
@@ -25,13 +19,9 @@
             .col-xs-8.not-padding.wrapper-next-level
                 p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
                 p.name-next-level {{level.nextLevel.name}}
-                p.name-next-level {{level.nextLevel.minimum}} {{level.scoreUnitName}}
+                //p.name-next-level {{level.nextLevel.minimum}} {{level.scoreUnitName}}
             .col-xs-12(ng-if="showProgressBarLevel")
                 //TODO renaming progressbar
                 .progressbar2
                     .progressbar2-actual(style="width:{{level.nextLevel.percent}}%")
-                        div.center(style="width:233px;") {{$root.customer.scores[ level.scoreUnitId ]}}/{{level.nextLevel.diff}} {{level.scoreUnitName}}
-                    //.progressbar2-next
-                    //    p
-                    //.progressbar2-name
-                    //    p.center {{level.nextLevel.scoreUnitName}}
+                        div.center(style="width:233px;") {{$root.customer.scores[ level.scoreUnitId ]}} / {{level.nextLevel.diff}} {{level.scoreUnitName}}
