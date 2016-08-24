@@ -21,6 +21,7 @@ import './common/services/angular-sdk.js';
 
 
 (function () {
+
     angular.element('body').append(template());
     angular.module('htWidget',
         [
@@ -49,91 +50,13 @@ import './common/services/angular-sdk.js';
             require('./modules/widgets/widget-ranking-total').default,
             require('./modules/widgets/widget-badges-grid').default,
             require('./modules/widgets/widget-customer-access').default,
-
-/*            require('./modules/widgets/widget-full').default,
-            require('./modules/widgets/widget-notifications-popup').default,
-            require('./modules/widgets/widget-notifications-list').default,
-            require('./modules/widgets/widget-ranking-list').default,
-            require('./modules/widgets/widget-ranking-total').default,
-            require('./modules/widgets/widget-profile-advanced').default,
-            require('./modules/widgets/widget-profile-full').default,
-
-            require('./modules/widgets/widget-levels').default,
-            require('./modules/widgets/widget-marker-su-grid').default,
-            require('./modules/widgets/widget-marker-su-list').default,
-            require('./modules/widgets/widget-game-wrapper').default,
-            require('./modules/widgets/widget-game-container').default,
-            require('./modules/widgets/widget-global-feed').default,
-            require('./modules/widgets/widget-marketplace-container').default,
-            require('./modules/widgets/widget-call-to-action').default,
-            require('./modules/widgets/widget-awards-list').default,
-            require('./modules/widgets/widget-member-login-register').default,
-            require('./modules/widgets/widget-member-register').default,
-            require('./modules/widgets/widget-member-login').default,
-            require('./modules/widgets/widget-badges-list').default,
-            require('./modules/widgets/widget-badges-grid').default*/
         ])
 
 
     //Controller for widget
         .controller('htWidgetCtrl', ($q, $scope, $compile, $injector, Event, Customer, Admin)=> {
 
-
-            //-> WIDGET FULL: defaults values
-            $scope.widgetFullOptions = {
-
-                idWidget:"",
-                editProfile:true,
-                showGlobalGeed:true,
-                showMarker:true,
-                showProfileHeader:true,
-                levelRow:{
-                    showProgressBarLevel: true,
-                    showModule: true,
-                },
-                menuOptions: {
-                    titleGameRoom: "Juegos Valencia",
-                    showQuests: true,
-                    showLevel: false,
-                    showBadges: true,
-                    showRanking: true,
-                    showGlobalFeed: false,
-                    showEditProfile: true,
-                    showMarketplace: false,
-                    showGameRoom: true,
-                },
-                //Award options not used
-                awardOptions: {
-                    showImg: true,
-                    showDesc: true,
-                    showBtn: true,
-                },
-                //Badge options not used
-                badgeOptions:{
-                    showImg: true,
-                    showTitle: true,
-                },
-            };
-
-            //-> WIDGET FULL: defaults values
-            let modified = {
-
-                idWidget:"12345",
-                showMarker:true,
-                levelRow:{
-                    showProgressBarLevel: true,
-                    showModule: true,
-                },
-                showGlobalFeed: true,
-            };
-
-            Object.assign( $scope.widgetFullOptions, modified );
-
-            console.log( $scope.widgetFullOptions );
-
-
             //hooptapSDK object for sdk on javascript
-
             var TEST = false;
 
             function processTriggers( collection )
@@ -186,7 +109,7 @@ import './common/services/angular-sdk.js';
 
             };
 
-
+            console.log(window.Hooptap);
             window.Hooptap.api = ( model, method, params, _then, _catch ) => {
                 // TODO improve Hooptap.api method
 
@@ -253,6 +176,7 @@ import './common/services/angular-sdk.js';
                 }
 
             };
+
 
             window.Hooptap.loginCustomer = function( params )
             {
@@ -452,8 +376,13 @@ import './common/services/angular-sdk.js';
         .config(require('./config').default)
         .run(require('./boot').default);
 
+        window.Hooptap = {};
+        window.Hooptap.startIn = function ($selector){
+            angular.bootstrap($selector, ['htWidget']);
+        };
+
     
     //Angular bootstrap to render #htWidget div with htWidget Module
-    angular.bootstrap('#ht-widget', ['htWidget']);
+    angular.bootstrap('body', ['htWidget']);
 
 }());

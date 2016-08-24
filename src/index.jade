@@ -12,17 +12,18 @@ div#ht-widget(ng-app="htWidget" ng-controller="htWidgetCtrl")
         //)
 
         //-----WIDGET FULL-----\\
-        w-widget-full(
-        id-widget="widgetFullOptions.idWidget",
-        edit-profile="widgetFullOptions.editProfile",
-        show-global-feed="widgetFullOptions.showGlobalFeed",
-        show-marker="widgetFullOptions.showMarker",
-        show-profile-header="widgetFullOptions.showProfileHeader",
-        level-row="widgetFullOptions.levelRow",
-        menu-options="widgetFullOptions.menuOptions",
-        award-options="widgetFullOptions.awardOptions",
-        badge-options="widgetFullOptions.badgeOptions"
-        )
+        w-widget-full(menu-options="{showBadges: false}")
+        //w-widget-full(
+            id-widget="widgetFullOptions.idWidget",
+            edit-profile="widgetFullOptions.editProfile",
+            show-global-feed="widgetFullOptions.showGlobalFeed",
+            show-marker="widgetFullOptions.showMarker",
+            show-profile-header="widgetFullOptions.showProfileHeader",
+            level-row="widgetFullOptions.levelRow",
+            menu-options="widgetFullOptions.menuOptions",
+            award-options="widgetFullOptions.awardOptions",
+            badge-options="widgetFullOptions.badgeOptions"
+            )
 
 
 
