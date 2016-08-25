@@ -62,6 +62,7 @@ export default(Customer, $rootScope, $parse) => ({
             $rootScope.customer.ranking = item;
 
             $rootScope.customer.ranking.actualSu = item.name;
+            console.log("RANKING: ", $rootScope.customer.ranking);
         }
 
     }

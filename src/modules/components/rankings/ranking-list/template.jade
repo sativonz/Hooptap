@@ -11,6 +11,5 @@
                     p {{users.username}}
             .col-xs-4.ranking--list__wrapper-score-frame
                 .ranking--list__score-frame
-                    //TODO change image
-                    img.ranking--list__score-frame-img(ng-src="http://hooptap.s3.amazonaws.com/widgets/ranking/star-white.svg")
+                    img.ranking--list__score-frame-img(ng-src="{{ $root.customer.ranking.image }}")
                     .ranking--list__score-frame-score {{users.score}}
