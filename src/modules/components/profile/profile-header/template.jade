@@ -1,17 +1,16 @@
-.ht-profile__header(ng-if="$root.logged")
-    .ht-profile__header--container.row
+.ht-profile-header__container(ng-if="$root.logged")
+    .ht-profile-header__wrapper.row
         .col-xs-4
-            .images
-                img.profile-widget-full-item__img(ng-if="$root.customer.image" ng-src="{{$root.customer.image}}")
-                img.profile-widget-full-item__img(ng-if="!$root.customer.image" ng-src="http://hooptap.s3.amazonaws.com/widgets/profile/profile-default.svg")
-                label(for="file-input")
-                    img.profile-widget-full-item__img-upload(ng-src=require("./images/img-upload.svg") ng-click="uploadImgProfile()")
-                input.hide#file-input(type="file")
-            img.profile-widget-full__edit(ng-if="editProfile" ng-click="$root.WPFviewEditProfile = !$root.WPFviewEditProfile" ng-src="http://hooptap.s3.amazonaws.com/widgets/profile/Btn-Edit.svg")
-            //img.profile-widget-full__logout(ng-src="http://hooptap.s3.amazonaws.com/widgets/logout.svg" ng-click="formLogout()")
+            .ht-profile-header__images
+                img.ht-profile-header__profile-photo(ng-if="$root.customer.image" ng-src="{{$root.customer.image}}")
+                img.ht-profile-header__profile-photo(ng-if="!$root.customer.image" ng-src=require("./images/profile-default.svg"))
+                label(for="ht-profile-header__file-input")
+                    img.ht-profile-header__img-upload(ng-src=require("./images/img-upload.svg") ng-click="uploadImgProfile()")
+                input.hide#ht-profile-header__file-input(type="file")
+            img.ht-profile-header__edit(ng-if="editProfile" ng-click="$root.WPFviewEditProfile = !$root.WPFviewEditProfile" ng-src=require("./images/btn-edit-profile.svg"))
         .col-xs-2.not-padding
-            p.profile-widget-full-title__name {{ 'CUSTOMER.common.name' | translate }}:
-            p.profile-widget-full-title__email {{ 'CUSTOMER.common.email' | translate }}:
+            p.ht-profile-header__title-name {{ 'CUSTOMER.common.name' | translate }}:
+            p.ht-profile-header__title-email {{ 'CUSTOMER.common.email' | translate }}:
         .col-xs-6.not-padding
-            p.profile-widget-full-item__name {{$root.customer.username}}
-            p.profile-widget-full-item__email {{$root.customer.email}}
+            p.ht-profile-header__item-name {{$root.customer.username}}
+            p.ht-profile-header__item-email {{$root.customer.email}}

@@ -7,62 +7,86 @@ c-profile-header {
   font-family: $base-font-family;
   height: 90px;
   background-color: $_1_quest-title;
-  img.profile-widget-full__edit {
-    width: 20px;
-    position: absolute;
-    top: 52px;
-    left: 103px;
-    cursor: pointer;
+  .ht-profile-header__container{
+
+    .ht-profile-header__wrapper {
+
+      .col-xs-4{
+
+        .ht-profile-header__images {
+
+          .ht-profile-header__profile-photo {
+            border-radius: 50%;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            height: inherit;
+            padding: 0px;
+            position: relative;
+            top: -7px;
+            left:11px;
+            border: 2px solid $white;
+            width: 80px;
+            height: 80px;
+            box-sizing: content-box;
+          }
+
+          .ht-profile-header__img-upload {
+            display: none;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            height: inherit;
+            padding: 0;
+            position: absolute;
+            top: -7px;
+            border: 2px solid $white;
+            width: 80px;
+            height: 80px;
+            left: 40px;
+            opacity: 0.5;
+            background: black;
+            box-sizing: content-box;
+          }
+
+          .ht-profile-header__images:hover .ht-profile-header__img-upload{
+            display: block;
+            cursor: pointer;
+          }
+        }
+        .ht-profile-header__edit {
+          width: 20px;
+          position: absolute;
+          top: 52px;
+          left: 103px;
+          cursor: pointer;
+        }
+      }
+      .col-xs-2 {
+
+        p.ht-profile-header__title-name,
+        p.ht-profile-header__title-email {
+          font-size: 11pt;
+          color: white;
+          font-weight: 200;
+        }
+      }
+      .col-xs-6 {
+
+        p.ht-profile-header__item-name,
+        p.ht-profile-header__item-email{
+          font-size: 11pt;
+          font-weight: 400;
+          color: white;
+          margin: 5px 4px 4px -2px;
+        }
+
+        .ht-profile-header__item-email {
+          padding-top: 4px;
+        }
+      }
+    }
   }
 
-  p.profile-widget-full-title__name,
-  p.profile-widget-full-title__email {
-    font-size: 11pt;
-    color: white;
-    font-weight:200;
-  }
 
-  p.profile-widget-full-item__name,
-  p.profile-widget-full-item__email{
-    font-size: 11pt;
-    font-weight: 400;
-    color: white;
-    margin: 5px 4px 4px -2px;
-  }
-
-  img.profile-widget-full__logout {
-    position: absolute;
-    top: 102px;
-    width: 18px;
-    left: 126px;
-    cursor: pointer;
-  }
-
-  .profile-widget-full-title__name:first-child {
-    padding-bottom: 0;
-    margin-bottom: 0px;
-  }
-
-  .profile-widget-full-item__img-upload {
-    display: none;
-    border-radius: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    height: inherit;
-    padding: 0;
-    position: absolute;
-    top: -7px;
-    border: 2px solid #fff;
-    width: 80px;
-    height: 80px;
-    left: 40px;
-    opacity: 0.5;
-    background: black;
-    box-sizing: content-box;
-  }
-
-  .images:hover .profile-widget-full-item__img-upload{
-    display: block;
-    cursor: pointer;
-  }
 }
