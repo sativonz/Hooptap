@@ -11,6 +11,7 @@ import './styles.scss';
  * @param {Image} img Image of the quests
  * @element ANY
  */
+
 export default() => ({
     restrict: 'E',
     transclude: true,

@@ -12,7 +12,8 @@ export default($timeout) => ({
 
         //Definir el numero de cols entre 2, 3, 4 y 5
         scope.numberCols = 3;
-        scope.defaultImage = "http://hooptap.s3.amazonaws.com/widgets/gameroom/icono-default.png";
+        //TODO Refactor default image
+        scope.defaultImage = require("./images/default-icon.png");
         scope.gameroom = [
             {
                 "id": "5775397981dbc14a04530f73",
@@ -20,7 +21,7 @@ export default($timeout) => ({
                 "title": "Colin McRae",
                 "desc": "Campeonato WRC",
                 "customImage": "http://www.cochesgt.com/wp-content/uploads/2015/09/Subaru-Impreza-Colin-McRae-2-750x400.jpg",
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/gameroom/icono-default.png",
+                "img" :  require("./images/default-icon.png"),
             },
             {
                 "id": "5775397981dbc14a04530f73",
@@ -28,7 +29,7 @@ export default($timeout) => ({
                 "title": "Título",
                 "desc": "Descripción",
                 "customImage": "",
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/gameroom/icono-default.png",
+                "img" :  require("./images/default-icon.png"),
             },
             {
                 "id": "5775397981dbc14a04530f73",
@@ -36,7 +37,7 @@ export default($timeout) => ({
                 "title": "Título",
                 "desc": "Descripción",
                 "customImage": "",
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/gameroom/icono-default.png",
+                "img" :  require("./images/default-icon.png"),
             },
             {
                 "id": "5775397981dbc14a04530f73",
@@ -44,7 +45,7 @@ export default($timeout) => ({
                 "title": "Título",
                 "desc": "Descripción",
                 "customImage": "",
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/gameroom/icono-default.png",
+                "img" :  require("./images/default-icon.png"),
             },
             {
                 "id": "5775397981dbc14a04530f73",
@@ -52,7 +53,7 @@ export default($timeout) => ({
                 "title": "Título",
                 "desc": "Descripción",
                 "customImage": "",
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/gameroom/icono-default.png",
+                "img" :  require("./images/default-icon.png"),
             }
         ];
     }

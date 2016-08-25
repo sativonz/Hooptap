@@ -42,7 +42,7 @@ export default() => ({
                 TOAST(
                     "Welcome " + $rootScope.customer.username + "!", null, {
                         style: 'info',
-                        img: 'http://hooptap.s3.amazonaws.com/widgets/notifications/default-img-popover.png'
+                        img: require('./images/default-img-popover.png')
                     });
 
 
@@ -160,13 +160,6 @@ export default() => ({
                         if( nextLevelIds.length )
                             Level.find( { filter: { where: { id: { inq: nextLevelIds } } } } ).$promise
                                 .then( (response)=>{
-                                    // console.log("nextLevels response", response);
-
-                                    /*$rootScope.customer.levels.nextLevel = response;
-                                     //Para calcular el tanto porciento de la barra de progreso
-                                     if($rootScope.customer.levels.nextLevel.hasOwnProperty("minimum") ){
-                                     $rootScope.progressbarValue =   $rootScope.customer.levels[0].minimum / $rootScope.customer.levels.nextLevel[0].minimum;
-                                     }*/
 
                                     let nextLevels = {};
                                     for( var index in response ) {
