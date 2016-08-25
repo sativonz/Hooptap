@@ -1,10 +1,12 @@
-.ht-marker--list-su__container
-    .marker--list-su__wrapper(ng-repeat="su in customer.scoreUnit" id="item-su-{{$index}}")
-        .col-xs-3
-            .marker--list-su__img
-                img(ng-src="{{su.img}}")
-        .col-xs-9
-            .marker--list-su__type {{su.quantity}} {{su.name}}
+.ht-marker-list-su__container
+    .marker-list-su__wrapper(ng-repeat="su in $root.customer.scoreUnits" id="item-su-{{$index}}")
+        .col-xs-2
+            .marker-list-su__img
+                img(ng-src="{{su.image}}")
+        .col-xs-10
+            .marker-list-su__quantity {{su.quantity}}
+                span.marker-list-su__name {{su.name}}
+
 
 
 

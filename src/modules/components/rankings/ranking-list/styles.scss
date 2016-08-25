@@ -17,12 +17,10 @@ c-ranking-list{
   .widget--ranking-list__wrapper {
     display: -webkit-box;
     display: box;
-    padding: 2px;
-    border-bottom: 1px solid rgba(45, 45, 45, 0.27);
+    border-bottom: 1px solid #D7E0B4;
     margin-left: 15px;
     margin-right: 15px;
     height: 70px;
-    padding-top: 70PX;
   }
 
   input.filterUsersRanking {
@@ -99,7 +97,7 @@ c-ranking-list{
   }
 
   .mePosition {
-    background: rgba(0, 101, 145, 0.22);
+    background: #B3F0FF;
     margin-left: 0;
     margin-right: 0;
     padding: 0px 15px 0px 16px;
@@ -108,11 +106,14 @@ c-ranking-list{
     top: 0;
     left: 0;
     right: 0;
-    border-bottom: 3px solid #006591;
   }
-  
-  .widget--ranking-list__container > div:nth-child(2){
-    border-bottom: none;
+
+  .widget--ranking-list__wrapper:first-child {
+    margin-top: 70px;
+  }
+
+  .mePosition .ranking--list__score-frame {
+    background-color: #266592;
   }
 
 }

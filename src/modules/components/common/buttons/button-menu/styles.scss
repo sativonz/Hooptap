@@ -36,7 +36,7 @@ c-button-menu {
     left: -8px;
     top: -23px;
     border-radius: 10px;
-    ul {
+    ul.main-menu {
       background: white;
       width:240px;
       padding: 10px 25px;
@@ -49,6 +49,14 @@ c-button-menu {
       }
     }
 
+  }
+
+  ul.ranking-menu {
+    padding-left: 20px;
+    font-size: 11.5pt;
+    li:last-child {
+      border-bottom:none!important;
+    }
   }
 
   #menu li:hover {
@@ -128,5 +136,9 @@ c-button-menu {
 
   #menu p {
     cursor: pointer;
+  }
+
+  .item-menu__ranking {
+    cursor: default;
   }
 }

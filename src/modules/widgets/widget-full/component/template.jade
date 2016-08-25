@@ -1,7 +1,7 @@
 -var allViewsFalse = "!$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom && !$root.WPFviewLevelList"
 -var bodyStyle = "'viewStyle': $root.WPFviewBadges || $root.WPFviewMarkerSU || $root.WPFviewQuests || $root.WPFviewRanking || $root.WPFviewEditProfile || $root.WPFviewGameRoom || $root.WPFviewLevelList"
 
-c-button-menu(ng-if="$root.logged && #{allViewsFalse}" title-game-room="menuOptions.titleGameRoom" show-quests="menuOptions.showQuests" show-badges="menuOptions.showBadges" show-ranking="menuOptions.showRanking" show-level="menuOptions.showLevel" show-global-feed="menuOptions.showGlobalFeed" show-marketplace="menuOptions.showMarketplace" show-edit-profile="menuOptions.showEditProfile" show-game-room="menuOptions.showGameRoom")
+c-button-menu(ng-if="$root.logged && #{allViewsFalse}" title-game-room="menuOptions.titleGameRoom" show-quests="menuOptions.showQuests" show-badges="menuOptions.showBadges" show-rankings="menuOptions.showRankings" show-level="menuOptions.showLevel" show-global-feed="menuOptions.showGlobalFeed" show-marketplace="menuOptions.showMarketplace" show-edit-profile="menuOptions.showEditProfile" show-game-room="menuOptions.showGameRoom")
 c-button-close
 c-customer-nav(ng-if="!$root.logged")
 .ht-profile-widget-full(ng-if="$root.logged")
@@ -9,7 +9,7 @@ c-customer-nav(ng-if="!$root.logged")
         c-widget-header(ng-if="#{allViewsFalse}")
         c-profile-header(ng-if="showProfileHeader && #{allViewsFalse}" edit-profile="editProfile")
         .wrapper-components(ng-class="{#{bodyStyle}, 'defaultStyle': $root.WPFviewDefault}")
-            .wrapper__score-units.row(ng-if="showMarker && #{allViewsFalse} && $root.scoreDisplayConfig.zones.model")
+            .wrapper__score-units.row(ng-if="showMarker && #{allViewsFalse}")
                 c-marker-display(options="$root.scoreDisplayConfig")
             .wrapper__level.row(ng-if="levelRow.showModule && #{allViewsFalse}" ng-repeat="level in $root.customer.levels")
                 c-level-row(show-progress-bar-level="levelRow.showProgressBarLevel" level="level")

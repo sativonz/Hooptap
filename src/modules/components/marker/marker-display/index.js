@@ -7,10 +7,5 @@ export default($timeout, $rootScope) => ({
         options: '='
     },
     template,
-    link: (scope, element, attrs)=> {
-
-    }
-
-
-
+    link: (scope, element, attrs)=> {}
 });

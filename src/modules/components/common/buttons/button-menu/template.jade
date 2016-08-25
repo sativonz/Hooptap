@@ -5,13 +5,16 @@ div#button-menu
         span
         span
 div#menu
-    ul
+    ul.main-menu
         li.animated.slideInLeft(ng-if="showQuests" ng-click="$root.WPFviewQuests = !$root.WPFviewQuests")
             a {{ 'QUESTS.title' | translate }}
         li.animated.slideInLeft(ng-if="showBadges" ng-click="$root.WPFviewBadges = !$root.WPFviewBadges")
             a {{ 'BADGES.title' | translate }}
-        li.animated.slideInLeft(ng-if="showRanking" ng-click="$root.WPFviewRanking = !$root.WPFviewRanking")
-            a {{ 'RANKING.titleList' | translate }}
+        li.animated.slideInLeft(ng-if="showRankings")
+            a.item-menu__ranking {{ 'RANKING.titleList' | translate }}
+            ul.ranking-menu
+                li.animated.slideInLeft(ng-repeat="su in $root.customer.scoreUnits" ng-click="$root.WPFviewRanking = !$root.WPFviewRanking")
+                    a {{ su.name }}
         li.animated.slideInLeft(ng-if="showLevel")
             a {{ 'LEVELS.title' | translate }}
         li.animated.slideInLeft(ng-if="showGlobalFeed")

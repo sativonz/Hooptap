@@ -29,7 +29,7 @@ export default($rootScope, Customer,LoopBackAuth) => ({
                 $rootScope.goActivateForm = true;
                 $rootScope.customer = {};
                 TOAST(
-                    "Bienvenido " + scope.username + "!", "Registro realizado con éxito.", {
+                    "Welcome " + scope.username + "!", "Registro realizado con éxito.", {
                         style: 'info',
                         img: 'http://hooptap.s3.amazonaws.com/widgets/notifications/default-img-popover.png'
                     });

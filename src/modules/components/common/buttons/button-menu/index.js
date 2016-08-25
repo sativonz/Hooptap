@@ -8,7 +8,7 @@ import './styles.scss';
  * @restrict E
  * @param {Boolean} showQuests Whether to display the quests link
  * @param {Boolean} showBadges Whether to display the badges link
- * @param {Boolean} showRanking Whether to display the ranking link
+ * @param {Boolean} showRankings Whether to display the ranking link
  * @param {Boolean} showLevel Whether to display the level link
  * @param {Boolean} showGlobalFeed Whether to display the global feed link
  * @param {Boolean} showEditProfile Whether to display edit profile link
@@ -21,7 +21,7 @@ export default(Customer, $rootScope, $parse) => ({
     scope: {
         showQuests: '=',
         showBadges: '=',
-        showRanking: '=',
+        showRankings: '=',
         showLevel: '=',
         showGlobalFeed: '=',
         showMarketplace: '=',
@@ -51,10 +51,10 @@ export default(Customer, $rootScope, $parse) => ({
             .click(function (e) {
                 $mnu.toggle('slow');
             });
-        $mnu
-            .on( 'blur focusOut click', function(e) {
-                $mnu.toggle('slow');
-            });
+        // $mnu
+        //     .on( 'blur focusOut click', function(e) {
+        //         $mnu.toggle('slow');
+        //     });
         //<-
 
     }

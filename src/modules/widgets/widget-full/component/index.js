@@ -40,6 +40,8 @@ export default(Customer, LoopBackAuth, $rootScope,$compile, $parse) => ({
 
     },
     link: (scope, element, attrs)=> {
+
+        //Default values for widget full
         let defaults = {
             idWidget:"",
             editProfile: true,
@@ -51,11 +53,11 @@ export default(Customer, LoopBackAuth, $rootScope,$compile, $parse) => ({
                 showModule: true,
             },
             menuOptions: {
-                titleGameRoom: "Juegos Valencia",
+                titleGameRoom: "Salón de juegos",
                 showQuests: true,
                 showLevel: false,
                 showBadges: true,
-                showRanking: true,
+                showRankings: true,
                 showGlobalFeed: false,
                 showEditProfile: true,
                 showMarketplace: false,
@@ -72,45 +74,37 @@ export default(Customer, LoopBackAuth, $rootScope,$compile, $parse) => ({
             }else{
                 scope[optionKey] = defaults[optionKey];
             }}
-        console.log(scope);
+        //console.log(scope);
+
+
+        //Modelo de zonas, mostrando los 4 tipos para test
         let defaultMarkerOptions = {
             zones: [
                 [
-                    {
-                        model: 'ScoreUnit'  // por default, el primero que encuentre
-                    },
+                    {model: 'ScoreUnit' },      // por default, el primero que encuentre
 
-                    {
-                        model: 'Level'      // por default, asociado al ScoreUnit anterior
-                    },
+                    {model: 'Level'  },         // por default, asociado al ScoreUnit anterior
 
-                    {
-                        model: 'Badge'      // contador de badges
-                    },
+                    {model: 'Badge'  },         // contador de badges
 
-                    {
-                        model: 'Badge'      // contador de badges
-                    },
+                    {model: 'Badge'  },         // contador de badges
                 ],
-                [
-                    {
-                        model: 'ScoreUnit'  // por default, el primero que encuentre
-                    },
 
-                    {
-                        model: 'Level'      // por default, asociado al ScoreUnit anterior
-                    },
+                [
+                    {model: 'ScoreUnit'},       // por default, el primero que encuentre
 
-                    {
-                        model: 'Badge'      // contador de badges
-                    }
+                    {model: 'Level' },          // por default, asociado al ScoreUnit anterior
+
+                    {model: 'Badge' },          // contador de badges
                 ],
+
                 [
-                    { model: 'Level' },     // por default, asociado al ScoreUnit anterior
-                    { model: 'ScoreUnit' }  // por default, el primero que encuentre
+                    { model: 'Level' },         // por default, asociado al ScoreUnit anterior
+                    { model: 'ScoreUnit' }      // por default, el primero que encuentre
                 ],
+
                 [
-                     { model: 'Badge' }      // contador de badges
+                    { model: 'Badge' }          // contador de badges
                 ]
             ]
         };

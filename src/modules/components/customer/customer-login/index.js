@@ -40,7 +40,7 @@ export default() => ({
                 $rootScope.customer = response;
                 $rootScope.logged = true;
                 TOAST(
-                    "Bienvenido " + $rootScope.customer.username + "!", null, {
+                    "Welcome " + $rootScope.customer.username + "!", null, {
                         style: 'info',
                         img: 'http://hooptap.s3.amazonaws.com/widgets/notifications/default-img-popover.png'
                     });
