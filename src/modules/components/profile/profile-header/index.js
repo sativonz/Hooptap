@@ -21,20 +21,18 @@ export default(Customer, $rootScope, $q) => ({
     template,
     link: (scope, element, attrs)=> {
 
-        //TODO logica repetida del logout, ver como gestionarla
-        attrs.formLogout = attrs.formLogout || false; //default value
-        scope.formLogout = () => {
-            Customer.logout().$promise
-                .then((response)=> {
-                    $rootScope.customer = {};
-                    scope.showDropdown = false;
-                    $rootScope.logged = false;
-                });
-        }
+        // diffs: {
+        //
+        // }
+        //
+        // scope.uploadImgProfile =  function() {
+        //     Customer.prototype$updateAttributes({id: this.id}, diffs).$promise
+        //         .then((data) => {
+        //
+        //         })
+        //
+        // };
 
-        // //document.getElementsByClassName(".profile-widget-full-item__img").
-        // $('.profile-widget-full-item__img').hover(()=> {
-        //     $('.profile-widget-full-item__img-upload').css("display", "block");
-        // });
+
     }
 });

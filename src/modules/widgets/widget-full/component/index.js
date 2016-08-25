@@ -110,6 +110,8 @@ export default(Customer, LoopBackAuth, $rootScope,$compile, $parse) => ({
         };
 
         $rootScope.scoreDisplayConfig = $rootScope.scoreDisplayConfig || defaultMarkerOptions;
+
+
     }
 });
 

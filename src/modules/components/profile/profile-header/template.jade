@@ -3,10 +3,9 @@
         .col-xs-4
             .images
                 img.profile-widget-full-item__img(ng-if="$root.customer.image" ng-src="{{$root.customer.image}}")
-                //TODO Cambiar por una imagen generica cuando no tenga foto el customer
                 img.profile-widget-full-item__img(ng-if="!$root.customer.image" ng-src="http://hooptap.s3.amazonaws.com/widgets/profile/profile-default.svg")
                 label(for="file-input")
-                    img.profile-widget-full-item__img-upload(ng-src="http://hooptap.s3.amazonaws.com/widgets/profile/simbol-subir-foto.svg")
+                    img.profile-widget-full-item__img-upload(ng-src=require("./images/img-upload.svg") ng-click="uploadImgProfile()")
                 input.hide#file-input(type="file")
             img.profile-widget-full__edit(ng-if="editProfile" ng-click="$root.WPFviewEditProfile = !$root.WPFviewEditProfile" ng-src="http://hooptap.s3.amazonaws.com/widgets/profile/Btn-Edit.svg")
             //img.profile-widget-full__logout(ng-src="http://hooptap.s3.amazonaws.com/widgets/logout.svg" ng-click="formLogout()")

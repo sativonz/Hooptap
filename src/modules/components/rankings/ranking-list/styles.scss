@@ -17,7 +17,7 @@ c-ranking-list{
   .widget--ranking-list__wrapper {
     display: -webkit-box;
     display: box;
-    border-bottom: 1px solid #D7E0B4;
+    border-bottom: 1px solid $_1_line-space-color;
     margin-left: 15px;
     margin-right: 15px;
     height: 70px;
@@ -36,12 +36,11 @@ c-ranking-list{
   }
 
   .ranking--list__score-frame {
-    height: 25px;
-    background: #FFBA00;
+    height: 21px;
+    background: $_1_ranking-box-score;
     border-radius: 5px;
-    padding: 5px;
+    padding: 3px 3px 3px 7px;
     float: right;
-    padding-left: 7px;
   }
   .ranking--list__score-frame-img {
     float: right;
@@ -54,7 +53,7 @@ c-ranking-list{
     font-weight: bold;
     color: white;
     letter-spacing: 0.2px;
-    font-size: 12pt;
+    font-size: 11pt;
   }
 
   .ranking--list__user-img {
@@ -71,16 +70,16 @@ c-ranking-list{
 
   .ranking--list__username > p {
     font-size: 10pt;
-    color: #006499;
+    color: $_1_header-color;
   }
 
   .ranking--list__position {
     padding-top: 20px;
     font-size: 10pt;
     font-weight: bold;
-    color: #ffffff!important;
+    color: $white!important;
     height: 20px;
-    background: #006591;
+    background: $_1_header-color;
     padding: 4px 5px 5px 5px;
     border-radius: 5px;
     position: absolute;
@@ -90,14 +89,14 @@ c-ranking-list{
   }
 
   .ranking--list__user-img > img {
-    border: 3px solid #006591;
+    border: 3px solid $_1_header-color;
     border-radius: 50%;
     width: 50px;
     height:50px;
   }
 
   .mePosition {
-    background: #B3F0FF;
+    background: $_1_mePosition-back;
     margin-left: 0;
     margin-right: 0;
     padding: 0px 15px 0px 16px;
@@ -113,7 +112,7 @@ c-ranking-list{
   }
 
   .mePosition .ranking--list__score-frame {
-    background-color: #266592;
+    background-color: $_1_mePosition-score-back;
   }
 
 }

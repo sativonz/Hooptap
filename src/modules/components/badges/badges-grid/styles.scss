@@ -12,7 +12,7 @@ c-badges-grid {
   .badge-item__title {
     font-size: 12px;
     text-align: center;
-    color: #006591;
+    color: $_1_header-color;
     font-weight: 400;
     padding-top: 3px;
     margin-left: -6px;
@@ -36,7 +36,7 @@ c-badges-grid {
 
   .nav-tabs > li {
     width:33.333333%;
-    border-bottom: 3px solid #006591;
+    border-bottom: 3px solid $_1_header-color;
     height:35px;
   }
 
@@ -53,7 +53,7 @@ c-badges-grid {
   .nav-tabs > li > a {
     text-align: center;
     font-size: 10pt;
-    color: #006591!important;
+    color: $_1_header-color!important;
     font-weight: 400;
     padding: 5px 1px 1px 1px;
 
@@ -65,7 +65,7 @@ c-badges-grid {
   }
 
   .nav-tabs>li.active {
-    border-bottom: 3px solid #D7E0B4;
+    border-bottom: 3px solid $_1_line-space-color;
     background: #B2C059;
   }
 
@@ -228,7 +228,7 @@ c-badges-grid {
   }
 
   .badge-detail__desc {
-    color: #B3B3B3;
+    color: $_1_light-grey-background;
     font-size: 14px;
     margin-top: 19px;
   }

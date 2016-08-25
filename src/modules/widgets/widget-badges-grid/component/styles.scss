@@ -1,4 +1,5 @@
 @import '../../../../common/stylesheets/common/_mixins.scss';
+@import '../../../../common/stylesheets/common/_colors.scss';
 
 w-widget-badges-grid {
   .ht-badges--list__wrapper.row {
@@ -16,8 +17,8 @@ w-widget-badges-grid {
   }
 
   .tab-content::-webkit-scrollbar-thumb {
-    background-color: #b3b3b3;
-    outline: 0px solid #c2c2c2;
+    background-color: $_1_light-grey-background;
+    outline: 0px solid $_1_soft-grey-background;
     @include border-radius(3px);
   }
 

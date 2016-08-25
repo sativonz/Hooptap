@@ -212,7 +212,7 @@ c-quests-list {
   //Tabs
   .nav-tabs > li {
     width:33.333333%;
-    border-bottom: 3px solid #006591;
+    border-bottom: 3px solid $_1_header-color;
     height:35px;
   }
 
@@ -240,7 +240,7 @@ c-quests-list {
   }
 
   .nav-tabs>li.active {
-    border-bottom: 3px solid #D7E0B4;
+    border-bottom: 3px solid $_1_line-space-color;
     background: #B2C059!important;
   }
 

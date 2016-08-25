@@ -9,10 +9,38 @@ import template from './template.jade';
  * @param {String} email  User email
  * @element ANY
  */
-export default() => ({
+export default($rootScope, Customer, LoopBackAuth) => ({
     restrict: 'E',
     scope: {},
     template,
-    controller: ($scope, $rootScope, Customer, LoopBackAuth)=> {
+    link: (scope, element, attrs) => {
+
+        scope.form = {
+            username : $rootScope.customer.username,
+            email : $rootScope.customer.email
+        };
+
+        let getDiffs = () => {
+            let diffs = Object.assign({}, scope.form);
+            diffs.id = $rootScope.customer.id;
+            delete diffs.email;
+            return diffs;
+        };
+
+
+        scope.uploadDataProfile = function () {
+            window.Customer = Customer;
+            Customer.save(getDiffs()).$promise
+                .then((response) => {
+                    console.log(response);
+                    debugger;
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        };
     }
-});
+
+
+})
+;

@@ -1,3 +1,5 @@
+@import '../../../../common/stylesheets/common/colors.scss';
+
 c-level-home-widget-full {
   display: block;
   position: relative;
@@ -6,7 +8,7 @@ c-level-home-widget-full {
     position: relative;
     top: -1px;
     font-size: 10pt;
-    color: #006591!important;
+    color: $_1_header-color!important;
   }
   .wrapper-next-level {
     position: relative;

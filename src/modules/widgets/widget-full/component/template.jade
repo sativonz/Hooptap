@@ -26,7 +26,7 @@ c-customer-nav(ng-if="!$root.logged")
                 c-quests-list
             .wrapper__ranking-component(ng-if="$root.WPFviewRanking")
                 c-button-back(ng-click="$root.WPFviewRanking = !$root.WPFviewRanking")
-                c-widget-header(title="{{ 'RANKING.titleList' | translate }}")
+                c-widget-header(title="{{ $root.customer.ranking.actualSu }} ranking")
                 c-ranking-list
             .wrapper__edit-profile(ng-if="$root.WPFviewEditProfile")
                 c-button-back(ng-click="$root.WPFviewEditProfile = !$root.WPFviewEditProfile")

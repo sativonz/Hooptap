@@ -51,11 +51,18 @@ export default(Customer, $rootScope, $parse) => ({
             .click(function (e) {
                 $mnu.toggle('slow');
             });
-        // $mnu
-        //     .on( 'blur focusOut click', function(e) {
-        //         $mnu.toggle('slow');
-        //     });
-        //<-
+        $mnu
+            .on( 'blur focusOut click', function(e) {
+                $mnu.toggle('slow');
+            });
+
+
+
+        scope.showRankingDetail = (item) => {
+            $rootScope.customer.ranking = item;
+
+            $rootScope.customer.ranking.actualSu = item.name;
+        }
 
     }
 });

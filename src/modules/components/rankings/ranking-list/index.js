@@ -12,13 +12,24 @@ import './styles.scss';
  * @param {String} score Score in the ranking of the user
  * @element ANY
  */
-export default() => ({
+export default($rootScope, Customer, LoopBackAuth) => ({
     restrict: 'E',
+    transclude: true,
     template,
     scope: {},
-    transclude: true,
 
     link: (scope, element, attrs)=> {
+
+        Customer.find( {limit: 20} ).$promise.then(
+            (response)=>{
+
+                console.log("Response:", response);
+
+            }
+        );
+
+
+
 
         scope.rankings = {
             "diamond": {
@@ -78,8 +89,6 @@ export default() => ({
                 ]
             },
         };
-
-
 
     },
 
