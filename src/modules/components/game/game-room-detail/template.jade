@@ -1,0 +1,8 @@
+c-button-close
+c-button-back(ng-click="$root.WPFviewGRdetail = !$root.WPFviewGRdetail" ng-if="$root.WPFviewGRdetail")
+c-widget-header(title="{{::'GAMEROOM_DETAIL.title' | translate}}")
+.ht-game-room-detail__container
+    .ht-game-room-detail__wraper.not-padding(ng-repeat="game in gameromDetail" ng-class="{'ht-col-{{numberCols}}': true}" ng-click="openWrapperGame(lg)")
+        .ht-game-room-detail__item(ng-class="{'showCustomImage': game.customImage}" ng-style="{'background-image': 'url( {{ game.customImage || defaultImage}} )'}")
+            p.title(ng-if="showTitle") {{ game.title }}
+            p.desc(ng-if="showDesc" ng-class="{'showOnlyDesc': !showTitle }") {{ game.desc }}

@@ -1,0 +1,22 @@
+// Font
+//TODO Mirar google fonts error
+//@import "//fonts.googleapis.com/css?family=Open+Sans:300,400,700";
+
+// Common
+@import "common/base";
+@import "common/mixins";
+@import "common/colors";
+@import "common/utility";
+
+//Default styles
+@import "defaults/form";
+@import "defaults/general";
+@import "defaults/sizes";
+
+// Widget components styles
+@import "../../modules/components/main";
+
+// Third-party
+@import "vendor/animate.min.css";
+@import "vendor/ht-bootstrap-min";
+

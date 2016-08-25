@@ -1,0 +1,28 @@
+.ht-wrapper--register__form
+    c-button-close
+    form.ht-form.ht-form--register(name="htFormRegister" ng-show='!$root.goActivateForm' valdr-type="CustomerRegister")
+        .ht-form__group(valdr-form-group)
+            input.ht-form__input(ng-model='username' type='text' name="name" required)
+            span.ht-form__highlight
+            span.ht-form__bar
+            label.ht-form__label {{ 'CUSTOMER.common.name' | translate }}
+        .ht-form__group(valdr-form-group)
+            input.ht-form__input(ng-model='email' type='email' name="email" required)
+            span.ht-form__highlight
+            span.ht-form__bar
+            label.ht-form__label {{ 'CUSTOMER.common.email' | translate }}
+        .ht-form__group.password(valdr-form-group)
+            input.ht-form__input(ng-model='password' type='password' name="password" required)
+            span.ht-form__highlight
+            span.ht-form__bar
+            label.ht-form__label {{ 'CUSTOMER.common.password' | translate }}
+        .ht-form__group-terms
+            input(type="checkbox" name="terms" id="checkbox_terms" value="terms" ng-model="checkboxEnableRegister")
+            label.checkbox_terms(for="checkbox_terms")
+                a(href="http://hooptap.com/en/terms-and-conditions/" target="_blank") {{ 'valdr.generics.terms' | translate }}
+        //TODO descomentar
+        //.ht-form__group-link
+        //    span.link-to-activate(ng-click='$root.goActivateForm = true;') {{ 'CUSTOMER.activate.linkTitle' | translate }}
+        .ht-form__group-button
+            button.animated.bounceInUp.ht-form--button__register(type='submit' ng-disabled="!checkboxEnableRegister" ng-click='register()')
+                | {{ 'CUSTOMER.register.button' | translate }}

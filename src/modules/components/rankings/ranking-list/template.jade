@@ -1,0 +1,15 @@
+.widget--ranking-list(type="{{rankingType}}")
+    .widget--ranking-list__container(ng-repeat="ranking in rankings")
+        //input.filterUsersRanking(placeholder="Buscar.." ng-model="filterUsers")
+        .widget--ranking-list__wrapper.row(id="row-{{$index+1}}" ng-repeat="users in ranking.users | filter:filterUsers | orderBy:'-score'  " ng-class="{ 'mePosition': users.mePosition , 'animated': users.mePosition, 'bounceIn': users.mePosition }")
+            .col-xs-8.not-padding
+                .col-xs-3.ranking--list__user-img
+                    img(ng-if="!users.img" ng-src=require("./images/profile-default.svg"))
+                    img(ng-if="users.img" ng-src="{{users.img}}")
+                    span.ranking--list__position {{$index+1}}
+                .col-xs-9.ranking--list__username
+                    p {{users.username}}
+            .col-xs-4.ranking--list__wrapper-score-frame
+                .ranking--list__score-frame
+                    img.ranking--list__score-frame-img(ng-src="{{ $root.customer.ranking.image }}")
+                    .ranking--list__score-frame-score {{users.score}}

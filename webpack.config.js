@@ -6,7 +6,7 @@ var webpack = require('webpack');
 // Identify the environment
 var ENV = process.env.npm_lifecycle_event;
 var isTest = ENV === 'test' || ENV === 'test-watch' || ENV === 'test-coverage';
-var isProd = ENV === 'build' || ENV === '';
+var isProd = ENV === 'build-nop' || ENV === '';
 var isWatching = ENV === 'test-watch' || ENV === 'serve';
 
 module.exports = function makeWebpackConfig() {
@@ -48,7 +48,9 @@ module.exports = function makeWebpackConfig() {
     config.module = {
         preLoaders: [],
         loaders: [
-            {test: /\.js$/, loaders: ['babel'], exclude: /node_modules/},
+            {test: /\.js$/, loader: "babel-loader", exclude: /node_modules/, query: {
+                presets:['es2015', 'stage-0'],plugins: ['transform-runtime']
+            }},
             {
                 test: /stampit\.js$/, loader: 'string-replace',
                 query: {
@@ -72,6 +74,7 @@ module.exports = function makeWebpackConfig() {
                     ]
                 }
             },
+            {test: /\.json/, loader:'json'},
             {test: /\.jade/, loader: 'jade'},
             {test: /\.css$/, loader: isTest ? 'null' : 'style!css'},
             {test: /\.scss$/, loader: isTest ? 'null' : 'style!css!sass'},
@@ -113,6 +116,11 @@ module.exports = function makeWebpackConfig() {
         new webpack.ProvidePlugin({
             angular: 'angular-mod',
             'window.angular': 'angular-mod'
+        }),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+            "window.jQuery": "jquery"
         }),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: false,

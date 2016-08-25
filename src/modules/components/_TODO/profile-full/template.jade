@@ -1,0 +1,42 @@
+.ht-profile--full
+    .logout
+        ng-transclude
+            c-customer-logout
+    .profile--full__container
+        .col-xs-3.img__wrapper
+            img.item__img(ng-src="{{image}}")
+        .col-xs-9.data__wrapper
+            .item__name {{$root.customer.username}}
+                img.item__img-gender(ng-src="{{imageGender}}")
+            //.item__username {{username}}
+            .item__email {{$root.customer.email}}
+                span.item__email--verified-wrapper
+                    img.item__email--verified(ng-src="{{imageVerified}}")
+            .item__direction {{direction}}
+            .item__country {{city}}  {{postalCode}} , {{country}}
+            //.item__id {{id}}
+        .us__wrapper.row
+            .col-xs-4(ng-repeat="su in customer.scoreUnit" id="item-su-{{$index}}")
+                .marker--list-su__img
+                    img(ng-src="{{su.img}}")
+                    p {{su.quantity}}
+        .progressbar__wrapper.row
+            .col-xs-2.item_actual-level
+                div A
+            .col-xs-8
+                .item__progressbar
+                    ng-transclude
+                        c-progressbar-old(dynamic="dynamic" type="type")
+                .item__actual-level
+                        div Nivel
+                            span {{actualLevel}}
+            .col-xs-2.item_next-level
+                div B
+        .row.tabs__wrapper
+            uib-tabset(active="active")
+                uib-tab.link-go-login--form(index="0" heading="Actividad")
+                    c-game-global-feed
+                uib-tab.link-go-register--form(index="$index + 1" heading="Badges" )
+                    c-badges-list
+                uib-tab.link-go-register--form(index="$index + 2" heading="Premios" )
+                    c-marketplace-container

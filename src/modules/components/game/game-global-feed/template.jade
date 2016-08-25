@@ -1,0 +1,11 @@
+div.ht-global-feed
+     div(ng-repeat="items in activity")
+          .row.wrapper-feed(ng-repeat="item in items.feed")
+               .col-xs-2.not-padding.ht-global-feed__img
+                    img(ng-src="{{ item.img }}")
+               .col-xs-8.ht-global-feed__title.not-padding
+                    p {{ item.title }}
+               .col-xs-2.ht-global-feed__date
+                    p {{ item.time }} {{ " " }} {{ " " }} {{ item.date }}
+
+

@@ -1,0 +1,13 @@
+//TODO Parametrizar
+div(modal-render="true" tabindex="-1" role="dialog" class="modal ng-isolate-scope in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" index="0" animate="animate" style="z-index: 1050; display: block;")
+    .modal-header
+        h3.modal-title YOU GOT A 3.000 PTS
+        c-button-close
+    .modal-body
+        .wrapper-img(ng-if="showImg")
+            img(ng-src="http://www.cse.iitd.ernet.in/projects/data/default.png")
+        .modal-desc(ng-if="showDesc")
+            p You got the badge Welcome! We just sent you an e-mail with yyour discount code.
+    .modal-footer(ng-if="showBtn")
+        a.modal-button(href="#") Print
+

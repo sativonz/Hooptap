@@ -1,0 +1,57 @@
+@import '../../../../common/stylesheets/common/mixins.scss';
+@import '../../../../common/stylesheets/common/colors.scss';
+
+c-notifications-awards {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  .modal-dialog {
+    width: 400px!important;
+    height: 300px!important;
+    @include border-radius(10px);
+    .modal-header{
+      background-color: $_1_quest-title;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      padding: 7px;
+      .modal-title {
+        font-size: 16pt;
+        text-align: center;
+        color: white;
+      }
+    }
+    .modal-body {
+      .wrapper-img {
+        width: 200px;
+        height: 113px;
+        background: #006591;
+        margin: 0 auto;
+        img {
+          width: 200px;
+          height: 113px;
+        }
+      }
+      .modal-desc {
+        text-align: center;
+        font-size: 11pt;
+        color: #5c5c5c;
+        margin-top: 15px;}
+    }
+    .modal-footer {
+      border-top: none!important;
+      text-align: center;
+      padding: 4px;
+      .modal-button {
+        width: 100px;
+        height: 30px;
+        background-color: #98C444;
+        color: #fff;
+        padding: 4px 32px 4px 32px;
+        border-radius: 5px;
+      }
+    }
+  }
+}

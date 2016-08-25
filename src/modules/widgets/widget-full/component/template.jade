@@ -1,7 +1,67 @@
-c-button-menu(ng-if="$root.logged" value="menuItems")
+-var allViewsFalse = "!$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom && !$root.WPFviewLevelList"
+-var bodyStyle = "'viewStyle': $root.WPFviewBadges || $root.WPFviewMarkerSU || $root.WPFviewQuests || $root.WPFviewRanking || $root.WPFviewEditProfile || $root.WPFviewGameRoom || $root.WPFviewLevelList"
+
+c-button-menu(ng-if="$root.logged && #{allViewsFalse}" title-game-room="menuOptions.titleGameRoom" show-quests="menuOptions.showQuests" show-badges="menuOptions.showBadges" show-rankings="menuOptions.showRankings" show-level="menuOptions.showLevel" show-global-feed="menuOptions.showGlobalFeed" show-marketplace="menuOptions.showMarketplace" show-edit-profile="menuOptions.showEditProfile" show-game-room="menuOptions.showGameRoom")
 c-button-close
-c-member-nav(ng-if="!$root.logged")
-c-profile-widget-full(ng-if="$root.logged" image="http://static.avivamiento.com/img/profile.png"
-email="fernandogarcia@gmail.com"
-type="type" dynamic="dynamic")
-view-handler
+c-customer-nav(ng-if="!$root.logged")
+.ht-profile-widget-full(ng-if="$root.logged")
+    .profile-widget-full__container
+        c-widget-header(ng-if="#{allViewsFalse}")
+        c-profile-header(ng-if="showProfileHeader && #{allViewsFalse}" edit-profile="editProfile")
+        .wrapper-components(ng-class="{#{bodyStyle}, 'defaultStyle': $root.WPFviewDefault}")
+            .wrapper__score-units.row(ng-if="showMarker && #{allViewsFalse} && $root.customer.scoreUnits")
+                c-marker-display(options="$root.scoreDisplayConfig")
+            .wrapper__level.row(ng-if="levelRow.showModule && #{allViewsFalse}" ng-repeat="level in $root.customer.levels")
+                .level-home-widget-full__container
+                    .wrapper__levels-title
+                        span {{ 'LEVELS.title' | translate }}
+                    .level-home-widget-full__wrapper
+                        .col-xs-3.not-padding
+                            //si el nivel tiene imagen:
+                            img(ng-if="level.image" ng-src="{{level.image}}")
+                            //si el nivel NO tiene imagen:
+                            img(ng-if="!level.image" ng-src=require("../images/icon-level-default.svg"))
+                            p.name-actual-level {{level.name}}
+                        .col-xs-9(ng-if="level.nextId == null")
+                            p YA estás en el último nivel, campeón
+                        .col-xs-9(ng-if="level.nextId != null")
+                            .col-xs-4
+                                //si el siguiente nivel tiene imagen:
+                                img.img-next-level(ng-if="level.nextLevel.image" ng-src="{{level.nextLevel.image}}")
+                                //si el siguiente nivel NO tiene imagen:
+                                img.img-next-level(ng-if="!level.nextLevel.image" ng-src=require("../images/icon-level-default.svg"))
+                            .col-xs-8.not-padding.wrapper-next-level
+                                p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
+                                p.name-next-level {{level.nextLevel.name}}
+                            .col-xs-12(ng-if="levelRow.showProgressBarLevel")
+                                .progressbar
+                                    .progressbar-actual(style="width:{{level.nextLevel.percent}}%")
+                                        div.center(style="width:233px;") {{$root.customer.scores[ level.scoreUnitId ]}} / {{level.nextLevel.diff}} {{level.scoreUnitName}}
+            .wrapper__gf.row(ng-if="showGlobalFeed && #{allViewsFalse}")
+                .wrapper__gf-title {{ 'GLOBAL_FEED.title' | translate }}
+                c-game-global-feed
+            .wrapper__badges-component(ng-if="$root.WPFviewBadges")
+                c-button-back(ng-click="$root.WPFviewBadges = !$root.WPFviewBadges")
+                c-widget-header(title="{{'BADGES.title' | translate}}")
+                c-badges-grid
+            .wrapper__quests-component(ng-if="$root.WPFviewQuests")
+                c-button-back(ng-click="$root.WPFviewQuests = !$root.WPFviewQuests")
+                c-widget-header(title="{{ 'QUESTS.title' | translate }}")
+                c-quests-list
+            .wrapper__ranking-component(ng-if="$root.WPFviewRanking")
+                c-button-back(ng-click="$root.WPFviewRanking = !$root.WPFviewRanking")
+                c-widget-header(title="{{ $root.customer.ranking.actualSu }} ranking")
+                c-ranking-list
+            .wrapper__edit-profile(ng-if="$root.WPFviewEditProfile")
+                c-button-back(ng-click="$root.WPFviewEditProfile = !$root.WPFviewEditProfile")
+                c-widget-header(title="{{ 'CUSTOMER.update.title' | translate }}")
+                c-customer-update
+            .wrapper__game-room(ng-if="$root.WPFviewGameRoom")
+                c-button-back(ng-click="$root.WPFviewGameRoom = !$root.WPFviewGameRoom" ng-if="!$root.WPFviewGRdetail")
+                c-game-room(show-desc="true" show-title="true")
+            .wrapper__level-list(ng-if="$root.WPFviewLevelList")
+                c-button-back(ng-click="$root.WPFviewLevelList = !$root.WPFviewLevelList" ng-if="$root.WPFviewLevelList")
+                c-widget-header(title="{{ 'SCOREUNITS.title' | translate }}")
+                c-marker-list-su
+.footer-shadow(ng-if="$root.logged")
+

@@ -1,0 +1,16 @@
+c-button-close {
+  right: 10px;
+  position: absolute;
+  top: 8px;
+  z-index: 9;
+  img {
+    width: 12px;
+  }
+  .icon--close {
+    float: right;
+    cursor: pointer;
+    svg {
+      fill: #4a89dc;
+    }
+  }
+}

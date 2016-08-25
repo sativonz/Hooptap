@@ -1,0 +1,10 @@
+.wrapper--nav_form
+    uib-tabset(active="active")
+         uib-tab.link-go-login--form(index="0" heading="{{::'CUSTOMER.common.login' | translate}}")
+            c-customer-login
+            //TODO descomentar
+            //c-customer-reset
+         uib-tab.link-go-register--form(index="$index + 1" heading="{{::'CUSTOMER.common.register' | translate}}")
+            c-customer-register
+             //TODO descomentar
+            //c-customer-activate

@@ -1,0 +1,32 @@
+c-ranking-total {
+  display: block;
+  position: absolute;
+  overflow: auto;
+  left: 0px;
+  top: 42px;
+  bottom: 0px;
+  right: 0px;
+
+  .col-xs-5.widget--ranking-total__img img {
+    height: 35px;
+  }
+
+  .widget--ranking-total__wrapper.row {
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+
+  .widget--ranking-total {
+    height: 70px;
+    border-bottom: 1px solid #c3c3c3;
+  }
+
+  .widget--ranking-total__img {
+    padding-top: 7px;
+    width: 80px;
+  }
+
+  .widget--ranking-total__title {
+    padding: 17px;
+  }
+}
