@@ -1,7 +1,7 @@
 {
-  "name": "panel-2",
-  "version": "0.0.5",
-  "description": "Panel 2, con Angular, Webpack, ES6",
+  "name": "client-3",
+  "version": "1.0.1",
+  "description": "Client 3, Hooptap SDK-Client",
   "main": "build/index.html",
   "scripts": {
     "start": "npm run serve",
