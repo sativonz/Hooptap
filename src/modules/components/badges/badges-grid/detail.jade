@@ -1,4 +1,4 @@
-img.badge-detail__img-close(ng-src="http://hooptap.s3.amazonaws.com/widgets/badges/boton-close-grey.svg" ng-click="$close()")
+img.badge-detail__img-close(ng-src=require("./images/boton-close-grey.svg") ng-click="$close()")
 div.center.badge-detail__wrapper(ng-class="{'badge-not-achieved': !item.state}")
     img.badge-detail__img(ng-src="{{item.img}}")
     p.badge-detail__ttl {{item.title}}
