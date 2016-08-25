@@ -67,6 +67,7 @@ let dict = {
 
 	BADGES: {
 		title				: 'Badges',
+		empty				: 'Achievements have not yet assigned!',
 		tabs:	{
 			all				: 'All',
 			available		: 'Available',

@@ -49,10 +49,7 @@ c-profile-header {
             box-sizing: content-box;
           }
 
-          .ht-profile-header__images:hover .ht-profile-header__img-upload{
-            display: block;
-            cursor: pointer;
-          }
+
         }
         .ht-profile-header__edit {
           width: 20px;
@@ -84,6 +81,10 @@ c-profile-header {
         .ht-profile-header__item-email {
           padding-top: 4px;
         }
+      }
+      .ht-profile-header__images:hover .ht-profile-header__img-upload{
+        display: block;
+        cursor: pointer;
       }
     }
   }
