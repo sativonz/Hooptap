@@ -14,24 +14,11 @@ import './styles.scss';
 export default() => ({
     restrict: 'E',
     transclude: true,
+    template,
     scope: {},
     link: (scope, element, attrs)=> {
 
-        // scope.toggleDetailQuest = () => {
-        //
-        //     //Toggle the details on quest
-        //     scope.showDetailQuests = !scope.showDetailQuests;
-        //
-        //     //No funcional, label active
-        //     // if($('.quest--row--status-label').hasClass("hide")){
-        //     //     $('.quest--row--status-label').show("slow");
-        //     // }else if (!$('.quest--row--status-label').hasClass("hide")){
-        //     //     $('.quest--row--status-label').hide("slow");
-        //     // }
-        //     // $('.quest--row--status-label').toggleClass("hide");
-        //
-        // };
-
+        //FAKE RESPONSE QUESTS
         scope.quests = {
             "quest1": {
                 "name": "Quest 1",
@@ -211,7 +198,6 @@ export default() => ({
                 },
             }
         };
-    },
-    template
+    }
 
 });

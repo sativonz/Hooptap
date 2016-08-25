@@ -73,20 +73,20 @@ w-widget-full {
 
   .wrapper__level.row {
     height: 174px;
-    margin-left: 35px;
-    margin-right: 35px;
+    margin-left: 25px;
+    margin-right: 25px;
     padding: 36px 0px 0px 0px;
     border-bottom: 1px solid $_1_quest-title__inactive;
   }
 
-  p.name-actual-level {
+  .name-actual-level {
     font-size: 9pt;
     color: $_1_quest-title;
     text-align: center;
     width: 100%;
   }
 
-  p.title-next-level{
+  .title-next-level{
     font-size: 9pt;
     color: grey;
     padding: 0;
@@ -94,14 +94,14 @@ w-widget-full {
     font-weight: bold;
   }
 
-  p.name-next-level{
+  .name-next-level{
     font-size: 9pt;
     color: grey;
     padding: 0;
     margin: 2px;
   }
 
-  .progressbar2 {
+  .progressbar {
     width: 233px;
     height: 20px;
     background: $_1_progressbar-next;
@@ -109,7 +109,7 @@ w-widget-full {
     margin-top: 22px;
   }
 
-  .progressbar2-actual {
+  .progressbar-actual {
     width: 60%;
     background: $_1_progressbar-actual;
     height: 20px;
@@ -118,7 +118,7 @@ w-widget-full {
 
   }
 
-  .progressbar2-next {
+  .progressbar-next {
     float: right;
     height: 20px;
     border-top-right-radius: 6px;
@@ -128,7 +128,7 @@ w-widget-full {
     width: 100%;
   }
 
-  .progressbar2 div {
+  .progressbar div {
     font-size: 9pt;
     margin: 0;
     color: white;
@@ -210,7 +210,6 @@ w-widget-full {
     padding-right: 20px;
     overflow: auto;
     position: relative;
-    /* padding-bottom: 0; */
     padding-left: 39px;
     padding-top: 20px;
   }
@@ -220,17 +219,17 @@ w-widget-full {
     height: 480px;
   }
 
-  .progressbar2-actual.levelComplete {
+  .progressbar-actual.levelComplete {
     width: 100%!important;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
   }
 
-  .progressbar2-actual.levelComplete + .progressbar2-next {
+  .progressbar-actual.levelComplete + .progressbar-next {
     display: none;
   }
 
-  .progressbar2-name p {
+  .progressbar-name p {
     color: black!important;
   }
 

@@ -64,8 +64,8 @@ c-profile-header {
       }
       .col-xs-2 {
 
-        p.ht-profile-header__title-name,
-        p.ht-profile-header__title-email {
+        .ht-profile-header__title-name,
+        .ht-profile-header__title-email {
           font-size: 11pt;
           color: white;
           font-weight: 200;
@@ -73,8 +73,8 @@ c-profile-header {
       }
       .col-xs-6 {
 
-        p.ht-profile-header__item-name,
-        p.ht-profile-header__item-email{
+        .ht-profile-header__item-name,
+        .ht-profile-header__item-email{
           font-size: 11pt;
           font-weight: 400;
           color: white;
