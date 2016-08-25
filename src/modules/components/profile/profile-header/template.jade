@@ -4,9 +4,10 @@
             .ht-profile-header__images
                 img.ht-profile-header__profile-photo(ng-if="$root.customer.image" ng-src="{{$root.customer.image}}")
                 img.ht-profile-header__profile-photo(ng-if="!$root.customer.image" ng-src=require("./images/profile-default.svg"))
-                label(for="ht-profile-header__file-input")
-                    img.ht-profile-header__img-upload(ng-src=require("./images/img-upload.svg") ng-click="uploadImgProfile()")
-                input.hide#ht-profile-header__file-input(type="file")
+                //TODO Quitar comentarios
+                //label(for="file-input")
+                //    img.ht-profile-header__img-upload(ng-src=require("./images/img-upload.svg") ng-click="uploadImgProfile()")
+                //input.hide#file-input(type="file")
             img.ht-profile-header__edit(ng-if="editProfile" ng-click="$root.WPFviewEditProfile = !$root.WPFviewEditProfile" ng-src=require("./images/btn-edit-profile.svg"))
         .col-xs-2.not-padding
             p.ht-profile-header__title-name {{ 'CUSTOMER.common.name' | translate }}:

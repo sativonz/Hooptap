@@ -26,7 +26,8 @@ export default($rootScope, Customer,LoopBackAuth) => ({
                 "productId": "57722deffc827f8e7dbafc33"//TODO PROVISIONAL
             }).$promise.then((registered)=> {
                 $rootScope.logged = false;
-                $rootScope.goActivateForm = true;
+                //TODO descomentar
+                //$rootScope.goActivateForm = true;
                 $rootScope.customer = {};
                 TOAST(
                     "Welcome " + scope.username + "!", "Registro realizado con éxito.", {

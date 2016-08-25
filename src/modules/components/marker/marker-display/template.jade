@@ -11,7 +11,9 @@
                 .title__score-units >{{zoneCol.minimum}}
             .col-xs-6.not-padding
                 img.marker-display__img(ng-src="{{zoneCol.image}}")
-        .marker-display__badges(ng-click="$root.WPFviewBadges = !$root.WPFviewBadges" ng-if="zoneCol.model == 'Badge'" tooltip-placement="top" uib-tooltip="{{ 'BADGES.title' | translate }}")
+        //TODO descomentar y borrar la siguiente linea
+        //.marker-display__badges(ng-click="$root.WPFviewBadges = !$root.WPFviewBadges" ng-if="zoneCol.model == 'Badge'" tooltip-placement="top" uib-tooltip="{{ 'BADGES.title' | translate }}")
+        .marker-display__badges( ng-if="zoneCol.model == 'Badge'" tooltip-placement="top" uib-tooltip="{{ 'BADGES.title' | translate }}")
             .col-xs-6.not-padding
                 .title__score-units {{zoneCol.count}}
             .col-xs-6.marker-display-badges__img.not-padding
