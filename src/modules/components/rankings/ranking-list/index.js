@@ -64,7 +64,6 @@ export default($rootScope, Customer, LoopBackAuth) => ({
                     {
                         "username": "Harry Popotter",
                         "showProfileImg": true,
-                        "img": "http://hooptap.s3.amazonaws.com/widgets/profile/profile-default.svg",
                         "score": 2000,
                     },
                     {
@@ -76,13 +75,11 @@ export default($rootScope, Customer, LoopBackAuth) => ({
                     {
                         "username": "Willi Fok",
                         "showProfileImg": true,
-                        "img": "http://hooptap.s3.amazonaws.com/widgets/profile/profile-default.svg",
                         "score": 2450,
                     },
                     {
                         "username": "Ace Ventura",
                         "showProfileImg": true,
-                        "img": "http://hooptap.s3.amazonaws.com/widgets/profile/profile-default.svg",
                         "score": 200,
                     }
 
