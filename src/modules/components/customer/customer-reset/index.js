@@ -5,7 +5,6 @@ import template from './template.jade';
  * @module Components
  * @description Component for reset password for a user with email
  * @restrict E
- * //TODO revisar params...
  * @param {String} email User email
  * @element ANY
  */

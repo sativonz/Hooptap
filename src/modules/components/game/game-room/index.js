@@ -1,6 +1,15 @@
 import template from './template.jade';
 import './styles.scss';
-//TODO ngDocs
+/**
+ * @ngdoc directive
+ * @name Game room
+ * @module Components
+ * @description Component to show your custom games
+ * @restrict E
+ * @param {Boolean} showTitle Whether or not display the title of the game
+ * @param {Boolean} showDesc Whether or not display the description of the game
+ * @element ANY
+ */
 export default($timeout) => ({
     restrict: 'E',
     template,

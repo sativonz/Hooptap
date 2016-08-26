@@ -3,10 +3,11 @@ import template from './template.jade';
  * @ngdoc directive
  * @name Customer update
  * @module Components
- * @description Component for update instances of the model matched by where from the data sourceg
+ * @description Component for update instances of the model matched by where from the data source
  * @restrict E
- * //TODO revisar params...
+ * @param {String} username  User name
  * @param {String} email  User email
+ * @param {String} password  User password
  * @element ANY
  */
 export default($rootScope, Customer, LoopBackAuth) => ({
