@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         sdk-widgets-v1
-// @namespace    http://tampermonkey.net/
+// @namespace    http://valenciacf.com/
 // @version      0.1
 // @description  try to take over the world!
 // @author       You
-// @match        *://*.stackoverflow.com/*
+// @match        *://*.valenciacf.com/*
 // @grant        none
 // ==/UserScript==
 

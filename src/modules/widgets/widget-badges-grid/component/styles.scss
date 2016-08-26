@@ -1,0 +1,27 @@
+@import '../../../../common/stylesheets/common/_mixins.scss';
+@import '../../../../common/stylesheets/common/_colors.scss';
+
+w-widget-badges-grid {
+  .ht-badges--list__wrapper.row {
+    margin-left: 0!important;
+    margin-right: 0!important;
+  }
+
+  //->Scrollbar
+  .tab-content::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .tab-content::-webkit-scrollbar-track {
+    -webkit-box-shadow: none;
+  }
+
+  .tab-content::-webkit-scrollbar-thumb {
+    background-color: $_1_light-grey-background;
+    outline: 0px solid $_1_soft-grey-background;
+    @include border-radius(3px);
+  }
+
+
+
+}

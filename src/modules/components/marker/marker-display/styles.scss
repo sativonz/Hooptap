@@ -1,0 +1,68 @@
+c-marker-display {
+  display: block;
+  position: relative;
+  height: 100%;
+
+  .zoneRow {
+    border-bottom: 1px solid #d2d2d2;
+    padding: 20px 0 20px 0;
+  }
+
+  #zoneRow-1 {
+    padding-top: 5px!important;
+  }
+
+  .row {
+    margin: 0 -5px 0 -5px!important;
+  }
+
+  .marker-display__img {
+    height:40px!important;
+  }
+
+  .profile-widget-full-items {
+    padding-right: 6px!important;
+    padding-left: 6px!important;
+  }
+  .marker-display__badges,
+  .marker-display__level,
+  .marker-display__su {
+    cursor: pointer;
+  }
+
+  .zoneRow > div.col-xs-3 {
+    padding: 0!important;
+  }
+
+  .zoneRow > div.col-xs-3 .title__score-units {
+    font-size:10pt;
+    text-align:right;
+    margin-top: 13px;
+  }
+
+  .zoneRow > div.col-xs-4 .title__score-units {
+    font-size:11pt;
+    text-align:right;
+    margin-top: 16px;
+  }
+
+  .zoneRow > div.col-xs-3 .marker-display__img {
+    height: 26px!important;
+    margin-top: 4px;
+  }
+  .zoneRow > div.col-xs-12 .marker-display-badges__img {
+    text-align: left;
+    position: relative;
+    left: 14px;
+  }
+
+  .zoneRow > div.col-xs-12 .title__score-units {
+    margin-right: 20px;
+    font-size: 35pt;
+    margin-top: -3px;
+  }
+  
+  .deleteRow {
+    display: none;
+  }
+}

@@ -1,0 +1,30 @@
+.ht-profile--advanced
+    .logout
+        ng-transclude
+            c-customer-logout
+    .profile--advanced__container
+        .col-xs-3.img__wrapper
+            img.item__img(ng-src="{{image}}")
+        .col-xs-9.data__wrapper
+            .item__name {{$root.customer.username}}
+            //div.item__username {{username}}
+            .item__email {{$root.customer.email}}
+                span.item__email--verified-wrapper
+                    img.item__email--verified(ng-src="{{imageVerified}}")
+            .item__id {{id}}
+                img.item__img-gender(ng-src="{{imageGender}}")
+        .col-xs-12.item__progressbar
+            ng-transclude
+                c-progressbar-old(dynamic="dynamic" type="type")
+        .col-xs-12.item__points
+            .col-xs-2
+                p A
+            .col-xs-8
+                p {{points}}
+                    span.item__points-types  pts
+            .col-xs-2
+                p B
+        .col-xs-12.item__badges-list__container
+            .row.item__badges-list__wrapper-badges(ng-repeat="nb in numberBadges track by $index" id="item-grid-su-{{$index +1}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true}")
+                p b {{$index +1}}
+                p {{$index +1}}0 %

@@ -1,0 +1,144 @@
+@import "../../../../../common/stylesheets/common/base";
+@import "../../../../../common/stylesheets/common/mixins";
+
+c-button-menu {
+  font-family: $base-font-family;
+  width: 23px;
+  position: absolute;
+  left: 7px;
+  top: 9PX;
+  z-index: 9999999999999;
+  height: 23px;
+
+  ul, li, li a {
+    list-style: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+  li a {
+    padding: 14px 14px 8px 0px;
+    color: #888;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  #menu {
+    position: relative;
+    color: #999;
+    width: 400px;
+    height: 481px;
+    margin: auto;
+    font-family: $base-font-family;
+    font-size: 12pt;
+    background: rgba(0,0,0,.32);
+    display: none;
+    left: -8px;
+    top: -23px;
+    border-radius: 10px;
+    ul.main-menu {
+      background: white;
+      width:240px;
+      padding: 10px 25px;
+      height: 100%;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-right: 1px solid #d0d0d0;
+      li {
+        border-bottom: 1px solid #bdbdbd;
+      }
+    }
+
+  }
+
+  ul.ranking-menu {
+    padding-left: 20px;
+    font-size: 11.5pt;
+    li:last-child {
+      border-bottom:none!important;
+    }
+  }
+
+  #menu li:hover {
+    border-bottom: 2px solid grey;
+  }
+
+  .nav-icon {
+    width: 17px;
+    height: 13px;
+    position: relative;
+    margin: 0 auto;
+    @include transform(rotate(0deg));
+    @include transition(.5s ease-in-out);
+    cursor: pointer;
+  }
+
+  .nav-icon span {
+    display: block;
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background: white;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    @include transform(rotate(0deg));
+    @include transition(.25s ease-in-out);
+  }
+
+  .nav-icon span:nth-child(1) {
+    top: 0px;
+  }
+
+  .nav-icon span:nth-child(2), .nav-icon span:nth-child(3) {
+    top: 5px;
+  }
+
+  .nav-icon span:nth-child(4) {
+    top: 11px;
+  }
+
+  #button-menu #menu {
+    display: none;
+  }
+
+  .open-menu {
+
+    #menu {
+      display: block;
+    }
+
+    .nav-icon span:nth-child(1) {
+      top: 18px;
+      width: 0%;
+      left: 50%;
+    }
+
+    .nav-icon span:nth-child(2) {
+      @include transform(rotate(45deg));
+    }
+
+    .nav-icon span:nth-child(3) {
+      @include transform(rotate(-45deg));
+    }
+
+    .nav-icon span:nth-child(4) {
+      top: 18px;
+      width: 0%;
+      left: 50%;
+    }
+
+  }
+
+  .menu-logout {
+    font-weight: 600;
+  }
+
+  #menu p {
+    cursor: pointer;
+  }
+
+  .item-menu__ranking {
+    cursor: default;
+  }
+}

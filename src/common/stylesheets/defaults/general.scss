@@ -1,0 +1,83 @@
+@import '../common/mixins.scss';
+
+//////////////////--------GENERAL STYLES---------//////////////////////
+
+.center{
+  text-align: $center;
+}
+
+.hide{
+  display: $hide;
+}
+
+a {
+  color: rgba(59, 178, 208, 0.47);
+}
+
+a, a:active, a:focus, a:hover {
+  outline: $not-outline;
+}
+
+input::-moz-focus-inner {
+  border: 0;
+}
+
+.not-padding {
+  padding: 0px!important;
+}
+
+//font widget
+div#ht-widget {
+  font-family: $base-font-family;
+  max-height: 480px;
+  min-height: 480px;
+}
+
+//////////////////--------WIDGET W&H---------//////////////////////
+//TODO Revisar tamaños del widget
+
+#ht-widget {
+  background: $white;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  box-shadow: 0 0 5px #000;
+  z-index: $z-index-9;
+  border-radius: 14px;
+  padding-right: 0!important;
+  .modal{
+    background-color: rgba(0, 0, 0, 0.75);
+    width: 100%;
+    display: -moz-box;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+    display: -webkit-box;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    display: box;
+    z-index: 99999999999!important;
+    box-pack: center;
+    box-align: center;
+    .modal-dialog {
+      width: 960px;
+      height: 640px;
+      -webkit-transform: translate(0);
+      transform: translate(-50%,-50%);
+      position: absolute;
+      margin: 10px;
+      top: 50%;
+      left: 50%;
+      .modal-content {
+        height: 100%;
+        width: 100%;
+        border-radius: 17px;
+      }
+    }
+  }
+
+}
+
+#ht-widgets {
+  display: $hide;
+  @include border-radius(10px);
+}

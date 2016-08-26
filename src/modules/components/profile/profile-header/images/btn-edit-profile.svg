@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.1 (28215) - http://www.bohemiancoding.com/sketch -->
+    <title>Btn-Edit</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Widget-info" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Profile-info" transform="translate(-1484.000000, -304.000000)">
+            <g id="Contenido" transform="translate(130.000000, 210.000000)">
+                <g id="profile-4" transform="translate(1260.000000, 0.000000)">
+                    <g id="Perfil">
+                        <g id="Edit" transform="translate(94.000000, 94.000000)">
+                            <g id="edit">
+                                <circle id="Oval" fill="#FFFFFF" cx="10.0694444" cy="9.72333333" r="9.72222222"></circle>
+                                <path d="M15.2522222,6.96277778 L12.8305556,4.54111111 C12.7005556,4.41111111 12.4661111,4.41111111 12.3094444,4.54111111 L5.72166667,11.1555556 L5.74777778,11.1555556 L5.72166667,11.1555556 L4.81,14.5411111 L4.81,14.5411111 C4.75777778,14.6455556 4.81,14.8016667 4.88833333,14.9055556 C5.01833333,15.01 5.175,15.0355556 5.305,14.9577778 L5.305,14.9577778 L8.63833333,14.0722222 L8.63833333,14.0722222 L8.63833333,14.0722222 L15.2522222,7.45777778 C15.3822222,7.32722222 15.3822222,7.09333333 15.2522222,6.96277778 L15.2522222,6.96277778 L15.2522222,6.96277778 Z M5.90388889,13.8638889 L6.45055556,11.885 L7.90888889,13.3433333 L5.90388889,13.8638889 L5.90388889,13.8638889 Z" fill="#006591"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

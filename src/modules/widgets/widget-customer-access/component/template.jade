@@ -1,0 +1,27 @@
+c-button-close
+
+//->Mix form
+.wrapper--nav_form(ng-if="showMixForm && !$root.customer.logged")
+    uib-tabset(active="active")
+        uib-tab.link-go-login--form(index="0" heading="{{::'CUSTOMER.common.login' | translate}}")
+            c-customer-login
+            //TODO descomentar
+            //c-customer-reset
+        uib-tab.link-go-register--form(index="$index + 1" heading="{{::'CUSTOMER.common.register' | translate}}")
+            c-customer-register
+                //TODO descomentar
+            //c-customer-activate
+p(ng-if="$root.customer.logged") Accion a hacer!!!!
+
+//->Login form
+c-widget-header(title="{{ 'CUSTOMER.common.login' | translate }}" ng-if="showLoginForm")
+c-customer-login(ng-if="showLoginForm")
+c-customer-reset(ng-if="showLoginForm")
+
+//->Register form
+c-widget-header(title="{{ 'CUSTOMER.common.register' | translate }}" ng-if="showRegisterForm")
+c-customer-register(ng-if="showRegisterForm")
+c-customer-activate(ng-if="showRegisterForm")
+
+
+

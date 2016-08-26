@@ -1,0 +1,57 @@
+c-button-menu(ng-if="$root.customer.logged" value="menuItems")
+c-button-close
+c-customer-nav(ng-if="!$root.customer.logged")
+.ht-profile-widget-full
+    .profile-widget-full__container(ng-show="$root.currentView==='profileWidgetFull.default'")
+        c-widget-header
+        .profile-widget-full-item__wrapper(ng-if="showImage")
+            img.profile-widget-full-item__img(ng-src="{{image}}")
+        .profile-widget-full__edit(ng-if="editProfile")
+                img(ng-src="http://icon-icons.com/icons2/259/PNG/128/ic_edit_128_28238.png")
+        .profile-widget-full-item__name {{$root.customer.username}}
+        //div.profile-widget-full-item__username {{username}}
+        .profile-widget-full-item__email {{$root.customer.email}}
+        .col-xs-3
+            p.p-level-name {{ 'LEVELS.title' | translate }}
+        .col-xs-9
+            div.progessbar(ng-if="showProgressBar")
+                ng-transclude
+                    c-progressbar(type="type" dynamic="dynamic")
+        //TODO  los dos primeros enlaces no están claros/definidos en el wireframe
+        .col-xs-3.center.profile-widget-full-item__score-units1(ng-click="$root.setCurrentView('profileWidgetFull.su.coins')")
+            a {{ 'SCOREUNITS.types.coins' | translate }}
+            p 500
+        .col-xs-3.center.profile-widget-full-item__score-units2(ng-click="$root.setCurrentView('profileWidgetFull.su.points')")
+            a {{ 'SCOREUNITS.types.points' | translate }}
+            p 1500
+        .col-xs-3.center.profile-widget-full-item__badges(ng-click="$root.setCurrentView('profileWidgetFull.badgesList')")
+            a {{ 'BADGES.title' | translate }}
+            p 5
+        .col-xs-3.center.profile-widget-full-item__levels(ng-click="$root.setCurrentView('profileWidgetFull.levelActual')")
+            a {{ 'LEVELS.title' | translate }}
+            p 10
+
+
+    .profile-widget-full__container__ranking(ng-show="$root.currentView==='profileWidgetFull.su.coins'")
+        c-button-back
+        c-widget-header
+        c-marker-list-su
+    .profile-widget-full__container__ranking(ng-show="$root.currentView==='profileWidgetFull.su.points'")
+        c-button-back
+        c-widget-header
+        c-marker-list-su
+    .profile-widget-full__container__badges(ng-show="$root.currentView==='profileWidgetFull.badgesList'")
+        c-button-back
+        c-badges-list
+    .profile-widget-full__container__levels(ng-show="$root.currentView==='profileWidgetFull.levelActual'")
+        c-button-back
+        c-level-actual(image="https://wednesdaynighthop.com/wordpress/wp-content/uploads/2015/03/level-1-icon.png" type="type" dynamic="dynamic")
+    .profile-widget-full__container__quests-list(ng-show="$root.currentView==='profileWidgetFull.questsList'")
+        c-button-back
+        c-quests-list
+    .profile-widget-full__container__customer-update(ng-show="$root.currentView==='profileWidgetFull.customerUpdate'")
+        c-button-back
+        c-widget-header(title="{{ 'CUSTOMER.update.title' | translate }}")
+        c-customer-update
+
+
