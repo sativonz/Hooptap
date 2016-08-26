@@ -74,10 +74,12 @@ export default() => ({
                         }
 
                         $rootScope.customer.scoreUnits = ScoreUnits;
-
+                        console.log("1");
                         let zones = $rootScope.scoreDisplayConfig.zones;
+
                         //let scoreUnits = $rootScope.customer.scoreUnits;
                         //let levels = $rootScope.customer.levels;
+                        console.log("2");
                         let badges = $rootScope.customer.badges;
 
 

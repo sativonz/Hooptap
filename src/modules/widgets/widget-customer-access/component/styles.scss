@@ -1,0 +1,53 @@
+@import '../../../../common/stylesheets/common/_base.scss';
+@import '../../../../common/stylesheets/common/colors.scss';
+@import '../../../../common/stylesheets/common/mixins.scss';
+
+w-widget-customer-access {
+  .link-go-login--form,
+  .link-go-register--form {
+    color: #3bb2d0;
+    padding: 0px 20px 0px 0px;
+    width:49%;
+  }
+
+  .nav-tabs > li {
+    border-bottom:4px solid transparent;
+    float: none!important;
+  }
+
+  .nav-tabs > li:hover {
+    border-bottom:4px solid #1C9AD0;
+  }
+
+  .nav > li,
+  .nav > li > a {
+    display: inline-block!important;
+    width: 49%;
+    cursor: pointer;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.73);
+  }
+  .nav-tabs > li > a:hover {
+    background: none!important;
+    border-color: transparent!important;
+    color: white!important;
+  }
+  .nav-tabs > li.active > a,
+  .nav-tabs > li.active > a:focus {
+    border: none !important;
+    background-color: transparent!important;
+    color: white!important;
+    font-weight: bold;
+  }
+
+  .nav-tabs > li:not(.active){
+    color:#0078a0!important;
+  }
+
+  ul.nav.nav-tabs {
+    background-color: $_1_quest-title;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+  }
+}
