@@ -19,7 +19,24 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
         showLoginForm: '=',
         showMixForm: '='
     },
-    link: (scope, element, attrs)=> {
+    controller: ($scope, $rootScope, Customer, ScoreUnit, Level, LoopBackAuth)=> {
 
-    }
+        var loginEvent =  $rootScope.$on("loginSuccess", (event, response)=>{
+            getMessage();
+        });
+        function getMessage() {
+            // let response = yield Customer.getCurrent( { filter: { include: ['levels','badges'] } } ).$promise;
+            // $scope.customer = response;
+            // $rootScope.customer = {};
+            $rootScope.customer.logged = true;
+
+        }
+
+        //Destroy Events
+        $scope.$on('$destroy', ()=>{
+            loginEvent();
+        });
+
+    },
+    link: (scope, element, attrs)=> {}
 });
