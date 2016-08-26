@@ -16,6 +16,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth) =>
     template,
     transclude: true,
     scope: {
+        item: "="
     },
     link: (scope, element, attrs)=>{
 

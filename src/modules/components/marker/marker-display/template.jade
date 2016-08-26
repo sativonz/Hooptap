@@ -1,7 +1,7 @@
 .wrapper__score-units-title {{ 'SCOREUNITS.title' | translate }}
 .row.zoneRow(ng-repeat="zoneRow in options.zones" id="zoneRow-{{$index+1}}")
     .center.profile-widget-full-items(ng-repeat="zoneCol in zoneRow" ng-class="{'col-xs-12': zoneRow.length == 1, 'col-xs-6': zoneRow.length == 2, 'col-xs-4': zoneRow.length == 3, 'col-xs-3': zoneRow.length == 4 }")
-        .marker-display__su(ng-click="$root.WPFviewLevelList = !$root.WPFviewLevelList"   ng-if="zoneCol.model == 'ScoreUnit'" tooltip-placement="top" uib-tooltip="{{ zoneCol.name | translate }}")
+        .marker-display__su(ng-click="$root.WPF.viewLevelList = !$root.WPF.viewLevelList"   ng-if="zoneCol.model == 'ScoreUnit'" tooltip-placement="top" uib-tooltip="{{ zoneCol.name | translate }}")
             .col-xs-6.not-padding.score
                 .title__score-units {{zoneCol.quantity}}
             .col-xs-6.not-padding
@@ -11,14 +11,12 @@
                 .title__score-units >{{zoneCol.minimum}}
             .col-xs-6.not-padding
                 img.marker-display__img(ng-src="{{zoneCol.image}}")
-        //TODO descomentar y borrar la siguiente linea
-        //.marker-display__badges(ng-click="$root.WPFviewBadges = !$root.WPFviewBadges" ng-if="zoneCol.model == 'Badge'" tooltip-placement="top" uib-tooltip="{{ 'BADGES.title' | translate }}")
-        .marker-display__badges( ng-if="zoneCol.model == 'Badge'" tooltip-placement="top" uib-tooltip="{{ 'BADGES.title' | translate }}")
-            .col-xs-6.not-padding
+        .marker-display__badges(ng-click="$root.WPF.viewBadges = !$root.WPF.viewBadges" ng-if="zoneCol.model == 'Badge'" tooltip-placement="top" uib-tooltip="{{ 'BADGES.title' | translate }}")
+           .col-xs-6.not-padding
                 .title__score-units {{zoneCol.count}}
             .col-xs-6.marker-display-badges__img.not-padding
                 img.marker-display__img(ng-src="{{zoneCol.image}}")
-.wrapper__badges-component(ng-if="$root.WPFviewBadges")
-    c-button-back(ng-click="$root.WPFviewBadges = !$root.WPFviewBadges")
+.wrapper__badges-component(ng-if="$root.WPF.viewBadges")
+    c-button-back(ng-click="$root.WPF.viewBadges = !$root.WPF.viewBadges")
     c-widget-header(title="{{'BADGES.title' | translate}}")
     c-badges-grid
