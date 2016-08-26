@@ -10,9 +10,8 @@ import './styles.scss';
  * @param {Boolean} showGlobalFeed Whether to display the global feed
  * @param {Boolean} showProfileHeader Whether to display the profile header
  * @param {Boolean} showMarker Whether to display the marker
- * @param {Boolean} menuOptions Menu options to put title in the GameRoom and hide/show de links
- * @param {Boolean} levelRow Level row options to hide/show the progressbar and the entire component
- * @param {Boolean} awardOptions Award options to hide/show the image, description and button
+ * @param {Object} menuOptions Menu options to put title in the GameRoom and hide/show de links
+ * @param {Object} levelRow Level row options to hide/show the progressbar and the entire component
  * @element ANY
  */
 export default(Customer, LoopBackAuth, $rootScope,$compile, $parse) => ({
@@ -56,7 +55,7 @@ export default(Customer, LoopBackAuth, $rootScope,$compile, $parse) => ({
                 titleGameRoom: "Salón de juegos",
                 showQuests: false,
                 showLevel: false,
-                showBadges: false,
+                showBadges: true,
                 showRankings: false,
                 showGlobalFeed: false,
                 showEditProfile: false,

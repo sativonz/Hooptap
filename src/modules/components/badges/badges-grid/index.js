@@ -11,13 +11,22 @@ import detail from './detail.jade';
  * @param {String} title Title of the badge
  * @element ANY
  */
-export default($rootScope, $timeout, $uibModal, $log) => ({
+export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth) => ({
     restrict: 'E',
     template,
     transclude: true,
     scope: {
     },
     link: (scope, element, attrs)=>{
+
+
+        Customer.get( { filter: { include: ['badges'] } } ).$promise.then(
+            (response)=>{
+
+                console.log("Response badges:", response);
+
+            }
+        );
 
         //Detail view
         scope.badgeDetail = function (item) {

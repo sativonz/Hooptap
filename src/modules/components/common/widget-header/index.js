@@ -10,13 +10,10 @@ import template from './template.jade';
  */
 export default() => ({
     restrict: 'E',
+    template,
     transclude: true,
     scope: {
         title: '@'
     },
-
-    link: (scope, element, attrs)=>{
-    },
-    template
-
+    link: (scope, element, attrs)=>{}
 });
