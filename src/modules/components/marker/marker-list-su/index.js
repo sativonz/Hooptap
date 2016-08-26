@@ -13,7 +13,9 @@ import './styles.scss';
  */
 export default($timeout) => ({
     restrict: 'E',
-    scope: {},
+    scope: {
+        item: '='
+    },
     template,
     link: (scope, element, attrs)=> {},
 });
