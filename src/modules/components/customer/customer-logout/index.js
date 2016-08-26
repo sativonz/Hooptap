@@ -18,7 +18,7 @@ export default(Customer, $rootScope, $q) => ({
                 .then((response)=> {
                     $rootScope.customer = {};
                     scope.showDropdown = false;
-                    $rootScope.logged = false;
+                    $rootScope.customer.logged = false;
                 });
         }
 }

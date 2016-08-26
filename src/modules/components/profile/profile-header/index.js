@@ -16,7 +16,8 @@ import './styles.scss';
 export default(Customer, $rootScope, $q) => ({
     restrict: 'E',
     scope: {
-        editProfile: '='
+        editProfile: '=',
+        item: '='
     },
     template,
     link: (scope, element, attrs)=> {

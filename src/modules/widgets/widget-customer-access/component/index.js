@@ -21,20 +21,5 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
     },
     link: (scope, element, attrs)=> {
 
-        Customer.findById(LoopBackAuth.currentUserId).$promise.then(
-            (response)=>{
-                $rootScope.customer = response;
-            }
-        );
-
-
-
-        Customer.getCurrent({
-        }).$promise.then((response)=> {
-            scope.user = response;
-
-        }).catch((error)=> {
-            console.log(error);
-        });
     }
 });

@@ -1,13 +1,13 @@
 -var allViewsFalse = "!$root.WPFviewBadges && !$root.WPFviewMarkerSU && !$root.WPFviewQuests && !$root.WPFviewRanking && !$root.WPFviewEditProfile && !$root.WPFviewGameRoom && !$root.WPFviewLevelList"
 -var bodyStyle = "'viewStyle': $root.WPFviewBadges || $root.WPFviewMarkerSU || $root.WPFviewQuests || $root.WPFviewRanking || $root.WPFviewEditProfile || $root.WPFviewGameRoom || $root.WPFviewLevelList"
 
-c-button-menu(ng-if="$root.logged && #{allViewsFalse}" title-game-room="menuOptions.titleGameRoom" show-quests="menuOptions.showQuests" show-badges="menuOptions.showBadges" show-rankings="menuOptions.showRankings" show-level="menuOptions.showLevel" show-global-feed="menuOptions.showGlobalFeed" show-marketplace="menuOptions.showMarketplace" show-edit-profile="menuOptions.showEditProfile" show-game-room="menuOptions.showGameRoom")
+c-button-menu(ng-if="$root.customer.logged && #{allViewsFalse}" title-game-room="menuOptions.titleGameRoom" show-quests="menuOptions.showQuests" show-badges="menuOptions.showBadges" show-rankings="menuOptions.showRankings" show-level="menuOptions.showLevel" show-global-feed="menuOptions.showGlobalFeed" show-marketplace="menuOptions.showMarketplace" show-edit-profile="menuOptions.showEditProfile" show-game-room="menuOptions.showGameRoom")
 c-button-close
-w-widget-customer-access(ng-if="!$root.logged" show-mix-form="true")
-.ht-profile-widget-full(ng-if="$root.logged")
+w-widget-customer-access(ng-if="!$root.customer.logged" show-mix-form="true")
+.ht-profile-widget-full(ng-if="$root.customer.logged")
     .profile-widget-full__container
         c-widget-header(ng-if="#{allViewsFalse}")
-        c-profile-header(ng-if="showProfileHeader && #{allViewsFalse}" edit-profile="editProfile")
+        c-profile-header(ng-if="showProfileHeader && #{allViewsFalse}" edit-profile="editProfile" item="customer")
         .wrapper-components(ng-class="{#{bodyStyle}, 'defaultStyle': $root.WPFviewDefault}")
             .wrapper__score-units.row(ng-if="showMarker && #{allViewsFalse} && $root.customer.scoreUnits")
                 c-marker-display(options="$root.scoreDisplayConfig")
@@ -63,5 +63,5 @@ w-widget-customer-access(ng-if="!$root.logged" show-mix-form="true")
                 c-button-back(ng-click="$root.WPFviewLevelList = !$root.WPFviewLevelList" ng-if="$root.WPFviewLevelList")
                 c-widget-header(title="{{ 'SCOREUNITS.title' | translate }}")
                 c-marker-list-su
-.footer-shadow(ng-if="$root.logged")
+.footer-shadow(ng-if="$root.customer.logged")
 

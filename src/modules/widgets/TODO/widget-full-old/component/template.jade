@@ -1,6 +1,6 @@
-c-button-menu(ng-if="$root.logged" value="menuItems")
+c-button-menu(ng-if="$root.customer.logged" value="menuItems")
 c-button-close
-c-customer-nav(ng-if="!$root.logged")
+c-customer-nav(ng-if="!$root.customer.logged")
 .ht-profile-widget-full
     .profile-widget-full__container(ng-show="$root.currentView==='profileWidgetFull.default'")
         c-widget-header

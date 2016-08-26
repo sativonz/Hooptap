@@ -20,13 +20,13 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth) =>
     link: (scope, element, attrs)=>{
 
 
-        Customer.get( { filter: { include: ['badges'] } } ).$promise.then(
-            (response)=>{
-
-                console.log("Response badges:", response);
-
-            }
-        );
+        // Customer.get( { filter: { include: ['badges'] } } ).$promise.then(
+        //     (response)=>{
+        //
+        //         console.log("Response badges:", response);
+        //
+        //     }
+        // );
 
         //Detail view
         scope.badgeDetail = function (item) {
