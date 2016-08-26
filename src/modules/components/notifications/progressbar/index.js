@@ -1,12 +1,13 @@
 import template from './template.jade';
 import './styles.scss';
 /**
- * //TODO por ver como se plantean los pasos de la mision... hecha solo la vista.....
  * @ngdoc directive
- * @name Progressbar quests
+ * @name Progressbar
  * @module Components
- * @description Component to see the user's progress at the current quest
+ * @description Component to see the user's progress for badges and quest, to show the progress
  * @restrict E
+ * @param {Object} steps The total of steps
+ * @param {Object} currentStep The current step of the user
  * @element ANY
  */
 export default() => ({

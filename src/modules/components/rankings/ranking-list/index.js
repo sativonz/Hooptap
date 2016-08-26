@@ -4,12 +4,8 @@ import './styles.scss';
  * @ngdoc directive
  * @name Ranking list
  * @module Components
- * @description Component for see the total ranking
+ * @description Component for see the elected ranking with her corresponding score unit
  * @restrict E
- * //TODO revisar params
- * @param {String} username Username of the user of the ranking
- * @param {String} position Position in the ranking of the user
- * @param {String} score Score in the ranking of the user
  * @element ANY
  */
 export default($rootScope, Customer, LoopBackAuth) => ({

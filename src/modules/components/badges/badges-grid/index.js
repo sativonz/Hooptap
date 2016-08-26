@@ -1,14 +1,12 @@
 import template from './template.jade';
 import detail from './detail.jade';
-
 /**
  * @ngdoc directive
  * @name Badges grid
  * @module Components
  * @description Component for see the badges of the user in a grid
  * @restrict E
- * //TODO revisar params
- * @param {String} title Title of the badge
+ * @param {Object} item Object with full information of the customer
  * @element ANY
  */
 export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth) => ({

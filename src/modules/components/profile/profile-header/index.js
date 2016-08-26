@@ -1,16 +1,13 @@
 import template from './template.jade';
 import './styles.scss';
-
 /**
  * @ngdoc directive
  * @name Profile header
  * @module Components
- //TODO revisar description porque en el excel salen mas cosas que en el wireframe/mockup
- * @description Component for profile full, where it is displayed the name, email, and profile image
+ * @description Component for show a profile header, where it is displayed the name, email, and profile image
  * @restrict E
- * @param {String} name name of actual user
- * @param {String} email email of actual user
- * @param {image} image Profile image
+ * @param {Boolean} editProfile Button to show the view for change the data profile
+ * @param {Object} item Object with full information of the customer
  * @element ANY
  */
 export default(Customer, $rootScope, $q) => ({
