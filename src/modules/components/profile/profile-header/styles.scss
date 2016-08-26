@@ -11,9 +11,13 @@ c-profile-header {
 
     .ht-profile-header__wrapper {
 
-      .col-xs-4{
-
         .ht-profile-header__images {
+
+          &:hover .ht-profile-header__img-upload {
+            display: block;
+            cursor: pointer;
+          }
+
 
           .ht-profile-header__profile-photo {
             border-radius: 50%;
@@ -58,8 +62,7 @@ c-profile-header {
           left: 103px;
           cursor: pointer;
         }
-      }
-      .col-xs-2 {
+
 
         .ht-profile-header__title-name,
         .ht-profile-header__title-email {
@@ -67,8 +70,6 @@ c-profile-header {
           color: white;
           font-weight: 200;
         }
-      }
-      .col-xs-6 {
 
         .ht-profile-header__item-name,
         .ht-profile-header__item-email{
@@ -81,11 +82,7 @@ c-profile-header {
         .ht-profile-header__item-email {
           padding-top: 4px;
         }
-      }
-      .ht-profile-header__images:hover .ht-profile-header__img-upload{
-        display: block;
-        cursor: pointer;
-      }
+
     }
   }
 

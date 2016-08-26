@@ -57,7 +57,7 @@ export default(Customer, $rootScope, $parse) => ({
             });
 
 
-
+        //TODO refactor
         scope.showRankingDetail = (item) => {
             $rootScope.customer.ranking = item;
 

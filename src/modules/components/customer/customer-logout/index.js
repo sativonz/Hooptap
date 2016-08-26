@@ -1,7 +1,7 @@
 import template from './template.jade';
 /**
  * @ngdoc directive
- * @name Customer logut
+ * @name Customer logout
  * @module Components
  * @description Component for log out
  * @restrict E

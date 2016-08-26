@@ -14,6 +14,6 @@ export default($rootScope) => ({
     link: (scope, element, attrs)=>{
         scope.goBack = ()=> {
             $rootScope.selectItem = false;
-        }
+        };
     }
 });

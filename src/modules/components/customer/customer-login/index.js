@@ -4,11 +4,9 @@ import Q from 'q';
  * @ngdoc directive
  * @name Customer login
  * @module Components
- * @description Component for Login a user with username/email and password
+ * @description Component for Login a user with email and password
  * @restrict E
- * //TODO revisar los parametros opcionales
- * @param {String=} username Username of user
- * @param {String=} email User email
+ * @param {String} email User email
  * @param {String} password User password
  * @element ANY
  */
@@ -76,10 +74,12 @@ export default() => ({
                         }
 
                         $rootScope.customer.scoreUnits = ScoreUnits;
-
+                        console.log("1");
                         let zones = $rootScope.scoreDisplayConfig.zones;
+
                         //let scoreUnits = $rootScope.customer.scoreUnits;
                         //let levels = $rootScope.customer.levels;
+                        console.log("2");
                         let badges = $rootScope.customer.badges;
 
 
