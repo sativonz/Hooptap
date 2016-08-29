@@ -25,8 +25,6 @@ export default($rootScope, Customer, LoopBackAuth) => ({
         );
 
 
-
-
         scope.rankings = {
             "diamond": {
                 "name": "Ranking de rubíes",

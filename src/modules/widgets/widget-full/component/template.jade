@@ -55,7 +55,7 @@ c-button-close
 
             .wrapper__ranking-component(ng-if="$root.WPF.viewRanking")
                 c-button-back(ng-click="$root.WPF.viewRanking = !$root.WPF.viewRanking")
-                c-widget-header(title="{{ $root.customer.ranking.actualSu }} ranking")
+                c-widget-header(title="{{ customer.ranking.actualSu }} ranking")
                 c-ranking-list
 
             .wrapper__edit-profile(ng-if="$root.WPF.viewEditProfile")

@@ -7,18 +7,30 @@ import detail from './detail.jade';
  * @description Component for see the badges of the user in a grid
  * @restrict E
  * @param {Object} item Object with full information of the customer
+ * @param {Boolean} showTitle Whether to display the title of the badge
+ * @param {Boolean} showDesc Whether to display the description of the badge
  * @element ANY
  */
-export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth) => ({
+export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, clientHelper) => ({
     restrict: 'E',
     template,
     transclude: true,
     scope: {
         item: "=",
-        showTitle: '=',
-        showDesc: '='
+        showTitle: '=?',
+        showDesc: '=?',
+        showDetailImg: '=?'
     },
     link: (scope, element, attrs)=>{
+
+
+        let defaults = {
+            showTitle: true,
+            showDesc: true,
+            showDetailImg: false
+        };
+
+        clientHelper.setDefaultAttributes(defaults, scope, attrs);
 
 
         // Customer.get( { filter: { include: ['badges'] } } ).$promise.then(
@@ -36,15 +48,17 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth) =>
                 animation: scope.animationsEnabled,
                 appendTo: angular.element('c-badges-grid'),
                 template: detail,
-                controller: ['$scope','item', 'showTitle', 'showDesc', ($scope, item, showTitle, showDesc)=>{
+                controller: ['$scope','item', 'showTitle', 'showDesc', 'showDetailImg', ($scope, item, showTitle, showDesc, showDetailImg)=>{
                     $scope.item = item;
                     $scope.showTitle = showTitle;
                     $scope.showDesc = showDesc;
+                    $scope.showDetailImg = showDetailImg;
                 }],
                 resolve: {
                     item: ()=> item,
                     showTitle:() => scope.showTitle,
-                    showDesc: ()=> scope.showDesc
+                    showDesc: ()=> scope.showDesc,
+                    showDetailImg: ()=> scope.showDetailImg,
                 },
                 size: 'sm',
             });

@@ -1,263 +1,252 @@
 @import '../../../../common/stylesheets/common/mixins.scss';
+@import '../../../../common/stylesheets/common/colors.scss';
+
+//->Placeholder
+%navActiveMix {
+  background-color: transparent !important;
+  border: 1px solid transparent !important;
+  padding-top: 5px;
+}
 
 c-badges-grid {
   display: block;
   position: absolute;
   width: 100%;
-  @include calc( height, '100% - 50px');
+  padding-right: 0!important;
+  @include calc(height, '100% - 50px');
+  .ht-badges-list__container {
+    .nav.nav-tabs {
+      width: 100%;
+      height: 35px;
+      > li {
+        width: 33.333333%;
+        border-bottom: 3px solid $_1_header-color;
+        height: 35px;
+        > a {
+          text-align: center;
+          font-size: 10pt;
+          color: $_1_header-color;
+          font-weight: 400;
+          padding: 5px 1px 1px 1px;
+          &:hover {
+            border-color: $white!important;
+            background-color: $white!important;
+          }
+        }
+      }
+      > li.active {
+        border-bottom: 3px solid $_1_line-space-color;
+        background: $_1_tab-active__color;
+        > a {
+          background: none;
+          text-align: center;
+          font-size: 10pt;
+          font-weight: 400;
+          border: none;
+          color: $white !important;
+          font-weight: bold;
+          @extend %navActiveMix;
+          &:hover {
+            @extend %navActiveMix;
+          }
+          &:focus{
+            @extend %navActiveMix;
+          }
+        }
 
-  .badge-item__img img{
-  }
+      }
+    }
+    .ht-badges-list__wrapper {
+      //-> 2 cols
+      .col-xs-6 .badge-item__img {
+        width: 155px;
+        height: 155px;
+      }
 
-  .badge-item__title {
-    font-size: 12px;
-    text-align: center;
-    color: $_1_header-color;
-    font-weight: 400;
-    padding-top: 3px;
-    margin-left: -6px;
-  }
+      .badge-item.col-xs-6 {
+        height: 200px !important;
+      }
 
-  .badge-item {
-    cursor: pointer;
-    margin-bottom: 6px;
-    height: 105px!important;
-  }
+      .col-xs-6 c-progressbar .stepbar {
+        width: 169px;
+        margin-left: -5.5%;
+      }
 
-  .badge-item.badge-not-achieved {
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-  }
+      .col-xs-6 c-progressbar .step-inner {
+        height: 15px;
+      }
 
-  //.badge-started {
-  //  filter: sepia(100%);
-  //  -webkit-filter: sepia(100%);
-  //}
+      .col-xs-6 c-progressbar .step-inner.last {
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 5px;
+      }
 
-  .nav-tabs > li {
-    width:33.333333%;
-    border-bottom: 3px solid $_1_header-color;
-    height:35px;
-  }
+      //-> 3 cols
+      .col-xs-4 .badge-item__img {
+        width: 100px;
+        height: 100px;
+      }
 
-  .nav-tabs > li.active > a {
-    background: none;
-    text-align: center;
-    font-size: 10pt;
-    font-weight: 400;
-    border: none;
-    color: white!important;
-    font-weight: bold;
-  }
+      .badge-item.col-xs-4 {
+        height: 145px !important;
+        width: 128px !important;
+      }
 
-  .nav-tabs > li > a {
-    text-align: center;
-    font-size: 10pt;
-    color: $_1_header-color;
-    font-weight: 400;
-    padding: 5px 1px 1px 1px;
+      .col-xs-4 c-progressbar .stepbar {
+        width: 143px;
+        margin-left: -24.5%;
+      }
+      .col-xs-4 c-progressbar .step-inner {
+        height: 10px;
+      }
+      //-> 4 cols
+      .col-xs-3 .badge-item__img {
+        width: 100px;
+        height: 100px;
+      }
 
-  }
+      .badge-item.col-xs-3 {
+        height: 145px !important;
+      }
 
-  .nav-tabs{
-    width: 100%;
-    height:35px;
-  }
-
-  .nav-tabs > li.active {
-    border-bottom: 3px solid $_1_line-space-color;
-    background: #B2C059;
-  }
-
-  .tab-content {
-    width: 100%;
-    height: 399px;
-    padding: 15px;
-    overflow: auto;
-    position: relative;
-  }
-
-  .badge-item__desc {
-    display: block;
-    width: 0px;
-    height: 93px;
-    background: rgba(0, 0, 0, 0.81);
-    position: absolute;
-    left: -2px;
-    top: -7px;
-    font-size: 9pt;
-    color: white;
-    text-align: center;
-    z-index: 99999999999999999999;
-    @include border-radius(5px);
-    @include transition(width 0.75s, padding 2s);
-    @include  transition-delay(0.75s);
-    span {
+      .col-xs-3 c-progressbar .stepbar {
+        width: 143px;
+        margin-left: -24.5%;
+      }
+      .col-xs-3 c-progressbar .step-inner {
+        height: 10px;
+      }
+    }
+    .tab-content {
+      width: 100%;
+      height: 399px;
+      padding: 15px 15px 15px 20px;
+      overflow: auto;
+      overflow-x: hidden;
       position: relative;
-      top:5px;
-      visibility: hidden;
-      opacity:0;
-      @include  transition-delay(0.75s);
-      @include transition(visibility 3s, opacity 3s linear);
+      .ht-badges-list__wrapper {
+        .badge-item {
+          cursor: pointer;
+          margin-bottom: 6px;
+          height: 105px !important;
+          .badge-item__img {
+            height: 59px;
+            width: 59px;
+          }
+          .badge-item__title {
+            font-size: 12px;
+            text-align: center;
+            color: $_1_header-color;
+            font-weight: 400;
+            padding-top: 3px;
+            margin-left: -6px;
+          }
+          .badge-item__progresbar {
+            height: 10px;
+            -webkit-transform: translate(0);
+            transform: translate(-50%, -50%);
+            position: absolute;
+            margin: 10px;
+            top: 72px;
+            left: 64px;
+            c-progressbar {
+              asdfasdfds: asdfdasf;
+              .stepbar {
+                width: 102px;
+                margin-left: -29.5%;
+                .stepbar-step {
+                  padding: 0;
+                  height: 15px;
+                  top: 5px;
+                  .step-inner {
+                    height: 6px;
+                    margin-right: 2px;
+                  }
+                }
+                .stepbar-step.active .step-inner {
+                  background-color: greenyellow;
+                }
+              }
+            }
+          }
+        }
+        .badge-item.badge-not-achieved {
+          filter: grayscale(100%);
+          -webkit-filter: grayscale(100%);
+        }
+      }
     }
   }
 
-  .badge-item:hover > .badge-item__desc{
-    width: 93px;
-  }
-
-  .badge-item:hover > .badge-item__desc span{
-    visibility: visible;
-    opacity:1;
-  }
-
-  .badge-item__img {
-    height: 59px;
-    width: 59px;
-  }
-
-//-> Progressbar
-  c-progressbar .stepbar {
-    width: 102px;
-    margin-left: -29.5%;
-  }
-
-  c-progressbar .stepbar-step {
-    padding:0;
-    height: 15px;
-    top: 5px;
-  }
-
-  c-progressbar .step-inner {
-    height: 6px;
-    margin-right: 2px;
-  }
-
-  c-progressbar .stepbar-step.active .step-inner{
-    background-color: greenyellow;
-  }
-
-  .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-    background-color: transparent!important;
-    border: 1px solid transparent!important;
-    padding-top: 5px;
-  }
-
-  //Styles for 2 cols
-  .badge-grid-wrapper .col-xs-6 .badge-item__img {
-    width: 155px;
-    height: 155px;
-  }
-
-  .badge-item.col-xs-6 {
-    height: 200px!important;
-  }
-
-  .badge-grid-wrapper .col-xs-6 c-progressbar .stepbar {
-    width: 169px;
-    margin-left: -5.5%;
-  }
-
-  .badge-grid-wrapper .col-xs-6 c-progressbar .step-inner {
-    height: 15px;
-  }
-
-  .badge-grid-wrapper .col-xs-6 c-progressbar .step-inner.last {
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-  }
-
-  //Styles for 3 cols
-  .badge-grid-wrapper .col-xs-4 .badge-item__img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .badge-item.col-xs-4 {
-    height: 145px!important;
-    width: 128px!important;
-  }
-
-  .badge-grid-wrapper .col-xs-4 c-progressbar .stepbar {
-    width: 143px;
-    margin-left: -24.5%;
-  }
-  .badge-grid-wrapper .col-xs-4 c-progressbar .step-inner {
-    height: 10px;
-  }
-
-
-  //Styles for 3 cols
-  .badge-grid-wrapper .col-xs-4 .badge-item__img {
-    width: 100px;
-    height: 100px;
-  }
-
-  .badge-item.col-xs-4 {
-    height: 145px!important;
-  }
-
-  .badge-grid-wrapper .col-xs-4 c-progressbar .stepbar {
-    width: 143px;
-    margin-left: -24.5%;
-  }
-  .badge-grid-wrapper .col-xs-4 c-progressbar .step-inner {
-    height: 10px;
-  }
-
-  //->
-
-  .modal-sm {
-    width: 255px!important;
-    height: 255px!important;
-    -webkit-transform: translate(0);
-    transform: translate(-50%,-50%);
-    position: absolute;
-    margin: 10px;
-    top: 50%;
-    left: 50%;
-    .modal-content {
-      padding: 20px!important;
+  .modal {
+    .modal-sm {
+      width: 255px !important;
+      height: 255px !important;
+      -webkit-transform: translate(0);
+      transform: translate(-50%, -50%);
+      position: absolute;
+      margin: 10px;
+      top: 50%;
+      left: 50%;
+      .modal-content {
+        padding: 20px !important;
+        .badge-detail__img-close {
+          position: absolute;
+          right: 15px;
+          top: 15px;
+          cursor: pointer;
+        }
+        .badge-detail__img {
+          width: 100px;
+        }
+        .badge-detail__desc {
+          color: $_1_light-grey-background;
+          font-size: 14px;
+          margin-top: 19px;
+        }
+        .badge-detail__ttl {
+          color: $_1_badge-detail_ttl;
+          font-size: 14px;
+        }
+        .badge-detail__wrapper.badge-not-achieved {
+          filter: grayscale(100%);
+          -webkit-filter: grayscale(100%);
+        }
+        .badge-item__progresbar {
+          height: 10px;
+          -webkit-transform: translate(0);
+          transform: translate(-50%, -50%);
+          position: absolute;
+          margin: 10px;
+          top: 60%;
+          left: 62%;
+          c-progressbar {
+            .stepbar {
+              width: 130px;
+              margin-left: -29.5%;
+              .stepbar-disabled {
+                width: 95px;
+                left: 0px;
+                .stepbar-new {
+                  width: 95px;
+                }
+              }
+              .stepbar-step {
+                padding: 0;
+                height: 15px;
+                top: 5px;
+                .step-inner {
+                  height: 6px;
+                  margin-right: 2px;
+                }
+              }
+              .stepbar-step.active .step-inner {
+                background-color: greenyellow;
+              }
+            }
+          }
+        }
+      }
     }
   }
-
-  //Badge detail
-
-  .badge-detail__img {
-    width:100px;
-  }
-
-  .badge-detail__desc {
-    color: $_1_light-grey-background;
-    font-size: 14px;
-    margin-top: 19px;
-  }
-
-  .badge-detail__ttl {
-    color: #266592;
-    font-size: 14px;
-  }
-
-  .badge-detail__img-close {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    cursor: pointer;
-  }
-
-  .modal .badge-item__progresbar {
-    height: 10px;
-    -webkit-transform: translate(0);
-    transform: translate(-50%,-50%);
-    position: absolute;
-    margin: 10px;
-    top: 60%;
-    left: 59%;
-  }
-
-  .badge-detail__wrapper.badge-not-achieved {
-    filter: grayscale(100%);
-    -webkit-filter: grayscale(100%);
-  }
-
 }
