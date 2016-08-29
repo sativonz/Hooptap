@@ -40,17 +40,15 @@ import './common/services/angular-sdk.js';
             
             //Components
             require('./common/components/translations').default,
-
             //Modules
             require('./modules/components').default,
             require('./common').default,
-
             //Widgets
             require('./modules/widgets/widget-full').default,
             require('./modules/widgets/widget-quests').default,
             require('./modules/widgets/widget-ranking-total').default,
             require('./modules/widgets/widget-badges-grid').default,
-            require('./modules/widgets/widget-customer-access').default,
+            require('./modules/widgets/widget-customer-access').default
         ])
 
 

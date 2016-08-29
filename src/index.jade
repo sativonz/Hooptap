@@ -3,10 +3,16 @@ div#ht-widget(ng-app="htWidget" ng-controller="htWidgetCtrl")
     div(id="ht-widgets").template-1
 
         //--> WIDGET CUSTOMER ACCESS
-        //w-widget-customer-access
+        w-widget-customer-access(
+            id-widget="12345",
+            show-mix-form="true"
+            show-register-form="false"
+            show-login-form="false"
+        )
 
-        //--> WIDGET FULL
-        //w-widget-full
+        //-----WIDGET FULL-----\\
+        w-widget-full
+
 
         //--> WIDGET QUESTS
         //w-widget-quests
