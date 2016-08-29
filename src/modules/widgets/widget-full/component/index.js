@@ -228,7 +228,7 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                 showQuests: false,
                 showLevel: false,
                 showBadges: true,
-                showRankings: false,
+                showRankings: true,
                 showGlobalFeed: false,
                 showEditProfile: false,
                 showMarketplace: false,

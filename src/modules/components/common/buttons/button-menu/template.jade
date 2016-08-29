@@ -26,7 +26,7 @@ div#menu
         li.animated.slideInLeft(ng-if="showEditProfile" ng-click="$root.WPF.viewEditProfile = !$root.WPF.viewEditProfile")
             a {{ 'CUSTOMER.update.title' | translate }}
         li.animated.slideInLeft(ng-if="!logout")
-            a.menu-logout(ng-click="formLogout()") {{ 'CUSTOMER.common.logout' | translate }}
+            a.item-menu__logout(ng-click="formLogout()") {{ 'CUSTOMER.common.logout' | translate }}
 
 
 
