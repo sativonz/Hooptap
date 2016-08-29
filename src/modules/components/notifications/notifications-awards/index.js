@@ -12,15 +12,23 @@ import $ from "jquery";
   * @param {String=} img Image of the popup
   * @element ANY
   */
-export default($uibModal, $log) => ({
+export default($uibModal, $log, clientHelper) => ({
     restrict: 'E',
-    scope: {
-        showImage: '=',
-        showDesc: '=',
-        showButton: '=',
-    },
     template,
-     link (scope, element, attrs) {
+    scope: {
+        showImage: '=?',
+        showDesc: '=?',
+        showButton: '=?'
+    },
 
-     }
+    link (scope, element, attrs) {
+
+         let defaults = {
+             showImage: true,
+             showDesc: true,
+             showButton: true
+         };
+
+         clientHelper.setDefaultAttributes(defaults, scope, attrs);
+    }
 });

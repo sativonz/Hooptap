@@ -4,10 +4,10 @@ div(modal-render="true" tabindex="-1" role="dialog" class="modal ng-isolate-scop
         h3.modal-title YOU GOT A 3.000 PTS
         c-button-close
     .modal-body
-        .wrapper-img(ng-if="showImg")
+        .wrapper-img(ng-if="showImage")
             img(ng-src="http://www.cse.iitd.ernet.in/projects/data/default.png")
         .modal-desc(ng-if="showDesc")
             p You got the badge Welcome! We just sent you an e-mail with yyour discount code.
-    .modal-footer(ng-if="showBtn")
+    .modal-footer(ng-if="showButton")
         a.modal-button(href="#") Print
 

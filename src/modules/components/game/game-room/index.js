@@ -10,19 +10,28 @@ import './styles.scss';
  * @param {Boolean} showDesc Whether or not display the description of the game
  * @element ANY
  */
-export default($timeout) => ({
+export default($timeout, clientHelper) => ({
     restrict: 'E',
     template,
     scope: {
-        showTitle: '=',
-        showDesc: '=',
+        showTitle: '=?',
+        showDesc: '=?',
     },
     link: (scope, element, attrs)=> {
 
+        let defaults = {
+            showTitle: true,
+            showDesc: true
+        };
+
+        clientHelper.setDefaultAttributes(defaults, scope, attrs);
+
         //Definir el numero de cols entre 2, 3, 4 y 5
         scope.numberCols = 3;
+
         //TODO Refactor default image
         scope.defaultImage = require("./images/default-icon.png");
+
         scope.gameroom = [
             {
                 "id": "5775397981dbc14a04530f73",

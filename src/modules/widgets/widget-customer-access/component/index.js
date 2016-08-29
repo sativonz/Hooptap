@@ -11,7 +11,7 @@ import './styles.scss';
  * @param {Boolean} showRegisterForm Whether to display the mix form
  * @element ANY
  */
-export default(Customer, LoopBackAuth, $rootScope) => ({
+export default(Customer, LoopBackAuth, $rootScope, clientHelper) => ({
     restrict: 'E',
     template,
     scope: {
@@ -19,7 +19,7 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
         showLoginForm: '=?',
         showMixForm: '=?'
     },
-    controller: ($scope, $rootScope, Customer, ScoreUnit, Level, LoopBackAuth)=> {
+    controller: ($scope, $rootScope, LoopBackAuth)=> {
 
         var loginEvent =  $rootScope.$on("loginSuccess", (event, response)=>{
             getMessage();
@@ -45,15 +45,7 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
             showLoginForm: false,
         };
 
-        for(var optionKey in defaults) {
-            if(attrs[optionKey]){
-                //console.log(attrs[optionKey]);
-                if(scope[optionKey] && typeof scope[optionKey] === 'object'){
-                    scope[optionKey] = Object.assign(defaults[optionKey], scope[optionKey]);
-                }
-            }else{
-                scope[optionKey] = defaults[optionKey];
-            }}
+        clientHelper.setDefaultAttributes(defaults, scope, attrs);
 
 
 

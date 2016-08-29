@@ -6,4 +6,4 @@ c-widget-header(title="{{::'GAMEROOM.title' | translate}}" ng-if="!$root.WPF.vie
             p.title(ng-if="showTitle") {{ game.title }}
             p.desc(ng-if="showDesc" ng-class="{'showOnlyDesc': !showTitle }") {{ game.desc }}
 .ht-game-room__container-detail
-c-game-room-detail(show-desc="true" show-title="true" ng-if="$root.WPF.viewGRdetail")
+c-game-room-detail(show-desc="showDesc" show-title="showTitle" ng-if="$root.WPF.viewGRdetail")

@@ -14,7 +14,9 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth) =>
     template,
     transclude: true,
     scope: {
-        item: "="
+        item: "=",
+        showTitle: '=',
+        showDesc: '='
     },
     link: (scope, element, attrs)=>{
 
@@ -34,11 +36,15 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth) =>
                 animation: scope.animationsEnabled,
                 appendTo: angular.element('c-badges-grid'),
                 template: detail,
-                controller: ['$scope','item', ($scope, item)=>{
+                controller: ['$scope','item', 'showTitle', 'showDesc', ($scope, item, showTitle, showDesc)=>{
                     $scope.item = item;
+                    $scope.showTitle = showTitle;
+                    $scope.showDesc = showDesc;
                 }],
                 resolve: {
-                  item: ()=> {return item}
+                    item: ()=> item,
+                    showTitle:() => scope.showTitle,
+                    showDesc: ()=> scope.showDesc
                 },
                 size: 'sm',
             });

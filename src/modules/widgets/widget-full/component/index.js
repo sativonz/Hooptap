@@ -15,7 +15,7 @@ import Q from 'q';
  * @param {Object} levelRow Level row options to hide/show the progressbar and the entire component
  * @element ANY
  */
-export default(Customer, LoopBackAuth, $rootScope,$compile, $parse) => ({
+export default(Customer, LoopBackAuth, $rootScope,$compile, $parse,  clientHelper) => ({
     restrict: 'E',
     transclude: true,
     template,
@@ -239,15 +239,7 @@ export default(Customer, LoopBackAuth, $rootScope,$compile, $parse) => ({
             }
         };
 
-        for(var optionKey in defaults) {
-            if(attrs[optionKey]){
-                //console.log(attrs[optionKey]);
-                if(scope[optionKey] && typeof scope[optionKey] === 'object'){
-                    scope[optionKey] = Object.assign(defaults[optionKey], scope[optionKey]);
-                }
-            }else{
-                scope[optionKey] = defaults[optionKey];
-            }}
+        clientHelper.setDefaultAttributes(defaults, scope, attrs);
 
 
         //Modelo de zonas, mostrando los 4 tipos para test

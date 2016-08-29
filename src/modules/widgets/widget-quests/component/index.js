@@ -1,4 +1,5 @@
 import template from './template.jade';
+import './styles.scss';
 /**
  * @ngdoc directive
  * @name Widget quests
@@ -12,8 +13,6 @@ import template from './template.jade';
 export default() => ({
     restrict: 'E',
     scope: {
-        idWidget: '=',
-        showCompleteQuests: '=',
     },
     link: (scope, element, attrs)=>{
 

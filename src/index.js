@@ -43,6 +43,7 @@ import './common/services/angular-sdk.js';
 
             //Modules
             require('./modules/components').default,
+            require('./common').default,
 
             //Widgets
             require('./modules/widgets/widget-full').default,
