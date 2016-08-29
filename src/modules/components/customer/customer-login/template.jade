@@ -11,6 +11,8 @@
 			span.ht-form__highlight
 			span.ht-form__bar
 			label.ht-form__label {{ 'CUSTOMER.common.password' | translate }}
+		.ht-form__group
+			input(ng-model="rememberMe" type='checkbox' name="rememberMe")
 		.ht-form__group-button
 				button.animated.bounceInUp.ht-form--button__login(type='submit' ng-click="login(widget)")
 					| {{ 'CUSTOMER.login.button' | translate }}

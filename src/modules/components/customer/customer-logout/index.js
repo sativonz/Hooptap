@@ -14,6 +14,7 @@ export default(Customer, $rootScope, $q) => ({
     link: (scope, element, attrs) =>  {
         attrs.formLogout = attrs.formLogout || false; //default value
         scope.formLogout = () => {
+            //TODO Conectar con CustomerModel
             Customer.logout().$promise
                 .then((response)=> {
                     $rootScope.customer = {};
