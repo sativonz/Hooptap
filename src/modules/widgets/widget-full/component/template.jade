@@ -38,31 +38,39 @@ w-widget-customer-access(ng-if="!$root.customer.logged" show-mix-form="true")
                                 .progressbar
                                     .progressbar-actual(style="width:{{level.nextLevel.percent}}%")
                                         div.center(style="width:233px;") {{customer.scores[ level.scoreUnitId ]}} / {{level.nextLevel.diff}} {{level.scoreUnitName}}
+
             .wrapper__gf.row(ng-if="showGlobalFeed && #{allViewsFalse}")
                 .wrapper__gf-title {{ 'GLOBAL_FEED.title' | translate }}
                 c-game-global-feed
+
             .wrapper__badges-component(ng-if="$root.WPF.viewBadges")
                 c-button-back(ng-click="$root.WPF.viewBadges = !$root.WPF.viewBadges")
                 c-widget-header(title="{{'BADGES.title' | translate}}")
                 c-badges-grid(item="customer")
+
             .wrapper__quests-component(ng-if="$root.WPF.viewQuests")
                 c-button-back(ng-click="$root.WPF.viewQuests = !$root.WPF.viewQuests")
                 c-widget-header(title="{{ 'QUESTS.title' | translate }}")
                 c-quests-list
+
             .wrapper__ranking-component(ng-if="$root.WPF.viewRanking")
                 c-button-back(ng-click="$root.WPF.viewRanking = !$root.WPF.viewRanking")
                 c-widget-header(title="{{ $root.customer.ranking.actualSu }} ranking")
                 c-ranking-list
+
             .wrapper__edit-profile(ng-if="$root.WPF.viewEditProfile")
                 c-button-back(ng-click="$root.WPF.viewEditProfile = !$root.WPF.viewEditProfile")
                 c-widget-header(title="{{ 'CUSTOMER.update.title' | translate }}")
                 c-customer-update
+
             .wrapper__game-room(ng-if="$root.WPF.viewGameRoom")
                 c-button-back(ng-click="$root.WPF.viewGameRoom = !$root.WPF.viewGameRoom" ng-if="!$root.WPF.viewGRdetail")
                 c-game-room(show-desc="true" show-title="true")
+
             .wrapper__level-list(ng-if="$root.WPF.viewLevelList")
                 c-button-back(ng-click="$root.WPF.viewLevelList = !$root.WPF.viewLevelList" ng-if="$root.WPF.viewLevelList")
                 c-widget-header(title="{{ 'SCOREUNITS.title' | translate }}")
+
                 c-marker-list-su(item="customer")
 .footer-shadow(ng-if="$root.customer.logged")
 

@@ -209,6 +209,7 @@ export default(Customer, LoopBackAuth, $rootScope,$compile, $parse) => ({
            loginEvent();
         });
     },
+
     link: (scope, element, attrs)=> {
 
 
@@ -240,14 +241,13 @@ export default(Customer, LoopBackAuth, $rootScope,$compile, $parse) => ({
 
         for(var optionKey in defaults) {
             if(attrs[optionKey]){
-                console.log(attrs[optionKey]);
+                //console.log(attrs[optionKey]);
                 if(scope[optionKey] && typeof scope[optionKey] === 'object'){
                     scope[optionKey] = Object.assign(defaults[optionKey], scope[optionKey]);
                 }
             }else{
                 scope[optionKey] = defaults[optionKey];
             }}
-        //console.log(scope);
 
 
         //Modelo de zonas, mostrando los 4 tipos para test

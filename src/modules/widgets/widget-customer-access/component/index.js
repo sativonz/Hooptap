@@ -15,9 +15,9 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
     restrict: 'E',
     template,
     scope: {
-        showRegisterForm: '=',
-        showLoginForm: '=',
-        showMixForm: '='
+        showRegisterForm: '=?',
+        showLoginForm: '=?',
+        showMixForm: '=?'
     },
     controller: ($scope, $rootScope, Customer, ScoreUnit, Level, LoopBackAuth)=> {
 
@@ -27,10 +27,11 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
         function getMessage() {
             // let response = yield Customer.getCurrent( { filter: { include: ['levels','badges'] } } ).$promise;
             // $scope.customer = response;
-            // $rootScope.customer = {};
+            $rootScope.customer = {};
             $rootScope.customer.logged = true;
 
         }
+
 
         //Destroy Events
         $scope.$on('$destroy', ()=>{
@@ -38,5 +39,26 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
         });
 
     },
-    link: (scope, element, attrs)=> {}
+    link: (scope, element, attrs)=> {
+
+        //Default values for widget customer access
+        let defaults = {
+            showMixForm: true,
+            showRegisterForm: false,
+            showLoginForm: false,
+        };
+
+        for(var optionKey in defaults) {
+            if(attrs[optionKey]){
+                //console.log(attrs[optionKey]);
+                if(scope[optionKey] && typeof scope[optionKey] === 'object'){
+                    scope[optionKey] = Object.assign(defaults[optionKey], scope[optionKey]);
+                }
+            }else{
+                scope[optionKey] = defaults[optionKey];
+            }}
+
+
+
+    }
 });

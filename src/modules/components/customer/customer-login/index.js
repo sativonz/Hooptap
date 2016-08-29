@@ -23,11 +23,10 @@ export default() => ({
                 "email": $scope.email,
                 "password": $scope.password,
                 //TODO Change for actual productId
-                "productId": '5784fda092cabc234005814b'
+                //"productId": '5784fda092cabc234005814b'
             }).$promise
                 .then((response)=> {
                     if(response){
-                        console.log(response);
                         TOAST(
 
                             "Welcome " + response.user.username + "!", null, {
@@ -35,6 +34,7 @@ export default() => ({
                                 img: require('./images/default-img-popover.png')
                             });
                         console.log('Response de login', response);
+                        console.log("a");
                         $rootScope.$broadcast('loginSuccess', response);
 
                     }
