@@ -1,4 +1,5 @@
 import template from './template.jade';
+import Q from 'q';;
 /**
  * @ngdoc directive
  * @name Widget ranking total
@@ -13,15 +14,13 @@ import template from './template.jade';
  */
 export default() => ({
     restrict: 'E',
+    template,
     transclude: true,
     scope: {
         idWidget: '=',
         showProfileImg: '=',
     },
     link: (scope, element, attrs)=>{
-
-
+        //TODO hacer cuando este claro
     },
-    template
-
 });

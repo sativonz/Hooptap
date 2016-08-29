@@ -8,8 +8,8 @@ import $ from "jquery";
   * @description Popup notifications on the activity performed by the user
   * @restrict E
   * @param {String} title Title of the popup
-  * @param {String=} desc Description of the popup
-  * @param {String=} img Image of the popup
+  * @param {String} desc Description of the popup
+  * @param {String} img Image of the popup
   * @element ANY
   */
 export default($uibModal, $log, clientHelper) => ({

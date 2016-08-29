@@ -1,9 +1,5 @@
-c-widget-header(title="Ranking total" ng-if="$root.showMainHeader")
-    c-button-close
-    c-button-back(ng-click="$root.toggleDetailView()" ng-if="!$root.showMainHeader")
-c-widget-header(title="{{$root.rankingSelected.name}}" ng-if="!$root.showMainHeader")
-    c-button-close
-    c-button-back(ng-click="$root.toggleDetailView()" ng-if="!$root.showMainHeader")
-c-ranking-total
+//TODO por hacer cuando este claro
+c-widget-header(title="{{ customer.ranking.actualSu }} ranking")
+c-ranking-list
 
 
