@@ -4,9 +4,9 @@
 			.ht-badges-list__wrapper.row
 				.ht-badges-list__badge-blank(ng-if="!item.badges[0].name")
 					p {{::'BADGES.empty' | translate}}
-				.badge-item.animated.bounceIn(ng-repeat="item in badges" id="allBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true, 'badge-not-achieved': !item.state}" ng-click="badgeDetail(item)")
+				.badge-item.animated.bounceIn(ng-repeat="item in item.badges" id="allBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true, 'badge-not-achieved': !item.state}" ng-click="badgeDetail(item)")
 					.badge-item__img(ng-class="{'badge-started': item.available}")
-						img(ng-src="{{item.img}}")
+						img(ng-src="{{item.image}}")
 					.badge-item__title(ng-if="showTitle" title='{{item.title}}') {{item.title}}
 					.badge-item__progresbar
 						ng-transclude
