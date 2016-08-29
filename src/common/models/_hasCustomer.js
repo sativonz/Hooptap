@@ -12,7 +12,6 @@ export default (Customer, $rootScope, $q) => {
             this.setRemoteModel('Customer');
             this._factory = Customer;
         })
-
         .methods({
             /**
              *
@@ -39,19 +38,23 @@ export default (Customer, $rootScope, $q) => {
                     return $q.reject(error);
                 });
             },
+
             /**
              *
              * @param filter
              * @returns {*|Function} Returns Promise to resolve from getCurrent Call of Loopback SDK
              */
             getCurrent(filter){
-                return Customer.getCurrent(filter).$promise.then((response)=>{
+                return Customer.getCurrent(filter).$promise.then((response)=> {
                     this.initialize(response);
                 });
             },
 
-            getCustomerBadges(){
+            getBadges(filter){
                 //TODO getCustomerBadges
+                return Customer['badges']().$promise.then((response)=> {
+                    this.badges = response;
+                });
             },
             isAuthenticated(){
                 return Customer.isAuthenticated();

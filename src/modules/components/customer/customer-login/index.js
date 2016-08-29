@@ -24,9 +24,9 @@ export default() => ({
         } else {
             LoopBackAuth.clearStorage();
         }
+        window.customer = CustomerModel;
         $scope.rememberMe = false;
         $scope.login = ()=> {
-
             //TODO ENCRIPTAR CREDENCIALES
             CustomerModel.login({
                 email: $scope.email,
