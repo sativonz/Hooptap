@@ -11,9 +11,9 @@ let module = angular.module('common', [])
         .factory('_Extendable', require('./models/_Extendable').default)
         // .factory('_Savable',            require('./models/_Savable').default)
         .factory('_hasCustomer', require('./models/_hasCustomer').default)
-// .factory('_hasBadges',              require('./models/_hasBadges').default)
-// .factory('_hasQuests',              require('./models/_hasQuests').default)
-// .factory('_hasScoreUnits',          require('./models/_hasScoreUnits').default)
+        //.factory('_hasBadges',              require('./models/_hasBadges').default)
+        // .factory('_hasQuests',              require('./models/_hasQuests').default)
+        // .factory('_hasScoreUnits',          require('./models/_hasScoreUnits').default)
     ;
 export default module.name;
 

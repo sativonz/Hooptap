@@ -16,7 +16,7 @@ export default ($q, $state, $injector, BaseModel, _Savable,_Badge, _Quest, _Scor
             this._factory = Badge;
         })
         .methods({
-            getCustomerBadges(){
+            availableBadges(){
                 Q.async(function*(){
                     let response = Badge;
                 })();

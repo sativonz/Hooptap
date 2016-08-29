@@ -25,6 +25,7 @@ import './common/services/angular-sdk.js';
     angular.element('body').append(template());
     angular.module('htWidget',
         [
+            
             //Vendor injectors
             'ngResource', /*angular resources*/
             'ngAnimate', /*angular animate*/
@@ -37,7 +38,7 @@ import './common/services/angular-sdk.js';
 
             //SDK Loopback services
             'apiServices',
-            
+
             //Components
             require('./common/components/translations').default,
             //Modules
