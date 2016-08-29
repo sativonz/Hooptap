@@ -4,7 +4,6 @@ import stampit  from 'stampit';
 
 
 export default ($q, $injector, _Extendable) => {
-
     return stampit()
         .compose(_Extendable)
         .init(function ({original, instance, stamp}) {
@@ -41,8 +40,7 @@ export default ($q, $injector, _Extendable) => {
                 Object.assign(this, this._defaults, this.parse(angular.copy(model)));
                 this._initialized = true;
             },
-
-
+            
             /**
              * Transforms the response of the api to a model more usable for the web. It's automatically called by
              * the function 'initialize', which should be called after calling the api. The opposite transformation of
@@ -159,7 +157,6 @@ export default ($q, $injector, _Extendable) => {
             isNew () {
                 return this.id === 'new';
             },
-
 
             /**
              * Converts this instance to Json, ignoring the keys that starts with '_'.
