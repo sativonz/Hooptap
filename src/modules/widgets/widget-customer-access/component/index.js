@@ -25,11 +25,8 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
             getMessage();
         });
         function getMessage() {
-            // let response = yield Customer.getCurrent( { filter: { include: ['levels','badges'] } } ).$promise;
-            // $scope.customer = response;
-            $rootScope.customer = {};
-            $rootScope.customer.logged = true;
-
+                $rootScope.customer = {};
+                $rootScope.customer.logged = true;
         }
 
 

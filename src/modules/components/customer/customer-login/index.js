@@ -34,7 +34,6 @@ export default() => ({
                                 img: require('./images/default-img-popover.png')
                             });
                         console.log('Response de login', response);
-                        console.log("a");
                         $rootScope.$broadcast('loginSuccess', response);
 
                     }
