@@ -17,7 +17,7 @@ export default() => ({
     controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _hasCustomer)=> {
         var CustomerModel = stampit().compose(BaseModel, _hasCustomer)();
         if (LoopBackAuth.rememberMe === 'true') {
-            console.log(LoopBackAuth.rememberMe);
+            //console.log(LoopBackAuth.rememberMe);
             CustomerModel.getCurrent({filter: {include: ['levels', 'badges']}}).then((response)=> {
                 $rootScope.$broadcast('$loginSuccess', CustomerModel);
             });

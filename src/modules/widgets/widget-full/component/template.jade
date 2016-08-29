@@ -3,7 +3,6 @@
 
 c-button-menu(ng-if="$root.customer.logged && #{allViewsFalse}" title-game-room="menuOptions.titleGameRoom" show-quests="menuOptions.showQuests" show-badges="menuOptions.showBadges" show-rankings="menuOptions.showRankings" show-level="menuOptions.showLevel" show-global-feed="menuOptions.showGlobalFeed" show-marketplace="menuOptions.showMarketplace" show-edit-profile="menuOptions.showEditProfile" show-game-room="menuOptions.showGameRoom")
 c-button-close
-//w-widget-customer-access(ng-if="!$root.customer.logged" show-mix-form="true")
 .ht-profile-widget-full(ng-if="$root.customer.logged")
     .profile-widget-full__container
         c-widget-header(ng-if="#{allViewsFalse}")

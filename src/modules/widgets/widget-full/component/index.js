@@ -40,7 +40,7 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
         //Level options
         levelRow: '=?'
     },
-    controller: ($scope, $rootScope, Customer, ScoreUnit, Level, LoopBackAuth)=> {
+    controller: ($scope)=> {
 
 
 
@@ -275,7 +275,6 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
 
         scope.$on("$loginSuccess", (event, response)=> {
             scope.customer = response.user;
-            console.log("asfasddfaswe", response);
         });
     }
 });
