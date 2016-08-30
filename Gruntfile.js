@@ -1,14 +1,18 @@
 module.exports = function (grunt) {
 
+    let pkg = grunt.file.readJSON('package.json');
+
     grunt.loadNpmTasks('grunt-docular');
 
 
 
     grunt.config.init({
 
-        pkg: grunt.file.readJSON('package.json'),
+        pkg: pkg,
 
         docular: {
+
+            baseUrl: "/" + pkg.version + "/docs/",
 
             useHtml5Mode: false,
 
