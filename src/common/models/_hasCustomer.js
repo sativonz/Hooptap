@@ -18,7 +18,7 @@ export default (Customer, $rootScope, $q) => {
              * @param model model with {email: "", password: "", rememberMe: ""}
              * @returns {*|Promise.<T>} Returns $q promise with success or error response from server to login
              */
-            login(model){
+            login(model, filter){
                 //TODO rememberMe
                 return Customer.login({rememberMe: (model.rememberMe || false)}, {
                     "email": model.email,
@@ -26,19 +26,12 @@ export default (Customer, $rootScope, $q) => {
                     //TODO Change for actual productId
                     , "productId": this.productId
                 }).$promise.then((response)=> {
-                    if (response.id) {
-                        if ($rootScope.customer) {
-                            $rootScope.customer.logged = true;
-                        } else {
-                            $rootScope['customer'] = {logged: true};
-                        }
-                    }
-                    return $q.resolve(response);
+                    this.setLoggedRoot(response);
+                    return $q.resolve(this.getCurrent(filter));
                 }).catch((error)=> {
                     return $q.reject(error);
                 });
             },
-
             /**
              *
              * @param filter
@@ -46,19 +39,39 @@ export default (Customer, $rootScope, $q) => {
              */
             getCurrent(filter){
                 return Customer.getCurrent(filter).$promise.then((response)=> {
-                    console.log(response);
-                    this.initialize(response);
+
+                    this.setLoggedRoot(response);
+                    return $q.resolve(response);
+                }).catch((error)=> {
+                    return $q.reject(error);
                 });
             },
 
             getBadges(filter){
                 //TODO getCustomerBadges
+                debugger;
                 return Customer['badges'](filter).$promise.then((response)=> {
                     this.badges = response;
                 });
             },
             isAuthenticated(){
                 return Customer.isAuthenticated();
+            },
+            logout(){
+                Customer.logout();
+            },
+            /**
+             * set RootScope true if response.id exists and was success
+             * @param response
+             */
+            setLoggedRoot(response){
+                if (response.id) {
+                    if ($rootScope.customer) {
+                        $rootScope.customer.logged = true;
+                    } else {
+                        $rootScope['customer'] = {logged: true};
+                    }
+                }
             }
 
         })
@@ -69,7 +82,7 @@ export default (Customer, $rootScope, $q) => {
              * @stampit refs
              */
             _defaults: {
-                productId: "57c3ff360ec402003d0ff56d" //TODO change to actual product id
+                productId: "57b56f541c3dd11afd50c5e6" //TODO change to actual product id
             },
 
             _model: 'CustomerModel'

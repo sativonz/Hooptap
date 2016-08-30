@@ -274,7 +274,8 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
         scope.scoreDisplayConfig = scope.scoreDisplayConfig || defaultMarkerOptions;
 
         scope.$on("$loginSuccess", (event, response)=> {
-            scope.customer = response.user;
+            console.log(response);
+            scope.customer = response;
             console.log("asfasddfaswe", response);
         });
     }

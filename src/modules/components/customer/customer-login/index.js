@@ -15,17 +15,19 @@ export default() => ({
     scope: {},
     template,
     controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _hasCustomer)=> {
-        var CustomerModel = stampit().compose(BaseModel, _hasCustomer)();
+        //Stampit customer init
+        var CustomerModel = stampit().compose(BaseModel, _hasCustomer);
+        var includeFilter ={filter: {include: ['levels', 'badges']}};
         if (LoopBackAuth.rememberMe === 'true') {
             console.log(LoopBackAuth.rememberMe);
-            CustomerModel.getCurrent({filter: {include: ['levels', 'badges']}}).then((response)=> {
-                $rootScope.$broadcast('$loginSuccess', CustomerModel);
+            CustomerModel().getCurrent(includeFilter).then((response)=> {
+                CustomerModel().initialize(response);
+                $rootScope.$broadcast('$loginSuccess', CustomerModel());
             });
         } else {
             LoopBackAuth.clearStorage();
+            LoopBackAuth.clearUser();
         }
-        window.customer = CustomerModel;
-        $scope.rememberMe = false;
         $scope.login = ()=> {
             //TODO ENCRIPTAR CREDENCIALES
             CustomerModel.login({
@@ -33,8 +35,8 @@ export default() => ({
                 password: $scope.password,
                 rememberMe: $scope.rememberMe
             }).then((response)=> {
-                CustomerModel.initialize(response);
-                $rootScope.$broadcast('$loginSuccess', CustomerModel);
+                CustomerModel().initialize(response);
+                $rootScope.$broadcast('$loginSuccess', CustomerModel());
             }).catch((error)=> {
                 //TODO NOTIFICADOR ERRORES
                 console.log(error);
