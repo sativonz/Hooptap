@@ -19,7 +19,8 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
         item: "=",
         showTitle: '=?',
         showDesc: '=?',
-        showDetailImg: '=?'
+        showDetailImg: '=?',
+        numberCols: '=?',
     },
     link: (scope, element, attrs)=>{
 
@@ -27,7 +28,8 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
         let defaults = {
             showTitle: true,
             showDesc: true,
-            showDetailImg: false
+            showDetailImg: false,
+            numberCols: 4
         };
 
         clientHelper.setDefaultAttributes(defaults, scope, attrs);
@@ -64,9 +66,6 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
             });
 
         };
-
-        //Definir el numero de cols
-        scope.numberCols = 4;
 
         switch (scope.numberCols) {
             case 2:

@@ -11,7 +11,7 @@ $orange: orange;
 
 
 //// Primary colors template 1
-$_1_header-color: #006591!important;
+$_1_header-color: #006591;
 $_1_header-color-text-inactive: rgba(181, 181, 181, 0.71);
 $_1_link-text-color: #3bb2d0;
 $_1_bar-color-effect: #5264AE;
@@ -31,8 +31,10 @@ $_1_progress-bar__inactive: #ff5f63;
 $_1_progress-bar__lapsed: #d2d2d2;
 $_1_quest-title: #006591!important;
 $_1_quest-title__inactive: #d2d2d2;
+$_1_quest-steps-title-color: #8c8a8a;
 $_1_quest-steps-color: #9e9e9e;
 $_1_quest-steps-circle-color: #ff5f63;
+$_1_quest-steps-date-color: #888888;
   //Global feed
 $_1_dividing-line-color: #c5c5c5;
   //Ranking

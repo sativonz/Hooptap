@@ -2,52 +2,83 @@
 @import '../../../../common/stylesheets/common/colors.scss';
 @import '../../../../common/stylesheets/common/mixins.scss';
 
+%navCodeMix {
+  display: inline-block!important;
+  width: 49%;
+  cursor: pointer;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.73);
+}
+
+%navActiveCodeMix {
+  border: none !important;
+  background-color: transparent!important;
+  color: white!important;
+}
+
 w-widget-customer-access {
-  .link-go-login--form,
-  .link-go-register--form {
-    color: #3bb2d0;
-    padding: 0px 20px 0px 0px;
-    width:49%;
-  }
+  display: block;
+  font-family: $base-font-family;
+  height: 480px;
+  min-height: 480px;
+  max-height: 480px;
+  width: 400px;
+  min-width: 400px;
+  max-width: 400px;
+  background: $white;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  box-shadow: 0 0 5px #000;
+  z-index: 999999999;
+  border-radius: 14px;
+  padding-right: 0!important;
 
-  .nav-tabs > li {
-    border-bottom:4px solid transparent;
-    float: none!important;
-  }
-
-  .nav-tabs > li:hover {
-    border-bottom:4px solid #1C9AD0;
-  }
-
-  .nav > li,
-  .nav > li > a {
-    display: inline-block!important;
-    width: 49%;
-    cursor: pointer;
-    text-align: center;
-    color: rgba(255, 255, 255, 0.73);
-  }
-  .nav-tabs > li > a:hover {
-    background: none!important;
-    border-color: transparent!important;
-    color: white!important;
-  }
-  .nav-tabs > li.active > a,
-  .nav-tabs > li.active > a:focus {
-    border: none !important;
-    background-color: transparent!important;
-    color: white!important;
-    font-weight: bold;
-  }
-
-  .nav-tabs > li:not(.active){
-    color:#0078a0!important;
-  }
-
-  ul.nav.nav-tabs {
+  .nav.nav-tabs {
     background-color: $_1_quest-title;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    > li {
+      border-bottom:4px solid transparent;
+      float: none!important;
+      @extend %navCodeMix;
+      .link-go-login--form,
+      .link-go-register--form {
+        color: #3bb2d0;
+        padding: 0px 20px 0px 0px;
+        width:49%;
+      }
+      &:hover {
+        border-bottom:4px solid #1C9AD0;
+      }
+      &:not(.active){
+        color:#0078a0!important;
+      }
+      > a {
+        @extend %navActiveCodeMix;
+        @extend %navCodeMix;
+        font-weight: 500;
+        opacity: 0.5;
+        &hover {
+            background: none!important;
+            border-color: transparent!important;
+            color: white!important;
+        }
+      }
+      &.active {
+        @extend %navActiveCodeMix;
 
+        > a {
+          font-weight: bold;
+          opacity: 1;
+          &:focus {
+            @extend %navActiveCodeMix;
+          }
+        }
+        &:hover {
+          border-bottom:4px solid #1C9AD0!important;;
+        }
+      }
+    }
   }
 }

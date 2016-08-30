@@ -1,30 +1,29 @@
-div#ht-widget(ng-app="htWidget" ng-controller="htWidgetCtrl")
-    c-button-init(text="Juegue ahora" image="http://iconshow.me/media/images/ui/ios7-icons/png/48/play-outline.png")
-    div(id="ht-widgets").template-1
-
-        //--> WIDGET CUSTOMER ACCESS
-        w-widget-customer-access(show-mix-form="true")
-
-        //-----WIDGET FULL-----\\
-        w-widget-full
-        //c-quests-list
-        //--> WIDGET QUESTS
-        //w-widget-quests
-
-        //--> WIDGET RANKING
-        //w-widget-ranking-total
-
-        //--> WIDGET BADGES GRID
-        //w-widget-badges-grid
-
-        //--> WIDGET RANKING TOTAL
-        //w-widget-ranking-total
-
-        //--> COMPONENTE GAME ROOM
-        //c-game-room
-
-        //--> COMPONENTE MODAL PREMIOS
-        //c-notifications-awards
+c-button-init(text="Juegue ahora" image="http://iconshow.me/media/images/ui/ios7-icons/png/48/play-outline.png" ng-click="$root.openWidget = !$root.openWidget" ng-if="!$root.openWidget")
 
 
-    c-notifications-popup
+//--> WIDGET FULL
+w-widget-full(ng-if="$root.openWidget && $root.customer.logged")
+
+//--> WIDGET CUSTOMER ACCESS
+w-widget-customer-access(show-mix-form="true" ng-if="$root.openWidget && !$root.customer.logged")
+
+//--> WIDGET QUESTS
+//w-widget-quests
+
+//--> WIDGET RANKING
+//w-widget-ranking-total
+
+//--> WIDGET BADGES GRID
+//w-widget-badges-grid
+
+//--> WIDGET RANKING TOTAL
+//w-widget-ranking-total
+
+//--> COMPONENTE GAME ROOM
+//c-game-room
+
+//--> COMPONENTE MODAL PREMIOS
+//c-notifications-awards
+
+
+c-notifications-popup
