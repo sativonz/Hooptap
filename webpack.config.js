@@ -6,7 +6,7 @@ var webpack = require('webpack');
 // Identify the environment
 var ENV = process.env.npm_lifecycle_event;
 var isTest = ENV === 'test' || ENV === 'test-watch' || ENV === 'test-coverage';
-var isProd = ENV === 'build-nop' || ENV === '';
+var isProd = ENV === 'build' || ENV === '';
 var isWatching = ENV === 'test-watch' || ENV === 'serve';
 
 module.exports = function makeWebpackConfig() {

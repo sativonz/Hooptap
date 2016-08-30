@@ -12,7 +12,7 @@
     "eslint": "./node_modules/.bin/eslint src/**/*.js; exit 0",
     "serve": "./node_modules/.bin/webpack-dev-server --history-api-fallback --inline --progress",
     "serve-build": "./node_modules/.bin/http-server ./build",
-    "build": "./node_modules/.bin/rimraf build && ./node_modules/.bin/webpack --bail --progress --profile && ./node_modules/.bin/grunt api",
+    "build": "./node_modules/.bin/rimraf build && ./node_modules/.bin/webpack --bail --progress --profile && ./node_modules/.bin/grunt api ",
     "build-sourcemap": "./node_modules/.bin/rimraf build && ./node_modules/.bin/webpack --bail --progress --profile",
     "full": "npm run test-coverage && npm run build && npm run serve-build"
   },
