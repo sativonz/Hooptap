@@ -21,9 +21,10 @@ import './common/services/angular-sdk.js';
 
 
 (function () {
-
+    //TODO provisional for Dev
     angular.element('body').append(template());
-    angular.module('htWidget',
+
+    angular.module('Hooptap',
         [
             
             //Vendor injectors
@@ -108,8 +109,6 @@ import './common/services/angular-sdk.js';
                 }
 
             };
-
-            console.log(window.Hooptap);
             window.Hooptap.api = ( model, method, params, _then, _catch ) => {
                 // TODO improve Hooptap.api method
 
@@ -378,11 +377,11 @@ import './common/services/angular-sdk.js';
 
         window.Hooptap = {};
         window.Hooptap.startIn = function ($selector){
-            angular.bootstrap($selector, ['htWidget']);
+            angular.bootstrap($selector, ['Hooptap']);
         };
 
     
     //Angular bootstrap to render #htWidget div with htWidget Module
-    angular.bootstrap('body', ['htWidget']);
+    angular.bootstrap('body', ['Hooptap']);
 
 }());
