@@ -168,28 +168,33 @@ export default() => ({
 
                     "step1": {
                         "complete": false,
+                        "state": "disabled",
                         "title": "Hacer 20 clicks en la nube",
                         "url": ""
 
                     },
                     "step2": {
                         "complete": false,
+                        "state": "disabled",
                         "title": "titulo",
                         "url": "http://www.google.es"
 
                     },
                     "step3": {
                         "complete": false,
+                        "state": "disabled",
                         "title": "titulo",
                         "url": ""
                     },
                     "step4": {
                         "complete": false,
+                        "state": "disabled",
                         "title": "titulo",
                         "url": ""
                     },
                     "step5": {
                         "complete": false,
+                        "state": "disabled",
                         "title": "titulo",
                         "url": ""
                     },

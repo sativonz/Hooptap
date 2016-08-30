@@ -31,7 +31,7 @@ c-notifications-popup {
         cursor: pointer;
 
       }
-//TODO Idem que arriba no me deeja usar sass
+
       .toast-des {
         color: $_1_popup-text-desc;
         font-size: 12pt;
@@ -44,8 +44,7 @@ c-notifications-popup {
         .toast-title {
           width: 100%;
           display: list-item;
-          color: #006594;
-          //TODO color: $_1_popup-text-title;
+          color: $_1_popup-text-title;
           list-style: none;
         }
         .toast-img {
@@ -54,26 +53,22 @@ c-notifications-popup {
           left: 5px;
           bottom: 5px;
           width: 20%;
-
+          + .toast-title {
+            width: 100%;
+            margin-left: 22%;
+          }
+          ~ .toast-desc{
+            position: absolute;
+            top: 30px;
+            margin-left: 20%;
+            width: 300px;
+          }
           img {
             display: block;
             max-height: 100%;
             max-width: 100%;
           }
-
         }
-        .toast-img + .toast-title {
-          width: 100%;
-          margin-left: 22%;
-        }
-
-        .toast-img ~ span.toast-desc{
-          position: absolute;
-          top: 30px;
-          margin-left: 20%;
-          width: 300px;
-        }
-
       }
 
       .toast-content--span {

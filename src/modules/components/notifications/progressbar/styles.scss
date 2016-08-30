@@ -1,65 +1,56 @@
 @import "../../../../common/stylesheets/common/colors";
 
 c-progressbar {
-  .stepbar-step {
-    height: 10px;
-    display: inline;
-    float: left;
-    position: relative;
-    padding: 2px;
-  }
-  .step-inner {
-    height: 10px;
-    background: $_1_progress-bar__inactive;
-  }
+  .stepbar__container {
 
-  //Stepbar states
-  .stepbar-step > .active {
-    background: $_1_progress-bar__active;
-  }
+    #stepbar__step-1 > .stepbar__step-inner {
+      border-radius: 5px 0px 0px 5px !important;
+    }
 
-  .stepbar-step.inactive {
-    background: $_1_progress-bar__inactive;
-  }
+    .stepbar__step {
+      height: 10px;
+      display: inline;
+      float: left;
+      position: relative;
+      padding: 2px;
 
-  //
+      &.active > .stepbar__step-inner {
+        background: $_1_progressbar-actual;
+      }
 
-  #stepbar-step-1, #stepbar-step-1 > .step-inner {
-    border-radius: 5px 0px 0px 5px !important;
-  }
+      &.disable > .stepbar__step-inner {
+        background: $_1_progressbar-disable;
+      }
 
-  .step-inner.last {
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-  }
+      .stepbar__step-inner {
+        height: 10px;
+        background: $_1_progress-bar__inactive;
+        &.last {
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+        }
+      }
+    }
 
-  .stepbar-disabled {
-    width: 72px;
-    height: 6px;
-    background: #9e9e9e;
-    position: relative;
-    top: 5px;
-    left: -1px;
-    border-radius: 3px;
-    display: block;
-  }
-
-  .stepbar-step + .stepbar-disabled {
-    display: none!important;
-  }
-
-  .stepbar-new {
-    width: 72px;
-    height: 6px;
-    background: #ff5f63;
-    position: relative;
-    top: 0px;
-    left: 0px;
-    border-radius: 3px;
-    display: block;
-  }
-
-  .progressbar2-actual.last {
-    display: none;
+    .stepbar__disabled {
+      width: 72px;
+      height: 6px;
+      background: $_1_progressbar-disable;
+      position: relative;
+      top: 5px;
+      left: -1px;
+      border-radius: 3px;
+      display: none;
+      .stepbar__new {
+        width: 72px;
+        height: 6px;
+        background: $_1_progressbar-new;
+        position: relative;
+        top: 0px;
+        left: 0px;
+        border-radius: 3px;
+        display: block;
+      }
+    }
   }
 }
