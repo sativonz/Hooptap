@@ -1,5 +1,5 @@
-.col-xs-12.stepbar
-    .stepbar-step(id="stepbar-step-{{$index+1}}" ng-repeat="step in steps track by $index" style="width:{{stepWidth}}" ng-class="{'active': step.complete}" )
-        .step-inner(ng-class="{'last':$last}")
-    span.stepbar-disabled
-        .stepbar-new(ng-if="!step.parts")
+.stepbar__container.col-xs-12
+    .stepbar__step(id="stepbar__step-{{$index+1}}" ng-repeat="step in steps track by $index" style="width:{{stepWidth}}" ng-class="{'active': step.complete, 'disable': step.state === 'disabled'}" )
+        .stepbar__step-inner(ng-class="{'last':$last}")
+    span.stepbar__disabled
+        .stepbar__new(ng-if="!step.parts")

@@ -8,21 +8,29 @@ import './styles.scss';
  * @restrict E
  * @param {Boolean} showTitle Whether or not display the title of the game
  * @param {Boolean} showDesc Whether or not display the description of the game
+ * @param {Integer} numberCols Number of columns for display in grid
  * @element ANY
  */
-export default($timeout) => ({
+export default($timeout, clientHelper) => ({
     restrict: 'E',
     template,
     scope: {
-        showTitle: '=',
-        showDesc: '=',
+        showTitle: '=?',
+        showDesc: '=?',
+        numberCols: '=?'
     },
     link: (scope, element, attrs)=> {
 
-        //Definir el numero de cols entre 2, 3, 4 y 5
-        scope.numberCols = 3;
-        //TODO Refactor default image
+        let defaults = {
+            showTitle: true,
+            showDesc: true,
+            numberCols: 3
+        };
+
+        clientHelper.setDefaultAttributes(defaults, scope, attrs);
+
         scope.defaultImage = require("./images/default-icon.png");
+
         scope.gameroom = [
             {
                 "id": "5775397981dbc14a04530f73",

@@ -2,57 +2,29 @@ div#ht-widget(ng-app="htWidget" ng-controller="htWidgetCtrl")
     c-button-init(text="Juegue ahora" image="http://iconshow.me/media/images/ui/ios7-icons/png/48/play-outline.png")
     div(id="ht-widgets").template-1
 
-        //-----WIDGET LOGIN AND REGISTER-----\\
-
-        w-widget-customer-access(
-            id-widget="12345",
-            show-mix-form="true"
-            show-register-form="false"
-            show-login-form="false"
-        )
+        //--> WIDGET CUSTOMER ACCESS
+        //w-widget-customer-access(show-mix-form="true")
 
         //-----WIDGET FULL-----\\
         //w-widget-full
+        c-quests-list
+        //--> WIDGET QUESTS
+        //w-widget-quests
 
+        //--> WIDGET RANKING
+        //w-widget-ranking-total
 
+        //--> WIDGET BADGES GRID
+        //w-widget-badges-grid
 
-        //-----WIDGET QUESTS-----\\
-        //w-widget-quests(
-        //    id-widget="123456",
-        //)
+        //--> WIDGET RANKING TOTAL
+        //w-widget-ranking-total
 
+        //--> COMPONENTE GAME ROOM
+        //c-game-room
 
+        //--> COMPONENTE MODAL PREMIOS
+        //c-notifications-awards
 
-        //-----WIDGET RANKING-----\\
-        //w-widget-ranking-total(
-        //    id-widget="123456"
-        //)
-
-        //-----WIDGET BADGES GRID-----\\
-        //w-widget-badges-grid(
-        //    id-widget="123456",
-        //    show-title="true",
-        //    show-desc="true",
-        //)
-
-
-        //-----COMPONENTE GAME ROOM-----\\
-        //c-game-room(
-        //    id-widget="123456",
-        //    show-desc="false",
-        //    show-title="true",
-        //)
-
-
-        ////-----COMPONENTE MODAL PREMIOS-----\\
-        //c-notifications-awards(
-        //    id-widget="123456",
-        //    show-image="true",
-        //    show-desc="true",
-        //    show-button="true",
-        //)
-
-        //-----WRAPPER JUEGO-----\\
-        //c-game-wrapper
 
     c-notifications-popup

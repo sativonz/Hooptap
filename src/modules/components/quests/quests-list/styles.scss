@@ -123,6 +123,15 @@ c-quests-list {
     left: 0px;
   }
 
+  .bullet-step-disabled {
+    width: 7px;
+    height: 7px;
+    background-color: grey;
+    border-radius: 50%;
+    float: right;
+    margin-top: 4px;
+  }
+
   .quest--row__date {
     font-size: 9pt;
     position: absolute;
@@ -212,6 +221,7 @@ c-quests-list {
   }
 
   .nav-tabs > li.active > a {
+
     background: none;
     text-align: center;
     font-size: 10pt;
@@ -236,7 +246,7 @@ c-quests-list {
 
   .nav-tabs>li.active {
     border-bottom: 3px solid $_1_line-space-color;
-    background: #B2C059!important;
+    background: $_1_tab-active__color!important;
   }
 
   .tab-content {

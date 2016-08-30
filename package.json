@@ -12,7 +12,7 @@
     "eslint": "./node_modules/.bin/eslint src/**/*.js; exit 0",
     "serve": "./node_modules/.bin/webpack-dev-server --history-api-fallback --inline --progress",
     "serve-build": "./node_modules/.bin/http-server ./build",
-    "build": "./node_modules/.bin/rimraf build && ./node_modules/.bin/webpack --bail --progress --profile",
+    "build": "./node_modules/.bin/rimraf build && ./node_modules/.bin/webpack --bail --progress --profile && ./node_modules/.bin/grunt api",
     "build-sourcemap": "./node_modules/.bin/rimraf build && ./node_modules/.bin/webpack --bail --progress --profile",
     "full": "npm run test-coverage && npm run build && npm run serve-build"
   },
@@ -75,6 +75,8 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "font-awesome": "^4.6.3",
+    "grunt": "^1.0.1",
+    "grunt-docular": "^0.2.4",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.16.0",
     "imports-loader": "^0.6.5",

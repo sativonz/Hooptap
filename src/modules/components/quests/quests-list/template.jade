@@ -24,10 +24,11 @@
                         .col-xs-12.quest--row__actual-step(ng-show="showDetailQuests" ng-if="quest.state !== 'block'")
                             .quest-step.row(ng-repeat="step in quest.steps track by $index")
                                 .col-xs-2.bullet
-                                    .bullet-step-complete(ng-show="step.complete")
+                                    .bullet-step-complete(ng-show="step.complete && step.state != 'disabled'")
                                         img(ng-src=require("./images/simbol-check-quest.svg"))
-                                    .bullet-step(ng-show="!step.complete")
+                                    .bullet-step(ng-show="!step.complete && step.state != 'disabled'")
                                         img(ng-src=require("./images/simbol-point.svg"))
+                                    .bullet-step-disabled(ng-if="step.state === 'disabled'")
                                 .col-xs-10.title-step
                                     //span.quest-step__name.animated.bounceIn(ng-class="{ 'c-red': !step.complete, 'c-green': step.complete }") {{step.title}}
                                     span.quest-step__name.animated.bounceIn {{step.title}}

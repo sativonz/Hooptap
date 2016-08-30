@@ -1,9 +1,9 @@
-div.ht-global-feed
+div.ht-global-feed__container
      div(ng-repeat="items in activity")
-          .row.wrapper-feed(ng-repeat="item in items.feed")
-               .col-xs-2.not-padding.ht-global-feed__img
+          .ht-global-feed__wrapper.row(ng-repeat="item in items.feed")
+               .ht-global-feed__img.col-xs-2.not-padding
                     img(ng-src="{{ item.img }}")
-               .col-xs-8.ht-global-feed__title.not-padding
+               .ht-global-feed__title.col-xs-8.not-padding
                     p {{ item.title }}
                .col-xs-2.ht-global-feed__date
                     p {{ item.time }} {{ " " }} {{ " " }} {{ item.date }}

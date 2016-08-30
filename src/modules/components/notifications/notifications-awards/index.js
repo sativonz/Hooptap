@@ -8,19 +8,27 @@ import $ from "jquery";
   * @description Popup notifications on the activity performed by the user
   * @restrict E
   * @param {String} title Title of the popup
-  * @param {String=} desc Description of the popup
-  * @param {String=} img Image of the popup
+  * @param {String} desc Description of the popup
+  * @param {String} img Image of the popup
   * @element ANY
   */
-export default($uibModal, $log) => ({
+export default($uibModal, $log, clientHelper) => ({
     restrict: 'E',
-    scope: {
-        showImage: '=',
-        showDesc: '=',
-        showButton: '=',
-    },
     template,
-     link (scope, element, attrs) {
+    scope: {
+        showImage: '=?',
+        showDesc: '=?',
+        showButton: '=?'
+    },
 
-     }
+    link (scope, element, attrs) {
+
+         let defaults = {
+             showImage: true,
+             showDesc: true,
+             showButton: true
+         };
+
+         clientHelper.setDefaultAttributes(defaults, scope, attrs);
+    }
 });

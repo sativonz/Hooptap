@@ -1,5 +1,5 @@
 import template from './template.jade';
-import Q from 'q';
+import stampit from 'stampit';
 /**
  * @ngdoc directive
  * @name Customer login
@@ -14,35 +14,35 @@ export default() => ({
     restrict: 'E',
     scope: {},
     template,
-    controller: ($scope, $rootScope, Customer, ScoreUnit, Level, LoopBackAuth)=> {
-        if (LoopBackAuth.rememberMe) {
-            $rootScope.$broadcast('loginSuccess');
+    controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _hasCustomer)=> {
+        //Stampit customer init
+        var CustomerModel = stampit().compose(BaseModel, _hasCustomer);
+        var includeFilter = {filter: {include: ['levels', 'badges']}};
+        if (LoopBackAuth.rememberMe === 'true') {
+            console.log(LoopBackAuth.rememberMe);
+            CustomerModel().getCurrent(includeFilter).then((response)=> {
+                CustomerModel().initialize(response);
+                $rootScope.$broadcast('$loginSuccess', CustomerModel());
+
+            });
+        } else {
+            LoopBackAuth.clearStorage();
+            LoopBackAuth.clearUser();
         }
         $scope.login = ()=> {
-            Customer.login({
-                "email": $scope.email,
-                "password": $scope.password,
-                //TODO Change for actual productId
-                "productId": '5784fda092cabc234005814b'
-            }).$promise
-                .then((response)=> {
-                    if(response){
-                        console.log(response);
-                        TOAST(
-
-                            "Welcome " + response.user.username + "!", null, {
-                                style: 'info',
-                                img: require('./images/default-img-popover.png')
-                            });
-                        console.log('Response de login', response);
-                        $rootScope.$broadcast('loginSuccess', response);
-
-                    }
-                })
-                .catch((error)=> {
-                });
+            //TODO ENCRIPTAR CREDENCIALES
+            CustomerModel.login({
+                email: $scope.email,
+                password: $scope.password,
+                rememberMe: $scope.rememberMe
+            }).then((response)=> {
+                CustomerModel().initialize(response);
+                $rootScope.$broadcast('$loginSuccess', CustomerModel());
+            }).catch((error)=> {
+                //TODO NOTIFICADOR ERRORES
+                console.log(error);
+            });
         };
-
 
     }
 });

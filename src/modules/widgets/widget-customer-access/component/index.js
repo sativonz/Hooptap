@@ -11,26 +11,24 @@ import './styles.scss';
  * @param {Boolean} showRegisterForm Whether to display the mix form
  * @element ANY
  */
-export default(Customer, LoopBackAuth, $rootScope) => ({
+export default(Customer, LoopBackAuth, $rootScope, clientHelper) => ({
     restrict: 'E',
     template,
     scope: {
-        showRegisterForm: '=',
-        showLoginForm: '=',
-        showMixForm: '='
+        showRegisterForm: '=?',
+        showLoginForm: '=?',
+        showMixForm: '=?'
     },
-    controller: ($scope, $rootScope, Customer, ScoreUnit, Level, LoopBackAuth)=> {
+    controller: ($scope, $rootScope)=> {
 
         var loginEvent =  $rootScope.$on("loginSuccess", (event, response)=>{
             getMessage();
         });
         function getMessage() {
-            // let response = yield Customer.getCurrent( { filter: { include: ['levels','badges'] } } ).$promise;
-            // $scope.customer = response;
-            // $rootScope.customer = {};
-            $rootScope.customer.logged = true;
-
+                $rootScope.customer = {};
+                $rootScope.customer.logged = true;
         }
+
 
         //Destroy Events
         $scope.$on('$destroy', ()=>{
@@ -38,5 +36,15 @@ export default(Customer, LoopBackAuth, $rootScope) => ({
         });
 
     },
-    link: (scope, element, attrs)=> {}
+    link: (scope, element, attrs)=> {
+
+        //Default values for widget customer access
+        let defaults = {
+            showMixForm: true,
+            showRegisterForm: false,
+            showLoginForm: false,
+        };
+
+        clientHelper.setDefaultAttributes(defaults, scope, attrs);
+    }
 });

@@ -1,40 +1,39 @@
+@import '../../../../common/stylesheets/common/colors.scss';
+
 c-game-global-feed {
   display: block;
   position: relative;
   height: 100%;
   margin-left: 10px;
-
-  .wrapper-feed {
-    display: -webkit-box;
-    display: box;
-    padding:6px;
-    border-bottom: 1px solid #c5c5c5;
-    height:60px;
-  }
-
-  .ht-global-feed__title {
-    color: grey;
-  }
-
-  .ht-global-feed__img {
-    padding: 7px!important;
-    position: relative;
-    bottom: 6px;
-  }
-
-  .ht-global-feed__title > p {
-    font-size: 10pt;
-    margin-left: 13px;
-    padding: 8px 0px 0px 0px;
-  }
-
-  .ht-global-feed__date > p {
-    font-size: 7pt;
-    position: absolute;
-    top: -2px;
-    right: -6px;
-    white-space: nowrap;
-    font-weight: 200;
-    color: grey;
+  .ht-global-feed__container{
+    .ht-global-feed__wrapper {
+      display: -webkit-box;
+      display: box;
+      padding:6px;
+      border-bottom: 1px solid $_1_dividing-line-color;
+      height:60px;
+      .ht-global-feed__title {
+        color: grey;
+        > p {
+          font-size: 10pt;
+          margin-left: 13px;
+          padding: 8px 0px 0px 0px;
+        }
+      }
+      .ht-global-feed__img {
+        padding: 7px!important;
+        position: relative;
+        bottom: 6px;
+      }
+      .ht-global-feed__date > p {
+        font-size: 7pt;
+        position: absolute;
+        top: -2px;
+        right: -6px;
+        white-space: nowrap;
+        font-weight: 200;
+        color: grey;
+      }
+    }
   }
 }

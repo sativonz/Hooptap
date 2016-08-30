@@ -15,12 +15,16 @@ $_1_header-color: #006591!important;
 $_1_header-color-text-inactive: rgba(181, 181, 181, 0.71);
 $_1_link-text-color: #3bb2d0;
 $_1_bar-color-effect: #5264AE;
+  //Nav quest & bades
+$_1_tab-active__color: #B2C059;
   //Popup
 $_1_popup-text-desc: #545454;
 $_1_popup-text-title: #006594;
   //buttons
 $_1_btn-active: #aec25c;
 $_1_btn-error: #ff5f63;
+  //Badges
+$_1_badge-detail_ttl: #266592;
   //Quests
 $_1_progress-bar__active: #a7c353;
 $_1_progress-bar__inactive: #ff5f63;
@@ -29,13 +33,18 @@ $_1_quest-title: #006591!important;
 $_1_quest-title__inactive: #d2d2d2;
 $_1_quest-steps-color: #9e9e9e;
 $_1_quest-steps-circle-color: #ff5f63;
+  //Global feed
+$_1_dividing-line-color: #c5c5c5;
   //Ranking
 $_1_ranking-box-score: #FFBA00;
 $_1_mePosition-back: #B3F0FF;
 $_1_mePosition-score-back: #266592;
   //Progressbar
 $_1_progressbar-actual: #aec25c;
-$_1_progressbar-next: #ff5f63;
+$_1_progressbar-new: #ff5f63;
+$_1_progressbar-disable: #B3B3B3;
+  //Buttons
+$_1_button-back-color-green: #1FB570;
   //General
 $_1_line-space-color: #D7E0B4;
 $_1_light-grey-background: #b3b3b3;

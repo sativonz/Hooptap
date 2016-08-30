@@ -21,10 +21,12 @@ import './common/services/angular-sdk.js';
 
 
 (function () {
-
+    //TODO provisional for Dev
     angular.element('body').append(template());
-    angular.module('htWidget',
+
+    angular.module('Hooptap',
         [
+            
             //Vendor injectors
             'ngResource', /*angular resources*/
             'ngAnimate', /*angular animate*/
@@ -37,19 +39,18 @@ import './common/services/angular-sdk.js';
 
             //SDK Loopback services
             'apiServices',
-            
+
             //Components
             require('./common/components/translations').default,
-
             //Modules
             require('./modules/components').default,
-
+            require('./common').default,
             //Widgets
             require('./modules/widgets/widget-full').default,
             require('./modules/widgets/widget-quests').default,
             require('./modules/widgets/widget-ranking-total').default,
             require('./modules/widgets/widget-badges-grid').default,
-            require('./modules/widgets/widget-customer-access').default,
+            require('./modules/widgets/widget-customer-access').default
         ])
 
 
@@ -108,8 +109,6 @@ import './common/services/angular-sdk.js';
                 }
 
             };
-
-            console.log(window.Hooptap);
             window.Hooptap.api = ( model, method, params, _then, _catch ) => {
                 // TODO improve Hooptap.api method
 
@@ -378,11 +377,11 @@ import './common/services/angular-sdk.js';
 
         window.Hooptap = {};
         window.Hooptap.startIn = function ($selector){
-            angular.bootstrap($selector, ['htWidget']);
+            angular.bootstrap($selector, ['Hooptap']);
         };
 
     
     //Angular bootstrap to render #htWidget div with htWidget Module
-    angular.bootstrap('body', ['htWidget']);
+    angular.bootstrap('body', ['Hooptap']);
 
 }());
