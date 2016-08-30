@@ -8,13 +8,17 @@ c-button-close
 //TODO descomentar y borrar siguiente (solo pruebas)
 //.ht-profile-widget-full(ng-if="$root.customer.logged")
 .ht-profile-widget-full
-    .profile-widget-full__container
+    .ht-profile-widget-full__container
         c-widget-header(ng-if="#{allViewsFalse}")
         c-profile-header(ng-if="showProfileHeader && #{allViewsFalse}" edit-profile="editProfile" item="customer")
         .wrapper-components(ng-class="{#{bodyStyle}, 'defaultStyle': $root.WPF.viewDefault}")
-            .wrapper__score-units.row(ng-if="showMarker && #{allViewsFalse} && customer.scoreUnits")
+            //TODO descomentar y borrar siguiente (solo pruebas)
+            //.wrapper__score-units.row(ng-if="showMarker && #{allViewsFalse} && customer.scoreUnits")
+            .wrapper__score-units.row
                 c-marker-display(options="scoreDisplayConfig")
-            .wrapper__level.row(ng-if="levelRow.showModule && #{allViewsFalse}" ng-repeat="level in customer.levels")
+            //TODO descomentar y borrar siguiente (solo pruebas)
+            //.wrapper__level.row(ng-if="levelRow.showModule && #{allViewsFalse}" ng-repeat="level in customer.levels")
+            .wrapper__level.row
                 .level-home-widget-full__container
                     .wrapper__levels-title
                         span {{ 'LEVELS.title' | translate }}
@@ -42,7 +46,7 @@ c-button-close
                                     .progressbar-actual(style="width:{{level.nextLevel.percent}}%")
                                         div.center(style="width:233px;") {{customer.scores[ level.scoreUnitId ]}} / {{level.nextLevel.diff}} {{level.scoreUnitName}}
 
-            .wrapper__gf.row(ng-if="showGlobalFeed && #{allViewsFalse}")
+            .wrapper__gf.row
                 .wrapper__gf-title {{ 'GLOBAL_FEED.title' | translate }}
                 c-game-global-feed
 

@@ -3,6 +3,23 @@
 @import '../../../../common/stylesheets/common/mixins.scss';
 
 w-widget-customer-access {
+  display: block;
+  position: relative;
+  font-family: $base-font-family;
+  height: 480px;
+  min-height: 480px;
+  max-height: 480px;
+  width: 400px;
+  min-width: 400px;
+  max-width: 400px;
+  background: $white;
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  box-shadow: 0 0 5px #000;
+  z-index: 999999999;
+  border-radius: 14px;
+  padding-right: 0!important;
   .link-go-login--form,
   .link-go-register--form {
     color: #3bb2d0;

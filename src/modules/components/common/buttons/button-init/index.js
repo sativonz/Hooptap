@@ -18,10 +18,10 @@ export default() => ({
     },
     template,
     link: (scope, element, attrs)=>{
-        $('c-button-init').click(function(ev) {
-            $('#ht-widgets').fadeIn().css("display" , "block");
-            $('c-button-init').hide(100);
-        });
+        // $('c-button-init').click(function(ev) {
+        //     $('#ht-widgets').fadeIn().css("display" , "block");
+        //     $('c-button-init').hide(100);
+        // });
 
     }
 });

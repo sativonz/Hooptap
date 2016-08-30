@@ -105,3 +105,20 @@
   #{$property}: calc(#{$expression});
 }
 
+/// Mixin to customize scrollbars in chrome
+@mixin scrollbars($size, $foreground-color, $box-shadow, $outline-color, $border-radius) {
+  ::-webkit-scrollbar {
+    width:  $size;
+  }
+
+  ::-webkit-scrollbar-track {
+    -webkit-box-shadow: $box-shadow;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    outline: $outline-color;
+    @include border-radius($border-radius);
+  }
+
+}
