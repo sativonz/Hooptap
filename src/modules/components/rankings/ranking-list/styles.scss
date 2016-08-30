@@ -30,14 +30,14 @@ c-ranking-list{
           top: 0;
           left: 0;
           right: 0;
-          .ranking--list__score-frame {
+          .ht-ranking-list__score-frame {
             background-color: $_1_mePosition-score-back!important;
           }
         }
         &:first-child {
           margin-top: 70px;
         }
-        .ranking--list__user-img{
+        .ht-ranking-list__user-img{
           padding:5px;
           > img {
             border: 3px solid $_1_header-color;
@@ -45,7 +45,7 @@ c-ranking-list{
             width: 50px;
             height:50px;
           }
-          .ranking--list__position{
+          .ht-ranking-list__position{
             padding-top: 20px;
             font-size: 10pt;
             font-weight: bold;
@@ -60,26 +60,26 @@ c-ranking-list{
             letter-spacing: 0.3px;
           }
         }
-        .ranking--list__username {
+        .ht-ranking-list__username {
           padding: 15px 0px 0px 5px;
           > p {
             font-size: 10pt;
             color: $_1_header-color;
           }
         }
-        .ranking--list__wrapper-score-frame {
+        .ht-ranking-list__wrapper-score {
           padding: 19px 0px 0px 0px;
-          .ranking--list__score-frame {
+          .ht-ranking-list__score-frame {
             height: 21px;
             background: $_1_ranking-box-score;
             border-radius: 5px;
             padding: 3px 3px 3px 7px;
             float: right;
-            .ranking--list__score-frame-img {
+            .ht-ranking-list__score-frame__img {
               float: right;
               height: 100%;
             }
-            .ranking--list__score-frame-score {
+            .ht-ranking-list__score-frame__mark {
               float: right;
               padding: 0px 4px 2px 2px;
               font-weight: bold;
