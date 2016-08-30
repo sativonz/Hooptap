@@ -123,6 +123,15 @@ c-quests-list {
     left: 0px;
   }
 
+  .bullet-step-disabled {
+    width: 7px;
+    height: 7px;
+    background-color: grey;
+    border-radius: 50%;
+    float: right;
+    margin-top: 4px;
+  }
+
   .quest--row__date {
     font-size: 9pt;
     position: absolute;

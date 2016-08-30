@@ -8,14 +8,16 @@ import './styles.scss';
  * @restrict E
  * @param {Boolean} showTitle Whether or not display the title of the game detail
  * @param {Boolean} showDesc Whether or not display the description of the game detail
+ * @param {Integer} numberCols Number of columns for display in grid
  * @element ANY
  */
-export default($timeout, $uibModal, $log) => ({
+export default($timeout, $uibModal, $log, clientHelper) => ({
     restrict: 'E',
     template,
     scope: {
-        showTitle: '=',
-        showDesc: '=',
+        showTitle: '=?',
+        showDesc: '=?',
+        numberCols: '=?'
     },
     link: (scope, element, attrs)=> {
 
@@ -28,24 +30,18 @@ export default($timeout, $uibModal, $log) => ({
                 controller: 'htWidgetCtrl',
                 size: size,
             });
-
-
-
-            //-> UNUSED
-            // scope.ok = function () {
-            //     $uibModalInstance.close($scope.selected.item);
-            // };
-            //
-            // scope.cancel = function () {
-            //     $uibModalInstance.dismiss('cancel');
-            // };
-
         };
 
+        let defaults = {
+            showTitle: true,
+            showDesc: true,
+            numberCols: 3
+        };
 
-        //Definir el numero de cols entre 2, 3, 4 y 5
-        scope.numberCols = 4;
+        clientHelper.setDefaultAttributes(defaults, scope, attrs);
+
         scope.defaultImage = require("./images/default-icon.png");
+
         scope.gameromDetail = [
             {
                 "id": "5775397981dbc14a04530f73",

@@ -19,7 +19,7 @@ export default(Customer, LoopBackAuth, $rootScope, clientHelper) => ({
         showLoginForm: '=?',
         showMixForm: '=?'
     },
-    controller: ($scope, $rootScope, LoopBackAuth)=> {
+    controller: ($scope, $rootScope)=> {
 
         var loginEvent =  $rootScope.$on("loginSuccess", (event, response)=>{
             getMessage();
@@ -46,8 +46,5 @@ export default(Customer, LoopBackAuth, $rootScope, clientHelper) => ({
         };
 
         clientHelper.setDefaultAttributes(defaults, scope, attrs);
-
-
-
     }
 });

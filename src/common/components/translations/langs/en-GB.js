@@ -18,6 +18,7 @@ let dict = {
 		login: {
 			title			: 'Log in',
 			desc			: 'Access your account',
+			rememberMe		: 'Staying in session',
 			button			: 'GO'
 		},
 		register: {

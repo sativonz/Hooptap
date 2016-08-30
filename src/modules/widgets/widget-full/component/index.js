@@ -40,7 +40,7 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
         //Level options
         levelRow: '=?'
     },
-    controller: ($scope, $rootScope, Customer, ScoreUnit, Level, LoopBackAuth)=> {
+    controller: ($scope)=> {
 
 
 
@@ -228,7 +228,7 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                 showQuests: false,
                 showLevel: false,
                 showBadges: true,
-                showRankings: false,
+                showRankings: true,
                 showGlobalFeed: false,
                 showEditProfile: false,
                 showMarketplace: false,
@@ -274,9 +274,8 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
         scope.scoreDisplayConfig = scope.scoreDisplayConfig || defaultMarkerOptions;
 
         scope.$on("$loginSuccess", (event, response)=> {
-            console.log(response);
             scope.customer = response;
-            console.log("asfasddfaswe", response);
+            
         });
     }
 });

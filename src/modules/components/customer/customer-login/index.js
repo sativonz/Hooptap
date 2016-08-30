@@ -17,12 +17,13 @@ export default() => ({
     controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _hasCustomer)=> {
         //Stampit customer init
         var CustomerModel = stampit().compose(BaseModel, _hasCustomer);
-        var includeFilter ={filter: {include: ['levels', 'badges']}};
+        var includeFilter = {filter: {include: ['levels', 'badges']}};
         if (LoopBackAuth.rememberMe === 'true') {
             console.log(LoopBackAuth.rememberMe);
             CustomerModel().getCurrent(includeFilter).then((response)=> {
                 CustomerModel().initialize(response);
                 $rootScope.$broadcast('$loginSuccess', CustomerModel());
+
             });
         } else {
             LoopBackAuth.clearStorage();
