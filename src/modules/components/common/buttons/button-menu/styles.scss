@@ -16,8 +16,8 @@ c-button-menu {
   top: 9PX;
   z-index: 9999999999999;
   height: 23px;
-  #button-menu {
-    .nav-icon {
+  #ht-menu__btn {
+    .ht-menu_nav {
       width: 17px;
       height: 13px;
       position: relative;
@@ -51,7 +51,7 @@ c-button-menu {
     }
   }
 
-  #menu {
+  #ht-menu {
     position: relative;
     color: #999;
     width: 400px;
@@ -65,7 +65,7 @@ c-button-menu {
     top: -23px;
     border-radius: 10px;
     display: none;
-    ul.main-menu {
+    ul.ht-menu_main {
       @extend %commonStyles;
       background: white;
       width:240px;
@@ -80,10 +80,10 @@ c-button-menu {
         &:hover {
           border-bottom: 2px solid grey;
         }
-        .item-menu__logout {
+        .ht-menu__item-logout {
           font-weight: 600;
         }
-        .item-menu__ranking {
+        .ht-menu__item-ranking {
           cursor: default;
         }
         a {

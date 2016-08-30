@@ -44,8 +44,8 @@ export default(Customer, $rootScope, $parse) => ({
 
 
         //->Open menu
-        var $mnu = $('#menu');
-        var $btn_mnu = $('#button-menu');
+        var $mnu = $('#ht-menu');
+        var $btn_mnu = $('#ht-menu__btn');
 
         $btn_mnu
             .click(function (e) {

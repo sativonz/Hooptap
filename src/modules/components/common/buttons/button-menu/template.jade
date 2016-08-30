@@ -1,17 +1,17 @@
-div#button-menu
-    div.nav-icon(id="toggle" ng-click="toggleDropdown()")
+div#ht-menu__btn
+    div.ht-menu_nav(id="toggle" ng-click="toggleDropdown()")
         span
         span
         span
         span
-div#menu
-    ul.main-menu
+div#ht-menu
+    ul.ht-menu_main
         li.animated.slideInLeft(ng-if="showQuests" ng-click="$root.WPF.viewQuests = !$root.WPF.viewQuests")
             a {{ 'QUESTS.title' | translate }}
         li.animated.slideInLeft(ng-if="showBadges" ng-click="$root.WPF.viewBadges = !$root.WPF.viewBadges")
             a {{ 'BADGES.title' | translate }}
         li.animated.slideInLeft(ng-if="showRankings")
-            a.item-menu__ranking {{ 'RANKING.titleList' | translate }}
+            a.ht-menu__item-ranking {{ 'RANKING.titleList' | translate }}
             ul.ranking-menu
                 li.animated.slideInLeft(ng-repeat="su in $root.customer.scoreUnits" ng-click="showRankingDetail(su); $root.WPF.viewRanking = !$root.WPF.viewRanking")
                     a {{ su.name }}
@@ -26,7 +26,7 @@ div#menu
         li.animated.slideInLeft(ng-if="showEditProfile" ng-click="$root.WPF.viewEditProfile = !$root.WPF.viewEditProfile")
             a {{ 'CUSTOMER.update.title' | translate }}
         li.animated.slideInLeft(ng-if="!logout")
-            a.item-menu__logout(ng-click="formLogout()") {{ 'CUSTOMER.common.logout' | translate }}
+            a.ht-menu__item-logout(ng-click="formLogout()") {{ 'CUSTOMER.common.logout' | translate }}
 
 
 
