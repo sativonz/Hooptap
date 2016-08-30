@@ -46,13 +46,14 @@ export default (Customer, $rootScope, $q) => {
              */
             getCurrent(filter){
                 return Customer.getCurrent(filter).$promise.then((response)=> {
+                    console.log(response);
                     this.initialize(response);
                 });
             },
 
             getBadges(filter){
                 //TODO getCustomerBadges
-                return Customer['badges']().$promise.then((response)=> {
+                return Customer['badges'](filter).$promise.then((response)=> {
                     this.badges = response;
                 });
             },
