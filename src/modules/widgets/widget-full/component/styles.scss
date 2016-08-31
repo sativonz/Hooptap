@@ -50,6 +50,7 @@ w-widget-full {
         }
 
         //-> Level block
+        //TODO quitar tamaño fijo del bloque para que cuando no hayan datos no espacie tanto
         .wrapper__level {
           height: 174px;
           margin-left: 25px;
@@ -61,6 +62,11 @@ w-widget-full {
           }
           .wrapper__levels-title {
             @extend %titleHomeStyleMix;
+          }
+          .wrapper__level-empty-title {
+            text-align: center;
+            font-size: 11pt;
+            color: #0089c0;
           }
           .level-home-widget-full__wrapper {
             .img-next-level{

@@ -1,11 +1,12 @@
-c-button-init(text="Juegue ahora" image="http://iconshow.me/media/images/ui/ios7-icons/png/48/play-outline.png" ng-click="$root.openWidget = !$root.openWidget" ng-if="!$root.openWidget")
+//c-button-init(text="Juegue ahora" image="http://iconshow.me/media/images/ui/ios7-icons/png/48/play-outline.png" ng-click="$root.openWidget = !$root.openWidget" ng-if="!$root.openWidget")
 
 
 //--> WIDGET FULL
-w-widget-full(ng-if="$root.openWidget && $root.customer.logged")
+//w-widget-full(ng-if="$root.openWidget && $root.customer.logged")
+w-widget-full(ng-if="$root.customer.logged")
 
 //--> WIDGET CUSTOMER ACCESS
-w-widget-customer-access(show-mix-form="true" ng-if="$root.openWidget && !$root.customer.logged")
+w-widget-customer-access(show-mix-form="true" ng-if="!$root.customer.logged")
 
 //--> WIDGET QUESTS
 //w-widget-quests

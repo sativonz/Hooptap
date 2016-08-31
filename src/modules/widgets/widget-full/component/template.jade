@@ -1,5 +1,5 @@
--var allViewsFalse = "!$root.WPF.viewBadges && !$root.WPF.viewMarkerSU && !$root.WPF.viewQuests && !$root.WPF.viewRanking && !$root.WPF.viewEditProfile && !$root.WPF.viewGameRoom && !$root.WPF.viewLevelList"
--var bodyStyle = "'viewStyle': $root.WPF.viewBadges || $root.WPF.viewMarkerSU || $root.WPF.viewQuests || $root.WPF.viewRanking || $root.WPF.viewEditProfile || $root.WPF.viewGameRoom || $root.WPF.viewLevelList"
+-var allViewsFalse = "!$root.WPF.viewBadges && !$root.WPF.viewQuests && !$root.WPF.viewRanking && !$root.WPF.viewEditProfile && !$root.WPF.viewGameRoom && !$root.WPF.viewLevelList"
+-var bodyStyle = "'viewStyle': $root.WPF.viewBadges || $root.WPF.viewQuests || $root.WPF.viewRanking || $root.WPF.viewEditProfile || $root.WPF.viewGameRoom || $root.WPF.viewLevelList"
 
 c-button-menu(ng-if="$root.customer.logged && #{allViewsFalse}" title-game-room="menuOptions.titleGameRoom" show-quests="menuOptions.showQuests" show-badges="menuOptions.showBadges" show-rankings="menuOptions.showRankings" show-level="menuOptions.showLevel" show-global-feed="menuOptions.showGlobalFeed" show-marketplace="menuOptions.showMarketplace" show-edit-profile="menuOptions.showEditProfile" show-game-room="menuOptions.showGameRoom")
 c-button-close
@@ -10,11 +10,13 @@ c-button-close
         .wrapper-components(ng-class="{#{bodyStyle}, 'defaultStyle': $root.WPF.viewDefault}")
             .wrapper__score-units.row(ng-if="showMarker && #{allViewsFalse}")
                 c-marker-display(options="scoreDisplayConfig")
-            .wrapper__level.row(ng-if="levelRow.showModule && #{allViewsFalse}" ng-repeat="level in customer.levels")
+            .wrapper__level.row(ng-if="levelRow.showModule && #{allViewsFalse}")
                 .level-home-widget-full__container
                     .wrapper__levels-title
                         span {{ 'LEVELS.title' | translate }}
-                    .level-home-widget-full__wrapper
+                    .wrapper__level-empty
+                        p.wrapper__level-empty-title Aún no tienes ningún nivel asignado
+                    .level-home-widget-full__wrapper(ng-repeat="level in customer.levels")
                         .col-xs-3.not-padding
                             //si el nivel tiene imagen:
                             img(ng-if="level.image" ng-src="{{level.image}}")
@@ -22,6 +24,7 @@ c-button-close
                             img(ng-if="!level.image" ng-src=require("../images/icon-level-default.svg"))
                             p.name-actual-level {{level.name}}
                         .col-xs-9(ng-if="level.nextId == null")
+                            //TODO Mirar aver con el cambio de rootscope a scope como manejarlo
                             //TODO change message
                             p YA estás en el último nivel, campeón
                         .col-xs-9(ng-if="level.nextId != null")
@@ -69,7 +72,6 @@ c-button-close
             .wrapper__level-list(ng-if="$root.WPF.viewLevelList")
                 c-button-back(ng-click="$root.WPF.viewLevelList = !$root.WPF.viewLevelList" ng-if="$root.WPF.viewLevelList")
                 c-widget-header(title="{{ 'SCOREUNITS.title' | translate }}")
-
                 c-marker-list-su(item="customer")
 .footer-shadow(ng-if="$root.customer.logged")
 

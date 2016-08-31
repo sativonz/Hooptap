@@ -17,7 +17,6 @@ import Q from 'q';
  */
 
 export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelper) => ({
-    
     restrict: 'E',
     transclude: true,
     template,
@@ -41,9 +40,6 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
         levelRow: '=?'
     },
     controller: ($scope)=> {
-
-
-
         // function getCurrent() {
         //     Q.async(function*(){
         //         let response = yield Customer.getCurrent( { filter: { include: ['levels','badges'] } } ).$promise;
