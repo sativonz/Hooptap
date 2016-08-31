@@ -1,5 +1,6 @@
 import template from './template.jade';
 import './styles.scss';
+import $ from 'jquery';
 /**
  * @ngdoc directive
  * @name Button menu
