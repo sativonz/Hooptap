@@ -1,79 +1,80 @@
 -var allViewsFalse = "!$root.WPF.viewBadges && !$root.WPF.viewQuests && !$root.WPF.viewRanking && !$root.WPF.viewEditProfile && !$root.WPF.viewGameRoom && !$root.WPF.viewLevelList"
 -var bodyStyle = "'viewStyle': $root.WPF.viewBadges || $root.WPF.viewQuests || $root.WPF.viewRanking || $root.WPF.viewEditProfile || $root.WPF.viewGameRoom || $root.WPF.viewLevelList"
 
-c-button-menu(ng-if="$root.customer.logged && #{allViewsFalse}" title-game-room="menuOptions.titleGameRoom" show-quests="menuOptions.showQuests" show-badges="menuOptions.showBadges" show-rankings="menuOptions.showRankings" show-level="menuOptions.showLevel" show-global-feed="menuOptions.showGlobalFeed" show-marketplace="menuOptions.showMarketplace" show-edit-profile="menuOptions.showEditProfile" show-game-room="menuOptions.showGameRoom")
-c-button-close
+.w-widget-full(ng-if="$root.customer.logged")
+    c-button-menu(ng-if="$root.customer.logged && #{allViewsFalse}" title-game-room="menuOptions.titleGameRoom" show-quests="menuOptions.showQuests" show-badges="menuOptions.showBadges" show-rankings="menuOptions.showRankings" show-level="menuOptions.showLevel" show-global-feed="menuOptions.showGlobalFeed" show-marketplace="menuOptions.showMarketplace" show-edit-profile="menuOptions.showEditProfile" show-game-room="menuOptions.showGameRoom")
+    c-button-close
 
-//TODO descomentar y borrar siguiente (solo pruebas)
-.ht-profile-widget-full(ng-if="$root.customer.logged")
-    .ht-profile-widget-full__container
-        c-widget-header(ng-if="#{allViewsFalse}")
-        c-profile-header(ng-if="showProfileHeader && #{allViewsFalse}" edit-profile="editProfile" item="customer")
-        .wrapper-components(ng-class="{#{bodyStyle}, 'defaultStyle': $root.WPF.viewDefault}")
-            .wrapper__score-units.row(ng-if="showMarker && #{allViewsFalse}")
-                c-marker-display(options="scoreDisplayConfig")
-            .wrapper__level.row(ng-if="levelRow.showModule && #{allViewsFalse}")
-                .level-home-widget-full__container
-                    .wrapper__levels-title
-                        span {{ 'LEVELS.title' | translate }}
-                    .wrapper__level-empty
-                        p.wrapper__level-empty-title Aún no tienes ningún nivel asignado
-                    .level-home-widget-full__wrapper(ng-repeat="level in customer.levels")
-                        .col-xs-3.not-padding
-                            //si el nivel tiene imagen:
-                            img(ng-if="level.image" ng-src="{{level.image}}")
-                            //si el nivel NO tiene imagen:
-                            img(ng-if="!level.image" ng-src=require("../images/icon-level-default.svg"))
-                            p.name-actual-level {{level.name}}
-                        .col-xs-9(ng-if="level.nextId == null")
-                            //TODO Mirar aver con el cambio de rootscope a scope como manejarlo
-                            //TODO change message
-                            p YA estás en el último nivel, campeón
-                        .col-xs-9(ng-if="level.nextId != null")
-                            .col-xs-4
-                                //si el siguiente nivel tiene imagen:
-                                img.img-next-level(ng-if="level.nextLevel.image" ng-src="{{level.nextLevel.image}}")
-                                //si el siguiente nivel NO tiene imagen:
-                                img.img-next-level(ng-if="!level.nextLevel.image" ng-src=require("../images/icon-level-default.svg"))
-                            .col-xs-8.not-padding.wrapper-next-level
-                                p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
-                                p.name-next-level {{level.nextLevel.name}}
-                            .col-xs-12(ng-if="levelRow.showProgressBarLevel")
-                                .progressbar
-                                    .progressbar-actual(style="width:{{level.nextLevel.percent}}%")
-                                        div.center(style="width:233px;") {{customer.scores[ level.scoreUnitId ]}} / {{level.nextLevel.diff}} {{level.scoreUnitName}}
+    //TODO descomentar y borrar siguiente (solo pruebas)
+    .ht-profile-widget-full(ng-if="$root.customer.logged")
+        .ht-profile-widget-full__container
+            c-widget-header(ng-if="#{allViewsFalse}")
+            c-profile-header(ng-if="showProfileHeader && #{allViewsFalse}" edit-profile="editProfile" item="customer")
+            .wrapper-components(ng-class="{#{bodyStyle}, 'defaultStyle': $root.WPF.viewDefault}")
+                .wrapper__score-units.row(ng-if="showMarker && #{allViewsFalse}")
+                    c-marker-display(options="scoreDisplayConfig")
+                .wrapper__level.row(ng-if="levelRow.showModule && #{allViewsFalse}")
+                    .level-home-widget-full__container
+                        .wrapper__levels-title
+                            span {{ 'LEVELS.title' | translate }}
+                        .wrapper__level-empty
+                            p.wrapper__level-empty-title Aún no tienes ningún nivel asignado
+                        .level-home-widget-full__wrapper(ng-repeat="level in customer.levels")
+                            .col-xs-3.not-padding
+                                //si el nivel tiene imagen:
+                                img(ng-if="level.image" ng-src="{{level.image}}")
+                                //si el nivel NO tiene imagen:
+                                img(ng-if="!level.image" ng-src=require("../images/icon-level-default.svg"))
+                                p.name-actual-level {{level.name}}
+                            .col-xs-9(ng-if="level.nextId == null")
+                                //TODO Mirar aver con el cambio de rootscope a scope como manejarlo
+                                //TODO change message
+                                p YA estás en el último nivel, campeón
+                            .col-xs-9(ng-if="level.nextId != null")
+                                .col-xs-4
+                                    //si el siguiente nivel tiene imagen:
+                                    img.img-next-level(ng-if="level.nextLevel.image" ng-src="{{level.nextLevel.image}}")
+                                    //si el siguiente nivel NO tiene imagen:
+                                    img.img-next-level(ng-if="!level.nextLevel.image" ng-src=require("../images/icon-level-default.svg"))
+                                .col-xs-8.not-padding.wrapper-next-level
+                                    p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
+                                    p.name-next-level {{level.nextLevel.name}}
+                                .col-xs-12(ng-if="levelRow.showProgressBarLevel")
+                                    .progressbar
+                                        .progressbar-actual(style="width:{{level.nextLevel.percent}}%")
+                                            div.center(style="width:233px;") {{customer.scores[ level.scoreUnitId ]}} / {{level.nextLevel.diff}} {{level.scoreUnitName}}
 
-            .wrapper__gf.row(ng-if="showGlobalFeed && #{allViewsFalse}")
-                .wrapper__gf-title {{ 'GLOBAL_FEED.title' | translate }}
-                c-game-global-feed
+                .wrapper__gf.row(ng-if="showGlobalFeed && #{allViewsFalse}")
+                    .wrapper__gf-title {{ 'GLOBAL_FEED.title' | translate }}
+                    c-game-global-feed
 
-            .wrapper__badges-component(ng-if="$root.WPF.viewBadges")
-                c-button-back(ng-click="$root.WPF.viewBadges = !$root.WPF.viewBadges")
-                c-widget-header(title="{{'BADGES.title' | translate}}")
-                c-badges-grid(item="customer" number-cols="4")
+                .wrapper__badges-component(ng-if="$root.WPF.viewBadges")
+                    c-button-back(ng-click="$root.WPF.viewBadges = !$root.WPF.viewBadges")
+                    c-widget-header(title="{{'BADGES.title' | translate}}")
+                    c-badges-grid(item="customer" number-cols="4")
 
-            .wrapper__quests-component(ng-if="$root.WPF.viewQuests")
-                c-button-back(ng-click="$root.WPF.viewQuests = !$root.WPF.viewQuests")
-                c-widget-header(title="{{ 'QUESTS.title' | translate }}")
-                c-quests-list
+                .wrapper__quests-component(ng-if="$root.WPF.viewQuests")
+                    c-button-back(ng-click="$root.WPF.viewQuests = !$root.WPF.viewQuests")
+                    c-widget-header(title="{{ 'QUESTS.title' | translate }}")
+                    c-quests-list
 
-            .wrapper__ranking-component(ng-if="$root.WPF.viewRanking")
-                c-button-back(ng-click="$root.WPF.viewRanking = !$root.WPF.viewRanking")
-                c-widget-header(title="{{ customer.ranking.actualSu }} ranking")
-                c-ranking-list
+                .wrapper__ranking-component(ng-if="$root.WPF.viewRanking")
+                    c-button-back(ng-click="$root.WPF.viewRanking = !$root.WPF.viewRanking")
+                    c-widget-header(title="{{ customer.ranking.actualSu }} ranking")
+                    c-ranking-list
 
-            .wrapper__edit-profile(ng-if="$root.WPF.viewEditProfile")
-                c-button-back(ng-click="$root.WPF.viewEditProfile = !$root.WPF.viewEditProfile")
-                c-widget-header(title="{{ 'CUSTOMER.update.title' | translate }}")
-                c-customer-update
+                .wrapper__edit-profile(ng-if="$root.WPF.viewEditProfile")
+                    c-button-back(ng-click="$root.WPF.viewEditProfile = !$root.WPF.viewEditProfile")
+                    c-widget-header(title="{{ 'CUSTOMER.update.title' | translate }}")
+                    c-customer-update
 
-            .wrapper__game-room(ng-if="$root.WPF.viewGameRoom")
-                c-button-back(ng-click="$root.WPF.viewGameRoom = !$root.WPF.viewGameRoom" ng-if="!$root.WPF.viewGRdetail")
-                c-game-room(show-desc="true" show-title="true")
+                .wrapper__game-room(ng-if="$root.WPF.viewGameRoom")
+                    c-button-back(ng-click="$root.WPF.viewGameRoom = !$root.WPF.viewGameRoom" ng-if="!$root.WPF.viewGRdetail")
+                    c-game-room(show-desc="true" show-title="true")
 
-            .wrapper__level-list(ng-if="$root.WPF.viewLevelList")
-                c-button-back(ng-click="$root.WPF.viewLevelList = !$root.WPF.viewLevelList" ng-if="$root.WPF.viewLevelList")
-                c-widget-header(title="{{ 'SCOREUNITS.title' | translate }}")
-                c-marker-list-su(item="customer")
-.footer-shadow(ng-if="$root.customer.logged")
+                .wrapper__level-list(ng-if="$root.WPF.viewLevelList")
+                    c-button-back(ng-click="$root.WPF.viewLevelList = !$root.WPF.viewLevelList" ng-if="$root.WPF.viewLevelList")
+                    c-widget-header(title="{{ 'SCOREUNITS.title' | translate }}")
+                    c-marker-list-su(item="customer")
+    .footer-shadow(ng-if="$root.customer.logged")
 
