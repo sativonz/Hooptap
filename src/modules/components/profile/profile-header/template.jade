@@ -2,8 +2,7 @@
     .ht-profile-header__wrapper.row
         .col-xs-4
             .ht-profile-header__images
-                img.ht-profile-header__profile-photo(ng-if="item.image" ng-src="{{item.image}}")
-                img.ht-profile-header__profile-photo(ng-if="!item.image" ng-src=require("./images/profile-default.svg"))
+                img.ht-profile-header__profile-photo(ng-src="{{item.image || defaultImage}}")
                 //TODO Quitar comentarios
                 //label(for="file-input")
                 //   img.ht-profile-header__img-upload(ng-src=require("./images/img-upload.svg") ng-click="uploadImgProfile()")

@@ -1,5 +1,6 @@
 import template from './template.jade';
 import './styles.scss';
+var defaultImage = require('./images/profile-default.svg')
 /**
  * @ngdoc directive
  * @name Profile header
@@ -19,17 +20,8 @@ export default(Customer, $rootScope, $q) => ({
     template,
     link: (scope, element, attrs)=> {
 
-        // diffs: {
-        //
-        // }
-        //
-        // scope.uploadImgProfile =  function() {
-        //     Customer.prototype$updateAttributes({id: this.id}, diffs).$promise
-        //         .then((data) => {
-        //
-        //         })
-        //
-        // };
+        //TODO Set default image from parameter too
+     scope.defaultImage = defaultImage;
 
 
     }

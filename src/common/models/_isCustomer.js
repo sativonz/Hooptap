@@ -1,7 +1,7 @@
 import stampit from 'stampit';
 import Q from 'q';
 
-export default (Customer) => {
+export default ($rootScope, Customer) => {
     return stampit()
         .compose()
         /**
@@ -11,9 +11,10 @@ export default (Customer) => {
         .init(function ({stamp}) {
         })
         .methods({
-            
+
             logout(){
                 Customer.logout();
+                $rootScope.$broadcast('$logoutSuccess');
             }
 
         })

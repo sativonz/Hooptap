@@ -273,6 +273,9 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                 console.log(response);
                 scope.customer = response;
             });
+            scope.$on("$logoutSuccess", (event) => {
+                scope.customer = {};
+            });
         }
     }
 });
