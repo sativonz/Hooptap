@@ -3,8 +3,10 @@
 
 c-button-menu(ng-if="$root.customer.logged && #{allViewsFalse}" title-game-room="menuOptions.titleGameRoom" show-quests="menuOptions.showQuests" show-badges="menuOptions.showBadges" show-rankings="menuOptions.showRankings" show-level="menuOptions.showLevel" show-global-feed="menuOptions.showGlobalFeed" show-marketplace="menuOptions.showMarketplace" show-edit-profile="menuOptions.showEditProfile" show-game-room="menuOptions.showGameRoom")
 c-button-close
+
+//TODO descomentar y borrar siguiente (solo pruebas)
 .ht-profile-widget-full(ng-if="$root.customer.logged")
-    .ht-profile-widget-full__container
+    .profile-widget-full__container
         c-widget-header(ng-if="#{allViewsFalse}")
         c-profile-header(ng-if="showProfileHeader && #{allViewsFalse}" edit-profile="editProfile" item="customer")
         .wrapper-components(ng-class="{#{bodyStyle}, 'defaultStyle': $root.WPF.viewDefault}")

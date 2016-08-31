@@ -1,6 +1,6 @@
 import template from './template.jade';
 import './styles.scss';
-import Q from 'q';
+import stampit from 'stampit';
 /**
  * @ngdoc directive
  * @name Widget full
@@ -16,7 +16,8 @@ import Q from 'q';
  * @element ANY
  */
 
-export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelper) => ({
+
+export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelper, BaseModel, _isWidget) => ({
     restrict: 'E',
     transclude: true,
     template,
@@ -206,8 +207,6 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
     },
 
     link: (scope, element, attrs)=> {
-
-
         //Default values for widget full
         let defaults = {
             idWidget: "",
@@ -232,9 +231,6 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
             }
         };
 
-        clientHelper.setDefaultAttributes(defaults, scope, attrs);
-
-
         //Modelo de zonas, mostrando los 4 tipos para test
         let defaultMarkerOptions = {
             zones: [
@@ -243,7 +239,7 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                 //
                 //     {model: 'Level'  },         // por default, asociado al ScoreUnit anterior
                 //
-                //     {model: 'Badge'  },         // contador de badges
+                //     {model: 'Badge'  }response,         // contador de badges
                 //
                 //     {model: 'Badge'  },         // contador de badges
                 // ],
@@ -253,8 +249,8 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
 
                     {model: 'Level'},          // por default, asociado al ScoreUnit anterior
 
-                    {model: 'Badge'},          // contador de badges
-                ],
+                    {model: 'Badge'}      // contador de badges
+                ]
 
                 // [
                 //     { model: 'Level' },         // por default, asociado al ScoreUnit anterior
@@ -267,11 +263,18 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
             ]
         };
 
-        scope.scoreDisplayConfig = scope.scoreDisplayConfig || defaultMarkerOptions;
+        let WidgetModel = stampit().compose(BaseModel, _isWidget)({defaults, defaultMarkerOptions});
+
+        window.widget = WidgetModel;
+
+        clientHelper.setDefaultAttributes(WidgetModel.defaults, scope, attrs);
+
+
+        scope.scoreDisplayConfig = scope.scoreDisplayConfig || WidgetModel.defaultMarkerOptions;
 
         scope.$on("$loginSuccess", (event, response)=> {
+            console.log(response);
             scope.customer = response;
-
         });
     }
 });
