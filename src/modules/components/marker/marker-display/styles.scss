@@ -29,6 +29,10 @@ c-marker-display {
         position: relative;
         left: 14px;
       }
+      .marker-display__img {
+        margin-top: -4px!important;
+        height: 53px!important;
+      }
       .title__score-units {
         margin-right: 20px!important;
         font-size: 35pt!important;
@@ -44,6 +48,9 @@ c-marker-display {
         font-size:11pt!important;
         text-align:right!important;
         margin-top: 16px!important;
+      }
+      .marker-display__img {
+        margin-top: 3px!important;
       }
     }
 
@@ -63,6 +70,7 @@ c-marker-display {
 
     .marker-display__img {
       height:40px!important;
+      margin-top: -2px!important;
     }
 
     .profile-widget-full-items {
