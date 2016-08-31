@@ -47,22 +47,6 @@ w-widget-full {
           margin-left: 25px;
           margin-right: 25px;
           padding:  39px 0px 0px 0px;
-          c-marker-display {
-            .wrapper__score-units-title {
-              @extend %titleHomeStyleMix;
-            }
-            .profile-widget-full-items:not(:last-child) {
-              border-right: 1px solid $_1_quest-title__inactive;
-              cursor: pointer;
-            }
-            .title__score-units {
-              font-size: 14pt;
-              font-weight: bold;
-              color: $_1_quest-title;
-              margin-top: 10px;
-              text-align: right;
-            }
-          }
         }
 
         //-> Level block
