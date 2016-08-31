@@ -6,7 +6,7 @@ c-button-close
 
 //TODO descomentar y borrar siguiente (solo pruebas)
 .ht-profile-widget-full(ng-if="$root.customer.logged")
-    .profile-widget-full__container
+    .ht-profile-widget-full__container
         c-widget-header(ng-if="#{allViewsFalse}")
         c-profile-header(ng-if="showProfileHeader && #{allViewsFalse}" edit-profile="editProfile" item="customer")
         .wrapper-components(ng-class="{#{bodyStyle}, 'defaultStyle': $root.WPF.viewDefault}")
