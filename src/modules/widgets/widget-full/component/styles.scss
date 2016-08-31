@@ -48,7 +48,7 @@ w-widget-full {
           margin-right: 25px;
           padding:  39px 0px 0px 0px;
           c-marker-display {
-            .wrapper__score-units-title {
+            .ht-marker-display__title {
               @extend %titleHomeStyleMix;
               .profile-widget-full-items:not(:last-child) {
                 border-right: 1px solid $_1_quest-title__inactive;
