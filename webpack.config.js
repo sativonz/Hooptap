@@ -2,6 +2,7 @@
 
 // Modules
 var webpack = require('webpack');
+var pkg = require('./package.json');
 
 // Identify the environment
 var ENV = process.env.npm_lifecycle_event;
@@ -19,7 +20,7 @@ module.exports = function makeWebpackConfig() {
     //Output
     config.output = isTest ? {} : {
         // Absolute output directory
-        path: __dirname + '/build',
+        path: __dirname + '/build/v' + pkg.version.replace(/\./g,'-')  +'/',
         // Output path from the view of the page
         // Uses webpack-dev-server in development
         publicPath: isProd ? '/' : 'http://localhost:8080/',
@@ -48,9 +49,7 @@ module.exports = function makeWebpackConfig() {
     config.module = {
         preLoaders: [],
         loaders: [
-            {test: /\.js$/, loader: "babel-loader", exclude: /node_modules/, query: {
-                presets:['es2015', 'stage-0'],plugins: ['transform-runtime']
-            }},
+            {test: /\.js$/, loaders: ['babel'], exclude: /node_modules/},
             {
                 test: /stampit\.js$/, loader: 'string-replace',
                 query: {
@@ -74,7 +73,6 @@ module.exports = function makeWebpackConfig() {
                     ]
                 }
             },
-            {test: /\.json/, loader:'json'},
             {test: /\.jade/, loader: 'jade'},
             {test: /\.css$/, loader: isTest ? 'null' : 'style!css'},
             {test: /\.scss$/, loader: isTest ? 'null' : 'style!css!sass'},
@@ -117,14 +115,11 @@ module.exports = function makeWebpackConfig() {
             angular: 'angular-mod',
             'window.angular': 'angular-mod'
         }),
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
-            "window.jQuery": "jquery"
-        }),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: false,
-            mangle:false,
+            mangle: {
+                except: ['angular-mod']
+            },
             compress: {
                 warnings: false
             }
