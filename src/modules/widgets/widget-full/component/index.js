@@ -200,82 +200,80 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
         //     })();
         // }
 
-        //Destroy Events
-        $scope.$on('$destroy', ()=> {
-            loginEvent();
-        });
     },
 
-    link: (scope, element, attrs)=> {
-        //Default values for widget full
-        let defaults = {
-            idWidget: "",
-            editProfile: false,
-            showGlobalFeed: false,
-            showMarker: true,
-            showProfileHeader: true,
-            levelRow: {
-                showProgressBarLevel: true,
-                showModule: true,
-            },
-            menuOptions: {
-                titleGameRoom: "Salón de juegos",
-                showQuests: false,
-                showLevel: false,
-                showBadges: true,
-                showRankings: true,
+    link: {
+        post: function PostLinkingFunction(scope, element, attrs) {
+            //Default values for widget full
+            let defaults = {
+                idWidget: "",
+                editProfile: false,
                 showGlobalFeed: false,
-                showEditProfile: false,
-                showMarketplace: false,
-                showGameRoom: false
-            }
-        };
+                showMarker: true,
+                showProfileHeader: true,
+                levelRow: {
+                    showProgressBarLevel: true,
+                    showModule: true,
+                },
+                menuOptions: {
+                    titleGameRoom: "Salón de juegos",
+                    showQuests: false,
+                    showLevel: false,
+                    showBadges: true,
+                    showRankings: true,
+                    showGlobalFeed: false,
+                    showEditProfile: false,
+                    showMarketplace: false,
+                    showGameRoom: false
+                }
+            };
 
-        //Modelo de zonas, mostrando los 4 tipos para test
-        let defaultMarkerOptions = {
-            zones: [
-                // [
-                //     {model: 'ScoreUnit' },      // por default, el primero que encuentre
-                //
-                //     {model: 'Level'  },         // por default, asociado al ScoreUnit anterior
-                //
-                //     {model: 'Badge'  }response,         // contador de badges
-                //
-                //     {model: 'Badge'  },         // contador de badges
-                // ],
+            //Modelo de zonas, mostrando los 4 tipos para test
+            let defaultMarkerOptions = {
+                zones: [
+                    // [
+                    //     {model: 'ScoreUnit' },      // por default, el primero que encuentre
+                    //
+                    //     {model: 'Level'  },         // por default, asociado al ScoreUnit anterior
+                    //
+                    //     {model: 'Badge'  }response,         // contador de badges
+                    //
+                    //     {model: 'Badge'  },         // contador de badges
+                    // ],
 
-                [
-                    {model: 'ScoreUnit'},       // por default, el primero que encuentre
+                    [
+                        {model: 'ScoreUnit'},       // por default, el primero que encuentre
 
-                    {model: 'Level'},          // por default, asociado al ScoreUnit anterior
+                        {model: 'Level'},          // por default, asociado al ScoreUnit anterior
 
-                    {model: 'Badge'}      // contador de badges
+                        {model: 'Badge'}      // contador de badges
+                    ]
+
+                    // [
+                    //     { model: 'Level' },         // por default, asociado al ScoreUnit anterior
+                    //     { model: 'ScoreUnit' }      // por default, el primero que encuentre
+                    // ],
+                    //
+                    // [
+                    //     { model: 'Badge' }          // contador de badges
+                    // ]
                 ]
+            };
 
-                // [
-                //     { model: 'Level' },         // por default, asociado al ScoreUnit anterior
-                //     { model: 'ScoreUnit' }      // por default, el primero que encuentre
-                // ],
-                //
-                // [
-                //     { model: 'Badge' }          // contador de badges
-                // ]
-            ]
-        };
+            let WidgetModel = stampit().compose(BaseModel, _isWidget)({defaults, defaultMarkerOptions});
 
-        let WidgetModel = stampit().compose(BaseModel, _isWidget)({defaults, defaultMarkerOptions});
+            window.widget = WidgetModel;
 
-        window.widget = WidgetModel;
-
-        clientHelper.setDefaultAttributes(WidgetModel.defaults, scope, attrs);
+            clientHelper.setDefaultAttributes(WidgetModel.defaults, scope, attrs);
 
 
-        scope.scoreDisplayConfig = scope.scoreDisplayConfig || WidgetModel.defaultMarkerOptions;
+            scope.scoreDisplayConfig = scope.scoreDisplayConfig || WidgetModel.defaultMarkerOptions;
 
-        scope.$on("$loginSuccess", (event, response)=> {
-            console.log(response);
-            scope.customer = response;
-        });
+            scope.$on("$loginSuccess", (event, response)=> {
+                console.log(response);
+                scope.customer = response;
+            });
+        }
     }
 });
 
