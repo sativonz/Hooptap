@@ -27,5 +27,9 @@ export default($timeout, $rootScope) => ({
             return require('./images/su-default.png')
         };
 
+        scope.levelDefaultImage = function () {
+            return require('./images/level-default.svg')
+        };
+
     }
 });

@@ -36,7 +36,6 @@ export default() => ({
                 password: $scope.password,
                 rememberMe: $scope.rememberMe
             }).then((response)=> {
-                console.log(response);
                 CustomerModel().initialize(response);
                 $rootScope.$broadcast('$loginSuccess', CustomerModel());
             }).catch((error)=> {
