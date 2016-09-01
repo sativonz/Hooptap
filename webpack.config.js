@@ -23,7 +23,7 @@ module.exports = function makeWebpackConfig() {
         path: __dirname + '/build/' + pkg.version.replace(/\./g,'-')  +'/',
         // Output path from the view of the page
         // Uses webpack-dev-server in development
-        publicPath: isProd ? '/' : 'http://localhost:8080/',
+        publicPath: isProd ? '//sdk-client.hooptap.com/' : 'http://localhost:8080/',
 
         // Filename for entry points
         // filename: 'bundle.[name].[hash].js',

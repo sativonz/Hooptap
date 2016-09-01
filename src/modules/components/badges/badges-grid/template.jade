@@ -5,7 +5,7 @@
 
 				.ht-badges-list__badge-blank()
 					p {{::'BADGES.empty' | translate}}
-				.badge-item.animated.bounceIn(ng-repeat="item in item.badges" id="allBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true, 'badge-not-achieved': !item.state}" ng-click="badgeDetail(item)")
+				.badge-item.animated.bounceIn(ng-repeat="item in badgeSeats" id="allBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true, 'badge-not-achieved': !item.state}" ng-click="badgeDetail(item)")
 					.badge-item__img(ng-class="{'badge-started': item.available}")
 						img(ng-src="{{item.image}}")
 					.badge-item__title(ng-if="showTitle" title='{{item.title}}') {{item.title}}
@@ -17,7 +17,6 @@
 			.ht-badges-list__wrapper.row
 
 				.ht-badges-list__badge-blank(ng-if="!availableBadges")
-
 					p {{::'BADGES.empty' | translate}}
 				.badge-item.animated.bounceIn(ng-repeat="item in availableBadges" id="availableBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true}" ng-if="item.visible" ng-click="badgeDetail(item)")
 					.badge-item__img(ng-class="{'badge-started': item.available}")

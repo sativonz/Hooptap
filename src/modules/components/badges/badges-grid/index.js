@@ -27,7 +27,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
     link: (scope, element, attrs)=> {
 
         let BadgesModel = stampit().compose(BaseModel, _hasBadges);
-
+        window.customerModel = Customer;
         let defaults = {
             showTitle: true,
             showDesc: true,
@@ -35,25 +35,24 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
             numberCols: 4
         };
 
+        if (scope.item && scope.item.hasOwnProperty('$promise')) {
+            scope.item.$promise.then((responseItem) => {
+                console.log(responseItem);
+            });
+        }
         Q.async(function *() {
-            let result = yield BadgesModel().getAvailableBadges();
-            console.log('>> BadgesModel()getAvailableBadges(). >> ', result);
-            scope.availableBadges = result;
-            console.log(scope);
-            window.scope = scope;
+            let availableBadges = yield BadgesModel().getAvailableBadges();
+            //let badgeSeats = yield BadgesModel().badgeSeats();
+            scope.availableBadges = availableBadges;
+            console.log(availableBadges);
+            //scope.badgeSeats = badgeSeats;
+            // scope.totalBadges = Object.assign(scope.availableBadges, scope.item.badges);
+
         })();
-       
 
         clientHelper.setDefaultAttributes(defaults, scope, attrs);
 
 
-        // Customer.get( { filter: { include: ['badges'] } } ).$promise.then(
-        //     (response)=>{
-        //
-        //         console.log("Response badges:", response);
-        //
-        //     }
-        // );
 
         //Detail view
         scope.badgeDetail = function (item) {
