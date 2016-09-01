@@ -30,7 +30,6 @@ export default (Customer, $rootScope, $q) => {
 
             getBadges(filter){
                 //TODO getCustomerBadges
-                debugger;
                 return Customer['badges'](filter).$promise.then((response)=> {
                     this.badges = response;
                 });

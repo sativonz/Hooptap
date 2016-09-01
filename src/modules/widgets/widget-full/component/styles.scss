@@ -75,6 +75,12 @@ w-widget-full {
                 filter: grayscale(1);
                 width: 40px;
               }
+              .last-level {
+                @extend .wrapper__level-empty-title;
+                margin-top: 5px;
+                font-weight: bold;
+                line-height: 30px;
+              }
               .name-actual-level {
                 font-size: 9pt;
                 color: $_1_quest-title;

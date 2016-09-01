@@ -35,7 +35,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
             numberCols: 4
         };
 
-        Q.async(function*() {
+        Q.async(function *() {
             let result = yield BadgesModel().getAvailableBadges();
             console.log('>> BadgesModel()getAvailableBadges(). >> ', result);
             scope.availableBadges = result;
