@@ -39,7 +39,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
             let result = yield BadgesModel().getAvailableBadges();
             console.log('>> BadgesModel()getAvailableBadges(). >> ', result);
             scope.availableBadges = result;
-            console.log(scope);
+            //console.log(scope);
             window.scope = scope;
         })();
        

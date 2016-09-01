@@ -3,7 +3,7 @@
 		uib-tab(index="0" heading="{{::'BADGES.tabs.all' | translate}}")
 			.ht-badges-list__wrapper.row
 
-				.ht-badges-list__badge-blank()
+				.ht-badges-list__badge-blank(ng-if="item.badges.length === 0")
 					p {{::'BADGES.empty' | translate}}
 				.badge-item.animated.bounceIn(ng-repeat="item in item.badges" id="allBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true, 'badge-not-achieved': !item.state}" ng-click="badgeDetail(item)")
 					.badge-item__img(ng-class="{'badge-started': item.available}")
