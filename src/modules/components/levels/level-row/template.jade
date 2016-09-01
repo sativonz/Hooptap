@@ -11,11 +11,11 @@
             p.last-level {{ 'LEVELS.lastLevelMsg' | translate }} {{customer.username}} !
         .col-xs-9(ng-if="level.nextId != null")
             .col-xs-4
-                img.img-next-level(ng-src="{{level.nextLevel.image || defaultNextLevelImage}}")
+                img.img-next-level(ng-src="{{nextLevel.image || defaultNextLevelImage}}")
             .col-xs-8.not-padding.wrapper-next-level
                 p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
-                p.name-next-level {{level.nextLevel.name}}
+                p.name-next-level {{nextLevel.name}}
             .col-xs-12(ng-if="levelRow.showProgressBarLevel")
                 .progressbar
-                    .progressbar-actual(style="width:{{level.nextLevel.percent}}%")
-                        div.center(style="width:233px;") {{customer.scores[ level.scoreUnitId ]}} / {{level.nextLevel.diff}} {{level.scoreUnitName}}
+                    .progressbar-actual(style="width:{{nextLevel.percent}}%")
+                        div.center(style="width:233px;") {{customer.scores[ level.scoreUnitId ]}} / {{nextLevel.diff}} {{level.scoreUnitName}}

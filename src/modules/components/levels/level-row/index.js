@@ -1,7 +1,8 @@
-//TODO FALTA MOCKUP
-
 import template from './template.jade';
 import './styles.scss';
+import stampit from 'stampit';
+import Q from 'q';
+
 var defaultNextLevelImage = require('./images/icon-level-default.svg');
 
 /**
@@ -13,16 +14,28 @@ var defaultNextLevelImage = require('./images/icon-level-default.svg');
  * @param {Object} item The model to display the component
  * @element ANY
  */
-export default($timeout) => ({
+export default(BaseModel, _hasScoreUnits) => ({
     restrict: 'E',
     template,
     transclude: true,
     scope: {
-        item: '='
+        item: '=?'
     },
 
     link: (scope, element, attrs)=> {
-
+        //Default image
         scope.defaultNextLevelImage = defaultNextLevelImage;
+
+        //ScoreUnit Stampit model
+        let ScoreUnitModel = stampit().compose(BaseModel, _hasScoreUnits);
+
+        //Get nextLevel
+
+        Q.async(function*(){
+            let nextLevel = yield ScoreUnitModel().getLevelById(scope.item.levels[0].nextId);
+            console.log(nextLevel);
+            scope.nextLevel = nextLevel;
+        })();
+
     },
 });

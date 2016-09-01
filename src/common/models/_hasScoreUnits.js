@@ -2,18 +2,17 @@ import stampit from 'stampit';
 import _ from 'lodash';
 import Q from 'q';
 
-export default ($q, $state, $injector, BaseModel, _Savable,_Badge, _Quest, _ScoreUnit, Level) => {
+export default (Level, ScoreUnit) => {
 
     return stampit()
-        .compose()
 
         /**
          * @memberOf Rule.model:Rule
          * @stampit init
          */
         .init(function ({stamp}) {
-            this.setRemoteModel('Level');
-            this._factory = Level;
+            this.setRemoteModel('ScoreUnit');
+            this._factory = ScoreUnit;
         })
         .methods({
 
@@ -46,7 +45,7 @@ export default ($q, $state, $injector, BaseModel, _Savable,_Badge, _Quest, _Scor
                 productId: "5784fda092cabc234005814b" //TODO change to actual product id
             },
 
-            _model: 'LevelModel'
+            _model: 'ScoreUnitModel'
         })
 
         .props({});
