@@ -15,5 +15,21 @@ export default($timeout, $rootScope) => ({
         options: '='
     },
     template,
-    link: (scope, element, attrs)=> {}
+    link: (scope, element, attrs)=> {
+
+        scope.defaultValue = 0;
+
+        scope.badgeDefaultImage = function () {
+            return require('./images/badge-default.png')
+        };
+
+        scope.suDefaultImage = function () {
+            return require('./images/su-default.png')
+        };
+
+        scope.levelDefaultImage = function () {
+            return require('./images/level-default.svg')
+        };
+
+    }
 });

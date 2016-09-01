@@ -2,8 +2,7 @@
     .ht-profile-header__wrapper.row
         .col-xs-4
             .ht-profile-header__images
-                img.ht-profile-header__profile-photo(ng-if="item.image" ng-src="{{item.image}}")
-                img.ht-profile-header__profile-photo(ng-if="!item.image" ng-src=require("./images/profile-default.svg"))
+                img.ht-profile-header__profile-photo(ng-src="{{item.image || defaultImage}}")
                 //TODO Quitar comentarios
                 //label(for="file-input")
                 //   img.ht-profile-header__img-upload(ng-src=require("./images/img-upload.svg") ng-click="uploadImgProfile()")
@@ -13,5 +12,5 @@
             p.ht-profile-header__title-name {{ 'CUSTOMER.common.name' | translate }}:
             p.ht-profile-header__title-email {{ 'CUSTOMER.common.email' | translate }}:
         .col-xs-6.not-padding
-            p.ht-profile-header__item-name {{item.username}}
-            p.ht-profile-header__item-email {{item.email}}
+            p.ht-profile-header__item-name {{ item.username || defaultUsername }}
+            p.ht-profile-header__item-email {{ item.email }}

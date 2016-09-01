@@ -20,31 +20,33 @@ export default(Customer, LoopBackAuth, $rootScope, clientHelper) => ({
         showMixForm: '=?'
     },
     controller: ($scope, $rootScope)=> {
-
-        var loginEvent =  $rootScope.$on("loginSuccess", (event, response)=>{
+        var loginEvent = $rootScope.$on("loginSuccess", (event, response)=> {
             getMessage();
         });
+
         function getMessage() {
-                $rootScope.customer = {};
-                $rootScope.customer.logged = true;
+            $rootScope.customer = {};
+            $rootScope.customer.logged = true;
         }
 
 
         //Destroy Events
-        $scope.$on('$destroy', ()=>{
+        $scope.$on('$destroy', ()=> {
             loginEvent();
         });
 
     },
-    link: (scope, element, attrs)=> {
+    link: {
+        pre: function PreLinkingFunction(scope, element, attrs) {   //Default values for widget customer access
+            let defaults = {
+                showMixForm: true,
+                showRegisterForm: false,
+                showLoginForm: false
+            };
 
-        //Default values for widget customer access
-        let defaults = {
-            showMixForm: true,
-            showRegisterForm: false,
-            showLoginForm: false,
-        };
-
-        clientHelper.setDefaultAttributes(defaults, scope, attrs);
+            clientHelper.setDefaultAttributes(defaults, scope, attrs);
+        }
     }
+
+
 });

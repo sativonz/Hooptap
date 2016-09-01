@@ -1,5 +1,7 @@
 import template from './template.jade';
 import detail from './detail.jade';
+import stampit from 'stampit';
+import Q from 'q';
 /**
  * @ngdoc directive
  * @name Badges grid
@@ -11,7 +13,7 @@ import detail from './detail.jade';
  * @param {Boolean} showDesc Whether to display the description of the badge
  * @element ANY
  */
-export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, clientHelper) => ({
+export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, clientHelper, BaseModel, _hasBadges) => ({
     restrict: 'E',
     template,
     transclude: true,
@@ -22,8 +24,9 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
         showDetailImg: '=?',
         numberCols: '=?',
     },
-    link: (scope, element, attrs)=>{
+    link: (scope, element, attrs)=> {
 
+        let BadgesModel = stampit().compose(BaseModel, _hasBadges);
 
         let defaults = {
             showTitle: true,
@@ -31,6 +34,15 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
             showDetailImg: false,
             numberCols: 4
         };
+
+        Q.async(function *() {
+            let result = yield BadgesModel().getAvailableBadges();
+            console.log('>> BadgesModel()getAvailableBadges(). >> ', result);
+            scope.availableBadges = result;
+            console.log(scope);
+            window.scope = scope;
+        })();
+       
 
         clientHelper.setDefaultAttributes(defaults, scope, attrs);
 
@@ -50,7 +62,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 animation: scope.animationsEnabled,
                 appendTo: angular.element('c-badges-grid'),
                 template: detail,
-                controller: ['$scope','item', 'showTitle', 'showDesc', 'showDetailImg', ($scope, item, showTitle, showDesc, showDetailImg)=>{
+                controller: ['$scope', 'item', 'showTitle', 'showDesc', 'showDetailImg', ($scope, item, showTitle, showDesc, showDetailImg)=> {
                     $scope.item = item;
                     $scope.showTitle = showTitle;
                     $scope.showDesc = showDesc;
@@ -58,11 +70,11 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 }],
                 resolve: {
                     item: ()=> item,
-                    showTitle:() => scope.showTitle,
+                    showTitle: () => scope.showTitle,
                     showDesc: ()=> scope.showDesc,
                     showDetailImg: ()=> scope.showDetailImg,
                 },
-                size: 'sm',
+                size: 'sm'
             });
 
         };
@@ -86,7 +98,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 break;
         }
 
-        
+
         scope.badges = [
             {
                 "id": "5775397981dbc14a04530f73",
@@ -98,7 +110,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 "parts": "3",
                 "currentStep": "2",
                 "desc": "Este badge te lo direon por ganar 100.000 pts en el concurso del dia 22/02/16.",
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/badges/Popcorn.svg",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Popcorn.svg",
             },
             {
                 "id": "577543c881dbc14a04530f75",
@@ -110,7 +122,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 "currentStep": "1",
                 "title": "Crown",
                 "desc": "",
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
             },
             {
                 "id": "5776228481dbc14a04530f79",
@@ -122,7 +134,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 "available": true,
                 "finished": false,
                 "desc": "Este badge te lo direon por ganar 50.000 pts",
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/badges/Corazon.svg",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Corazon.svg",
             },
             {
                 "id": "577e18ac4cc901b712fec731",
@@ -133,7 +145,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 "state": true,
                 "available": true,
                 "finished": false,
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/badges/Popcorn.svg",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Popcorn.svg",
             },
             {
                 "id": "5776228481dbc14a04530f79",
@@ -144,7 +156,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 "state": true,
                 "available": false,
                 "finished": true,
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/badges/Discount.svg",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Discount.svg",
             },
             {
                 "id": "5776228481dbc14a04530f79",
@@ -153,7 +165,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 "state": false,
                 "finished": false,
                 "available": false,
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
             },
             {
                 "id": "5776228481dbc14a04530f79",
@@ -162,7 +174,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 "state": true,
                 "finished": false,
                 "available": true,
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
             },
             {
                 "id": "5776228481dbc14a04530f79",
@@ -173,7 +185,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 "state": true,
                 "finished": true,
                 "available": true,
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/badges/Popcorn.svg",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Popcorn.svg",
             },
             {
                 "id": "5776228481dbc14a04530f79",
@@ -182,7 +194,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 "state": true,
                 "finished": false,
                 "available": false,
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
             },
             {
                 "id": "5776228481dbc14a04530f79",
@@ -191,7 +203,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 "state": true,
                 "finished": false,
                 "available": true,
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
             },
             {
                 "id": "5776228481dbc14a04530f79",
@@ -200,7 +212,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 "state": true,
                 "finished": false,
                 "available": true,
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/badges/Shoping.svg",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Shoping.svg",
             },
             {
                 "id": "5776228481dbc14a04530f79",
@@ -209,7 +221,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 "state": false,
                 "finished": false,
                 "available": false,
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/badges/Discount.svg",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Discount.svg",
             },
             {
                 "id": "5776228481dbc14a04530f79",
@@ -218,7 +230,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 "state": true,
                 "finished": false,
                 "available": true,
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/badges/Popcorn.svg",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Popcorn.svg",
             },
             {
                 "id": "5776228481dbc14a04530f79",
@@ -227,7 +239,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 "state": true,
                 "finished": false,
                 "available": true,
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
             },
             {
                 "id": "5776228481dbc14a04530f79",
@@ -236,7 +248,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 "state": true,
                 "finished": false,
                 "available": false,
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/badges/Discount.svg",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Discount.svg",
             },
             {
                 "id": "5776228481dbc14a04530f79",
@@ -245,7 +257,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 "state": true,
                 "available": false,
                 "finished": false,
-                "img" :  "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
+                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
             }
         ];
 

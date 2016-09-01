@@ -14,32 +14,40 @@ export default() => ({
     restrict: 'E',
     scope: {},
     template,
-    controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _hasCustomer)=> {
-        //Stampit customer init
-        var CustomerModel = stampit().compose(BaseModel, _hasCustomer);
-        var includeFilter = {filter: {include: ['levels', 'badges']}};
-        if (LoopBackAuth.rememberMe === 'true') {
-            console.log(LoopBackAuth.rememberMe);
-            CustomerModel().getCurrent(includeFilter).then((response)=> {
-                CustomerModel().initialize(response);
-                $rootScope.$broadcast('$loginSuccess', CustomerModel());
+    controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _isCustomer, _hasLogin)=> {
+        //Models
+        let LoginModel = stampit().compose(BaseModel, _hasLogin);
+        let CustomerModel = stampit().compose(BaseModel, _isCustomer);
+        //Query filter
+        let includeFilter = {filter: {include: ['levels', 'badges']}};
 
+        //Check if rememberMe is  true , make login and get current.
+        if (LoopBackAuth.rememberMe === 'true') {
+            LoginModel().getCurrent(includeFilter).then((response)=> {
+                let customerResponse = CustomerModel(response);
+                $rootScope.$broadcast('$loginSuccess', customerResponse);
             });
         } else {
+            //Clear Storage, session and user if not rememberMe
+            CustomerModel().logout();
             LoopBackAuth.clearStorage();
             LoopBackAuth.clearUser();
         }
+
+        //Login function to View
         $scope.login = ()=> {
             //TODO ENCRIPTAR CREDENCIALES
-            CustomerModel().login({
+
+            let credentials = {
                 email: $scope.email,
                 password: $scope.password,
                 rememberMe: $scope.rememberMe
-            }).then((response)=> {
-                console.log(response);
-                CustomerModel().initialize(response);
-                $rootScope.$broadcast('$loginSuccess', CustomerModel());
+            };
+
+            LoginModel().login(credentials, includeFilter).then((response)=> {
+                $rootScope.$broadcast('$loginSuccess', response);
             }).catch((error)=> {
+                
                 //TODO NOTIFICADOR ERRORES
                 console.log(error);
             });

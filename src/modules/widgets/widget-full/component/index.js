@@ -1,6 +1,6 @@
 import template from './template.jade';
 import './styles.scss';
-import Q from 'q';
+import stampit from 'stampit';
 /**
  * @ngdoc directive
  * @name Widget full
@@ -16,8 +16,8 @@ import Q from 'q';
  * @element ANY
  */
 
-export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelper) => ({
-    
+
+export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelper, BaseModel, _isWidget) => ({
     restrict: 'E',
     transclude: true,
     template,
@@ -41,9 +41,6 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
         levelRow: '=?'
     },
     controller: ($scope)=> {
-
-
-
         // function getCurrent() {
         //     Q.async(function*(){
         //         let response = yield Customer.getCurrent( { filter: { include: ['levels','badges'] } } ).$promise;
@@ -203,80 +200,83 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
         //     })();
         // }
 
-        //Destroy Events
-        $scope.$on('$destroy', ()=> {
-            loginEvent();
-        });
     },
 
-    link: (scope, element, attrs)=> {
-
-
-        //Default values for widget full
-        let defaults = {
-            idWidget: "",
-            editProfile: false,
-            showGlobalFeed: false,
-            showMarker: true,
-            showProfileHeader: true,
-            levelRow: {
-                showProgressBarLevel: true,
-                showModule: true,
-            },
-            menuOptions: {
-                titleGameRoom: "Salón de juegos",
-                showQuests: false,
-                showLevel: false,
-                showBadges: true,
-                showRankings: true,
+    link: {
+        post: function PostLinkingFunction(scope, element, attrs) {
+            //Default values for widget full
+            let defaults = {
+                idWidget: "",
+                editProfile: false,
                 showGlobalFeed: false,
-                showEditProfile: false,
-                showMarketplace: false,
-                showGameRoom: false
-            }
-        };
+                showMarker: true,
+                showProfileHeader: true,
+                levelRow: {
+                    showProgressBarLevel: true,
+                    showModule: true,
+                },
+                menuOptions: {
+                    titleGameRoom: "Salón de juegos",
+                    showQuests: false,
+                    showLevel: false,
+                    showBadges: true,
+                    showRankings: true,
+                    showGlobalFeed: false,
+                    showEditProfile: false,
+                    showMarketplace: false,
+                    showGameRoom: false
+                }
+            };
 
-        clientHelper.setDefaultAttributes(defaults, scope, attrs);
+            //Modelo de zonas, mostrando los 4 tipos para test
+            let defaultMarkerOptions = {
+                zones: [
+                    // [
+                    //     {model: 'ScoreUnit' },      // por default, el primero que encuentre
+                    //
+                    //     {model: 'Level'  },         // por default, asociado al ScoreUnit anterior
+                    //
+                    //     {model: 'Badge'  }response,         // contador de badges
+                    //
+                    //     {model: 'Badge'  },         // contador de badges
+                    // ],
+
+                    [
+                        {model: 'ScoreUnit'},       // por default, el primero que encuentre
+
+                        {model: 'Level'},          // por default, asociado al ScoreUnit anterior
+
+                        {model: 'Badge'}      // contador de badges
+                    ]
+
+                    // [
+                    //     { model: 'Level' },         // por default, asociado al ScoreUnit anterior
+                    //     { model: 'ScoreUnit' }      // por default, el primero que encuentre
+                    // ],
+                    //
+                    // [
+                    //     { model: 'Badge' }          // contador de badges
+                    // ]
+                ]
+            };
+
+            let WidgetModel = stampit().compose(BaseModel, _isWidget)({defaults, defaultMarkerOptions});
+
+            window.widget = WidgetModel;
+
+            clientHelper.setDefaultAttributes(WidgetModel.defaults, scope, attrs);
 
 
-        //Modelo de zonas, mostrando los 4 tipos para test
-        let defaultMarkerOptions = {
-            zones: [
-                // [
-                //     {model: 'ScoreUnit' },      // por default, el primero que encuentre
-                //
-                //     {model: 'Level'  },         // por default, asociado al ScoreUnit anterior
-                //
-                //     {model: 'Badge'  },         // contador de badges
-                //
-                //     {model: 'Badge'  },         // contador de badges
-                // ],
+            scope.scoreDisplayConfig = scope.scoreDisplayConfig || WidgetModel.defaultMarkerOptions;
 
-                [
-                    {model: 'ScoreUnit'},       // por default, el primero que encuentre
-
-                    {model: 'Level'},          // por default, asociado al ScoreUnit anterior
-
-                    {model: 'Badge'},          // contador de badges
-                ],
-
-                // [
-                //     { model: 'Level' },         // por default, asociado al ScoreUnit anterior
-                //     { model: 'ScoreUnit' }      // por default, el primero que encuentre
-                // ],
-                //
-                // [
-                //     { model: 'Badge' }          // contador de badges
-                // ]
-            ]
-        };
-
-        scope.scoreDisplayConfig = scope.scoreDisplayConfig || defaultMarkerOptions;
-
-        scope.$on("$loginSuccess", (event, response)=> {
-            scope.customer = response;
-            
-        });
+            scope.$on("$loginSuccess", (event, response)=> {
+                console.log(response);
+                scope.customer = response;
+            });
+            scope.$on("$logoutSuccess", (event) => {
+                scope.customer = {};
+            });
+        }
     }
 });
 

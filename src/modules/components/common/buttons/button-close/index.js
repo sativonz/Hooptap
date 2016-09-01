@@ -11,10 +11,5 @@ import './styles.scss';
 export default() => ({
     restrict: 'E',
     template,
-    link: (scope, element, attrs)=>{
-        $('c-button-close').click(function(ev) {
-            $('c-button-init').show("slow");
-            $('#ht-widgets').fadeOut().css("display" , "none");
-        });
-    }
+    link: (scope, element, attrs)=>{}
 });
