@@ -1,6 +1,6 @@
 import template from './template.jade';
 import './styles.scss';
-var defaultImage = require('./images/profile-default.svg')
+var defaultImage = require('./images/profile-default.svg');
 /**
  * @ngdoc directive
  * @name Profile header

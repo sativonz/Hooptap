@@ -11,34 +11,7 @@
                 .wrapper__score-units.row(ng-if="showMarker && #{allViewsFalse}")
                     c-marker-display(options="scoreDisplayConfig")
                 .wrapper__level.row(ng-if="levelRow.showModule && #{allViewsFalse}")
-                    .level-home-widget-full__container
-                        .wrapper__levels-title
-                            span {{ 'LEVELS.title' | translate }}
-                        .wrapper__level-empty(ng-if="customer.levels.length === 0")
-                            p.wrapper__level-empty-title Aún no tienes ningún nivel asignado
-                        .level-home-widget-full__wrapper(ng-repeat="level in customer.levels")
-                            .col-xs-3.not-padding
-                                //si el nivel tiene imagen:
-                                img(ng-if="level.image" ng-src="{{level.image}}")
-                                //si el nivel NO tiene imagen:
-                                img(ng-if="!level.image" ng-src=require("../images/icon-level-default.svg"))
-                                p.name-actual-level {{level.name}}
-                            .col-xs-9(ng-if="level.nextId == null")
-                                //TODO refactor message
-                                p.last-level {{ 'LEVELS.lastLevelMsg' | translate }} {{customer.username}} !
-                            .col-xs-9(ng-if="level.nextId != null")
-                                .col-xs-4
-                                    //si el siguiente nivel tiene imagen:
-                                    img.img-next-level(ng-if="level.nextLevel.image" ng-src="{{level.nextLevel.image}}")
-                                    //si el siguiente nivel NO tiene imagen:
-                                    img.img-next-level(ng-if="!level.nextLevel.image" ng-src=require("../images/icon-level-default.svg"))
-                                .col-xs-8.not-padding.wrapper-next-level
-                                    p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
-                                    p.name-next-level {{level.nextLevel.name}}
-                                .col-xs-12(ng-if="levelRow.showProgressBarLevel")
-                                    .progressbar
-                                        .progressbar-actual(style="width:{{level.nextLevel.percent}}%")
-                                            div.center(style="width:233px;") {{customer.scores[ level.scoreUnitId ]}} / {{level.nextLevel.diff}} {{level.scoreUnitName}}
+                    c-level-row(item="customer")
 
                 .wrapper__gf.row(ng-if="showGlobalFeed && #{allViewsFalse}")
                     .wrapper__gf-title {{ 'GLOBAL_FEED.title' | translate }}

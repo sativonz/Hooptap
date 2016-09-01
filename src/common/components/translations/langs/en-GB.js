@@ -96,7 +96,8 @@ let dict = {
 		ptitle				: 'Levels',
 		nextLevelDetails	: 'Details next level',
 		nextLevel			: 'Next level',
-		lastLevelMsg		: 'This is the last level, congratulations'
+		lastLevelMsg		: 'This is the last level, congratulations',
+		notLevels			: 'You do not have any assigned level'
 		// newbie			: 'Newbie',
 		// rookie			: 'Rookie',
 		// beginner			: 'Beginner',
