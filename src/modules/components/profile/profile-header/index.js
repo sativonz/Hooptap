@@ -13,15 +13,18 @@ var defaultImage = require('./images/profile-default.svg')
  */
 export default(Customer, $rootScope, $q) => ({
     restrict: 'E',
+    template,
     scope: {
         editProfile: '=',
         item: '='
     },
-    template,
     link: (scope, element, attrs)=> {
 
-        //TODO Set default image from parameter too
-     scope.defaultImage = defaultImage;
+    //TODO Set default image and username from parameter too
+    scope.defaultImage = defaultImage;
+    scope.defaultUsername = "Usuario";
+
+
 
 
     }

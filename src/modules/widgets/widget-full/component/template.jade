@@ -3,8 +3,6 @@
 .w-widget-full(ng-if="$root.customer.logged && $root.widgetOpened")
     c-button-menu(ng-if="$root.customer.logged && #{allViewsFalse}" title-game-room="menuOptions.titleGameRoom" show-quests="menuOptions.showQuests" show-badges="menuOptions.showBadges" show-rankings="menuOptions.showRankings" show-level="menuOptions.showLevel" show-global-feed="menuOptions.showGlobalFeed" show-marketplace="menuOptions.showMarketplace" show-edit-profile="menuOptions.showEditProfile" show-game-room="menuOptions.showGameRoom")
     c-button-close
-
-    //TODO descomentar y borrar siguiente (solo pruebas)
     .ht-profile-widget-full(ng-if="$root.customer.logged")
         .ht-profile-widget-full__container
             c-widget-header(ng-if="#{allViewsFalse}")
@@ -16,7 +14,7 @@
                     .level-home-widget-full__container
                         .wrapper__levels-title
                             span {{ 'LEVELS.title' | translate }}
-                        .wrapper__level-empty(ng-if="!customer.levels")
+                        .wrapper__level-empty(ng-if="customer.levels.length === 0")
                             p.wrapper__level-empty-title Aún no tienes ningún nivel asignado
                         .level-home-widget-full__wrapper(ng-repeat="level in customer.levels")
                             .col-xs-3.not-padding
