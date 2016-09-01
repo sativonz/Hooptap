@@ -20,10 +20,10 @@ module.exports = function makeWebpackConfig() {
     //Output
     config.output = isTest ? {} : {
         // Absolute output directory
-        path: __dirname + '/build/v' + pkg.version.replace(/\./g, '-') + '/',
+        path: __dirname + '/build/' + pkg.version.replace(/\./g,'-')  +'/',
         // Output path from the view of the page
         // Uses webpack-dev-server in development
-        publicPath: isProd ? '/' : 'http://localhost:8080/',
+        publicPath: isProd ? 'http://sdk-client.hooptap.com/' + pkg.version.replace(/\./g,'-')  +'/' : 'http://localhost:8080/',
 
         // Filename for entry points
         // filename: 'bundle.[name].[hash].js',
@@ -117,9 +117,7 @@ module.exports = function makeWebpackConfig() {
         }),
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: false,
-            mangle: {
-                except: ['angular-mod']
-            },
+            mangle: false,
             compress: {
                 warnings: false
             }

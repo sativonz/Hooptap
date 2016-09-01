@@ -15,10 +15,10 @@ module.exports = function (grunt) {
           //  baseHref: "",
             //baseUrl:pkg.version + '/docs/',
             //baseUrl:"/v" + pkg.version + '/docs/',
-            baseUrl: "/v"+regPkg+"/docs/",
+            baseUrl: "/"+regPkg+"/docs/",
             useHtml5Mode: false,
 
-            docular_webapp_target: 'build/v' + regPkg + '/docs/',
+            docular_webapp_target: 'build/' + regPkg + '/docs/',
 
             groups: [
               {
