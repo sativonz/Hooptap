@@ -15,7 +15,8 @@
             .col-xs-8.not-padding.wrapper-next-level
                 p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
                 p.name-next-level {{nextLevel.name}}
-            .col-xs-12(ng-if="levelRow.showProgressBarLevel")
-                .progressbar
+
+            .col-xs-12
+                .progressbar(ng-if="showProgressBarLevel")
                     .progressbar-actual(style="width:{{nextLevel.percent}}%")
-                        div.center(style="width:233px;") {{customer.scores[ level.scoreUnitId ]}} / {{nextLevel.diff}} {{level.scoreUnitName}}
+                        div.center(style="width:233px;") {{item.scores[ level.scoreUnitId ]}} / {{nextLevel.minimum}} {{levelActualName.name}}

@@ -34,6 +34,7 @@ export default (Customer, $rootScope, $q) => {
                     this.badges = response;
                 });
             },
+
             isAuthenticated(){
                 return Customer.isAuthenticated();
             }

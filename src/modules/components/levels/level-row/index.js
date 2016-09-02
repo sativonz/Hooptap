@@ -19,10 +19,12 @@ export default(BaseModel, _hasScoreUnits) => ({
     template,
     transclude: true,
     scope: {
-        item: '=?'
+        item: '=?',
+        showProgressBarLevel: '=?'
     },
 
     link: (scope, element, attrs)=> {
+
         //Default image
         scope.defaultNextLevelImage = defaultNextLevelImage;
 
@@ -30,12 +32,19 @@ export default(BaseModel, _hasScoreUnits) => ({
         let ScoreUnitModel = stampit().compose(BaseModel, _hasScoreUnits);
 
         //Get nextLevel
-
+        //TODO resuelve la promesa lenta
         Q.async(function*(){
             let nextLevel = yield ScoreUnitModel().getLevelById(scope.item.levels[0].nextId);
-            console.log(nextLevel);
+            console.log("NEXT LEVEL !", nextLevel);
             scope.nextLevel = nextLevel;
+
+            let levelActualName = yield ScoreUnitModel().getScoreUnitById(nextLevel.scoreUnitId);
+            console.log("Nombre del su asociado al level !", levelActualName);
+            scope.levelActualName = levelActualName;
+
         })();
+
+
 
     },
 });

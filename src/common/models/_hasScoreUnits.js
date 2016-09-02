@@ -6,10 +6,10 @@ export default (Level, ScoreUnit) => {
 
     return stampit()
 
-        /**
-         * @memberOf Rule.model:Rule
-         * @stampit init
-         */
+    /**
+     * @memberOf Rule.model:Rule
+     * @stampit init
+     */
         .init(function ({stamp}) {
             this.setRemoteModel('ScoreUnit');
             this._factory = ScoreUnit;
@@ -17,17 +17,17 @@ export default (Level, ScoreUnit) => {
         .methods({
 
             getLevelById(id) {
-                return Level.findById({id:id}).$promise.then((response)=>{
-                    return response;
-                });
+                return Level.findById({id:id}).$promise;
             },
 
             getScoreUnits(){
-
+                return ScoreUnit.find();
             },
 
-            getScoreUnitById(){
-
+            getScoreUnitById(id){
+                return ScoreUnit.findById({id:id}).$promise.then((response)=>{
+                    return response;
+                });
             }
 
 

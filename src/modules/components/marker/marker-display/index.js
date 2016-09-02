@@ -1,5 +1,7 @@
 import template from './template.jade';
+import stampit from 'stampit';
 import './styles.scss';
+import Q from 'q';
 /**
  * @ngdoc directive
  * @name Marker display
@@ -9,7 +11,7 @@ import './styles.scss';
  * @param {Object} options The model to display de marker
  * @element ANY
  */
-export default($timeout, $rootScope) => ({
+export default($timeout, $rootScope, BaseModel, _hasScoreUnits, _hasCustomer) => ({
     restrict: 'E',
     scope: {
         options: '=',
@@ -18,8 +20,10 @@ export default($timeout, $rootScope) => ({
     template,
     link: (scope, element, attrs)=> {
 
+        //Default value for marker
         scope.defaultValue = 0;
 
+        //Default imgs
         scope.badgeDefaultImage = function () {
             return require('./images/badge-default.png')
         };
@@ -31,6 +35,22 @@ export default($timeout, $rootScope) => ({
         scope.levelDefaultImage = function () {
             return require('./images/level-default.svg')
         };
+
+        //Score unit image default => the same of the score unit associated at level row
+        let ScoreUnitModel = stampit().compose(BaseModel, _hasScoreUnits);
+
+        Q.async(function*(){
+            let nextLevel = yield ScoreUnitModel().getLevelById(scope.item.levels[0].nextId);
+            scope.nextLevel = nextLevel;
+
+            let suImage = yield ScoreUnitModel().getScoreUnitById(nextLevel.scoreUnitId);
+            scope.suImage = suImage;
+
+
+        })();
+
+
+
 
     }
 });

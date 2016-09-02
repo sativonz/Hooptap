@@ -14,7 +14,7 @@
                     c-marker-display(options="scoreDisplayConfig" item="customer")
 
                 .wrapper__level.row(ng-if="levelRow.showModule && #{allViewsFalse}")
-                    c-level-row(item="customer")
+                    c-level-row(item="customer" show-progress-bar-level="levelRow.showProgressBarLevel")
 
                 .wrapper__gf.row(ng-if="showGlobalFeed && #{allViewsFalse}")
                     .wrapper__gf-title {{ 'GLOBAL_FEED.title' | translate }}
