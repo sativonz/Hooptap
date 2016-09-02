@@ -22,12 +22,10 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
         showTitle: '=?',
         showDesc: '=?',
         showDetailImg: '=?',
-        numberCols: '=?',
+        numberCols: '=?'
     },
     link: (scope, element, attrs)=> {
-
         let BadgesModel = stampit().compose(BaseModel, _hasBadges);
-        window.customerModel = Customer;
         let defaults = {
             showTitle: true,
             showDesc: true,
@@ -35,23 +33,28 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
             numberCols: 4
         };
 
-        if (scope.item && scope.item.hasOwnProperty('$promise')) {
-            scope.item.$promise.then((responseItem) => {
-                console.log(responseItem);
-            });
-        }
-        Q.async(function *() {
-            let availableBadges = yield BadgesModel().getAvailableBadges();
-            //let badgeSeats = yield BadgesModel().badgeSeats();
-            scope.availableBadges = availableBadges;
-            console.log(availableBadges);
-            //scope.badgeSeats = badgeSeats;
-            // scope.totalBadges = Object.assign(scope.availableBadges, scope.item.badges);
 
+        Q.async(function*() {
+            let allIndex, availableIndex, completedIndex = {};
+            let all, available, completed = [];
+            let availableResponse = yield BadgesModel().getAvailableBadges().$promise;
+            let seatsResponse = yield BadgesModel().badgeSeats().$promise;
+            availableIndex = availableResponse.reduce((map, obj)=> {
+                map[obj.id] = obj;
+                return map;
+            }, {});
+            completedIndex = seatsResponse.reduce((map, obj)=> {
+                map[obj.badgeId] = Object.assign(availableIndex[obj.badgeId], obj);
+                return map;
+            }, {});
+
+            all = Object.assign(availableIndex, completedIndex);
+            let badgesObject = BadgesModel({all: all,available: availableIndex, completed: completedIndex});
+            scope.badges = badgesObject;
+            scope.$digest();
         })();
 
         clientHelper.setDefaultAttributes(defaults, scope, attrs);
-
 
 
         //Detail view
@@ -96,170 +99,6 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 scope.colWidth = 3;
                 break;
         }
-
-
-        scope.badges = [
-            {
-                "id": "5775397981dbc14a04530f73",
-                "name": "Helmet",
-                "title": "Helmet",
-                "state": true,
-                "available": true,
-                "finished": false,
-                "parts": "3",
-                "currentStep": "2",
-                "desc": "Este badge te lo direon por ganar 100.000 pts en el concurso del dia 22/02/16.",
-                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Popcorn.svg",
-            },
-            {
-                "id": "577543c881dbc14a04530f75",
-                "name": "Crown",
-                "state": true,
-                "available": true,
-                "finished": false,
-                "parts": "5",
-                "currentStep": "1",
-                "title": "Crown",
-                "desc": "",
-                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
-            },
-            {
-                "id": "5776228481dbc14a04530f79",
-                "name": "Axe",
-                "title": "Axe",
-                "parts": "4",
-                "currentStep": "3",
-                "state": true,
-                "available": true,
-                "finished": false,
-                "desc": "Este badge te lo direon por ganar 50.000 pts",
-                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Corazon.svg",
-            },
-            {
-                "id": "577e18ac4cc901b712fec731",
-                "name": "Sword",
-                "title": "Sword",
-                "parts": "3",
-                "currentStep": "1",
-                "state": true,
-                "available": true,
-                "finished": false,
-                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Popcorn.svg",
-            },
-            {
-                "id": "5776228481dbc14a04530f79",
-                "name": "Castle",
-                "parts": "4",
-                "currentStep": "4",
-                "title": "Castle",
-                "state": true,
-                "available": false,
-                "finished": true,
-                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Discount.svg",
-            },
-            {
-                "id": "5776228481dbc14a04530f79",
-                "name": "Shield",
-                "title": "Shield",
-                "state": false,
-                "finished": false,
-                "available": false,
-                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
-            },
-            {
-                "id": "5776228481dbc14a04530f79",
-                "name": "Pawnn",
-                "title": "Pawnn",
-                "state": true,
-                "finished": false,
-                "available": true,
-                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
-            },
-            {
-                "id": "5776228481dbc14a04530f79",
-                "name": "Restore",
-                "title": "Restore",
-                "parts": "6",
-                "currentStep": "6",
-                "state": true,
-                "finished": true,
-                "available": true,
-                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Popcorn.svg",
-            },
-            {
-                "id": "5776228481dbc14a04530f79",
-                "name": "Shield",
-                "title": "Shield",
-                "state": true,
-                "finished": false,
-                "available": false,
-                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
-            },
-            {
-                "id": "5776228481dbc14a04530f79",
-                "name": "Shield",
-                "title": "Shield",
-                "state": true,
-                "finished": false,
-                "available": true,
-                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
-            },
-            {
-                "id": "5776228481dbc14a04530f79",
-                "name": "Restore",
-                "title": "Restore",
-                "state": true,
-                "finished": false,
-                "available": true,
-                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Shoping.svg",
-            },
-            {
-                "id": "5776228481dbc14a04530f79",
-                "name": "Sackala",
-                "title": "Sackala",
-                "state": false,
-                "finished": false,
-                "available": false,
-                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Discount.svg",
-            },
-            {
-                "id": "5776228481dbc14a04530f79",
-                "name": "Restore",
-                "title": "Restore",
-                "state": true,
-                "finished": false,
-                "available": true,
-                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Popcorn.svg",
-            },
-            {
-                "id": "5776228481dbc14a04530f79",
-                "name": "Sackala",
-                "title": "Sackala",
-                "state": true,
-                "finished": false,
-                "available": true,
-                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
-            },
-            {
-                "id": "5776228481dbc14a04530f79",
-                "name": "Restore",
-                "title": "Restore",
-                "state": true,
-                "finished": false,
-                "available": false,
-                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Discount.svg",
-            },
-            {
-                "id": "5776228481dbc14a04530f79",
-                "name": "Sackala",
-                "title": "Sackala",
-                "state": true,
-                "available": false,
-                "finished": false,
-                "img": "http://hooptap.s3.amazonaws.com/widgets/badges/Gamer.svg",
-            }
-        ];
-
 
     }
 });
