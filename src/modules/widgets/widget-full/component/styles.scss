@@ -22,7 +22,7 @@ w-widget-full {
     max-width: 400px;
     background: $white;
     position: fixed;
-    right: 15px;
+    right: 30px;
     bottom: 15px;
     box-shadow: 0 0 5px $black;
     z-index: 999999999;
@@ -70,6 +70,12 @@ w-widget-full {
               padding-bottom: 20px;
             }
             .level-home-widget-full__wrapper {
+              .img-actual-level {
+                width: 88px;
+                height: 88px;
+                min-height: 88px;
+                min-width: 88px;
+              }
               .img-next-level{
                 -webkit-filter: grayscale(1);
                 filter: grayscale(1);
