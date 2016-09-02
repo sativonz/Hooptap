@@ -132,6 +132,7 @@ c-badges-grid {
           .badge-item__img {
             height: 59px;
             width: 59px;
+            img {@extend .badge-item__img;}
           }
           .badge-item__title {
             font-size: 12px;

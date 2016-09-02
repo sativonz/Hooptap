@@ -1,17 +1,10 @@
 .ht-marker-list-su__container
-    .marker-list-su__wrapper(ng-repeat="su in item.scoreUnits" id="item-su-{{$index}}")
+
+
+   .marker-list-su__wrapper(ng-repeat="su in scoreUnitsIndex" id="item-su-{{$index}}")
         .col-xs-2
             .marker-list-su__img
                 img(ng-src="{{su.image}}")
         .col-xs-10
-            .marker-list-su__quantity {{su.quantity}}
+            .marker-list-su__quantity {{$parent.item.scores[su.id] || 0}}
                 span.marker-list-su__name {{su.name}}
-
-
-
-
-
-
-
-
-

@@ -1,5 +1,7 @@
 import template from './template.jade';
+import stampit from 'stampit';
 import './styles.scss';
+import Q from 'q';
 /**
  * @ngdoc directive
  * @name Marker list score units
@@ -9,11 +11,25 @@ import './styles.scss';
  * @param {Object} item Object with full information of the customer
  * @element ANY
  */
-export default($timeout) => ({
+export default($timeout, BaseModel, _hasScoreUnits) => ({
     restrict: 'E',
     scope: {
-        item: '='
+        item: '=',
+        scoreUnits: '=?'
     },
     template,
-    link: (scope, element, attrs)=> {},
+    link: (scope, element, attrs)=> {
+        let ScoreUnitsModel = stampit().compose(BaseModel, _hasScoreUnits);
+            let ScoreUnitsIndex = {};
+            let scoreUnits = ScoreUnitsModel().getScoreUnits();
+
+            scoreUnits.$promise.then((response)=>{
+             response.map((scoreUnit)=>ScoreUnitsIndex[scoreUnit.id]=scoreUnit);
+                scope.scoreUnitsIndex = ScoreUnitsIndex;
+                console.log('response', ScoreUnitsIndex);
+            });
+            console.log(ScoreUnitsIndex);
+            scope.scoreUnits = scoreUnits;
+            console.log("yeeep", scope.scoreUnits);
+    }
 });
