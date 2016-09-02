@@ -20,10 +20,10 @@ module.exports = function makeWebpackConfig() {
     //Output
     config.output = isTest ? {} : {
         // Absolute output directory
-        path: __dirname + '/build/' + pkg.version.replace(/\./g,'-')  +'/',
+        path: __dirname + '/build/' + pkg.version.replace(/\./g, '-') + '/',
         // Output path from the view of the page
         // Uses webpack-dev-server in development
-        publicPath: isProd ? 'http://sdk-client.hooptap.com/' + pkg.version.replace(/\./g,'-')  +'/' : 'http://localhost:8080/',
+        publicPath: isProd ? 'http://sdk-client.hooptap.com/' + pkg.version.replace(/\./g, '-') + '/' : 'http://localhost:8080/',
 
         // Filename for entry points
         // filename: 'bundle.[name].[hash].js',
@@ -112,6 +112,9 @@ module.exports = function makeWebpackConfig() {
     //Plugins
     config.plugins = [
         new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }), new webpack.ProvidePlugin({
             angular: 'angular-mod',
             'window.angular': 'angular-mod'
         }),
