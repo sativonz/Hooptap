@@ -60,7 +60,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
 
             var modalInstance = $uibModal.open({
                 animation: scope.animationsEnabled,
-                appendTo: angular.element('c-badges-grid'),
+                appendTo: document.getElementsByTagName('c-badges-grid'),
                 template: detail,
                 controller: ['$scope', 'item', 'showTitle', 'showDesc', 'showDetailImg', ($scope, item, showTitle, showDesc, showDetailImg)=> {
                     $scope.item = item;

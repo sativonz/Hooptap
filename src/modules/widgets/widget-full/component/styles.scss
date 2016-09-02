@@ -33,7 +33,7 @@ w-widget-full {
       .ht-profile-widget-full__container {
         .wrapper-components {
           position: absolute;
-          overflow: auto;
+          overflow-x: hidden;
           height: 346px;
           width: 100%;
           &.viewStyle {
@@ -57,6 +57,8 @@ w-widget-full {
             margin-right: 25px;
             padding: 36px 0px 0px 0px;
             border-bottom: 1px solid $_1_quest-title__inactive;
+            &:last-child{
+              border-bottom: none!important;}
             .last {
               display: none;
             }
@@ -80,6 +82,7 @@ w-widget-full {
                 -webkit-filter: grayscale(1);
                 filter: grayscale(1);
                 width: 40px;
+                margin-left: 15px;
               }
               .last-level {
                 @extend .wrapper__level-empty-title;
@@ -117,7 +120,7 @@ w-widget-full {
                 .progressbar-actual {
                   width: 60%;
                   background: $_1_progressbar-actual;
-                  height: 20px;
+                  height: 18px;
                   border-top-left-radius: 6px;
                   border-bottom-left-radius: 6px;
                   &.levelComplete {

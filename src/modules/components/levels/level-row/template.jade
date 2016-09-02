@@ -9,10 +9,10 @@
             p.name-actual-level {{level.name}}
         .col-xs-9(ng-if="level.nextId == null")
             p.last-level {{ 'LEVELS.lastLevelMsg' | translate }} {{customer.username}} !
-        .col-xs-9(ng-if="level.nextId != null")
-            .col-xs-4
+        .next-level__wrapper.col-xs-9.not-padding(ng-if="level.nextId != null")
+            .col-xs-3.not-padding
                 img.img-next-level(ng-src="{{nextLevel.image || defaultNextLevelImage}}")
-            .col-xs-8.not-padding.wrapper-next-level
+            .col-xs-9.not-padding.wrapper-next-level
                 p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
                 p.name-next-level {{nextLevel.name}}
 

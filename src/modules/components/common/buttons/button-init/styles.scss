@@ -1,5 +1,6 @@
 @import '../../../../../common/stylesheets/common/mixins.scss';
 @import '../../../../../common/stylesheets/common/colors.scss';
+@import '../../../../../common/stylesheets/common/base.scss';
 
 c-button-init {
   .button--init__container {
@@ -11,6 +12,7 @@ c-button-init {
     border: 0;
     font-size: 14px;
     z-index: 99999999;
+    font-family: $base-font-family;
     background: $_1_button-back-color-green;
     color: white;
     padding: 10px 20px 10px 15px;
@@ -30,7 +32,6 @@ c-button-init {
       vertical-align: middle;
       color: white;
       font-weight: 700;
-      margin-top: 4px;
       margin-left: 30px;
       height: 20px;
       display: inline-block;
