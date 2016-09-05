@@ -2,7 +2,7 @@
 import angular from 'angular-mod';
 
 //Init template with all widgets
-//import template from './index.jade';
+import template from './index.jade';
 
 //Vendor
 import 'angular-storage';
@@ -21,7 +21,6 @@ import './common/services/angular-sdk.js';
 
 
 (function () {
-
     angular.module('Hooptap',
         [
             
@@ -381,7 +380,5 @@ import './common/services/angular-sdk.js';
         };
 
     
-    //Angular bootstrap
-   // angular.bootstrap(document.getElementsByTagName('body'), ['Hooptap']);
 
 }());
