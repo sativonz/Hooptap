@@ -1,7 +1,6 @@
 @import "../../../../common/stylesheets/common/colors";
 
 c-progressbar {
-  .stepbar__container {
 
     #stepbar__step-1 > .stepbar__step-inner {
       border-radius: 5px 0px 0px 5px !important;
@@ -52,5 +51,5 @@ c-progressbar {
         display: block;
       }
     }
-  }
+
 }

@@ -42,7 +42,6 @@ export default (Customer,_hasCustomer, $rootScope, $q) => {
              * @param response
              */
             setLoggedRoot(response){
-                console.log('logeado')
                 if (response.id) {
                     if ($rootScope.customer) {
                         $rootScope.customer.logged = true;

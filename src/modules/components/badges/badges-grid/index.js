@@ -25,6 +25,9 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
         numberCols: '=?'
     },
     link: (scope, element, attrs)=> {
+
+        scope.loaderOn = false;
+
         let BadgesModel = stampit().compose(BaseModel, _hasBadges);
         let defaults = {
             showTitle: true,
@@ -55,13 +58,17 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
             scope.badges = BadgesModel({all: all, available: availableResponse, completed: completed});
             scope.$apply();
         })();
+
+        //Set default values
         clientHelper.setDefaultAttributes(defaults, scope, attrs);
+
+
         //Detail view
         scope.badgeDetail = function (item) {
 
             var modalInstance = $uibModal.open({
                 animation: scope.animationsEnabled,
-                appendTo: angular.element('c-badges-grid'),
+                appendTo: angular.element(document.querySelector('c-badges-grid')),
                 template: detail,
                 controller: ['$scope', 'item', 'showTitle', 'showDesc', 'showDetailImg', ($scope, item, showTitle, showDesc, showDetailImg)=> {
                     $scope.item = item;
@@ -80,6 +87,8 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
 
         };
 
+
+        //Switch for cols
         switch (scope.numberCols) {
             case 2:
                 scope.colWidth = 6;
@@ -98,6 +107,11 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 scope.colWidth = 3;
                 break;
         }
+
+        //Loader
+        $timeout(() => {
+            scope.loaderOn = true;
+        }, 800);
 
     }
 });

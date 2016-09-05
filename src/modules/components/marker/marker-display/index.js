@@ -47,8 +47,8 @@ export default($timeout, $rootScope, BaseModel, _hasScoreUnits, _hasCustomer) =>
             let suImage = yield ScoreUnitModel().getScoreUnitById(nextLevel.scoreUnitId);
             scope.suImage = suImage;
 
-            let actualLevel = yield ScoreUnitModel().getLevelById(scope.item.levels[0].id);
-            scope.actualLevel = actualLevel;
+            let actualLevel = yield ScoreUnitModel().getLevelById(scope.item.levels[0].nextId);
+            scope.nextLevel = nextLevel;
 
             //Index levels
             let LevelsIndex = {};
@@ -59,18 +59,9 @@ export default($timeout, $rootScope, BaseModel, _hasScoreUnits, _hasCustomer) =>
                 response.map((level)=>LevelsIndex[level.id]=level);
                 scope.LevelsIndex = LevelsIndex;
                 console.log('LevelsIndex', LevelsIndex);
-            });
-
-
-
-
-
-
+            })
 
         })();
-
-
-
 
     }
 });
