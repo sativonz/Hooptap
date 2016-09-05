@@ -132,12 +132,16 @@ w-widget-full {
                     }
                   }
                 }
+                .score-bar {
+                  margin-top: -2px;
+                }
                 div {
                   font-size: 9pt;
-                  margin: 0;
+                  margin: -2px 0 0 0;
                   color: $white;
                   letter-spacing: 0.5px;
                   padding-top: 2px;
+
                 }
               }
             }

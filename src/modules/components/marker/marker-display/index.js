@@ -40,11 +40,31 @@ export default($timeout, $rootScope, BaseModel, _hasScoreUnits, _hasCustomer) =>
         let ScoreUnitModel = stampit().compose(BaseModel, _hasScoreUnits);
 
         Q.async(function*(){
+            //TODO poner bien id
             let nextLevel = yield ScoreUnitModel().getLevelById(scope.item.levels[0].nextId);
             scope.nextLevel = nextLevel;
 
             let suImage = yield ScoreUnitModel().getScoreUnitById(nextLevel.scoreUnitId);
             scope.suImage = suImage;
+
+            let actualLevel = yield ScoreUnitModel().getLevelById(scope.item.levels[0].id);
+            scope.actualLevel = actualLevel;
+
+            //Index levels
+            let LevelsIndex = {};
+            let allLevelsIndex = ScoreUnitModel().getLevels();
+
+
+            allLevelsIndex.$promise.then((response)=>{
+                response.map((level)=>LevelsIndex[level.id]=level);
+                scope.LevelsIndex = LevelsIndex;
+                console.log('LevelsIndex', LevelsIndex);
+            });
+
+
+
+
+
 
 
         })();

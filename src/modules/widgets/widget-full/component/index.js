@@ -271,7 +271,7 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
             scope.scoreDisplayConfig = scope.scoreDisplayConfig || WidgetModel.defaultMarkerOptions;
 
             scope.$on("$loginSuccess", (event, response)=> {
-                console.log(response);
+                console.log("Login success response (Customer Object) >>>", response);
                 scope.customer = response;
             });
             scope.$on("$logoutSuccess", (event) => {
