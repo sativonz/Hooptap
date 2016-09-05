@@ -20,16 +20,21 @@ export default($timeout, BaseModel, _hasScoreUnits) => ({
     template,
     link: (scope, element, attrs)=> {
         let ScoreUnitsModel = stampit().compose(BaseModel, _hasScoreUnits);
+            //Index score units
             let ScoreUnitsIndex = {};
             let scoreUnits = ScoreUnitsModel().getScoreUnits();
+
 
             scoreUnits.$promise.then((response)=>{
              response.map((scoreUnit)=>ScoreUnitsIndex[scoreUnit.id]=scoreUnit);
                 scope.scoreUnitsIndex = ScoreUnitsIndex;
-                console.log('response', ScoreUnitsIndex);
             });
-            console.log(ScoreUnitsIndex);
             scope.scoreUnits = scoreUnits;
-            console.log("yeeep", scope.scoreUnits);
+
+        //Loader
+        //Loader
+        $timeout(() => {
+            scope.loaderOn = true;
+        }, 800);
     }
 });
