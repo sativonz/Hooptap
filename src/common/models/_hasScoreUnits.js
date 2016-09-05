@@ -20,6 +20,10 @@ export default (Level, ScoreUnit) => {
                 return Level.findById({id:id}).$promise;
             },
 
+            getLevels() {
+                return Level.find();
+            },
+
             getScoreUnits(){
                 return ScoreUnit.find();
             },

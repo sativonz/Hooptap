@@ -8,11 +8,12 @@
             .col-xs-6.not-padding
                 img.ht-marker-display__img(ng-src="{{ suImage.image || suDefaultImage() }}")
 
-        .ht-marker-display__level(ng-if="zoneCol.model == 'Level' &&  zoneRow.length !== 1" tooltip-placement="top" uib-tooltip="{{ zoneCol.name || 'LEVELS.title' | translate}}")
+        .ht-marker-display__level(ng-if="zoneCol.model == 'Level' &&  zoneRow.length !== 1" tooltip-placement="top" uib-tooltip="{{ actualLevel.name || 'LEVELS.title' | translate}}")
             .col-xs-6.not-padding
-                .title__score-units {{zoneCol.minimum || defaultValue}}
+                //TODO poner el numero del nivel 1, 2, 3
+                .title__score-units {{defaultValue}}
             .col-xs-6.not-padding
-                img.ht-marker-display__img(ng-src="{{ zoneCol.image || levelDefaultImage() }}")
+                img.ht-marker-display__img(ng-src="{{ actualLevel.image || levelDefaultImage() }}")
 
         .ht-marker-display__level(ng-if="zoneCol.model == 'Level' && zoneRow.length == 1")
             c-level-row(item="item")

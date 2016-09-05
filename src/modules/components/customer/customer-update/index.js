@@ -33,7 +33,7 @@ export default($rootScope, Customer, LoopBackAuth) => ({
             window.Customer = Customer;
             Customer.save(getDiffs()).$promise
                 .then((response) => {
-                    console.log(response);
+                    console.log("Save response", response);
                     debugger;
                 })
                 .catch((err) => {

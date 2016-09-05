@@ -47,10 +47,13 @@ export default() => ({
             LoginModel().login(credentials, includeFilter).then((response)=> {
                 $rootScope.$broadcast('$loginSuccess', response);
             }).catch((error)=> {
-                
+
                 //TODO NOTIFICADOR ERRORES
                 console.log(error);
             });
+
+
+
         };
 
     }
