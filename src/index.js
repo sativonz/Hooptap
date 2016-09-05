@@ -2,7 +2,7 @@
 import angular from 'angular-mod';
 
 //Init template with all widgets
-import template from './index.jade';
+//import template from './index.jade';
 
 //Vendor
 import 'angular-storage';
@@ -21,8 +21,6 @@ import './common/services/angular-sdk.js';
 
 
 (function () {
-    //TODO provisional for Dev
-    angular.element('body').append(template());
 
     angular.module('Hooptap',
         [
@@ -379,11 +377,11 @@ import './common/services/angular-sdk.js';
 
         window.Hooptap = {};
         window.Hooptap.startIn = function ($selector){
-            angular.bootstrap($selector, ['Hooptap']);
+            angular.bootstrap(document.getElementsByTagName($selector), ['Hooptap']);
         };
 
     
-    //Angular bootstrap to render #htWidget div with htWidget Module
-    angular.bootstrap('body', ['Hooptap']);
+    //Angular bootstrap
+   // angular.bootstrap(document.getElementsByTagName('body'), ['Hooptap']);
 
 }());

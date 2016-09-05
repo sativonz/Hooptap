@@ -76,6 +76,9 @@ c-marker-display {
     .ht-marker-display__wrapper {
       padding-right: 6px!important;
       padding-left: 6px!important;
+      &.col-xs-4 {
+        width: 105px!important;
+      }
       &:not(:last-child) {
         border-right: 1px solid $_1_quest-title__inactive;
         cursor: pointer;

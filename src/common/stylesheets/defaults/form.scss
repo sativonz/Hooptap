@@ -22,8 +22,8 @@ input.ht-form__input {
   font-size:18px;
   padding:10px 10px 0px 5px;
   display:block;
-  width:100%;
   border-bottom:1px solid #757575;
+  width: 350px;
 }
 
 .ht-form--button__login, .ht-form--button__update, .ht-form--button__register, .ht-form--button__reset, .ht-form--button__activationMail {
@@ -80,6 +80,7 @@ label.checkbox_terms {
   letter-spacing: .2px;
   font-size: 11pt;
   position: relative;
+  font-weight: normal;
   top: -1px;
 }
 
