@@ -263,7 +263,6 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
             let WidgetModel = stampit().compose(BaseModel, _isWidget)({defaults, defaultMarkerOptions});
 
             window.widget = WidgetModel;
-            window.scope = scope;
 
             clientHelper.setDefaultAttributes(WidgetModel.defaults, scope, attrs);
 
@@ -277,8 +276,6 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
             scope.$on("$logoutSuccess", (event) => {
                 scope.customer = {};
             });
-
-
         }
     }
 });

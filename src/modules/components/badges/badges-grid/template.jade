@@ -2,37 +2,33 @@
 	uib-tabset(active="active")
 		uib-tab(index="0" heading="{{::'BADGES.tabs.all' | translate}}")
 			.ht-badges-list__wrapper.row
-
-				.ht-badges-list__badge-blank(ng-if="item.badges.length === 0")
+				.ht-badges-list__badge-blank(ng-if="!badges.all")
 					p {{::'BADGES.empty' | translate}}
-				.badge-item.animated.bounceIn(ng-repeat="item in item.badges" id="allBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true, 'badge-not-achieved': !item.state}" ng-click="badgeDetail(item)")
-					.badge-item__img(ng-class="{'badge-started': item.available}")
-						img(ng-src="{{item.image}}")
-					.badge-item__title(ng-if="showTitle" title='{{item.title}}') {{item.title}}
-					.badge-item__progresbar
-						ng-transclude
-							c-progressbar(steps="item.parts" current-step="item.currentStep")
-							
-		uib-tab(index="$index + 1" heading="{{::'BADGES.tabs.available' | translate}}")
-			.ht-badges-list__wrapper.row
-
-				.ht-badges-list__badge-blank(ng-if="!availableBadges")
-
-					p {{::'BADGES.empty' | translate}}
-				.badge-item.animated.bounceIn(ng-repeat="item in availableBadges" id="availableBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true}" ng-if="item.visible" ng-click="badgeDetail(item)")
+				.badge-item.animated.bounceIn(ng-repeat="item in badges.all | orderBy: 'quantity':  true" id="allBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true, 'badge-not-achieved': !item.state}" ng-click="badgeDetail(item)")
 					.badge-item__img(ng-class="{'badge-started': item.available}")
 						img(ng-src="{{item.image}}")
 					.badge-item__title(ng-if="showTitle" title='{{item.name}}') {{item.name}}
 					.badge-item__progresbar
-						ng-transclude
-							c-progressbar(steps="item.parts" current-step="item.currentStep")
+						c-progressbar(steps="item.parts" current-step="item.quantity")
+							
+		uib-tab(index="$index + 1" heading="{{::'BADGES.tabs.available' | translate}}")
+			.ht-badges-list__wrapper.row
+
+				.ht-badges-list__badge-blank(ng-if="!badges.available")
+					p {{::'BADGES.empty' | translate}}
+
+				.badge-item.animated.bounceIn(ng-repeat="item in badges.available" id="availableBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true}" ng-click="badgeDetail(item)")
+					.badge-item__img(ng-class="{'badge-started': item.available}")
+						img(ng-src="{{item.image}}")
+					.badge-item__title(ng-if="showTitle" title='{{item.name}}') {{item.name}}
+					.badge-item__progresbar
+						c-progressbar(steps="item.parts" current-step="item.quantity")
 		uib-tab(index="$index + 2" heading="{{::'BADGES.tabs.finished' | translate}}")
 			.ht-badges-list__wrapper.row
 
-				.ht-badges-list__badge-blank(ng-if="!item.badges")
-
+				.ht-badges-list__badge-blank(ng-if="!badges.completed")
 					p {{::'BADGES.empty' | translate}}
-				.badge-item.animated.bounceIn(ng-repeat="item in item.badges" id="finishedBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true}" ng-if="item.finished" ng-click="badgeDetail(item)")
+				.badge-item.animated.bounceIn(ng-repeat="item in badges.completed" id="finishedBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'col-xs-{{colWidth}}': true}" ng-if="item.completed" ng-click="badgeDetail(item)")
 					.badge-item__img
 						img(ng-src="{{item.image}}")
-					.badge-item__title(ng-if="showTitle" title='{{item.title}}') {{item.title}}
+					.badge-item__title(ng-if="showTitle" title='{{item.name}}') {{item.name}}

@@ -1,7 +1,7 @@
 import stampit from 'stampit';
 import Q from 'q';
 
-export default (Badge) => {
+export default (Badge, Customer , BadgeSeat) => {
 
     return stampit()
         .compose()
@@ -16,12 +16,11 @@ export default (Badge) => {
         })
         .methods({
             getAvailableBadges(){
+                return Badge.find();
 
-                return Badge.find().$promise.then((response)=> {
-
-                    return response;
-                });
-
+            },
+            badgeSeats(){
+                return BadgeSeat.find();
             }
 
         })
