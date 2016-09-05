@@ -47,16 +47,15 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 map[obj.badgeId] = Object.assign(availableIndex[obj.badgeId], obj);
                 return map;
             }, {});
-
+            //Mixing available with completed
             all = Object.assign(availableIndex, completedIndex);
-            let badgesObject = BadgesModel({all: all,available: availableIndex, completed: completedIndex});
-            scope.badges = badgesObject;
-            scope.$digest();
+            //Convert object to array
+            all = Object.keys(all).map(key => all[key]);
+            completed = Object.keys(completedIndex).map(key=> completedIndex[key]);
+            scope.badges = BadgesModel({all: all, available: availableResponse, completed: completed});
+            scope.$apply();
         })();
-
         clientHelper.setDefaultAttributes(defaults, scope, attrs);
-
-
         //Detail view
         scope.badgeDetail = function (item) {
 

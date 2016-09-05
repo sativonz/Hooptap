@@ -16,32 +16,32 @@ export default() => ({
         steps: '=',
         currentStep: '='
     },
-    link: (scope, element, attrs)=>{
+    link: (scope, element, attrs)=> {
         let steps = scope.steps;
         //TODO Ask to back recieved object for steps
-        if(!scope.currentStep){
+        if (!scope.currentStep) {
             scope.currentStep = 0;
         }
 
-        if (typeof steps !== 'undefined'){
+        if (typeof steps !== 'undefined') {
             let customSteps;
             //If steps is object is Quest Else Badge step
-            if(typeof steps === 'object'){
+            if (typeof steps === 'object') {
                 customSteps = Object.keys(scope.steps);
-            }else{
+            } else {
                 customSteps = [];
-                for(var step = 0; step < parseInt(scope.steps); step++){
-                    if(step < scope.currentStep){
-                        customSteps.push({complete:true});
-                    }else{
-                        customSteps.push({complete:false});
+                for (var step = 0; step < parseInt(scope.steps); step++) {
+                    if (step < scope.currentStep) {
+                        customSteps.push({complete: true});
+                    } else {
+                        customSteps.push({complete: false});
                     }
                 }
                 scope.steps = customSteps;
             }
-            scope.stepWidth = Math.floor(100/customSteps.length) + '%';
+            scope.stepWidth = Math.floor(100 / customSteps.length) + '%';
         }
-
+        window.steps = scope;
 
     },
 
