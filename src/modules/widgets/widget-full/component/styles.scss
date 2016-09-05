@@ -29,6 +29,19 @@ w-widget-full {
     border-radius: 14px;
     padding-right: 0!important;
 
+    c-loader-wrap {
+      c-loader {
+        padding: 225px 40px 40px 40px;
+        margin-left: -40px;
+        position: absolute;
+        z-index: 99999999999;
+        background: hsla(0,0%,100%,.68);
+        width: 400px;
+        height: 480px;
+        border-radius: 10px;
+      }
+    }
+
     .ht-profile-widget-full {
       .ht-profile-widget-full__container {
         .wrapper-components {

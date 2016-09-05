@@ -22,9 +22,11 @@ export default (Customer,_hasCustomer, $rootScope, $q) => {
                 //TODO rememberMe
                 return Customer.login({rememberMe: (model.rememberMe || false)}, {
                     "email": model.email,
-                    "password": model.password
+                    "password": model.password,
                     //TODO Change for actual productId
-                    , "productId": this.productId
+                    "productId": this.productId,
+
+                    loader: "your_loader_name",
                 }).$promise.then((response)=> {
                     this.setLoggedRoot(response);
                     return $q.resolve(this.getCurrent(filter));
@@ -40,6 +42,7 @@ export default (Customer,_hasCustomer, $rootScope, $q) => {
              * @param response
              */
             setLoggedRoot(response){
+                console.log('logeado')
                 if (response.id) {
                     if ($rootScope.customer) {
                         $rootScope.customer.logged = true;

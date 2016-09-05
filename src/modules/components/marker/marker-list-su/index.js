@@ -30,5 +30,11 @@ export default($timeout, BaseModel, _hasScoreUnits) => ({
                 scope.scoreUnitsIndex = ScoreUnitsIndex;
             });
             scope.scoreUnits = scoreUnits;
+
+        //Loader
+        //Loader
+        $timeout(() => {
+            scope.loaderOn = true;
+        }, 800);
     }
 });

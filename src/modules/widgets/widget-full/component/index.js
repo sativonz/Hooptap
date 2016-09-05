@@ -17,7 +17,7 @@ import stampit from 'stampit';
  */
 
 
-export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelper, BaseModel, _isWidget) => ({
+export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelper, BaseModel, _isWidget, $timeout) => ({
     restrict: 'E',
     transclude: true,
     template,
@@ -204,6 +204,7 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
 
     link: {
         post: function PostLinkingFunction(scope, element, attrs) {
+            scope.loaderOn = false;
             //Default values for widget full
             let defaults = {
                 idWidget: "",
@@ -271,12 +272,25 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
             scope.scoreDisplayConfig = scope.scoreDisplayConfig || WidgetModel.defaultMarkerOptions;
 
             scope.$on("$loginSuccess", (event, response)=> {
+
                 console.log("Login success response (Customer Object) >>>", response);
                 scope.customer = response;
+
+
+                //Loader
+                $timeout(() => {
+                    scope.loaderOn = true;
+                }, 800);
             });
+
             scope.$on("$logoutSuccess", (event) => {
                 scope.customer = {};
+                scope.loaderOn = false;
             });
+
+
+
+
 
 
         }

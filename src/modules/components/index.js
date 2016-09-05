@@ -41,6 +41,8 @@ let module = angular.module('app.base', [])
     //.directive('cMarkerGridSu', require('./marker/marker-grid-su').default)
     //.directive('cProgressbarOld', require('./notifications/progressbar-old').default)
     .directive('cProgressbar', require('./notifications/progressbar').default)
+    .directive('cLoader', require('./common/loader').default)
+    .directive('cLoaderWrap', require('./common/loader-wrap').default)
     .directive('cWidgetHeader', require('./common/widget-header').default);
 
 
