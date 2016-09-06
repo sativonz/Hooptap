@@ -1,4 +1,4 @@
 .w-widget-badges-grid__container(ng-if="$root.customer.logged && $root.widgetOpened")
     c-button-close
     c-widget-header(title="{{ 'BADGES.title' | translate }}")
-    c-badges-grid(show-title="showTitle" show-desc="showDesc")
+    c-badges-grid(number-cols="numberCols")

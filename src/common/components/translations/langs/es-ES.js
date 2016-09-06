@@ -69,7 +69,7 @@ let dict = {
 
 	BADGES: {
 		title				: 'Logros',
-		empty				: 'Aún no tienes logros asignados!',
+		empty				: 'No hay logros que mostrar.',
 		tabs:	{
 			all				: 'Todos',
 			available		: 'Disponibles',

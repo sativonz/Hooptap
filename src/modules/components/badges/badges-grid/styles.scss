@@ -12,7 +12,7 @@ c-badges-grid {
   display: block;
   position: absolute;
   width: 100%;
-  padding-right: 0!important;
+  padding-right: 0 !important;
   @include calc(height, '100% - 50px');
   .ht-badges-list__container {
     .nav.nav-tabs {
@@ -26,7 +26,7 @@ c-badges-grid {
         border-bottom: 3px solid $_1_header-color;
         height: 35px;
         &:hover {
-          border-bottom: 3px solid #b2c059!important;
+          border-bottom: 3px solid #b2c059 !important;
         }
         > a {
           text-decoration: none;
@@ -36,8 +36,8 @@ c-badges-grid {
           font-weight: 400;
           padding: 5px 1px 1px 1px;
           &:hover {
-            border-color: $white!important;
-            background-color: $white!important;
+            border-color: $white !important;
+            background-color: $white !important;
           }
         }
       }
@@ -56,7 +56,7 @@ c-badges-grid {
           &:hover {
             @extend %navActiveMix;
           }
-          &:focus{
+          &:focus {
             @extend %navActiveMix;
           }
         }
@@ -64,85 +64,139 @@ c-badges-grid {
       }
     }
     .ht-badges-list__wrapper {
-      //-> 2 cols
-      .ht-col-xs-6 .badge-item__img {
-        width: 155px;
-        height: 155px;
-        img {
-          width: 155px;
-          height: 155px;
+      .ht-badges-list__badge-blank {
+        p {
+          text-align: center;
+          margin-top: 40%;
+          margin-left: -23px;
+          color: #006591;
+        }
+
+        img{
+          margin-top: 15%;
+          width: 250px;
+          top: 10px;
+          position: absolute;
+          left: 66px;
         }
       }
 
+      //-> 2 cols
       .badge-item.ht-col-xs-6 {
-        height: 200px !important;
-      }
-
-      .ht-col-xs-6 c-progressbar .stepbar {
-        width: 169px;
-        height: 160px;
-        margin-left: -5.5%;
-      }
-
-      .ht-col-xs-6 c-progressbar .step-inner {
-        height: 15px;
-      }
-
-      .ht-col.xs-6 c-progressbar .step-inner.last {
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
+        height: 210px !important;
+        float: left;
+        width: 190px !important;
+        .badge-item__title {
+          position: relative;
+          font-size: 15px !important;
+          width: 200px !important;
+        }
+        .badge-item__img {
+          width: 155px !important;
+          height: 155px !important;
+          img {
+            width: 155px !important;
+            height: 155px !important;
+          }
+        }
+        c-progressbar {
+          width: 165px !important;
+          position: relative;
+          left: 9px;
+          top: 95px;
+          .stepbar__step {
+            .stepbar__step-inner {
+              height: 12px !important;
+              &.last {
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+              }
+            }
+          }
+        }
       }
 
       //-> 3 cols
-      .ht-col.xs-4 .badge-item__img {
-        width: 100px;
-        height: 100px;
-        img {
-          width: 100px;
-          height: 100px;
-        }
-      }
-
-      .badge-item.ht-col.xs-4 {
-        height: 145px !important;
-        width: 128px !important;
-      }
-
-      .ht-col-xs-4 c-progressbar .stepbar {
-        width: 143px;
-        margin-left: -24.5%;
-      }
-      .ht-col-xs-4 c-progressbar .step-inner {
-        height: 10px;
-      }
-      //-> 4 cols
-      .ht-col-xs-3 .badge-item__img {
-        width: 100px;
-        height: 100px;
-        img {
-          width: 100px;
-          height: 100px;
-        }
-      }
-
-      .badge-item.ht-col-xs-3 {
-        height: 115px!important;
-        width: 92px;
+      .badge-item.ht-col-xs-4 {
+        height: 150px !important;
+        width: 123px !important;
         float: left;
+        .badge-item__title {
+          position: relative;
+          font-size: 14px !important;
+          width: 135px !important;
+        }
+        .badge-item__img {
+          width: 100px !important;
+          height: 100px !important;
+          img {
+            width: 100px !important;
+            height: 100px !important;
+          }
+        }
+        c-progressbar {
+          top: 40px !important;
+          position: relative;
+          height: 20px !important;
+          width: 100px !important;
+          left: 9px;
+          .stepbar__step {
+            width: 143px !important;
+            .stepbar__step-inner {
+              height: 11px !important;
+            }
+          }
+        }
       }
 
-      .ht-col-xs-3 c-progressbar .stepbar {
-        width: 143px;
-        margin-left: -24.5%;
+      //-> 4 cols
+      .badge-item.ht-col-xs-3 {
+        height: 115px !important;
+        width: 96px;
+        float: left;
+        .badge-item__img {
+          width: 100px;
+          height: 100px;
+          img {
+            width: 100px;
+            height: 100px;
+          }
+        }
+        c-progressbar {
+          width: 100px;
+          .stepbar__step {
+            width: 100px;
+            .stepbar__step-inner {
+              height: 10px;
+            }
+          }
+        }
       }
-      .ht-col-xs-3 c-progressbar .step-inner {
-        height: 10px;
+
+      //-> 5 cols
+      .badge-item.ht-col-xs-5 {
+        width: 15% !important;
+        padding-right: 16px;
+        float: left;
+        .badge-item__img {
+          width: 55px;
+          height: 55px;
+          img {
+            width: 55px;
+            height: 55px;
+          }
+        }
+        c-progressbar {
+          width: 60px !important;
+          margin-left: -29px !important;
+        }
       }
+
     }
     .tab-content {
-      width: 355px;
+      width: 370px;
       height: 370px;
-      padding: 15px 15px 15px 20px;
+      padding: 15px 0px 15px 20px;
       overflow: auto;
       overflow-x: hidden;
       position: relative;
@@ -153,16 +207,16 @@ c-badges-grid {
         margin-left: -40px;
         position: absolute;
         z-index: 99999999999;
-        background: hsla(0,0%,100%,.68);
+        background: hsla(0, 0%, 100%, .68);
         width: 400px;
         height: 480px;
         border-radius: 10px;
       }
       .ht-badges-list__wrapper {
         padding-left: 5px;
-        &.completed{
+        &.completed {
           .badge-item__title {
-            padding-top: 8px!important;
+            padding-top: 8px !important;
           }
         }
         .badge-item {
@@ -227,12 +281,14 @@ c-badges-grid {
     .modal-sm {
       width: 255px !important;
       height: 255px !important;
+      min-height: 255px !important;
+      max-height: 255px !important;
       -webkit-transform: translate(0);
       transform: translate(-50%, -50%);
       position: absolute;
       margin: 10px;
-      top: 50%;
-      left: 50%;
+      top: 33%;
+      left: 40%;
       .modal-content {
         padding: 20px !important;
         .badge-detail__img-close {
@@ -247,11 +303,12 @@ c-badges-grid {
         .badge-detail__desc {
           color: $_1_light-grey-background;
           font-size: 14px;
-          margin-top: 19px;
         }
         .badge-detail__ttl {
           color: $_1_badge-detail_ttl;
           font-size: 14px;
+          margin-top: 22px;
+          margin-bottom: 5px;
         }
         .badge-detail__wrapper.badge-not-achieved {
           filter: grayscale(100%);
@@ -261,11 +318,13 @@ c-badges-grid {
           height: 10px;
           -webkit-transform: translate(0);
           transform: translate(-50%, -50%);
-          position: absolute;
-          margin: 10px;
-          top: 60%;
-          left: 62%;
+          margin: 20px 10px 10px;
+          top: 107px;
+          left: 46%;
+          position: fixed;
           c-progressbar {
+            width: 190px;
+            display: inline-flex;
             .stepbar {
               width: 130px;
               margin-left: -29.5%;

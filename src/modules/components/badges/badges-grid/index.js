@@ -48,14 +48,17 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
             }, {});
             completedIndex = seatsResponse.reduce((map, obj)=> {
                 map[obj.badgeId] = Object.assign(availableIndex[obj.badgeId], obj);
+                //delete from available every completed badge
+                delete availableIndex[obj.badgeId];
                 return map;
             }, {});
+
             //Mixing available with completed
-            all = Object.assign(availableIndex, completedIndex);
+            all = Object.assign({}, availableIndex, completedIndex);
             //Convert object to array
             all = Object.keys(all).map(key => all[key]);
-            completed = Object.keys(completedIndex).map(key=> completedIndex[key]);
-            scope.badges = BadgesModel({all: all, available: availableResponse, completed: completed});
+            completed = Object.keys(completedIndex).map((key)=> {return completedIndex[key]});
+            scope.badges = BadgesModel({all: all, available: availableIndex, completed: completed});
             if(scope.badges){
                 scope.loader = true;
             }
@@ -71,8 +74,8 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
 
             var modalInstance = $uibModal.open({
                 animation: scope.animationsEnabled,
-                appendTo: angular.element('c-badges-grid'),
-                template: detail,
+                appendTo: element,
+                template: detail(),
                 controller: ['$scope', 'item', 'showTitle', 'showDesc', 'showDetailImg', ($scope, item, showTitle, showDesc, showDetailImg)=> {
                     $scope.item = item;
                     $scope.showTitle = showTitle;
@@ -100,7 +103,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 scope.colWidth = 4;
                 break;
             case 5:
-                scope.htCol5 = "width: 20%;float:left;padding-right:10px;padding-left:10px;";
+                scope.colWidth = 5;
                 break;
             case 6:
                 scope.colWidth = 2;
@@ -110,10 +113,6 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 scope.colWidth = 3;
                 break;
         }
-
-        //Loader
-        $timeout(() => {
-        }, 800);
 
     }
 });

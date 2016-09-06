@@ -5,7 +5,8 @@ export default(clientHelper) => ({
     restrict: 'E',
     scope: {
         showTitle: '=?',
-        showDesc: '=?'
+        showDesc: '=?',
+        numberCols: '='
     },
     template,
     controller: ($scope, $rootScope, Customer, LoopBackAuth)=> {},
