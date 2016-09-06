@@ -1,3 +1,4 @@
-c-button-close
-c-widget-header(title="Misiones")
-c-quests-list
+.w-widget-quests__container(ng-if="$root.customer.logged && $root.widgetOpened")
+    c-button-close
+    c-widget-header(title="Misiones")
+    c-quests-list
