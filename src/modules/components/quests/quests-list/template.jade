@@ -6,7 +6,7 @@
                 .ht-quest-list__wrapper(ng-repeat="quest in quests track by $index")
                     .ht-quest-list__row.col-xs-12(ng-click="showDetailQuests = !showDetailQuests; isActive != isActive" ng-class="{'quest-active': isActive, 'close': !isActive, #{questsClasses}} ")
                         .ht-quest-list__img-wrapper.col-xs-12(ng-click="isOpen = !isOpen" ng-class="{'open': isOpen}")
-                            .ht-quest-list__img-holder.col-xs-2
+                            .ht-quest-list__img-holder.col-xs-2.not-padding
                                 .ht-quest-list__default-image(ng-show="!quest.img")
                                     p.ht-quest-list__number-quests {{ $index+1 }}
                                 .ht-quest-list__quest-image
@@ -14,22 +14,21 @@
                                     img.ht-quest-list__img-disable(ng-show="quest.state == 'off-date'" ng-src=require("./images/simbol-offdate.svg"))
                                     img.ht-quest-list__img-bloked(ng-show="quest.state == 'block'" ng-src=require("./images/simbol-block.svg"))
                                     img.ht-quest-list__img-completed(ng-show="quest.state == 'completed'" ng-src=require("./images/simbol-check.svg"))
-                            .ht-quest-list__text-holder.col-xs-10
+                            .ht-quest-list__text-holder.col-xs-10.not-padding
                                 .ht-quest-list__title(ng-class="{ #{questsClasses}}") {{ quest.name }}
                                 .ht-quest-list__date
                                     span {{ quest.expires }}
                                 .ht-quest-list__progressbar
-                                    ng-transclude
-                                        c-progressbar(steps="quest.steps" current-step="0")
+                                    c-progressbar(steps="quest.steps" current-step="0")
                         .ht-quest-list__actual-step.col-xs-12(ng-show="showDetailQuests" ng-if="quest.state !== 'block'")
                             .quest-step.row(ng-repeat="step in quest.steps track by $index")
-                                .col-xs-2.bullet
+                                .col-xs-2.bullet.not-padding
                                     .bullet-step-complete(ng-show="step.complete && step.state != 'disabled'")
                                         img(ng-src=require("./images/simbol-check-quest.svg"))
                                     .bullet-step(ng-show="!step.complete && step.state != 'disabled'")
                                         img(ng-src=require("./images/simbol-point.svg"))
                                     .bullet-step-disabled(ng-if="step.state === 'disabled'")
-                                .col-xs-10.title-step
+                                .col-xs-10.title-step.not-padding
                                     //span.quest-step__name.animated.bounceIn(ng-class="{ 'c-red': !step.complete, 'c-green': step.complete }") {{step.title}}
                                     span.quest-step__name.animated.bounceIn {{step.title}}
                                         a(href="{{ step.url }}")

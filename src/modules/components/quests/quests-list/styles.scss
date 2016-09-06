@@ -10,16 +10,22 @@
 c-quests-list {
   font-family: $base-font-family;
   .ht-quests-list {
+    width: 400px;
     .ht-quest-list__container {
       .nav-tabs{
         width: 100%;
         height:35px;
+        margin: 0 0;
+        padding-left: 0;
         > li {
           width:33.333333%;
           border-bottom: 3px solid $_1_header-color!important;
           height:35px;
+          &:hover {
+            border-bottom: 3px solid #b2c059!important;
+          }
           &.active {
-            border-bottom: 3px solid $_1_line-space-color;
+            border-bottom: 3px solid $_1_line-space-color!important;
             background: $_1_tab-active__color!important;
             > a {
               background: none;
@@ -40,15 +46,22 @@ c-quests-list {
             color: $_1_quest-title;
             font-weight: 400;
             padding: 5px 1px 1px 1px;
+            text-decoration: none;
+            &:hover {
+              background: transparent!important;
+              border-color: transparent!important;
+            }
           }
         }
       }
       .tab-content  {
-        width: 100%;
-        height: 399px;
-        padding: 15px;
+        width: 362px;
+        height: 386px;
+        padding: 10px 15px 15px 23px;
         overflow: auto;
         position: relative;
+        margin-top: 2px;
+        overflow-x: hidden;
         .ht-quest-list__wrapper {
           .ht-quest-list__row {
             padding: 5px 5px 30px 0px;
@@ -111,7 +124,7 @@ c-quests-list {
                   .ht-quest-list__img-disable,
                   .ht-quest-list__img-completed {
                     position: absolute;
-                    right: -6px!important;
+                    right: 14px!important;
                     width: 24px;
                     top: 37px;
                   }
@@ -132,23 +145,28 @@ c-quests-list {
                   font-weight: 700;
                   font-size: 13pt;
                   position: absolute;
-                  top: 8px;
                   text-transform: uppercase;
                   color: $_1_header-color;
                 }
                 .ht-quest-list__date {
                   font-size: 9pt;
                   position: absolute;
-                  right: -14px;
+                  right: 5px;
                   top: 0;
                   color: $_1_quest-steps-date-color;
                 }
                 .ht-quest-list__progressbar {
-                  width: 310px;
+                  width: 275px;
                   display: block;
                   position: absolute;
                   top: 43px;
                   left: 0px;
+                  c-progressbar {
+                    width: 275px;
+                    display: inline-flex;
+                    position: relative;
+                    top: -10px;
+                  }
                 }
               }
             }
@@ -186,6 +204,8 @@ c-quests-list {
             .title-step {
               margin-bottom: 5px;
               white-space: nowrap;
+              position: relative;
+              left: 10px;
               .quest-step__name {
                 color: $_1_quest-steps-title-color;
                 font-weight: 500;
