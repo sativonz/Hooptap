@@ -26,15 +26,10 @@ export default($timeout, BaseModel, _hasScoreUnits) => ({
 
 
             scoreUnits.$promise.then((response)=>{
-             response.map((scoreUnit)=>ScoreUnitsIndex[scoreUnit.id]=scoreUnit);
+                scope.loader = true;
+                response.map((scoreUnit)=>ScoreUnitsIndex[scoreUnit.id]=scoreUnit);
                 scope.scoreUnitsIndex = ScoreUnitsIndex;
             });
             scope.scoreUnits = scoreUnits;
-
-        //Loader
-        //Loader
-        $timeout(() => {
-            scope.loaderOn = true;
-        }, 800);
     }
 });

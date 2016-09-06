@@ -26,7 +26,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
     },
     link: (scope, element, attrs)=> {
 
-        scope.loaderOn = false;
+        scope.loader = false;
 
         let BadgesModel = stampit().compose(BaseModel, _hasBadges);
         let defaults = {
@@ -56,6 +56,9 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
             all = Object.keys(all).map(key => all[key]);
             completed = Object.keys(completedIndex).map(key=> completedIndex[key]);
             scope.badges = BadgesModel({all: all, available: availableResponse, completed: completed});
+            if(scope.badges){
+                scope.loader = true;
+            }
             scope.$apply();
         })();
 
@@ -68,7 +71,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
 
             var modalInstance = $uibModal.open({
                 animation: scope.animationsEnabled,
-                appendTo: angular.element(document.querySelector('c-badges-grid')),
+                appendTo: angular.element('c-badges-grid'),
                 template: detail,
                 controller: ['$scope', 'item', 'showTitle', 'showDesc', 'showDetailImg', ($scope, item, showTitle, showDesc, showDetailImg)=> {
                     $scope.item = item;
@@ -110,7 +113,6 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
 
         //Loader
         $timeout(() => {
-            scope.loaderOn = true;
         }, 800);
 
     }

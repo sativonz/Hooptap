@@ -27,7 +27,8 @@ export default(Customer, $rootScope, $parse) => ({
         showMarketplace: '=',
         showEditProfile: '=',
         showGameRoom: '=',
-        titleGameRoom: '='
+        titleGameRoom: '=',
+        item: '='
     },
     template,
     link: (scope, element, attrs)=> {
@@ -56,14 +57,6 @@ export default(Customer, $rootScope, $parse) => ({
                 $mnu.toggle('slow');
             });
 
-
-        //TODO refactor
-        scope.showRankingDetail = (item) => {
-            $rootScope.customer.ranking = item;
-
-            $rootScope.customer.ranking.actualSu = item.name;
-            console.log("RANKING: ", $rootScope.customer.ranking);
-        }
 
     }
 });

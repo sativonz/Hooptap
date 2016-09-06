@@ -16,13 +16,10 @@ export default($rootScope, Customer, LoopBackAuth) => ({
 
     link: (scope, element, attrs)=> {
 
-        Customer.find( {limit: 20} ).$promise.then(
-            (response)=>{
 
-                console.log("Response:", response);
-
-            }
-        );
+        $rootScope.$on("$rankingType", (event, item)=> {
+            console.log("asdfasddfas", item);
+        });
 
 
         scope.rankings = {

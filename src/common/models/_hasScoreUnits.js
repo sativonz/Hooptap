@@ -29,9 +29,8 @@ export default (Level, ScoreUnit) => {
             },
 
             getScoreUnitById(id){
-                return ScoreUnit.findById({id:id}).$promise.then((response)=>{
-                    return response;
-                });
+
+                return ScoreUnit.findById({id:id}).$promise;
             }
 
 

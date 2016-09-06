@@ -29,7 +29,7 @@ export default() => ({
             });
         } else {
             //Clear Storage, session and user if not rememberMe
-            CustomerModel().logout();
+            //CustomerModel().logout();
             LoopBackAuth.clearStorage();
             LoopBackAuth.clearUser();
         }

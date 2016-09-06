@@ -24,9 +24,7 @@ export default (Customer,_hasCustomer, $rootScope, $q) => {
                     "email": model.email,
                     "password": model.password,
                     //TODO Change for actual productId
-                    "productId": this.productId,
-
-                    loader: "your_loader_name",
+                    "productId": this.productId
                 }).$promise.then((response)=> {
                     this.setLoggedRoot(response);
                     return $q.resolve(this.getCurrent(filter));

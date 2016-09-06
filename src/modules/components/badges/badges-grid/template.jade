@@ -1,10 +1,12 @@
 .ht-badges-list__container
 	uib-tabset(active="active")
 		uib-tab(index="0" heading="{{::'BADGES.tabs.all' | translate}}")
-			c-loader-wrap(value="loaderOn")
+			c-loader-wrap(value="loader")
 			.ht-badges-list__wrapper.row
+
 				.ht-badges-list__badge-blank(ng-if="!badges.all")
-					p(ng-if="loaderOn") {{::'BADGES.empty' | translate}}
+					p(ng-if="loader") {{::'BADGES.empty' | translate}}
+
 				.badge-item.animated.bounceIn(ng-repeat="item in badges.all | orderBy: 'quantity':  true" id="allBadge-item-{{$index}}" style="{{htCol5}}" ng-class="{'ht-col-xs-{{colWidth}}': true, 'badge-not-achieved': !item.state}" ng-click="badgeDetail(item)")
 					.badge-item__img(ng-class="{'badge-started': item.available}")
 						img(ng-src="{{item.image}}")

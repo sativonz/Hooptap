@@ -218,10 +218,10 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                 },
                 menuOptions: {
                     titleGameRoom: "Salón de juegos",
-                    showQuests: false,
+                    showQuests: true,
                     showLevel: false,
                     showBadges: true,
-                    showRankings: true,
+                    showRankings: false,
                     showGlobalFeed: false,
                     showEditProfile: false,
                     showMarketplace: false,
@@ -272,12 +272,16 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
             scope.scoreDisplayConfig = scope.scoreDisplayConfig || WidgetModel.defaultMarkerOptions;
 
             scope.$on("$loginSuccess", (event, response)=> {
+                    console.log(response);
 
-                scope.customer = response;
-                //Loader
-                $timeout(() => {
-                    scope.loaderOn = true;
-                }, 800);
+                if(response.hasOwnProperty(('$promise'))){
+                    response.$promise.then((customer)=>{
+                        scope.customer = customer;
+                        scope.loaderOn = true;
+                    });
+                }
+
+
             });
 
             scope.$on("$logoutSuccess", (event) => {

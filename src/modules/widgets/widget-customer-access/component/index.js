@@ -11,7 +11,7 @@ import './styles.scss';
  * @param {Boolean} showRegisterForm Whether to display the mix form
  * @element ANY
  */
-export default(Customer, LoopBackAuth, $rootScope, clientHelper) => ({
+export default(Customer, LoopBackAuth, $rootScope, clientHelper, $timeout) => ({
     restrict: 'E',
     template,
     scope: {
@@ -19,7 +19,8 @@ export default(Customer, LoopBackAuth, $rootScope, clientHelper) => ({
         showLoginForm: '=?',
         showMixForm: '=?'
     },
-    controller: ($scope, $rootScope)=> {
+    controller: ($scope, $rootScope, $timeout)=> {
+
         var loginEvent = $rootScope.$on("loginSuccess", (event, response)=> {
             getMessage();
         });
@@ -35,6 +36,8 @@ export default(Customer, LoopBackAuth, $rootScope, clientHelper) => ({
             loginEvent();
         });
 
+
+
     },
     link: {
         pre: function PreLinkingFunction(scope, element, attrs) {   //Default values for widget customer access
@@ -46,6 +49,8 @@ export default(Customer, LoopBackAuth, $rootScope, clientHelper) => ({
 
             clientHelper.setDefaultAttributes(defaults, scope, attrs);
         }
+
+
     }
 
 

@@ -18,6 +18,19 @@
 
 w-widget-customer-access {
 
+  c-loader-wrap {
+    c-loader {
+      padding: 225px 40px 40px 40px;
+      margin-left: -40px;
+      position: absolute;
+      z-index: 99999999999;
+      background: hsla(0,0%,100%,.68);
+      width: 400px;
+      height: 480px;
+      border-radius: 10px;
+    }
+  }
+
   .w-widget-customer-access {
     display: block;
     font-family: $base-font-family;
@@ -41,6 +54,7 @@ w-widget-customer-access {
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
       margin-top: 0px;
+      padding-left: 0;
       > li {
         border-bottom: 4px solid transparent;
         float: none !important;
@@ -49,10 +63,10 @@ w-widget-customer-access {
         .link-go-register--form {
           color: #3bb2d0;
           padding: 0px 20px 0px 0px;
-          width: 49%;
+          width: 50%;
         }
         &:hover {
-          border-bottom: 4px solid #1C9AD0;
+          border-bottom: 4px solid rgba(28, 154, 208, 0.49);
         }
         &:not(.active) {
           color: #0078a0 !important;
@@ -71,6 +85,7 @@ w-widget-customer-access {
         }
         &.active {
           @extend %navActiveCodeMix;
+          border-bottom: 4px solid #1c9ad0!important;
 
           > a {
             font-weight: bold;
@@ -82,6 +97,7 @@ w-widget-customer-access {
           &:hover {
             border-bottom: 4px solid #1C9AD0 !important;;
           }
+
         }
       }
     }

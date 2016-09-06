@@ -10,7 +10,7 @@ import './styles.scss';
  * @params {String} image Image of the button, positioned to the left
  * @element ANY
  */
-export default() => ({
+export default($rootScope) => ({
     restrict: 'E',
     scope: {
         text: '@',
@@ -18,10 +18,13 @@ export default() => ({
     },
     template,
     link: (scope, element, attrs)=>{
-        // $('c-button-init').click(function(ev) {
-        //     $('#ht-widgets').fadeIn().css("display" , "block");
-        //     $('c-button-init').hide(100);
-        // });
+        if(!angular.isDefined($rootScope.widgetOpened)){
+            $rootScope.widgetOpened = false;
+        }
 
+        element.on('click', (event)=>{
+            $rootScope.widgetOpened = !$rootScope.widgetOpened;
+            $rootScope.$apply();
+        });
     }
 });

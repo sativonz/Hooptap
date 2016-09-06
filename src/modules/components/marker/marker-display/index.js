@@ -38,30 +38,31 @@ export default($timeout, $rootScope, BaseModel, _hasScoreUnits, _hasCustomer) =>
 
         //Score unit image default => the same of the score unit associated at level row
         let ScoreUnitModel = stampit().compose(BaseModel, _hasScoreUnits);
-
-        Q.async(function*(){
-            //TODO poner bien id
-            let nextLevel = yield ScoreUnitModel().getLevelById(scope.item.levels[0].nextId);
-            scope.nextLevel = nextLevel;
-
-            let suImage = yield ScoreUnitModel().getScoreUnitById(nextLevel.scoreUnitId);
-            scope.suImage = suImage;
-
-            let actualLevel = yield ScoreUnitModel().getLevelById(scope.item.levels[0].nextId);
-            scope.nextLevel = nextLevel;
-
-            //Index levels
-            let LevelsIndex = {};
-            let allLevelsIndex = ScoreUnitModel().getLevels();
+        if(scope.item && scope.item.hasOwnProperty('$promise')){
+            Q.async(function*(){
+                //TODO poner bien id
+                let nextLevel = yield ScoreUnitModel().getLevelById(scope.item.levels[0].nextId);
+                scope.nextLevel = nextLevel;
+                let suImage = yield ScoreUnitModel().getScoreUnitById(nextLevel.scoreUnitId);
+                scope.suImage = suImage;
 
 
-            allLevelsIndex.$promise.then((response)=>{
-                response.map((level)=>LevelsIndex[level.id]=level);
-                scope.LevelsIndex = LevelsIndex;
-                console.log('LevelsIndex', LevelsIndex);
-            })
+                //Index levels
+                let LevelsIndex = {};
+                let allLevelsIndex = ScoreUnitModel().getLevels();
 
-        })();
+
+                allLevelsIndex.$promise.then((response)=>{
+                    response.map((level)=>LevelsIndex[level.id]=level);
+                    scope.LevelsIndex = LevelsIndex;
+                    console.log('LevelsIndex', LevelsIndex);
+                });
+
+
+            })();
+        }
+        console.log(scope.item);
+
 
     }
 });

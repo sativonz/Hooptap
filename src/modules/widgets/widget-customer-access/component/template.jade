@@ -1,5 +1,3 @@
-c-button-init(text="Juegue ahora" image="http://iconshow.me/media/images/ui/ios7-icons/png/48/play-outline.png" ng-click="$root.widgetOpened = !$root.widgetOpened" ng-if="!$root.widgetOpened")
-
 .w-widget-customer-access(ng-if="!$root.customer.logged && $root.widgetOpened")
     c-button-close
 
@@ -14,8 +12,8 @@ c-button-init(text="Juegue ahora" image="http://iconshow.me/media/images/ui/ios7
                 c-customer-register
                 //TODO descomentar
                 //c-customer-activate
-
-//->Login form
+//
+    //->Login form
     c-widget-header(title="{{ 'CUSTOMER.common.login' | translate }}" ng-if="showLoginForm")
     c-customer-login(ng-if="showLoginForm")
     c-customer-reset(ng-if="showLoginForm")
