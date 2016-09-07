@@ -43,6 +43,10 @@ export default() => ({
         }
         window.steps = scope;
 
+
+
+
+
     },
 
     template

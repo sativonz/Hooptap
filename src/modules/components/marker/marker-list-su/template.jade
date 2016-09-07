@@ -3,7 +3,7 @@ c-loader-wrap(value="loader")
    .marker-list-su__wrapper(ng-repeat="su in scoreUnitsIndex" id="item-su-{{$index}}")
         .col-xs-2.not-padding
             .marker-list-su__img
-                img(ng-src="{{su.image}}")
+                img(ng-src="{{su.image || defaultImage}}")
         .col-xs-10.not-padding
             span.marker-list-su__name {{su.name}}
             .marker-list-su__quantity {{$parent.item.scores[su.id] || 0}}

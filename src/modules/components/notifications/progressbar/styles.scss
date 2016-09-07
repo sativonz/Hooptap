@@ -3,7 +3,7 @@
 c-progressbar {
 
     #stepbar__step-1 > .stepbar__step-inner {
-      border-radius: 5px 0px 0px 5px !important;
+      border-radius: 5px 0px 0px 5px;
     }
 
     .stepbar__step {
@@ -25,8 +25,8 @@ c-progressbar {
         height: 10px;
         background: $_1_progress-bar__inactive;
         &.last {
-          border-top-right-radius: 5px;
-          border-bottom-right-radius: 5px;
+          border-top-right-radius: 5px!important;
+          border-bottom-right-radius: 5px!important;
         }
       }
     }

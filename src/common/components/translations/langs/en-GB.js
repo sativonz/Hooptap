@@ -68,7 +68,7 @@ let dict = {
 
 	BADGES: {
 		title				: 'Badges',
-		empty				: 'There are not badges to show.',
+		empty				: 'There are not items to show.',
 		tabs:	{
 			all				: 'All',
 			available		: 'Available',

@@ -19,8 +19,7 @@ export default () => {
              * @stampit refs
              */
             _defaults: {
-                id: '',
-                productId: "57b56f541c3dd11afd50c5e6" //TODO change to actual product id
+                id: ''
             },
 
             _model: 'WidgetModel'

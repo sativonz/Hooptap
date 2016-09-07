@@ -32,5 +32,8 @@ export default($timeout, BaseModel, _hasScoreUnits) => ({
                 scope.scoreUnitsIndex = ScoreUnitsIndex;
             });
             scope.scoreUnits = scoreUnits;
+
+        //Default image badge
+        scope.defaultImage = require('./images/no-image.png');
     }
 });

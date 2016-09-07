@@ -25,9 +25,13 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
         numberCols: '=?'
     },
     link: (scope, element, attrs)=> {
-
+        //Loader
         scope.loader = false;
 
+        //Default image badge
+        scope.defaultImage = require('./images/no-image.png');
+
+        //Default values
         let BadgesModel = stampit().compose(BaseModel, _hasBadges);
         let defaults = {
             showTitle: true,
@@ -37,6 +41,8 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
         };
 
 
+
+        //Llamadas badges
         Q.async(function*() {
             let allIndex, availableIndex, completedIndex = {};
             let all, available, completed = [];
@@ -81,6 +87,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                     $scope.showTitle = showTitle;
                     $scope.showDesc = showDesc;
                     $scope.showDetailImg = showDetailImg;
+                    $scope.defaultImage = require('./images/no-image.png');
                 }],
                 resolve: {
                     item: ()=> item,

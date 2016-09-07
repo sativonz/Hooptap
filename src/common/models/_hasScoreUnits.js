@@ -44,9 +44,7 @@ export default (Level, ScoreUnit) => {
              * @memberOf Rule.model:Rule
              * @stampit refs
              */
-            _defaults: {
-                productId: "5784fda092cabc234005814b" //TODO change to actual product id
-            },
+            _defaults: {},
 
             _model: 'ScoreUnitModel'
         })

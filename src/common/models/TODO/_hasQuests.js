@@ -31,10 +31,7 @@ export default ($q, $state, $injector, BaseModel, _Savable,_Badge, _Quest, _Scor
              * @memberOf Rule.model:Rule
              * @stampit refs
              */
-            _defaults: {
-                productId: "57c846efa42ef8225b2664fc" //TODO change to actual product id
-                //productId: "5784fda092cabc234005814b" //TODO change to actual product id
-            },
+            _defaults: {},
 
             _model: 'CustomerModel'
         })

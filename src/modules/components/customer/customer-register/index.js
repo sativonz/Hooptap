@@ -23,7 +23,7 @@ export default($rootScope, Customer,LoopBackAuth) => ({
                 "username": scope.username,
                 "email": scope.email,
                 "password": scope.password,
-                "productId": "57722deffc827f8e7dbafc33"//TODO PROVISIONAL
+                "productId": "57c846e00f761821e71ef1fc"//TODO PROVISIONAL
             }).$promise.then((registered)=> {
                 $rootScope.$broadcast('$registerSuccess', registered);
                 if ($rootScope.customer) {

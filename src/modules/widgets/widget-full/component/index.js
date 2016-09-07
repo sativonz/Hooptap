@@ -281,7 +281,13 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                 if(response.hasOwnProperty(('$promise'))){
                     response.$promise.then((customer)=>{
                         scope.customer = customer;
+                        console.log(scope.customer);
                         scope.loader = true;
+                        TOAST(
+                            "Welcome " + scope.customer.username + " !", null, {
+                                style: 'info',
+                                img: require('../images/default-img-popover.png')
+                            });
                     });
                 }
 

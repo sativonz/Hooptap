@@ -15,8 +15,8 @@ export default ($rootScope, Customer) => {
             logout(){
                 Customer.logout();
                 $rootScope.$broadcast('$logoutSuccess');
+                $rootScope.customer.logged = false;
             }
-
         })
         .refs({
 
@@ -26,7 +26,7 @@ export default ($rootScope, Customer) => {
              */
             _defaults: {
                 id: '',
-                productId: "57b56f541c3dd11afd50c5e6" //TODO change to actual product id
+                productId: "57c846e00f761821e71ef1fc" //TODO change to actual product id
             },
 
             _model: 'CustomerModel'
