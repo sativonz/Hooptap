@@ -211,6 +211,8 @@ c-quests-list {
                 font-weight: 500;
                 letter-spacing: 0.5px;
                 font-size: 10pt;
+                position: relative;
+                top: -2px;
                 img {
                   width: 11px;
                   margin-left: 7px;
@@ -231,6 +233,8 @@ c-quests-list {
           margin-bottom: -16px;
           border-left: 100px solid white;
           border-right: 100px solid white;
+          width: 145px!important;
+          float: left;
         }
       }
     }

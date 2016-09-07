@@ -1,9 +1,6 @@
 //Import angularHT
 import angular from 'angular-mod';
 
-//Init template with all widgets
-import template from './index.jade';
-
 //Vendor
 import 'angular-storage';
 import 'angular-resource';

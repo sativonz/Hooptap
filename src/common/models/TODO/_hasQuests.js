@@ -32,7 +32,8 @@ export default ($q, $state, $injector, BaseModel, _Savable,_Badge, _Quest, _Scor
              * @stampit refs
              */
             _defaults: {
-                productId: "5784fda092cabc234005814b" //TODO change to actual product id
+                productId: "57c846efa42ef8225b2664fc" //TODO change to actual product id
+                //productId: "5784fda092cabc234005814b" //TODO change to actual product id
             },
 
             _model: 'CustomerModel'

@@ -12,16 +12,18 @@
                 c-customer-register
                 //TODO descomentar
                 //c-customer-activate
-//
+
     //->Login form
     c-widget-header(title="{{ 'CUSTOMER.common.login' | translate }}" ng-if="showLoginForm")
     c-customer-login(ng-if="showLoginForm")
-    c-customer-reset(ng-if="showLoginForm")
+    //TODO descomentar
+    //c-customer-reset(ng-if="showLoginForm")
 
     //->Register form
     c-widget-header(title="{{ 'CUSTOMER.common.register' | translate }}" ng-if="showRegisterForm")
     c-customer-register(ng-if="showRegisterForm")
-    c-customer-activate(ng-if="showRegisterForm")
+    //TODO descomentar
+    //c-customer-activate(ng-if="showRegisterForm")
 
 
 

@@ -42,7 +42,7 @@ export default(Customer, LoopBackAuth, $rootScope, clientHelper, $timeout) => ({
     link: {
         pre: function PreLinkingFunction(scope, element, attrs) {   //Default values for widget customer access
             let defaults = {
-                showMixForm: true,
+                showMixForm: false,
                 showRegisterForm: false,
                 showLoginForm: false
             };

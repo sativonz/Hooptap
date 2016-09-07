@@ -17,13 +17,12 @@ export default($rootScope, Customer, LoopBackAuth) => ({
     link: (scope, element, attrs) => {
 
         scope.form = {
-            username : $rootScope.customer.username,
-            email : $rootScope.customer.email
+            username : scope.username,
+            email : scope.email
         };
 
         let getDiffs = () => {
             let diffs = Object.assign({}, scope.form);
-            diffs.id = $rootScope.customer.id;
             delete diffs.email;
             return diffs;
         };

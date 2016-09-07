@@ -38,7 +38,10 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
         menuOptions: '=?',
 
         //Level options
-        levelRow: '=?'
+        levelRow: '=?',
+
+        //Badges grid cols
+        badgeCols: '=?'
     },
     controller: ($scope)=> {
         // function getCurrent() {
@@ -208,10 +211,11 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
             //Default values for widget full
             let defaults = {
                 idWidget: "",
-                editProfile: false,
+                editProfile: true,
                 showGlobalFeed: false,
                 showMarker: true,
                 showProfileHeader: true,
+                badgeCols: 4,
                 levelRow: {
                     showProgressBarLevel: true,
                     showModule: true
@@ -223,7 +227,7 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                     showBadges: true,
                     showRankings: false,
                     showGlobalFeed: false,
-                    showEditProfile: false,
+                    showEditProfile: true,
                     showMarketplace: false,
                     showGameRoom: false
                 }
