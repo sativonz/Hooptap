@@ -1,9 +1,12 @@
 @import '../../../../common/stylesheets/common/mixins.scss';
 @import '../../../../common/stylesheets/common/colors.scss';
+@import '../../../../common/stylesheets/common/base.scss';
 
 c-notifications-popup {
+  font-family: $base-font-family;
   #TOASTER {
     z-index: 999999999999999999;
+    font-family: $base-font-family;
     position: fixed;
     top: 5px;
     right: 24px;
@@ -34,7 +37,7 @@ c-notifications-popup {
 
       .toast-des {
         color: $_1_popup-text-desc;
-        font-size: 12pt;
+        font-size: 14px;
       }
 
       .toast-content {
@@ -62,6 +65,7 @@ c-notifications-popup {
             top: 30px;
             margin-left: 20%;
             width: 300px;
+            font-size: 14px;
           }
           img {
             display: block;

@@ -1,6 +1,5 @@
 import template from './template.jade';
 import './styles.scss';
-//TODO ngDocs remake
  /**
   * @ngdoc directive
   * @name Notification popup

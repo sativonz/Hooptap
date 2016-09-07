@@ -207,7 +207,7 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
 
     link: {
         post: function PostLinkingFunction(scope, element, attrs) {
-            scope.loaderOn = false;
+            scope.loader= false;
             //Default values for widget full
             let defaults = {
                 idWidget: "",
@@ -276,21 +276,26 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
             scope.scoreDisplayConfig = scope.scoreDisplayConfig || WidgetModel.defaultMarkerOptions;
 
             scope.$on("$loginSuccess", (event, response)=> {
-                    console.log(response);
+                    console.log("Objeto customer><<<<<<<<<<", response);
 
                 if(response.hasOwnProperty(('$promise'))){
                     response.$promise.then((customer)=>{
                         scope.customer = customer;
-                        scope.loaderOn = true;
+                        scope.loader = true;
                     });
                 }
 
 
             });
 
+            scope.$on("$registerSuccess", (event, customer)=> {
+                scope.customer = customer;
+                scope.loader = true;
+            });
+
             scope.$on("$logoutSuccess", (event) => {
                 scope.customer = {};
-                scope.loaderOn = false;
+                scope.loader = false;
             });
 
         }
