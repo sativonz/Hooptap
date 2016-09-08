@@ -22,6 +22,7 @@ export default($rootScope, Customer,LoopBackAuth, $translate) => ({
             angular.element(document.querySelector(".ht-form__failed-pass")).css("display", "none");
             if(scope.password == scope.rePassword) {
                 Customer.create({
+                    //TODO idexterno sin contemplar
                     "username"      :   scope.username,
                     "email"         :   scope.email,
                     "password"      :   scope.password,
