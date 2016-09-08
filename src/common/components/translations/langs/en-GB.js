@@ -6,15 +6,27 @@ let dict = {
 	CUSTOMER: {
 		common: {
 			password		: 'Password',
+			rePassword		: 'Repeat the password',
 			email			: 'Email',
 			name			: 'Username',
 			username		: 'Name',
+			surnames		: 'Surnames',
 			update			: 'Update',
 			edit			: 'Edit',
 			logout			: 'Logout',
 			login			: 'Login',
 			register		: 'Register',
 			empty			: 'There are not items to show.',
+			city			: 'City',
+			gender			: 'Gender',
+			postalCode		: 'Postal Code',
+			telephone		: 'Telephone',
+			birthDate		: 'Birth date',
+			direction		: 'Direction',
+			male			: 'Male',
+			female			: 'Female',
+			select			: 'Selection',
+			welcome			: 'Welcome '
 		},
 		login: {
 			title			: 'Log in',
@@ -159,6 +171,12 @@ let dict = {
 
 	GAMEROOM_DETAIL: {
 		title				: 'Gameroom detail'
+	},
+
+	TOAST: {
+		correctRegister		: 'Registration succeess',
+		incorrect			: 'The login data are incorrect',
+		duplicated			: 'The login data are duplicated'
 	}
 
 

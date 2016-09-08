@@ -5,7 +5,7 @@
                 img.ht-profile-header__profile-photo(ng-src="{{item.image || defaultImage}}")
                 label(for="file-input")
                    img.ht-profile-header__img-upload(ng-src=require("./images/img-upload.svg") ng-click="uploadImgProfile()")
-                input.hide#file-input(type="file")
+                input.hide#file-input(type="file" ng-model="image")
             img.ht-profile-header__edit(ng-if="editProfile" ng-click="$root.WPF.viewEditProfile = !$root.WPF.viewEditProfile" ng-src=require("./images/btn-edit-profile.svg"))
         .col-xs-2.not-padding.wrapper-data
             p.ht-profile-header__title-name {{ 'CUSTOMER.common.name' | translate }}:

@@ -17,8 +17,9 @@ export default($rootScope, Customer, LoopBackAuth) => ({
     link: (scope, element, attrs) => {
 
         scope.form = {
-            username : scope.username,
-            email : scope.email
+            username    : scope.username,
+            email       : scope.email,
+            productID   : "57c846e00f761821e71ef1fc"
         };
 
         let getDiffs = () => {
@@ -27,10 +28,11 @@ export default($rootScope, Customer, LoopBackAuth) => ({
             return diffs;
         };
 
-
+        //TODO Por llegar la respuesta de producto ¿?¿?
         scope.uploadDataProfile = function () {
             window.Customer = Customer;
-            Customer.save(getDiffs()).$promise
+
+            Customer.update(getDiffs()).$promise
                 .then((response) => {
                     console.log("Save response", response);
                     debugger;
@@ -38,6 +40,15 @@ export default($rootScope, Customer, LoopBackAuth) => ({
                 .catch((err) => {
                     console.log(err);
                 });
+
+            // Customer.save(getDiffs()).$promise
+            //     .then((response) => {
+            //         console.log("Save response", response);
+            //         debugger;
+            //     })
+            //     .catch((err) => {
+            //         console.log(err);
+            //     });
         };
     }
 

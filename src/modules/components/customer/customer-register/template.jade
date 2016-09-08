@@ -1,28 +1,70 @@
 .ht-wrapper--register__form
     c-button-close
     form.ht-form.ht-form--register(name="htFormRegister" ng-show='!$root.goActivateForm' valdr-type="CustomerRegister")
-        .ht-form__group(valdr-form-group)
-            input.ht-form__input(ng-model='username' type='text' name="name" required)
-            span.ht-form__highlight
-            span.ht-form__bar
-            label.ht-form__label {{ 'CUSTOMER.common.name' | translate }}
-        .ht-form__group(valdr-form-group)
-            input.ht-form__input(ng-model='email' type='email' name="email" required)
-            span.ht-form__highlight
-            span.ht-form__bar
-            label.ht-form__label {{ 'CUSTOMER.common.email' | translate }}
-        .ht-form__group.password(valdr-form-group)
-            input.ht-form__input(ng-model='password' type='password' name="password" required)
-            span.ht-form__highlight
-            span.ht-form__bar
-            label.ht-form__label {{ 'CUSTOMER.common.password' | translate }}
-        .ht-form__group-terms
-            input(type="checkbox" name="terms" id="checkbox_terms" value="terms" ng-model="checkboxEnableRegister")
-            label.checkbox_terms(for="checkbox_terms")
-                a(href="http://hooptap.com/en/terms-and-conditions/" target="_blank") {{ 'valdr.generics.terms' | translate }}
-        //TODO descomentar
-        //.ht-form__group-link
-        //    span.link-to-activate(ng-click='$root.goActivateForm = true;') {{ 'CUSTOMER.activate.linkTitle' | translate }}
-        .ht-form__group-button
-            button.animated.bounceInUp.ht-form--button__register(type='submit' ng-disabled="!checkboxEnableRegister" ng-click='register()')
-                | {{ 'CUSTOMER.register.button' | translate }}
+        .ht-form--register__col-1
+            .ht-form__group
+                input.ht-form__input(ng-model='name' type='text' name="name" placeholder="{{ 'CUSTOMER.common.name' | translate }}")
+                span.ht-form__highlight
+                span.ht-form__bar
+            .ht-form__group
+                input.ht-form__input(ng-model='surnames' type='text' name="surnames" placeholder="{{ 'CUSTOMER.common.surnames' | translate }}")
+                span.ht-form__highlight
+                span.ht-form__bar
+            .ht-form__group
+                input.ht-form__input(ng-model='city' type='text' name="city" placeholder="{{ 'CUSTOMER.common.city' | translate }}")
+                span.ht-form__highlight
+                span.ht-form__bar
+            .ht-form__group.password
+                input.ht-form__input(ng-model='direction' type='text' name="direction" placeholder="{{ 'CUSTOMER.common.direction' | translate }}")
+                span.ht-form__highlight
+                span.ht-form__bar
+        .ht-form--register__col-2
+            .ht-form__group
+                select(name="selectGender" id="selectGender" ng-model="gender")
+                    option(value="") {{ 'CUSTOMER.common.gender' | translate }}
+                    option(value="{{ 'CUSTOMER.common.male' | translate }}") {{ 'CUSTOMER.common.male' | translate }}
+                    option(value="{{ 'CUSTOMER.common.female' | translate }}") {{ 'CUSTOMER.common.female' | translate }}
+            .ht-form__group.password
+                input.ht-form__input(ng-model='birthDate' type='text' name="birthDate" placeholder="{{ 'CUSTOMER.common.birthDate' | translate }}")
+                span.ht-form__highlight
+                span.ht-form__bar
+            .ht-form__group.password
+                input.ht-form__input(ng-model='postalCode' type='text' name="postalCode" placeholder="{{ 'CUSTOMER.common.postalCode' | translate }}")
+                span.ht-form__highlight
+                span.ht-form__bar
+            .ht-form__group.password
+                input.ht-form__input(ng-model='telephone' type='text' name="telephone" placeholder="{{ 'CUSTOMER.common.telephone' | translate }}")
+                span.ht-form__highlight
+                span.ht-form__bar
+        .col-xs-12.ht-form--register__row-3
+            .ht-form__group.password(valdr-form-group)
+                input.ht-form__input(ng-model='username' type='text' name="username" placeholder="{{ 'CUSTOMER.common.username' | translate }}" required)
+                span.ht-form__highlight
+                span.ht-form__bar
+            .ht-form__group.password(valdr-form-group)
+                input.ht-form__input(ng-model='email' type='email' name="email" placeholder="{{ 'CUSTOMER.common.email' | translate }}" required)
+                span.ht-form__highlight
+                span.ht-form__bar
+            .ht-form__group.password(valdr-form-group)
+                input.ht-form__input(ng-model='password' type='password' name="password" placeholder="{{ 'CUSTOMER.common.password' | translate }}" required)
+                span.ht-form__highlight
+                span.ht-form__bar
+            .ht-form__group.password(valdr-form-group)
+                input.ht-form__input(ng-model='rePassword' type='password' name="rePassword" placeholder="{{ 'CUSTOMER.common.rePassword' | translate }}" required)
+                span.ht-form__highlight
+                span.ht-form__bar
+                .ht-form__failed-pass Las contraseñas no coinciden
+        .col-xs-12.ht-form--register__row-4
+            .ht-form__group-terms
+                input(type="checkbox" name="terms" id="checkbox_terms" value="terms" ng-model="checkboxEnableRegister")
+                label.checkbox_terms(for="checkbox_terms")
+                    a(href="http://hooptap.com/en/terms-and-conditions/" target="_blank") {{ 'valdr.generics.terms' | translate }}
+            //TODO Descomentar cuando esté activo
+            //.ht-form__group-link
+                span.link-to-activate(ng-click='$root.goActivateForm = true;') {{ 'CUSTOMER.activate.linkTitle' | translate }}
+            .ht-form__group-button
+                .ht-form__failed-create-user Ya existe un usuario con los mismos datos!
+                button.ht-form--button__register(type='submit' ng-disabled="!checkboxEnableRegister" ng-click='register()') {{ 'CUSTOMER.register.button' | translate }}
+.footer-shadow
+
+

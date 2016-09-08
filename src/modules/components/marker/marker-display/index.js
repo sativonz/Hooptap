@@ -40,7 +40,8 @@ export default($timeout, $rootScope, BaseModel, _hasScoreUnits, _hasCustomer) =>
         let ScoreUnitModel = stampit().compose(BaseModel, _hasScoreUnits);
         if(scope.item && scope.item.hasOwnProperty('$promise')){
             Q.async(function*(){
-                //TODO poner bien id
+
+                //TODO Coge el primer level de la lista // Siguiente release => poner bien id
                 let nextLevel = yield ScoreUnitModel().getLevelById(scope.item.levels[0].nextId);
                 scope.nextLevel = nextLevel;
                 let suImage = yield ScoreUnitModel().getScoreUnitById(nextLevel.scoreUnitId);

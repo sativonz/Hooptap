@@ -9,7 +9,7 @@ export default (valdrProvider)=> {
                     'message': 'valdr.required'
                 }
             },
-            'name': {
+            'username': {
                 'size': {
                     'min': 4,
                     'max': 25,
@@ -20,6 +20,11 @@ export default (valdrProvider)=> {
                 }
             },
             'password': {
+                'required': {
+                    'message': 'valdr.required'
+                }
+            },
+            'rePassword': {
                 'required': {
                     'message': 'valdr.required'
                 }

@@ -219,4 +219,10 @@ w-widget-full {
     }
     @include scrollbars(10px, $_1_light-grey-background, none, 0px solid $_1_soft-grey-background, 3px);
     }
+
+  input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
+    background-color: white;
+    background-image: none;
+    color: rgb(0, 0, 0);
+  }
 }

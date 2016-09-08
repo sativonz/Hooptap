@@ -1,7 +1,7 @@
 .level-home-widget-full__container
     .wrapper__levels-title
         span {{ 'LEVELS.title' | translate }}
-    .wrapper__level-empty(ng-if="item.levels.length === 0")
+    .wrapper__level-empty(ng-if="!item.levels || item.levels.length < 1")
         p.wrapper__level-empty-title {{ 'LEVELS.notLevels' | translate }}
     .level-home-widget-full__wrapper(ng-repeat="level in item.levels")
         .col-xs-3.not-padding

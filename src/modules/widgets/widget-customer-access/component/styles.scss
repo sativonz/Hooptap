@@ -54,6 +54,7 @@ w-widget-customer-access {
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
       margin-top: 0px;
+      margin-bottom: 0;
       padding-left: 0;
       > li {
         border-bottom: 4px solid transparent;
@@ -101,8 +102,93 @@ w-widget-customer-access {
         }
       }
     }
-    .tab-content {
-      overflow: hidden;
+
+
+
+
+  }
+  //Register form
+  .ht-wrapper--register__form {
+    overflow-y: auto;
+    overflow-x: hidden !important;
+    height: 430px !important;
+    max-height: 430px;
+    position: relative;
+    form.ht-form.ht-form--register {
+      padding: 0.5em 1em;
+      .footer-shadow {
+        height: 30px;
+        width: 400px;
+        position: fixed;
+        bottom: 15px;
+        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+        background: linear-gradient(to top, rgba(255, 255, 255, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=0);
+        z-index: 99999999999999999999999999999 !important;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+      }
+      .ht-form--register__col-1 {
+        width: 176px;
+        float: left;
+        position: relative;
+        min-height: 1px;
+      }
+      .ht-form--register__col-2 {
+       @extend .ht-form--register__col-1;
+        margin-top: 4px;
+      }
+      .ht-form--register__row-3 {
+        padding: 0;
+        &.col-xs-12 {
+          width: 350px;
+          .ht-form__input {
+            width: 320px;
+          }
+          .ht-form__bar:before {
+            left: 46%;
+          }
+
+        }
+      }
+      .ht-form--register__row-4 {
+        margin-bottom: 25px;
+      }
+
+      input.ht-form__input {
+        width: 145px;
+        font-size: 16px;
+        padding-bottom: 4px;
+      }
+      .ht-form__bar:before {
+        left: 42%;
+      }
+      .ht-form__group {
+        margin-bottom: 23px!important;
+      }
+      .ht-form__failed-pass{
+        color: red;
+        margin: 0;
+        font-size: 14px;
+        display: none;
+      }
+      .ht-form__failed-create-user{
+        @extend .ht-form__failed-pass;
+        padding-bottom: 15px;
+      }
     }
   }
+  select {
+    padding: 4px;
+    outline: none;
+    width: 163px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #aeaeff;
+    color: #b6a9a9;
+    font-size: 16px;
+  }
+  @include scrollbars(10px, $_1_light-grey-background, none, 0px solid $_1_soft-grey-background, 3px);
+
 }

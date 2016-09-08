@@ -17,7 +17,7 @@ import stampit from 'stampit';
  */
 
 
-export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelper, BaseModel, _isWidget, $timeout) => ({
+export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelper, BaseModel, _isWidget, $timeout, $translate) => ({
     restrict: 'E',
     transclude: true,
     template,
@@ -281,9 +281,10 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                 if(response.hasOwnProperty(('$promise'))){
                     response.$promise.then((customer)=>{
                         scope.customer = customer;
-                        console.log(scope.customer);
+                        //console.log(scope.customer);
                         scope.loader = true;
-                        let message = "Welcome " + (scope.customer.username || '')  + " !";
+                        let msgWelcome = $translate.instant("CUSTOMER.common.welcome");
+                        let message = msgWelcome + (scope.customer.username || '')  + " !";
                         TOAST(message, null, {
                                 style: 'info',
                                 img: require('../images/default-img-popover.png')

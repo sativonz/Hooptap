@@ -14,7 +14,7 @@ export default() => ({
     restrict: 'E',
     scope: {},
     template,
-    controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _isCustomer, _hasLogin)=> {
+    controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _isCustomer, _hasLogin, $translate)=> {
         //Models
         let LoginModel = stampit().compose(BaseModel, _hasLogin);
         let CustomerModel = stampit().compose(BaseModel, _isCustomer);
@@ -49,7 +49,14 @@ export default() => ({
             }).catch((error)=> {
 
                 //TODO NOTIFICADOR ERRORES
-                console.log(error);
+                if( error.status == 401 ) {
+                    let msg = $translate.instant("TOAST.incorrect");
+                    TOAST(
+                        "ERROR !" , msg, {
+                            style: 'alert',
+                            img: require('./images/error.png')
+                        });
+                }
             });
 
 

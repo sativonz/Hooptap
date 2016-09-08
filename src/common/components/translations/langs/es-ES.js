@@ -6,15 +6,27 @@ let dict = {
 	CUSTOMER: {
 		common: {
 			password		: 'Contraseña',
+			rePassword		: 'Repita la contraseña',
 			email			: 'Email',
 			name			: 'Nombre',
 			username		: 'Nombre de usuario',
+			surnames		: 'Apellidos',
 			update			: 'Actualizar',
 			edit			: 'Editar',
 			logout			: 'Cerrar sesión',
 			login			: 'Acceder',
 			register		: 'Registro',
 			empty			: 'No hay items que mostrar.',
+			city			: 'Ciudad',
+			gender			: 'Género',
+			postalCode		: 'Código postal',
+			telephone		: 'Teléfono',
+			birthDate		: 'Fecha de nacimiento',
+			direction		: 'Dirección',
+			male			: 'Chico',
+			female			: 'Chica',
+			select			: 'Selecciona',
+			welcome			: 'Bienvenido '
 		},
 		login: {
 			title			: 'Login',
@@ -59,10 +71,11 @@ let dict = {
 	'valdr.nameSize'		: 'Introduzca un nombre de usuario entre {{min}} y {{max}} carácteres.',
 	'valdr.required'		: 'Este campo es requerido.',
 	'valdr.generics'		: {
-		name	: 'El nombre',
-		email	: 'El email',
-		password: 'La contraseña',
-		terms	: 'Acepto los términos y condiciones'
+		username	: 'El nombre',
+		email		: 'El email',
+		password	: 'La contraseña',
+		rePassword	: 'Repita la contraseña',
+		terms		: 'Acepto los términos y condiciones'
 	},
 
 	/*	BADGES
@@ -160,6 +173,12 @@ let dict = {
 
 	GAMEROOM_DETAIL: {
 		title				: 'Gameroom detail'
+	},
+
+	TOAST: {
+		correctRegister		: 'Registro realizado con éxito',
+		incorrect			: 'Los datos de inicio de sesión son incorrectos',
+		duplicated			: 'Los datos de inicio de sesión están duplicados'
 	}
 
 

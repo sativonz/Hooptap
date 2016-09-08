@@ -19,6 +19,7 @@ export default (function () {
  */
 
 var TOAST = function (title, desc, params) {
+
     if (!title) return false;
     if (!desc) desc='';
 
@@ -93,7 +94,7 @@ var TOAST = function (title, desc, params) {
                 toast.css({color: 'black', background: '#FFF307'});
                 break;
             case 'alert':
-                toast.css({color: 'white', background: 'red'}).addClass("animated wobble");
+                toast.css({color: 'white!important', background: 'red'}).addClass("animated wobble");
                 break;
             default:
                 toast.css({color: 'white', background: '#333'});

@@ -20,7 +20,7 @@ input.ht-form__input {
   border-right: none!important;
   border-top: none!important;
   font-size:18px;
-  padding:10px 10px 0px 5px;
+  padding:10px 15px 0px 5px;
   display:block;
   border-bottom:1px solid #757575;
   width: 350px;
@@ -50,6 +50,7 @@ input.ht-form__input {
 .ht-form__group-terms {
   padding-bottom: 10px;
   padding-top: 15px;
+  margin-left: -15px;
 }
 
 .ht-form__group.password {
@@ -75,6 +76,7 @@ label.checkbox_terms {
   outline: $not-outline;
 }
 
+
 .ht-form__input-rememberMe {
   color: #000!important;
   letter-spacing: .2px;
@@ -86,11 +88,11 @@ label.checkbox_terms {
 
 .ht-form__label	{
   color:#999;
-  font-size:18px;
+  font-size:16px;
   font-weight:normal;
   position:absolute;
   pointer-events:none;
-  left:5px;
+  left:0px;
   top:10px;
   @include transition(0.2s ease all);
 }
@@ -140,6 +142,7 @@ label.checkbox_terms {
 }
 
 .ht-form__group-button {
+  margin-left: -25px;
   width: 100%;
   text-align: center;
 }
@@ -165,23 +168,13 @@ button[disabled], .button.disabled, .button[disabled] {
   border-color: #ff5f63!important;
 }
 
-/* active state */
-.ht-form__input:focus ~ .highlight {
-  @include animation('inputHighlighter 0.3s ease');
-}
-
-/* ANIMATIONS ================ */
-@include keyframes(inputHighlighter) {
-  from { background:#5264AE; }
-  to 	{ width:0; background:transparent; }
-}
 
 
 
 //////////////////--------HT VALDR---------//////////////////////
 .valdr-message {
   color: $red;
-  margin: 10px 0px 10px 0px;
+  margin: 0;
   font-size: 14px;
 }
 
@@ -193,3 +186,9 @@ button[disabled], .button.disabled, .button[disabled] {
 .ng-invalid-valdr-required span:after, .ng-invalid-valdr-required span:before {
   background-color: $_1_btn-error;
 }
+
+
+//TODO REFACTOR THIS FILE
+
+
+
