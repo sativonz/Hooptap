@@ -2,52 +2,59 @@
 
 c-marker-list-su {
   padding-top: 45px;
+
+  .ht-marker-list-su__blank {
+    p {
+      text-align: center;
+      margin-top: 40%;
+      margin-left: -23px;
+      color: $_1_empty-message;
+    }
+
+    img{
+      margin-top: 15%;
+      width: 250px;
+      top: 10px;
+      position: absolute;
+      left: 66px;
+    }
+  }
+
   .marker-list-su__wrapper {
     height: 40px;
     width: 340px;
     padding: 10px 15px 10px 15px;
-    border-bottom: 1px solid #e3e3e3;
+    border-bottom: 1px solid $_1_border-bottom-color;
     margin: 0 15px 0 15px;
-  }
-  .marker-list-su__img img {
-    height: 35px;
-  }
-
-  .marker-list-su__img img {
-    height: 35px;
-    transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    -webkit-transition: all 1s ease;
-    -o-transition: all 1s ease;
-    &:hover {
-      zoom: 1.2;
-      transform: scale(1.5);
-      -moz-transform: scale(1.5);
-      -webkit-transform: scale(1.5);
-      -o-transform: scale(1.5);
-      -ms-transform: scale(1.5);
+    .marker-list-su__img img {
+      height: 35px;
+      transition: all 1s ease;
+      -moz-transition: all 1s ease;
+      -ms-transition: all 1s ease;
+      -webkit-transition: all 1s ease;
+      -o-transition: all 1s ease;
+      &:hover {
+        zoom: 1.2;
+        transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        -o-transform: scale(1.5);
+        -ms-transform: scale(1.5);
+      }
+    }
+    .marker-list-su__quantity {
+      color: $_1_header-color;
+      font-weight:bold;
+      padding-top: 9px;
+      font-size: 12pt;
+      float: right;
+    }
+    .marker-list-su__name {
+      font-weight: 400;
+      margin-left: 10px;
+      color: $_1_header-color;
+      position: relative;
+      top: 8px;
     }
   }
-
-  .marker-list-su__type.ng-binding {
-    padding-top: 10px;
-  }
-
-  .marker-list-su__quantity {
-    color: $_1_header-color;
-    font-weight:bold;
-    padding-top: 9px;
-    font-size: 12pt;
-    float: right;
-  }
-
-  .marker-list-su__name {
-    font-weight: 400;
-    margin-left: 10px;
-    color: $_1_header-color;
-    position: relative;
-    top: 8px;
-  }
-
 }

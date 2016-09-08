@@ -276,15 +276,15 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
             scope.scoreDisplayConfig = scope.scoreDisplayConfig || WidgetModel.defaultMarkerOptions;
 
             scope.$on("$loginSuccess", (event, response)=> {
-                    console.log("Objeto customer><<<<<<<<<<", response);
+                    console.log("Objeto customer =>", response);
 
                 if(response.hasOwnProperty(('$promise'))){
                     response.$promise.then((customer)=>{
                         scope.customer = customer;
                         console.log(scope.customer);
                         scope.loader = true;
-                        TOAST(
-                            "Welcome " + scope.customer.username + " !", null, {
+                        let message = "Welcome " + (scope.customer.username || '')  + " !";
+                        TOAST(message, null, {
                                 style: 'info',
                                 img: require('../images/default-img-popover.png')
                             });

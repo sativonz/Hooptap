@@ -5,7 +5,7 @@
 			.ht-badges-list__wrapper.row
 				.ht-badges-list__badge-blank(ng-if="!badges.all || badges.all.length < 1")
 					img(ng-if="loader" ng-src=require("./images/no-data.svg"))
-					p(ng-if="loader") {{::'BADGES.empty' | translate}}
+					p(ng-if="loader") {{::'CUSTOMER.common.empty' | translate}}
 				.badge-item.animated.bounceIn(ng-repeat="item in badges.all | orderBy: 'quantity':  true" id="allBadge-item-{{$index}}" ng-class="{'ht-col-xs-{{colWidth}}': true, 'badge-not-achieved': item.quantity <= 0}" ng-click="badgeDetail(item)")
 					.badge-item__img(ng-class="{'badge-started': item.available}")
 						img(ng-src="{{item.image || defaultImage}}")
@@ -16,7 +16,7 @@
 			.ht-badges-list__wrapper.row
 				.ht-badges-list__badge-blank(ng-if="!badges.available || badges.available.length < 1")
 					img(ng-if="loader" ng-src=require("./images/no-data.svg"))
-					p(ng-if="loader") {{::'BADGES.empty' | translate}}
+					p(ng-if="loader") {{::'CUSTOMER.common.empty' | translate}}
 				.badge-item.animated.bounceIn(ng-repeat="item in badges.available" id="availableBadge-item-{{$index}}" ng-class="{'ht-col-xs-{{colWidth}}': true, 'badge-not-achieved': item.quantity <= 0, 'asdfsd': item.parts.length == item.quantity}" ng-click="badgeDetail(item)")
 					.badge-item__img(ng-class="{'badge-started': item.available}")
 						img(ng-src="{{item.image || defaultImage}}")
@@ -27,7 +27,7 @@
 			.ht-badges-list__wrapper.row.completed
 				.ht-badges-list__badge-blank(ng-if="!badges.completed || badges.completed.length < 1")
 					img(ng-if="loader" ng-src=require("./images/no-data.svg"))
-					p(ng-if="loader") {{::'BADGES.empty' | translate}}
+					p(ng-if="loader") {{::'CUSTOMER.common.empty' | translate}}
 				.badge-item.animated.bounceIn(ng-repeat="item in badges.completed" id="finishedBadge-item-{{$index}}" ng-class="{'ht-col-xs-{{colWidth}}': true}" ng-if="item.completed" ng-click="badgeDetail(item)")
 					.badge-item__img
 						img(ng-src="{{item.image || defaultImage}}")

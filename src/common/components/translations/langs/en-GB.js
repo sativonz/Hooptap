@@ -14,6 +14,7 @@ let dict = {
 			logout			: 'Logout',
 			login			: 'Login',
 			register		: 'Register',
+			empty			: 'There are not items to show.',
 		},
 		login: {
 			title			: 'Log in',
@@ -68,7 +69,6 @@ let dict = {
 
 	BADGES: {
 		title				: 'Badges',
-		empty				: 'There are not items to show.',
 		tabs:	{
 			all				: 'All',
 			available		: 'Available',

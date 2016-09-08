@@ -1,10 +1,12 @@
+@import "../../../../common/stylesheets/common/colors";
+
 c-marker-grid-su {
   padding-top: 45px;
   .marker-grid-su__wrapper {
     height: 55px;
     width: 100%;
     padding: 10px 15px 10px 15px;
-    border-bottom: 1px solid #e3e3e3;
+    border-bottom: 1px solid $_1_border-bottom-color;
   }
   .marker--grid-su__img img {
     height: 35px;
