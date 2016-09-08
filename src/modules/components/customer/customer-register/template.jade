@@ -18,10 +18,6 @@
                 input.ht-form__input(ng-model='direction' type='text' name="direction" placeholder="{{ 'CUSTOMER.common.direction' | translate }}")
                 span.ht-form__highlight
                 span.ht-form__bar
-            .ht-form__group.password(valdr-form-group)
-                input.ht-form__input(ng-model='username' type='text' name="username" placeholder="{{ 'CUSTOMER.common.username' | translate }}" required)
-                span.ht-form__highlight
-                span.ht-form__bar
         .ht-form--register__col-2
             .ht-form__group
                 select(name="selectGender" id="selectGender" ng-model="gender")
@@ -40,11 +36,11 @@
                 input.ht-form__input(ng-model='telephone' type='text' name="telephone" placeholder="{{ 'CUSTOMER.common.telephone' | translate }}")
                 span.ht-form__highlight
                 span.ht-form__bar
+        .col-xs-12.ht-form--register__row-3
             .ht-form__group.password(valdr-form-group)
-                input.ht-form__input(ng-model='externalId' type='text' name="externalId" placeholder="{{ 'CUSTOMER.common.externalId' | translate }}" required)
+                input.ht-form__input(ng-model='username' type='text' name="username" placeholder="{{ 'CUSTOMER.common.username' | translate }}" required)
                 span.ht-form__highlight
                 span.ht-form__bar
-        .col-xs-12.ht-form--register__row-3
             .ht-form__group.password(valdr-form-group)
                 input.ht-form__input(ng-model='email' type='email' name="email" placeholder="{{ 'CUSTOMER.common.email' | translate }}" required)
                 span.ht-form__highlight
