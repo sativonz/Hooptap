@@ -19,7 +19,7 @@ export default(Customer, LoopBackAuth, $rootScope, clientHelper, $timeout) => ({
         showLoginForm: '=?',
         showMixForm: '=?'
     },
-    controller: ($scope, $rootScope, $timeout)=> {
+    controller: ($scope, $rootScope)=> {
 
         var loginEvent = $rootScope.$on("loginSuccess", (event, response)=> {
             getMessage();

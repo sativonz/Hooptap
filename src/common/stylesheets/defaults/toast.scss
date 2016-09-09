@@ -1,0 +1,27 @@
+@import '../common/mixins';
+@import '../common/base';
+@import '../common/colors';
+
+#toast-container {
+  font-family: $base-font-family;
+
+  .toast {
+    height: 88px;
+    width: 400px;
+    padding: 10px 20px 10px 95px;
+    @include border-radius(10px);
+    border: 1px solid hsla(0,0%,100%,.29);
+    background: white;
+    .toast-title {
+      color: $_1_popup-text-title;
+    }
+    .toast-message {
+      color: $_1_popup-text-desc;
+    }
+  }
+  >.toast-success {
+    background-repeat: no-repeat;
+    background-position-x: 6px;
+    background-position-y: 5px;
+  }
+}

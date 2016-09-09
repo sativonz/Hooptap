@@ -27,7 +27,7 @@ w-widget-customer-access {
       background: hsla(0,0%,100%,.68);
       width: 400px;
       height: 480px;
-      border-radius: 10px;
+      @include border-radius(10px);
     }
   }
 

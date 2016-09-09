@@ -12,6 +12,9 @@ import tabs from 'angular-ui-bootstrap/src/tabs';
 import progressBar from 'angular-ui-bootstrap/src/progressbar';
 import tooltip from 'angular-ui-bootstrap/src/tooltip';
 import modal from 'angular-ui-bootstrap/src/modal';
+    //Toaster
+import toaster from './modules/toaster';
+import './modules/toaster/toaster.css';
 
 //Import Loopback Angular SDK
 import './common/services/angular-sdk.js';
@@ -24,6 +27,7 @@ import './common/services/angular-sdk.js';
             //Vendor injectors
             'ngResource', /*angular resources*/
             'ngAnimate', /*angular animate*/
+            toaster,
             tabs,
             progressBar,
             tooltip,
