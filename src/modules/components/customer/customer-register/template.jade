@@ -1,5 +1,6 @@
 .ht-wrapper--register__form
     c-button-close
+    c-loader-wrap(value="loader")
     form.ht-form.ht-form--register(name="htFormRegister" ng-show='!$root.goActivateForm' valdr-type="CustomerRegister")
         .ht-form--register__col-1
             .ht-form__group
@@ -25,7 +26,8 @@
                     option(value="{{ 'CUSTOMER.common.male' | translate }}") {{ 'CUSTOMER.common.male' | translate }}
                     option(value="{{ 'CUSTOMER.common.female' | translate }}") {{ 'CUSTOMER.common.female' | translate }}
             .ht-form__group.password
-                input.ht-form__input(ng-model='birthDate' type='text' name="birthDate" placeholder="{{ 'CUSTOMER.common.birthDate' | translate }}")
+                input(type="date" name="input" ng-model="birthDate" placeholder="yyyy-MM-dd" min="1920-01-01")
+                //input.ht-form__input(ng-model='birthDate' ng-pattern="{{myPattern}}" type='text' name="birthDate" placeholder="{{ 'CUSTOMER.common.birthDate' | translate }}")
                 span.ht-form__highlight
                 span.ht-form__bar
             .ht-form__group.password
@@ -64,7 +66,7 @@
                 span.link-to-activate(ng-click='$root.goActivateForm = true;') {{ 'CUSTOMER.activate.linkTitle' | translate }}
             .ht-form__group-button
                 .ht-form__failed-create-user Ya existe un usuario con los mismos datos!
-                button.ht-form--button__register(type='submit' ng-disabled="!checkboxEnableRegister" ng-click='register()') {{ 'CUSTOMER.register.button' | translate }}
+                button.ht-form--button__register(type='submit' ng-disabled="!checkboxEnableRegister" ng-click='register(); loader = false;') {{ 'CUSTOMER.register.button' | translate }}
 .footer-shadow
 
 

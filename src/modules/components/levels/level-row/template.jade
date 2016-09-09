@@ -3,7 +3,7 @@
         span {{ 'LEVELS.title' | translate }}
     .wrapper__level-empty(ng-if="!item.levels || item.levels.length < 1")
         p.wrapper__level-empty-title {{ 'LEVELS.notLevels' | translate }}
-    .level-home-widget-full__wrapper(ng-repeat="level in item.levels")
+    .level-home-widget-full__wrapper(ng-repeat="level in item.levels | limitTo:1")
         .col-xs-3.not-padding
             img.img-actual-level(ng-src="{{level.image || defaultNextLevelImage}}")
             p.name-actual-level {{level.name}}

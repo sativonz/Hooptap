@@ -17,6 +17,8 @@ export default($rootScope, Customer,LoopBackAuth, $translate) => ({
     scope: {},
     template,
     link:(scope, element, attrs)=> {
+        scope.loader = true;
+        scope.myPattern = "/^((\d{4})-(\d{2})-(\d{2})|(\d{2})\/(\d{2})\/(\d{4}))$/";
 
         scope.register = ()=> {
             angular.element(document.querySelector(".ht-form__failed-pass")).css("display", "none");
@@ -36,6 +38,7 @@ export default($rootScope, Customer,LoopBackAuth, $translate) => ({
                     "productId": "57c846e00f761821e71ef1fc"//TODO PROVISIONAL
                 }).$promise.then((registered)=> {
                     $rootScope.$broadcast('$registerSuccess', registered);
+                    scope.loader = true;
                     if ($rootScope.customer) {
                         $rootScope.customer.logged = true;
                     } else {
@@ -53,19 +56,39 @@ export default($rootScope, Customer,LoopBackAuth, $translate) => ({
                         });
 
                 }).catch((error)=>{
-                    if(
-                        error.status == 422){
-                        angular.element(document.querySelector(".ht-form__failed-pass")).css("display", "none");
+                    //Mensaje de error el email ya existe
+                    if(error.data.error.details.codes.email){
+                        if(error.data.error.details.codes.email[0] == "uniqueness" || !undefined){
+                            scope.loader = true;
+                            angular.element(document.querySelector(".ht-form__failed-pass")).css("display", "none");
 
-                        let msgDuplicated = $translate.instant("TOAST.duplicated");
-                        TOAST(
-                            "ERROR !" , msgDuplicated, {
-                                style: 'alert',
-                                img: require('./images/error.png')
-                            });
+                            let emailDuplicated = $translate.instant("TOAST.emailDuplicated");
+                            TOAST(
+                                "ERROR !" , emailDuplicated, {
+                                    style: 'alert',
+                                    img: require('./images/error.png')
+                                });
+                        }
                     }
+
+
+                    //Mensaje de error si el username ya existe
+                    if(error.data.error.details.codes.username){
+                        if(error.data.error.details.codes.username[0] == "uniqueness" || !undefined) {
+                            scope.loader = true;
+                            angular.element(document.querySelector(".ht-form__failed-pass")).css("display", "none");
+                            let usernameDuplicated = $translate.instant("TOAST.usernameDuplicated");
+                            TOAST(
+                                "ERROR !" , usernameDuplicated, {
+                                    style: 'alert',
+                                    img: require('./images/error.png')
+                                });
+                        }
+                    }
+
                 });
             } else {
+                //Mensaje de error no coinciden las contraseñas
                 angular.element(document.querySelector(".ht-form__failed-pass")).css("display", "block");
             }
 
