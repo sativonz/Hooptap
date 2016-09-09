@@ -40,7 +40,7 @@ export default ($q, $injector, _Extendable) => {
                 Object.assign(this, this._defaults, this.parse(angular.copy(model)));
                 this._initialized = true;
             },
-            
+
             /**
              * Transforms the response of the api to a model more usable for the web. It's automatically called by
              * the function 'initialize', which should be called after calling the api. The opposite transformation of
@@ -363,7 +363,10 @@ export default ($q, $injector, _Extendable) => {
              * @memberOf Common.model:BaseModel
              * @stampit refs
              */
-            _defaults: {annotations: ''},
+            _defaults: {
+                annotations: '',
+                productId: "57c846e00f761821e71ef1fc" //TODO change to actual product id
+            },
             /**
              * This Whitelist enables managing underscored params.
              *

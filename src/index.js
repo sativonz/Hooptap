@@ -6,8 +6,7 @@ import 'angular-storage';
 import 'angular-resource';
 import 'angular-animate';
 import 'angular-wizard';
-import 'valdr';
-import 'valdr/valdr-message';
+
 import tabs from 'angular-ui-bootstrap/src/tabs';
 import progressBar from 'angular-ui-bootstrap/src/progressbar';
 import tooltip from 'angular-ui-bootstrap/src/tooltip';
@@ -29,16 +28,17 @@ import './common/services/angular-sdk.js';
             tooltip,
             modal,
             'mgo-angular-wizard',
-            'valdr',
 
             //SDK Loopback services
             'apiServices',
 
-            //Components
-            require('./common/components/translations').default,
+    
             //Modules
-            require('./modules/components').default,
             require('./common').default,
+            require('./modules/translations').default,
+            require('./modules/validations').default,
+            require('./modules/components').default,
+
             //Widgets
             require('./modules/widgets/widget-full').default,
             require('./modules/widgets/widget-quests').default,
@@ -49,10 +49,10 @@ import './common/services/angular-sdk.js';
 
 
     //Controller for widget
-        .controller('htWidgetCtrl', ($q, $scope, $compile, $injector, Event, Customer, Admin)=> {
+        .controller('htWidgetCtrl', ($q, $scope, $compile, $injector, Event, Customer, Admin, $rootScope)=> {
 
             //hooptapSDK object for sdk on javascript
-            var TEST = false;
+            var TEST = true;
 
             function processTriggers(collection) {
                 console.log(this.name, collection);
@@ -199,7 +199,6 @@ import './common/services/angular-sdk.js';
             };
 
             if (TEST) {
-
                 window.Hooptap.loginAdmin = function (params) {
                     if (params === 'test') {
                         params = {email: 'admin@hooptap.com', password: 'hooptap'};

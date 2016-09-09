@@ -1,7 +1,7 @@
 import stampit from 'stampit';
 import Q from 'q';
 
-export default (Customer,_hasCustomer, $rootScope, $q) => {
+export default (Customer, _hasCustomer, $rootScope, $q) => {
     return stampit()
         .compose(_hasCustomer)
         /**
@@ -24,7 +24,7 @@ export default (Customer,_hasCustomer, $rootScope, $q) => {
                     "email": model.email,
                     "password": model.password,
                     //TODO Change for actual productId
-                    "productId": "57c846e00f761821e71ef1fc"
+                    "productId": this.productId
                 }).$promise.then((response)=> {
                     this.setLoggedRoot(response);
                     return $q.resolve(this.getCurrent(filter));
@@ -47,12 +47,16 @@ export default (Customer,_hasCustomer, $rootScope, $q) => {
                         $rootScope['customer'] = {logged: true};
                     }
                 }
+            },
+
+            create(model){
+                return Customer.create(model).$promise;
             }
 
-        })
-        .refs({
 
         })
+        .refs({})
 
         .props({});
-};
+}
+;

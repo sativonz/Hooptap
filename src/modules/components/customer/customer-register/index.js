@@ -1,5 +1,6 @@
 import template from './template.jade';
-//import angular from 'angular-mod';
+import './styles.scss';
+import stampit from 'stampit';
 /**
  * @ngdoc directive
  * @name Customer register
@@ -12,38 +13,30 @@ import template from './template.jade';
  * @param {String} password User password
  * @element ANY
  */
-export default($rootScope, Customer,LoopBackAuth, $translate) => ({
+export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLogin) => ({
     restrict: 'E',
     scope: {},
     template,
-    link:(scope, element, attrs)=> {
-
+    link: (scope, element, attrs)=> {
+        let RegisterModel = stampit().compose(BaseModel, _hasLogin);
+        let $form = scope.htFormRegister;
+        scope.model = {
+            username: "customer",
+            name: "customer",
+            email: "customer@customer.com",
+            password: "customer",
+            rePassword: "customer"
+        };
         scope.register = ()=> {
             angular.element(document.querySelector(".ht-form__failed-pass")).css("display", "none");
-            if(scope.password == scope.rePassword) {
-                Customer.create({
-                    "username"      :   scope.username,
-                    "email"         :   scope.email,
-                    "password"      :   scope.password,
-
-                    "name"          :   scope.name,
-                    "surnames"      :   scope.surnames,
-                    "city"          :   scope.city,
-                    "direction"     :   scope.direction,
-                    "birthDate"     :   scope.birthDate,
-                    "postalCode"    :   scope.postalCode,
-                    "telephone"     :   scope.telephone,
-                    "productId": "57c846e00f761821e71ef1fc"//TODO PROVISIONAL
-                }).$promise.then((registered)=> {
+            if (scope.model.password === scope.model.rePassword) {
+                RegisterModel().create(scope.model).then((registered)=> {
                     $rootScope.$broadcast('$registerSuccess', registered);
                     if ($rootScope.customer) {
                         $rootScope.customer.logged = true;
                     } else {
                         $rootScope['customer'] = {logged: true};
                     }
-                    //TODO descomentar cuando este hecha la conexion
-                    //$rootScope.goActivateForm = true;
-
                     let msgSucceess = $translate.instant("TOAST.correctRegister");
                     let msgWelcome = $translate.instant("CUSTOMER.common.welcome");
                     TOAST(
@@ -52,23 +45,26 @@ export default($rootScope, Customer,LoopBackAuth, $translate) => ({
                             img: require('./images/default-img-popover.png')
                         });
 
-                }).catch((error)=>{
-                    if(
-                        error.status == 422){
+                }).catch((error)=> {
+                    window.form = scope.htFormRegister;
+                    if (error.status == 422) {
                         angular.element(document.querySelector(".ht-form__failed-pass")).css("display", "none");
 
                         let msgDuplicated = $translate.instant("TOAST.duplicated");
                         TOAST(
-                            "ERROR !" , msgDuplicated, {
+                            "ERROR !", msgDuplicated, {
                                 style: 'alert',
                                 img: require('./images/error.png')
                             });
                     }
+
                 });
             } else {
-                angular.element(document.querySelector(".ht-form__failed-pass")).css("display", "block");
-            }
 
+                $form.rePassword.$valid = false;
+                console.log($form.rePassword);
+                //angular.element(document.querySelector(".ht-form__failed-pass")).css("display", "block");
+            }
 
 
         };

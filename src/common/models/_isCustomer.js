@@ -25,8 +25,7 @@ export default ($rootScope, Customer) => {
              * @stampit refs
              */
             _defaults: {
-                id: '',
-                productId: "57c846e00f761821e71ef1fc" //TODO change to actual product id
+                id: ''
             },
 
             _model: 'CustomerModel'
