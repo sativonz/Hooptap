@@ -1,5 +1,6 @@
 import template from './template.jade';
 import './styles.scss';
+import stampit from 'stampit';
 /**
  * @ngdoc directive
  * @name Button menu
@@ -16,7 +17,7 @@ import './styles.scss';
  * @param {Boolean} titleGameRoom To put the title of the Game Room dinamically
  * @element ANY
  */
-export default(Customer, $rootScope, $parse) => ({
+export default(Customer, $rootScope, BaseModel, _isCustomer) => ({
     restrict: 'E',
     scope: {
         showQuests: '=',
@@ -33,14 +34,12 @@ export default(Customer, $rootScope, $parse) => ({
     template,
     link: (scope, element, attrs)=> {
 
+
         //->Link to logout
-        scope.formLogout = () => {
-            Customer.logout().$promise
-                .then( (response) => {
-                    $rootScope.customer = {};
-                    scope.showDropdown = false;
-                    $rootScope.customer.logged = false;
-                } );
+        let CustomerModel = stampit().compose(BaseModel, _isCustomer);
+        scope.logout = () => {
+            scope.showDropdown = false;
+            CustomerModel().logout();
         };
 
 

@@ -25,8 +25,8 @@ div#ht-menu
             a {{titleGameRoom}}
         li.animated.slideInLeft(ng-if="showEditProfile" ng-click="$root.WPF.viewEditProfile = !$root.WPF.viewEditProfile")
             a {{ 'CUSTOMER.update.title' | translate }}
-        li.animated.slideInLeft(ng-if="!logout")
-            a.ht-menu__item-logout(ng-click="formLogout()") {{ 'CUSTOMER.common.logout' | translate }}
+        li.animated.slideInLeft
+            a.ht-menu__item-logout(ng-click="logout()") {{ 'CUSTOMER.common.logout' | translate }}
 
 
 
