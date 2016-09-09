@@ -52,7 +52,7 @@ import './common/services/angular-sdk.js';
         .controller('htWidgetCtrl', ($q, $scope, $compile, $injector, Event, Customer, Admin, $rootScope)=> {
 
             //hooptapSDK object for sdk on javascript
-            var TEST = true;
+            var TEST = false;
 
             function processTriggers(collection) {
                 console.log(this.name, collection);

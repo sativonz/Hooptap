@@ -1,43 +1,34 @@
 .ht-wrapper--register__form
     c-button-close
-    form.ht-form.ht-form--register(name="htRegisterForm" ng-show='!$root.goActivateForm' valdr-type="CustomerRegister")
-
+    form.ht-form.ht-form--register(name="htRegisterForm" novalidate ng-show='!$root.goActivateForm' valdr-type="CustomerRegister")
         .row
             .col-xs-12.ht-form--register__row-3
                 .ht-form__group.password(valdr-form-group)
                     input.ht-form__input(ng-model='model.username' type='text' name="username" placeholder="{{ 'CUSTOMER.common.username' | translate }}")
-                    //span.ht-form__highlight
                     span.ht-form__bar
                 .ht-form__group.password(valdr-form-group)
                     input.ht-form__input(ng-model='model.email' type='text' name="email" placeholder="{{ 'CUSTOMER.common.email' | translate }}")
-                    //span.ht-form__highlight
                     span.ht-form__bar
                 .ht-form__group.password(valdr-form-group)
-                    input.ht-form__input(ng-model='model.password' type='text' name="password" placeholder="{{ 'CUSTOMER.common.password' | translate }}")
-                    //span.ht-form__highlight
+                    input.ht-form__input(ng-model='model.password' type='password' name="password" placeholder="{{ 'CUSTOMER.common.password' | translate }}")
                     span.ht-form__bar
                 .ht-form__group.password(valdr-form-group)
-                    input.ht-form__input(ng-model='model.rePassword' type='text' name="rePassword" placeholder="{{ 'CUSTOMER.common.rePassword' | translate }}")
-                    //span.ht-form__highlight
+                    input.ht-form__input(ng-model='model.rePassword' type='password' name="rePassword" placeholder="{{ 'CUSTOMER.common.rePassword' | translate }}")
                     span.ht-form__bar
                     .ht-form__failed-pass Las contraseñas no coinciden
         .row
             .col-xs-6
                 .ht-form__group
                     input.ht-form__input(ng-model='model.name' type='text' name="name" placeholder="{{ 'CUSTOMER.common.name' | translate }}")
-                    span.ht-form__highlight
                     span.ht-form__bar
                 .ht-form__group
                     input.ht-form__input(ng-model='model.surname' type='text' name="surname" placeholder="{{ 'CUSTOMER.common.surnames' | translate }}")
-                    span.ht-form__highlight
                     span.ht-form__bar
                 .ht-form__group
                     input.ht-form__input(ng-model='model.city' type='text' name="city" placeholder="{{ 'CUSTOMER.common.city' | translate }}")
-                    span.ht-form__highlight
                     span.ht-form__bar
                 .ht-form__group.password
                     input.ht-form__input(ng-model='model.addresss' type='text' name="addresss" placeholder="{{ 'CUSTOMER.common.direction' | translate }}")
-                    span.ht-form__highlight
                     span.ht-form__bar
             .col-xs-6
                 .ht-form__group
@@ -47,21 +38,18 @@
                         option(value="{{ 'CUSTOMER.common.female' | translate }}") {{ 'CUSTOMER.common.female' | translate }}
                 .ht-form__group.password
                     input.ht-form__input(ng-model='model.birthDate' type='text' name="birthDate" placeholder="{{ 'CUSTOMER.common.birthDate' | translate }}")
-                    span.ht-form__highlight
                     span.ht-form__bar
                 .ht-form__group.password
                     input.ht-form__input(ng-model='model.postalCode' type='text' name="postalCode" placeholder="{{ 'CUSTOMER.common.postalCode' | translate }}")
-                    span.ht-form__highlight
                     span.ht-form__bar
                 .ht-form__group.password
                     input.ht-form__input(ng-model='model.telephone' type='text' name="telephone" placeholder="{{ 'CUSTOMER.common.telephone' | translate }}")
-                    span.ht-form__highlight
                     span.ht-form__bar
 
         .row
             .col-xs-12.ht-form--register__row-4
                 .ht-form__group-terms
-                    input(type="checkbox" name="terms" id="checkbox_terms" value="terms" ng-model="checkboxEnableRegister")
+                    input(type="checkbox" name="terms" ng-model="model.terms" required)
                     label.checkbox_terms(for="checkbox_terms")
                         a(href="http://hooptap.com/en/terms-and-conditions/" target="_blank") {{ 'valdr.generics.terms' | translate }}
                 //TODO Descomentar cuando esté activo
@@ -69,7 +57,5 @@
                     span.link-to-activate(ng-click='$root.goActivateForm = true;') {{ 'CUSTOMER.activate.linkTitle' | translate }}
                 .ht-form__group-button
                     .ht-form__failed-create-user Ya existe un usuario con los mismos datos!
-                    button.ht-form--button__register(type='submit' ng-disabled="!checkboxEnableRegister" ng-click='register()') {{ 'CUSTOMER.register.button' | translate }}
+                    button.ht-form--button__register(type='submit' ng-disabled="!model.terms" ng-click='register()') {{ 'CUSTOMER.register.button' | translate }}
 .footer-shadow
-
-

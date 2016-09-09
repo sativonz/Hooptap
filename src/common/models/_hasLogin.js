@@ -1,7 +1,7 @@
 import stampit from 'stampit';
 import Q from 'q';
 
-export default (Customer, _hasCustomer, $rootScope, $q) => {
+export default (Customer, BaseModel, _hasCustomer, $rootScope, $q) => {
     return stampit()
         .compose(_hasCustomer)
         /**

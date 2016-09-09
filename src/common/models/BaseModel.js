@@ -355,6 +355,7 @@ export default ($q, $injector, _Extendable) => {
             /*--------------------------------------------------------------------------------------------
              REFS
              --------------------------------------------------------------------------------------------*/
+            productId: "57c846e00f761821e71ef1fc", //TODO change to actual product id
 
             /**
              * Here a Model will save the defaults values. Will be used to fill the object if the data passed to
@@ -364,8 +365,7 @@ export default ($q, $injector, _Extendable) => {
              * @stampit refs
              */
             _defaults: {
-                annotations: '',
-                productId: "57c846e00f761821e71ef1fc" //TODO change to actual product id
+                annotations: ''
             },
             /**
              * This Whitelist enables managing underscored params.

@@ -1,0 +1,16 @@
+@import "./../../../common/stylesheets/common/colors";
+
+.valdr-message {
+  display: none;
+  &.ng-invalid.ng-touched.ng-dirty {
+    display: inline;
+  }
+}
+
+.ht-form {
+  &.ng-invalid.ng-submitted {
+    .valdr-message {
+      display: inline;
+    }
+  }
+}
