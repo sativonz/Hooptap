@@ -27,7 +27,7 @@ w-widget-customer-access {
       background: hsla(0,0%,100%,.68);
       width: 400px;
       height: 480px;
-      border-radius: 10px;
+      @include border-radius(10px);
     }
   }
 
@@ -140,6 +140,16 @@ w-widget-customer-access {
       .ht-form--register__col-2 {
        @extend .ht-form--register__col-1;
         margin-top: 4px;
+        input[type="date"] {
+          padding: 4px;
+          outline: none;
+          width: 163px;
+          background: transparent;
+          border: none;
+          border-bottom: 1px solid #aeaeff;
+          color: #b6a9a9;
+          font-size: 16px;
+        }
       }
       .ht-form--register__row-3 {
         padding: 0;

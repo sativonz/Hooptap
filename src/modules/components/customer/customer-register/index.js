@@ -13,6 +13,7 @@ import stampit from 'stampit';
  * @param {String} password User password
  * @element ANY
  */
+
 export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLogin, _isCustomer) => ({
     restrict: 'E',
     scope: {},
@@ -54,6 +55,7 @@ export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLo
                         }
                     });
                 }
+
             }
         };
 

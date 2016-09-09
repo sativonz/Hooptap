@@ -1,7 +1,6 @@
 import angular from 'angular-mod';
 import '../../common/stylesheets/main.scss';
 import '../../common/stylesheets/vendor/animate.min.css';
-import '../../common/components/toast-notifications/script-toast-notifications.js';
 
 let module = angular.module('app.base', [])
     .directive('cButtonClose', require('./common/buttons/button-close').default)
@@ -17,7 +16,6 @@ let module = angular.module('app.base', [])
     .directive('cCustomerLogout', require('./customer/customer-logout').default)
     .directive('cCustomerReset', require('./customer/customer-reset').default)
     .directive('cCustomerActivate', require('./customer/customer-activate').default)
-    .directive('cNotificationsPopup', require('./notifications/notifications-popup').default)
     .directive('cNotificationsAwards', require('./notifications/notifications-awards').default)
     //.directive('cNotificationsList', require('./notifications/notifications-list').default)
     .directive('cRankingList', require('./rankings/ranking-list').default)

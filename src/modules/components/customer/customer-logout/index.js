@@ -12,11 +12,10 @@ export default(Customer, $rootScope, $q, BaseModel, _isCustomer) => ({
     scope: {},
     template,
     link: (scope, element, attrs) =>  {
-        attrs.formLogout = attrs.formLogout || false; //default value
+        //attrs.formLogout = attrs.formLogout || false; //default value
 
         let CustomerModel = stampit().compose(BaseModel, _isCustomer);
-
-        scope.formLogout = () => {
+        scope.logout = () => {
             CustomerModel.logout();
         }
 }

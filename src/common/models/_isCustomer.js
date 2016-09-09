@@ -25,7 +25,6 @@ export default ($rootScope, Customer) => {
              * @stampit refs
              */
             _defaults: {
-                id: ''
             },
 
             _model: 'CustomerModel'
