@@ -37,6 +37,20 @@
     .toast-desc {
     }
   }
+  &.warning {
+    background: orange!important;
+    img {
+      width: 75px;
+      position: relative;
+      top: 2px;
+    }
+    .toast-title {
+      font-weight: bold;
+      font-size: 17px;
+    }
+    .toast-desc {
+    }
+  }
 
 
 }
