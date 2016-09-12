@@ -301,9 +301,8 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
             });
             scope.$on("$logoutSuccess", (event) => {
                 scope.customer = {};
-                scope.loader = false;
             });
-
         }
     }
+
 });

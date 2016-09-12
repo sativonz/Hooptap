@@ -22,6 +22,7 @@ export default($rootScope) => ({
         element.on('click', (event)=>{
             $rootScope.widgetOpened = true;
             $rootScope.$apply();
+            $rootScope.$broadcast('$logoutSuccess');
         });
     }
 });
