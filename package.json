@@ -10,7 +10,7 @@
     "test-watch": "./node_modules/.bin/karma start --auto-watch --no-single-run ./test/karma.conf.js",
     "test-coverage": "./node_modules/.bin/karma start ./test/karma.conf.js; exit 0",
     "eslint": "./node_modules/.bin/eslint src/**/*.js; exit 0",
-    "serve-client": "./node_modules/.bin/webpack-dev-server --history-api-fallback --inline --progress ",
+    "serve-client": "./node_modules/.bin/webpack-dev-server --history-api-fallback --inline --progress --port 3030",
     "serve-test": "./node_modules/.bin/http-server ./ -p 3000 --cors",
     "serve-build": "./node_modules/.bin/http-server ./build",
     "build": "./node_modules/.bin/rimraf build && ./node_modules/.bin/webpack --bail --progress --profile && ./node_modules/.bin/grunt api ",
