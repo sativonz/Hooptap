@@ -6,14 +6,12 @@ import 'angular-storage';
 import 'angular-resource';
 import 'angular-animate';
 import 'angular-wizard';
-
+import 'angular-ui-notification-mod';
+import 'angular-ui-notification/dist/angular-ui-notification.min.css'
 import tabs from 'angular-ui-bootstrap/src/tabs';
 import progressBar from 'angular-ui-bootstrap/src/progressbar';
 import tooltip from 'angular-ui-bootstrap/src/tooltip';
 import modal from 'angular-ui-bootstrap/src/modal';
-    //Toaster
-import toaster from './modules/toaster';
-import './modules/toaster/toaster.css';
 
 //Import Loopback Angular SDK
 import './common/services/angular-sdk.js';
@@ -26,7 +24,7 @@ import './common/services/angular-sdk.js';
             //Vendor injectors
             'ngResource', /*angular resources*/
             'ngAnimate', /*angular animate*/
-            toaster,
+            'ui-notification',
             tabs,
             progressBar,
             tooltip,

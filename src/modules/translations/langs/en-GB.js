@@ -177,7 +177,9 @@ let dict = {
 	TOAST: {
 		correctRegister		: 'Registration succeess',
 		incorrect			: 'The login data are incorrect',
-		duplicated			: 'The login data are duplicated'
+		duplicated			: 'The login data are duplicated',
+		badPassword			: 'Passwords do not match',
+		internalServerError		: 'Internal server error',
 	}
 
 

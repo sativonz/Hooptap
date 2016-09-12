@@ -17,7 +17,7 @@ import stampit from 'stampit';
  */
 
 
-export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelper, BaseModel, _isWidget, $timeout, $translate, toaster) => ({
+export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelper, BaseModel, _isWidget, $timeout, $translate, Notifier) => ({
     restrict: 'E',
     transclude: true,
     template,
@@ -281,12 +281,12 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                 if(response.hasOwnProperty(('$promise'))){
                     response.$promise.then((customer)=>{
                         scope.customer = customer;
-                        //console.log(scope.customer);
                         scope.loader = true;
+
+                        //Notifier
                         let msgWelcome = $translate.instant("CUSTOMER.common.welcome");
                         let message = msgWelcome + (scope.customer.username || '')  + " !";
-                        toaster.pop('success', message, "");
-
+                        Notifier.loginRegisterSuccess({title: message, image: require('../images/default-img-popover.png')});
 
                     });
                 }
@@ -298,7 +298,6 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                 scope.customer = customer;
                 scope.loader = true;
             });
-
             scope.$on("$logoutSuccess", (event) => {
                 scope.customer = {};
                 scope.loader = false;

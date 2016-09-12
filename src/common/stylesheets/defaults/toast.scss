@@ -2,26 +2,45 @@
 @import '../common/base';
 @import '../common/colors';
 
-#toast-container {
+.ht-notifier.ui-notification {
   font-family: $base-font-family;
-
-  .toast {
-    height: 88px;
-    width: 400px;
-    padding: 10px 20px 10px 95px;
-    @include border-radius(10px);
-    border: 1px solid hsla(0,0%,100%,.29);
-    background: white;
+  width: 400px;
+  padding: 10px 20px 10px 10px;
+  @include border-radius(10px!important);
+  border: 1px solid hsla(0,0%,100%,.29);
+  &.success{
+    background: white!important;
+    img {
+      position: relative;
+      top: 2px;
+    }
     .toast-title {
       color: $_1_popup-text-title;
+      font-weight: bold;
+      font-size: 17px;
     }
-    .toast-message {
+    .toast-desc {
       color: $_1_popup-text-desc;
     }
   }
-  >.toast-success {
-    background-repeat: no-repeat;
-    background-position-x: 6px;
-    background-position-y: 5px;
+  &.error {
+    background: red!important;
+    img {
+      width: 75px;
+      position: relative;
+      top: 2px;
+    }
+    .toast-title {
+      font-weight: bold;
+      font-size: 17px;
+    }
+    .toast-desc {
+    }
   }
+
+
 }
+
+
+
+

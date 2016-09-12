@@ -19,7 +19,7 @@ export default (Customer, BaseModel, _hasCustomer, $rootScope, $q) => {
              * @returns {*|Promise.<T>} Returns $q promise with success or error response from server to login
              */
             login(model, filter){
-                //TODO rememberMe
+                //TODO rememberMe??
                 return Customer.login({rememberMe: (model.rememberMe || false)}, {
                     "email": model.email,
                     "password": model.password,
