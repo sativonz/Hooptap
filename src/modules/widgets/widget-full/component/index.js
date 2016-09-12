@@ -206,6 +206,11 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
     },
 
     link: {
+        pre: function PreLinkingFunction(scope,element,attrs){
+            if(!angular.isDefined($rootScope.widgetOpened)){
+                $rootScope.widgetOpened = false;
+            }
+        },
         post: function PostLinkingFunction(scope, element, attrs) {
             scope.loader= false;
             //Default values for widget full
@@ -267,11 +272,7 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
 
             let WidgetModel = stampit().compose(BaseModel, _isWidget)({defaults, defaultMarkerOptions});
 
-            window.widget = WidgetModel;
-            window.scope = scope;
-
             clientHelper.setDefaultAttributes(WidgetModel.defaults, scope, attrs);
-
 
             scope.scoreDisplayConfig = scope.scoreDisplayConfig || WidgetModel.defaultMarkerOptions;
 

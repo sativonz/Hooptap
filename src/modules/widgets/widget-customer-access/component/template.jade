@@ -1,4 +1,4 @@
-.w-widget-customer-access(ng-if="!$root.customer.logged")
+.widget-customer-access(ng-if="!$root.customer.logged && $root.widgetOpened")
     c-button-close
     //->Mix form
     .wrapper--nav_form(ng-if="showMixForm")

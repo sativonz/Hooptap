@@ -1,7 +1,6 @@
 -var allViewsFalse = "!$root.WPF.viewBadges && !$root.WPF.viewQuests && !$root.WPF.viewRanking && !$root.WPF.viewEditProfile && !$root.WPF.viewGameRoom && !$root.WPF.viewLevelList"
 -var bodyStyle = "'viewStyle': $root.WPF.viewBadges || $root.WPF.viewQuests || $root.WPF.viewRanking || $root.WPF.viewEditProfile || $root.WPF.viewGameRoom || $root.WPF.viewLevelList"
-
-.w-widget-full(ng-if="$root.customer.logged && $root.widgetOpened")
+.widget-full(ng-if="$root.widgetOpened && $root.customer.logged")
     c-button-menu(ng-if="$root.customer.logged && #{allViewsFalse}" item="customer" title-game-room="menuOptions.titleGameRoom" show-quests="menuOptions.showQuests" show-badges="menuOptions.showBadges" show-rankings="menuOptions.showRankings" show-level="menuOptions.showLevel" show-global-feed="menuOptions.showGlobalFeed" show-marketplace="menuOptions.showMarketplace" show-edit-profile="menuOptions.showEditProfile" show-game-room="menuOptions.showGameRoom")
     c-button-close
     c-loader-wrap(value="loader")
