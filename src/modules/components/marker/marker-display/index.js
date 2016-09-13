@@ -25,11 +25,11 @@ export default($timeout, $rootScope, BaseModel, _hasScoreUnits, _hasCustomer) =>
 
         //Default imgs
         scope.badgeDefaultImage = function () {
-            return require('./images/badge-default.png')
+            return require('./images/badge-default.svg')
         };
 
         scope.suDefaultImage = function () {
-            return require('./images/su-default.png')
+            return require('./images/su-default.svg')
         };
 
         scope.levelDefaultImage = function () {

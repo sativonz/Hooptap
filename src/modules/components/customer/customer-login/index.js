@@ -23,7 +23,6 @@ export default() => ({
 
         //Check if rememberMe is  true , make login and get current.
         if (LoopBackAuth.rememberMe === 'true') {
-            console.log('SIGO LOGUEADO!' , LoopBackAuth.rememberMe);
             $scope.loader = true;
             LoginModel().getCurrent(includeFilter).then((response)=> {
                 let customerResponse = CustomerModel(response);
