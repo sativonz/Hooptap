@@ -6,6 +6,8 @@ div#ht-menu__btn
         span
 div#ht-menu
     ul.ht-menu_main
+        li.animated.slideinTop.ht-menu__item-menu
+            a {{'CUSTOMER.common.menu' | translate}}
         li.animated.slideInLeft(ng-if="showQuests" ng-click="$root.WPF.viewQuests = !$root.WPF.viewQuests")
             a {{ 'QUESTS.title' | translate }}
         li.animated.slideInLeft(ng-if="showBadges" ng-click="$root.WPF.viewBadges = !$root.WPF.viewBadges")

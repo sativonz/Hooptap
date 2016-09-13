@@ -1,5 +1,6 @@
 @import "../../../../../common/stylesheets/common/base";
 @import "../../../../../common/stylesheets/common/mixins";
+@import "../../../../../common/stylesheets/common/colors";
 
 %commonStyles {
   list-style: none;
@@ -30,7 +31,7 @@ c-button-menu {
         position: absolute;
         height: 1px;
         width: 100%;
-        background: white;
+        background: $white;
         border-radius: 9px;
         opacity: 1;
         left: 0;
@@ -53,7 +54,6 @@ c-button-menu {
 
   #ht-menu {
     position: relative;
-    color: #999;
     width: 400px;
     height: 481px;
     margin: auto;
@@ -67,18 +67,45 @@ c-button-menu {
     display: none;
     ul.ht-menu_main {
       @extend %commonStyles;
+      padding-top: 10px;
       background: white;
       width:240px;
-      padding: 10px 25px;
       height: 100%;
       border-top-left-radius: 10px;
       border-bottom-left-radius: 10px;
-      border-right: 1px solid #d0d0d0;
+      border-right: 1px solid $_1_color-border-bottom;
+      .ht-menu__item-menu {
+        padding-left:0!important;
+        padding-right:0!important;
+
+          &:hover{
+            background-color: white!important;
+            a {
+              border-bottom: 2px solid rgb(38, 101, 146)!important;
+              color: $_1_color-item-menu;
+            }
+          }
+          a {
+            border-bottom: 2px solid rgb(38, 101, 146)!important;
+            color: $_1_color-item-menu;
+            font-weight: bold;
+            cursor: default;
+            border-right: none!important;
+            border-left: none!important;
+            padding-left: 20px;
+          }
+      }
       li {
+        padding-right: 20px;
+        padding-left: 20px;
         @extend %commonStyles;
-        border-bottom: 1px solid #bdbdbd;
         &:hover {
-          border-bottom: 2px solid grey;
+          background-color: #00caff;
+          a {
+              border-bottom: none!important;
+              color: white;
+              font-weight: bold;
+          }
         }
         .ht-menu__item-logout {
           font-weight: 600;
@@ -87,9 +114,10 @@ c-button-menu {
           cursor: default;
         }
         a {
+          border-bottom: 1px solid $_1_color-border-bottom;
           @extend %commonStyles;
-          padding: 14px 14px 8px 0px;
-          color: #888;
+          padding: 8px 9px;
+          color: $_1_color-item-close-session;
           text-decoration: none;
           cursor: pointer;
         }
