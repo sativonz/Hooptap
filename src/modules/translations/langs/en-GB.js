@@ -76,6 +76,7 @@ let dict = {
 		password: 'The password',
 		terms	: 'I accept the terms and conditions'
 	},
+	'valdr.duplicatedEmail': 'Email already exists. Please, use a different email.',
 
 	/*	BADGES
 	 ---------------------------------------------------------------------------------*/

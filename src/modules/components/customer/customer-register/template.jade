@@ -9,6 +9,7 @@
                 .ht-form__group.password(valdr-form-group)
                     input.ht-form__input(ng-model='model.email' type='text' name="email" placeholder="{{ 'CUSTOMER.common.email' | translate }}")
                     span.ht-form__bar
+                    span(ng-if="duplicatedEmail") {{'valdr.duplicatedEmail' | translate}}
                 .ht-form__group.password(valdr-form-group)
                     input.ht-form__input(ng-model='model.password' type='password' name="password" placeholder="{{ 'CUSTOMER.common.password' | translate }}")
                     span.ht-form__bar
