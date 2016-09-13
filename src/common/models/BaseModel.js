@@ -55,9 +55,7 @@ export default ($q, $injector, _Extendable) => {
              * @returns {object} The modified model used to construct this instance.
              */
             parse (model) {
-
-                if (model.annotations === {}) model.annotations = "";
-
+                
                 return model;
             },
 
@@ -357,16 +355,6 @@ export default ($q, $injector, _Extendable) => {
              --------------------------------------------------------------------------------------------*/
             productId: "57c846e00f761821e71ef1fc", //TODO change to actual product id
 
-            /**
-             * Here a Model will save the defaults values. Will be used to fill the object if the data passed to
-             * construct the instance not have some attribute that is needed.
-             *
-             * @memberOf Common.model:BaseModel
-             * @stampit refs
-             */
-            _defaults: {
-                annotations: ''
-            },
             /**
              * This Whitelist enables managing underscored params.
              *
