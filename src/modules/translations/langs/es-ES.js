@@ -115,7 +115,8 @@ let dict = {
 		nextLevelDetails	: 'Detalles del siguiente nivel',
 		nextLevel			: 'Siguiente nivel',
 		lastLevelMsg		: 'Este es el último nivel, felicidades',
-		notLevels			: 'Aún no tienes ningún nivel asignado'
+		notLevels			: 'Aún no tienes ningún nivel asignado',
+		actualLevel			: 'Nivel actual'
 		// newbie			: 'Nuevo',
 		// rookie			: 'Principiante',
 		// beginner			: 'Principiante',
