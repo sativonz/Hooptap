@@ -38,7 +38,7 @@
                 .wrapper__edit-profile(ng-if="$root.WPF.viewEditProfile")
                     c-button-back(ng-click="$root.WPF.viewEditProfile = !$root.WPF.viewEditProfile")
                     c-widget-header(title="{{ 'CUSTOMER.update.title' | translate }}")
-                    c-customer-update
+                    c-customer-update(value='customer')
 
                 .wrapper__game-room(ng-if="$root.WPF.viewGameRoom")
                     c-button-back(ng-click="$root.WPF.viewGameRoom = !$root.WPF.viewGameRoom" ng-if="!$root.WPF.viewGRdetail")
