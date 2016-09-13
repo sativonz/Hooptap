@@ -11,10 +11,6 @@ c-profile-header {
 
     .ht-profile-header__wrapper {
 
-      .wrapper-data {
-        margin-top: -10px;
-      }
-
       .ht-profile-header__images {
 
         &:hover .ht-profile-header__img-upload {
@@ -78,13 +74,11 @@ c-profile-header {
         font-size: 11pt;
         font-weight: 400;
         color: white;
-        margin: 5px 4px 4px -2px;
       }
       .ht-profile-header__item-email{
         font-size: 11pt;
         font-weight: 400;
         color: white;
-        margin-top: -15px 4px 4px -2px;
       }
 
 

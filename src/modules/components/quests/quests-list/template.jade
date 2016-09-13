@@ -4,7 +4,7 @@
         uib-tabset(active="active")
             uib-tab(index="0" heading="{{::'QUESTS.tabs.all' | translate}}")
                 .ht-quest-list__wrapper(ng-repeat="quest in quests track by $index")
-                    .ht-quest-list__row.col-xs-12(ng-click="showDetailQuests = !showDetailQuests; isActive != isActive" ng-class="{'quest-active': isActive, 'close': !isActive, #{questsClasses}} ")
+                    .ht-quest-list__row.col-xs-12(ng-click="showDetailQuests = !showDetailQuests; isActive != isActive" ng-class="{'quest-active': isActive, 'quest-close': !isActive, #{questsClasses}} ")
                         .ht-quest-list__img-wrapper.col-xs-12(ng-click="isOpen = !isOpen" ng-class="{'open': isOpen}")
                             .ht-quest-list__img-holder.col-xs-2.not-padding
                                 .ht-quest-list__default-image(ng-show="!quest.img")
