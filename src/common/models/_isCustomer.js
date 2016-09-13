@@ -1,7 +1,7 @@
 import stampit from 'stampit';
 import Q from 'q';
 
-export default ($rootScope, Customer) => {
+export default ($rootScope, Customer, LoopBackAuth) => {
     return stampit()
         .compose()
         /**
@@ -14,6 +14,9 @@ export default ($rootScope, Customer) => {
 
             logout(){
                 Customer.logout();
+
+                LoopBackAuth.clearStorage();
+                LoopBackAuth.clearUser();
                 $rootScope.$broadcast('$logoutSuccess');
                 $rootScope.customer.logged = false;
             }

@@ -12,7 +12,6 @@ export default($rootScope) => ({
     restrict: 'E',
     template,
     link: (scope, element, attrs)=>{
-        console.log($rootScope.widgetOpened);
 
         element.on('click', (event)=>{
             $rootScope.widgetOpened = false;
