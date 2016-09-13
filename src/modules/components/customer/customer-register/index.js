@@ -19,6 +19,9 @@ export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLo
     scope: {},
     template,
     link: (scope, element, attrs)=> {
+        //TODO improve with api call for valdr function
+        scope.duplicatedEmail = false;
+
         let LoginModel = stampit().compose(BaseModel, _hasLogin);
         let CustomerModel = stampit().compose(BaseModel, _isCustomer);
 
@@ -26,6 +29,10 @@ export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLo
 
         let $form = scope.htRegisterForm;
         scope.register = ()=> {
+            //duplicate fields
+            scope.emailDuplicated = false;
+            scope.usernameDuplicated = false;
+            
             if ($form.$valid) {
                 if (scope.model.password == scope.model.rePassword) {
                     let newCustomer = CustomerModel(scope.model).toJson();
@@ -47,6 +54,12 @@ export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLo
                     }).catch((error)=> {
                         if (error.status == 422) {
                             let msgDuplicated = $translate.instant("TOAST.duplicated");
+                            scope.duplicatedCodes = error.data.error.details.codes;
+
+                            //TODO Improve validation for duplicated values 
+                            for (var code in scope.duplicatedCodes) {
+                                scope[code + 'Duplicated'] = true;
+                            }
                             Notifier.error({title: msgDuplicated, image: require('./images/error.png')});
                         }
                     });

@@ -14,7 +14,7 @@ import tooltip from 'angular-ui-bootstrap/src/tooltip';
 import modal from 'angular-ui-bootstrap/src/modal';
 
 //Import Loopback Angular SDK
-import './common/services/angular-sdk.js';
+import './common/services/angular-sdk-before-2016913.js';
 
 
 (function () {
