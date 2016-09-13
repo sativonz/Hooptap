@@ -28,7 +28,9 @@ export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLo
         scope.register = ()=> {
             if ($form.$valid) {
                 if (scope.model.password == scope.model.rePassword) {
-                    LoginModel().create(CustomerModel(scope.model)).then((registered)=> {
+                    let newCustomer = CustomerModel(scope.model).toJson();
+                    debugger;
+                    LoginModel().create(newCustomer).then((registered)=> {
                         $rootScope.$broadcast('$registerSuccess', registered);
                         if ($rootScope.customer) {
                             $rootScope.customer.logged = true;
@@ -37,7 +39,11 @@ export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLo
                         }
                         let msgSucceess = $translate.instant("TOAST.correctRegister");
                         let msgWelcome = ($translate.instant("CUSTOMER.common.welcome")) + (scope.username || '') + "!";
-                        Notifier.loginRegisterSuccess({title: msgWelcome, message: msgSucceess, image: require('./images/default-img-popover.png')});
+                        Notifier.loginRegisterSuccess({
+                            title: msgWelcome,
+                            message: msgSucceess,
+                            image: require('./images/default-img-popover.png')
+                        });
 
                     }).catch((error)=> {
                         if (error.status == 422) {
@@ -45,7 +51,7 @@ export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLo
                             Notifier.error({title: msgDuplicated, image: require('./images/error.png')});
                         }
                     });
-                }else if (scope.model.password != scope.model.rePassword) {
+                } else if (scope.model.password != scope.model.rePassword) {
                     let badPassword = $translate.instant("TOAST.badPassword");
                     Notifier.error({title: badPassword, image: require('./images/error.png')});
                 }
@@ -60,9 +66,9 @@ export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLo
             };
             LoginModel().login(credentials, includeFilter).then((response)=> {
                 $rootScope.$broadcast('$loginSuccess', response);
-             }).catch((error)=> {
-                    let internalServerError = $translate.instant("TOAST.internalServerError");
-                    Notifier.error({title: internalServerError, image: require('./images/error.png')});
+            }).catch((error)=> {
+                let internalServerError = $translate.instant("TOAST.internalServerError");
+                Notifier.error({title: internalServerError, image: require('./images/error.png')});
 
             });
 

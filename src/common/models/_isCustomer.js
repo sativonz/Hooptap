@@ -19,6 +19,11 @@ export default ($rootScope, Customer, LoopBackAuth) => {
                 LoopBackAuth.clearUser();
                 $rootScope.$broadcast('$logoutSuccess');
                 $rootScope.customer.logged = false;
+            },
+            prepare(model){
+                let id = model.id == 'new' || !model.id ? undefined : model.id;
+                let terms = undefined;
+                return {id, terms};
             }
         })
         .refs({
@@ -27,8 +32,7 @@ export default ($rootScope, Customer, LoopBackAuth) => {
              * @memberOf Rule.model:Rule
              * @stampit refs
              */
-            _defaults: {
-            },
+            _defaults: {},
 
             _model: 'CustomerModel'
         })
