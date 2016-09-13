@@ -19,6 +19,7 @@ export default ($q , $compile , $injector , Event , Customer , Admin , $rootScop
             }
 
         };
+
         window.Hooptap.api = ( model , method , params , _then , _catch ) => {
             // TODO improve Hooptap.api method
 
@@ -76,6 +77,8 @@ export default ($q , $compile , $injector , Event , Customer , Admin , $rootScop
                         // }
                         // else
                         //     console.log('No Event Triggers');
+
+                        $rootScope.$broadcast( '$eventSuccess', response );
 
                         return response;
                     } )
