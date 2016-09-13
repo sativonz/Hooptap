@@ -1,19 +1,86 @@
+@import '../../../../common/stylesheets/common/colors.scss';
+@import '../../../../common/stylesheets/common/mixins.scss';
+
 c-level-actual {
-  .level-actual__img {
-    -webkit-border-radius:50%;
-    -moz-border-radius:50%;
-    border-radius:50%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: inherit;
-    padding: 15px;
-    width: 135px;
+  .wrapper__level-empty-title {
+    text-align: center;
+    font-size: 11pt;
+    color: $_1_color-level-empty-text;
+    padding-bottom: 20px;
   }
+  .level-home-widget-full__wrapper {
+    .img-actual-level {
+      width: 88px;
+      height: 88px;
+      min-height: 88px;
+      min-width: 88px;
+    }
+    .img-next-level{
+      -webkit-filter: grayscale(1);
+      filter: grayscale(1);
+      width: 40px;
+      margin-left: 15px;
+    }
+    .last-level {
+      @extend .wrapper__level-empty-title;
+      margin-top: 5px;
+      font-weight: bold;
+      line-height: 30px;
+    }
+    .name-actual-level {
+      font-size: 9pt;
+      color: $_1_quest-title;
+      text-align: center;
+      width: 100%;
+    }
+    .wrapper-next-level {
+      .title-next-level{
+        font-size: 9pt;
+        color: grey;
+        padding: 0;
+        margin: 2px;
+        font-weight: bold;
+      }
+      .name-next-level{
+        font-size: 9pt;
+        color: grey;
+        padding: 0;
+        margin: 2px;
+      }
+    }
+    .progressbar {
+      width: 233px;
+      height: 20px;
+      background: $_1_progressbar-new;
+      @include border-radius(6px);
+      margin-top: 22px;
+      .progressbar-actual {
+        width: 60%;
+        background: $_1_progressbar-actual;
+        height: 18px;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+        &.levelComplete {
+          width: 100%!important;
+          border-top-right-radius: 6px;
+          border-bottom-right-radius: 6px;
+          + .progressbar-next {
+            display: none;
+          }
+        }
+      }
+      .score-bar {
+        margin-top: -2px;
+      }
+      div {
+        font-size: 9pt;
+        margin: -2px 0 0 0;
+        color: $white;
+        letter-spacing: 0.5px;
+        padding-top: 2px;
 
-
-  .level-actual_wrapper--detailsNextLevel {
-    padding: 0 15px 0 15px;
+      }
+    }
   }
 
 
