@@ -20,11 +20,9 @@ export default(Customer, LoopBackAuth, $rootScope, clientHelper, $timeout) => ({
         showMixForm: '=?'
     },
     controller: ($scope, $rootScope)=> {
-
-        var loginEvent = $rootScope.$on("loginSuccess", (event, response)=> {
+        var loginEvent = $rootScope.$on("$loginSuccess", (event, response)=> {
             getMessage();
         });
-
         function getMessage() {
             $rootScope.customer = {};
             $rootScope.customer.logged = true;
@@ -46,7 +44,6 @@ export default(Customer, LoopBackAuth, $rootScope, clientHelper, $timeout) => ({
                 showRegisterForm: false,
                 showLoginForm: false
             };
-
             clientHelper.setDefaultAttributes(defaults, scope, attrs);
         }
 

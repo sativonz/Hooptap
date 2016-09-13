@@ -25,7 +25,7 @@ export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLo
         let LoginModel = stampit().compose(BaseModel, _hasLogin);
         let CustomerModel = stampit().compose(BaseModel, _isCustomer);
 
-        let includeFilter = {filter: {include: ['levels', 'badges']}};
+        let includeFilter = {filter: {include: [{badgeInstances: 'badge'}, {scoreUnitInstances: 'scoreUnit'}]}};
 
         let $form = scope.htRegisterForm;
         scope.register = ()=> {
