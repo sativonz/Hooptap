@@ -27,6 +27,7 @@ let dict = {
 			female			: 'Chica',
 			select			: 'Selecciona',
 			welcome			: 'Bienvenido ',
+			menu			: 'Menú',
 			externalId      : 'ID Externo'
 		},
 		login: {

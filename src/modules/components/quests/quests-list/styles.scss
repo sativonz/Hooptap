@@ -22,7 +22,7 @@ c-quests-list {
           border-bottom: 3px solid $_1_header-color!important;
           height:35px;
           &:hover {
-            border-bottom: 3px solid #b2c059!important;
+            border-bottom: 3px solid $_1_tab-active__color!important;
           }
           &.active {
             border-bottom: 3px solid $_1_line-space-color!important;
