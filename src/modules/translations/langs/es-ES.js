@@ -78,7 +78,8 @@ let dict = {
 		rePassword	: 'Repita la contraseña',
 		terms		: 'Acepto los términos y condiciones'
 	},
-	'valdr.duplicatedEmail': 'Este email ya existe. Por favor, use uno distinto.',
+	'valdr.usernameDuplicated': 'Este nombre de usuario ya existe. Por favor, use uno distinto.',
+	'valdr.emailDuplicated': 'Este email ya existe. Por favor, use uno distinto.',
 
 	/*	BADGES
 	 ---------------------------------------------------------------------------------*/

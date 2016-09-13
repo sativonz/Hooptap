@@ -29,6 +29,10 @@ export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLo
 
         let $form = scope.htRegisterForm;
         scope.register = ()=> {
+            //duplicate fields
+            scope.emailDuplicated = false;
+            scope.usernameDuplicated = false;
+            
             if ($form.$valid) {
                 if (scope.model.password == scope.model.rePassword) {
                     let newCustomer = CustomerModel(scope.model).toJson();
@@ -46,14 +50,16 @@ export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLo
                             message: msgSucceess,
                             image: require('./images/default-img-popover.png')
                         });
-                        scope.duplicatedEmail = false;
-                        $form.$setValidity('email', true);
 
                     }).catch((error)=> {
                         if (error.status == 422) {
                             let msgDuplicated = $translate.instant("TOAST.duplicated");
-                            scope.duplicatedEmail = true;
-                            $form.$setValidity('email', false);
+                            scope.duplicatedCodes = error.data.error.details.codes;
+
+                            //TODO Improve validation for duplicated values 
+                            for (var code in scope.duplicatedCodes) {
+                                scope[code + 'Duplicated'] = true;
+                            }
                             Notifier.error({title: msgDuplicated, image: require('./images/error.png')});
                         }
                     });
