@@ -62,30 +62,30 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           { 'id': '@id' },
           {
 
-            // INTERNAL. Use Badge.seats.findById() instead.
-            "prototype$__findById__seats": {
+            // INTERNAL. Use Badge.instances.findById() instead.
+            "prototype$__findById__instances": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/Badges/:id/seats/:fk",
+              url: urlBase + "/Badges/:id/instances/:fk",
               method: "GET",
             },
 
-            // INTERNAL. Use Badge.seats.destroyById() instead.
-            "prototype$__destroyById__seats": {
+            // INTERNAL. Use Badge.instances.destroyById() instead.
+            "prototype$__destroyById__instances": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/Badges/:id/seats/:fk",
+              url: urlBase + "/Badges/:id/instances/:fk",
               method: "DELETE",
             },
 
-            // INTERNAL. Use Badge.seats.updateById() instead.
-            "prototype$__updateById__seats": {
+            // INTERNAL. Use Badge.instances.updateById() instead.
+            "prototype$__updateById__instances": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/Badges/:id/seats/:fk",
+              url: urlBase + "/Badges/:id/instances/:fk",
               method: "PUT",
             },
 
@@ -173,28 +173,28 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            // INTERNAL. Use Badge.seats() instead.
-            "prototype$__get__seats": {
+            // INTERNAL. Use Badge.instances() instead.
+            "prototype$__get__instances": {
               isArray: true,
-              url: urlBase + "/Badges/:id/seats",
+              url: urlBase + "/Badges/:id/instances",
               method: "GET",
             },
 
-            // INTERNAL. Use Badge.seats.create() instead.
-            "prototype$__create__seats": {
-              url: urlBase + "/Badges/:id/seats",
+            // INTERNAL. Use Badge.instances.create() instead.
+            "prototype$__create__instances": {
+              url: urlBase + "/Badges/:id/instances",
               method: "POST",
             },
 
-            // INTERNAL. Use Badge.seats.destroyAll() instead.
-            "prototype$__delete__seats": {
-              url: urlBase + "/Badges/:id/seats",
+            // INTERNAL. Use Badge.instances.destroyAll() instead.
+            "prototype$__delete__instances": {
+              url: urlBase + "/Badges/:id/instances",
               method: "DELETE",
             },
 
-            // INTERNAL. Use Badge.seats.count() instead.
-            "prototype$__count__seats": {
-              url: urlBase + "/Badges/:id/seats/count",
+            // INTERNAL. Use Badge.instances.count() instead.
+            "prototype$__count__instances": {
+              url: urlBase + "/Badges/:id/instances/count",
               method: "GET",
             },
 
@@ -307,7 +307,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Badge` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Badges",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Badge#replaceOrCreate
+             * @methodOf apiServices.Badge
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -333,9 +366,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Badge` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/Badges",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/Badges/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -377,7 +410,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -403,6 +436,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/Badges/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Badge#replaceById
+             * @methodOf apiServices.Badge
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Badge` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Badges/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -479,7 +549,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -513,7 +583,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -578,15 +648,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -605,7 +673,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/Badges/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -645,9 +713,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "POST",
             },
 
-            // INTERNAL. Use BadgeSeat.badge() instead.
-            "::get::BadgeSeat::badge": {
-              url: urlBase + "/BadgeSeats/:id/badge",
+            // INTERNAL. Use BadgeInstance.badge() instead.
+            "::get::BadgeInstance::badge": {
+              url: urlBase + "/BadgeInstances/:id/badge",
               method: "GET",
             },
 
@@ -743,21 +811,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name apiServices.Badge#patchOrCreate
+             * @methodOf apiServices.Badge
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Badge` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
              * @name apiServices.Badge#updateOrCreate
              * @methodOf apiServices.Badge
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -783,7 +876,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -814,7 +907,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -844,7 +937,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -867,6 +960,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
         R["removeById"] = R["deleteById"];
 
+            /**
+             * @ngdoc method
+             * @name apiServices.Badge#patchAttributes
+             * @methodOf apiServices.Badge
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Badge` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
+
 
         /**
         * @ngdoc property
@@ -880,27 +1005,27 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
     /**
      * @ngdoc object
-     * @name apiServices.Badge.seats
-     * @header apiServices.Badge.seats
+     * @name apiServices.Badge.instances
+     * @header apiServices.Badge.instances
      * @object
      * @description
      *
-     * The object `Badge.seats` groups methods
-     * manipulating `BadgeSeat` instances related to `Badge`.
+     * The object `Badge.instances` groups methods
+     * manipulating `BadgeInstance` instances related to `Badge`.
      *
-     * Call {@link apiServices.Badge#seats Badge.seats()}
+     * Call {@link apiServices.Badge#instances Badge.instances()}
      * to query all related instances.
      */
 
 
             /**
              * @ngdoc method
-             * @name apiServices.Badge#seats
+             * @name apiServices.Badge#instances
              * @methodOf apiServices.Badge
              *
              * @description
              *
-             * Queries seats of Badge.
+             * Queries instances of Badge.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -920,23 +1045,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `BadgeInstance` object.)
              * </em>
              */
-        R.seats = function() {
-          var TargetResource = $injector.get("BadgeSeat");
-          var action = TargetResource["::get::Badge::seats"];
+        R.instances = function() {
+          var TargetResource = $injector.get("BadgeInstance");
+          var action = TargetResource["::get::Badge::instances"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name apiServices.Badge.seats#count
-             * @methodOf apiServices.Badge.seats
+             * @name apiServices.Badge.instances#count
+             * @methodOf apiServices.Badge.instances
              *
              * @description
              *
-             * Counts seats of Badge.
+             * Counts instances of Badge.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -958,20 +1083,20 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `count` – `{number=}` -
              */
-        R.seats.count = function() {
-          var TargetResource = $injector.get("BadgeSeat");
-          var action = TargetResource["::count::Badge::seats"];
+        R.instances.count = function() {
+          var TargetResource = $injector.get("BadgeInstance");
+          var action = TargetResource["::count::Badge::instances"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name apiServices.Badge.seats#create
-             * @methodOf apiServices.Badge.seats
+             * @name apiServices.Badge.instances#create
+             * @methodOf apiServices.Badge.instances
              *
              * @description
              *
-             * Creates a new instance in seats of this model.
+             * Creates a new instance in instances of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -993,23 +1118,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `BadgeInstance` object.)
              * </em>
              */
-        R.seats.create = function() {
-          var TargetResource = $injector.get("BadgeSeat");
-          var action = TargetResource["::create::Badge::seats"];
+        R.instances.create = function() {
+          var TargetResource = $injector.get("BadgeInstance");
+          var action = TargetResource["::create::Badge::instances"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name apiServices.Badge.seats#createMany
-             * @methodOf apiServices.Badge.seats
+             * @name apiServices.Badge.instances#createMany
+             * @methodOf apiServices.Badge.instances
              *
              * @description
              *
-             * Creates a new instance in seats of this model.
+             * Creates a new instance in instances of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -1031,23 +1156,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `BadgeInstance` object.)
              * </em>
              */
-        R.seats.createMany = function() {
-          var TargetResource = $injector.get("BadgeSeat");
-          var action = TargetResource["::createMany::Badge::seats"];
+        R.instances.createMany = function() {
+          var TargetResource = $injector.get("BadgeInstance");
+          var action = TargetResource["::createMany::Badge::instances"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name apiServices.Badge.seats#destroyAll
-             * @methodOf apiServices.Badge.seats
+             * @name apiServices.Badge.instances#destroyAll
+             * @methodOf apiServices.Badge.instances
              *
              * @description
              *
-             * Deletes all seats of this model.
+             * Deletes all instances of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -1065,26 +1190,26 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * This method returns no data.
              */
-        R.seats.destroyAll = function() {
-          var TargetResource = $injector.get("BadgeSeat");
-          var action = TargetResource["::delete::Badge::seats"];
+        R.instances.destroyAll = function() {
+          var TargetResource = $injector.get("BadgeInstance");
+          var action = TargetResource["::delete::Badge::instances"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name apiServices.Badge.seats#destroyById
-             * @methodOf apiServices.Badge.seats
+             * @name apiServices.Badge.instances#destroyById
+             * @methodOf apiServices.Badge.instances
              *
              * @description
              *
-             * Delete a related item by id for seats.
+             * Delete a related item by id for instances.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             *  - `fk` – `{*}` - Foreign key for seats
+             *  - `fk` – `{*}` - Foreign key for instances
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1098,26 +1223,26 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * This method returns no data.
              */
-        R.seats.destroyById = function() {
-          var TargetResource = $injector.get("BadgeSeat");
-          var action = TargetResource["::destroyById::Badge::seats"];
+        R.instances.destroyById = function() {
+          var TargetResource = $injector.get("BadgeInstance");
+          var action = TargetResource["::destroyById::Badge::instances"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name apiServices.Badge.seats#findById
-             * @methodOf apiServices.Badge.seats
+             * @name apiServices.Badge.instances#findById
+             * @methodOf apiServices.Badge.instances
              *
              * @description
              *
-             * Find a related item by id for seats.
+             * Find a related item by id for instances.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             *  - `fk` – `{*}` - Foreign key for seats
+             *  - `fk` – `{*}` - Foreign key for instances
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -1131,29 +1256,29 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `BadgeInstance` object.)
              * </em>
              */
-        R.seats.findById = function() {
-          var TargetResource = $injector.get("BadgeSeat");
-          var action = TargetResource["::findById::Badge::seats"];
+        R.instances.findById = function() {
+          var TargetResource = $injector.get("BadgeInstance");
+          var action = TargetResource["::findById::Badge::instances"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name apiServices.Badge.seats#updateById
-             * @methodOf apiServices.Badge.seats
+             * @name apiServices.Badge.instances#updateById
+             * @methodOf apiServices.Badge.instances
              *
              * @description
              *
-             * Update a related item by id for seats.
+             * Update a related item by id for instances.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             *  - `fk` – `{*}` - Foreign key for seats
+             *  - `fk` – `{*}` - Foreign key for instances
              *
              * @param {Object} postData Request data.
              *
@@ -1171,12 +1296,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `BadgeInstance` object.)
              * </em>
              */
-        R.seats.updateById = function() {
-          var TargetResource = $injector.get("BadgeSeat");
-          var action = TargetResource["::updateById::Badge::seats"];
+        R.instances.updateById = function() {
+          var TargetResource = $injector.get("BadgeInstance");
+          var action = TargetResource["::updateById::Badge::instances"];
           return action.apply(R, arguments);
         };
     /**
@@ -1827,13 +1952,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
 /**
  * @ngdoc object
- * @name apiServices.BadgeSeat
- * @header apiServices.BadgeSeat
+ * @name apiServices.Instance
+ * @header apiServices.Instance
  * @object
  *
  * @description
  *
- * A $resource object for interacting with the `BadgeSeat` model.
+ * A $resource object for interacting with the `Instance` model.
  *
  * ## Example
  *
@@ -1843,37 +1968,31 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
  *
  */
   module.factory(
-    "BadgeSeat",
+    "Instance",
     [
       'LoopBackResource', 'LoopBackAuth', '$injector',
       function(Resource, LoopBackAuth, $injector) {
         var R = Resource(
-        urlBase + "/BadgeSeats/:id",
+        urlBase + "/Instances/:id",
           { 'id': '@id' },
           {
 
-            // INTERNAL. Use BadgeSeat.badge() instead.
-            "prototype$__get__badge": {
-              url: urlBase + "/BadgeSeats/:id/badge",
-              method: "GET",
-            },
-
-            // INTERNAL. Use BadgeSeat.customer() instead.
+            // INTERNAL. Use Instance.customer() instead.
             "prototype$__get__customer": {
-              url: urlBase + "/BadgeSeats/:id/customer",
+              url: urlBase + "/Instances/:id/customer",
               method: "GET",
             },
 
-            // INTERNAL. Use BadgeSeat.lastModifiedBy() instead.
+            // INTERNAL. Use Instance.lastModifiedBy() instead.
             "prototype$__get__lastModifiedBy": {
-              url: urlBase + "/BadgeSeats/:id/lastModifiedBy",
+              url: urlBase + "/Instances/:id/lastModifiedBy",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#create
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#create
+             * @methodOf apiServices.Instance
              *
              * @description
              *
@@ -1900,18 +2019,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `Instance` object.)
              * </em>
              */
             "create": {
-              url: urlBase + "/BadgeSeats",
+              url: urlBase + "/Instances",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#createMany
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#createMany
+             * @methodOf apiServices.Instance
              *
              * @description
              *
@@ -1938,23 +2057,56 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `Instance` object.)
              * </em>
              */
             "createMany": {
               isArray: true,
-              url: urlBase + "/BadgeSeats",
+              url: urlBase + "/Instances",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#upsert
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#upsert
+             * @methodOf apiServices.Instance
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Instance` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Instances",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Instance#replaceOrCreate
+             * @methodOf apiServices.Instance
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -1977,18 +2129,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `Instance` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/BadgeSeats",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/Instances/replaceOrCreate",
+              method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#exists
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#exists
+             * @methodOf apiServices.Instance
              *
              * @description
              *
@@ -2013,18 +2165,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `exists` – `{boolean=}` -
              */
             "exists": {
-              url: urlBase + "/BadgeSeats/:id/exists",
+              url: urlBase + "/Instances/:id/exists",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#findById
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#findById
+             * @methodOf apiServices.Instance
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -2044,18 +2196,55 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `Instance` object.)
              * </em>
              */
             "findById": {
-              url: urlBase + "/BadgeSeats/:id",
+              url: urlBase + "/Instances/:id",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#find
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#replaceById
+             * @methodOf apiServices.Instance
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Instance` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Instances/:id/replace",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Instance#find
+             * @methodOf apiServices.Instance
              *
              * @description
              *
@@ -2077,19 +2266,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `Instance` object.)
              * </em>
              */
             "find": {
               isArray: true,
-              url: urlBase + "/BadgeSeats",
+              url: urlBase + "/Instances",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#findOne
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#findOne
+             * @methodOf apiServices.Instance
              *
              * @description
              *
@@ -2111,22 +2300,22 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `Instance` object.)
              * </em>
              */
             "findOne": {
-              url: urlBase + "/BadgeSeats/findOne",
+              url: urlBase + "/Instances/findOne",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#updateAll
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#updateAll
+             * @methodOf apiServices.Instance
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -2149,18 +2338,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * The number of instances updated
              */
             "updateAll": {
-              url: urlBase + "/BadgeSeats/update",
+              url: urlBase + "/Instances/update",
               method: "POST",
             },
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#deleteById
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#deleteById
+             * @methodOf apiServices.Instance
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -2178,18 +2367,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `Instance` object.)
              * </em>
              */
             "deleteById": {
-              url: urlBase + "/BadgeSeats/:id",
+              url: urlBase + "/Instances/:id",
               method: "DELETE",
             },
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#count
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#count
+             * @methodOf apiServices.Instance
              *
              * @description
              *
@@ -2214,26 +2403,24 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `count` – `{number=}` -
              */
             "count": {
-              url: urlBase + "/BadgeSeats/count",
+              url: urlBase + "/Instances/count",
               method: "GET",
             },
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#prototype$updateAttributes
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#prototype$updateAttributes
+             * @methodOf apiServices.Instance
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -2247,18 +2434,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `Instance` object.)
              * </em>
              */
             "prototype$updateAttributes": {
-              url: urlBase + "/BadgeSeats/:id",
-              method: "PUT",
+              url: urlBase + "/Instances/:id",
+              method: "PATCH",
             },
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#createChangeStream
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#createChangeStream
+             * @methodOf apiServices.Instance
              *
              * @description
              *
@@ -2288,126 +2475,8 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *  - `changes` – `{ReadableStream=}` -
              */
             "createChangeStream": {
-              url: urlBase + "/BadgeSeats/change-stream",
+              url: urlBase + "/Instances/change-stream",
               method: "POST",
-            },
-
-            // INTERNAL. Use Badge.seats.findById() instead.
-            "::findById::Badge::seats": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Badges/:id/seats/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Badge.seats.destroyById() instead.
-            "::destroyById::Badge::seats": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Badges/:id/seats/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Badge.seats.updateById() instead.
-            "::updateById::Badge::seats": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Badges/:id/seats/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Badge.seats() instead.
-            "::get::Badge::seats": {
-              isArray: true,
-              url: urlBase + "/Badges/:id/seats",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Badge.seats.create() instead.
-            "::create::Badge::seats": {
-              url: urlBase + "/Badges/:id/seats",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Badge.seats.createMany() instead.
-            "::createMany::Badge::seats": {
-              isArray: true,
-              url: urlBase + "/Badges/:id/seats",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Badge.seats.destroyAll() instead.
-            "::delete::Badge::seats": {
-              url: urlBase + "/Badges/:id/seats",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Badge.seats.count() instead.
-            "::count::Badge::seats": {
-              url: urlBase + "/Badges/:id/seats/count",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Customer.badgeSeats.findById() instead.
-            "::findById::Customer::badgeSeats": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Customers/:id/badgeSeats/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Customer.badgeSeats.destroyById() instead.
-            "::destroyById::Customer::badgeSeats": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Customers/:id/badgeSeats/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Customer.badgeSeats.updateById() instead.
-            "::updateById::Customer::badgeSeats": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Customers/:id/badgeSeats/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Customer.badgeSeats() instead.
-            "::get::Customer::badgeSeats": {
-              isArray: true,
-              url: urlBase + "/Customers/:id/badgeSeats",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Customer.badgeSeats.create() instead.
-            "::create::Customer::badgeSeats": {
-              url: urlBase + "/Customers/:id/badgeSeats",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Customer.badgeSeats.createMany() instead.
-            "::createMany::Customer::badgeSeats": {
-              isArray: true,
-              url: urlBase + "/Customers/:id/badgeSeats",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Customer.badgeSeats.destroyAll() instead.
-            "::delete::Customer::badgeSeats": {
-              url: urlBase + "/Customers/:id/badgeSeats",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Customer.badgeSeats.count() instead.
-            "::count::Customer::badgeSeats": {
-              url: urlBase + "/Customers/:id/badgeSeats/count",
-              method: "GET",
             },
           }
         );
@@ -2416,21 +2485,16 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#updateOrCreate
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#patchOrCreate
+             * @methodOf apiServices.Instance
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -2444,19 +2508,49 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `Instance` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Instance#updateOrCreate
+             * @methodOf apiServices.Instance
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Instance` object.)
              * </em>
              */
         R["updateOrCreate"] = R["upsert"];
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#update
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#update
+             * @methodOf apiServices.Instance
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -2482,12 +2576,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#destroyById
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#destroyById
+             * @methodOf apiServices.Instance
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -2505,19 +2599,19 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `Instance` object.)
              * </em>
              */
         R["destroyById"] = R["deleteById"];
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#removeById
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#removeById
+             * @methodOf apiServices.Instance
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -2535,37 +2629,25 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `Instance` object.)
              * </em>
              */
         R["removeById"] = R["deleteById"];
 
-
-        /**
-        * @ngdoc property
-        * @name apiServices.BadgeSeat#modelName
-        * @propertyOf apiServices.BadgeSeat
-        * @description
-        * The name of the model represented by this $resource,
-        * i.e. `BadgeSeat`.
-        */
-        R.modelName = "BadgeSeat";
-
-
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#badge
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#patchAttributes
+             * @methodOf apiServices.Instance
              *
              * @description
              *
-             * Fetches belongsTo relation badge.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             *  - `refresh` – `{boolean=}` -
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -2579,19 +2661,27 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `Badge` object.)
+             * This usually means the response is a `Instance` object.)
              * </em>
              */
-        R.badge = function() {
-          var TargetResource = $injector.get("Badge");
-          var action = TargetResource["::get::BadgeSeat::badge"];
-          return action.apply(R, arguments);
-        };
+        R["patchAttributes"] = R["prototype$updateAttributes"];
+
+
+        /**
+        * @ngdoc property
+        * @name apiServices.Instance#modelName
+        * @propertyOf apiServices.Instance
+        * @description
+        * The name of the model represented by this $resource,
+        * i.e. `Instance`.
+        */
+        R.modelName = "Instance";
+
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#customer
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#customer
+             * @methodOf apiServices.Instance
              *
              * @description
              *
@@ -2620,14 +2710,14 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
         R.customer = function() {
           var TargetResource = $injector.get("Customer");
-          var action = TargetResource["::get::BadgeSeat::customer"];
+          var action = TargetResource["::get::Instance::customer"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name apiServices.BadgeSeat#lastModifiedBy
-             * @methodOf apiServices.BadgeSeat
+             * @name apiServices.Instance#lastModifiedBy
+             * @methodOf apiServices.Instance
              *
              * @description
              *
@@ -2656,7 +2746,971 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
         R.lastModifiedBy = function() {
           var TargetResource = $injector.get("Admin");
-          var action = TargetResource["::get::BadgeSeat::lastModifiedBy"];
+          var action = TargetResource["::get::Instance::lastModifiedBy"];
+          return action.apply(R, arguments);
+        };
+
+
+        return R;
+      }]);
+
+/**
+ * @ngdoc object
+ * @name apiServices.BadgeInstance
+ * @header apiServices.BadgeInstance
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `BadgeInstance` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+  module.factory(
+    "BadgeInstance",
+    [
+      'LoopBackResource', 'LoopBackAuth', '$injector',
+      function(Resource, LoopBackAuth, $injector) {
+        var R = Resource(
+        urlBase + "/BadgeInstances/:id",
+          { 'id': '@id' },
+          {
+
+            // INTERNAL. Use BadgeInstance.badge() instead.
+            "prototype$__get__badge": {
+              url: urlBase + "/BadgeInstances/:id/badge",
+              method: "GET",
+            },
+
+            // INTERNAL. Use BadgeInstance.customer() instead.
+            "prototype$__get__customer": {
+              url: urlBase + "/BadgeInstances/:id/customer",
+              method: "GET",
+            },
+
+            // INTERNAL. Use BadgeInstance.lastModifiedBy() instead.
+            "prototype$__get__lastModifiedBy": {
+              url: urlBase + "/BadgeInstances/:id/lastModifiedBy",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#create
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `BadgeInstance` object.)
+             * </em>
+             */
+            "create": {
+              url: urlBase + "/BadgeInstances",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#createMany
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `BadgeInstance` object.)
+             * </em>
+             */
+            "createMany": {
+              isArray: true,
+              url: urlBase + "/BadgeInstances",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#upsert
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `BadgeInstance` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/BadgeInstances",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#replaceOrCreate
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `BadgeInstance` object.)
+             * </em>
+             */
+            "replaceOrCreate": {
+              url: urlBase + "/BadgeInstances/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#exists
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Check whether a model instance exists in the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `exists` – `{boolean=}` -
+             */
+            "exists": {
+              url: urlBase + "/BadgeInstances/:id/exists",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#findById
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Find a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `filter` – `{object=}` - Filter defining fields and include
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `BadgeInstance` object.)
+             * </em>
+             */
+            "findById": {
+              url: urlBase + "/BadgeInstances/:id",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#replaceById
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `BadgeInstance` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/BadgeInstances/:id/replace",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#find
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Find all instances of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `BadgeInstance` object.)
+             * </em>
+             */
+            "find": {
+              isArray: true,
+              url: urlBase + "/BadgeInstances",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#findOne
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Find first instance of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `BadgeInstance` object.)
+             * </em>
+             */
+            "findOne": {
+              url: urlBase + "/BadgeInstances/findOne",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#updateAll
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+            "updateAll": {
+              url: urlBase + "/BadgeInstances/update",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#deleteById
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `BadgeInstance` object.)
+             * </em>
+             */
+            "deleteById": {
+              url: urlBase + "/BadgeInstances/:id",
+              method: "DELETE",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#count
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Count instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+            "count": {
+              url: urlBase + "/BadgeInstances/count",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#prototype$updateAttributes
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Instance id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `BadgeInstance` object.)
+             * </em>
+             */
+            "prototype$updateAttributes": {
+              url: urlBase + "/BadgeInstances/:id",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#createChangeStream
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Create a change stream.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `changes` – `{ReadableStream=}` -
+             */
+            "createChangeStream": {
+              url: urlBase + "/BadgeInstances/change-stream",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Badge.instances.findById() instead.
+            "::findById::Badge::instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Badges/:id/instances/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Badge.instances.destroyById() instead.
+            "::destroyById::Badge::instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Badges/:id/instances/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Badge.instances.updateById() instead.
+            "::updateById::Badge::instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Badges/:id/instances/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Badge.instances() instead.
+            "::get::Badge::instances": {
+              isArray: true,
+              url: urlBase + "/Badges/:id/instances",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Badge.instances.create() instead.
+            "::create::Badge::instances": {
+              url: urlBase + "/Badges/:id/instances",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Badge.instances.createMany() instead.
+            "::createMany::Badge::instances": {
+              isArray: true,
+              url: urlBase + "/Badges/:id/instances",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Badge.instances.destroyAll() instead.
+            "::delete::Badge::instances": {
+              url: urlBase + "/Badges/:id/instances",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Badge.instances.count() instead.
+            "::count::Badge::instances": {
+              url: urlBase + "/Badges/:id/instances/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Customer.badgeInstances.findById() instead.
+            "::findById::Customer::badgeInstances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Customers/:id/badgeInstances/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Customer.badgeInstances.destroyById() instead.
+            "::destroyById::Customer::badgeInstances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Customers/:id/badgeInstances/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Customer.badgeInstances.updateById() instead.
+            "::updateById::Customer::badgeInstances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Customers/:id/badgeInstances/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Customer.badgeInstances() instead.
+            "::get::Customer::badgeInstances": {
+              isArray: true,
+              url: urlBase + "/Customers/:id/badgeInstances",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Customer.badgeInstances.create() instead.
+            "::create::Customer::badgeInstances": {
+              url: urlBase + "/Customers/:id/badgeInstances",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Customer.badgeInstances.createMany() instead.
+            "::createMany::Customer::badgeInstances": {
+              isArray: true,
+              url: urlBase + "/Customers/:id/badgeInstances",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Customer.badgeInstances.destroyAll() instead.
+            "::delete::Customer::badgeInstances": {
+              url: urlBase + "/Customers/:id/badgeInstances",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Customer.badgeInstances.count() instead.
+            "::count::Customer::badgeInstances": {
+              url: urlBase + "/Customers/:id/badgeInstances/count",
+              method: "GET",
+            },
+          }
+        );
+
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#patchOrCreate
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `BadgeInstance` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#updateOrCreate
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `BadgeInstance` object.)
+             * </em>
+             */
+        R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#update
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+        R["update"] = R["updateAll"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#destroyById
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `BadgeInstance` object.)
+             * </em>
+             */
+        R["destroyById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#removeById
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `BadgeInstance` object.)
+             * </em>
+             */
+        R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#patchAttributes
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Instance id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `BadgeInstance` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
+
+
+        /**
+        * @ngdoc property
+        * @name apiServices.BadgeInstance#modelName
+        * @propertyOf apiServices.BadgeInstance
+        * @description
+        * The name of the model represented by this $resource,
+        * i.e. `BadgeInstance`.
+        */
+        R.modelName = "BadgeInstance";
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#badge
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Fetches belongsTo relation badge.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Instance id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Badge` object.)
+             * </em>
+             */
+        R.badge = function() {
+          var TargetResource = $injector.get("Badge");
+          var action = TargetResource["::get::BadgeInstance::badge"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#customer
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Fetches belongsTo relation customer.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Instance id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Customer` object.)
+             * </em>
+             */
+        R.customer = function() {
+          var TargetResource = $injector.get("Customer");
+          var action = TargetResource["::get::BadgeInstance::customer"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.BadgeInstance#lastModifiedBy
+             * @methodOf apiServices.BadgeInstance
+             *
+             * @description
+             *
+             * Fetches belongsTo relation lastModifiedBy.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Instance id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Admin` object.)
+             * </em>
+             */
+        R.lastModifiedBy = function() {
+          var TargetResource = $injector.get("Admin");
+          var action = TargetResource["::get::BadgeInstance::lastModifiedBy"];
           return action.apply(R, arguments);
         };
 
@@ -2806,30 +3860,30 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "PUT",
             },
 
-            // INTERNAL. Use Customer.badgeSeats.findById() instead.
-            "prototype$__findById__badgeSeats": {
+            // INTERNAL. Use Customer.badgeInstances.findById() instead.
+            "prototype$__findById__badgeInstances": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/Customers/:id/badgeSeats/:fk",
+              url: urlBase + "/Customers/:id/badgeInstances/:fk",
               method: "GET",
             },
 
-            // INTERNAL. Use Customer.badgeSeats.destroyById() instead.
-            "prototype$__destroyById__badgeSeats": {
+            // INTERNAL. Use Customer.badgeInstances.destroyById() instead.
+            "prototype$__destroyById__badgeInstances": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/Customers/:id/badgeSeats/:fk",
+              url: urlBase + "/Customers/:id/badgeInstances/:fk",
               method: "DELETE",
             },
 
-            // INTERNAL. Use Customer.badgeSeats.updateById() instead.
-            "prototype$__updateById__badgeSeats": {
+            // INTERNAL. Use Customer.badgeInstances.updateById() instead.
+            "prototype$__updateById__badgeInstances": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/Customers/:id/badgeSeats/:fk",
+              url: urlBase + "/Customers/:id/badgeInstances/:fk",
               method: "PUT",
             },
 
@@ -2887,118 +3941,36 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "HEAD",
             },
 
-            /**
-             * @ngdoc method
-             * @name apiServices.Customer#prototype$__findById__levelSeats
-             * @methodOf apiServices.Customer
-             *
-             * @description
-             *
-             * Find a related item by id for levelSeats.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - User id
-             *
-             *  - `fk` – `{*}` - Foreign key for levelSeats
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Customer` object.)
-             * </em>
-             */
-            "prototype$__findById__levelSeats": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Customers/:id/levelSeats/:fk",
+            // INTERNAL. Use Customer.product() instead.
+            "prototype$__get__product": {
+              url: urlBase + "/Customers/:id/product",
               method: "GET",
             },
 
-            /**
-             * @ngdoc method
-             * @name apiServices.Customer#prototype$__destroyById__levelSeats
-             * @methodOf apiServices.Customer
-             *
-             * @description
-             *
-             * Delete a related item by id for levelSeats.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - User id
-             *
-             *  - `fk` – `{*}` - Foreign key for levelSeats
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            "prototype$__destroyById__levelSeats": {
+            // INTERNAL. Use Customer.scoreUnitInstances.findById() instead.
+            "prototype$__findById__scoreUnitInstances": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/Customers/:id/levelSeats/:fk",
+              url: urlBase + "/Customers/:id/scoreUnitInstances/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Customer.scoreUnitInstances.destroyById() instead.
+            "prototype$__destroyById__scoreUnitInstances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Customers/:id/scoreUnitInstances/:fk",
               method: "DELETE",
             },
 
-            /**
-             * @ngdoc method
-             * @name apiServices.Customer#prototype$__updateById__levelSeats
-             * @methodOf apiServices.Customer
-             *
-             * @description
-             *
-             * Update a related item by id for levelSeats.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - User id
-             *
-             *  - `fk` – `{*}` - Foreign key for levelSeats
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Customer` object.)
-             * </em>
-             */
-            "prototype$__updateById__levelSeats": {
+            // INTERNAL. Use Customer.scoreUnitInstances.updateById() instead.
+            "prototype$__updateById__scoreUnitInstances": {
               params: {
                 'fk': '@fk',
               },
-              url: urlBase + "/Customers/:id/levelSeats/:fk",
+              url: urlBase + "/Customers/:id/scoreUnitInstances/:fk",
               method: "PUT",
             },
 
@@ -3280,28 +4252,28 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            // INTERNAL. Use Customer.badgeSeats() instead.
-            "prototype$__get__badgeSeats": {
+            // INTERNAL. Use Customer.badgeInstances() instead.
+            "prototype$__get__badgeInstances": {
               isArray: true,
-              url: urlBase + "/Customers/:id/badgeSeats",
+              url: urlBase + "/Customers/:id/badgeInstances",
               method: "GET",
             },
 
-            // INTERNAL. Use Customer.badgeSeats.create() instead.
-            "prototype$__create__badgeSeats": {
-              url: urlBase + "/Customers/:id/badgeSeats",
+            // INTERNAL. Use Customer.badgeInstances.create() instead.
+            "prototype$__create__badgeInstances": {
+              url: urlBase + "/Customers/:id/badgeInstances",
               method: "POST",
             },
 
-            // INTERNAL. Use Customer.badgeSeats.destroyAll() instead.
-            "prototype$__delete__badgeSeats": {
-              url: urlBase + "/Customers/:id/badgeSeats",
+            // INTERNAL. Use Customer.badgeInstances.destroyAll() instead.
+            "prototype$__delete__badgeInstances": {
+              url: urlBase + "/Customers/:id/badgeInstances",
               method: "DELETE",
             },
 
-            // INTERNAL. Use Customer.badgeSeats.count() instead.
-            "prototype$__count__badgeSeats": {
-              url: urlBase + "/Customers/:id/badgeSeats/count",
+            // INTERNAL. Use Customer.badgeInstances.count() instead.
+            "prototype$__count__badgeInstances": {
+              url: urlBase + "/Customers/:id/badgeInstances/count",
               method: "GET",
             },
 
@@ -3330,140 +4302,28 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            /**
-             * @ngdoc method
-             * @name apiServices.Customer#prototype$__get__levelSeats
-             * @methodOf apiServices.Customer
-             *
-             * @description
-             *
-             * Queries levelSeats of Customer.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - User id
-             *
-             *  - `filter` – `{object=}` -
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Customer` object.)
-             * </em>
-             */
-            "prototype$__get__levelSeats": {
+            // INTERNAL. Use Customer.scoreUnitInstances() instead.
+            "prototype$__get__scoreUnitInstances": {
               isArray: true,
-              url: urlBase + "/Customers/:id/levelSeats",
+              url: urlBase + "/Customers/:id/scoreUnitInstances",
               method: "GET",
             },
 
-            /**
-             * @ngdoc method
-             * @name apiServices.Customer#prototype$__create__levelSeats
-             * @methodOf apiServices.Customer
-             *
-             * @description
-             *
-             * Creates a new instance in levelSeats of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - User id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Customer` object.)
-             * </em>
-             */
-            "prototype$__create__levelSeats": {
-              url: urlBase + "/Customers/:id/levelSeats",
+            // INTERNAL. Use Customer.scoreUnitInstances.create() instead.
+            "prototype$__create__scoreUnitInstances": {
+              url: urlBase + "/Customers/:id/scoreUnitInstances",
               method: "POST",
             },
 
-            /**
-             * @ngdoc method
-             * @name apiServices.Customer#prototype$__delete__levelSeats
-             * @methodOf apiServices.Customer
-             *
-             * @description
-             *
-             * Deletes all levelSeats of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - User id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            "prototype$__delete__levelSeats": {
-              url: urlBase + "/Customers/:id/levelSeats",
+            // INTERNAL. Use Customer.scoreUnitInstances.destroyAll() instead.
+            "prototype$__delete__scoreUnitInstances": {
+              url: urlBase + "/Customers/:id/scoreUnitInstances",
               method: "DELETE",
             },
 
-            /**
-             * @ngdoc method
-             * @name apiServices.Customer#prototype$__count__levelSeats
-             * @methodOf apiServices.Customer
-             *
-             * @description
-             *
-             * Counts levelSeats of Customer.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - User id
-             *
-             *  - `where` – `{object=}` - Criteria to match model instances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `count` – `{number=}` -
-             */
-            "prototype$__count__levelSeats": {
-              url: urlBase + "/Customers/:id/levelSeats/count",
+            // INTERNAL. Use Customer.scoreUnitInstances.count() instead.
+            "prototype$__count__scoreUnitInstances": {
+              url: urlBase + "/Customers/:id/scoreUnitInstances/count",
               method: "GET",
             },
 
@@ -3626,7 +4486,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Customer` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Customers",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Customer#replaceOrCreate
+             * @methodOf apiServices.Customer
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -3652,9 +4545,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Customer` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/Customers",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/Customers/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -3696,7 +4589,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -3722,6 +4615,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/Customers/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Customer#replaceById
+             * @methodOf apiServices.Customer
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Customer` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Customers/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -3798,7 +4728,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -3832,7 +4762,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -3897,15 +4827,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - User id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -3924,7 +4852,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/Customers/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -3998,7 +4926,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * The response body contains properties of the AccessToken created on login.
              * Depending on the value of `include` parameter, the body may contain additional properties:
-             *   - `user` - `{User}` - Data of the currently logged in user. (`include=user`)
+             *   - `user` - `U+007BUserU+007D` - Data of the currently logged in user. (`include=user`)
              *
              */
             "login": {
@@ -4138,6 +5066,45 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name apiServices.Customer#prototype$triggerAsHim
+             * @methodOf apiServices.Customer
+             *
+             * @description
+             *
+             * <em>
+             * (The remote method definition does not provide any description.)
+             * </em>
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `trigger` – `{Object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Customer` object.)
+             * </em>
+             */
+            "prototype$triggerAsHim": {
+              url: urlBase + "/Customers/:id/triggerAsHim",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
              * @name apiServices.Customer#prototype$giveScoreUnits
              * @methodOf apiServices.Customer
              *
@@ -4264,107 +5231,21 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            // INTERNAL. Use BadgeSeat.customer() instead.
-            "::get::BadgeSeat::customer": {
-              url: urlBase + "/BadgeSeats/:id/customer",
+            // INTERNAL. Use Instance.customer() instead.
+            "::get::Instance::customer": {
+              url: urlBase + "/Instances/:id/customer",
+              method: "GET",
+            },
+
+            // INTERNAL. Use BadgeInstance.customer() instead.
+            "::get::BadgeInstance::customer": {
+              url: urlBase + "/BadgeInstances/:id/customer",
               method: "GET",
             },
 
             // INTERNAL. Use Event.customer() instead.
             "::get::Event::customer": {
               url: urlBase + "/Events/:id/customer",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Level.customers.findById() instead.
-            "::findById::Level::customers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Levels/:id/customers/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Level.customers.destroyById() instead.
-            "::destroyById::Level::customers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Levels/:id/customers/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Level.customers.updateById() instead.
-            "::updateById::Level::customers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Levels/:id/customers/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Level.customers.link() instead.
-            "::link::Level::customers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Levels/:id/customers/rel/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Level.customers.unlink() instead.
-            "::unlink::Level::customers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Levels/:id/customers/rel/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Level.customers.exists() instead.
-            "::exists::Level::customers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Levels/:id/customers/rel/:fk",
-              method: "HEAD",
-            },
-
-            // INTERNAL. Use Level.customers() instead.
-            "::get::Level::customers": {
-              isArray: true,
-              url: urlBase + "/Levels/:id/customers",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Level.customers.create() instead.
-            "::create::Level::customers": {
-              url: urlBase + "/Levels/:id/customers",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Level.customers.createMany() instead.
-            "::createMany::Level::customers": {
-              isArray: true,
-              url: urlBase + "/Levels/:id/customers",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Level.customers.destroyAll() instead.
-            "::delete::Level::customers": {
-              url: urlBase + "/Levels/:id/customers",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Level.customers.count() instead.
-            "::count::Level::customers": {
-              url: urlBase + "/Levels/:id/customers/count",
-              method: "GET",
-            },
-
-            // INTERNAL. Use RankingSeat.customer() instead.
-            "::get::RankingSeat::customer": {
-              url: urlBase + "/RankingSeats/:id/customer",
               method: "GET",
             },
 
@@ -4377,6 +5258,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             // INTERNAL. Use ScoreUnitSeat.customer() instead.
             "::get::ScoreUnitSeat::customer": {
               url: urlBase + "/ScoreUnitSeats/:id/customer",
+              method: "GET",
+            },
+
+            // INTERNAL. Use ScoreUnitInstance.customer() instead.
+            "::get::ScoreUnitInstance::customer": {
+              url: urlBase + "/ScoreUnitInstances/:id/customer",
               method: "GET",
             },
 
@@ -4431,21 +5318,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name apiServices.Customer#patchOrCreate
+             * @methodOf apiServices.Customer
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Customer` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
              * @name apiServices.Customer#updateOrCreate
              * @methodOf apiServices.Customer
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -4471,7 +5383,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -4502,7 +5414,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -4532,7 +5444,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -4554,6 +5466,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Customer#patchAttributes
+             * @methodOf apiServices.Customer
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Customer` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
         /**
          * @ngdoc method
@@ -4609,27 +5553,27 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
     /**
      * @ngdoc object
-     * @name apiServices.Customer.badgeSeats
-     * @header apiServices.Customer.badgeSeats
+     * @name apiServices.Customer.badgeInstances
+     * @header apiServices.Customer.badgeInstances
      * @object
      * @description
      *
-     * The object `Customer.badgeSeats` groups methods
-     * manipulating `BadgeSeat` instances related to `Customer`.
+     * The object `Customer.badgeInstances` groups methods
+     * manipulating `BadgeInstance` instances related to `Customer`.
      *
-     * Call {@link apiServices.Customer#badgeSeats Customer.badgeSeats()}
+     * Call {@link apiServices.Customer#badgeInstances Customer.badgeInstances()}
      * to query all related instances.
      */
 
 
             /**
              * @ngdoc method
-             * @name apiServices.Customer#badgeSeats
+             * @name apiServices.Customer#badgeInstances
              * @methodOf apiServices.Customer
              *
              * @description
              *
-             * Queries badgeSeats of Customer.
+             * Queries badgeInstances of Customer.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -4649,23 +5593,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `BadgeInstance` object.)
              * </em>
              */
-        R.badgeSeats = function() {
-          var TargetResource = $injector.get("BadgeSeat");
-          var action = TargetResource["::get::Customer::badgeSeats"];
+        R.badgeInstances = function() {
+          var TargetResource = $injector.get("BadgeInstance");
+          var action = TargetResource["::get::Customer::badgeInstances"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name apiServices.Customer.badgeSeats#count
-             * @methodOf apiServices.Customer.badgeSeats
+             * @name apiServices.Customer.badgeInstances#count
+             * @methodOf apiServices.Customer.badgeInstances
              *
              * @description
              *
-             * Counts badgeSeats of Customer.
+             * Counts badgeInstances of Customer.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -4687,20 +5631,20 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              *  - `count` – `{number=}` -
              */
-        R.badgeSeats.count = function() {
-          var TargetResource = $injector.get("BadgeSeat");
-          var action = TargetResource["::count::Customer::badgeSeats"];
+        R.badgeInstances.count = function() {
+          var TargetResource = $injector.get("BadgeInstance");
+          var action = TargetResource["::count::Customer::badgeInstances"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name apiServices.Customer.badgeSeats#create
-             * @methodOf apiServices.Customer.badgeSeats
+             * @name apiServices.Customer.badgeInstances#create
+             * @methodOf apiServices.Customer.badgeInstances
              *
              * @description
              *
-             * Creates a new instance in badgeSeats of this model.
+             * Creates a new instance in badgeInstances of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -4722,23 +5666,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `BadgeInstance` object.)
              * </em>
              */
-        R.badgeSeats.create = function() {
-          var TargetResource = $injector.get("BadgeSeat");
-          var action = TargetResource["::create::Customer::badgeSeats"];
+        R.badgeInstances.create = function() {
+          var TargetResource = $injector.get("BadgeInstance");
+          var action = TargetResource["::create::Customer::badgeInstances"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name apiServices.Customer.badgeSeats#createMany
-             * @methodOf apiServices.Customer.badgeSeats
+             * @name apiServices.Customer.badgeInstances#createMany
+             * @methodOf apiServices.Customer.badgeInstances
              *
              * @description
              *
-             * Creates a new instance in badgeSeats of this model.
+             * Creates a new instance in badgeInstances of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -4760,23 +5704,23 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `BadgeInstance` object.)
              * </em>
              */
-        R.badgeSeats.createMany = function() {
-          var TargetResource = $injector.get("BadgeSeat");
-          var action = TargetResource["::createMany::Customer::badgeSeats"];
+        R.badgeInstances.createMany = function() {
+          var TargetResource = $injector.get("BadgeInstance");
+          var action = TargetResource["::createMany::Customer::badgeInstances"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name apiServices.Customer.badgeSeats#destroyAll
-             * @methodOf apiServices.Customer.badgeSeats
+             * @name apiServices.Customer.badgeInstances#destroyAll
+             * @methodOf apiServices.Customer.badgeInstances
              *
              * @description
              *
-             * Deletes all badgeSeats of this model.
+             * Deletes all badgeInstances of this model.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -4794,26 +5738,26 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * This method returns no data.
              */
-        R.badgeSeats.destroyAll = function() {
-          var TargetResource = $injector.get("BadgeSeat");
-          var action = TargetResource["::delete::Customer::badgeSeats"];
+        R.badgeInstances.destroyAll = function() {
+          var TargetResource = $injector.get("BadgeInstance");
+          var action = TargetResource["::delete::Customer::badgeInstances"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name apiServices.Customer.badgeSeats#destroyById
-             * @methodOf apiServices.Customer.badgeSeats
+             * @name apiServices.Customer.badgeInstances#destroyById
+             * @methodOf apiServices.Customer.badgeInstances
              *
              * @description
              *
-             * Delete a related item by id for badgeSeats.
+             * Delete a related item by id for badgeInstances.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - User id
              *
-             *  - `fk` – `{*}` - Foreign key for badgeSeats
+             *  - `fk` – `{*}` - Foreign key for badgeInstances
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -4827,26 +5771,26 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * This method returns no data.
              */
-        R.badgeSeats.destroyById = function() {
-          var TargetResource = $injector.get("BadgeSeat");
-          var action = TargetResource["::destroyById::Customer::badgeSeats"];
+        R.badgeInstances.destroyById = function() {
+          var TargetResource = $injector.get("BadgeInstance");
+          var action = TargetResource["::destroyById::Customer::badgeInstances"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name apiServices.Customer.badgeSeats#findById
-             * @methodOf apiServices.Customer.badgeSeats
+             * @name apiServices.Customer.badgeInstances#findById
+             * @methodOf apiServices.Customer.badgeInstances
              *
              * @description
              *
-             * Find a related item by id for badgeSeats.
+             * Find a related item by id for badgeInstances.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - User id
              *
-             *  - `fk` – `{*}` - Foreign key for badgeSeats
+             *  - `fk` – `{*}` - Foreign key for badgeInstances
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -4860,29 +5804,29 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `BadgeInstance` object.)
              * </em>
              */
-        R.badgeSeats.findById = function() {
-          var TargetResource = $injector.get("BadgeSeat");
-          var action = TargetResource["::findById::Customer::badgeSeats"];
+        R.badgeInstances.findById = function() {
+          var TargetResource = $injector.get("BadgeInstance");
+          var action = TargetResource["::findById::Customer::badgeInstances"];
           return action.apply(R, arguments);
         };
 
             /**
              * @ngdoc method
-             * @name apiServices.Customer.badgeSeats#updateById
-             * @methodOf apiServices.Customer.badgeSeats
+             * @name apiServices.Customer.badgeInstances#updateById
+             * @methodOf apiServices.Customer.badgeInstances
              *
              * @description
              *
-             * Update a related item by id for badgeSeats.
+             * Update a related item by id for badgeInstances.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - User id
              *
-             *  - `fk` – `{*}` - Foreign key for badgeSeats
+             *  - `fk` – `{*}` - Foreign key for badgeInstances
              *
              * @param {Object} postData Request data.
              *
@@ -4900,12 +5844,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * <em>
              * (The remote method definition does not provide any description.
-             * This usually means the response is a `BadgeSeat` object.)
+             * This usually means the response is a `BadgeInstance` object.)
              * </em>
              */
-        R.badgeSeats.updateById = function() {
-          var TargetResource = $injector.get("BadgeSeat");
-          var action = TargetResource["::updateById::Customer::badgeSeats"];
+        R.badgeInstances.updateById = function() {
+          var TargetResource = $injector.get("BadgeInstance");
+          var action = TargetResource["::updateById::Customer::badgeInstances"];
           return action.apply(R, arguments);
         };
     /**
@@ -5316,6 +6260,343 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         R.badges.updateById = function() {
           var TargetResource = $injector.get("Badge");
           var action = TargetResource["::updateById::Customer::badges"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Customer#product
+             * @methodOf apiServices.Customer
+             *
+             * @description
+             *
+             * Fetches belongsTo relation product.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Product` object.)
+             * </em>
+             */
+        R.product = function() {
+          var TargetResource = $injector.get("Product");
+          var action = TargetResource["::get::Customer::product"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name apiServices.Customer.scoreUnitInstances
+     * @header apiServices.Customer.scoreUnitInstances
+     * @object
+     * @description
+     *
+     * The object `Customer.scoreUnitInstances` groups methods
+     * manipulating `ScoreUnitInstance` instances related to `Customer`.
+     *
+     * Call {@link apiServices.Customer#scoreUnitInstances Customer.scoreUnitInstances()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Customer#scoreUnitInstances
+             * @methodOf apiServices.Customer
+             *
+             * @description
+             *
+             * Queries scoreUnitInstances of Customer.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R.scoreUnitInstances = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::get::Customer::scoreUnitInstances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Customer.scoreUnitInstances#count
+             * @methodOf apiServices.Customer.scoreUnitInstances
+             *
+             * @description
+             *
+             * Counts scoreUnitInstances of Customer.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.scoreUnitInstances.count = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::count::Customer::scoreUnitInstances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Customer.scoreUnitInstances#create
+             * @methodOf apiServices.Customer.scoreUnitInstances
+             *
+             * @description
+             *
+             * Creates a new instance in scoreUnitInstances of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R.scoreUnitInstances.create = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::create::Customer::scoreUnitInstances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Customer.scoreUnitInstances#createMany
+             * @methodOf apiServices.Customer.scoreUnitInstances
+             *
+             * @description
+             *
+             * Creates a new instance in scoreUnitInstances of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R.scoreUnitInstances.createMany = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::createMany::Customer::scoreUnitInstances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Customer.scoreUnitInstances#destroyAll
+             * @methodOf apiServices.Customer.scoreUnitInstances
+             *
+             * @description
+             *
+             * Deletes all scoreUnitInstances of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.scoreUnitInstances.destroyAll = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::delete::Customer::scoreUnitInstances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Customer.scoreUnitInstances#destroyById
+             * @methodOf apiServices.Customer.scoreUnitInstances
+             *
+             * @description
+             *
+             * Delete a related item by id for scoreUnitInstances.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `fk` – `{*}` - Foreign key for scoreUnitInstances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.scoreUnitInstances.destroyById = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::destroyById::Customer::scoreUnitInstances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Customer.scoreUnitInstances#findById
+             * @methodOf apiServices.Customer.scoreUnitInstances
+             *
+             * @description
+             *
+             * Find a related item by id for scoreUnitInstances.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `fk` – `{*}` - Foreign key for scoreUnitInstances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R.scoreUnitInstances.findById = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::findById::Customer::scoreUnitInstances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Customer.scoreUnitInstances#updateById
+             * @methodOf apiServices.Customer.scoreUnitInstances
+             *
+             * @description
+             *
+             * Update a related item by id for scoreUnitInstances.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `fk` – `{*}` - Foreign key for scoreUnitInstances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R.scoreUnitInstances.updateById = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::updateById::Customer::scoreUnitInstances"];
           return action.apply(R, arguments);
         };
     /**
@@ -6622,6 +7903,33 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "PUT",
             },
 
+            // INTERNAL. Use Admin.ownedProducts.findById() instead.
+            "prototype$__findById__ownedProducts": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Admins/:id/ownedProducts/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Admin.ownedProducts.destroyById() instead.
+            "prototype$__destroyById__ownedProducts": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Admins/:id/ownedProducts/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Admin.ownedProducts.updateById() instead.
+            "prototype$__updateById__ownedProducts": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Admins/:id/ownedProducts/:fk",
+              method: "PUT",
+            },
+
             // INTERNAL. Use Admin.products.findById() instead.
             "prototype$__findById__products": {
               params: {
@@ -6846,6 +8154,31 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
+            // INTERNAL. Use Admin.ownedProducts() instead.
+            "prototype$__get__ownedProducts": {
+              isArray: true,
+              url: urlBase + "/Admins/:id/ownedProducts",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Admin.ownedProducts.create() instead.
+            "prototype$__create__ownedProducts": {
+              url: urlBase + "/Admins/:id/ownedProducts",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Admin.ownedProducts.destroyAll() instead.
+            "prototype$__delete__ownedProducts": {
+              url: urlBase + "/Admins/:id/ownedProducts",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Admin.ownedProducts.count() instead.
+            "prototype$__count__ownedProducts": {
+              url: urlBase + "/Admins/:id/ownedProducts/count",
+              method: "GET",
+            },
+
             // INTERNAL. Use Admin.products() instead.
             "prototype$__get__products": {
               isArray: true,
@@ -6980,7 +8313,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Admin` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Admins",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Admin#replaceOrCreate
+             * @methodOf apiServices.Admin
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -7006,9 +8372,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Admin` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/Admins",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/Admins/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -7050,7 +8416,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -7076,6 +8442,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/Admins/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Admin#replaceById
+             * @methodOf apiServices.Admin
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Admin` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Admins/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -7152,7 +8555,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -7186,7 +8589,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -7251,15 +8654,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - User id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -7278,7 +8679,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/Admins/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -7352,7 +8753,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * The response body contains properties of the AccessToken created on login.
              * Depending on the value of `include` parameter, the body may contain additional properties:
-             *   - `user` - `{User}` - Data of the currently logged in user. (`include=user`)
+             *   - `user` - `U+007BUserU+007D` - Data of the currently logged in user. (`include=user`)
              *
              */
             "login": {
@@ -7496,9 +8897,15 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            // INTERNAL. Use BadgeSeat.lastModifiedBy() instead.
-            "::get::BadgeSeat::lastModifiedBy": {
-              url: urlBase + "/BadgeSeats/:id/lastModifiedBy",
+            // INTERNAL. Use Instance.lastModifiedBy() instead.
+            "::get::Instance::lastModifiedBy": {
+              url: urlBase + "/Instances/:id/lastModifiedBy",
+              method: "GET",
+            },
+
+            // INTERNAL. Use BadgeInstance.lastModifiedBy() instead.
+            "::get::BadgeInstance::lastModifiedBy": {
+              url: urlBase + "/BadgeInstances/:id/lastModifiedBy",
               method: "GET",
             },
 
@@ -7642,6 +9049,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
+            // INTERNAL. Use Coupon.lastModifiedBy() instead.
+            "::get::Coupon::lastModifiedBy": {
+              url: urlBase + "/Coupons/:id/lastModifiedBy",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Unlock.lastModifiedBy() instead.
+            "::get::Unlock::lastModifiedBy": {
+              url: urlBase + "/Unlocks/:id/lastModifiedBy",
+              method: "GET",
+            },
+
             // INTERNAL. Use Level.lastModifiedBy() instead.
             "::get::Level::lastModifiedBy": {
               url: urlBase + "/Levels/:id/lastModifiedBy",
@@ -7654,15 +9073,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            // INTERNAL. Use Ranking.lastModifiedBy() instead.
-            "::get::Ranking::lastModifiedBy": {
-              url: urlBase + "/Rankings/:id/lastModifiedBy",
-              method: "GET",
-            },
-
-            // INTERNAL. Use RankingSeat.lastModifiedBy() instead.
-            "::get::RankingSeat::lastModifiedBy": {
-              url: urlBase + "/RankingSeats/:id/lastModifiedBy",
+            // INTERNAL. Use Rule.lastModifiedBy() instead.
+            "::get::Rule::lastModifiedBy": {
+              url: urlBase + "/Rules/:id/lastModifiedBy",
               method: "GET",
             },
 
@@ -7702,6 +9115,12 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
+            // INTERNAL. Use ScoreUnitInstance.lastModifiedBy() instead.
+            "::get::ScoreUnitInstance::lastModifiedBy": {
+              url: urlBase + "/ScoreUnitInstances/:id/lastModifiedBy",
+              method: "GET",
+            },
+
             // INTERNAL. Use Segment.lastModifiedBy() instead.
             "::get::Segment::lastModifiedBy": {
               url: urlBase + "/Segments/:id/lastModifiedBy",
@@ -7735,6 +9154,18 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             // INTERNAL. Use QuestInstance.lastModifiedBy() instead.
             "::get::QuestInstance::lastModifiedBy": {
               url: urlBase + "/QuestInstances/:id/lastModifiedBy",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Log.lastModifiedBy() instead.
+            "::get::Log::lastModifiedBy": {
+              url: urlBase + "/Logs/:id/lastModifiedBy",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Widget.lastModifiedBy() instead.
+            "::get::Widget::lastModifiedBy": {
+              url: urlBase + "/Widgets/:id/lastModifiedBy",
               method: "GET",
             },
 
@@ -7783,21 +9214,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name apiServices.Admin#patchOrCreate
+             * @methodOf apiServices.Admin
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Admin` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
              * @name apiServices.Admin#updateOrCreate
              * @methodOf apiServices.Admin
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -7823,7 +9279,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -7854,7 +9310,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -7884,7 +9340,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -7906,6 +9362,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Admin#patchAttributes
+             * @methodOf apiServices.Admin
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Admin` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
         /**
          * @ngdoc method
@@ -7959,6 +9447,307 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         */
         R.modelName = "Admin";
 
+    /**
+     * @ngdoc object
+     * @name apiServices.Admin.ownedProducts
+     * @header apiServices.Admin.ownedProducts
+     * @object
+     * @description
+     *
+     * The object `Admin.ownedProducts` groups methods
+     * manipulating `Product` instances related to `Admin`.
+     *
+     * Call {@link apiServices.Admin#ownedProducts Admin.ownedProducts()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Admin#ownedProducts
+             * @methodOf apiServices.Admin
+             *
+             * @description
+             *
+             * Queries ownedProducts of Admin.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Product` object.)
+             * </em>
+             */
+        R.ownedProducts = function() {
+          var TargetResource = $injector.get("Product");
+          var action = TargetResource["::get::Admin::ownedProducts"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Admin.ownedProducts#count
+             * @methodOf apiServices.Admin.ownedProducts
+             *
+             * @description
+             *
+             * Counts ownedProducts of Admin.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.ownedProducts.count = function() {
+          var TargetResource = $injector.get("Product");
+          var action = TargetResource["::count::Admin::ownedProducts"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Admin.ownedProducts#create
+             * @methodOf apiServices.Admin.ownedProducts
+             *
+             * @description
+             *
+             * Creates a new instance in ownedProducts of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Product` object.)
+             * </em>
+             */
+        R.ownedProducts.create = function() {
+          var TargetResource = $injector.get("Product");
+          var action = TargetResource["::create::Admin::ownedProducts"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Admin.ownedProducts#createMany
+             * @methodOf apiServices.Admin.ownedProducts
+             *
+             * @description
+             *
+             * Creates a new instance in ownedProducts of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Product` object.)
+             * </em>
+             */
+        R.ownedProducts.createMany = function() {
+          var TargetResource = $injector.get("Product");
+          var action = TargetResource["::createMany::Admin::ownedProducts"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Admin.ownedProducts#destroyAll
+             * @methodOf apiServices.Admin.ownedProducts
+             *
+             * @description
+             *
+             * Deletes all ownedProducts of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.ownedProducts.destroyAll = function() {
+          var TargetResource = $injector.get("Product");
+          var action = TargetResource["::delete::Admin::ownedProducts"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Admin.ownedProducts#destroyById
+             * @methodOf apiServices.Admin.ownedProducts
+             *
+             * @description
+             *
+             * Delete a related item by id for ownedProducts.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `fk` – `{*}` - Foreign key for ownedProducts
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.ownedProducts.destroyById = function() {
+          var TargetResource = $injector.get("Product");
+          var action = TargetResource["::destroyById::Admin::ownedProducts"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Admin.ownedProducts#findById
+             * @methodOf apiServices.Admin.ownedProducts
+             *
+             * @description
+             *
+             * Find a related item by id for ownedProducts.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `fk` – `{*}` - Foreign key for ownedProducts
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Product` object.)
+             * </em>
+             */
+        R.ownedProducts.findById = function() {
+          var TargetResource = $injector.get("Product");
+          var action = TargetResource["::findById::Admin::ownedProducts"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Admin.ownedProducts#updateById
+             * @methodOf apiServices.Admin.ownedProducts
+             *
+             * @description
+             *
+             * Update a related item by id for ownedProducts.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - User id
+             *
+             *  - `fk` – `{*}` - Foreign key for ownedProducts
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Product` object.)
+             * </em>
+             */
+        R.ownedProducts.updateById = function() {
+          var TargetResource = $injector.get("Product");
+          var action = TargetResource["::updateById::Admin::ownedProducts"];
+          return action.apply(R, arguments);
+        };
     /**
      * @ngdoc object
      * @name apiServices.Admin.products
@@ -8825,33 +10614,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "HEAD",
             },
 
-            // INTERNAL. Use Product.scoreUnit.findById() instead.
-            "prototype$__findById__scoreUnit": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Products/:id/scoreUnit/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Product.scoreUnit.destroyById() instead.
-            "prototype$__destroyById__scoreUnit": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Products/:id/scoreUnit/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Product.scoreUnit.updateById() instead.
-            "prototype$__updateById__scoreUnit": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Products/:id/scoreUnit/:fk",
-              method: "PUT",
-            },
-
             // INTERNAL. Use Product.lastModifiedBy() instead.
             "prototype$__get__lastModifiedBy": {
               url: urlBase + "/Products/:id/lastModifiedBy",
@@ -8905,31 +10667,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             // INTERNAL. Use Product.admins.count() instead.
             "prototype$__count__admins": {
               url: urlBase + "/Products/:id/admins/count",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Product.scoreUnit() instead.
-            "prototype$__get__scoreUnit": {
-              isArray: true,
-              url: urlBase + "/Products/:id/scoreUnit",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Product.scoreUnit.create() instead.
-            "prototype$__create__scoreUnit": {
-              url: urlBase + "/Products/:id/scoreUnit",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Product.scoreUnit.destroyAll() instead.
-            "prototype$__delete__scoreUnit": {
-              url: urlBase + "/Products/:id/scoreUnit",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Product.scoreUnit.count() instead.
-            "prototype$__count__scoreUnit": {
-              url: urlBase + "/Products/:id/scoreUnit/count",
               method: "GET",
             },
 
@@ -9017,7 +10754,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Product` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Products",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Product#replaceOrCreate
+             * @methodOf apiServices.Product
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -9043,9 +10813,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Product` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/Products",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/Products/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -9087,7 +10857,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -9113,6 +10883,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/Products/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Product#replaceById
+             * @methodOf apiServices.Product
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Product` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Products/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -9189,7 +10996,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -9223,7 +11030,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -9288,15 +11095,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -9315,7 +11120,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/Products/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -9353,6 +11158,78 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "createChangeStream": {
               url: urlBase + "/Products/change-stream",
               method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Product#prototype$generateNewApiSecret
+             * @methodOf apiServices.Product
+             *
+             * @description
+             *
+             * <em>
+             * (The remote method definition does not provide any description.)
+             * </em>
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method does not accept any data. Supply an empty object.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `apiSecret` – `{string=}` -
+             */
+            "prototype$generateNewApiSecret": {
+              url: urlBase + "/Products/:id/generateNewApiSecret",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Customer.product() instead.
+            "::get::Customer::product": {
+              url: urlBase + "/Customers/:id/product",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Admin.ownedProducts.findById() instead.
+            "::findById::Admin::ownedProducts": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Admins/:id/ownedProducts/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Admin.ownedProducts.destroyById() instead.
+            "::destroyById::Admin::ownedProducts": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Admins/:id/ownedProducts/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Admin.ownedProducts.updateById() instead.
+            "::updateById::Admin::ownedProducts": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Admins/:id/ownedProducts/:fk",
+              method: "PUT",
             },
 
             // INTERNAL. Use Admin.products.findById() instead.
@@ -9409,6 +11286,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "HEAD",
             },
 
+            // INTERNAL. Use Admin.ownedProducts() instead.
+            "::get::Admin::ownedProducts": {
+              isArray: true,
+              url: urlBase + "/Admins/:id/ownedProducts",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Admin.ownedProducts.create() instead.
+            "::create::Admin::ownedProducts": {
+              url: urlBase + "/Admins/:id/ownedProducts",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Admin.ownedProducts.createMany() instead.
+            "::createMany::Admin::ownedProducts": {
+              isArray: true,
+              url: urlBase + "/Admins/:id/ownedProducts",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Admin.ownedProducts.destroyAll() instead.
+            "::delete::Admin::ownedProducts": {
+              url: urlBase + "/Admins/:id/ownedProducts",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Admin.ownedProducts.count() instead.
+            "::count::Admin::ownedProducts": {
+              url: urlBase + "/Admins/:id/ownedProducts/count",
+              method: "GET",
+            },
+
             // INTERNAL. Use Admin.products() instead.
             "::get::Admin::products": {
               isArray: true,
@@ -9453,21 +11362,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name apiServices.Product#patchOrCreate
+             * @methodOf apiServices.Product
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Product` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
              * @name apiServices.Product#updateOrCreate
              * @methodOf apiServices.Product
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -9493,7 +11427,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -9524,7 +11458,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -9554,7 +11488,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -9576,6 +11510,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Product#patchAttributes
+             * @methodOf apiServices.Product
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Product` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
 
         /**
@@ -10335,307 +12301,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           var action = TargetResource["::updateById::Product::admins"];
           return action.apply(R, arguments);
         };
-    /**
-     * @ngdoc object
-     * @name apiServices.Product.scoreUnit
-     * @header apiServices.Product.scoreUnit
-     * @object
-     * @description
-     *
-     * The object `Product.scoreUnit` groups methods
-     * manipulating `ScoreUnit` instances related to `Product`.
-     *
-     * Call {@link apiServices.Product#scoreUnit Product.scoreUnit()}
-     * to query all related instances.
-     */
-
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Product#scoreUnit
-             * @methodOf apiServices.Product
-             *
-             * @description
-             *
-             * Queries scoreUnit of Product.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `filter` – `{object=}` -
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `ScoreUnit` object.)
-             * </em>
-             */
-        R.scoreUnit = function() {
-          var TargetResource = $injector.get("ScoreUnit");
-          var action = TargetResource["::get::Product::scoreUnit"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Product.scoreUnit#count
-             * @methodOf apiServices.Product.scoreUnit
-             *
-             * @description
-             *
-             * Counts scoreUnit of Product.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `where` – `{object=}` - Criteria to match model instances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `count` – `{number=}` -
-             */
-        R.scoreUnit.count = function() {
-          var TargetResource = $injector.get("ScoreUnit");
-          var action = TargetResource["::count::Product::scoreUnit"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Product.scoreUnit#create
-             * @methodOf apiServices.Product.scoreUnit
-             *
-             * @description
-             *
-             * Creates a new instance in scoreUnit of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `ScoreUnit` object.)
-             * </em>
-             */
-        R.scoreUnit.create = function() {
-          var TargetResource = $injector.get("ScoreUnit");
-          var action = TargetResource["::create::Product::scoreUnit"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Product.scoreUnit#createMany
-             * @methodOf apiServices.Product.scoreUnit
-             *
-             * @description
-             *
-             * Creates a new instance in scoreUnit of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `ScoreUnit` object.)
-             * </em>
-             */
-        R.scoreUnit.createMany = function() {
-          var TargetResource = $injector.get("ScoreUnit");
-          var action = TargetResource["::createMany::Product::scoreUnit"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Product.scoreUnit#destroyAll
-             * @methodOf apiServices.Product.scoreUnit
-             *
-             * @description
-             *
-             * Deletes all scoreUnit of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.scoreUnit.destroyAll = function() {
-          var TargetResource = $injector.get("ScoreUnit");
-          var action = TargetResource["::delete::Product::scoreUnit"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Product.scoreUnit#destroyById
-             * @methodOf apiServices.Product.scoreUnit
-             *
-             * @description
-             *
-             * Delete a related item by id for scoreUnit.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for scoreUnit
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.scoreUnit.destroyById = function() {
-          var TargetResource = $injector.get("ScoreUnit");
-          var action = TargetResource["::destroyById::Product::scoreUnit"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Product.scoreUnit#findById
-             * @methodOf apiServices.Product.scoreUnit
-             *
-             * @description
-             *
-             * Find a related item by id for scoreUnit.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for scoreUnit
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `ScoreUnit` object.)
-             * </em>
-             */
-        R.scoreUnit.findById = function() {
-          var TargetResource = $injector.get("ScoreUnit");
-          var action = TargetResource["::findById::Product::scoreUnit"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Product.scoreUnit#updateById
-             * @methodOf apiServices.Product.scoreUnit
-             *
-             * @description
-             *
-             * Update a related item by id for scoreUnit.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for scoreUnit
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `ScoreUnit` object.)
-             * </em>
-             */
-        R.scoreUnit.updateById = function() {
-          var TargetResource = $injector.get("ScoreUnit");
-          var action = TargetResource["::updateById::Product::scoreUnit"];
-          return action.apply(R, arguments);
-        };
 
             /**
              * @ngdoc method
@@ -10841,7 +12506,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ProductAccess` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/ProductAccesses",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ProductAccess#replaceOrCreate
+             * @methodOf apiServices.ProductAccess
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -10867,9 +12565,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `ProductAccess` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/ProductAccesses",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/ProductAccesses/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -10911,7 +12609,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -10937,6 +12635,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/ProductAccesses/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ProductAccess#replaceById
+             * @methodOf apiServices.ProductAccess
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ProductAccess` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/ProductAccesses/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -11013,7 +12748,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -11047,7 +12782,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -11112,15 +12847,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -11139,7 +12872,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/ProductAccesses/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -11303,21 +13036,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name apiServices.ProductAccess#patchOrCreate
+             * @methodOf apiServices.ProductAccess
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ProductAccess` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
              * @name apiServices.ProductAccess#updateOrCreate
              * @methodOf apiServices.ProductAccess
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -11343,7 +13101,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -11374,7 +13132,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -11404,7 +13162,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -11426,6 +13184,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ProductAccess#patchAttributes
+             * @methodOf apiServices.ProductAccess
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ProductAccess` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
 
         /**
@@ -11674,7 +13464,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Event` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Events",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Event#replaceOrCreate
+             * @methodOf apiServices.Event
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -11700,9 +13523,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Event` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/Events",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/Events/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -11744,7 +13567,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -11770,6 +13593,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/Events/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Event#replaceById
+             * @methodOf apiServices.Event
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Event` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Events/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -11846,7 +13706,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -11880,7 +13740,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -11945,15 +13805,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -11972,7 +13830,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/Events/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -12018,21 +13876,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name apiServices.Event#patchOrCreate
+             * @methodOf apiServices.Event
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Event` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
              * @name apiServices.Event#updateOrCreate
              * @methodOf apiServices.Event
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -12058,7 +13941,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -12089,7 +13972,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -12119,7 +14002,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -12141,6 +14024,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Event#patchAttributes
+             * @methodOf apiServices.Event
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Event` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
 
         /**
@@ -12347,7 +14262,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Gameplay` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Gameplays",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Gameplay#replaceOrCreate
+             * @methodOf apiServices.Gameplay
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -12373,9 +14321,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Gameplay` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/Gameplays",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/Gameplays/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -12417,7 +14365,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -12443,6 +14391,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/Gameplays/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Gameplay#replaceById
+             * @methodOf apiServices.Gameplay
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Gameplay` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Gameplays/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -12519,7 +14504,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -12553,7 +14538,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -12618,15 +14603,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -12645,7 +14628,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/Gameplays/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -12691,21 +14674,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name apiServices.Gameplay#patchOrCreate
+             * @methodOf apiServices.Gameplay
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Gameplay` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
              * @name apiServices.Gameplay#updateOrCreate
              * @methodOf apiServices.Gameplay
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -12731,7 +14739,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -12762,7 +14770,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -12792,7 +14800,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -12814,6 +14822,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Gameplay#patchAttributes
+             * @methodOf apiServices.Gameplay
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Gameplay` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
 
         /**
@@ -12984,7 +15024,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Good` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Goods",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Good#replaceOrCreate
+             * @methodOf apiServices.Good
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -13010,9 +15083,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Good` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/Goods",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/Goods/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -13054,7 +15127,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -13080,6 +15153,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/Goods/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Good#replaceById
+             * @methodOf apiServices.Good
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Good` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Goods/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -13156,7 +15266,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -13190,7 +15300,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -13255,15 +15365,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -13282,7 +15390,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/Goods/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -13328,21 +15436,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name apiServices.Good#patchOrCreate
+             * @methodOf apiServices.Good
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Good` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
              * @name apiServices.Good#updateOrCreate
              * @methodOf apiServices.Good
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -13368,7 +15501,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -13399,7 +15532,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -13429,7 +15562,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -13451,6 +15584,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Good#patchAttributes
+             * @methodOf apiServices.Good
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Good` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
 
         /**
@@ -13497,6 +15662,1530 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         R.lastModifiedBy = function() {
           var TargetResource = $injector.get("Admin");
           var action = TargetResource["::get::Good::lastModifiedBy"];
+          return action.apply(R, arguments);
+        };
+
+
+        return R;
+      }]);
+
+/**
+ * @ngdoc object
+ * @name apiServices.Coupon
+ * @header apiServices.Coupon
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Coupon` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+  module.factory(
+    "Coupon",
+    [
+      'LoopBackResource', 'LoopBackAuth', '$injector',
+      function(Resource, LoopBackAuth, $injector) {
+        var R = Resource(
+        urlBase + "/Coupons/:id",
+          { 'id': '@id' },
+          {
+
+            // INTERNAL. Use Coupon.lastModifiedBy() instead.
+            "prototype$__get__lastModifiedBy": {
+              url: urlBase + "/Coupons/:id/lastModifiedBy",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#create
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Coupon` object.)
+             * </em>
+             */
+            "create": {
+              url: urlBase + "/Coupons",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#createMany
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Coupon` object.)
+             * </em>
+             */
+            "createMany": {
+              isArray: true,
+              url: urlBase + "/Coupons",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#upsert
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Coupon` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Coupons",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#replaceOrCreate
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Coupon` object.)
+             * </em>
+             */
+            "replaceOrCreate": {
+              url: urlBase + "/Coupons/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#exists
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Check whether a model instance exists in the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `exists` – `{boolean=}` -
+             */
+            "exists": {
+              url: urlBase + "/Coupons/:id/exists",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#findById
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Find a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `filter` – `{object=}` - Filter defining fields and include
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Coupon` object.)
+             * </em>
+             */
+            "findById": {
+              url: urlBase + "/Coupons/:id",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#replaceById
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Coupon` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Coupons/:id/replace",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#find
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Find all instances of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Coupon` object.)
+             * </em>
+             */
+            "find": {
+              isArray: true,
+              url: urlBase + "/Coupons",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#findOne
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Find first instance of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Coupon` object.)
+             * </em>
+             */
+            "findOne": {
+              url: urlBase + "/Coupons/findOne",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#updateAll
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+            "updateAll": {
+              url: urlBase + "/Coupons/update",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#deleteById
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Coupon` object.)
+             * </em>
+             */
+            "deleteById": {
+              url: urlBase + "/Coupons/:id",
+              method: "DELETE",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#count
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Count instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+            "count": {
+              url: urlBase + "/Coupons/count",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#prototype$updateAttributes
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Coupon` object.)
+             * </em>
+             */
+            "prototype$updateAttributes": {
+              url: urlBase + "/Coupons/:id",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#createChangeStream
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Create a change stream.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `changes` – `{ReadableStream=}` -
+             */
+            "createChangeStream": {
+              url: urlBase + "/Coupons/change-stream",
+              method: "POST",
+            },
+          }
+        );
+
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#patchOrCreate
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Coupon` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#updateOrCreate
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Coupon` object.)
+             * </em>
+             */
+        R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#update
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+        R["update"] = R["updateAll"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#destroyById
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Coupon` object.)
+             * </em>
+             */
+        R["destroyById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#removeById
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Coupon` object.)
+             * </em>
+             */
+        R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#patchAttributes
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Coupon` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
+
+
+        /**
+        * @ngdoc property
+        * @name apiServices.Coupon#modelName
+        * @propertyOf apiServices.Coupon
+        * @description
+        * The name of the model represented by this $resource,
+        * i.e. `Coupon`.
+        */
+        R.modelName = "Coupon";
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Coupon#lastModifiedBy
+             * @methodOf apiServices.Coupon
+             *
+             * @description
+             *
+             * Fetches belongsTo relation lastModifiedBy.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Admin` object.)
+             * </em>
+             */
+        R.lastModifiedBy = function() {
+          var TargetResource = $injector.get("Admin");
+          var action = TargetResource["::get::Coupon::lastModifiedBy"];
+          return action.apply(R, arguments);
+        };
+
+
+        return R;
+      }]);
+
+/**
+ * @ngdoc object
+ * @name apiServices.Unlock
+ * @header apiServices.Unlock
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Unlock` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+  module.factory(
+    "Unlock",
+    [
+      'LoopBackResource', 'LoopBackAuth', '$injector',
+      function(Resource, LoopBackAuth, $injector) {
+        var R = Resource(
+        urlBase + "/Unlocks/:id",
+          { 'id': '@id' },
+          {
+
+            // INTERNAL. Use Unlock.lastModifiedBy() instead.
+            "prototype$__get__lastModifiedBy": {
+              url: urlBase + "/Unlocks/:id/lastModifiedBy",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#create
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Unlock` object.)
+             * </em>
+             */
+            "create": {
+              url: urlBase + "/Unlocks",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#createMany
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Unlock` object.)
+             * </em>
+             */
+            "createMany": {
+              isArray: true,
+              url: urlBase + "/Unlocks",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#upsert
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Unlock` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Unlocks",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#replaceOrCreate
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Unlock` object.)
+             * </em>
+             */
+            "replaceOrCreate": {
+              url: urlBase + "/Unlocks/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#exists
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Check whether a model instance exists in the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `exists` – `{boolean=}` -
+             */
+            "exists": {
+              url: urlBase + "/Unlocks/:id/exists",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#findById
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Find a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `filter` – `{object=}` - Filter defining fields and include
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Unlock` object.)
+             * </em>
+             */
+            "findById": {
+              url: urlBase + "/Unlocks/:id",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#replaceById
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Unlock` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Unlocks/:id/replace",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#find
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Find all instances of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Unlock` object.)
+             * </em>
+             */
+            "find": {
+              isArray: true,
+              url: urlBase + "/Unlocks",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#findOne
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Find first instance of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Unlock` object.)
+             * </em>
+             */
+            "findOne": {
+              url: urlBase + "/Unlocks/findOne",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#updateAll
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+            "updateAll": {
+              url: urlBase + "/Unlocks/update",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#deleteById
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Unlock` object.)
+             * </em>
+             */
+            "deleteById": {
+              url: urlBase + "/Unlocks/:id",
+              method: "DELETE",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#count
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Count instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+            "count": {
+              url: urlBase + "/Unlocks/count",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#prototype$updateAttributes
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Unlock` object.)
+             * </em>
+             */
+            "prototype$updateAttributes": {
+              url: urlBase + "/Unlocks/:id",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#createChangeStream
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Create a change stream.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `changes` – `{ReadableStream=}` -
+             */
+            "createChangeStream": {
+              url: urlBase + "/Unlocks/change-stream",
+              method: "POST",
+            },
+          }
+        );
+
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#patchOrCreate
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Unlock` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#updateOrCreate
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Unlock` object.)
+             * </em>
+             */
+        R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#update
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+        R["update"] = R["updateAll"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#destroyById
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Unlock` object.)
+             * </em>
+             */
+        R["destroyById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#removeById
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Unlock` object.)
+             * </em>
+             */
+        R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#patchAttributes
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Unlock` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
+
+
+        /**
+        * @ngdoc property
+        * @name apiServices.Unlock#modelName
+        * @propertyOf apiServices.Unlock
+        * @description
+        * The name of the model represented by this $resource,
+        * i.e. `Unlock`.
+        */
+        R.modelName = "Unlock";
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Unlock#lastModifiedBy
+             * @methodOf apiServices.Unlock
+             *
+             * @description
+             *
+             * Fetches belongsTo relation lastModifiedBy.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Admin` object.)
+             * </em>
+             */
+        R.lastModifiedBy = function() {
+          var TargetResource = $injector.get("Admin");
+          var action = TargetResource["::get::Unlock::lastModifiedBy"];
           return action.apply(R, arguments);
         };
 
@@ -13579,179 +17268,37 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "DELETE",
             },
 
-            /**
-             * @ngdoc method
-             * @name apiServices.Level#prototype$__findById__seats
-             * @methodOf apiServices.Level
-             *
-             * @description
-             *
-             * Find a related item by id for seats.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for seats
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Level` object.)
-             * </em>
-             */
-            "prototype$__findById__seats": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Levels/:id/seats/:fk",
-              method: "GET",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Level#prototype$__destroyById__seats
-             * @methodOf apiServices.Level
-             *
-             * @description
-             *
-             * Delete a related item by id for seats.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for seats
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            "prototype$__destroyById__seats": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Levels/:id/seats/:fk",
-              method: "DELETE",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Level#prototype$__updateById__seats
-             * @methodOf apiServices.Level
-             *
-             * @description
-             *
-             * Update a related item by id for seats.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for seats
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Level` object.)
-             * </em>
-             */
-            "prototype$__updateById__seats": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Levels/:id/seats/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Level.customers.findById() instead.
-            "prototype$__findById__customers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Levels/:id/customers/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Level.customers.destroyById() instead.
-            "prototype$__destroyById__customers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Levels/:id/customers/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Level.customers.updateById() instead.
-            "prototype$__updateById__customers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Levels/:id/customers/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Level.customers.link() instead.
-            "prototype$__link__customers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Levels/:id/customers/rel/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Level.customers.unlink() instead.
-            "prototype$__unlink__customers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Levels/:id/customers/rel/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Level.customers.exists() instead.
-            "prototype$__exists__customers": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Levels/:id/customers/rel/:fk",
-              method: "HEAD",
-            },
-
             // INTERNAL. Use Level.scoreUnit() instead.
             "prototype$__get__scoreUnit": {
               url: urlBase + "/Levels/:id/scoreUnit",
               method: "GET",
+            },
+
+            // INTERNAL. Use Level.instances.findById() instead.
+            "prototype$__findById__instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Levels/:id/instances/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Level.instances.destroyById() instead.
+            "prototype$__destroyById__instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Levels/:id/instances/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Level.instances.updateById() instead.
+            "prototype$__updateById__instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Levels/:id/instances/:fk",
+              method: "PUT",
             },
 
             // INTERNAL. Use Level.lastModifiedBy() instead.
@@ -13760,165 +17307,28 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
-            /**
-             * @ngdoc method
-             * @name apiServices.Level#prototype$__get__seats
-             * @methodOf apiServices.Level
-             *
-             * @description
-             *
-             * Queries seats of Level.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `filter` – `{object=}` -
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Level` object.)
-             * </em>
-             */
-            "prototype$__get__seats": {
+            // INTERNAL. Use Level.instances() instead.
+            "prototype$__get__instances": {
               isArray: true,
-              url: urlBase + "/Levels/:id/seats",
+              url: urlBase + "/Levels/:id/instances",
               method: "GET",
             },
 
-            /**
-             * @ngdoc method
-             * @name apiServices.Level#prototype$__create__seats
-             * @methodOf apiServices.Level
-             *
-             * @description
-             *
-             * Creates a new instance in seats of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Level` object.)
-             * </em>
-             */
-            "prototype$__create__seats": {
-              url: urlBase + "/Levels/:id/seats",
+            // INTERNAL. Use Level.instances.create() instead.
+            "prototype$__create__instances": {
+              url: urlBase + "/Levels/:id/instances",
               method: "POST",
             },
 
-            /**
-             * @ngdoc method
-             * @name apiServices.Level#prototype$__delete__seats
-             * @methodOf apiServices.Level
-             *
-             * @description
-             *
-             * Deletes all seats of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-            "prototype$__delete__seats": {
-              url: urlBase + "/Levels/:id/seats",
+            // INTERNAL. Use Level.instances.destroyAll() instead.
+            "prototype$__delete__instances": {
+              url: urlBase + "/Levels/:id/instances",
               method: "DELETE",
             },
 
-            /**
-             * @ngdoc method
-             * @name apiServices.Level#prototype$__count__seats
-             * @methodOf apiServices.Level
-             *
-             * @description
-             *
-             * Counts seats of Level.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `where` – `{object=}` - Criteria to match model instances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `count` – `{number=}` -
-             */
-            "prototype$__count__seats": {
-              url: urlBase + "/Levels/:id/seats/count",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Level.customers() instead.
-            "prototype$__get__customers": {
-              isArray: true,
-              url: urlBase + "/Levels/:id/customers",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Level.customers.create() instead.
-            "prototype$__create__customers": {
-              url: urlBase + "/Levels/:id/customers",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Level.customers.destroyAll() instead.
-            "prototype$__delete__customers": {
-              url: urlBase + "/Levels/:id/customers",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Level.customers.count() instead.
-            "prototype$__count__customers": {
-              url: urlBase + "/Levels/:id/customers/count",
+            // INTERNAL. Use Level.instances.count() instead.
+            "prototype$__count__instances": {
+              url: urlBase + "/Levels/:id/instances/count",
               method: "GET",
             },
 
@@ -14006,7 +17416,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Level` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Levels",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Level#replaceOrCreate
+             * @methodOf apiServices.Level
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -14032,9 +17475,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Level` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/Levels",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/Levels/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -14076,7 +17519,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -14102,6 +17545,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/Levels/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Level#replaceById
+             * @methodOf apiServices.Level
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Level` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Levels/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -14178,7 +17658,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -14212,7 +17692,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -14277,15 +17757,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -14304,7 +17782,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/Levels/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -14550,10 +18028,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               url: urlBase + "/ScoreUnits/:id/levels/count",
               method: "GET",
             },
+
+            // INTERNAL. Use ScoreUnitInstance.level() instead.
+            "::get::ScoreUnitInstance::level": {
+              url: urlBase + "/ScoreUnitInstances/:id/level",
+              method: "GET",
+            },
           }
         );
 
 
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Level#patchOrCreate
+             * @methodOf apiServices.Level
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Level` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
 
             /**
              * @ngdoc method
@@ -14562,16 +18076,11 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -14597,7 +18106,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -14628,7 +18137,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -14658,7 +18167,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -14680,6 +18189,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Level#patchAttributes
+             * @methodOf apiServices.Level
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Level` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
 
         /**
@@ -15082,416 +18623,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           var action = TargetResource["::update::Level::next"];
           return action.apply(R, arguments);
         };
-    /**
-     * @ngdoc object
-     * @name apiServices.Level.customers
-     * @header apiServices.Level.customers
-     * @object
-     * @description
-     *
-     * The object `Level.customers` groups methods
-     * manipulating `Customer` instances related to `Level`.
-     *
-     * Call {@link apiServices.Level#customers Level.customers()}
-     * to query all related instances.
-     */
-
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Level#customers
-             * @methodOf apiServices.Level
-             *
-             * @description
-             *
-             * Queries customers of Level.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `filter` – `{object=}` -
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Customer` object.)
-             * </em>
-             */
-        R.customers = function() {
-          var TargetResource = $injector.get("Customer");
-          var action = TargetResource["::get::Level::customers"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Level.customers#count
-             * @methodOf apiServices.Level.customers
-             *
-             * @description
-             *
-             * Counts customers of Level.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `where` – `{object=}` - Criteria to match model instances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `count` – `{number=}` -
-             */
-        R.customers.count = function() {
-          var TargetResource = $injector.get("Customer");
-          var action = TargetResource["::count::Level::customers"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Level.customers#create
-             * @methodOf apiServices.Level.customers
-             *
-             * @description
-             *
-             * Creates a new instance in customers of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Customer` object.)
-             * </em>
-             */
-        R.customers.create = function() {
-          var TargetResource = $injector.get("Customer");
-          var action = TargetResource["::create::Level::customers"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Level.customers#createMany
-             * @methodOf apiServices.Level.customers
-             *
-             * @description
-             *
-             * Creates a new instance in customers of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Customer` object.)
-             * </em>
-             */
-        R.customers.createMany = function() {
-          var TargetResource = $injector.get("Customer");
-          var action = TargetResource["::createMany::Level::customers"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Level.customers#destroyAll
-             * @methodOf apiServices.Level.customers
-             *
-             * @description
-             *
-             * Deletes all customers of this model.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.customers.destroyAll = function() {
-          var TargetResource = $injector.get("Customer");
-          var action = TargetResource["::delete::Level::customers"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Level.customers#destroyById
-             * @methodOf apiServices.Level.customers
-             *
-             * @description
-             *
-             * Delete a related item by id for customers.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for customers
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.customers.destroyById = function() {
-          var TargetResource = $injector.get("Customer");
-          var action = TargetResource["::destroyById::Level::customers"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Level.customers#exists
-             * @methodOf apiServices.Level.customers
-             *
-             * @description
-             *
-             * Check the existence of customers relation to an item by id.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for customers
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Customer` object.)
-             * </em>
-             */
-        R.customers.exists = function() {
-          var TargetResource = $injector.get("Customer");
-          var action = TargetResource["::exists::Level::customers"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Level.customers#findById
-             * @methodOf apiServices.Level.customers
-             *
-             * @description
-             *
-             * Find a related item by id for customers.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for customers
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Customer` object.)
-             * </em>
-             */
-        R.customers.findById = function() {
-          var TargetResource = $injector.get("Customer");
-          var action = TargetResource["::findById::Level::customers"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Level.customers#link
-             * @methodOf apiServices.Level.customers
-             *
-             * @description
-             *
-             * Add a related item by id for customers.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for customers
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Customer` object.)
-             * </em>
-             */
-        R.customers.link = function() {
-          var TargetResource = $injector.get("Customer");
-          var action = TargetResource["::link::Level::customers"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Level.customers#unlink
-             * @methodOf apiServices.Level.customers
-             *
-             * @description
-             *
-             * Remove the customers relation to an item by id.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for customers
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * This method returns no data.
-             */
-        R.customers.unlink = function() {
-          var TargetResource = $injector.get("Customer");
-          var action = TargetResource["::unlink::Level::customers"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Level.customers#updateById
-             * @methodOf apiServices.Level.customers
-             *
-             * @description
-             *
-             * Update a related item by id for customers.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `fk` – `{*}` - Foreign key for customers
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Customer` object.)
-             * </em>
-             */
-        R.customers.updateById = function() {
-          var TargetResource = $injector.get("Customer");
-          var action = TargetResource["::updateById::Level::customers"];
-          return action.apply(R, arguments);
-        };
 
             /**
              * @ngdoc method
@@ -15526,6 +18657,307 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         R.scoreUnit = function() {
           var TargetResource = $injector.get("ScoreUnit");
           var action = TargetResource["::get::Level::scoreUnit"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name apiServices.Level.instances
+     * @header apiServices.Level.instances
+     * @object
+     * @description
+     *
+     * The object `Level.instances` groups methods
+     * manipulating `ScoreUnitInstance` instances related to `Level`.
+     *
+     * Call {@link apiServices.Level#instances Level.instances()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Level#instances
+             * @methodOf apiServices.Level
+             *
+             * @description
+             *
+             * Queries instances of Level.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R.instances = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::get::Level::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Level.instances#count
+             * @methodOf apiServices.Level.instances
+             *
+             * @description
+             *
+             * Counts instances of Level.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.instances.count = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::count::Level::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Level.instances#create
+             * @methodOf apiServices.Level.instances
+             *
+             * @description
+             *
+             * Creates a new instance in instances of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R.instances.create = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::create::Level::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Level.instances#createMany
+             * @methodOf apiServices.Level.instances
+             *
+             * @description
+             *
+             * Creates a new instance in instances of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R.instances.createMany = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::createMany::Level::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Level.instances#destroyAll
+             * @methodOf apiServices.Level.instances
+             *
+             * @description
+             *
+             * Deletes all instances of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.instances.destroyAll = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::delete::Level::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Level.instances#destroyById
+             * @methodOf apiServices.Level.instances
+             *
+             * @description
+             *
+             * Delete a related item by id for instances.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.instances.destroyById = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::destroyById::Level::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Level.instances#findById
+             * @methodOf apiServices.Level.instances
+             *
+             * @description
+             *
+             * Find a related item by id for instances.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R.instances.findById = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::findById::Level::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Level.instances#updateById
+             * @methodOf apiServices.Level.instances
+             *
+             * @description
+             *
+             * Update a related item by id for instances.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R.instances.updateById = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::updateById::Level::instances"];
           return action.apply(R, arguments);
         };
 
@@ -15771,7 +19203,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Listener` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Listeners",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Listener#replaceOrCreate
+             * @methodOf apiServices.Listener
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -15797,9 +19262,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Listener` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/Listeners",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/Listeners/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -15841,7 +19306,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -15867,6 +19332,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/Listeners/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Listener#replaceById
+             * @methodOf apiServices.Listener
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Listener` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Listeners/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -15943,7 +19445,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -15977,7 +19479,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -16042,15 +19544,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -16069,7 +19569,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/Listeners/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -16107,6 +19607,65 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "createChangeStream": {
               url: urlBase + "/Listeners/change-stream",
               method: "POST",
+            },
+
+            // INTERNAL. Use Rule._listeners.findById() instead.
+            "::findById::Rule::_listeners": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/_listeners/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rule._listeners.destroyById() instead.
+            "::destroyById::Rule::_listeners": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/_listeners/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Rule._listeners.updateById() instead.
+            "::updateById::Rule::_listeners": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/_listeners/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Rule._listeners() instead.
+            "::get::Rule::_listeners": {
+              isArray: true,
+              url: urlBase + "/Rules/:id/_listeners",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rule._listeners.create() instead.
+            "::create::Rule::_listeners": {
+              url: urlBase + "/Rules/:id/_listeners",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Rule._listeners.createMany() instead.
+            "::createMany::Rule::_listeners": {
+              isArray: true,
+              url: urlBase + "/Rules/:id/_listeners",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Rule._listeners.destroyAll() instead.
+            "::delete::Rule::_listeners": {
+              url: urlBase + "/Rules/:id/_listeners",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Rule._listeners.count() instead.
+            "::count::Rule::_listeners": {
+              url: urlBase + "/Rules/:id/_listeners/count",
+              method: "GET",
             },
 
             // INTERNAL. Use RuleInstance.listeners.findById() instead.
@@ -16201,21 +19760,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name apiServices.Listener#patchOrCreate
+             * @methodOf apiServices.Listener
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Listener` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
              * @name apiServices.Listener#updateOrCreate
              * @methodOf apiServices.Listener
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -16241,7 +19825,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -16272,7 +19856,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -16302,7 +19886,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -16324,6 +19908,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Listener#patchAttributes
+             * @methodOf apiServices.Listener
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Listener` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
 
         /**
@@ -16825,1453 +20441,6 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
 /**
  * @ngdoc object
- * @name apiServices.Ranking
- * @header apiServices.Ranking
- * @object
- *
- * @description
- *
- * A $resource object for interacting with the `Ranking` model.
- *
- * ## Example
- *
- * See
- * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
- * for an example of using this object.
- *
- */
-  module.factory(
-    "Ranking",
-    [
-      'LoopBackResource', 'LoopBackAuth', '$injector',
-      function(Resource, LoopBackAuth, $injector) {
-        var R = Resource(
-        urlBase + "/Rankings/:id",
-          { 'id': '@id' },
-          {
-
-            // INTERNAL. Use Ranking.scoreUnit() instead.
-            "prototype$__get__scoreUnit": {
-              url: urlBase + "/Rankings/:id/scoreUnit",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Ranking.lastModifiedBy() instead.
-            "prototype$__get__lastModifiedBy": {
-              url: urlBase + "/Rankings/:id/lastModifiedBy",
-              method: "GET",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#create
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Create a new instance of the model and persist it into the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Ranking` object.)
-             * </em>
-             */
-            "create": {
-              url: urlBase + "/Rankings",
-              method: "POST",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#createMany
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Create a new instance of the model and persist it into the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Ranking` object.)
-             * </em>
-             */
-            "createMany": {
-              isArray: true,
-              url: urlBase + "/Rankings",
-              method: "POST",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#upsert
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Update an existing model instance or insert a new one into the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Ranking` object.)
-             * </em>
-             */
-            "upsert": {
-              url: urlBase + "/Rankings",
-              method: "PUT",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#exists
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Check whether a model instance exists in the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - Model id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `exists` – `{boolean=}` -
-             */
-            "exists": {
-              url: urlBase + "/Rankings/:id/exists",
-              method: "GET",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#findById
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Find a model instance by id from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - Model id
-             *
-             *  - `filter` – `{object=}` - Filter defining fields and include
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Ranking` object.)
-             * </em>
-             */
-            "findById": {
-              url: urlBase + "/Rankings/:id",
-              method: "GET",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#find
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Find all instances of the model matched by filter from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Ranking` object.)
-             * </em>
-             */
-            "find": {
-              isArray: true,
-              url: urlBase + "/Rankings",
-              method: "GET",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#findOne
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Find first instance of the model matched by filter from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Ranking` object.)
-             * </em>
-             */
-            "findOne": {
-              url: urlBase + "/Rankings/findOne",
-              method: "GET",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#updateAll
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Update instances of the model matched by where from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `where` – `{object=}` - Criteria to match model instances
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * The number of instances updated
-             */
-            "updateAll": {
-              url: urlBase + "/Rankings/update",
-              method: "POST",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#deleteById
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Delete a model instance by id from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - Model id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Ranking` object.)
-             * </em>
-             */
-            "deleteById": {
-              url: urlBase + "/Rankings/:id",
-              method: "DELETE",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#count
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Count instances of the model matched by where from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `where` – `{object=}` - Criteria to match model instances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `count` – `{number=}` -
-             */
-            "count": {
-              url: urlBase + "/Rankings/count",
-              method: "GET",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#prototype$updateAttributes
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Update attributes for a model instance and persist it into the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Ranking` object.)
-             * </em>
-             */
-            "prototype$updateAttributes": {
-              url: urlBase + "/Rankings/:id",
-              method: "PUT",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#createChangeStream
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Create a change stream.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             *  - `options` – `{object=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `changes` – `{ReadableStream=}` -
-             */
-            "createChangeStream": {
-              url: urlBase + "/Rankings/change-stream",
-              method: "POST",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#prototype$customers
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * <em>
-             * (The remote method definition does not provide any description.)
-             * </em>
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             *  - `filter` – `{*=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `list` – `{Array=}` -
-             *
-             *  - `you` – `{*=}` -
-             */
-            "prototype$customers": {
-              url: urlBase + "/Rankings/:id/customers",
-              method: "POST",
-            },
-
-            // INTERNAL. Use RankingSeat.ranking() instead.
-            "::get::RankingSeat::ranking": {
-              url: urlBase + "/RankingSeats/:id/ranking",
-              method: "GET",
-            },
-          }
-        );
-
-
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#updateOrCreate
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Update an existing model instance or insert a new one into the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Ranking` object.)
-             * </em>
-             */
-        R["updateOrCreate"] = R["upsert"];
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#update
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Update instances of the model matched by where from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `where` – `{object=}` - Criteria to match model instances
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * The number of instances updated
-             */
-        R["update"] = R["updateAll"];
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#destroyById
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Delete a model instance by id from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - Model id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Ranking` object.)
-             * </em>
-             */
-        R["destroyById"] = R["deleteById"];
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#removeById
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Delete a model instance by id from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - Model id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Ranking` object.)
-             * </em>
-             */
-        R["removeById"] = R["deleteById"];
-
-
-        /**
-        * @ngdoc property
-        * @name apiServices.Ranking#modelName
-        * @propertyOf apiServices.Ranking
-        * @description
-        * The name of the model represented by this $resource,
-        * i.e. `Ranking`.
-        */
-        R.modelName = "Ranking";
-
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#scoreUnit
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Fetches belongsTo relation scoreUnit.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `refresh` – `{boolean=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `ScoreUnit` object.)
-             * </em>
-             */
-        R.scoreUnit = function() {
-          var TargetResource = $injector.get("ScoreUnit");
-          var action = TargetResource["::get::Ranking::scoreUnit"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.Ranking#lastModifiedBy
-             * @methodOf apiServices.Ranking
-             *
-             * @description
-             *
-             * Fetches belongsTo relation lastModifiedBy.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `refresh` – `{boolean=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Admin` object.)
-             * </em>
-             */
-        R.lastModifiedBy = function() {
-          var TargetResource = $injector.get("Admin");
-          var action = TargetResource["::get::Ranking::lastModifiedBy"];
-          return action.apply(R, arguments);
-        };
-
-
-        return R;
-      }]);
-
-/**
- * @ngdoc object
- * @name apiServices.RankingSeat
- * @header apiServices.RankingSeat
- * @object
- *
- * @description
- *
- * A $resource object for interacting with the `RankingSeat` model.
- *
- * ## Example
- *
- * See
- * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
- * for an example of using this object.
- *
- */
-  module.factory(
-    "RankingSeat",
-    [
-      'LoopBackResource', 'LoopBackAuth', '$injector',
-      function(Resource, LoopBackAuth, $injector) {
-        var R = Resource(
-        urlBase + "/RankingSeats/:id",
-          { 'id': '@id' },
-          {
-
-            // INTERNAL. Use RankingSeat.ranking() instead.
-            "prototype$__get__ranking": {
-              url: urlBase + "/RankingSeats/:id/ranking",
-              method: "GET",
-            },
-
-            // INTERNAL. Use RankingSeat.customer() instead.
-            "prototype$__get__customer": {
-              url: urlBase + "/RankingSeats/:id/customer",
-              method: "GET",
-            },
-
-            // INTERNAL. Use RankingSeat.lastModifiedBy() instead.
-            "prototype$__get__lastModifiedBy": {
-              url: urlBase + "/RankingSeats/:id/lastModifiedBy",
-              method: "GET",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#create
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Create a new instance of the model and persist it into the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RankingSeat` object.)
-             * </em>
-             */
-            "create": {
-              url: urlBase + "/RankingSeats",
-              method: "POST",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#createMany
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Create a new instance of the model and persist it into the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RankingSeat` object.)
-             * </em>
-             */
-            "createMany": {
-              isArray: true,
-              url: urlBase + "/RankingSeats",
-              method: "POST",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#upsert
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Update an existing model instance or insert a new one into the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RankingSeat` object.)
-             * </em>
-             */
-            "upsert": {
-              url: urlBase + "/RankingSeats",
-              method: "PUT",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#exists
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Check whether a model instance exists in the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - Model id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `exists` – `{boolean=}` -
-             */
-            "exists": {
-              url: urlBase + "/RankingSeats/:id/exists",
-              method: "GET",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#findById
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Find a model instance by id from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - Model id
-             *
-             *  - `filter` – `{object=}` - Filter defining fields and include
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RankingSeat` object.)
-             * </em>
-             */
-            "findById": {
-              url: urlBase + "/RankingSeats/:id",
-              method: "GET",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#find
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Find all instances of the model matched by filter from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
-             *
-             * @param {function(Array.<Object>,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Array.<Object>} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RankingSeat` object.)
-             * </em>
-             */
-            "find": {
-              isArray: true,
-              url: urlBase + "/RankingSeats",
-              method: "GET",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#findOne
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Find first instance of the model matched by filter from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RankingSeat` object.)
-             * </em>
-             */
-            "findOne": {
-              url: urlBase + "/RankingSeats/findOne",
-              method: "GET",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#updateAll
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Update instances of the model matched by where from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `where` – `{object=}` - Criteria to match model instances
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * The number of instances updated
-             */
-            "updateAll": {
-              url: urlBase + "/RankingSeats/update",
-              method: "POST",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#deleteById
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Delete a model instance by id from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - Model id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RankingSeat` object.)
-             * </em>
-             */
-            "deleteById": {
-              url: urlBase + "/RankingSeats/:id",
-              method: "DELETE",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#count
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Count instances of the model matched by where from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `where` – `{object=}` - Criteria to match model instances
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `count` – `{number=}` -
-             */
-            "count": {
-              url: urlBase + "/RankingSeats/count",
-              method: "GET",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#prototype$updateAttributes
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Update attributes for a model instance and persist it into the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RankingSeat` object.)
-             * </em>
-             */
-            "prototype$updateAttributes": {
-              url: urlBase + "/RankingSeats/:id",
-              method: "PUT",
-            },
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#createChangeStream
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Create a change stream.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             *  - `options` – `{object=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * Data properties:
-             *
-             *  - `changes` – `{ReadableStream=}` -
-             */
-            "createChangeStream": {
-              url: urlBase + "/RankingSeats/change-stream",
-              method: "POST",
-            },
-          }
-        );
-
-
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#updateOrCreate
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Update an existing model instance or insert a new one into the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RankingSeat` object.)
-             * </em>
-             */
-        R["updateOrCreate"] = R["upsert"];
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#update
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Update instances of the model matched by where from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `where` – `{object=}` - Criteria to match model instances
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * The number of instances updated
-             */
-        R["update"] = R["updateAll"];
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#destroyById
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Delete a model instance by id from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - Model id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RankingSeat` object.)
-             * </em>
-             */
-        R["destroyById"] = R["deleteById"];
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#removeById
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Delete a model instance by id from the data source.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - Model id
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `RankingSeat` object.)
-             * </em>
-             */
-        R["removeById"] = R["deleteById"];
-
-
-        /**
-        * @ngdoc property
-        * @name apiServices.RankingSeat#modelName
-        * @propertyOf apiServices.RankingSeat
-        * @description
-        * The name of the model represented by this $resource,
-        * i.e. `RankingSeat`.
-        */
-        R.modelName = "RankingSeat";
-
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#ranking
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Fetches belongsTo relation ranking.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `refresh` – `{boolean=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Ranking` object.)
-             * </em>
-             */
-        R.ranking = function() {
-          var TargetResource = $injector.get("Ranking");
-          var action = TargetResource["::get::RankingSeat::ranking"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#customer
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Fetches belongsTo relation customer.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `refresh` – `{boolean=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Customer` object.)
-             * </em>
-             */
-        R.customer = function() {
-          var TargetResource = $injector.get("Customer");
-          var action = TargetResource["::get::RankingSeat::customer"];
-          return action.apply(R, arguments);
-        };
-
-            /**
-             * @ngdoc method
-             * @name apiServices.RankingSeat#lastModifiedBy
-             * @methodOf apiServices.RankingSeat
-             *
-             * @description
-             *
-             * Fetches belongsTo relation lastModifiedBy.
-             *
-             * @param {Object=} parameters Request parameters.
-             *
-             *  - `id` – `{*}` - PersistedModel id
-             *
-             *  - `refresh` – `{boolean=}` -
-             *
-             * @param {function(Object,Object)=} successCb
-             *   Success callback with two arguments: `value`, `responseHeaders`.
-             *
-             * @param {function(Object)=} errorCb Error callback with one argument:
-             *   `httpResponse`.
-             *
-             * @returns {Object} An empty reference that will be
-             *   populated with the actual data once the response is returned
-             *   from the server.
-             *
-             * <em>
-             * (The remote method definition does not provide any description.
-             * This usually means the response is a `Admin` object.)
-             * </em>
-             */
-        R.lastModifiedBy = function() {
-          var TargetResource = $injector.get("Admin");
-          var action = TargetResource["::get::RankingSeat::lastModifiedBy"];
-          return action.apply(R, arguments);
-        };
-
-
-        return R;
-      }]);
-
-/**
- * @ngdoc object
  * @name apiServices.Rule
  * @header apiServices.Rule
  * @object
@@ -18332,6 +20501,87 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "GET",
             },
 
+            // INTERNAL. Use Rule._listeners.findById() instead.
+            "prototype$__findById___listeners": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/_listeners/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rule._listeners.destroyById() instead.
+            "prototype$__destroyById___listeners": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/_listeners/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Rule._listeners.updateById() instead.
+            "prototype$__updateById___listeners": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/_listeners/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Rule._triggers.findById() instead.
+            "prototype$__findById___triggers": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/_triggers/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rule._triggers.destroyById() instead.
+            "prototype$__destroyById___triggers": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/_triggers/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Rule._triggers.updateById() instead.
+            "prototype$__updateById___triggers": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/_triggers/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Rule.instances.findById() instead.
+            "prototype$__findById__instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/instances/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rule.instances.destroyById() instead.
+            "prototype$__destroyById__instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/instances/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Rule.instances.updateById() instead.
+            "prototype$__updateById__instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/instances/:fk",
+              method: "PUT",
+            },
+
             // INTERNAL. Use Rule.historic.findById() instead.
             "prototype$__findById__historic": {
               params: {
@@ -18357,6 +20607,87 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               },
               url: urlBase + "/Rules/:id/historic/:fk",
               method: "PUT",
+            },
+
+            // INTERNAL. Use Rule.lastModifiedBy() instead.
+            "prototype$__get__lastModifiedBy": {
+              url: urlBase + "/Rules/:id/lastModifiedBy",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rule._listeners() instead.
+            "prototype$__get___listeners": {
+              isArray: true,
+              url: urlBase + "/Rules/:id/_listeners",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rule._listeners.create() instead.
+            "prototype$__create___listeners": {
+              url: urlBase + "/Rules/:id/_listeners",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Rule._listeners.destroyAll() instead.
+            "prototype$__delete___listeners": {
+              url: urlBase + "/Rules/:id/_listeners",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Rule._listeners.count() instead.
+            "prototype$__count___listeners": {
+              url: urlBase + "/Rules/:id/_listeners/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rule._triggers() instead.
+            "prototype$__get___triggers": {
+              isArray: true,
+              url: urlBase + "/Rules/:id/_triggers",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rule._triggers.create() instead.
+            "prototype$__create___triggers": {
+              url: urlBase + "/Rules/:id/_triggers",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Rule._triggers.destroyAll() instead.
+            "prototype$__delete___triggers": {
+              url: urlBase + "/Rules/:id/_triggers",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Rule._triggers.count() instead.
+            "prototype$__count___triggers": {
+              url: urlBase + "/Rules/:id/_triggers/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rule.instances() instead.
+            "prototype$__get__instances": {
+              isArray: true,
+              url: urlBase + "/Rules/:id/instances",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rule.instances.create() instead.
+            "prototype$__create__instances": {
+              url: urlBase + "/Rules/:id/instances",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Rule.instances.destroyAll() instead.
+            "prototype$__delete__instances": {
+              url: urlBase + "/Rules/:id/instances",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Rule.instances.count() instead.
+            "prototype$__count__instances": {
+              url: urlBase + "/Rules/:id/instances/count",
+              method: "GET",
             },
 
             // INTERNAL. Use Rule.historic() instead.
@@ -18468,7 +20799,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Rule` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Rules",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule#replaceOrCreate
+             * @methodOf apiServices.Rule
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -18494,9 +20858,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Rule` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/Rules",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/Rules/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -18538,7 +20902,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -18564,6 +20928,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/Rules/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule#replaceById
+             * @methodOf apiServices.Rule
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Rule` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Rules/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -18640,7 +21041,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -18674,7 +21075,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -18739,15 +21140,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -18766,7 +21165,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/Rules/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -18898,21 +21297,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name apiServices.Rule#patchOrCreate
+             * @methodOf apiServices.Rule
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Rule` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
              * @name apiServices.Rule#updateOrCreate
              * @methodOf apiServices.Rule
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -18938,7 +21362,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -18969,7 +21393,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -18999,7 +21423,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -19022,6 +21446,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
         R["removeById"] = R["deleteById"];
 
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule#patchAttributes
+             * @methodOf apiServices.Rule
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Rule` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
+
 
         /**
         * @ngdoc property
@@ -19033,6 +21489,909 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         */
         R.modelName = "Rule";
 
+    /**
+     * @ngdoc object
+     * @name apiServices.Rule._listeners
+     * @header apiServices.Rule._listeners
+     * @object
+     * @description
+     *
+     * The object `Rule._listeners` groups methods
+     * manipulating `Listener` instances related to `Rule`.
+     *
+     * Call {@link apiServices.Rule#_listeners Rule._listeners()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule#_listeners
+             * @methodOf apiServices.Rule
+             *
+             * @description
+             *
+             * Queries _listeners of Rule.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Listener` object.)
+             * </em>
+             */
+        R._listeners = function() {
+          var TargetResource = $injector.get("Listener");
+          var action = TargetResource["::get::Rule::_listeners"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule._listeners#count
+             * @methodOf apiServices.Rule._listeners
+             *
+             * @description
+             *
+             * Counts _listeners of Rule.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R._listeners.count = function() {
+          var TargetResource = $injector.get("Listener");
+          var action = TargetResource["::count::Rule::_listeners"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule._listeners#create
+             * @methodOf apiServices.Rule._listeners
+             *
+             * @description
+             *
+             * Creates a new instance in _listeners of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Listener` object.)
+             * </em>
+             */
+        R._listeners.create = function() {
+          var TargetResource = $injector.get("Listener");
+          var action = TargetResource["::create::Rule::_listeners"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule._listeners#createMany
+             * @methodOf apiServices.Rule._listeners
+             *
+             * @description
+             *
+             * Creates a new instance in _listeners of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Listener` object.)
+             * </em>
+             */
+        R._listeners.createMany = function() {
+          var TargetResource = $injector.get("Listener");
+          var action = TargetResource["::createMany::Rule::_listeners"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule._listeners#destroyAll
+             * @methodOf apiServices.Rule._listeners
+             *
+             * @description
+             *
+             * Deletes all _listeners of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R._listeners.destroyAll = function() {
+          var TargetResource = $injector.get("Listener");
+          var action = TargetResource["::delete::Rule::_listeners"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule._listeners#destroyById
+             * @methodOf apiServices.Rule._listeners
+             *
+             * @description
+             *
+             * Delete a related item by id for _listeners.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for _listeners
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R._listeners.destroyById = function() {
+          var TargetResource = $injector.get("Listener");
+          var action = TargetResource["::destroyById::Rule::_listeners"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule._listeners#findById
+             * @methodOf apiServices.Rule._listeners
+             *
+             * @description
+             *
+             * Find a related item by id for _listeners.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for _listeners
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Listener` object.)
+             * </em>
+             */
+        R._listeners.findById = function() {
+          var TargetResource = $injector.get("Listener");
+          var action = TargetResource["::findById::Rule::_listeners"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule._listeners#updateById
+             * @methodOf apiServices.Rule._listeners
+             *
+             * @description
+             *
+             * Update a related item by id for _listeners.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for _listeners
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Listener` object.)
+             * </em>
+             */
+        R._listeners.updateById = function() {
+          var TargetResource = $injector.get("Listener");
+          var action = TargetResource["::updateById::Rule::_listeners"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name apiServices.Rule._triggers
+     * @header apiServices.Rule._triggers
+     * @object
+     * @description
+     *
+     * The object `Rule._triggers` groups methods
+     * manipulating `Trigger` instances related to `Rule`.
+     *
+     * Call {@link apiServices.Rule#_triggers Rule._triggers()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule#_triggers
+             * @methodOf apiServices.Rule
+             *
+             * @description
+             *
+             * Queries _triggers of Rule.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Trigger` object.)
+             * </em>
+             */
+        R._triggers = function() {
+          var TargetResource = $injector.get("Trigger");
+          var action = TargetResource["::get::Rule::_triggers"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule._triggers#count
+             * @methodOf apiServices.Rule._triggers
+             *
+             * @description
+             *
+             * Counts _triggers of Rule.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R._triggers.count = function() {
+          var TargetResource = $injector.get("Trigger");
+          var action = TargetResource["::count::Rule::_triggers"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule._triggers#create
+             * @methodOf apiServices.Rule._triggers
+             *
+             * @description
+             *
+             * Creates a new instance in _triggers of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Trigger` object.)
+             * </em>
+             */
+        R._triggers.create = function() {
+          var TargetResource = $injector.get("Trigger");
+          var action = TargetResource["::create::Rule::_triggers"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule._triggers#createMany
+             * @methodOf apiServices.Rule._triggers
+             *
+             * @description
+             *
+             * Creates a new instance in _triggers of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Trigger` object.)
+             * </em>
+             */
+        R._triggers.createMany = function() {
+          var TargetResource = $injector.get("Trigger");
+          var action = TargetResource["::createMany::Rule::_triggers"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule._triggers#destroyAll
+             * @methodOf apiServices.Rule._triggers
+             *
+             * @description
+             *
+             * Deletes all _triggers of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R._triggers.destroyAll = function() {
+          var TargetResource = $injector.get("Trigger");
+          var action = TargetResource["::delete::Rule::_triggers"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule._triggers#destroyById
+             * @methodOf apiServices.Rule._triggers
+             *
+             * @description
+             *
+             * Delete a related item by id for _triggers.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for _triggers
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R._triggers.destroyById = function() {
+          var TargetResource = $injector.get("Trigger");
+          var action = TargetResource["::destroyById::Rule::_triggers"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule._triggers#findById
+             * @methodOf apiServices.Rule._triggers
+             *
+             * @description
+             *
+             * Find a related item by id for _triggers.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for _triggers
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Trigger` object.)
+             * </em>
+             */
+        R._triggers.findById = function() {
+          var TargetResource = $injector.get("Trigger");
+          var action = TargetResource["::findById::Rule::_triggers"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule._triggers#updateById
+             * @methodOf apiServices.Rule._triggers
+             *
+             * @description
+             *
+             * Update a related item by id for _triggers.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for _triggers
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Trigger` object.)
+             * </em>
+             */
+        R._triggers.updateById = function() {
+          var TargetResource = $injector.get("Trigger");
+          var action = TargetResource["::updateById::Rule::_triggers"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name apiServices.Rule.instances
+     * @header apiServices.Rule.instances
+     * @object
+     * @description
+     *
+     * The object `Rule.instances` groups methods
+     * manipulating `RuleInstance` instances related to `Rule`.
+     *
+     * Call {@link apiServices.Rule#instances Rule.instances()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule#instances
+             * @methodOf apiServices.Rule
+             *
+             * @description
+             *
+             * Queries instances of Rule.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RuleInstance` object.)
+             * </em>
+             */
+        R.instances = function() {
+          var TargetResource = $injector.get("RuleInstance");
+          var action = TargetResource["::get::Rule::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule.instances#count
+             * @methodOf apiServices.Rule.instances
+             *
+             * @description
+             *
+             * Counts instances of Rule.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.instances.count = function() {
+          var TargetResource = $injector.get("RuleInstance");
+          var action = TargetResource["::count::Rule::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule.instances#create
+             * @methodOf apiServices.Rule.instances
+             *
+             * @description
+             *
+             * Creates a new instance in instances of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RuleInstance` object.)
+             * </em>
+             */
+        R.instances.create = function() {
+          var TargetResource = $injector.get("RuleInstance");
+          var action = TargetResource["::create::Rule::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule.instances#createMany
+             * @methodOf apiServices.Rule.instances
+             *
+             * @description
+             *
+             * Creates a new instance in instances of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RuleInstance` object.)
+             * </em>
+             */
+        R.instances.createMany = function() {
+          var TargetResource = $injector.get("RuleInstance");
+          var action = TargetResource["::createMany::Rule::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule.instances#destroyAll
+             * @methodOf apiServices.Rule.instances
+             *
+             * @description
+             *
+             * Deletes all instances of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.instances.destroyAll = function() {
+          var TargetResource = $injector.get("RuleInstance");
+          var action = TargetResource["::delete::Rule::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule.instances#destroyById
+             * @methodOf apiServices.Rule.instances
+             *
+             * @description
+             *
+             * Delete a related item by id for instances.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.instances.destroyById = function() {
+          var TargetResource = $injector.get("RuleInstance");
+          var action = TargetResource["::destroyById::Rule::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule.instances#findById
+             * @methodOf apiServices.Rule.instances
+             *
+             * @description
+             *
+             * Find a related item by id for instances.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RuleInstance` object.)
+             * </em>
+             */
+        R.instances.findById = function() {
+          var TargetResource = $injector.get("RuleInstance");
+          var action = TargetResource["::findById::Rule::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule.instances#updateById
+             * @methodOf apiServices.Rule.instances
+             *
+             * @description
+             *
+             * Update a related item by id for instances.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RuleInstance` object.)
+             * </em>
+             */
+        R.instances.updateById = function() {
+          var TargetResource = $injector.get("RuleInstance");
+          var action = TargetResource["::updateById::Rule::instances"];
+          return action.apply(R, arguments);
+        };
     /**
      * @ngdoc object
      * @name apiServices.Rule.historic
@@ -19335,6 +22694,42 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           return action.apply(R, arguments);
         };
 
+            /**
+             * @ngdoc method
+             * @name apiServices.Rule#lastModifiedBy
+             * @methodOf apiServices.Rule
+             *
+             * @description
+             *
+             * Fetches belongsTo relation lastModifiedBy.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Admin` object.)
+             * </em>
+             */
+        R.lastModifiedBy = function() {
+          var TargetResource = $injector.get("Admin");
+          var action = TargetResource["::get::Rule::lastModifiedBy"];
+          return action.apply(R, arguments);
+        };
+
 
         return R;
       }]);
@@ -19468,7 +22863,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Trigger` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Triggers",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Trigger#replaceOrCreate
+             * @methodOf apiServices.Trigger
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -19494,9 +22922,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Trigger` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/Triggers",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/Triggers/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -19538,7 +22966,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -19564,6 +22992,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/Triggers/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Trigger#replaceById
+             * @methodOf apiServices.Trigger
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Trigger` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Triggers/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -19640,7 +23105,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -19674,7 +23139,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -19739,15 +23204,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -19766,7 +23229,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/Triggers/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -19805,10 +23268,158 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               url: urlBase + "/Triggers/change-stream",
               method: "POST",
             },
+
+            // INTERNAL. Use Rule._triggers.findById() instead.
+            "::findById::Rule::_triggers": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/_triggers/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rule._triggers.destroyById() instead.
+            "::destroyById::Rule::_triggers": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/_triggers/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Rule._triggers.updateById() instead.
+            "::updateById::Rule::_triggers": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/_triggers/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Rule._triggers() instead.
+            "::get::Rule::_triggers": {
+              isArray: true,
+              url: urlBase + "/Rules/:id/_triggers",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rule._triggers.create() instead.
+            "::create::Rule::_triggers": {
+              url: urlBase + "/Rules/:id/_triggers",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Rule._triggers.createMany() instead.
+            "::createMany::Rule::_triggers": {
+              isArray: true,
+              url: urlBase + "/Rules/:id/_triggers",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Rule._triggers.destroyAll() instead.
+            "::delete::Rule::_triggers": {
+              url: urlBase + "/Rules/:id/_triggers",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Rule._triggers.count() instead.
+            "::count::Rule::_triggers": {
+              url: urlBase + "/Rules/:id/_triggers/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Quest._triggers.findById() instead.
+            "::findById::Quest::_triggers": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/_triggers/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Quest._triggers.destroyById() instead.
+            "::destroyById::Quest::_triggers": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/_triggers/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Quest._triggers.updateById() instead.
+            "::updateById::Quest::_triggers": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/_triggers/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Quest._triggers() instead.
+            "::get::Quest::_triggers": {
+              isArray: true,
+              url: urlBase + "/Quests/:id/_triggers",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Quest._triggers.create() instead.
+            "::create::Quest::_triggers": {
+              url: urlBase + "/Quests/:id/_triggers",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Quest._triggers.createMany() instead.
+            "::createMany::Quest::_triggers": {
+              isArray: true,
+              url: urlBase + "/Quests/:id/_triggers",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Quest._triggers.destroyAll() instead.
+            "::delete::Quest::_triggers": {
+              url: urlBase + "/Quests/:id/_triggers",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Quest._triggers.count() instead.
+            "::count::Quest::_triggers": {
+              url: urlBase + "/Quests/:id/_triggers/count",
+              method: "GET",
+            },
           }
         );
 
 
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Trigger#patchOrCreate
+             * @methodOf apiServices.Trigger
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Trigger` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
 
             /**
              * @ngdoc method
@@ -19817,16 +23428,11 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -19852,7 +23458,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -19883,7 +23489,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -19913,7 +23519,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -19935,6 +23541,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Trigger#patchAttributes
+             * @methodOf apiServices.Trigger
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Trigger` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
 
         /**
@@ -20268,7 +23906,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RuleInstance` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/RuleInstances",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.RuleInstance#replaceOrCreate
+             * @methodOf apiServices.RuleInstance
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -20294,9 +23965,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `RuleInstance` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/RuleInstances",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/RuleInstances/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -20338,7 +24009,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -20364,6 +24035,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/RuleInstances/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.RuleInstance#replaceById
+             * @methodOf apiServices.RuleInstance
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RuleInstance` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/RuleInstances/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -20440,7 +24148,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -20474,7 +24182,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -20539,15 +24247,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -20566,7 +24272,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/RuleInstances/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -20691,10 +24397,99 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               url: urlBase + "/Listeners/:id/ruleInstances/count",
               method: "GET",
             },
+
+            // INTERNAL. Use Rule.instances.findById() instead.
+            "::findById::Rule::instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/instances/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rule.instances.destroyById() instead.
+            "::destroyById::Rule::instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/instances/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Rule.instances.updateById() instead.
+            "::updateById::Rule::instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Rules/:id/instances/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Rule.instances() instead.
+            "::get::Rule::instances": {
+              isArray: true,
+              url: urlBase + "/Rules/:id/instances",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Rule.instances.create() instead.
+            "::create::Rule::instances": {
+              url: urlBase + "/Rules/:id/instances",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Rule.instances.createMany() instead.
+            "::createMany::Rule::instances": {
+              isArray: true,
+              url: urlBase + "/Rules/:id/instances",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Rule.instances.destroyAll() instead.
+            "::delete::Rule::instances": {
+              url: urlBase + "/Rules/:id/instances",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Rule.instances.count() instead.
+            "::count::Rule::instances": {
+              url: urlBase + "/Rules/:id/instances/count",
+              method: "GET",
+            },
           }
         );
 
 
+
+            /**
+             * @ngdoc method
+             * @name apiServices.RuleInstance#patchOrCreate
+             * @methodOf apiServices.RuleInstance
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RuleInstance` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
 
             /**
              * @ngdoc method
@@ -20703,16 +24498,11 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -20738,7 +24528,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -20769,7 +24559,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -20799,7 +24589,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -20821,6 +24611,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.RuleInstance#patchAttributes
+             * @methodOf apiServices.RuleInstance
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RuleInstance` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
 
         /**
@@ -21485,7 +25307,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RuleHistory` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/RuleHistories",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.RuleHistory#replaceOrCreate
+             * @methodOf apiServices.RuleHistory
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -21511,9 +25366,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `RuleHistory` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/RuleHistories",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/RuleHistories/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -21555,7 +25410,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -21581,6 +25436,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/RuleHistories/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.RuleHistory#replaceById
+             * @methodOf apiServices.RuleHistory
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RuleHistory` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/RuleHistories/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -21657,7 +25549,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -21691,7 +25583,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -21756,15 +25648,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -21783,7 +25673,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/RuleHistories/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -21888,21 +25778,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name apiServices.RuleHistory#patchOrCreate
+             * @methodOf apiServices.RuleHistory
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RuleHistory` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
              * @name apiServices.RuleHistory#updateOrCreate
              * @methodOf apiServices.RuleHistory
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -21928,7 +25843,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -21959,7 +25874,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -21989,7 +25904,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -22011,6 +25926,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.RuleHistory#patchAttributes
+             * @methodOf apiServices.RuleHistory
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `RuleHistory` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
 
         /**
@@ -22190,6 +26137,60 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "PUT",
             },
 
+            // INTERNAL. Use ScoreUnit.seats.findById() instead.
+            "prototype$__findById__seats": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/ScoreUnits/:id/seats/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use ScoreUnit.seats.destroyById() instead.
+            "prototype$__destroyById__seats": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/ScoreUnits/:id/seats/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use ScoreUnit.seats.updateById() instead.
+            "prototype$__updateById__seats": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/ScoreUnits/:id/seats/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use ScoreUnit.instances.findById() instead.
+            "prototype$__findById__instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/ScoreUnits/:id/instances/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use ScoreUnit.instances.destroyById() instead.
+            "prototype$__destroyById__instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/ScoreUnits/:id/instances/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use ScoreUnit.instances.updateById() instead.
+            "prototype$__updateById__instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/ScoreUnits/:id/instances/:fk",
+              method: "PUT",
+            },
+
             // INTERNAL. Use ScoreUnit.lastModifiedBy() instead.
             "prototype$__get__lastModifiedBy": {
               url: urlBase + "/ScoreUnits/:id/lastModifiedBy",
@@ -22218,6 +26219,56 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             // INTERNAL. Use ScoreUnit.levels.count() instead.
             "prototype$__count__levels": {
               url: urlBase + "/ScoreUnits/:id/levels/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use ScoreUnit.seats() instead.
+            "prototype$__get__seats": {
+              isArray: true,
+              url: urlBase + "/ScoreUnits/:id/seats",
+              method: "GET",
+            },
+
+            // INTERNAL. Use ScoreUnit.seats.create() instead.
+            "prototype$__create__seats": {
+              url: urlBase + "/ScoreUnits/:id/seats",
+              method: "POST",
+            },
+
+            // INTERNAL. Use ScoreUnit.seats.destroyAll() instead.
+            "prototype$__delete__seats": {
+              url: urlBase + "/ScoreUnits/:id/seats",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use ScoreUnit.seats.count() instead.
+            "prototype$__count__seats": {
+              url: urlBase + "/ScoreUnits/:id/seats/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use ScoreUnit.instances() instead.
+            "prototype$__get__instances": {
+              isArray: true,
+              url: urlBase + "/ScoreUnits/:id/instances",
+              method: "GET",
+            },
+
+            // INTERNAL. Use ScoreUnit.instances.create() instead.
+            "prototype$__create__instances": {
+              url: urlBase + "/ScoreUnits/:id/instances",
+              method: "POST",
+            },
+
+            // INTERNAL. Use ScoreUnit.instances.destroyAll() instead.
+            "prototype$__delete__instances": {
+              url: urlBase + "/ScoreUnits/:id/instances",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use ScoreUnit.instances.count() instead.
+            "prototype$__count__instances": {
+              url: urlBase + "/ScoreUnits/:id/instances/count",
               method: "GET",
             },
 
@@ -22305,7 +26356,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnit` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/ScoreUnits",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit#replaceOrCreate
+             * @methodOf apiServices.ScoreUnit
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -22331,9 +26415,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `ScoreUnit` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/ScoreUnits",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/ScoreUnits/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -22375,7 +26459,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -22401,6 +26485,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/ScoreUnits/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit#replaceById
+             * @methodOf apiServices.ScoreUnit
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnit` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/ScoreUnits/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -22477,7 +26598,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -22511,7 +26632,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -22576,15 +26697,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -22603,7 +26722,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/ScoreUnits/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -22643,80 +26762,21 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "POST",
             },
 
-            // INTERNAL. Use Product.scoreUnit.findById() instead.
-            "::findById::Product::scoreUnit": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Products/:id/scoreUnit/:fk",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Product.scoreUnit.destroyById() instead.
-            "::destroyById::Product::scoreUnit": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Products/:id/scoreUnit/:fk",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Product.scoreUnit.updateById() instead.
-            "::updateById::Product::scoreUnit": {
-              params: {
-                'fk': '@fk',
-              },
-              url: urlBase + "/Products/:id/scoreUnit/:fk",
-              method: "PUT",
-            },
-
-            // INTERNAL. Use Product.scoreUnit() instead.
-            "::get::Product::scoreUnit": {
-              isArray: true,
-              url: urlBase + "/Products/:id/scoreUnit",
-              method: "GET",
-            },
-
-            // INTERNAL. Use Product.scoreUnit.create() instead.
-            "::create::Product::scoreUnit": {
-              url: urlBase + "/Products/:id/scoreUnit",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Product.scoreUnit.createMany() instead.
-            "::createMany::Product::scoreUnit": {
-              isArray: true,
-              url: urlBase + "/Products/:id/scoreUnit",
-              method: "POST",
-            },
-
-            // INTERNAL. Use Product.scoreUnit.destroyAll() instead.
-            "::delete::Product::scoreUnit": {
-              url: urlBase + "/Products/:id/scoreUnit",
-              method: "DELETE",
-            },
-
-            // INTERNAL. Use Product.scoreUnit.count() instead.
-            "::count::Product::scoreUnit": {
-              url: urlBase + "/Products/:id/scoreUnit/count",
-              method: "GET",
-            },
-
             // INTERNAL. Use Level.scoreUnit() instead.
             "::get::Level::scoreUnit": {
               url: urlBase + "/Levels/:id/scoreUnit",
               method: "GET",
             },
 
-            // INTERNAL. Use Ranking.scoreUnit() instead.
-            "::get::Ranking::scoreUnit": {
-              url: urlBase + "/Rankings/:id/scoreUnit",
-              method: "GET",
-            },
-
             // INTERNAL. Use ScoreUnitSeat.scoreUnit() instead.
             "::get::ScoreUnitSeat::scoreUnit": {
               url: urlBase + "/ScoreUnitSeats/:id/scoreUnit",
+              method: "GET",
+            },
+
+            // INTERNAL. Use ScoreUnitInstance.scoreUnit() instead.
+            "::get::ScoreUnitInstance::scoreUnit": {
+              url: urlBase + "/ScoreUnitInstances/:id/scoreUnit",
               method: "GET",
             },
           }
@@ -22726,21 +26786,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name apiServices.ScoreUnit#patchOrCreate
+             * @methodOf apiServices.ScoreUnit
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnit` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
              * @name apiServices.ScoreUnit#updateOrCreate
              * @methodOf apiServices.ScoreUnit
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -22766,7 +26851,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -22797,7 +26882,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -22827,7 +26912,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -22849,6 +26934,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit#patchAttributes
+             * @methodOf apiServices.ScoreUnit
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnit` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
 
         /**
@@ -23162,6 +27279,608 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           var action = TargetResource["::updateById::ScoreUnit::levels"];
           return action.apply(R, arguments);
         };
+    /**
+     * @ngdoc object
+     * @name apiServices.ScoreUnit.seats
+     * @header apiServices.ScoreUnit.seats
+     * @object
+     * @description
+     *
+     * The object `ScoreUnit.seats` groups methods
+     * manipulating `ScoreUnitSeat` instances related to `ScoreUnit`.
+     *
+     * Call {@link apiServices.ScoreUnit#seats ScoreUnit.seats()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit#seats
+             * @methodOf apiServices.ScoreUnit
+             *
+             * @description
+             *
+             * Queries seats of ScoreUnit.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitSeat` object.)
+             * </em>
+             */
+        R.seats = function() {
+          var TargetResource = $injector.get("ScoreUnitSeat");
+          var action = TargetResource["::get::ScoreUnit::seats"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit.seats#count
+             * @methodOf apiServices.ScoreUnit.seats
+             *
+             * @description
+             *
+             * Counts seats of ScoreUnit.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.seats.count = function() {
+          var TargetResource = $injector.get("ScoreUnitSeat");
+          var action = TargetResource["::count::ScoreUnit::seats"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit.seats#create
+             * @methodOf apiServices.ScoreUnit.seats
+             *
+             * @description
+             *
+             * Creates a new instance in seats of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitSeat` object.)
+             * </em>
+             */
+        R.seats.create = function() {
+          var TargetResource = $injector.get("ScoreUnitSeat");
+          var action = TargetResource["::create::ScoreUnit::seats"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit.seats#createMany
+             * @methodOf apiServices.ScoreUnit.seats
+             *
+             * @description
+             *
+             * Creates a new instance in seats of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitSeat` object.)
+             * </em>
+             */
+        R.seats.createMany = function() {
+          var TargetResource = $injector.get("ScoreUnitSeat");
+          var action = TargetResource["::createMany::ScoreUnit::seats"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit.seats#destroyAll
+             * @methodOf apiServices.ScoreUnit.seats
+             *
+             * @description
+             *
+             * Deletes all seats of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.seats.destroyAll = function() {
+          var TargetResource = $injector.get("ScoreUnitSeat");
+          var action = TargetResource["::delete::ScoreUnit::seats"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit.seats#destroyById
+             * @methodOf apiServices.ScoreUnit.seats
+             *
+             * @description
+             *
+             * Delete a related item by id for seats.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for seats
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.seats.destroyById = function() {
+          var TargetResource = $injector.get("ScoreUnitSeat");
+          var action = TargetResource["::destroyById::ScoreUnit::seats"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit.seats#findById
+             * @methodOf apiServices.ScoreUnit.seats
+             *
+             * @description
+             *
+             * Find a related item by id for seats.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for seats
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitSeat` object.)
+             * </em>
+             */
+        R.seats.findById = function() {
+          var TargetResource = $injector.get("ScoreUnitSeat");
+          var action = TargetResource["::findById::ScoreUnit::seats"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit.seats#updateById
+             * @methodOf apiServices.ScoreUnit.seats
+             *
+             * @description
+             *
+             * Update a related item by id for seats.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for seats
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitSeat` object.)
+             * </em>
+             */
+        R.seats.updateById = function() {
+          var TargetResource = $injector.get("ScoreUnitSeat");
+          var action = TargetResource["::updateById::ScoreUnit::seats"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name apiServices.ScoreUnit.instances
+     * @header apiServices.ScoreUnit.instances
+     * @object
+     * @description
+     *
+     * The object `ScoreUnit.instances` groups methods
+     * manipulating `ScoreUnitInstance` instances related to `ScoreUnit`.
+     *
+     * Call {@link apiServices.ScoreUnit#instances ScoreUnit.instances()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit#instances
+             * @methodOf apiServices.ScoreUnit
+             *
+             * @description
+             *
+             * Queries instances of ScoreUnit.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R.instances = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::get::ScoreUnit::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit.instances#count
+             * @methodOf apiServices.ScoreUnit.instances
+             *
+             * @description
+             *
+             * Counts instances of ScoreUnit.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.instances.count = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::count::ScoreUnit::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit.instances#create
+             * @methodOf apiServices.ScoreUnit.instances
+             *
+             * @description
+             *
+             * Creates a new instance in instances of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R.instances.create = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::create::ScoreUnit::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit.instances#createMany
+             * @methodOf apiServices.ScoreUnit.instances
+             *
+             * @description
+             *
+             * Creates a new instance in instances of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R.instances.createMany = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::createMany::ScoreUnit::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit.instances#destroyAll
+             * @methodOf apiServices.ScoreUnit.instances
+             *
+             * @description
+             *
+             * Deletes all instances of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.instances.destroyAll = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::delete::ScoreUnit::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit.instances#destroyById
+             * @methodOf apiServices.ScoreUnit.instances
+             *
+             * @description
+             *
+             * Delete a related item by id for instances.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.instances.destroyById = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::destroyById::ScoreUnit::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit.instances#findById
+             * @methodOf apiServices.ScoreUnit.instances
+             *
+             * @description
+             *
+             * Find a related item by id for instances.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R.instances.findById = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::findById::ScoreUnit::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnit.instances#updateById
+             * @methodOf apiServices.ScoreUnit.instances
+             *
+             * @description
+             *
+             * Update a related item by id for instances.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R.instances.updateById = function() {
+          var TargetResource = $injector.get("ScoreUnitInstance");
+          var action = TargetResource["::updateById::ScoreUnit::instances"];
+          return action.apply(R, arguments);
+        };
 
             /**
              * @ngdoc method
@@ -23332,7 +28051,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitSeat` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/ScoreUnitSeats",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitSeat#replaceOrCreate
+             * @methodOf apiServices.ScoreUnitSeat
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -23358,9 +28110,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `ScoreUnitSeat` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/ScoreUnitSeats",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/ScoreUnitSeats/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -23402,7 +28154,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -23428,6 +28180,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/ScoreUnitSeats/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitSeat#replaceById
+             * @methodOf apiServices.ScoreUnitSeat
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitSeat` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/ScoreUnitSeats/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -23504,7 +28293,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -23538,7 +28327,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -23603,15 +28392,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -23630,7 +28417,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/ScoreUnitSeats/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -23669,10 +28456,99 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               url: urlBase + "/ScoreUnitSeats/change-stream",
               method: "POST",
             },
+
+            // INTERNAL. Use ScoreUnit.seats.findById() instead.
+            "::findById::ScoreUnit::seats": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/ScoreUnits/:id/seats/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use ScoreUnit.seats.destroyById() instead.
+            "::destroyById::ScoreUnit::seats": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/ScoreUnits/:id/seats/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use ScoreUnit.seats.updateById() instead.
+            "::updateById::ScoreUnit::seats": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/ScoreUnits/:id/seats/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use ScoreUnit.seats() instead.
+            "::get::ScoreUnit::seats": {
+              isArray: true,
+              url: urlBase + "/ScoreUnits/:id/seats",
+              method: "GET",
+            },
+
+            // INTERNAL. Use ScoreUnit.seats.create() instead.
+            "::create::ScoreUnit::seats": {
+              url: urlBase + "/ScoreUnits/:id/seats",
+              method: "POST",
+            },
+
+            // INTERNAL. Use ScoreUnit.seats.createMany() instead.
+            "::createMany::ScoreUnit::seats": {
+              isArray: true,
+              url: urlBase + "/ScoreUnits/:id/seats",
+              method: "POST",
+            },
+
+            // INTERNAL. Use ScoreUnit.seats.destroyAll() instead.
+            "::delete::ScoreUnit::seats": {
+              url: urlBase + "/ScoreUnits/:id/seats",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use ScoreUnit.seats.count() instead.
+            "::count::ScoreUnit::seats": {
+              url: urlBase + "/ScoreUnits/:id/seats/count",
+              method: "GET",
+            },
           }
         );
 
 
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitSeat#patchOrCreate
+             * @methodOf apiServices.ScoreUnitSeat
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitSeat` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
 
             /**
              * @ngdoc method
@@ -23681,16 +28557,11 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -23716,7 +28587,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -23747,7 +28618,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -23777,7 +28648,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -23799,6 +28670,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitSeat#patchAttributes
+             * @methodOf apiServices.ScoreUnitSeat
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitSeat` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
 
         /**
@@ -23926,6 +28829,1071 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
 /**
  * @ngdoc object
+ * @name apiServices.ScoreUnitInstance
+ * @header apiServices.ScoreUnitInstance
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `ScoreUnitInstance` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+  module.factory(
+    "ScoreUnitInstance",
+    [
+      'LoopBackResource', 'LoopBackAuth', '$injector',
+      function(Resource, LoopBackAuth, $injector) {
+        var R = Resource(
+        urlBase + "/ScoreUnitInstances/:id",
+          { 'id': '@id' },
+          {
+
+            // INTERNAL. Use ScoreUnitInstance.customer() instead.
+            "prototype$__get__customer": {
+              url: urlBase + "/ScoreUnitInstances/:id/customer",
+              method: "GET",
+            },
+
+            // INTERNAL. Use ScoreUnitInstance.scoreUnit() instead.
+            "prototype$__get__scoreUnit": {
+              url: urlBase + "/ScoreUnitInstances/:id/scoreUnit",
+              method: "GET",
+            },
+
+            // INTERNAL. Use ScoreUnitInstance.level() instead.
+            "prototype$__get__level": {
+              url: urlBase + "/ScoreUnitInstances/:id/level",
+              method: "GET",
+            },
+
+            // INTERNAL. Use ScoreUnitInstance.lastModifiedBy() instead.
+            "prototype$__get__lastModifiedBy": {
+              url: urlBase + "/ScoreUnitInstances/:id/lastModifiedBy",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#create
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+            "create": {
+              url: urlBase + "/ScoreUnitInstances",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#createMany
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+            "createMany": {
+              isArray: true,
+              url: urlBase + "/ScoreUnitInstances",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#upsert
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/ScoreUnitInstances",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#replaceOrCreate
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+            "replaceOrCreate": {
+              url: urlBase + "/ScoreUnitInstances/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#exists
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Check whether a model instance exists in the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `exists` – `{boolean=}` -
+             */
+            "exists": {
+              url: urlBase + "/ScoreUnitInstances/:id/exists",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#findById
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Find a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `filter` – `{object=}` - Filter defining fields and include
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+            "findById": {
+              url: urlBase + "/ScoreUnitInstances/:id",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#replaceById
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/ScoreUnitInstances/:id/replace",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#find
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Find all instances of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+            "find": {
+              isArray: true,
+              url: urlBase + "/ScoreUnitInstances",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#findOne
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Find first instance of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+            "findOne": {
+              url: urlBase + "/ScoreUnitInstances/findOne",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#updateAll
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+            "updateAll": {
+              url: urlBase + "/ScoreUnitInstances/update",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#deleteById
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+            "deleteById": {
+              url: urlBase + "/ScoreUnitInstances/:id",
+              method: "DELETE",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#count
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Count instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+            "count": {
+              url: urlBase + "/ScoreUnitInstances/count",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#prototype$updateAttributes
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Instance id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+            "prototype$updateAttributes": {
+              url: urlBase + "/ScoreUnitInstances/:id",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#createChangeStream
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Create a change stream.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `changes` – `{ReadableStream=}` -
+             */
+            "createChangeStream": {
+              url: urlBase + "/ScoreUnitInstances/change-stream",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Customer.scoreUnitInstances.findById() instead.
+            "::findById::Customer::scoreUnitInstances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Customers/:id/scoreUnitInstances/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Customer.scoreUnitInstances.destroyById() instead.
+            "::destroyById::Customer::scoreUnitInstances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Customers/:id/scoreUnitInstances/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Customer.scoreUnitInstances.updateById() instead.
+            "::updateById::Customer::scoreUnitInstances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Customers/:id/scoreUnitInstances/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Customer.scoreUnitInstances() instead.
+            "::get::Customer::scoreUnitInstances": {
+              isArray: true,
+              url: urlBase + "/Customers/:id/scoreUnitInstances",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Customer.scoreUnitInstances.create() instead.
+            "::create::Customer::scoreUnitInstances": {
+              url: urlBase + "/Customers/:id/scoreUnitInstances",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Customer.scoreUnitInstances.createMany() instead.
+            "::createMany::Customer::scoreUnitInstances": {
+              isArray: true,
+              url: urlBase + "/Customers/:id/scoreUnitInstances",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Customer.scoreUnitInstances.destroyAll() instead.
+            "::delete::Customer::scoreUnitInstances": {
+              url: urlBase + "/Customers/:id/scoreUnitInstances",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Customer.scoreUnitInstances.count() instead.
+            "::count::Customer::scoreUnitInstances": {
+              url: urlBase + "/Customers/:id/scoreUnitInstances/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Level.instances.findById() instead.
+            "::findById::Level::instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Levels/:id/instances/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Level.instances.destroyById() instead.
+            "::destroyById::Level::instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Levels/:id/instances/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Level.instances.updateById() instead.
+            "::updateById::Level::instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Levels/:id/instances/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Level.instances() instead.
+            "::get::Level::instances": {
+              isArray: true,
+              url: urlBase + "/Levels/:id/instances",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Level.instances.create() instead.
+            "::create::Level::instances": {
+              url: urlBase + "/Levels/:id/instances",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Level.instances.createMany() instead.
+            "::createMany::Level::instances": {
+              isArray: true,
+              url: urlBase + "/Levels/:id/instances",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Level.instances.destroyAll() instead.
+            "::delete::Level::instances": {
+              url: urlBase + "/Levels/:id/instances",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Level.instances.count() instead.
+            "::count::Level::instances": {
+              url: urlBase + "/Levels/:id/instances/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use ScoreUnit.instances.findById() instead.
+            "::findById::ScoreUnit::instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/ScoreUnits/:id/instances/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use ScoreUnit.instances.destroyById() instead.
+            "::destroyById::ScoreUnit::instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/ScoreUnits/:id/instances/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use ScoreUnit.instances.updateById() instead.
+            "::updateById::ScoreUnit::instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/ScoreUnits/:id/instances/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use ScoreUnit.instances() instead.
+            "::get::ScoreUnit::instances": {
+              isArray: true,
+              url: urlBase + "/ScoreUnits/:id/instances",
+              method: "GET",
+            },
+
+            // INTERNAL. Use ScoreUnit.instances.create() instead.
+            "::create::ScoreUnit::instances": {
+              url: urlBase + "/ScoreUnits/:id/instances",
+              method: "POST",
+            },
+
+            // INTERNAL. Use ScoreUnit.instances.createMany() instead.
+            "::createMany::ScoreUnit::instances": {
+              isArray: true,
+              url: urlBase + "/ScoreUnits/:id/instances",
+              method: "POST",
+            },
+
+            // INTERNAL. Use ScoreUnit.instances.destroyAll() instead.
+            "::delete::ScoreUnit::instances": {
+              url: urlBase + "/ScoreUnits/:id/instances",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use ScoreUnit.instances.count() instead.
+            "::count::ScoreUnit::instances": {
+              url: urlBase + "/ScoreUnits/:id/instances/count",
+              method: "GET",
+            },
+          }
+        );
+
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#patchOrCreate
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#updateOrCreate
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#update
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+        R["update"] = R["updateAll"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#destroyById
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R["destroyById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#removeById
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#patchAttributes
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Instance id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnitInstance` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
+
+
+        /**
+        * @ngdoc property
+        * @name apiServices.ScoreUnitInstance#modelName
+        * @propertyOf apiServices.ScoreUnitInstance
+        * @description
+        * The name of the model represented by this $resource,
+        * i.e. `ScoreUnitInstance`.
+        */
+        R.modelName = "ScoreUnitInstance";
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#customer
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Fetches belongsTo relation customer.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Instance id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Customer` object.)
+             * </em>
+             */
+        R.customer = function() {
+          var TargetResource = $injector.get("Customer");
+          var action = TargetResource["::get::ScoreUnitInstance::customer"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#scoreUnit
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Fetches belongsTo relation scoreUnit.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Instance id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `ScoreUnit` object.)
+             * </em>
+             */
+        R.scoreUnit = function() {
+          var TargetResource = $injector.get("ScoreUnit");
+          var action = TargetResource["::get::ScoreUnitInstance::scoreUnit"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#level
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Fetches belongsTo relation level.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Instance id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Level` object.)
+             * </em>
+             */
+        R.level = function() {
+          var TargetResource = $injector.get("Level");
+          var action = TargetResource["::get::ScoreUnitInstance::level"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.ScoreUnitInstance#lastModifiedBy
+             * @methodOf apiServices.ScoreUnitInstance
+             *
+             * @description
+             *
+             * Fetches belongsTo relation lastModifiedBy.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Instance id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Admin` object.)
+             * </em>
+             */
+        R.lastModifiedBy = function() {
+          var TargetResource = $injector.get("Admin");
+          var action = TargetResource["::get::ScoreUnitInstance::lastModifiedBy"];
+          return action.apply(R, arguments);
+        };
+
+
+        return R;
+      }]);
+
+/**
+ * @ngdoc object
  * @name apiServices.Segment
  * @header apiServices.Segment
  * @object
@@ -24041,7 +30009,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Segment` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Segments",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Segment#replaceOrCreate
+             * @methodOf apiServices.Segment
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -24067,9 +30068,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Segment` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/Segments",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/Segments/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -24111,7 +30112,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -24137,6 +30138,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/Segments/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Segment#replaceById
+             * @methodOf apiServices.Segment
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Segment` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Segments/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -24213,7 +30251,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -24247,7 +30285,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -24312,15 +30350,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -24339,7 +30375,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/Segments/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -24385,21 +30421,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name apiServices.Segment#patchOrCreate
+             * @methodOf apiServices.Segment
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Segment` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
              * @name apiServices.Segment#updateOrCreate
              * @methodOf apiServices.Segment
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -24425,7 +30486,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -24456,7 +30517,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -24486,7 +30547,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -24508,6 +30569,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Segment#patchAttributes
+             * @methodOf apiServices.Segment
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Segment` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
 
         /**
@@ -24588,6 +30681,60 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           { 'id': '@id' },
           {
 
+            // INTERNAL. Use Quest._triggers.findById() instead.
+            "prototype$__findById___triggers": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/_triggers/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Quest._triggers.destroyById() instead.
+            "prototype$__destroyById___triggers": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/_triggers/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Quest._triggers.updateById() instead.
+            "prototype$__updateById___triggers": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/_triggers/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Quest._steps.findById() instead.
+            "prototype$__findById___steps": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/_steps/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Quest._steps.destroyById() instead.
+            "prototype$__destroyById___steps": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/_steps/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Quest._steps.updateById() instead.
+            "prototype$__updateById___steps": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/_steps/:fk",
+              method: "PUT",
+            },
+
             // INTERNAL. Use Quest.historic.findById() instead.
             "prototype$__findById__historic": {
               params: {
@@ -24615,9 +30762,86 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               method: "PUT",
             },
 
+            // INTERNAL. Use Quest.instances.findById() instead.
+            "prototype$__findById__instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/instances/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Quest.instances.destroyById() instead.
+            "prototype$__destroyById__instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/instances/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Quest.instances.updateById() instead.
+            "prototype$__updateById__instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/instances/:fk",
+              method: "PUT",
+            },
+
             // INTERNAL. Use Quest.lastModifiedBy() instead.
             "prototype$__get__lastModifiedBy": {
               url: urlBase + "/Quests/:id/lastModifiedBy",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Quest._triggers() instead.
+            "prototype$__get___triggers": {
+              isArray: true,
+              url: urlBase + "/Quests/:id/_triggers",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Quest._triggers.create() instead.
+            "prototype$__create___triggers": {
+              url: urlBase + "/Quests/:id/_triggers",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Quest._triggers.destroyAll() instead.
+            "prototype$__delete___triggers": {
+              url: urlBase + "/Quests/:id/_triggers",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Quest._triggers.count() instead.
+            "prototype$__count___triggers": {
+              url: urlBase + "/Quests/:id/_triggers/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Quest._steps() instead.
+            "prototype$__get___steps": {
+              isArray: true,
+              url: urlBase + "/Quests/:id/_steps",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Quest._steps.create() instead.
+            "prototype$__create___steps": {
+              url: urlBase + "/Quests/:id/_steps",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Quest._steps.destroyAll() instead.
+            "prototype$__delete___steps": {
+              url: urlBase + "/Quests/:id/_steps",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Quest._steps.count() instead.
+            "prototype$__count___steps": {
+              url: urlBase + "/Quests/:id/_steps/count",
               method: "GET",
             },
 
@@ -24643,6 +30867,31 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             // INTERNAL. Use Quest.historic.count() instead.
             "prototype$__count__historic": {
               url: urlBase + "/Quests/:id/historic/count",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Quest.instances() instead.
+            "prototype$__get__instances": {
+              isArray: true,
+              url: urlBase + "/Quests/:id/instances",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Quest.instances.create() instead.
+            "prototype$__create__instances": {
+              url: urlBase + "/Quests/:id/instances",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Quest.instances.destroyAll() instead.
+            "prototype$__delete__instances": {
+              url: urlBase + "/Quests/:id/instances",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Quest.instances.count() instead.
+            "prototype$__count__instances": {
+              url: urlBase + "/Quests/:id/instances/count",
               method: "GET",
             },
 
@@ -24730,7 +30979,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Quest` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Quests",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest#replaceOrCreate
+             * @methodOf apiServices.Quest
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -24756,9 +31038,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Quest` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/Quests",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/Quests/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -24800,7 +31082,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -24826,6 +31108,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/Quests/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest#replaceById
+             * @methodOf apiServices.Quest
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Quest` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Quests/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -24902,7 +31221,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -24936,7 +31255,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -25001,15 +31320,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -25028,7 +31345,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/Quests/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -25224,21 +31541,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name apiServices.Quest#patchOrCreate
+             * @methodOf apiServices.Quest
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Quest` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
              * @name apiServices.Quest#updateOrCreate
              * @methodOf apiServices.Quest
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -25264,7 +31606,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -25295,7 +31637,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -25325,7 +31667,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -25348,6 +31690,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
         R["removeById"] = R["deleteById"];
 
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest#patchAttributes
+             * @methodOf apiServices.Quest
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Quest` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
+
 
         /**
         * @ngdoc property
@@ -25359,6 +31733,608 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         */
         R.modelName = "Quest";
 
+    /**
+     * @ngdoc object
+     * @name apiServices.Quest._triggers
+     * @header apiServices.Quest._triggers
+     * @object
+     * @description
+     *
+     * The object `Quest._triggers` groups methods
+     * manipulating `Trigger` instances related to `Quest`.
+     *
+     * Call {@link apiServices.Quest#_triggers Quest._triggers()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest#_triggers
+             * @methodOf apiServices.Quest
+             *
+             * @description
+             *
+             * Queries _triggers of Quest.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Trigger` object.)
+             * </em>
+             */
+        R._triggers = function() {
+          var TargetResource = $injector.get("Trigger");
+          var action = TargetResource["::get::Quest::_triggers"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest._triggers#count
+             * @methodOf apiServices.Quest._triggers
+             *
+             * @description
+             *
+             * Counts _triggers of Quest.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R._triggers.count = function() {
+          var TargetResource = $injector.get("Trigger");
+          var action = TargetResource["::count::Quest::_triggers"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest._triggers#create
+             * @methodOf apiServices.Quest._triggers
+             *
+             * @description
+             *
+             * Creates a new instance in _triggers of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Trigger` object.)
+             * </em>
+             */
+        R._triggers.create = function() {
+          var TargetResource = $injector.get("Trigger");
+          var action = TargetResource["::create::Quest::_triggers"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest._triggers#createMany
+             * @methodOf apiServices.Quest._triggers
+             *
+             * @description
+             *
+             * Creates a new instance in _triggers of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Trigger` object.)
+             * </em>
+             */
+        R._triggers.createMany = function() {
+          var TargetResource = $injector.get("Trigger");
+          var action = TargetResource["::createMany::Quest::_triggers"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest._triggers#destroyAll
+             * @methodOf apiServices.Quest._triggers
+             *
+             * @description
+             *
+             * Deletes all _triggers of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R._triggers.destroyAll = function() {
+          var TargetResource = $injector.get("Trigger");
+          var action = TargetResource["::delete::Quest::_triggers"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest._triggers#destroyById
+             * @methodOf apiServices.Quest._triggers
+             *
+             * @description
+             *
+             * Delete a related item by id for _triggers.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for _triggers
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R._triggers.destroyById = function() {
+          var TargetResource = $injector.get("Trigger");
+          var action = TargetResource["::destroyById::Quest::_triggers"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest._triggers#findById
+             * @methodOf apiServices.Quest._triggers
+             *
+             * @description
+             *
+             * Find a related item by id for _triggers.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for _triggers
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Trigger` object.)
+             * </em>
+             */
+        R._triggers.findById = function() {
+          var TargetResource = $injector.get("Trigger");
+          var action = TargetResource["::findById::Quest::_triggers"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest._triggers#updateById
+             * @methodOf apiServices.Quest._triggers
+             *
+             * @description
+             *
+             * Update a related item by id for _triggers.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for _triggers
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Trigger` object.)
+             * </em>
+             */
+        R._triggers.updateById = function() {
+          var TargetResource = $injector.get("Trigger");
+          var action = TargetResource["::updateById::Quest::_triggers"];
+          return action.apply(R, arguments);
+        };
+    /**
+     * @ngdoc object
+     * @name apiServices.Quest._steps
+     * @header apiServices.Quest._steps
+     * @object
+     * @description
+     *
+     * The object `Quest._steps` groups methods
+     * manipulating `Step` instances related to `Quest`.
+     *
+     * Call {@link apiServices.Quest#_steps Quest._steps()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest#_steps
+             * @methodOf apiServices.Quest
+             *
+             * @description
+             *
+             * Queries _steps of Quest.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Step` object.)
+             * </em>
+             */
+        R._steps = function() {
+          var TargetResource = $injector.get("Step");
+          var action = TargetResource["::get::Quest::_steps"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest._steps#count
+             * @methodOf apiServices.Quest._steps
+             *
+             * @description
+             *
+             * Counts _steps of Quest.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R._steps.count = function() {
+          var TargetResource = $injector.get("Step");
+          var action = TargetResource["::count::Quest::_steps"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest._steps#create
+             * @methodOf apiServices.Quest._steps
+             *
+             * @description
+             *
+             * Creates a new instance in _steps of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Step` object.)
+             * </em>
+             */
+        R._steps.create = function() {
+          var TargetResource = $injector.get("Step");
+          var action = TargetResource["::create::Quest::_steps"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest._steps#createMany
+             * @methodOf apiServices.Quest._steps
+             *
+             * @description
+             *
+             * Creates a new instance in _steps of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Step` object.)
+             * </em>
+             */
+        R._steps.createMany = function() {
+          var TargetResource = $injector.get("Step");
+          var action = TargetResource["::createMany::Quest::_steps"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest._steps#destroyAll
+             * @methodOf apiServices.Quest._steps
+             *
+             * @description
+             *
+             * Deletes all _steps of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R._steps.destroyAll = function() {
+          var TargetResource = $injector.get("Step");
+          var action = TargetResource["::delete::Quest::_steps"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest._steps#destroyById
+             * @methodOf apiServices.Quest._steps
+             *
+             * @description
+             *
+             * Delete a related item by id for _steps.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for _steps
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R._steps.destroyById = function() {
+          var TargetResource = $injector.get("Step");
+          var action = TargetResource["::destroyById::Quest::_steps"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest._steps#findById
+             * @methodOf apiServices.Quest._steps
+             *
+             * @description
+             *
+             * Find a related item by id for _steps.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for _steps
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Step` object.)
+             * </em>
+             */
+        R._steps.findById = function() {
+          var TargetResource = $injector.get("Step");
+          var action = TargetResource["::findById::Quest::_steps"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest._steps#updateById
+             * @methodOf apiServices.Quest._steps
+             *
+             * @description
+             *
+             * Update a related item by id for _steps.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for _steps
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Step` object.)
+             * </em>
+             */
+        R._steps.updateById = function() {
+          var TargetResource = $injector.get("Step");
+          var action = TargetResource["::updateById::Quest::_steps"];
+          return action.apply(R, arguments);
+        };
     /**
      * @ngdoc object
      * @name apiServices.Quest.historic
@@ -25660,6 +32636,307 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
           var action = TargetResource["::updateById::Quest::historic"];
           return action.apply(R, arguments);
         };
+    /**
+     * @ngdoc object
+     * @name apiServices.Quest.instances
+     * @header apiServices.Quest.instances
+     * @object
+     * @description
+     *
+     * The object `Quest.instances` groups methods
+     * manipulating `QuestInstance` instances related to `Quest`.
+     *
+     * Call {@link apiServices.Quest#instances Quest.instances()}
+     * to query all related instances.
+     */
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest#instances
+             * @methodOf apiServices.Quest
+             *
+             * @description
+             *
+             * Queries instances of Quest.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `filter` – `{object=}` -
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `QuestInstance` object.)
+             * </em>
+             */
+        R.instances = function() {
+          var TargetResource = $injector.get("QuestInstance");
+          var action = TargetResource["::get::Quest::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest.instances#count
+             * @methodOf apiServices.Quest.instances
+             *
+             * @description
+             *
+             * Counts instances of Quest.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+        R.instances.count = function() {
+          var TargetResource = $injector.get("QuestInstance");
+          var action = TargetResource["::count::Quest::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest.instances#create
+             * @methodOf apiServices.Quest.instances
+             *
+             * @description
+             *
+             * Creates a new instance in instances of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `QuestInstance` object.)
+             * </em>
+             */
+        R.instances.create = function() {
+          var TargetResource = $injector.get("QuestInstance");
+          var action = TargetResource["::create::Quest::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest.instances#createMany
+             * @methodOf apiServices.Quest.instances
+             *
+             * @description
+             *
+             * Creates a new instance in instances of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `QuestInstance` object.)
+             * </em>
+             */
+        R.instances.createMany = function() {
+          var TargetResource = $injector.get("QuestInstance");
+          var action = TargetResource["::createMany::Quest::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest.instances#destroyAll
+             * @methodOf apiServices.Quest.instances
+             *
+             * @description
+             *
+             * Deletes all instances of this model.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.instances.destroyAll = function() {
+          var TargetResource = $injector.get("QuestInstance");
+          var action = TargetResource["::delete::Quest::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest.instances#destroyById
+             * @methodOf apiServices.Quest.instances
+             *
+             * @description
+             *
+             * Delete a related item by id for instances.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * This method returns no data.
+             */
+        R.instances.destroyById = function() {
+          var TargetResource = $injector.get("QuestInstance");
+          var action = TargetResource["::destroyById::Quest::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest.instances#findById
+             * @methodOf apiServices.Quest.instances
+             *
+             * @description
+             *
+             * Find a related item by id for instances.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `QuestInstance` object.)
+             * </em>
+             */
+        R.instances.findById = function() {
+          var TargetResource = $injector.get("QuestInstance");
+          var action = TargetResource["::findById::Quest::instances"];
+          return action.apply(R, arguments);
+        };
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Quest.instances#updateById
+             * @methodOf apiServices.Quest.instances
+             *
+             * @description
+             *
+             * Update a related item by id for instances.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `fk` – `{*}` - Foreign key for instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `QuestInstance` object.)
+             * </em>
+             */
+        R.instances.updateById = function() {
+          var TargetResource = $injector.get("QuestInstance");
+          var action = TargetResource["::updateById::Quest::instances"];
+          return action.apply(R, arguments);
+        };
 
             /**
              * @ngdoc method
@@ -25848,7 +33125,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Step` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Steps",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Step#replaceOrCreate
+             * @methodOf apiServices.Step
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -25874,9 +33184,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `Step` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/Steps",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/Steps/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -25918,7 +33228,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -25944,6 +33254,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/Steps/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Step#replaceById
+             * @methodOf apiServices.Step
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Step` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Steps/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -26020,7 +33367,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -26054,7 +33401,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -26119,15 +33466,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -26146,7 +33491,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/Steps/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -26184,6 +33529,65 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "createChangeStream": {
               url: urlBase + "/Steps/change-stream",
               method: "POST",
+            },
+
+            // INTERNAL. Use Quest._steps.findById() instead.
+            "::findById::Quest::_steps": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/_steps/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Quest._steps.destroyById() instead.
+            "::destroyById::Quest::_steps": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/_steps/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Quest._steps.updateById() instead.
+            "::updateById::Quest::_steps": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/_steps/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Quest._steps() instead.
+            "::get::Quest::_steps": {
+              isArray: true,
+              url: urlBase + "/Quests/:id/_steps",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Quest._steps.create() instead.
+            "::create::Quest::_steps": {
+              url: urlBase + "/Quests/:id/_steps",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Quest._steps.createMany() instead.
+            "::createMany::Quest::_steps": {
+              isArray: true,
+              url: urlBase + "/Quests/:id/_steps",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Quest._steps.destroyAll() instead.
+            "::delete::Quest::_steps": {
+              url: urlBase + "/Quests/:id/_steps",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Quest._steps.count() instead.
+            "::count::Quest::_steps": {
+              url: urlBase + "/Quests/:id/_steps/count",
+              method: "GET",
             },
 
             // INTERNAL. Use QuestInstance.steps.findById() instead.
@@ -26278,21 +33682,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name apiServices.Step#patchOrCreate
+             * @methodOf apiServices.Step
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Step` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
              * @name apiServices.Step#updateOrCreate
              * @methodOf apiServices.Step
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -26318,7 +33747,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -26349,7 +33778,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -26379,7 +33808,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -26401,6 +33830,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Step#patchAttributes
+             * @methodOf apiServices.Step
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Step` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
 
         /**
@@ -26814,7 +34275,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `QuestHistory` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/QuestHistories",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.QuestHistory#replaceOrCreate
+             * @methodOf apiServices.QuestHistory
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -26840,9 +34334,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `QuestHistory` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/QuestHistories",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/QuestHistories/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -26884,7 +34378,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -26910,6 +34404,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/QuestHistories/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.QuestHistory#replaceById
+             * @methodOf apiServices.QuestHistory
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `QuestHistory` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/QuestHistories/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -26986,7 +34517,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -27020,7 +34551,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -27085,15 +34616,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -27112,7 +34641,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/QuestHistories/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -27217,21 +34746,46 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
 
             /**
              * @ngdoc method
+             * @name apiServices.QuestHistory#patchOrCreate
+             * @methodOf apiServices.QuestHistory
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `QuestHistory` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
              * @name apiServices.QuestHistory#updateOrCreate
              * @methodOf apiServices.QuestHistory
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -27257,7 +34811,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -27288,7 +34842,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -27318,7 +34872,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -27340,6 +34894,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.QuestHistory#patchAttributes
+             * @methodOf apiServices.QuestHistory
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `QuestHistory` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
 
         /**
@@ -27673,7 +35259,40 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `QuestInstance` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/QuestInstances",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.QuestInstance#replaceOrCreate
+             * @methodOf apiServices.QuestInstance
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -27699,9 +35318,9 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * This usually means the response is a `QuestInstance` object.)
              * </em>
              */
-            "upsert": {
-              url: urlBase + "/QuestInstances",
-              method: "PUT",
+            "replaceOrCreate": {
+              url: urlBase + "/QuestInstances/replaceOrCreate",
+              method: "POST",
             },
 
             /**
@@ -27743,7 +35362,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Find a model instance by id from the data source.
+             * Find a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -27769,6 +35388,43 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
             "findById": {
               url: urlBase + "/QuestInstances/:id",
               method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.QuestInstance#replaceById
+             * @methodOf apiServices.QuestInstance
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `QuestInstance` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/QuestInstances/:id/replace",
+              method: "POST",
             },
 
             /**
@@ -27845,7 +35501,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -27879,7 +35535,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -27944,15 +35600,13 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update attributes for a model instance and persist it into the data source.
+             * Patch attributes for a model instance and persist it into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
              *  - `id` – `{*}` - PersistedModel id
              *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - An object of model property name/value pairs
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -27971,7 +35625,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              */
             "prototype$updateAttributes": {
               url: urlBase + "/QuestInstances/:id",
-              method: "PUT",
+              method: "PATCH",
             },
 
             /**
@@ -28069,10 +35723,99 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
               url: urlBase + "/Customers/:id/questInstances/count",
               method: "GET",
             },
+
+            // INTERNAL. Use Quest.instances.findById() instead.
+            "::findById::Quest::instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/instances/:fk",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Quest.instances.destroyById() instead.
+            "::destroyById::Quest::instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/instances/:fk",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Quest.instances.updateById() instead.
+            "::updateById::Quest::instances": {
+              params: {
+                'fk': '@fk',
+              },
+              url: urlBase + "/Quests/:id/instances/:fk",
+              method: "PUT",
+            },
+
+            // INTERNAL. Use Quest.instances() instead.
+            "::get::Quest::instances": {
+              isArray: true,
+              url: urlBase + "/Quests/:id/instances",
+              method: "GET",
+            },
+
+            // INTERNAL. Use Quest.instances.create() instead.
+            "::create::Quest::instances": {
+              url: urlBase + "/Quests/:id/instances",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Quest.instances.createMany() instead.
+            "::createMany::Quest::instances": {
+              isArray: true,
+              url: urlBase + "/Quests/:id/instances",
+              method: "POST",
+            },
+
+            // INTERNAL. Use Quest.instances.destroyAll() instead.
+            "::delete::Quest::instances": {
+              url: urlBase + "/Quests/:id/instances",
+              method: "DELETE",
+            },
+
+            // INTERNAL. Use Quest.instances.count() instead.
+            "::count::Quest::instances": {
+              url: urlBase + "/Quests/:id/instances/count",
+              method: "GET",
+            },
           }
         );
 
 
+
+            /**
+             * @ngdoc method
+             * @name apiServices.QuestInstance#patchOrCreate
+             * @methodOf apiServices.QuestInstance
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `QuestInstance` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
 
             /**
              * @ngdoc method
@@ -28081,16 +35824,11 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update an existing model instance or insert a new one into the data source.
+             * Patch an existing model instance or insert a new one into the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
-             *   This method does not accept any parameters.
-             *   Supply an empty object or omit this argument altogether.
-             *
-             * @param {Object} postData Request data.
-             *
-             * This method expects a subset of model properties as request parameters.
+             *  - `data` – `{object=}` - Model instance data
              *
              * @param {function(Object,Object)=} successCb
              *   Success callback with two arguments: `value`, `responseHeaders`.
@@ -28116,7 +35854,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Update instances of the model matched by where from the data source.
+             * Update instances of the model matched by {{where}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -28147,7 +35885,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -28177,7 +35915,7 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              *
              * @description
              *
-             * Delete a model instance by id from the data source.
+             * Delete a model instance by {{id}} from the data source.
              *
              * @param {Object=} parameters Request parameters.
              *
@@ -28199,6 +35937,38 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
              * </em>
              */
         R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.QuestInstance#patchAttributes
+             * @methodOf apiServices.QuestInstance
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `QuestInstance` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
 
 
         /**
@@ -28727,6 +36497,1530 @@ if (typeof module !== 'undefined' && typeof exports !== 'undefined' &&
         R.lastModifiedBy = function() {
           var TargetResource = $injector.get("Admin");
           var action = TargetResource["::get::QuestInstance::lastModifiedBy"];
+          return action.apply(R, arguments);
+        };
+
+
+        return R;
+      }]);
+
+/**
+ * @ngdoc object
+ * @name apiServices.Log
+ * @header apiServices.Log
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Log` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+  module.factory(
+    "Log",
+    [
+      'LoopBackResource', 'LoopBackAuth', '$injector',
+      function(Resource, LoopBackAuth, $injector) {
+        var R = Resource(
+        urlBase + "/Logs/:id",
+          { 'id': '@id' },
+          {
+
+            // INTERNAL. Use Log.lastModifiedBy() instead.
+            "prototype$__get__lastModifiedBy": {
+              url: urlBase + "/Logs/:id/lastModifiedBy",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#create
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Log` object.)
+             * </em>
+             */
+            "create": {
+              url: urlBase + "/Logs",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#createMany
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Log` object.)
+             * </em>
+             */
+            "createMany": {
+              isArray: true,
+              url: urlBase + "/Logs",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#upsert
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Log` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Logs",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#replaceOrCreate
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Log` object.)
+             * </em>
+             */
+            "replaceOrCreate": {
+              url: urlBase + "/Logs/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#exists
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Check whether a model instance exists in the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `exists` – `{boolean=}` -
+             */
+            "exists": {
+              url: urlBase + "/Logs/:id/exists",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#findById
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Find a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `filter` – `{object=}` - Filter defining fields and include
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Log` object.)
+             * </em>
+             */
+            "findById": {
+              url: urlBase + "/Logs/:id",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#replaceById
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Log` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Logs/:id/replace",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#find
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Find all instances of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Log` object.)
+             * </em>
+             */
+            "find": {
+              isArray: true,
+              url: urlBase + "/Logs",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#findOne
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Find first instance of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Log` object.)
+             * </em>
+             */
+            "findOne": {
+              url: urlBase + "/Logs/findOne",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#updateAll
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+            "updateAll": {
+              url: urlBase + "/Logs/update",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#deleteById
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Log` object.)
+             * </em>
+             */
+            "deleteById": {
+              url: urlBase + "/Logs/:id",
+              method: "DELETE",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#count
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Count instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+            "count": {
+              url: urlBase + "/Logs/count",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#prototype$updateAttributes
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Log` object.)
+             * </em>
+             */
+            "prototype$updateAttributes": {
+              url: urlBase + "/Logs/:id",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#createChangeStream
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Create a change stream.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `changes` – `{ReadableStream=}` -
+             */
+            "createChangeStream": {
+              url: urlBase + "/Logs/change-stream",
+              method: "POST",
+            },
+          }
+        );
+
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#patchOrCreate
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Log` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#updateOrCreate
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Log` object.)
+             * </em>
+             */
+        R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#update
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+        R["update"] = R["updateAll"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#destroyById
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Log` object.)
+             * </em>
+             */
+        R["destroyById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#removeById
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Log` object.)
+             * </em>
+             */
+        R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#patchAttributes
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Log` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
+
+
+        /**
+        * @ngdoc property
+        * @name apiServices.Log#modelName
+        * @propertyOf apiServices.Log
+        * @description
+        * The name of the model represented by this $resource,
+        * i.e. `Log`.
+        */
+        R.modelName = "Log";
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Log#lastModifiedBy
+             * @methodOf apiServices.Log
+             *
+             * @description
+             *
+             * Fetches belongsTo relation lastModifiedBy.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Admin` object.)
+             * </em>
+             */
+        R.lastModifiedBy = function() {
+          var TargetResource = $injector.get("Admin");
+          var action = TargetResource["::get::Log::lastModifiedBy"];
+          return action.apply(R, arguments);
+        };
+
+
+        return R;
+      }]);
+
+/**
+ * @ngdoc object
+ * @name apiServices.Widget
+ * @header apiServices.Widget
+ * @object
+ *
+ * @description
+ *
+ * A $resource object for interacting with the `Widget` model.
+ *
+ * ## Example
+ *
+ * See
+ * {@link http://docs.angularjs.org/api/ngResource.$resource#example $resource}
+ * for an example of using this object.
+ *
+ */
+  module.factory(
+    "Widget",
+    [
+      'LoopBackResource', 'LoopBackAuth', '$injector',
+      function(Resource, LoopBackAuth, $injector) {
+        var R = Resource(
+        urlBase + "/Widgets/:id",
+          { 'id': '@id' },
+          {
+
+            // INTERNAL. Use Widget.lastModifiedBy() instead.
+            "prototype$__get__lastModifiedBy": {
+              url: urlBase + "/Widgets/:id/lastModifiedBy",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#create
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Widget` object.)
+             * </em>
+             */
+            "create": {
+              url: urlBase + "/Widgets",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#createMany
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Create a new instance of the model and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Widget` object.)
+             * </em>
+             */
+            "createMany": {
+              isArray: true,
+              url: urlBase + "/Widgets",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#upsert
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Widget` object.)
+             * </em>
+             */
+            "upsert": {
+              url: urlBase + "/Widgets",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#replaceOrCreate
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Replace an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Widget` object.)
+             * </em>
+             */
+            "replaceOrCreate": {
+              url: urlBase + "/Widgets/replaceOrCreate",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#exists
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Check whether a model instance exists in the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `exists` – `{boolean=}` -
+             */
+            "exists": {
+              url: urlBase + "/Widgets/:id/exists",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#findById
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Find a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             *  - `filter` – `{object=}` - Filter defining fields and include
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Widget` object.)
+             * </em>
+             */
+            "findById": {
+              url: urlBase + "/Widgets/:id",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#replaceById
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Replace attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Widget` object.)
+             * </em>
+             */
+            "replaceById": {
+              url: urlBase + "/Widgets/:id/replace",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#find
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Find all instances of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Array.<Object>,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Array.<Object>} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Widget` object.)
+             * </em>
+             */
+            "find": {
+              isArray: true,
+              url: urlBase + "/Widgets",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#findOne
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Find first instance of the model matched by filter from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `filter` – `{object=}` - Filter defining fields, where, include, order, offset, and limit
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Widget` object.)
+             * </em>
+             */
+            "findOne": {
+              url: urlBase + "/Widgets/findOne",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#updateAll
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+            "updateAll": {
+              url: urlBase + "/Widgets/update",
+              method: "POST",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#deleteById
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Widget` object.)
+             * </em>
+             */
+            "deleteById": {
+              url: urlBase + "/Widgets/:id",
+              method: "DELETE",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#count
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Count instances of the model matched by where from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `count` – `{number=}` -
+             */
+            "count": {
+              url: urlBase + "/Widgets/count",
+              method: "GET",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#prototype$updateAttributes
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Widget` object.)
+             * </em>
+             */
+            "prototype$updateAttributes": {
+              url: urlBase + "/Widgets/:id",
+              method: "PATCH",
+            },
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#createChangeStream
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Create a change stream.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *   This method does not accept any parameters.
+             *   Supply an empty object or omit this argument altogether.
+             *
+             * @param {Object} postData Request data.
+             *
+             *  - `options` – `{object=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * Data properties:
+             *
+             *  - `changes` – `{ReadableStream=}` -
+             */
+            "createChangeStream": {
+              url: urlBase + "/Widgets/change-stream",
+              method: "POST",
+            },
+          }
+        );
+
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#patchOrCreate
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Widget` object.)
+             * </em>
+             */
+        R["patchOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#updateOrCreate
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Patch an existing model instance or insert a new one into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `data` – `{object=}` - Model instance data
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Widget` object.)
+             * </em>
+             */
+        R["updateOrCreate"] = R["upsert"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#update
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Update instances of the model matched by {{where}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `where` – `{object=}` - Criteria to match model instances
+             *
+             * @param {Object} postData Request data.
+             *
+             * This method expects a subset of model properties as request parameters.
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * The number of instances updated
+             */
+        R["update"] = R["updateAll"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#destroyById
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Widget` object.)
+             * </em>
+             */
+        R["destroyById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#removeById
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Delete a model instance by {{id}} from the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - Model id
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Widget` object.)
+             * </em>
+             */
+        R["removeById"] = R["deleteById"];
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#patchAttributes
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Patch attributes for a model instance and persist it into the data source.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `data` – `{object=}` - An object of model property name/value pairs
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Widget` object.)
+             * </em>
+             */
+        R["patchAttributes"] = R["prototype$updateAttributes"];
+
+
+        /**
+        * @ngdoc property
+        * @name apiServices.Widget#modelName
+        * @propertyOf apiServices.Widget
+        * @description
+        * The name of the model represented by this $resource,
+        * i.e. `Widget`.
+        */
+        R.modelName = "Widget";
+
+
+            /**
+             * @ngdoc method
+             * @name apiServices.Widget#lastModifiedBy
+             * @methodOf apiServices.Widget
+             *
+             * @description
+             *
+             * Fetches belongsTo relation lastModifiedBy.
+             *
+             * @param {Object=} parameters Request parameters.
+             *
+             *  - `id` – `{*}` - PersistedModel id
+             *
+             *  - `refresh` – `{boolean=}` -
+             *
+             * @param {function(Object,Object)=} successCb
+             *   Success callback with two arguments: `value`, `responseHeaders`.
+             *
+             * @param {function(Object)=} errorCb Error callback with one argument:
+             *   `httpResponse`.
+             *
+             * @returns {Object} An empty reference that will be
+             *   populated with the actual data once the response is returned
+             *   from the server.
+             *
+             * <em>
+             * (The remote method definition does not provide any description.
+             * This usually means the response is a `Admin` object.)
+             * </em>
+             */
+        R.lastModifiedBy = function() {
+          var TargetResource = $injector.get("Admin");
+          var action = TargetResource["::get::Widget::lastModifiedBy"];
           return action.apply(R, arguments);
         };
 
