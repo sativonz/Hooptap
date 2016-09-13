@@ -29,7 +29,6 @@ export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLo
             if ($form.$valid) {
                 if (scope.model.password == scope.model.rePassword) {
                     let newCustomer = CustomerModel(scope.model).toJson();
-                    debugger;
                     LoginModel().create(newCustomer).then((registered)=> {
                         $rootScope.$broadcast('$registerSuccess', registered);
                         if ($rootScope.customer) {
