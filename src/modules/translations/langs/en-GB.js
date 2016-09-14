@@ -27,6 +27,7 @@ let dict = {
             female: 'Female',
             select: 'Selection',
             welcome: 'Welcome ',
+            menu: 'menu ',
             externalId: 'External ID'
         },
         login: {
@@ -67,7 +68,7 @@ let dict = {
     /*	Validation
      ---------------------------------------------------------------------------------*/
 
-    'valdr.size': '{{fieldName}} length must be between {{min}} and {{max}}.',
+    'valdr.size': 'Length must be between {{min}} and {{max}}.',
     'valdr.email': 'You must use a valid email account.',
     'valdr.required': 'This field is required.',
     'valdr.generics': {

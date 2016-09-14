@@ -3,7 +3,8 @@ import './styles.scss';
 import stampit from 'stampit';
 import Q from 'q';
 
-var defaultNextLevelImage = require('./images/icon-level-default.svg');
+var defaultNextLevelImage = require('./images/next-level-default.png');
+var defaultLevelImage = require('./images/icon-level-default.svg');
 
 /**
  * @ngdoc directive
@@ -25,7 +26,9 @@ export default(BaseModel, _hasScoreUnits) => ({
 
     link: (scope, element, attrs)=> {
 
-        //Default image
+        //Default level image
+        scope.defaultLevelImage = defaultLevelImage;
+        //Default next level image
         scope.defaultNextLevelImage = defaultNextLevelImage;
 
         //ScoreUnit Stampit model
@@ -35,11 +38,11 @@ export default(BaseModel, _hasScoreUnits) => ({
         //TODO resuelve la promesa lenta
         Q.async(function*(){
             let nextLevel = yield ScoreUnitModel().getLevelById(scope.item.levels[0].nextId);
-            console.log("NEXT LEVEL !", nextLevel);
+            //console.log("NEXT LEVEL !", nextLevel);
             scope.nextLevel = nextLevel;
 
             let levelActualName = yield ScoreUnitModel().getScoreUnitById(nextLevel.scoreUnitId);
-            console.log("Nombre del su asociado al level !", levelActualName);
+            //console.log("Nombre del su asociado al level !", levelActualName);
             scope.levelActualName = levelActualName;
 
         })();
