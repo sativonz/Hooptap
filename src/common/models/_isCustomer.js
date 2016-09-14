@@ -15,17 +15,14 @@ export default ($rootScope, Customer) => {
             logout(){
                 Customer.logout();
                 $rootScope.$broadcast('$logoutSuccess');
-                $rootScope.customer.logged = false;
             }
         })
         .refs({
-
             /**
              * @memberOf Rule.model:Rule
              * @stampit refs
              */
-            _defaults: {
-            },
+            _defaults: {},
 
             _model: 'CustomerModel'
         })
