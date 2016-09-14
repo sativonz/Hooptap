@@ -21,7 +21,7 @@ export default(Customer, LoopBackAuth, $rootScope, clientHelper, $timeout) => ({
     },
     controller: ($scope, $rootScope)=> {
 
-        var loginEvent = $rootScope.$on("loginSuccess", (event, response)=> {
+        var loginEvent = $rootScope.$on("$loginSuccess", (event, response)=> {
             getMessage();
         });
 

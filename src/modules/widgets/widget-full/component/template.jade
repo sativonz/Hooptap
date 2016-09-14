@@ -38,7 +38,7 @@
                 .wrapper__edit-profile(ng-if="$root.WPF.viewEditProfile")
                     c-button-back(ng-click="$root.WPF.viewEditProfile = !$root.WPF.viewEditProfile")
                     c-widget-header(title="{{ 'CUSTOMER.update.title' | translate }}")
-                    c-customer-update
+                    c-customer-update(value='customer')
 
                 .wrapper__level-actual(ng-if="$root.WPF.viewLevelActual")
                     c-button-back(ng-click="$root.WPF.viewLevelActual = !$root.WPF.viewLevelActual")

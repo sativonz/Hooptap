@@ -18,9 +18,6 @@ export default (Badge, Customer , BadgeSeat) => {
             getAvailableBadges(){
                 return Badge.find();
 
-            },
-            badgeSeats(){
-                return BadgeSeat.find();
             }
 
         })

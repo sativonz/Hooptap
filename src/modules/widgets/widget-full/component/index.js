@@ -17,7 +17,7 @@ import stampit from 'stampit';
  */
 
 
-export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelper, BaseModel, _isWidget, $timeout, $translate, Notifier) => ({
+export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelper, BaseModel, _isWidget, _hasCustomer, $timeout, $translate, Notifier) => ({
     restrict: 'E',
     transclude: true,
     template,
@@ -108,7 +108,7 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                 ]
             };
 
-            let WidgetModel = stampit().compose(BaseModel, _isWidget)({defaults, defaultMarkerOptions});
+            let WidgetModel = stampit().compose(BaseModel, _isWidget, _hasCustomer)({defaults, defaultMarkerOptions});
 
             clientHelper.setDefaultAttributes(WidgetModel.defaults, scope, attrs);
 
@@ -131,6 +131,10 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                 }
 
 
+            });
+
+            scope.$on("$eventSuccess", (event,triggered)=> {
+                WidgetModel().getCurrent().then( r => { scope.customer = r });
             });
 
             scope.$on("$registerSuccess", (event, customer)=> {

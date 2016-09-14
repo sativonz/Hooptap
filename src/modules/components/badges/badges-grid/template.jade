@@ -1,34 +1,34 @@
 .ht-badges-list__container
 	uib-tabset(active="active")
 		uib-tab(index="0" heading="{{::'BADGES.tabs.all' | translate}}")
-			c-loader-wrap(value="loader")
+			//c-loader-wrap(value="badges")
 			.ht-badges-list__wrapper.row
 				.ht-badges-list__badge-blank(ng-if="!badges.all || badges.all.length < 1")
 					img(ng-if="loader" ng-src=require("./images/no-data.svg"))
 					p(ng-if="loader") {{::'CUSTOMER.common.empty' | translate}}
-				.badge-item.animated.bounceIn(ng-repeat="item in badges.all | orderBy: 'quantity':  true" id="allBadge-item-{{$index}}" ng-class="{'ht-col-xs-{{colWidth}}': true, 'badge-not-achieved': item.quantity <= 0}" ng-click="badgeDetail(item)")
+				.badge-item.animated.bounceIn(ng-repeat="item in badges.all | orderBy: 'parts':  true" id="allBadge-item-{{$index}}" ng-class="{'ht-col-xs-{{colWidth}}': true, 'badge-not-achieved': item.parts <= 0}" ng-click="badgeDetail(item)")
 					.badge-item__img(ng-class="{'badge-started': item.available}")
 						img(ng-src="{{item.image || defaultImage}}")
 					.badge-item__title(ng-if="showTitle" title='{{item.name}}') {{item.name}}
 					.badge-item__progresbar
-						c-progressbar(steps="item.parts" current-step="item.quantity")
+						c-progressbar(steps="item.maxParts" current-step="item.parts")
 		uib-tab(index="$index + 1" heading="{{::'BADGES.tabs.available' | translate}}")
 			.ht-badges-list__wrapper.row
 				.ht-badges-list__badge-blank(ng-if="!badges.available || badges.available.length < 1")
 					img(ng-if="loader" ng-src=require("./images/no-data.svg"))
 					p(ng-if="loader") {{::'CUSTOMER.common.empty' | translate}}
-				.badge-item.animated.bounceIn(ng-repeat="item in badges.available" id="availableBadge-item-{{$index}}" ng-class="{'ht-col-xs-{{colWidth}}': true, 'badge-not-achieved': item.quantity <= 0, 'asdfsd': item.parts.length == item.quantity}" ng-click="badgeDetail(item)")
+				.badge-item.animated.bounceIn(ng-repeat="item in badges.available" id="availableBadge-item-{{$index}}" ng-class="{'ht-col-xs-{{colWidth}}': true, 'badge-not-achieved': item.parts <= 0, 'asdfsd': item.parts.length == item.parts}" ng-click="badgeDetail(item)")
 					.badge-item__img(ng-class="{'badge-started': item.available}")
 						img(ng-src="{{item.image || defaultImage}}")
 					.badge-item__title(ng-if="showTitle" title='{{item.name}}') {{item.name}}
 					.badge-item__progresbar
-						c-progressbar(steps="item.parts" current-step="item.quantity")
+						c-progressbar(steps="item.maxParts" current-step="item.parts")
 		uib-tab(index="$index + 2" heading="{{::'BADGES.tabs.finished' | translate}}")
 			.ht-badges-list__wrapper.row.completed
 				.ht-badges-list__badge-blank(ng-if="!badges.completed || badges.completed.length < 1")
 					img(ng-if="loader" ng-src=require("./images/no-data.svg"))
 					p(ng-if="loader") {{::'CUSTOMER.common.empty' | translate}}
-				.badge-item.animated.bounceIn(ng-repeat="item in badges.completed" id="finishedBadge-item-{{$index}}" ng-class="{'ht-col-xs-{{colWidth}}': true}" ng-if="item.completed" ng-click="badgeDetail(item)")
+				.badge-item.animated.bounceIn(ng-repeat="item in badges.completed" id="finishedBadge-item-{{$index}}" ng-class="{'ht-col-xs-{{colWidth}}': true}" ng-if="item.status === 'finished'" ng-click="badgeDetail(item)")
 					.badge-item__img
 						img(ng-src="{{item.image || defaultImage}}")
 					.badge-item__title(ng-if="showTitle" title='{{item.name}}') {{item.name}}

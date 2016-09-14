@@ -19,7 +19,7 @@ export default() => ({
         let LoginModel = stampit().compose(BaseModel, _hasLogin);
         let CustomerModel = stampit().compose(BaseModel, _isCustomer);
         //Query filter
-        let includeFilter = {filter: {include: ['levels', 'badges']}};
+        let includeFilter = {filter: {include: [{badgeInstances: 'badge'}, {scoreUnitInstances: 'scoreUnit'}, 'levels']}};
 
         //Check if rememberMe is  true , make login and get current.
         if (LoopBackAuth.rememberMe === 'true') {
@@ -51,16 +51,15 @@ export default() => ({
             }).catch((error)=> {
 
                 //TODO NOTIFICADOR ERRORES
-                if( error.status == 401 ) {
+                if (error.status == 401) {
                     let msg = $translate.instant("TOAST.incorrect");
-                    TOAST(
-                        "ERROR !" , msg, {
-                            style: 'alert',
-                            img: require('./images/error.png')
-                        });
+                    // TOAST(
+                    //     "ERROR !", msg, {
+                    //         style: 'alert',
+                    //         img: require('./images/error.png')
+                    //     });
                 }
             });
-
 
 
         };
