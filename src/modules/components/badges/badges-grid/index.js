@@ -41,39 +41,48 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
         };
 
 
-
         //Llamadas badges
         Q.async(function*() {
             let allIndex, availableIndex, completedIndex = {};
             let all, available, completed = [];
             let availableResponse = yield BadgesModel().getAvailableBadges().$promise;
-            let seatsResponse = yield BadgesModel().badgeSeats().$promise;
+            let customerInstances = scope.item.badgeInstances;
+
             availableIndex = availableResponse.reduce((map, obj)=> {
-                map[obj.id] = obj;
+                map[obj.id] = {
+                    id: obj.id,
+                    image: obj.image,
+                    name: obj.name,
+                    maxParts: obj.parts
+                };
                 return map;
             }, {});
-            completedIndex = seatsResponse.reduce((map, obj)=> {
-                map[obj.badgeId] = Object.assign(availableIndex[obj.badgeId], obj);
-                //delete from available every completed badge
-                delete availableIndex[obj.badgeId];
-                return map;
-            }, {});
+            customerInstances.map((instance)=> {
+                completedIndex[instance.badgeId] = {
+                    id: instance.badge.id,
+                    image: instance.badge.image,
+                    name: instance.badge.name,
+                    parts: instance.parts,
+                    maxParts: instance.badge.parts,
+                    status: instance.status
+                };
+                delete availableIndex[instance.badgeId];
+            });
 
             //Mixing available with completed
             all = Object.assign({}, availableIndex, completedIndex);
-            //Convert object to array
+            // //Convert object to array
             all = Object.keys(all).map(key => all[key]);
-            completed = Object.keys(completedIndex).map((key)=> {return completedIndex[key]});
+            completed = Object.keys(completedIndex).map((key)=> {
+                return completedIndex[key]
+            });
+
             scope.badges = BadgesModel({all: all, available: availableIndex, completed: completed});
-            if(scope.badges){
-                scope.loader = true;
-            }
+            console.log(scope.badges);
             scope.$apply();
         })();
-
         //Set default values
         clientHelper.setDefaultAttributes(defaults, scope, attrs);
-
 
         //Detail view
         scope.badgeDetail = function (item) {

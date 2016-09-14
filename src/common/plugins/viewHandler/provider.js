@@ -6,7 +6,6 @@ var isObject = require('./utils/isObject.js'),
     extend = require('util')._extend;
 
 export default function () {
-    console.log(viewBuilder);
     var message = "";
     var views = {};
     var queue = [];

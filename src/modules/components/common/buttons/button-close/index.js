@@ -8,8 +8,15 @@ import './styles.scss';
  * @restrict E
  * @element ANY
  */
-export default() => ({
+export default($rootScope) => ({
     restrict: 'E',
     template,
-    link: (scope, element, attrs)=>{}
+    link: (scope, element, attrs)=>{
+
+        element.on('click', (event)=>{
+            $rootScope.widgetOpened = false;
+            $rootScope.$apply();
+
+        });
+    }
 });

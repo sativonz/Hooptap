@@ -1,3 +1,4 @@
+c-loader-wrap(value="loader")
 .ht-wrapper--login__form
 	c-button-close
 	form.ht-form.ht-form--login(name="htFormLogin" ng-show='!$root.goResetForm')
@@ -15,7 +16,7 @@
 			input(ng-model="rememberMe" type='checkbox' name="rememberMe" id="rememberMe")
 			label.ht-form__input-rememberMe(for="rememberMe") {{ 'CUSTOMER.login.rememberMe' | translate }}
 		.ht-form__group-button
-				button.animated.bounceInUp.ht-form--button__login(type='submit' ng-click="login(widget)")
+				button.animated.bounceInUp.ht-form--button__login(type='submit' ng-click="login(widget)" ng-disabled="htFormLogin.$invalid")
 					| {{ 'CUSTOMER.login.button' | translate }}
 		//TODO descomentar
 		//.ht-form__group-link

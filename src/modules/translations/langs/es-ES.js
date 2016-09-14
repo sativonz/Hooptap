@@ -27,6 +27,7 @@ let dict = {
 			female			: 'Chica',
 			select			: 'Selecciona',
 			welcome			: 'Bienvenido ',
+			menu			: 'Menú',
 			externalId      : 'ID Externo'
 		},
 		login: {
@@ -67,7 +68,7 @@ let dict = {
 	/*	Validation
 	 ---------------------------------------------------------------------------------*/
 
-	'valdr.size'			: '{{fieldName}} tiene que medir entre {{min}} y {{max}} carácteres.',
+	'valdr.size'			: 'Tiene que medir entre {{min}} y {{max}} carácteres.',
 	'valdr.email'			: 'Tienes que introducir una cuenta de email valida.',
 	'valdr.nameSize'		: 'Introduzca un nombre de usuario entre {{min}} y {{max}} carácteres.',
 	'valdr.required'		: 'Este campo es requerido.',
@@ -78,6 +79,8 @@ let dict = {
 		rePassword	: 'Repita la contraseña',
 		terms		: 'Acepto los términos y condiciones'
 	},
+	'valdr.usernameDuplicated': 'Este nombre de usuario ya existe. Por favor, use uno distinto.',
+	'valdr.emailDuplicated': 'Este email ya existe. Por favor, use uno distinto.',
 
 	/*	BADGES
 	 ---------------------------------------------------------------------------------*/
@@ -112,7 +115,8 @@ let dict = {
 		nextLevelDetails	: 'Detalles del siguiente nivel',
 		nextLevel			: 'Siguiente nivel',
 		lastLevelMsg		: 'Este es el último nivel, felicidades',
-		notLevels			: 'Aún no tienes ningún nivel asignado'
+		notLevels			: 'Aún no tienes ningún nivel asignado',
+		actualLevel			: 'Nivel actual'
 		// newbie			: 'Nuevo',
 		// rookie			: 'Principiante',
 		// beginner			: 'Principiante',
@@ -179,7 +183,9 @@ let dict = {
 	TOAST: {
 		correctRegister		: 'Registro realizado con éxito',
 		incorrect			: 'Los datos de inicio de sesión son incorrectos',
-		duplicated			: 'Los datos de inicio de sesión están duplicados'
+		duplicated			: 'Los datos de inicio de sesión están duplicados',
+		badPassword			: 'Las contraseñas no coinciden',
+		internalServerError	: 'Error interno del servidor'
 	}
 
 

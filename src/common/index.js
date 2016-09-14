@@ -1,8 +1,10 @@
 let module = angular.module('common', [])
     //TODO Borrar o sustituir por el nuevo create-router .directive('viewHandler', require('./components/viewHandler').default)
 
-
+        //Common Utils
         .factory('clientHelper', require('./services/clientHelper').default)
+        .factory('Notifier',					require('./services/Notifier/Notifier').default)
+
 
         //Models
         .factory('BaseModel', require('./models/BaseModel').default)
@@ -18,6 +20,9 @@ let module = angular.module('common', [])
         .factory('_hasBadges',              require('./models/_hasBadges').default)
         // .factory('_Savable',            require('./models/_Savable').default)
         // .factory('_hasQuests',              require('./models/_hasQuests').default)
+
+
+    .run(require('./boot').default)
     ;
 export default module.name;
 

@@ -22,7 +22,7 @@ c-quests-list {
           border-bottom: 3px solid $_1_header-color!important;
           height:35px;
           &:hover {
-            border-bottom: 3px solid #b2c059!important;
+            border-bottom: 3px solid $_1_tab-active__color!important;
           }
           &.active {
             border-bottom: 3px solid $_1_line-space-color!important;
@@ -55,7 +55,6 @@ c-quests-list {
         }
       }
       .tab-content  {
-        width: 362px;
         height: 386px;
         padding: 10px 15px 15px 23px;
         overflow: auto;
@@ -81,7 +80,7 @@ c-quests-list {
                 color: $_1_quest-title__inactive!important;
               }
             }
-            &.close {
+            &.quest-close {
               .step-inner {
                 background: $_1_quest-title__inactive;
               }
@@ -156,13 +155,13 @@ c-quests-list {
                   color: $_1_quest-steps-date-color;
                 }
                 .ht-quest-list__progressbar {
-                  width: 275px;
+                  width: 290px;
                   display: block;
                   position: absolute;
                   top: 43px;
                   left: 0px;
                   c-progressbar {
-                    width: 275px;
+                    width: 290px;
                     display: inline-flex;
                     position: relative;
                     top: -10px;

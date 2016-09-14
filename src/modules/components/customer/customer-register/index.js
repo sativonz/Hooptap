@@ -14,21 +14,29 @@ import stampit from 'stampit';
  * @element ANY
  */
 
-export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLogin, _isCustomer) => ({
+export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLogin, _isCustomer, Notifier) => ({
     restrict: 'E',
     scope: {},
     template,
     link: (scope, element, attrs)=> {
+        //TODO improve with api call for valdr function
+        scope.duplicatedEmail = false;
+
         let LoginModel = stampit().compose(BaseModel, _hasLogin);
         let CustomerModel = stampit().compose(BaseModel, _isCustomer);
 
-        let includeFilter = {filter: {include: ['levels', 'badges']}};
+        let includeFilter = {filter: {include: [{badgeInstances: 'badge'}, {scoreUnitInstances: 'scoreUnit'}]}};
 
         let $form = scope.htRegisterForm;
         scope.register = ()=> {
+            //duplicate fields
+            scope.emailDuplicated = false;
+            scope.usernameDuplicated = false;
+            
             if ($form.$valid) {
                 if (scope.model.password == scope.model.rePassword) {
-                    LoginModel().create(CustomerModel(scope.model)).then((registered)=> {
+                    let newCustomer = CustomerModel(scope.model).toJson();
+                    LoginModel().create(newCustomer).then((registered)=> {
                         $rootScope.$broadcast('$registerSuccess', registered);
                         if ($rootScope.customer) {
                             $rootScope.customer.logged = true;
@@ -36,24 +44,28 @@ export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLo
                             $rootScope['customer'] = {logged: true};
                         }
                         let msgSucceess = $translate.instant("TOAST.correctRegister");
-                        let msgWelcome = $translate.instant("CUSTOMER.common.welcome");
-                        TOAST(
-                            msgWelcome + (scope.username || '') + "!", msgSucceess, {
-                                style: 'info',
-                                img: require('./images/default-img-popover.png')
-                            });
+                        let msgWelcome = ($translate.instant("CUSTOMER.common.welcome")) + (scope.username || '') + "!";
+                        Notifier.loginRegisterSuccess({
+                            title: msgWelcome,
+                            message: msgSucceess,
+                            image: require('./images/default-img-popover.png')
+                        });
 
                     }).catch((error)=> {
-                        window.form = scope.htFormRegister;
                         if (error.status == 422) {
                             let msgDuplicated = $translate.instant("TOAST.duplicated");
-                            TOAST(
-                                "ERROR !", msgDuplicated, {
-                                    style: 'alert',
-                                    img: require('./images/error.png')
-                                });
+                            scope.duplicatedCodes = error.data.error.details.codes;
+
+                            //TODO Improve validation for duplicated values 
+                            for (var code in scope.duplicatedCodes) {
+                                scope[code + 'Duplicated'] = true;
+                            }
+                            Notifier.error({title: msgDuplicated, image: require('./images/error.png')});
                         }
                     });
+                } else if (scope.model.password != scope.model.rePassword) {
+                    let badPassword = $translate.instant("TOAST.badPassword");
+                    Notifier.error({title: badPassword, image: require('./images/error.png')});
                 }
 
             }
@@ -64,20 +76,12 @@ export default($rootScope, Customer, LoopBackAuth, $translate, BaseModel, _hasLo
                 email: response.email,
                 password: scope.model.password
             };
-
             LoginModel().login(credentials, includeFilter).then((response)=> {
                 $rootScope.$broadcast('$loginSuccess', response);
             }).catch((error)=> {
+                let internalServerError = $translate.instant("TOAST.internalServerError");
+                Notifier.error({title: internalServerError, image: require('./images/error.png')});
 
-                //TODO NOTIFICADOR ERRORES
-                if (error.status == 401) {
-                    let msg = $translate.instant("TOAST.incorrect");
-                    TOAST(
-                        "ERROR !", msg, {
-                            style: 'alert',
-                            img: require('./images/error.png')
-                        });
-                }
             });
 
         });

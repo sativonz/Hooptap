@@ -18,12 +18,9 @@ export default($rootScope) => ({
     },
     template,
     link: (scope, element, attrs)=>{
-        if(!angular.isDefined($rootScope.widgetOpened)){
-            $rootScope.widgetOpened = false;
-        }
 
         element.on('click', (event)=>{
-            $rootScope.widgetOpened = !$rootScope.widgetOpened;
+            $rootScope.widgetOpened = true;
             $rootScope.$apply();
         });
     }

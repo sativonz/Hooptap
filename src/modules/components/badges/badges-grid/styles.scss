@@ -26,7 +26,7 @@ c-badges-grid {
         border-bottom: 3px solid $_1_header-color;
         height: 35px;
         &:hover {
-          border-bottom: 3px solid #b2c059 !important;
+          border-bottom: 3px solid $_1_tab-active__color !important;
         }
         > a {
           text-decoration: none;
@@ -194,7 +194,6 @@ c-badges-grid {
 
     }
     .tab-content {
-      width: 370px;
       height: 370px;
       padding: 15px 0px 15px 20px;
       overflow: auto;

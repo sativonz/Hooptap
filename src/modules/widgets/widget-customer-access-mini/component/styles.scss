@@ -1,0 +1,206 @@
+@import '../../../../common/stylesheets/common/_base.scss';
+@import '../../../../common/stylesheets/common/colors.scss';
+@import '../../../../common/stylesheets/common/mixins.scss';
+
+%navCodeMix {
+  display: inline-block !important;
+  width: 50%;
+  cursor: pointer;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.73);
+}
+
+%navActiveCodeMix {
+  border: none !important;
+  background-color: transparent !important;
+  color: white !important;
+}
+
+widget-customer-access-mini {
+
+  c-loader-wrap {
+    c-loader {
+      padding: 225px 40px 40px 40px;
+      margin-left: -40px;
+      position: absolute;
+      z-index: 99999999999;
+      background: hsla(0,0%,100%,.68);
+      width: 400px;
+      height: 480px;
+      @include border-radius(10px);
+    }
+  }
+
+  .widget-customer-access-popup {
+    display: block;
+    font-family: $base-font-family;
+    height: 480px;
+    min-height: 480px;
+    max-height: 480px;
+    width: 400px;
+    min-width: 400px;
+    max-width: 400px;
+    background: $white;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    box-shadow: 0 0 5px #000;
+    z-index: 999999999;
+    @include border-radius(14px);
+    padding-right: 0 !important;
+
+    .nav.nav-tabs {
+      background-color: $_1_quest-title;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      margin-top: 0px;
+      margin-bottom: 0;
+      padding-left: 0;
+      > li {
+        border-bottom: 4px solid transparent;
+        float: none !important;
+        @extend %navCodeMix;
+        .link-go-login--form,
+        .link-go-register--form {
+          color: #3bb2d0;
+          padding: 0px 20px 0px 0px;
+          width: 50%;
+        }
+        &:hover {
+          border-bottom: 4px solid rgba(28, 154, 208, 0.49);
+        }
+        &:not(.active) {
+          color: #0078a0 !important;
+        }
+        > a {
+          @extend %navActiveCodeMix;
+          @extend %navCodeMix;
+          font-weight: 500;
+          opacity: 0.5;
+          text-decoration: none;
+          &hover {
+            background: none !important;
+            border-color: transparent !important;
+            color: white !important;
+          }
+        }
+        &.active {
+          @extend %navActiveCodeMix;
+          border-bottom: 4px solid #1c9ad0!important;
+
+          > a {
+            font-weight: bold;
+            opacity: 1;
+            &:focus {
+              @extend %navActiveCodeMix;
+            }
+          }
+          &:hover {
+            border-bottom: 4px solid #1C9AD0 !important;;
+          }
+
+        }
+      }
+    }
+
+
+
+
+  }
+  //Register form
+  .ht-wrapper--register__form {
+    overflow-y: auto;
+    overflow-x: hidden !important;
+    height: 430px !important;
+    max-height: 430px;
+    position: relative;
+    form.ht-form.ht-form--register {
+      padding: 18px;
+      position: relative;
+      right: -10px;
+      .footer-shadow {
+        height: 30px;
+        width: 400px;
+        position: fixed;
+        bottom: 15px;
+        background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+        background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+        background: linear-gradient(to top, rgba(255, 255, 255, 0.65) 0%, rgba(0, 0, 0, 0) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a6000000', endColorstr='#00000000', GradientType=0);
+        z-index: 99999999999999999999999999999 !important;
+        border-bottom-left-radius: 12px;
+        border-bottom-right-radius: 12px;
+      }
+      .ht-form--register__col-1 {
+        width: 176px;
+        float: left;
+        position: relative;
+        min-height: 1px;
+      }
+      .ht-form--register__col-2 {
+       @extend .ht-form--register__col-1;
+        margin-top: 4px;
+        input[type="date"] {
+          padding: 4px;
+          outline: none;
+          width: 163px;
+          background: transparent;
+          border: none;
+          border-bottom: 1px solid #aeaeff;
+          color: #b6a9a9;
+          font-size: 16px;
+        }
+      }
+      .ht-form--register__row-3 {
+        padding: 0;
+        &.col-xs-12 {
+          width: 350px;
+          .ht-form__input {
+            width: 320px;
+          }
+          .ht-form__bar:before {
+            left: 46%;
+          }
+
+        }
+      }
+      .ht-form--register__row-4 {
+        margin-bottom: 25px;
+      }
+
+      input.ht-form__input {
+        width: 145px;
+        font-size: 16px;
+        padding-bottom: 4px;
+      }
+      .ht-form__bar:before {
+        left: 42%;
+      }
+      .ht-form__group {
+        margin-bottom: 23px!important;
+      }
+      .ht-form__failed-pass{
+        color: red;
+        margin: 0;
+        font-size: 14px;
+        display: none;
+      }
+      .ht-form__failed-create-user{
+        @extend .ht-form__failed-pass;
+        padding-bottom: 15px;
+      }
+    }
+  }
+  select {
+    padding: 4px;
+    outline: none;
+    width: 163px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #aeaeff;
+    color: #b6a9a9;
+    font-size: 16px;
+  }
+  @include scrollbars(10px, $_1_light-grey-background, none, 0px solid $_1_soft-grey-background, 3px);
+
+}

@@ -4,22 +4,22 @@
 
         .ht-marker-display__su(ng-click="$root.WPF.viewLevelList = !$root.WPF.viewLevelList"   ng-if="zoneCol.model == 'ScoreUnit'" tooltip-placement="top" uib-tooltip="{{ suImage.name || 'SCOREUNITS.title' | translate }}")
             .col-xs-6.not-padding.score
-                .title__score-units {{item.scores[ nextLevel.scoreUnitId ] || defaultValue}}
+                .title__score-units {{item.scoreUnitInstances[0].quantity || defaultValue}}
             .col-xs-6.not-padding
                 img.ht-marker-display__img(ng-src="{{ suImage.image || suDefaultImage() }}")
 
-        .ht-marker-display__level(ng-if="zoneCol.model == 'Level' &&  zoneRow.length !== 1" tooltip-placement="top" uib-tooltip="{{ actualLevel.name || 'LEVELS.title' | translate}}")
-            .col-xs-6.not-padding
+        .ht-marker-display__level(ng-click="$root.WPF.viewLevelActual = !$root.WPF.viewLevelActual" ng-if="zoneCol.model == 'Level' &&  zoneRow.length !== 1" tooltip-placement="top" uib-tooltip="{{ actualLevel.name || 'LEVELS.title' | translate}}")
+            //.col-xs-6.not-padding
                 //TODO poner el numero del nivel 1, 2, 3
-                .title__score-units {{defaultValue}}
-            .col-xs-6.not-padding
-                img.ht-marker-display__img(ng-src="{{ actualLevel.image || levelDefaultImage() }}")
+                //.title__score-units {{defaultValue}}
+            .col-xs-12.not-padding
+                img.ht-marker-display__img(ng-src="{{ item.levels[0].image || levelDefaultImage() }}")
 
         .ht-marker-display__level(ng-if="zoneCol.model == 'Level' && zoneRow.length == 1")
             c-level-row(item="item")
 
         .ht-marker-display__badges(ng-click="$root.WPF.viewBadges = !$root.WPF.viewBadges" ng-if="zoneCol.model == 'Badge'" tooltip-placement="top" uib-tooltip="{{ 'BADGES.title' | translate }}")
-           .col-xs-6.not-padding
-                .title__score-units {{item.badges.length || defaultValue}}
+            .col-xs-6.not-padding
+                .title__score-units {{item.badgeInstances.length || defaultValue}}
             .col-xs-6.marker-display__badges-img.not-padding
                 img.ht-marker-display__img(ng-src="{{ zoneCol.image || badgeDefaultImage() }}")
