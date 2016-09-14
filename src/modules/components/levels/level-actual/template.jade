@@ -1,22 +1,38 @@
-.level-home-widget-full__container
-    .wrapper__levels-title
-        span {{ 'LEVELS.title' | translate }}
-    .wrapper__level-empty(ng-if="!item.levels || item.levels.length < 1")
-        p.wrapper__level-empty-title {{ 'LEVELS.notLevels' | translate }}
-    .level-home-widget-full__wrapper(ng-repeat="level in item.levels | limitTo:1")
-        .col-xs-3.not-padding
-            img.img-actual-level(ng-src="{{level.image || defaultNextLevelImage}}")
-            p.name-actual-level {{level.name}}
-        .col-xs-9(ng-if="level.nextId == null")
-            p.last-level {{ 'LEVELS.lastLevelMsg' | translate }} {{customer.username}} !
-        .next-level__wrapper.col-xs-9.not-padding(ng-if="level.nextId != null")
-            .col-xs-3.not-padding
-                img.img-next-level(ng-src="{{nextLevel.image || defaultNextLevelImage}}")
-            .col-xs-9.not-padding.wrapper-next-level
-                p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
-                p.name-next-level {{nextLevel.name}}
+c-loader-wrap(value="item")
+    .level-home-widget-full__container
+        .wrapper__level-empty(ng-if="!item.levels || item.levels.length < 1")
+            img(ng-src=require("./images/no-data.svg"))
+            p {{::'CUSTOMER.common.empty' | translate}}
 
-            .col-xs-12
-                .progressbar(ng-if="showProgressBarLevel")
-                    .progressbar-actual(style="width:{{nextLevel.percent}}%")
-                        .score-bar.center(style="width:233px;") {{item.scores[ level.scoreUnitId ]}} / {{nextLevel.minimum}} {{levelActualName.name}}
+        //.level-home-widget-full__wrapper(ng-repeat="level in item.levels | limitTo:1")
+        .wrapper__level-actual
+            .section__level-nextLevel
+                .col-xs-3.not-padding
+                    img.img-actual-level(ng-src="{{item.levels[0].image || defaultLevelImage}}")
+                    p.name-actual-level {{item.levels[0].name}}
+                //TODO mensaje cuando esta en el ultimo nivel
+                //.col-xs-9(ng-if="level.nextId == null")
+                    p.last-level {{ 'LEVELS.lastLevelMsg' | translate }} {{customer.username}} !
+                //.next-level__wrapper.col-xs-9.not-padding(ng-if="level.nextId != null")
+                .next-level__wrapper.col-xs-9.not-padding
+                    .level-separator
+                    .col-xs-4.not-padding
+                        img.img-next-level(ng-src="{{nextLevel.image || defaultNextLevelImage}}")
+                    .col-xs-8.not-padding.wrapper-next-level
+                        p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
+                        p.name-next-level {{nextLevel.name}}
+            .section__progressbar
+                .progressbar-actual(style="width:{{percentValue}}%")
+                    .score-bar.center {{item.scores[ item.levels[0].scoreUnitId ]}} / {{nextLevel.minimum}} {{levelActualName.name}}
+            .section__levels-timeline
+                section.comments(ng-repeat="levels in LevelsIndex track by $index" ng-class="{first:$first}")
+                    .col-xs-2
+                        div(ng-if="item.levels[0].id == levels.id")
+                            .circle
+                                svg(version='1.1', viewbox='0 0 500 500', preserveaspectratio='xMinYMin meet')
+                                    circle(cx='250', cy='250', r='200')
+                        div
+                            img.line-img(ng-src="{{levels.image || defaultLineLevel}}" ng-class="{ 'current-level': item.levels[0].id == levels.id, 'next-level': item.levels[0].id != levels.id }")
+                    .col-xs-10
+                        span.level-name(ng-class="{ 'next-level-name': item.levels[0].id != levels.id }")  {{levels.name}}
+                        span.score {{levels.minimum}} {{levelActualName.name}}

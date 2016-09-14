@@ -25,8 +25,6 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
         numberCols: '=?'
     },
     link: (scope, element, attrs)=> {
-        //Loader
-        scope.loader = false;
 
         //Default image badge
         scope.defaultImage = require('./images/no-image.png');

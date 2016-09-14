@@ -33,8 +33,7 @@ export default($timeout, BaseModel, _hasScoreUnits) => ({
                     image: su.image
                 };
             });
-
-
+            
             scope.item.scoreUnitInstances.map((su)=> {
                 if (ScoreUnitsIndex.hasOwnProperty(su.scoreUnit.id)) {
 

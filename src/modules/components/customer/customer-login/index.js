@@ -14,7 +14,7 @@ export default() => ({
     restrict: 'E',
     scope: {},
     template,
-    controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _isCustomer, _hasLogin, $translate)=> {
+    controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _isCustomer, _hasLogin, $translate, Notifier)=> {
         //Models
         let LoginModel = stampit().compose(BaseModel, _hasLogin);
         let CustomerModel = stampit().compose(BaseModel, _isCustomer);
@@ -23,13 +23,11 @@ export default() => ({
 
         //Check if rememberMe is  true , make login and get current.
         if (LoopBackAuth.rememberMe === 'true') {
-            $scope.loader = true;
             LoginModel().getCurrent(includeFilter).then((response)=> {
                 let customerResponse = CustomerModel(response);
                 $rootScope.$broadcast('$loginSuccess', customerResponse);
             });
         } else {
-            $scope.loader = true;
             //Clear Storage, session and user if not rememberMe
             //CustomerModel().logout();
             LoopBackAuth.clearStorage();
@@ -53,11 +51,7 @@ export default() => ({
                 //TODO NOTIFICADOR ERRORES
                 if (error.status == 401) {
                     let msg = $translate.instant("TOAST.incorrect");
-                    // TOAST(
-                    //     "ERROR !", msg, {
-                    //         style: 'alert',
-                    //         img: require('./images/error.png')
-                    //     });
+                    Notifier.error({title: msg, image: require('./images/error.png')});
                 }
             });
 

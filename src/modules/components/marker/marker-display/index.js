@@ -56,7 +56,7 @@ export default($timeout, $rootScope, BaseModel, _hasScoreUnits, _hasCustomer) =>
                 allLevelsIndex.$promise.then((response)=>{
                     response.map((level)=>LevelsIndex[level.id]=level);
                     scope.LevelsIndex = LevelsIndex;
-                    console.log('LevelsIndex', LevelsIndex);
+                   // console.log('LevelsIndex', LevelsIndex);
                 });
 
 
