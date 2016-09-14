@@ -30,6 +30,7 @@ export default(Customer, LoopBackAuth, $rootScope, clientHelper, $timeout) => ({
             $rootScope.customer.logged = true;
         }
 
+        $scope.rememberMe = LoopBackAuth.rememberMe;
 
         //Destroy Events
         $scope.$on('$destroy', ()=> {

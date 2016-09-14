@@ -14,25 +14,42 @@ import Q from 'q';
 export default($timeout, BaseModel, _hasScoreUnits) => ({
     restrict: 'E',
     scope: {
-        item: '=',
-        scoreUnits: '=?'
+        item: '='
     },
     template,
     link: (scope, element, attrs)=> {
         let ScoreUnitsModel = stampit().compose(BaseModel, _hasScoreUnits);
 
-            //Index score units
-            let ScoreUnitsIndex = {};
-            let scoreUnits = ScoreUnitsModel().getScoreUnits();
+        //Index score units
+        let ScoreUnitsIndex = {};
 
+        Q.async(function*() {
 
-            scoreUnits.$promise.then((response)=>{
-                scope.loader = true;
-                response.map((scoreUnit)=>ScoreUnitsIndex[scoreUnit.id]=scoreUnit);
-                scope.scoreUnitsIndex = ScoreUnitsIndex;
-
+            let scoreUnits = yield ScoreUnitsModel().getScoreUnits().$promise;
+            scoreUnits.map((su)=> {
+                ScoreUnitsIndex[su.id] = {
+                    id: su.id,
+                    name: su.name,
+                    image: su.image
+                };
             });
-            scope.scoreUnits = scoreUnits;
+
+
+            scope.item.scoreUnitInstances.map((su)=> {
+                if (ScoreUnitsIndex.hasOwnProperty(su.scoreUnit.id)) {
+
+                    ScoreUnitsIndex[su.scoreUnit.id]['quantity'] = su.quantity || 0;
+                } else {
+                    //TODO
+                }
+            });
+
+   
+            scope.scoreUnits = ScoreUnitsIndex;
+
+            scope.$apply();
+        })();
+
 
         //Default image badge
         scope.defaultImage = require('./images/no-image.png');
