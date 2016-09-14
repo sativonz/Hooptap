@@ -23,13 +23,11 @@ export default() => ({
 
         //Check if rememberMe is  true , make login and get current.
         if (LoopBackAuth.rememberMe === 'true') {
-            $scope.loader = true;
             LoginModel().getCurrent(includeFilter).then((response)=> {
                 let customerResponse = CustomerModel(response);
                 $rootScope.$broadcast('$loginSuccess', customerResponse);
             });
         } else {
-            $scope.loader = true;
             //Clear Storage, session and user if not rememberMe
             //CustomerModel().logout();
             LoopBackAuth.clearStorage();

@@ -50,7 +50,6 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
             }
         },
         post: function PostLinkingFunction(scope, element, attrs) {
-            scope.loader= false;
             //Default values for widget full
             let defaults = {
                 idWidget: "",
@@ -120,7 +119,6 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                 if(response.hasOwnProperty(('$promise'))){
                     response.$promise.then((customer)=>{
                         scope.customer = customer;
-                        scope.loader = true;
 
                         //Notifier
                         let msgWelcome = $translate.instant("CUSTOMER.common.welcome");
@@ -139,11 +137,9 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
 
             scope.$on("$registerSuccess", (event, customer)=> {
                 scope.customer = customer;
-                scope.loader = true;
             });
             scope.$on("$logoutSuccess", (event) => {
                 scope.customer = {};
-                scope.loader = false;
             });
         }
     }

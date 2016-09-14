@@ -1,15 +1,15 @@
-c-loader-wrap(value="loader")
-.ht-marker-list-su__container
-    .ht-marker-list-su__blank(ng-if="!scoreUnits || scoreUnits.length < 1")
-        img(ng-if="loader" ng-src=require("./images/no-data.svg"))
-        p(ng-if="loader") {{::'CUSTOMER.common.empty' | translate}}
-   .marker-list-su__wrapper(ng-repeat="su in scoreUnitsIndex" id="item-su-{{$index}}")
-        .col-xs-2.not-padding
-            .marker-list-su__img
-                img(ng-src="{{su.image || defaultImage}}")
-        .col-xs-10.not-padding
-            span.marker-list-su__name {{su.name}}
-            .marker-list-su__quantity {{$parent.item.scores[su.id] || 0}}
+c-loader-wrap(value="item")
+    .ht-marker-list-su__container
+        .ht-marker-list-su__blank(ng-if="!scoreUnits || scoreUnits.length < 1")
+            img(ng-src=require("./images/no-data.svg"))
+            p {{::'CUSTOMER.common.empty' | translate}}
+       .marker-list-su__wrapper(ng-repeat="su in scoreUnitsIndex" id="item-su-{{$index}}")
+            .col-xs-2.not-padding
+                .marker-list-su__img
+                    img(ng-src="{{su.image || defaultImage}}")
+            .col-xs-10.not-padding
+                span.marker-list-su__name {{su.name}}
+                .marker-list-su__quantity {{$parent.item.scores[su.id] || 0}}
 
 
 

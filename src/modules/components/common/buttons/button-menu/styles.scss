@@ -106,7 +106,12 @@ c-button-menu {
           a {
               ///border-bottom: none!important;
               color: white;
+              border-bottom:none!important;
               font-weight: bold;
+          }
+          a.ht-menu__item-logout{
+            color: red;
+            font-weight: 200;
           }
         }
         .ht-menu__item-logout {
