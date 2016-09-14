@@ -48,7 +48,6 @@ export default() => ({
                 $rootScope.$broadcast('$loginSuccess', response);
             }).catch((error)=> {
 
-                //TODO NOTIFICADOR ERRORES
                 if (error.status == 401) {
                     let msg = $translate.instant("TOAST.incorrect");
                     Notifier.error({title: msg, image: require('./images/error.png')});

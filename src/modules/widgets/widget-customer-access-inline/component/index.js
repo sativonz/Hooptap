@@ -1,50 +1,54 @@
 import template from './template.jade';
 import './styles.scss';
-/**
- * @ngdoc directive
- * @name Widget customer access
- * @module Components
- * @description Component for navigation in form of tabs in the login form or the register form
- * @restrict E
- * @param {Boolean} showLoginForm Whether to display only de login form
- * @param {Boolean} showMixForm Whether to display only de register form
- * @param {Boolean} showRegisterForm Whether to display the mix form
- * @element ANY
- */
-export default(Customer, LoopBackAuth, $rootScope, clientHelper, $timeout) => ({
+import stampit from 'stampit';
+
+//TODO ngdocs
+export default(clientHelper, $rootScope) => ({
     restrict: 'E',
     template,
     scope: {
-        showRegisterForm: '=?',
-        showLoginForm: '=?',
-        showMixForm: '=?'
+        vertical: '=?',
+        horizontal: '=?'
     },
-    controller: ($scope, $rootScope)=> {
+    controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, $translate, Notifier)=> {
 
-        var loginEvent = $rootScope.$on("$loginSuccess", (event, response)=> {
-            getMessage();
-        });
+        let LoginModel = stampit().compose(BaseModel, _hasLogin);
 
-        function getMessage() {
-            $rootScope.customer = {};
-            $rootScope.customer.logged = true;
-        }
+        $scope.login = ()=> {
+            //TODO ENCRIPTAR CREDENCIALES
+            let credentials = {
+                email: $scope.model.email,
+                password: $scope.model.password
+            };
+            LoginModel().login(credentials).then((response)=> {
+                $rootScope.customer = {};
+                $rootScope.customer.logged = true;
+                $scope.customer = response;
+            }).catch((error)=> {
+                if (error.status == 401) {
+                    let msg = $translate.instant("TOAST.incorrect");
+                    Notifier.error({title: msg, image: require('../images/error.png')});
+                }
+            });
+        };
 
-
-        //Destroy Events
-        $scope.$on('$destroy', ()=> {
-            loginEvent();
-        });
-
-
+        //->Link to logout
+        let CustomerModel = stampit().compose(BaseModel, _isCustomer);
+        $scope.logout = () => {
+            CustomerModel().logout();
+        };
 
     },
     link: {
         pre: function PreLinkingFunction(scope, element, attrs) {   //Default values for widget customer access
+
+            $rootScope.customer = {};
+            $rootScope.customer.logged = false;
+
+            //-> Default values
             let defaults = {
-                showMixForm: false,
-                showRegisterForm: false,
-                showLoginForm: false
+                vertical: false,
+                horizontal: false
             };
 
             clientHelper.setDefaultAttributes(defaults, scope, attrs);
@@ -52,6 +56,4 @@ export default(Customer, LoopBackAuth, $rootScope, clientHelper, $timeout) => ({
 
 
     }
-
-
 });

@@ -34,10 +34,11 @@
 <body id="page-top" class="index" onload="Hooptap.startIn('body')">
 
     <!-- Navigation -->
-    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top navbar-custom">
+    <nav id="mainNav" style="height:170px;" class="navbar navbar-default navbar-fixed-top navbar-custom">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
+
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
@@ -60,6 +61,9 @@
                         <a href="#contact">Contact</a>
                     </li>
                 </ul>
+                <div style="height:50px;position:absolute;top: 90px;right: 63px;width: 470px;">
+                    <widget-customer-access-inline horizontal="true"></widget-customer-access-inline>
+                </div>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -245,6 +249,8 @@
                         <h3>Location</h3>
                         <p>3481 Melrose Place
                             <br>Beverly Hills, CA 90210</p>
+                        <h3>Login</h3>
+                        <widget-customer-access-inline vertical="true"></widget-customer-access-inline>
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>Around the Web</h3>
@@ -516,14 +522,14 @@
     </div>
 
     <!--BUTTON TO OPEN WIDGETS -->
-    <div><c-button-init text="GOO!!" image="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-play-128.png"></c-button-init></div>
+    <!--<div><c-button-init text="GOO!!" image="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-play-128.png"></c-button-init></div>-->
 
     <!--Widget customer acces -->
-    <div><widget-customer-access-popup show-mix-form="true"></widget-customer-access-popup></div>
+    <!--<div><widget-customer-access-popup show-mix-form="true"></widget-customer-access-popup></div>-->
 
 
     <!--Widget full -->
-    <div><widget-full></widget-full></div>
+    <!--<div><widget-full></widget-full></div>-->
 
     <!-- jQuery -->
     <script src="vendor/jquery/jquery.min.js"></script>
