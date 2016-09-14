@@ -1,7 +1,7 @@
 @import '../../../../common/stylesheets/common/colors.scss';
 @import '../../../../common/stylesheets/common/mixins.scss';
 
-widget-customer-access-mini {
+widget-customer-access-modal {
   display: block;
   width: 100%;
   height: 100%;
@@ -16,6 +16,19 @@ widget-customer-access-mini {
   }
   .logout-text {
     cursor: pointer;
+  }
+
+  .modal-dialog {
+    width: 100%!important;
+    height: 100%!important;
+    margin: 0!important;
+    padding: 0!important;
+  }
+
+  .modal-content {
+    height: auto!important;
+    min-height: 100%!important;
+    border-radius: 0!important;
   }
 
 

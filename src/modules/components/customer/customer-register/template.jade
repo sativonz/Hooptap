@@ -1,5 +1,5 @@
 .ht-wrapper--register__form
-    c-button-close
+    c-button-close(ng-if="!$root.WCAM.view.Register")
     form.ht-form.ht-form--register(name="htRegisterForm" novalidate ng-show='!$root.goActivateForm' valdr-type="CustomerRegister")
         .row
             .col-xs-12.ht-form--register__row-3
@@ -50,13 +50,13 @@
         .row
             .col-xs-12.ht-form--register__row-4
                 .ht-form__group-terms
-                    input(type="checkbox" name="terms" ng-model="model.terms" required)
+                    input(type="checkbox" name="terms" ng-model="model.terms" id="checkbox_terms" required)
                     label.checkbox_terms(for="checkbox_terms")
                         a(href="http://hooptap.com/en/terms-and-conditions/" target="_blank") {{ 'valdr.generics.terms' | translate }}
                 //TODO Descomentar cuando esté activo
                 //.ht-form__group-link
                     span.link-to-activate(ng-click='$root.goActivateForm = true;') {{ 'CUSTOMER.activate.linkTitle' | translate }}
                 .ht-form__group-button
-                    .ht-form__failed-create-user Ya existe un usuario con los mismos datos!
+                    //.ht-form__failed-create-user Ya existe un usuario con los mismos datos!
                     button.ht-form--button__register(type='submit' ng-disabled="!model.terms" ng-click='register()') {{ 'CUSTOMER.register.button' | translate }}
 .footer-shadow

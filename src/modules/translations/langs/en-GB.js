@@ -28,7 +28,8 @@ let dict = {
             select: 'Selection',
             welcome: 'Welcome ',
             menu: 'menu ',
-            externalId: 'External ID'
+            externalId: 'External ID',
+            welcomeMsgForm	: 'Welcome, sign in or register to continue'
         },
         login: {
             title: 'Log in',
