@@ -44,8 +44,8 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
         badgeCols: '=?'
     },
     link: {
-        pre: function PreLinkingFunction(scope,element,attrs){
-            if(!angular.isDefined($rootScope.widgetOpened)){
+        pre: function PreLinkingFunction(scope, element, attrs) {
+            if (!angular.isDefined($rootScope.widgetOpened)) {
                 $rootScope.widgetOpened = false;
             }
         },
@@ -114,16 +114,19 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
             scope.scoreDisplayConfig = scope.scoreDisplayConfig || WidgetModel.defaultMarkerOptions;
 
             scope.$on("$loginSuccess", (event, response)=> {
-                    console.log("Objeto customer =>", response);
+                console.log("Objeto customer =>", response);
 
-                if(response.hasOwnProperty(('$promise'))){
-                    response.$promise.then((customer)=>{
+                if (response.hasOwnProperty(('$promise'))) {
+                    response.$promise.then((customer)=> {
                         scope.customer = customer;
 
                         //Notifier
                         let msgWelcome = $translate.instant("CUSTOMER.common.welcome");
-                        let message = msgWelcome + (scope.customer.username || '')  + " !";
-                        Notifier.loginRegisterSuccess({title: message, image: require('../images/default-img-popover.png')});
+                        let message = msgWelcome + (scope.customer.username || '') + " !";
+                        Notifier.loginRegisterSuccess({
+                            title: message,
+                            image: require('../images/default-img-popover.png')
+                        });
 
                     });
                 }
@@ -131,8 +134,10 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
 
             });
 
-            scope.$on("$eventSuccess", (event,triggered)=> {
-                WidgetModel().getCurrent().then( r => { scope.customer = r });
+            scope.$on("$eventSuccess", (event, triggered)=> {
+                WidgetModel().getCurrent().then(r => {
+                    scope.customer = r
+                });
             });
 
             scope.$on("$registerSuccess", (event, customer)=> {

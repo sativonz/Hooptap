@@ -25,10 +25,10 @@ export default ($rootScope, Customer, LoopBackAuth) => {
                 let id = model.id == 'new' || !model.id ? undefined : model.id;
                 let terms = undefined;
                 return {id, terms};
+
             }
         })
         .refs({
-
             /**
              * @memberOf Rule.model:Rule
              * @stampit refs
