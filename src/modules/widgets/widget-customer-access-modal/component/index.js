@@ -37,7 +37,6 @@ export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, $tra
         };
 
         let CustomerModel = stampit().compose(BaseModel, _isCustomer);
-        let $form = scope.htFormWidgetCustomerAccessModalRegister;
 
         scope.duplicatedEmail = false;
 
@@ -45,6 +44,7 @@ export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, $tra
             //duplicate fields
             scope.emailDuplicated = false;
             scope.usernameDuplicated = false;
+            let $form = scope.htFormWidgetCustomerAccessModalRegister;
 
             if ($form.$valid) {
                 if (scope.model.password == scope.model.rePassword) {
@@ -63,6 +63,7 @@ export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, $tra
                             message: msgSucceess,
                             image: require('../images/default-img-popover.png')
                         });
+                        element.remove();
 
                     }).catch((error)=> {
                         if (error.status == 422) {

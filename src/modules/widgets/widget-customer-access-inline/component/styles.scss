@@ -23,6 +23,14 @@ widget-customer-access-inline {
     cursor: pointer;
     text-decoration: underline;
   }
+  .profile-img {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    min-height: 50px;
+  }
 
 
   @include scrollbars(10px, $_1_light-grey-background, none, 0px solid $_1_soft-grey-background, 3px);

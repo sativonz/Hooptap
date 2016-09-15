@@ -69,7 +69,7 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                     showBadges: true,
                     showRankings: false,
                     showGlobalFeed: false,
-                    showEditProfile: true,
+                    showEditProfile: false,
                     showMarketplace: false,
                     showGameRoom: false
                 }

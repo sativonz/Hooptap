@@ -8,6 +8,7 @@ export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, $tra
     template,
     scope: {},
     link(scope, element, attrs){
+        scope.defaultImage = require("../images/default-img-popover.png");
 
         let LoginModel = stampit().compose(BaseModel, _hasLogin);
         let CustomerModel = stampit().compose(BaseModel, _isCustomer);
@@ -44,11 +45,12 @@ export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, $tra
         scope.duplicatedEmail = false;
 
 
-        let $form = scope.htFormWidgetCustomerAccessInlineRegister;
+
         scope.register = ()=> {
             //duplicate fields
             scope.emailDuplicated = false;
             scope.usernameDuplicated = false;
+            let $form = scope.htFormWidgetCustomerAccessInlineRegister;
 
             if ($form.$valid) {
                 if (scope.model.password == scope.model.rePassword) {
@@ -60,6 +62,8 @@ export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, $tra
                         } else {
                             $rootScope['customer'] = {logged: true};
                         }
+                        scope.customer = registered;
+                        console.log(scope.customer)
                         let msgSucceess = $translate.instant("TOAST.correctRegister");
                         let msgWelcome = ($translate.instant("CUSTOMER.common.welcome")) + (scope.username || '') + "!";
                         Notifier.loginRegisterSuccess({

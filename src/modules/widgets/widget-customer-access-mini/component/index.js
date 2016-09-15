@@ -11,25 +11,31 @@ export default(LoopBackAuth, $rootScope, clientHelper) => ({
         horizontal: '=?'
     },
     controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, $translate, Notifier)=> {
+        $scope.defaultImage = require("../images/default-img-popover.png");
 
         let LoginModel = stampit().compose(BaseModel, _hasLogin);
 
         $scope.login = ()=> {
-            //TODO ENCRIPTAR CREDENCIALES
-            let credentials = {
-                email: $scope.model.email,
-                password: $scope.model.password
-            };
-            LoginModel().login(credentials).then((response)=> {
-                $rootScope.customer = {};
-                $rootScope.customer.logged = true;
-                $scope.customer = response;
-            }).catch((error)=> {
-                if (error.status == 401) {
-                    let msg = $translate.instant("TOAST.incorrect");
-                    Notifier.error({title: msg, image: require('../images/error.png')});
-                }
-            });
+            let $form = $scope.htFormWidgetCustomerAccessminiHorizontal;
+            if($form.$valid){
+                //TODO ENCRIPTAR CREDENCIALES
+                let credentials = {
+                    email: $scope.model.email,
+                    password: $scope.model.password
+                };
+                LoginModel().login(credentials).then((response)=> {
+                    $rootScope.customer = {};
+                    $rootScope.customer.logged = true;
+                    $scope.customer = response;
+                }).catch((error)=> {
+                    if (error.status == 401) {
+                        let msg = $translate.instant("TOAST.incorrect");
+                        Notifier.error({title: msg, image: require('../images/error.png')});
+                    }
+                });
+
+            }
+
         };
 
         //->Link to logout
@@ -52,6 +58,8 @@ export default(LoopBackAuth, $rootScope, clientHelper) => ({
             };
 
             clientHelper.setDefaultAttributes(defaults, scope, attrs);
+
+
         }
 
 

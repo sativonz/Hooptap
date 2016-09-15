@@ -9,19 +9,16 @@
                 button.ht-btn(type='submit' ng-click="login()" ng-disabled="htFormWidgetCustomerAccessInlineLogin.$invalid") {{ 'CUSTOMER.common.login' | translate }}
                 .ht-go-register(ng-click="$root.WCAM.view.Register = !$root.WCAM.view.Register") {{ 'CUSTOMER.register.go' | translate }}
 
-        .logout(ng-show="$root.customer.logged")
-            .customer-name {{ 'CUSTOMER.common.welcome' | translate }} {{customer.name}} !
-            p.logout-text(ng-click="logout()") {{ 'CUSTOMER.common.logout' | translate }}
 
     .register(ng-show="$root.WCAM.view.Register")
-        form.ht-form-inline(name="htFormWidgetCustomerAccessInlineRegister" novalidate valdr-type="CustomerRegister")
-            div
+        form.ht-form-inline(name="htFormWidgetCustomerAccessInlineRegister" valdr-type="CustomerRegister" ng-hide="$root.customer.logged")
+            div(valdr-form-group)
                 input.ht-input(ng-model="model.username" type='text' name="username" placeholder="{{ 'CUSTOMER.common.username' | translate }}" required)
-            div
+            div(valdr-form-group)
                 input.ht-input(ng-model="model.email" type='email' name="email" placeholder="{{ 'CUSTOMER.common.email' | translate }}" required)
-            div
+            div(valdr-form-group)
                 input.ht-input(ng-model="model.password" type='password' name="password" placeholder="{{ 'CUSTOMER.common.password' | translate }}" required)
-            div
+            div(valdr-form-group)
                 input.ht-input(ng-model="model.rePassword" type='password' name="rePassword" placeholder="{{ 'CUSTOMER.common.rePassword' | translate }}" required)
             .row
                 .col-md-6
@@ -53,3 +50,12 @@
                 button.ht-btn(type='submit' ng-disabled="!model.terms" ng-click='register()') {{ 'CUSTOMER.register.button' | translate }}
 
             .ht-go-login(ng-click="$root.WCAM.view.Register = !$root.WCAM.view.Register") {{ 'CUSTOMER.login.go' | translate }}
+
+
+    .logout(ng-show="$root.customer.logged")
+        .row
+            .col-md-2
+                img.profile-img(ng-src="{{customer.image || defaultImage}}")
+            .col-md-10
+                .customer-name {{ 'CUSTOMER.common.welcome' | translate }} {{customer.name || customer.username}} !
+                p.logout-text(ng-click="logout()") {{ 'CUSTOMER.common.logout' | translate }}
