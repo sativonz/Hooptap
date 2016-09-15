@@ -26,6 +26,9 @@ export default() => ({
             LoginModel().getCurrent(includeFilter).then((response)=> {
                 let customerResponse = CustomerModel(response);
                 $rootScope.$broadcast('$loginSuccess', customerResponse);
+            }).catch(()=> {
+                LoopBackAuth.clearStorage();
+                LoopBackAuth.clearUser();
             });
         } else {
             //Clear Storage, session and user if not rememberMe
@@ -47,7 +50,8 @@ export default() => ({
             LoginModel().login(credentials, includeFilter).then((response)=> {
                 $rootScope.$broadcast('$loginSuccess', response);
             }).catch((error)=> {
-
+                LoopBackAuth.clearStorage();
+                LoopBackAuth.clearUser();
                 //TODO NOTIFICADOR ERRORES
                 if (error.status == 401) {
                     let msg = $translate.instant("TOAST.incorrect");

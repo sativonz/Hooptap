@@ -14,13 +14,15 @@ import tooltip from 'angular-ui-bootstrap/src/tooltip';
 import modal from 'angular-ui-bootstrap/src/modal';
 
 //Import Loopback Angular SDK
-import './common/services/angular-sdk-before-2016913.js';
+import './common/services/angular-sdk';
 
 
 (function () {
-    angular.module('Hooptap',
+    angular.module('Hooptap-client',
         [
 
+            //GLOBAL CONFIG
+            'GLOBAL_CONFIG',
             //Vendor injectors
             'ngResource', /*angular resources*/
             'ngAnimate', /*angular animate*/
@@ -126,10 +128,35 @@ import './common/services/angular-sdk-before-2016913.js';
         .config(require('./config').default)
         .run(require('./boot').default);
 
-    window.Hooptap = {};
-    window.Hooptap.startIn = function ($selector) {
-        angular.bootstrap(document.querySelector($selector), ['Hooptap']);
-    };
+    
+    window[ window['HooptapObjectClient'] ] = {};
+    window[ window['HooptapObjectClient'] ].start = function (params) {
 
+        if (!params)
+            return;
+
+        // is object
+        // is not Array
+        // has properties
+        if ( typeof params == 'object' && !Array.isArray(params) && Object.keys(params).length ) {
+            params.apiKey = params.apiKey || null;
+            params.selector = params.selector || 'body';
+            params.config = params.config || {};
+            if (params.apiKey && typeof params.apiKey == 'string') {
+
+                angular.module('GLOBAL_CONFIG', []).constant('GLOBAL_CONFIG',{
+                    apiKey: params.apiKey,
+                    selector: params.selector,
+                    config: params.config
+                });
+
+                angular.bootstrap(document.querySelector(params.selector), ['Hooptap-client', 'GLOBAL_CONFIG']);
+            }
+            else
+                return;
+        }
+        else
+            return;
+    };
 
 }());

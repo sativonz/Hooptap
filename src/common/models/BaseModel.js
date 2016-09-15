@@ -55,7 +55,7 @@ export default ($q, $injector, _Extendable) => {
              * @returns {object} The modified model used to construct this instance.
              */
             parse (model) {
-                
+
                 return model;
             },
 
@@ -353,7 +353,6 @@ export default ($q, $injector, _Extendable) => {
             /*--------------------------------------------------------------------------------------------
              REFS
              --------------------------------------------------------------------------------------------*/
-            productId: "57c846e00f761821e71ef1fc", //TODO change to actual product id
 
             /**
              * This Whitelist enables managing underscored params.

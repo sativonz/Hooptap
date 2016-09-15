@@ -2,20 +2,28 @@
 <html>
 <head>
 
-<title>Widgets TEST</title>
+    <title>Widgets TEST</title>
+    <script></script>
 </head>
-<body onload="Hooptap.startIn('body')">
+<body>
 
 
 <!--BUTTON TO OPEN WIDGETS -->
-<div><c-button-init text="GOO!!" image="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-play-128.png"></c-button-init></div>
+<div>
+    <c-button-init text="GOO!!"
+                   image="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-play-128.png"></c-button-init>
+</div>
 
 <!--Widget customer acces -->
-<div><widget-customer-access-popup show-mix-form="true"></widget-customer-access-popup></div>
+<div>
+    <widget-customer-access-popup show-mix-form="true"></widget-customer-access-popup>
+</div>
 
 
 <!--Widget full -->
-<div><widget-full></widget-full></div>
+<div>
+    <widget-full></widget-full>
+</div>
 
 
 <!--Widget badges grid
@@ -26,7 +34,49 @@
 <!--<w-widget-quests></w-widget-quests>-->
 
 <!--Bundle WIDGETS -->
-<script src="http://localhost:3030/bundle.js"></script>
+<script>
+    (function (f,u,n,b,o,un,d) { f['HooptapObjectClient'] = o;
+        f[o] = f[o] || function () { ( f[o].argum = f[o].argum || [] ).push(arguments) }; f[o].timestamp = 1 * new Date();
+        un = u.createElement(n); d = u.getElementsByTagName(n)[0]; un.async = 1; un.src = b; d.parentNode.insertBefore(un, d);
+    })( window, document, 'script', 'http://localhost:3030/bundle.js', 'funbound' );
+    window.addEventListener("load", function () {
+        funbound.start({ apiKey: "1Q2Xu85d19HDgWppttlZV9yGU7B0Ija5" });
+    });
+</script>
+<!--<script>
+    (function (_window, _document, _script_, _url_, _namespace_, _var1, _var2) {
+
+        // guarda el namespace en window
+        _window['HooptapObjectClient'] = _namespace_;
+
+
+        // crea la variable global, y hace backup de los argumentos
+        _window[_namespace_] = _window[_namespace_] || function () {
+                    ( _window[_namespace_].argum = _window[_namespace_].argum || [] ).push(arguments)
+                };
+
+        // guarda cuando se inició
+        _window[_namespace_].timestamp = 1 * new Date();
+
+
+        // carga el código en un script
+        _var1 = _document.createElement(_script_);
+        _var2 = _document.getElementsByTagName(_script_)[0];
+        _var1.async = 1;
+        _var1.src = _url_;
+        _var2.parentNode.insertBefore(_var1, _var2);
+    })(
+            window, //_window
+            document, //_document
+            'script', //_script_
+            'http://localhost:3030/bundle.js', //_url_
+            'Hooptap' //_namespace_
+    );
+    window.addEventListener("load", function () {
+        Hooptap.start({apiKey: "eqewq", selector: 'body', config: {}});
+    });
+</script>-->
+
 </body>
 </html>
 

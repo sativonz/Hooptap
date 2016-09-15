@@ -1,7 +1,7 @@
 import stampit from 'stampit';
 import Q from 'q';
 
-export default (Customer, BaseModel, _hasCustomer, $rootScope, $q) => {
+export default (Customer, BaseModel, _hasCustomer, $rootScope, $q, GLOBAL_CONFIG, $http, LoopBackAuth) => {
     return stampit()
         .compose(_hasCustomer)
         /**
@@ -29,6 +29,8 @@ export default (Customer, BaseModel, _hasCustomer, $rootScope, $q) => {
                     this.setLoggedRoot(response);
                     return $q.resolve(this.getCurrent(filter));
                 }).catch((error)=> {
+                    LoopBackAuth.clearStorage();
+                    LoopBackAuth.clearUser();
                     return $q.reject(error);
                 });
             },
@@ -41,6 +43,13 @@ export default (Customer, BaseModel, _hasCustomer, $rootScope, $q) => {
              */
             setLoggedRoot(response){
                 if (response.id) {
+                    if (Customer.isAuthenticated()) {
+                        $http.defaults.headers.common['api-key'] = GLOBAL_CONFIG.apiKey;
+                    }
+                    else {
+                        delete $http.defaults.headers.common['api-key'];
+                    }
+
                     if ($rootScope.customer) {
                         $rootScope.customer.logged = true;
                     } else {

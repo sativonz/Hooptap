@@ -1,10 +1,13 @@
 export default ($q , $compile , $injector , Event , Customer , Admin , $rootScope )=> {
 
+
+        //Check if is authenticated
+        //Customer.isAuthenticated() ? :;
         var TEST = false;
 
-        window.Hooptap = function ( a0 , a1 , a2 , a3 ) {
+        let windowHooptap = function ( a0 , a1 , a2 , a3 ) {
             if ( typeof a0 == 'object' && Object.keys( a0 ).length ) {
-                return window.Hooptap.sendEvent( a0 );
+                return windowHooptap.sendEvent( a0 );
             }
             else if ( typeof a0 === 'string' ) {
                 var params = { category: a0 };
@@ -12,7 +15,7 @@ export default ($q , $compile , $injector , Event , Customer , Admin , $rootScop
                 if ( a2 && typeof a2 == 'string' ) params.label = a2;
                 if ( a3 && typeof a3 == 'string' || typeof a3 == 'number' ) params.value = '' + a3;
 
-                return window.Hooptap.sendEvent( params );
+                return windowHooptap.sendEvent( params );
             }
             else {
                 return false;
@@ -20,7 +23,7 @@ export default ($q , $compile , $injector , Event , Customer , Admin , $rootScop
 
         };
 
-        window.Hooptap.api = ( model , method , params , _then , _catch ) => {
+        windowHooptap.api = ( model , method , params , _then , _catch ) => {
             // TODO improve Hooptap.api method
 
             model = $injector.get( model );
@@ -40,7 +43,7 @@ export default ($q , $compile , $injector , Event , Customer , Admin , $rootScop
             return promise;
         };
 
-        window.Hooptap.sendEvent = function ( params ) {
+        windowHooptap.sendEvent = function ( params ) {
 
             var typeOf = {
                 "category": "string" ,
@@ -89,7 +92,7 @@ export default ($q , $compile , $injector , Event , Customer , Admin , $rootScop
 
         };
 
-        window.Hooptap.loginCustomer = function ( params ) {
+        windowHooptap.loginCustomer = function ( params ) {
             if ( params === 'test' )
                 params = { email: 'customer@customer.com' , password: 'customer', productId: 'test' };
 
@@ -123,7 +126,7 @@ export default ($q , $compile , $injector , Event , Customer , Admin , $rootScop
         };
 
         if ( TEST ) {
-            window.Hooptap.loginAdmin = function ( params ) {
+            windowHooptap.loginAdmin = function ( params ) {
                 if ( params === 'test' ) {
                     params = { email: 'admin@hooptap.com' , password: 'hooptap' };
 
@@ -138,7 +141,7 @@ export default ($q , $compile , $injector , Event , Customer , Admin , $rootScop
                     return false;
             };
 
-            window.Hooptap.test = function ( functionName ) {
+            windowHooptap.test = function ( functionName ) {
                 var tests = {
                     'loginCustomer': {
                         "email": "pepe@pepe.com" ,
@@ -170,11 +173,11 @@ export default ($q , $compile , $injector , Event , Customer , Admin , $rootScop
 
                     for ( var Try in Tries ) {
                         console.log( '\ntry:' + Try + ' ' + name + ' with ' + typeof Tries[ Try ] , Tries[ Try ] );
-                        console.log( 'results:' , window.Hooptap[ name ]( Tries[ Try ] ) );
+                        console.log( 'results:' , windowHooptap[ name ]( Tries[ Try ] ) );
                     }
                 }
 
-                if ( functionName && typeof functionName == 'string' && typeof window.Hooptap[ functionName ] == 'function' ) {
+                if ( functionName && typeof functionName == 'string' && typeof windowHooptap[ functionName ] == 'function' ) {
                     var _tests = tests[ functionName ];
                     tests = {};
                     tests[ functionName ] = _tests;
@@ -192,5 +195,8 @@ export default ($q , $compile , $injector , Event , Customer , Admin , $rootScop
 
             };
         }
+
+
+        window[ window['HooptapObjectClient'] ] = windowHooptap;
 
 }
