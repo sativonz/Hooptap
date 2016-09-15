@@ -1,4 +1,3 @@
-@import '../../../../common/stylesheets/common/_base.scss';
 @import '../../../../common/stylesheets/common/colors.scss';
 @import '../../../../common/stylesheets/common/mixins.scss';
 
@@ -6,11 +5,26 @@ widget-customer-access-inline {
   display: block;
   width: 100%;
   height: 100%;
+  background: white;
+  padding: 20px;
+  color: black;
+  input,
+  select {
+    width: 100%;
+  }
+  #checkbox_terms {
+    width: 15px;
+  }
   .logout-text {
     cursor: pointer;
   }
+  .ht-go-register,
+  .ht-go-login {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
 
   @include scrollbars(10px, $_1_light-grey-background, none, 0px solid $_1_soft-grey-background, 3px);
 
 }
-

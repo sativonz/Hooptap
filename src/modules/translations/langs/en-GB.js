@@ -35,12 +35,14 @@ let dict = {
             title: 'Log in',
             desc: 'Access your account',
             rememberMe: 'Staying in session',
-            button: 'GO'
+            button: 'GO',
+            go				: 'Go to login'
         },
         register: {
             title: 'Register',
             desc: 'Register an account',
-            button: 'OK'
+            button: 'OK',
+            go: 'Go to register'
         },
         reset: {
             title: 'Forgot your password?',

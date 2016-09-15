@@ -1,25 +1,25 @@
 div(modal-render="true" tabindex="-1" role="dialog" class="modal ng-isolate-scope in" uib-modal-animation-class="fade" modal-in-class="in" ng-style="{'z-index': 1050 + index*10, display: 'block'}" uib-modal-window="modal-window" index="0" animate="animate" style="z-index: 1050; display: block;")
     .modal-header
-        h3.modal-title {{ 'CUSTOMER.common.welcomeMsgForm' | translate }}
+        h3.modal-title {{ msgWelcome || 'CUSTOMER.common.welcomeMsgForm' | translate }}
         //TODO boton cerrar
     .modal-body
         .widget-customer-access-mini
             .login(ng-hide="$root.WCAM.view.Register ")
-                form.ht-form-inline(name="htFormWidgetCustomerAccessMiniLogin" ng-hide="$root.customer.logged")
+                form.ht-form-inline(name="htFormWidgetCustomerAccessModalLogin" ng-hide="$root.customer.logged")
                     div
-                        input.ht-input(ng-model="model.email" type='email' name="email" placeholder="Email" required)
+                        input.ht-input(ng-model="model.email" type='email' name="email" placeholder="{{ 'CUSTOMER.common.email' | translate }}" required)
                     div
-                        input.ht-input(ng-model="model.password" type='text' name="password" placeholder="Password" required)
+                        input.ht-input(ng-model="model.password" type='password' name="password" placeholder="{{ 'CUSTOMER.common.password' | translate }}" required)
                     div
                         button.ht-btn(type='submit' ng-click="login()" ng-disabled="htFormWidgetCustomerAccessMiniLogin.$invalid") {{ 'CUSTOMER.common.login' | translate }}
-                        p(ng-click="$root.WCAM.view.Register = !$root.WCAM.view.Register") {{ 'CUSTOMER.common.register' | translate }}
+                        .ht-go-register(ng-click="$root.WCAM.view.Register = !$root.WCAM.view.Register") {{ 'CUSTOMER.register.go' | translate }}
 
                 .logout(ng-show="$root.customer.logged")
                     .customer-name {{customer.name}}
                     p.logout-text(ng-click="logout()") {{ 'CUSTOMER.common.logout' | translate }}
 
             .register(ng-show="$root.WCAM.view.Register")
-                form.ht-form-inline(name="htFormWidgetCustomerAccessMiniRegister" valdr-type="CustomerRegister")
+                form.ht-form-inline(name="htFormWidgetCustomerAccessModalRegister" novalidate valdr-type="CustomerRegister")
                     div
                         input.ht-input(ng-model="model.username" type='text' name="username" placeholder="{{ 'CUSTOMER.common.username' | translate }}" required)
                     div
@@ -35,7 +35,7 @@ div(modal-render="true" tabindex="-1" role="dialog" class="modal ng-isolate-scop
                             div
                                 input.ht-input(ng-model="model.surname" type='text' name="surname" placeholder="{{ 'CUSTOMER.common.surnames' | translate }}")
                             div
-                                input.ht-input(ng-model="model.city" type='text' name="surname" placeholder="{{ 'CUSTOMER.common.city' | translate }}")
+                                input.ht-input(ng-model="model.city" type='text' name="city" placeholder="{{ 'CUSTOMER.common.city' | translate }}")
                             div
                                 input.ht-input(ng-model="model.address" type='text' name="address" placeholder="{{ 'CUSTOMER.common.direction' | translate }}")
                         .col-md-6
@@ -57,7 +57,7 @@ div(modal-render="true" tabindex="-1" role="dialog" class="modal ng-isolate-scop
                                 a(href="http://hooptap.com/en/terms-and-conditions/" target="_blank") {{ 'valdr.generics.terms' | translate }}
                         button.ht-BTN(type='submit' ng-disabled="!model.terms" ng-click='register()') {{ 'CUSTOMER.register.button' | translate }}
 
-                    p(ng-click="$root.WCAM.view.Register = !$root.WCAM.view.Register") {{ 'CUSTOMER.common.login' | translate }}
+                    .ht-go-login(ng-click="$root.WCAM.view.Register = !$root.WCAM.view.Register") {{ 'CUSTOMER.login.go' | translate }}
     .modal-footer
 
 

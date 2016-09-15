@@ -8,7 +8,8 @@ widget-customer-access-modal {
   background: white;
   padding: 20px;
   color: black;
-  input {
+  input,
+  select {
     width: 100%;
   }
   #checkbox_terms {
@@ -30,7 +31,12 @@ widget-customer-access-modal {
     min-height: 100%!important;
     border-radius: 0!important;
   }
-
+  
+  .ht-go-register,
+  .ht-go-login {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 
   @include scrollbars(10px, $_1_light-grey-background, none, 0px solid $_1_soft-grey-background, 3px);
 

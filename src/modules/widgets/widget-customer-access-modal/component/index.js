@@ -3,25 +3,26 @@ import './styles.scss';
 import stampit from 'stampit';
 //TODO ngdocs
 
-export default(LoopBackAuth, $rootScope, clientHelper) => ({
+export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, $translate, Notifier, $uibModal) => ({
     restrict: 'E',
     template,
     scope: {
+        msgWelcome: '@?'
     },
-    controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, $translate, Notifier)=> {
-
+    link(scope, element, attrs) {
         let LoginModel = stampit().compose(BaseModel, _hasLogin);
 
-        $scope.login = ()=> {
+        scope.login = ()=> {
             //TODO ENCRIPTAR CREDENCIALES
             let credentials = {
-                email: $scope.model.email,
-                password: $scope.model.password
+                email: scope.model.email,
+                password: scope.model.password
             };
             LoginModel().login(credentials).then((response)=> {
                 $rootScope.customer = {};
                 $rootScope.customer.logged = true;
-                $scope.customer = response;
+                element.remove();
+                scope.customer = response;
             }).catch((error)=> {
                 if (error.status == 401) {
                     let msg = $translate.instant("TOAST.incorrect");
@@ -31,28 +32,72 @@ export default(LoopBackAuth, $rootScope, clientHelper) => ({
         };
 
         //->Link to logout
-        let CustomerModel = stampit().compose(BaseModel, _isCustomer);
-        $scope.logout = () => {
+        scope.logout = () => {
             CustomerModel().logout();
         };
 
-    },
-    link: {
-        pre: function PreLinkingFunction(scope, element, attrs) {   //Default values for widget customer access
+        let CustomerModel = stampit().compose(BaseModel, _isCustomer);
+        let $form = scope.htFormWidgetCustomerAccessModalRegister;
 
-            $rootScope.customer = {};
-            $rootScope.customer.logged = false;
+        scope.duplicatedEmail = false;
 
-            //-> Default values
-            let defaults = {
-                vertical: false,
-                horizontal: false
+        scope.register = ()=> {
+            //duplicate fields
+            scope.emailDuplicated = false;
+            scope.usernameDuplicated = false;
+
+            if ($form.$valid) {
+                if (scope.model.password == scope.model.rePassword) {
+                    let newCustomer = CustomerModel(scope.model).toJson();
+                    LoginModel().create(newCustomer).then((registered)=> {
+                        $rootScope.$broadcast('$registerSuccess', registered);
+                        if ($rootScope.customer) {
+                            $rootScope.customer.logged = true;
+                        } else {
+                            $rootScope['customer'] = {logged: true};
+                        }
+                        let msgSucceess = $translate.instant("TOAST.correctRegister");
+                        let msgWelcome = ($translate.instant("CUSTOMER.common.welcome")) + (scope.username || '') + "!";
+                        Notifier.loginRegisterSuccess({
+                            title: msgWelcome,
+                            message: msgSucceess,
+                            image: require('../images/default-img-popover.png')
+                        });
+
+                    }).catch((error)=> {
+                        if (error.status == 422) {
+                            let msgDuplicated = $translate.instant("TOAST.duplicated");
+                            scope.duplicatedCodes = error.data.error.details.codes;
+
+                            //TODO Improve validation for duplicated values
+                            for (var code in scope.duplicatedCodes) {
+                                scope[code + 'Duplicated'] = true;
+                            }
+                            Notifier.error({title: msgDuplicated, image: require('../images/error.png')});
+                        }
+                    });
+                } else if (scope.model.password != scope.model.rePassword) {
+                    let badPassword = $translate.instant("TOAST.badPassword");
+                    Notifier.error({title: badPassword, image: require('../images/error.png')});
+                }
+
+            }
+        };
+
+        $rootScope.$on('registerSuccess', (event, response)=> {
+            let credentials = {
+                email: response.email,
+                password: scope.model.password
             };
+            LoginModel().login(credentials, includeFilter).then((response)=> {
+                $rootScope.$broadcast('$loginSuccess', response);
+            }).catch((error)=> {
+                let internalServerError = $translate.instant("TOAST.internalServerError");
+                Notifier.error({title: internalServerError, image: require('../images/error.png')});
 
-            clientHelper.setDefaultAttributes(defaults, scope, attrs);
-        }
+            });
 
-
+        });
     }
 
 });

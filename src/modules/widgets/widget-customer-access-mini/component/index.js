@@ -7,6 +7,8 @@ export default(LoopBackAuth, $rootScope, clientHelper) => ({
     restrict: 'E',
     template,
     scope: {
+        vertical: '=?',
+        horizontal: '=?'
     },
     controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, $translate, Notifier)=> {
 
