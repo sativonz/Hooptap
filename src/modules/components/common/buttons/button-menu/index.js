@@ -24,6 +24,7 @@ export default(Customer, $rootScope, BaseModel, _isCustomer) => ({
         showBadges: '=',
         showRankings: '=',
         showLevel: '=',
+        showLevelList: '=',
         showGlobalFeed: '=',
         showMarketplace: '=',
         showEditProfile: '=',

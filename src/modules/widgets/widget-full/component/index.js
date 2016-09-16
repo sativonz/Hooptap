@@ -17,7 +17,7 @@ import stampit from 'stampit';
  */
 
 
-export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelper, BaseModel, _isWidget, _hasCustomer, $timeout, $translate, Notifier) => ({
+export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelper, BaseModel, _isWidget, _hasCustomer, $timeout, _hasLogin, _isCustomer, $translate, Notifier) => ({
     restrict: 'E',
     transclude: true,
     template,
@@ -64,8 +64,9 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                 },
                 menuOptions: {
                     titleGameRoom: "Salón de juegos",
-                    showQuests: true,
-                    showLevel: false,
+                    showQuests: false,
+                    showLevel: true,
+                    showLevelList: true,
                     showBadges: true,
                     showRankings: false,
                     showGlobalFeed: false,
@@ -106,6 +107,27 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                     // ]
                 ]
             };
+
+            //Models
+            let LoginModel = stampit().compose(BaseModel, _hasLogin);
+            let CustomerModel = stampit().compose(BaseModel, _isCustomer);
+            //Query filter
+            let includeFilter = {filter: {include: [{badgeInstances: 'badge'}, {scoreUnitInstances: 'scoreUnit'}, 'levels']}};
+
+            //Check if rememberMe is  true , make login and get current.
+            if (LoopBackAuth.rememberMe === 'true') {
+                LoginModel().getCurrent(includeFilter).then((response)=> {
+                    let customerResponse = CustomerModel(response);
+                    $rootScope.$broadcast('$loginSuccess', customerResponse);
+                });
+            } else {
+                //Clear Storage, session and user if not rememberMe
+                //CustomerModel().logout();
+                LoopBackAuth.clearStorage();
+                LoopBackAuth.clearUser();
+            }
+
+
 
             let WidgetModel = stampit().compose(BaseModel, _isWidget, _hasCustomer)({defaults, defaultMarkerOptions});
 
