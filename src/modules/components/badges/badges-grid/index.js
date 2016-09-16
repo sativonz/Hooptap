@@ -76,7 +76,6 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
             });
 
             scope.badges = BadgesModel({all: all, available: availableIndex, completed: completed});
-            console.log(scope.badges);
             scope.$apply();
         })();
         //Set default values

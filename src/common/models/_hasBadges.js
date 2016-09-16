@@ -1,7 +1,7 @@
 import stampit from 'stampit';
 import Q from 'q';
 
-export default (Badge, Customer , BadgeSeat) => {
+export default (Badge, Customer) => {
 
     return stampit()
         .compose()
