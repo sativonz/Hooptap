@@ -32,6 +32,11 @@ c-marker-display {
       .ht-marker-display__img {
         margin-top: -4px!important;
         height: 53px!important;
+        width: 30px!important;
+        min-width: 30px;
+        min-height: 30px;
+        max-height: 30px;
+        min-width: 30px;
       }
       .title__score-units {
         margin-right: 20px!important;

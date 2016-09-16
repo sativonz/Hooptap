@@ -10,15 +10,17 @@ div#ht-menu
             a {{'CUSTOMER.common.menu' | translate}}
         li.animated.slideInLeft(ng-if="showQuests" ng-click="$root.WPF.viewQuests = !$root.WPF.viewQuests")
             a {{ 'QUESTS.title' | translate }}
-        li.animated.slideInLeft(ng-if="showBadges" ng-click="$root.WPF.viewBadges = !$root.WPF.viewBadges")
-            a {{ 'BADGES.title' | translate }}
         li.animated.slideInLeft(ng-if="showRankings")
             a.ht-menu__item-ranking {{ 'RANKING.titleList' | translate }}
             ul.ranking-menu
                 li.animated.slideInLeft(ng-repeat="su in item.levels" ng-click="$root.WPF.viewRanking = !$root.WPF.viewRanking")
                     a {{ su.name }}
-        li.animated.slideInLeft(ng-if="showLevel")
-            a {{ 'LEVELS.title' | translate }}
+        li.animated.slideInLeft(ng-if="showLevelList" ng-click="$root.WPF.viewLevelList = !$root.WPF.viewLevelList")
+            a {{ 'LEVELS.list' | translate }}
+        li.animated.slideInLeft(ng-if="showLevel" ng-click="$root.WPF.viewLevelActual = !$root.WPF.viewLevelActual")
+            a {{ 'LEVELS.actualLevel' | translate }}
+        li.animated.slideInLeft(ng-if="showBadges" ng-click="$root.WPF.viewBadges = !$root.WPF.viewBadges")
+            a {{ 'BADGES.title' | translate }}
         li.animated.slideInLeft(ng-if="showGlobalFeed")
             a {{ 'GLOBAL_FEED.title' | translate }}
         li.animated.slideInLeft(ng-if="showMarketplace")

@@ -63,7 +63,7 @@ export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, $tra
                             $rootScope['customer'] = {logged: true};
                         }
                         scope.customer = registered;
-                        console.log(scope.customer)
+                        //console.log(scope.customer)
                         let msgSucceess = $translate.instant("TOAST.correctRegister");
                         let msgWelcome = ($translate.instant("CUSTOMER.common.welcome")) + (scope.username || '') + "!";
                         Notifier.loginRegisterSuccess({

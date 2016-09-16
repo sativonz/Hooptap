@@ -137,7 +137,23 @@ export default ($q, $compile, $injector, Event, Customer, Admin, $rootScope, Ses
                 if (Admin.isAuthenticated())
                     Admin.logout();
 
-                return Admin.login(params);
+
+                token = Customer.login( params )
+                    .$promise
+                    .then( ( response ) => {
+                        //console.log( 'response' , response );
+                    } )
+                    .catch( ( e ) => {
+                        let errors = {
+                            '-1': 'errors.sdk.noInternet' ,
+                            '401': 'errors.sdk.badLogin' ,
+                            '500': 'errors.sdk.noInternet'
+                        };
+                        console.warn( 'Login error:' , e.status );
+                        console.warn( 'Login error:' , errors[ e.status ] );
+                    } );
+                return token;
+
             }
             else
                 return false;

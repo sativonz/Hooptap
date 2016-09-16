@@ -18,7 +18,7 @@ export default($rootScope, Customer, LoopBackAuth) => ({
 
 
         $rootScope.$on("$rankingType", (event, item)=> {
-            console.log("asdfasddfas", item);
+            //console.log("asdfasddfas", item);
         });
 
 

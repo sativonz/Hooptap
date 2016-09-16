@@ -62,7 +62,7 @@ export default($timeout, $rootScope, BaseModel, _hasScoreUnits, _hasCustomer) =>
 
             })();
         }
-        console.log(scope.item);
+        //console.log(scope.item);
 
 
     }

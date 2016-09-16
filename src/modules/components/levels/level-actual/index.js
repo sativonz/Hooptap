@@ -37,11 +37,11 @@ export default(BaseModel, _hasScoreUnits) => ({
         //Get nextLevel
         Q.async(function*(){
             let nextLevel = yield ScoreUnitModel().getLevelById(scope.item.levels[0].nextId);
-            console.log("NEXT LEVEL !", nextLevel);
+            //console.log("NEXT LEVEL !", nextLevel);
             scope.nextLevel = nextLevel;
 
             let levelActualName = yield ScoreUnitModel().getScoreUnitById(nextLevel.scoreUnitId);
-            console.log("Nombre del su asociado al level !", levelActualName);
+            //console.log("Nombre del su asociado al level !", levelActualName);
             scope.levelActualName = levelActualName;
 
 
@@ -58,7 +58,7 @@ export default(BaseModel, _hasScoreUnits) => ({
             allLevelsIndex.$promise.then((response)=>{
                 response.map((level)=>LevelsIndex[level.id]=level);
                 scope.LevelsIndex = LevelsIndex;
-                console.log('LevelsIndex', LevelsIndex);
+                //console.log('LevelsIndex', LevelsIndex);
             });
         })();
 

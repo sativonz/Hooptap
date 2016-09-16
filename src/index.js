@@ -64,7 +64,7 @@ import './common/services/angular-sdk';
                     viewName = routerTargetName;
                     routerTargetName = routerName;
                 }
-                console.log('rooRouter', routerTargetName, viewName);
+                //console.log('rooRouter', routerTargetName, viewName);
 
                 let handler = $rootScope.routerChangeFunctions[routerTargetName];
                 if (handler) {
@@ -90,14 +90,14 @@ import './common/services/angular-sdk';
                         if (routerTargetName != routerName) {
                             let parent = $scope.$parent;
                             if (parent) {
-                                console.log(`El router ${routerName} pasa el back a su padre`);
+                                //console.log(`El router ${routerName} pasa el back a su padre`);
                                 parent.back(routerTargetName, viewName);
                             } else {
-                                console.log(`El router ${routerName} ignora vista ${viewName} que va a ${routerTargetName}.`);
+                                //console.log(`El router ${routerName} ignora vista ${viewName} que va a ${routerTargetName}.`);
                             }
                             return;
                         }
-                        console.log($scope.historic);
+                        //console.log($scope.historic);
                         $scope.view = $scope.historic.pop();
                     };
                     $scope.changeView = function (routerTargetName, viewName) {
@@ -106,10 +106,10 @@ import './common/services/angular-sdk';
                             viewName = routerTargetName;
                             routerTargetName = routerName;
                         }
-                        console.log('router', routerTargetName, viewName);
+                        //console.log('router', routerTargetName, viewName);
                         if (routerTargetName != routerName) {
                             if (!$rootScope.changeView(routerTargetName, viewName)) {
-                                console.log(`El router ${routerName} ignora vista ${viewName} que va a ${routerTargetName}.`);
+                                //console.log(`El router ${routerName} ignora vista ${viewName} que va a ${routerTargetName}.`);
                             }
                             return;
                         }

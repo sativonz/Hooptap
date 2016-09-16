@@ -16,8 +16,7 @@ import stampit from 'stampit';
  * @element ANY
  */
 
-
-export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseModel, _isWidget, _hasCustomer, _hasLogin, _isCustomer, Session, $translate, Notifier) => ({
+export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseModel, _isWidget, _hasCustomer, _hasLogin, _isCustomer, $translate,  Session, Notifier) => ({
     restrict: 'E',
     transclude: true,
     template,
@@ -64,8 +63,9 @@ export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseMod
                 },
                 menuOptions: {
                     titleGameRoom: "Salón de juegos",
-                    showQuests: true,
-                    showLevel: false,
+                    showQuests: false,
+                    showLevel: true,
+                    showLevelList: true,
                     showBadges: true,
                     showRankings: false,
                     showGlobalFeed: false,
@@ -119,7 +119,6 @@ export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseMod
 
             scope.scoreDisplayConfig = scope.scoreDisplayConfig || WidgetModel.defaultMarkerOptions;
 
-
             if (Session.isAuthenticated()) {
                 WidgetModel.getCurrent(includeFilter).then((response)=> {
                     let customerResponse = CustomerModel(response);
@@ -134,8 +133,6 @@ export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseMod
                 LoopBackAuth.clearStorage();
                 LoopBackAuth.clearUser();
             }
-
-
             scope.$on("$loginSuccess", (event, response)=> {
                 if (response.hasOwnProperty(('$promise'))) {
                     response.$promise.then((customer)=> {
@@ -151,10 +148,7 @@ export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseMod
 
                     });
                 }
-
-
             });
-
             scope.$on("$eventSuccess", (event, triggered)=> {
                 WidgetModel().getCurrent().then(r => {
                     scope.customer = r
