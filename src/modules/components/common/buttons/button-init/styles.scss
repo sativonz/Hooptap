@@ -26,6 +26,9 @@ c-button-init {
       position: absolute;
       .button--init__icon {
         width: 24px;
+        &.rounded {
+          border-radius: 50%;
+        }
       }
     }
     .button--init__text {

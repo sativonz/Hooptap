@@ -21,11 +21,10 @@ export default($rootScope, Customer, BaseModel, _hasCustomer) => ({
             let diffs = scope.model.getDiffs();
             Customer.update().$promise
                 .then((response) => {
-                    console.log("Save response", response);
-                    debugger;
+                    //console.log("Save response", response);
                 })
                 .catch((err) => {
-                    console.log(err);
+                    //console.log(err);
                 });
             
         };

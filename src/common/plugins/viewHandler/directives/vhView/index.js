@@ -1,7 +1,7 @@
 export default($rootScope,viewHandlerService) => ({
     restrict: 'A',
     link: (scope, element, attrs)=> {
-        console.log(scope, element, attrs);
+        //console.log(scope, element, attrs);
 
 
         element.bind('click', function () {
