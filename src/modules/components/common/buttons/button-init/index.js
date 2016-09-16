@@ -11,7 +11,7 @@ import stampit from 'stampit';
  * @params {String} image Image of the button, positioned to the left
  * @element ANY
  */
-export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer) => ({
+export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, Session) => ({
     restrict: 'E',
     scope: {
         text: '@',
@@ -27,8 +27,9 @@ export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer) => (
 
         let LoginModel = stampit().compose(BaseModel, _hasLogin);
 
-        if (LoopBackAuth.rememberMe === 'true') {
-            LoginModel().getCurrent().then((response)=> {
+        if (Session.isAuthenticated()) {
+            let filter = {fields: ["email", "image"]};
+            LoginModel().getCurrent(filter).then((response)=> {
                 scope.customer = response;
             });
         } else {
@@ -36,6 +37,11 @@ export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer) => (
             LoopBackAuth.clearStorage();
             LoopBackAuth.clearUser();
         }
+
+
+        $rootScope.$on('$logoutSuccess', ()=> {
+            scope.customer = {};
+        });
 
     }
 });

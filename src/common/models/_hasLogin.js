@@ -20,7 +20,6 @@ export default (Customer, BaseModel, _hasCustomer, $rootScope, $q, GLOBAL_CONFIG
              */
             login(model, filter){
                 //TODO rememberMe??
-                debugger;
                 return Customer.login({rememberMe: (model.rememberMe || false)}, {
                     "email": model.email,
                     "password": model.password,
@@ -40,7 +39,7 @@ export default (Customer, BaseModel, _hasCustomer, $rootScope, $q, GLOBAL_CONFIG
              * @param response
              */
             setLoggedRoot(response){
-                
+
                 if (response.id) {
 
                     if ($rootScope.customer) {
