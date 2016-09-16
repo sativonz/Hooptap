@@ -11,7 +11,7 @@ import './styles.scss';
  * @param {Boolean} showRegisterForm Whether to display the mix form
  * @element ANY
  */
-export default(Customer, LoopBackAuth, $rootScope, clientHelper, $timeout) => ({
+export default(Customer, LoopBackAuth, $rootScope, clientHelper, $timeout, Session) => ({
     restrict: 'E',
     template,
     scope: {
@@ -21,20 +21,10 @@ export default(Customer, LoopBackAuth, $rootScope, clientHelper, $timeout) => ({
     },
     controller: ($scope, $rootScope)=> {
 
-        var loginEvent = $rootScope.$on("$loginSuccess", (event, response)=> {
-            getMessage();
-        });
-
-        function getMessage() {
-            $rootScope.customer = {};
-            $rootScope.customer.logged = true;
-        }
-        $scope.rememberMe = LoopBackAuth.rememberMe;
         //Destroy Events
         $scope.$on('$destroy', ()=> {
             loginEvent();
         });
-
 
 
     },
@@ -45,7 +35,7 @@ export default(Customer, LoopBackAuth, $rootScope, clientHelper, $timeout) => ({
                 showRegisterForm: false,
                 showLoginForm: false
             };
-            
+
             clientHelper.setDefaultAttributes(defaults, scope, attrs);
         }
 

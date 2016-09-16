@@ -1,6 +1,7 @@
 export default ()=>{
     
     return {
+        //Sets default attributes for a widget
         setDefaultAttributes(defaults, targetScope, attrs){
             for(var optionKey in defaults) {
                 if(attrs[optionKey]){

@@ -17,7 +17,7 @@ import stampit from 'stampit';
  */
 
 
-export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelper, BaseModel, _isWidget, _hasCustomer, $timeout, $translate, Notifier) => ({
+export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseModel, _isWidget, _hasCustomer, _hasLogin, _isCustomer, Session, $translate, Notifier) => ({
     restrict: 'E',
     transclude: true,
     template,
@@ -69,7 +69,7 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                     showBadges: true,
                     showRankings: false,
                     showGlobalFeed: false,
-                    showEditProfile: true,
+                    showEditProfile: false,
                     showMarketplace: false,
                     showGameRoom: false
                 }
@@ -107,15 +107,36 @@ export default(Customer, LoopBackAuth, $rootScope, $compile, $parse, clientHelpe
                 ]
             };
 
-            let WidgetModel = stampit().compose(BaseModel, _isWidget, _hasCustomer)({defaults, defaultMarkerOptions});
+            let WidgetModel = stampit().compose(BaseModel, _isWidget, _hasCustomer, _hasLogin)({
+                defaults,
+                defaultMarkerOptions
+            });
+            let CustomerModel = stampit().compose(BaseModel, _isCustomer);
+
+            let includeFilter = {filter: {include: [{badgeInstances: 'badge'}, {scoreUnitInstances: 'scoreUnit'}, 'levels']}};
 
             clientHelper.setDefaultAttributes(WidgetModel.defaults, scope, attrs);
 
             scope.scoreDisplayConfig = scope.scoreDisplayConfig || WidgetModel.defaultMarkerOptions;
 
-            scope.$on("$loginSuccess", (event, response)=> {
-                console.log("Objeto customer =>", response);
 
+            if (Session.isAuthenticated()) {
+                WidgetModel.getCurrent(includeFilter).then((response)=> {
+                    let customerResponse = CustomerModel(response);
+                    $rootScope.$broadcast('$loginSuccess', customerResponse);
+                }).catch(()=> {
+                    LoopBackAuth.clearStorage();
+                    LoopBackAuth.clearUser();
+                });
+            } else {
+                //Clear Storage, session and user if not rememberMe
+                //CustomerModel().logout();
+                LoopBackAuth.clearStorage();
+                LoopBackAuth.clearUser();
+            }
+
+
+            scope.$on("$loginSuccess", (event, response)=> {
                 if (response.hasOwnProperty(('$promise'))) {
                     response.$promise.then((customer)=> {
                         scope.customer = customer;

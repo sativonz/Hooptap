@@ -28,18 +28,21 @@ let dict = {
 			select			: 'Selecciona',
 			welcome			: 'Bienvenido ',
 			menu			: 'Menú',
-			externalId      : 'ID Externo'
+			externalId      : 'ID Externo',
+			welcomeMsgForm	: 'Bienvenido, acceda o registrese para continuar'
 		},
 		login: {
 			title			: 'Login',
 			desc			: 'Accede a tu cuenta',
 			rememberMe		: 'Mantenerme en sesión',
-			button			: 'GO'
+			button			: 'GO',
+			go				: 'Ir al login'
 		},
 		register: {
 			title			: 'Registro',
 			desc			: 'Registra una cuenta de usuario',
-			button			: 'OK'
+			button			: 'OK',
+			go				: 'Ir al registro'
 		},
 		reset: {
 			title			: 'Restaurar contraseña',

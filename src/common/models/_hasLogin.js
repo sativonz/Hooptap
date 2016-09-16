@@ -20,6 +20,7 @@ export default (Customer, BaseModel, _hasCustomer, $rootScope, $q, GLOBAL_CONFIG
              */
             login(model, filter){
                 //TODO rememberMe??
+                debugger;
                 return Customer.login({rememberMe: (model.rememberMe || false)}, {
                     "email": model.email,
                     "password": model.password,
@@ -34,21 +35,13 @@ export default (Customer, BaseModel, _hasCustomer, $rootScope, $q, GLOBAL_CONFIG
                     return $q.reject(error);
                 });
             },
-            isAuthenticated(){
-                return Customer.isAuthenticated();
-            },
             /**
              * set RootScope true if response.id exists and was success
              * @param response
              */
             setLoggedRoot(response){
+                
                 if (response.id) {
-                    if (Customer.isAuthenticated()) {
-                        $http.defaults.headers.common['api-key'] = GLOBAL_CONFIG.apiKey;
-                    }
-                    else {
-                        delete $http.defaults.headers.common['api-key'];
-                    }
 
                     if ($rootScope.customer) {
                         $rootScope.customer.logged = true;

@@ -1,6 +1,7 @@
 let module = angular.module('common', [])
     //TODO Borrar o sustituir por el nuevo create-router .directive('viewHandler', require('./components/viewHandler').default)
-
+        //Session services
+        .factory('Session', require('./services/Session').default)
         //Common Utils
         .factory('clientHelper', require('./services/clientHelper').default)
         .factory('Notifier',					require('./services/Notifier/Notifier').default)

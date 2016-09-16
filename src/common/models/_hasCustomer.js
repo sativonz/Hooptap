@@ -33,9 +33,6 @@ export default (Customer, $rootScope, $q) => {
                 return Customer['badges'](filter).$promise.then((response)=> {
                     this.badges = response;
                 });
-            },
-            isAuthenticated(){
-                return Customer.isAuthenticated();
             }
 
         })

@@ -48,7 +48,12 @@ import './common/services/angular-sdk';
             require('./modules/widgets/widget-quests').default,
             require('./modules/widgets/widget-ranking-total').default,
             require('./modules/widgets/widget-badges-grid').default,
-            require('./modules/widgets/widget-customer-access-popup').default
+            require('./modules/widgets/widget-customer-access-popup').default,
+            require('./modules/widgets/widget-customer-access-mini').default,
+            require('./modules/widgets/widget-customer-access-modal').default,
+            require('./modules/widgets/widget-customer-access-inline').default,
+
+
         ])
 
 

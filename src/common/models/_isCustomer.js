@@ -18,6 +18,7 @@ export default ($rootScope, Customer, LoopBackAuth) => {
                 LoopBackAuth.clearStorage();
                 LoopBackAuth.clearUser();
                 $rootScope.$broadcast('$logoutSuccess');
+                $rootScope.customer = {};
                 $rootScope.customer.logged = false;
             },
             prepare(model){

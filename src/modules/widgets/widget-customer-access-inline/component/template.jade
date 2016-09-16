@@ -1,29 +1,61 @@
-.widget-customer-access-inline(ng-if="!$root.customer.logged && $root.widgetOpened")
-    c-button-close
-    //->Mix form
-    .wrapper--nav_form(ng-if="showMixForm")
-        uib-tabset(active="0")
-            uib-tab.link-go-login--form(index="0" heading="{{::'CUSTOMER.common.login' | translate}}")
-                c-customer-login
-                //TODO descomentar
-                //c-customer-reset
-            uib-tab.link-go-register--form(index="1" heading="{{::'CUSTOMER.common.register' | translate}}" )
-                c-customer-register
-                //TODO descomentar
-                //c-customer-activate
-    //->Login form
-    c-widget-header(title="{{ 'CUSTOMER.common.login' | translate }}" ng-if="showLoginForm")
-    c-customer-login(ng-if="showLoginForm")
-    //TODO descomentar
-    //c-customer-reset(ng-if="showLoginForm")
-
-    //->Register form
-    c-widget-header(title="{{ 'CUSTOMER.common.register' | translate }}" ng-if="showRegisterForm")
-    c-customer-register(ng-if="showRegisterForm")
-    //TODO descomentar
-    //c-customer-activate(ng-if="showRegisterForm")
+.widget-customer-access-inline
+    .login(ng-hide="$root.WCAM.view.Register ")
+        form.ht-form-inline(name="htFormWidgetCustomerAccessInlineLogin" ng-hide="$root.customer.logged")
+            div
+                input.ht-input(ng-model="model.email" type='email' name="email" placeholder="Email" required)
+            div
+                input.ht-input(ng-model="model.password" type='text' name="password" placeholder="Password" required)
+            div
+                button.ht-btn(type='submit' ng-click="login()" ng-disabled="htFormWidgetCustomerAccessInlineLogin.$invalid") {{ 'CUSTOMER.common.login' | translate }}
+                .ht-go-register(ng-click="$root.WCAM.view.Register = !$root.WCAM.view.Register") {{ 'CUSTOMER.register.go' | translate }}
 
 
+    .register(ng-show="$root.WCAM.view.Register")
+        form.ht-form-inline(name="htFormWidgetCustomerAccessInlineRegister" valdr-type="CustomerRegister" ng-hide="$root.customer.logged")
+            div(valdr-form-group)
+                input.ht-input(ng-model="model.username" type='text' name="username" placeholder="{{ 'CUSTOMER.common.username' | translate }}" required)
+            div(valdr-form-group)
+                input.ht-input(ng-model="model.email" type='email' name="email" placeholder="{{ 'CUSTOMER.common.email' | translate }}" required)
+            div(valdr-form-group)
+                input.ht-input(ng-model="model.password" type='password' name="password" placeholder="{{ 'CUSTOMER.common.password' | translate }}" required)
+            div(valdr-form-group)
+                input.ht-input(ng-model="model.rePassword" type='password' name="rePassword" placeholder="{{ 'CUSTOMER.common.rePassword' | translate }}" required)
+            .row
+                .col-md-6
+                    div
+                        input.ht-input(ng-model="model.name" type='text' name="name" placeholder="{{ 'CUSTOMER.common.name' | translate }}")
+                    div
+                        input.ht-input(ng-model="model.surname" type='text' name="surname" placeholder="{{ 'CUSTOMER.common.surnames' | translate }}")
+                    div
+                        input.ht-input(ng-model="model.city" type='text' name="surname" placeholder="{{ 'CUSTOMER.common.city' | translate }}")
+                    div
+                        input.ht-input(ng-model="model.address" type='text' name="address" placeholder="{{ 'CUSTOMER.common.direction' | translate }}")
+                .col-md-6
+                    div
+                        select(name="selectGender" id="selectGender" ng-model="model.gender")
+                            option(value="") {{ 'CUSTOMER.common.gender' | translate }}
+                            option(value="{{ 'CUSTOMER.common.male' | translate }}") {{ 'CUSTOMER.common.male' | translate }}
+                            option(value="{{ 'CUSTOMER.common.female' | translate }}") {{ 'CUSTOMER.common.female' | translate }}
+                    div
+                        input.ht-input(ng-model="model.birthDate" type='text' name="birthDate" placeholder="{{ 'CUSTOMER.common.birthDate' | translate }}")
+                    div
+                        input.ht-input(ng-model="model.postalCode" type='text' name="postalCode" placeholder="{{ 'CUSTOMER.common.postalCode' | translate }}")
+                    div
+                        input.ht-input(ng-model="model.telephone" type='text' name="telephone" placeholder="{{ 'CUSTOMER.common.telephone' | translate }}")
+            div
+                .ht-form__group-terms
+                    input(type="checkbox" name="terms" ng-model="model.terms" id="checkbox_terms")
+                    label.checkbox_terms(for="checkbox_terms")
+                        a(href="http://hooptap.com/en/terms-and-conditions/" target="_blank") {{ 'valdr.generics.terms' | translate }}
+                button.ht-btn(type='submit' ng-disabled="!model.terms" ng-click='register()') {{ 'CUSTOMER.register.button' | translate }}
+
+            .ht-go-login(ng-click="$root.WCAM.view.Register = !$root.WCAM.view.Register") {{ 'CUSTOMER.login.go' | translate }}
 
 
-
+    .logout(ng-show="$root.customer.logged")
+        .row
+            .col-md-2
+                img.profile-img(ng-src="{{customer.image || defaultImage}}")
+            .col-md-10
+                .customer-name {{ 'CUSTOMER.common.welcome' | translate }} {{customer.name || customer.username}} !
+                p.logout-text(ng-click="logout()") {{ 'CUSTOMER.common.logout' | translate }}
