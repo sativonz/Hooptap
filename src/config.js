@@ -1,4 +1,6 @@
 export default (LoopBackResourceProvider, $httpProvider, GLOBAL_CONFIG)=> {
+    //Http Provider for interceptors
+    $httpProvider.interceptors.push('httpInterceptorService');
 
     $httpProvider.defaults.headers.common['api-key'] = GLOBAL_CONFIG.apiKey;
 

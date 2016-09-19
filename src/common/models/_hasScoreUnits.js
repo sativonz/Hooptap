@@ -3,9 +3,7 @@ import _ from 'lodash';
 import Q from 'q';
 
 export default (Level, ScoreUnit) => {
-
     return stampit()
-
     /**
      * @memberOf Rule.model:Rule
      * @stampit init

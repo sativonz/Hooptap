@@ -150,7 +150,7 @@ export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseMod
                 }
             });
             scope.$on("$eventSuccess", (event, triggered)=> {
-                WidgetModel().getCurrent().then(r => {
+                WidgetModel.getCurrent().then(r => {
                     scope.customer = r
                 });
             });
