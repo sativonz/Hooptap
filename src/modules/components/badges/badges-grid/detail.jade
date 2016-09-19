@@ -1,8 +1,7 @@
-code {{item}}
 img.badge-detail__img-close(ng-src=require("./images/boton-close-grey.svg") ng-click="$close()")
 .center.badge-detail__wrapper(ng-class="{'badge-not-achieved': item.quantity <= 0}")
     img.badge-detail__img(ng-src="{{item.image || defaultImage}}")
     p.badge-item__progresbar
-        c-progressbar(steps="item.parts" current-step="item.currentStep")
+        c-progressbar(steps="item.maxParts" current-step="item.currentStep")
     p.badge-detail__ttl(ng-if="showTitle") {{item.name}}
     p.badge-detail__desc(ng-if="showDesc") {{item.desc}}

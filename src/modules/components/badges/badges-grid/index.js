@@ -44,7 +44,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
             let allIndex, availableIndex, completedIndex = {};
             let all, available, completed = [];
             let availableResponse = yield BadgesModel().getAvailableBadges().$promise;
-            let customerInstances = scope.item.badgeInstances;
+            let customerInstances = [];//scope.item.badgeInstances;
 
             availableIndex = availableResponse.reduce((map, obj)=> {
                 map[obj.id] = {
@@ -55,7 +55,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 };
                 return map;
             }, {});
-            customerInstances.map((instance)=> {
+            scope.item.badgeInstances.map((instance)=> {
                 if (availableIndex.hasOwnProperty(instance.badgeId)) {
                     completedIndex[instance.badgeId] = {
                         id: instance.badge.id,
@@ -66,8 +66,11 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                         status: instance.status
                     };
                     delete availableIndex[instance.badgeId];
+                    customerInstances.push(instance);
                 }
             });
+
+            scope.item.badgeInstances = customerInstances;
 
             //Mixing available with completed
             all = Object.assign({}, availableIndex, completedIndex);
