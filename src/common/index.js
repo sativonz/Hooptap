@@ -17,6 +17,7 @@ let module = angular.module('common', [])
         .factory('_hasCustomer',    require('./models/_hasCustomer').default)
         .factory('_hasLogin',       require('./models/_hasLogin').default)
         .factory('_hasScoreUnits',  require('./models/_hasScoreUnits').default)
+        .factory('_hasRankings',  require('./models/_hasRankings').default)
 
         .factory('_hasBadges',      require('./models/_hasBadges').default)
         // .factory('_Savable',            require('./models/_Savable').default)

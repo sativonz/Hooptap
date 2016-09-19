@@ -65,7 +65,7 @@ export default(
                     showLevel: true,
                     showLevelList: true,
                     showBadges: true,
-                    showRankings: false,
+                    showRankings: true,
                     showGlobalFeed: true,
                     showEditProfile: false,
                     showMarketplace: false,

@@ -10,11 +10,11 @@ div#ht-menu
             a {{'CUSTOMER.common.menu' | translate}}
         li.animated.slideInLeft(ng-if="showQuests" ng-click="$root.WPF.viewQuests = !$root.WPF.viewQuests")
             a {{ 'QUESTS.title' | translate }}
-        li.animated.slideInLeft(ng-if="showRankings")
+        li.animated.slideInLeft.ranking(ng-if="showRankings")
             a.ht-menu__item-ranking {{ 'RANKING.titleList' | translate }}
             ul.ranking-menu
-                li.animated.slideInLeft(ng-repeat="su in item.levels" ng-click="$root.WPF.viewRanking = !$root.WPF.viewRanking")
-                    a {{ su.name }}
+                li.animated.slideInLeft.ranking-items(ng-repeat="su in item.scoreUnitInstances" ng-click="$root.WPF.viewRanking = !$root.WPF.viewRanking")
+                    a(ng-click="viewRanking(su.scoreUnit)") {{ su.scoreUnit.name }}
         li.animated.slideInLeft(ng-if="showLevelList" ng-click="$root.WPF.viewLevelList = !$root.WPF.viewLevelList")
             a {{ 'LEVELS.list' | translate }}
         li.animated.slideInLeft(ng-if="showLevel" ng-click="$root.WPF.viewLevelActual = !$root.WPF.viewLevelActual")

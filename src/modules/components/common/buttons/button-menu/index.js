@@ -17,7 +17,7 @@ import stampit from 'stampit';
  * @param {Boolean} titleGameRoom To put the title of the Game Room dinamically
  * @element ANY
  */
-export default(Customer, $rootScope, BaseModel, _isCustomer) => ({
+export default(Customer, $rootScope, BaseModel, _isCustomer, _hasRankings) => ({
     restrict: 'E',
     scope: {
         showQuests: '=',
@@ -56,6 +56,20 @@ export default(Customer, $rootScope, BaseModel, _isCustomer) => ({
             .on( 'blur focusOut click', function(e) {
                 $mnu.toggle('slow');
             });
+
+        //->Ranking view
+        scope.viewRanking = (scoreUnit)=> {
+            let RankingModel = stampit().compose(BaseModel, _hasRankings);
+            RankingModel().getRankingByScoreUnit(scoreUnit)
+                .then((response)=> {
+                    console.log(response);
+                    let ranking = { scoreUnit: scoreUnit, customers: response };
+                    $rootScope.$broadcast('$rankingView', ranking);
+                })
+                .catch((error)=> {
+                    console.log(error);
+                });
+        };
 
 
     }

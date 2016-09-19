@@ -35,7 +35,7 @@ c-ranking-list{
           }
         }
         &:first-child {
-          margin-top: 70px;
+          //margin-top: 70px;
         }
         .ht-ranking-list__user-img{
           padding:5px;
@@ -75,6 +75,7 @@ c-ranking-list{
             border-radius: 5px;
             padding: 3px 3px 3px 7px;
             float: right;
+            width: 100%;
             .ht-ranking-list__score-frame__img {
               float: right;
               height: 100%;
@@ -86,6 +87,8 @@ c-ranking-list{
               color: white;
               letter-spacing: 0.2px;
               font-size: 11pt;
+              top: -3px;
+              position: relative;
             }
           }
         }

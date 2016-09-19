@@ -53,8 +53,7 @@ widget-customer-access-popup {
       background-color: $_1_quest-title;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
-      margin-top: 0px;
-      margin-bottom: 0;
+      margin: 0;
       padding-left: 0;
       > li {
         border-bottom: 4px solid transparent;
@@ -351,9 +350,11 @@ widget-customer-access-popup {
     }
 
     .ht-form__group-button {
-      margin-left: -25px;
       width: 100%;
       text-align: center;
+      &.register {
+        margin-left: -25px;
+      }
     }
 
     /* active state */
