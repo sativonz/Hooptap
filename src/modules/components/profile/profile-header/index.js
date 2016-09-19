@@ -24,7 +24,28 @@ export default(Customer, $rootScope, $q) => ({
     scope.defaultImage = defaultImage;
     scope.defaultUsername = "Usuario";
 
+    scope.uploadImgProfile = () => {
 
+        //dom.reset('control');
+        element.on('change', function (evt) {
+
+            let reader 	= new FileReader();
+            let image  	= new Image();
+            let file 	= evt.target.files[0];
+
+            reader.readAsDataURL(file);
+            reader.onloadend = function () {
+                Customer.prototype$updateAttributes({id: scope.item.id }, { image: reader.result } ).$promise
+                    .then((response) => {
+                        //console.log("Save response", response);
+                        scope.item.image = reader.result;
+                    })
+                    .catch((err) => {
+                        //console.log(err);
+                    });
+            };
+        });
+    }
 
 
     }
