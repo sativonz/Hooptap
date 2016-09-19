@@ -1,7 +1,7 @@
 import stampit from 'stampit';
 import Q from 'q';
 
-export default (Customer, $rootScope, $q) => {
+export default (Customer, Event, $rootScope, $q) => {
     return stampit()
         .compose()
         /**
@@ -33,6 +33,10 @@ export default (Customer, $rootScope, $q) => {
                 return Customer['badges'](filter).$promise.then((response)=> {
                     this.badges = response;
                 });
+            },
+
+            getEvents(CustomerId) {
+                return Event.find( { filter: { where: { customerId: CustomerId }, limit: 10 } } );
             }
 
         })

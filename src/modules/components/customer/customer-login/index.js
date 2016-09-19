@@ -14,13 +14,14 @@ export default() => ({
     restrict: 'E',
     scope: {},
     template,
-    controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _isCustomer, _hasLogin, $translate, Notifier, Session)=> {
+    controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _hasLogin, $translate, Notifier)=> {
+
         //Models
         let LoginModel = stampit().compose(BaseModel, _hasLogin);
-        let CustomerModel = stampit().compose(BaseModel, _isCustomer);
+
         //Query filter
         let includeFilter = {filter: {include: [{badgeInstances: 'badge'}, {scoreUnitInstances: 'scoreUnit'}, 'levels']}};
-        
+
         //Check if rememberMe is  true , make login and get current.
 
 

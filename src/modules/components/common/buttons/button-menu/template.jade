@@ -21,7 +21,7 @@ div#ht-menu
             a {{ 'LEVELS.actualLevel' | translate }}
         li.animated.slideInLeft(ng-if="showBadges" ng-click="$root.WPF.viewBadges = !$root.WPF.viewBadges")
             a {{ 'BADGES.title' | translate }}
-        li.animated.slideInLeft(ng-if="showGlobalFeed")
+        li.animated.slideInLeft(ng-if="showGlobalFeed" ng-click="$root.WPF.viewGlobalFeed = !$root.WPF.viewGlobalFeed")
             a {{ 'GLOBAL_FEED.title' | translate }}
         li.animated.slideInLeft(ng-if="showMarketplace")
             a {{ 'MARKETPLACE.title' | translate }}

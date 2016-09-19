@@ -1,11 +1,11 @@
 div.ht-global-feed__container
-     div(ng-repeat="items in activity")
-          .ht-global-feed__wrapper.row(ng-repeat="item in items.feed")
-               .ht-global-feed__img.col-xs-2.not-padding
-                    img(ng-src="{{ item.img }}")
-               .ht-global-feed__title.col-xs-8.not-padding
-                    p {{ item.title }}
-               .col-xs-2.ht-global-feed__date
-                    p {{ item.time }} {{ " " }} {{ " " }} {{ item.date }}
+     .ht-global-feed__wrapper.row(ng-repeat="event in item.events" ng-class="{last:$last}")
+          .ht-global-feed__img.col-xs-2.not-padding
+               //TODO Image
+               img(ng-src="{{defaultImage}}")
+          .ht-global-feed__title.col-xs-8.not-padding
+               p {{ event.category }} {{ event.action }} {{ event.label }}
+          .col-xs-2.ht-global-feed__date
+               //TODO date
 
 
