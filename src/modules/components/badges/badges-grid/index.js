@@ -56,15 +56,17 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 return map;
             }, {});
             customerInstances.map((instance)=> {
-                completedIndex[instance.badgeId] = {
-                    id: instance.badge.id,
-                    image: instance.badge.image,
-                    name: instance.badge.name,
-                    parts: instance.parts,
-                    maxParts: instance.badge.parts,
-                    status: instance.status
-                };
-                delete availableIndex[instance.badgeId];
+                if (availableIndex.hasOwnProperty(instance.badgeId)) {
+                    completedIndex[instance.badgeId] = {
+                        id: instance.badge.id,
+                        image: instance.badge.image,
+                        name: instance.badge.name,
+                        parts: instance.parts,
+                        maxParts: instance.badge.parts,
+                        status: instance.status
+                    };
+                    delete availableIndex[instance.badgeId];
+                }
             });
 
             //Mixing available with completed

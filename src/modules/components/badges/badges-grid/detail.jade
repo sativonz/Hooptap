@@ -1,3 +1,4 @@
+code {{item}}
 img.badge-detail__img-close(ng-src=require("./images/boton-close-grey.svg") ng-click="$close()")
 .center.badge-detail__wrapper(ng-class="{'badge-not-achieved': item.quantity <= 0}")
     img.badge-detail__img(ng-src="{{item.image || defaultImage}}")
