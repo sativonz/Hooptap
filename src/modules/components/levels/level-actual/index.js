@@ -36,30 +36,46 @@ export default(BaseModel, _hasScoreUnits) => ({
 
         //Get nextLevel
         Q.async(function*(){
+
+            //NextLevel
             let nextLevel = yield ScoreUnitModel().getLevelById(scope.item.levels[0].nextId);
             //console.log("NEXT LEVEL !", nextLevel);
             scope.nextLevel = nextLevel;
 
+
+            //Su asociado al nivel
             let levelActualName = yield ScoreUnitModel().getScoreUnitById(nextLevel.scoreUnitId);
             console.log("Nombre del su asociado al level !", levelActualName);
             scope.levelActualName = levelActualName;
 
-
+            //Progressbar
             let firstValue = scope.nextLevel.minimum;
             let secondValue = scope.item.scores[ scope.item.levels[0].scoreUnitId ];
             scope.percentValue = (secondValue /  firstValue) * 100 ;
 
+            //Search level by score unit
+            let levelByScoreUnit = yield ScoreUnitModel().getLevelById(scope.item.levels[0].id);
+            scope.levelByScoreUnit = levelByScoreUnit;
+            console.log("levelByScoreUnit", scope.levelByScoreUnit);
 
-            //Index levels
+
+
+
+            //Index all levels
             let LevelsIndex = {};
-            let allLevelsIndex = ScoreUnitModel().getLevels();
-
+            let allLevelsIndex = ScoreUnitModel().getLevels( { filter: { where: { scoreUnitId:scope.item.levels[0].scoreUnitId } } } );
 
             allLevelsIndex.$promise.then((response)=>{
                 response.map((level)=>LevelsIndex[level.id]=level);
                 scope.LevelsIndex = LevelsIndex;
                 console.log('LevelsIndex', LevelsIndex);
+
             });
+
+
+
+
+
         })();
 
     }
