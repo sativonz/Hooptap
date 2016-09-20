@@ -156,7 +156,7 @@ c-marker-list-su {
           }
         }
         .score-bar {
-          margin-top: -2px;
+          margin-top: -3px;
         }
         div {
           font-size: 15px;
@@ -194,6 +194,10 @@ c-marker-list-su {
           width: 35px;
           height: 35px;
           border-radius: 50%;
+          min-width: 35px;
+          min-height: 35px;
+          max-width: 35px;
+          max-height: 35px;
         }
 
         .circle {

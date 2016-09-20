@@ -14,7 +14,7 @@ c-loader-wrap(value="scoreUnits")
                     .marker-list-su__quantity {{su.quantity || 0}}
 
 
-
+    c-widget-header(title="{{ level.name }}" ng-if="$root.WPF.viewLevelList && $root.WPF.viewLevelSU")
     .level-marker-list(ng-if="$root.WPF.viewLevelSU && item")
         .wrapper__level-empty(ng-if="emptyLevel")
             img(ng-src=require("./images/no-data.svg"))
@@ -42,7 +42,7 @@ c-loader-wrap(value="scoreUnits")
                 .section__levels-timeline.animated.pulse
                     section.comments(ng-repeat="levels in LevelsIndex track by $index" ng-class="{first:$first}")
                         .col-xs-2
-                            div(ng-if="customer.levels[0].id == levels.id")
+                            div(ng-if="level.id == levels.id")
                                 .circle
                                     svg(version='1.1', viewbox='0 0 500 500', preserveaspectratio='xMinYMin meet')
                                         circle(cx='250', cy='250', r='200')
