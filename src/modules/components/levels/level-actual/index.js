@@ -50,21 +50,21 @@ export default($rootScope, BaseModel, _hasScoreUnits) => ({
 
         var getCurrentLevel= (item)=> {
             scope.item = item;
-            console.log('OBJETO ENTERO => ', item);
+            //console.log('OBJETO ENTERO => ', item);
 
             scope.level = scope.item[0].level;
-            console.log("OBJETO LEVEL =>", scope.level);
+            //console.log("OBJETO LEVEL =>", scope.level);
 
 
             //NextLevel
             ScoreUnitModel().getLevelById(scope.level.nextId).then((response) => {
                 scope.nextLevel = response;
-                console.log("NEXT LEVEL !", scope.nextLevel);
+                //console.log("NEXT LEVEL !", scope.nextLevel);
 
                 //Score Unit asociado al nivel
                 ScoreUnitModel().getScoreUnitById(scope.nextLevel.scoreUnitId).then((response) => {
                     scope.levelActualName = response;
-                    console.log("Nombre del su asociado al level =>", scope.levelActualName);
+                    //console.log("Nombre del su asociado al level =>", scope.levelActualName);
                 });
 
                 //Progressbar
@@ -75,7 +75,7 @@ export default($rootScope, BaseModel, _hasScoreUnits) => ({
                 //Search level by score unit
                 ScoreUnitModel().getLevelById(scope.level.id).then((response) => {
                     scope.levelByScoreUnit = response;
-                    console.log("Level by Score Unit => ", scope.levelByScoreUnit);
+                    //console.log("Level by Score Unit => ", scope.levelByScoreUnit);
                 });
 
 
@@ -86,7 +86,7 @@ export default($rootScope, BaseModel, _hasScoreUnits) => ({
                 allLevelsIndex.$promise.then((response)=> {
                     response.map((level)=>LevelsIndex[level.id] = level);
                     scope.LevelsIndex = LevelsIndex;
-                    console.log('LevelsIndex', LevelsIndex);
+                    //console.log('LevelsIndex', LevelsIndex);
                 });
             });
         };

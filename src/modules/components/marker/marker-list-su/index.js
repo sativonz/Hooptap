@@ -34,22 +34,22 @@ export default(BaseModel, _hasScoreUnits, $rootScope, Customer) => ({
             let filter ={filter:{"where":{"customerId": ScoreUnitsModel.id, "scoreUnitId":su.id}, "include":["level", "scoreUnit"]}};
             ScoreUnitsModel.getScoreUnitInstances(filter).$promise.then((item)=>{
                 scope.item = item;
-                console.log('OBJETO ENTERO => ', item);
+                //console.log('OBJETO ENTERO => ', item);
 
                 //NextLevel
                 if(scope.item.length){
                     scope.emptyLevel = false;
                     scope.level = scope.item[0].level ;
-                    console.log("OBJETO LEVEL =>", scope.level);
+                    //console.log("OBJETO LEVEL =>", scope.level);
 
                     ScoreUnitsModel.getLevelById(scope.level.nextId).then((response) => {
                         scope.nextLevel = response;
-                        console.log("NEXT LEVEL !", scope.nextLevel);
+                        //console.log("NEXT LEVEL !", scope.nextLevel);
 
                         //Score Unit asociado al nivel
                         ScoreUnitsModel.getScoreUnitById(scope.nextLevel.scoreUnitId).then((response) => {
                             scope.levelActualName = response;
-                            console.log("Nombre del su asociado al level =>", scope.levelActualName);
+                            //console.log("Nombre del su asociado al level =>", scope.levelActualName);
                         });
 
                         //Progressbar
@@ -60,7 +60,7 @@ export default(BaseModel, _hasScoreUnits, $rootScope, Customer) => ({
                         //Search level by score unit
                         ScoreUnitsModel.getLevelById(scope.level.id).then((response) => {
                             scope.levelByScoreUnit = response;
-                            console.log("Level by Score Unit => ", scope.levelByScoreUnit);
+                            //console.log("Level by Score Unit => ", scope.levelByScoreUnit);
                         });
 
 
@@ -71,7 +71,7 @@ export default(BaseModel, _hasScoreUnits, $rootScope, Customer) => ({
                         allLevelsIndex.$promise.then((response)=> {
                             response.map((level)=>LevelsIndex[level.id] = level);
                             scope.LevelsIndex = LevelsIndex;
-                            console.log('LevelsIndex', LevelsIndex);
+                            //console.log('LevelsIndex', LevelsIndex);
                         });
                     });
                 }else {
