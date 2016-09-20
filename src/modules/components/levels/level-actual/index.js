@@ -33,6 +33,7 @@ export default($rootScope, BaseModel, _hasScoreUnits) => ({
         scope.defaultLineLevelOff = defaultLineLevelOff;
         scope.defaultLineLevel = defaultLineLevel;
         scope.item = {};
+
         //ScoreUnit Stampit model
         let ScoreUnitModel = stampit().compose(BaseModel, _hasScoreUnits);
 

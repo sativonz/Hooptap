@@ -1,4 +1,5 @@
 @import "../../../../common/stylesheets/common/colors";
+@import "../../../../common/stylesheets/common/mixins";
 
 c-marker-list-su {
   padding-top: 45px;
@@ -19,42 +20,257 @@ c-marker-list-su {
       left: 66px;
     }
   }
-
-  .marker-list-su__wrapper {
-    height: 55px;
-    width: 340px;
-    padding: 10px 15px 10px 15px;
-    border-bottom: 1px solid $_1_border-bottom-color;
-    margin: 0 15px 0 15px;
-    .marker-list-su__img img {
-      height: 35px;
-      transition: all 1s ease;
-      -moz-transition: all 1s ease;
-      -ms-transition: all 1s ease;
-      -webkit-transition: all 1s ease;
-      -o-transition: all 1s ease;
+  .ht-marker-list-su {
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: 435px;
+    cursor: pointer;
+    .marker-list-su__wrapper {
+      height: 55px;
+      width: 340px;
+      padding: 10px 15px 10px 15px;
+      border-bottom: 1px solid $_1_border-bottom-color;
+      margin: 0 15px 0 15px;
       &:hover {
-        zoom: 1.2;
-        transform: scale(1.5);
-        -moz-transform: scale(1.5);
-        -webkit-transform: scale(1.5);
-        -o-transform: scale(1.5);
-        -ms-transform: scale(1.5);
+        span {
+          font-weight: bold;
+        }
+      }
+      .marker-list-su__img img {
+        height: 35px;
+        transition: all 1s ease;
+        -moz-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        -webkit-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        &:hover {
+          zoom: 1.2;
+          transform: scale(1.5);
+          -moz-transform: scale(1.5);
+          -webkit-transform: scale(1.5);
+          -o-transform: scale(1.5);
+          -ms-transform: scale(1.5);
+        }
+      }
+      .marker-list-su__quantity {
+        color: $_1_header-color;
+        font-weight: bold;
+        padding-top: 9px;
+        font-size: 12pt;
+        float: right;
+      }
+      .marker-list-su__name {
+        font-weight: 400;
+        margin-left: 10px;
+        color: $_1_header-color;
+        position: relative;
+        top: 8px;
       }
     }
-    .marker-list-su__quantity {
-      color: $_1_header-color;
-      font-weight:bold;
-      padding-top: 9px;
-      font-size: 12pt;
-      float: right;
+  }
+  .level-marker-list {
+    padding: 20px;
+    height: 432px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    .wrapper__level-empty {
+      text-align: center;
+      font-size: 11pt;
+      color: $_1_color-level-empty-text;
+      padding-bottom: 20px;
+      margin-top: 100px;
+      img {
+        width: 200px;
+      }
     }
-    .marker-list-su__name {
-      font-weight: 400;
-      margin-left: 10px;
-      color: $_1_header-color;
-      position: relative;
-      top: 8px;
+    .wrapper__level-actual {
+      .section__level-nextLevel {
+        width: 100%;
+        height: 125px;
+        .level-separator {
+          height: 20px;
+        }
+        .img-actual-level {
+          width: 80px;
+          height: 80px;
+          min-height: 80px;
+          min-width: 80px;
+        }
+        .img-next-level{
+          -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+          width: 60px;
+          margin-left: 15px;
+        }
+        .last-level {
+          @extend .wrapper__level-empty;
+          margin-top: 5px;
+          font-weight: bold;
+          line-height: 30px;
+        }
+        .name-actual-level {
+          font-size: 9pt;
+          color: $_1_quest-title;
+          text-align: center;
+          width: 100%;
+          margin:0 ;
+        }
+        .wrapper-next-level {
+          .title-next-level{
+            font-size: 9pt;
+            color: grey;
+            padding: 0;
+            margin: 2px;
+            font-weight: bold;
+          }
+          .name-next-level{
+            font-size: 9pt;
+            color: grey;
+            padding: 0;
+            margin: 2px;
+          }
+        }
+      }
+      .section__progressbar {
+        width: 340px;
+        height: 25px;
+        background: $_1_progressbar-new;
+        @include border-radius(6px);
+        margin-top: 3px;
+        .progressbar-actual {
+          width: 0%;
+          background: $_1_progressbar-actual;
+          height: 25px;
+          border-top-left-radius: 6px;
+          border-bottom-left-radius: 6px;
+          .score-bar {
+            width: 340px;
+          }
+          &.levelComplete {
+            width: 100%!important;
+            border-top-right-radius: 6px;
+            border-bottom-right-radius: 6px;
+            + .progressbar-next {
+              display: none;
+            }
+          }
+        }
+        .score-bar {
+          margin-top: -2px;
+        }
+        div {
+          font-size: 15px;
+          margin: -2px 0 0 0;
+          color: $white;
+          letter-spacing: 0.5px;
+          padding-top: 2px;
+
+        }
+      }
+      .section__levels-timeline {
+        .next-level {
+          -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+        }
+
+        .level-name{
+          font-size: 15px;
+          margin-top: -2px;
+          color: $_1_level-text-line;
+          font-weight: bold;
+          display: block;
+          &.next-level-name {
+            color: grey;
+          }
+        }
+
+        .score {
+          font-size: 13px;
+          margin-top: 7px;
+          color: $_1_level-score;
+        }
+
+        .line-img {
+          width: 35px;
+          height: 35px;
+          border-radius: 50%;
+        }
+
+        .circle {
+          display: inline-block;
+          position: absolute;
+          width: 58px;
+          padding-bottom: 0;
+          vertical-align: middle;
+          top: -11px;
+          z-index: -1;
+          left: 3px;
+          background-color: #006591;
+          border-radius: 50%;
+          svg {
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+          circle {
+            fill: $_1_level-text-line;
+          }
+        }
+
+        section {
+          padding: 33px 0!important;
+          margin-top: 0;
+        }
+        .comments, .comment { position: relative }
+        .comments.first:before { display: none; }
+        .comments:before, .comment:before, .comment .text:before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 65px;
+        }
+
+        .comments:before {
+          width: 4px;
+          left: 30px;
+          bottom: 0;
+          background: rgb(0, 101, 145);
+          border-radius: 40px;
+        }
+
+        .comment:before {
+          width: 9px;
+          height: 9px;
+          border: 3px solid #fff;
+          border-radius: 100px;
+          margin: 16px 0 0 -6px;
+          box-shadow: 0 1px 1px rgba(0,0,0,0.2), inset 0 1px 1px rgba(0,0,0,0.1);
+          background: #ccc;
+        }
+
+        .comment:hover {
+          /*  cursor: url('../images/FB_CUR.cur');  See the result on http://lab.web-gate.fr/timeline/ */
+          cursor: cell; /* This line is for the cursor */
+        }
+
+        .comment:hover:before { background: #3b5998 }
+
+        .comment .text:before {
+          top: 18px;
+          left: 78px;
+          width: 9px;
+          height: 9px;
+          border-width: 0 0 1px 1px;
+          border-style: solid;
+          border-color: #e5e5e5;
+          background: #fff;
+          -webkit-transform: rotate(45deg);
+          -moz-transform: rotate(45deg);
+          -ms-transform: rotate(45deg);
+          -o-transform: rotate(45deg);
+        }
+      }
     }
   }
 }

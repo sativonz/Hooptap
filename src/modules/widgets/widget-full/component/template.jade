@@ -53,7 +53,8 @@
                         c-game-room(show-desc="true" show-title="true")
 
                     .wrapper__level-list(ng-if="$root.WPF.viewLevelList")
-                        c-button-back(ng-click="$root.WPF.viewLevelList = !$root.WPF.viewLevelList" ng-if="$root.WPF.viewLevelList")
+                        c-button-back(ng-click="$root.WPF.viewLevelList = !$root.WPF.viewLevelList" ng-if="$root.WPF.viewLevelList && !$root.WPF.viewLevelSU")
+                        c-button-back(ng-click="$root.WPF.viewLevelSU = !$root.WPF.viewLevelSU" ng-if="$root.WPF.viewLevelList && $root.WPF.viewLevelSU")
                         c-widget-header(title="{{ 'SCOREUNITS.title' | translate }}")
-                        c-marker-list-su(item="customer")
+                        c-marker-list-su(customer="customer")
         .footer-shadow(ng-if="$root.customer.logged")
