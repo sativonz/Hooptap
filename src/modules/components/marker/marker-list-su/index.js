@@ -114,7 +114,7 @@ export default(BaseModel, _hasScoreUnits, $rootScope, Customer) => ({
 
 
             scope.scoreUnits = myScoreUnitsArray;
-            console.log(myScoreUnitsArray);
+            //console.log(myScoreUnitsArray);
             scope.$apply();
         })();
 
