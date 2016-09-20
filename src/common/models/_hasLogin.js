@@ -22,9 +22,7 @@ export default (Customer, BaseModel, _hasCustomer, $rootScope, $q, GLOBAL_CONFIG
                 //TODO rememberMe??
                 return Customer.login({rememberMe: (model.rememberMe || false)}, {
                     "email": model.email,
-                    "password": model.password,
-                    //TODO Change for actual productId
-                    "productId": this.productId
+                    "password": model.password
                 }).$promise.then((response)=> {
                     this.setLoggedRoot(response);
                     return $q.resolve(this.getCurrent(filter));

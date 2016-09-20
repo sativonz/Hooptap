@@ -5,21 +5,21 @@
  * @requires $injector
  * @description prueba prueba prueba
  */
-export default ($injector)=> {
+export default ($injector, clientHelper)=> {
     var Notificator = null;
 
     /**
      * @ngdoc method
-     * @name httpInterceptor:getNotificator
+     * @name httpInterceptor:getNotifier
      * @methodOf base.httpInterceptor
      * @description
      * @returns {Object} Notificator Notificator DI
      */
-    var getNotificator = ()=> {
-        if (!Notificator) {
-            Notificator = $injector.get('Notifier');
+    var getNotifier = ()=> {
+        if (!Notifier) {
+            var Notifier = $injector.get('Notifier');
         }
-        return Notificator;
+        return Notifier;
     };
 
     /**
@@ -56,14 +56,7 @@ export default ($injector)=> {
             var status = response.status;
             var data = response.data;
             //TODO GESTIONAR ERRORES CON API
-            if (data && data.hasOwnProperty("_triggered")) {
-                for(var trigger in data._triggered){
-                    if(data._triggered[trigger].model === "Trigger" && data.data && data.data._result && data.data._result.status !== 'finished'){
-                        getNotificator().event(data._triggered[trigger]);
-                    }
-                }
-            }
-
+            clientHelper.notifierEventParser(data);
             var successText = response;
             //console.log("URL: ", response.config.url);
             return response;
@@ -74,11 +67,11 @@ export default ($injector)=> {
                 var errorToken = error.data.error.code;
                 var method = error.config.method;
                 var model = getModelName(error.config.url);
-                getNotificator().error([model, ': ', 'errors', errorToken].join('.')[method][error.status]);
+                getNotifier().error([model, ': ', 'errors', errorToken].join('.')[method][error.status]);
             }
             if (error.status === 401) {
                 let msg = $translate.instant("TOAST.incorrect");
-                getNotificator().error({title: msg, image: require('./images/error.png')});
+                getNotifier().error({title: msg, image: require('./images/error.png')});
             }
             return error;
         }

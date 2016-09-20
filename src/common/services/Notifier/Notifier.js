@@ -1,7 +1,9 @@
 /**
  * Wrap of a third party notification service. Uses '$translate' to translate message and title.
  */
-export default (Notification, $translate) => {
+
+
+export default (Notification, $translate, $rootScope) => {
 
     // Interface
     let methods = {
@@ -24,14 +26,26 @@ export default (Notification, $translate) => {
                 args
             )
         },
-        event (args) {
-            debugger;
+        eventBadge (args) {
             let parsedArgs = {
                 title: args.data.action + " " + args.data.data.model,
                 image: "",
-                message: "Has ganado " + args.data.data.quantity+ " de " + args.data.data.maxParts
+                message: "Has ganado " + args.data.data.quantity + " de " + args.data.data.maxParts
             };
-            return launcher('info', {templateUrl: 'event.html'}, parsedArgs)
+            //Update current customer;
+            $rootScope.$broadcast('$eventSuccess');
+            return launcher('info', {templateUrl: 'eventBadge.html'}, parsedArgs)
+        },
+        eventScoreUnitSeat (args) {
+            // let scoreUnit = $rootScope.availableScoreUnits[args.data.id];
+            // let parsedArgs = {
+            //     title: args.action + " " + args.data.model,
+            //     image: scoreUnit.image,
+            //     message: "Has ganado " + args.data.quantity + " " + scoreUnit.name
+            // };
+            //Update current customer;
+            $rootScope.$broadcast('$eventSuccess');
+            return launcher('info', {templateUrl: 'eventScoreUnit.html'}, args)
         },
         //default templates
         primary () {

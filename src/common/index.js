@@ -4,7 +4,7 @@ let module = angular.module('common', [])
         .factory('Session', require('./services/Session').default)
 
         //Interceptor HTTP
-        .service('httpInterceptorService', require('./services/interceptor').default)
+        .service('httpInterceptorService', require('./services/Interceptor').default)
         //Common Utils
         .factory('clientHelper', require('./services/clientHelper').default)
         .factory('Notifier', require('./services/Notifier/Notifier').default)
