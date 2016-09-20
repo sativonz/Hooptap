@@ -27,12 +27,9 @@ export default (Customer, Event, $rootScope, $q) => {
                     return $q.reject(error);
                 });
             },
-
-            getBadges(filter){
-                //TODO getCustomerBadges
-                return Customer['badges'](filter).$promise.then((response)=> {
-                    this.badges = response;
-                });
+            getCustomerScoreUnitsInstances(filter){
+                debugger;
+                return Customer['scoreUnitInstances']({id: this.id},filter);
             },
 
             getEvents(CustomerId) {

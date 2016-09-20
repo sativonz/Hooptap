@@ -24,14 +24,18 @@ export default($rootScope, BaseModel, _hasRankings) => ({
         //Default image
         scope.defaultImage = defaultImage;
 
-        scope.$on("$rankingView", (event, ranking)=> {
+        let rankingViewEvent = scope.$on("$rankingView", (event, ranking)=> {
             scope.ranking =  ranking.customers;
             scope.scoreUnitName =  ranking.scoreUnit.name;
             scope.scoreUnitImage =  ranking.scoreUnit.image;
             scope.scoreUnitId =  ranking.scoreUnit.id;
             // console.log("Ranking", ranking);
             // console.log("Ranking customers", ranking.customers);
-        })
+        });
+
+        scope.$on('$destroy',()=>{
+           rankingViewEvent();
+        });
 
     },
 

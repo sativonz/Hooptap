@@ -11,21 +11,31 @@ import Q from 'q';
  * @param {Object} item Object with full information of the customer
  * @element ANY
  */
-export default($timeout, BaseModel, _hasScoreUnits) => ({
+export default(BaseModel, _hasScoreUnits, $rootScope, Customer) => ({
     restrict: 'E',
     scope: {
         item: '='
     },
     template,
     link: (scope, element, attrs)=> {
-        let ScoreUnitsModel = stampit().compose(BaseModel, _hasScoreUnits);
+        let ScoreUnitsModel = stampit().compose(BaseModel, _hasScoreUnits, _hasScoreUnits)(scope.item);
 
         //Index score units
         let ScoreUnitsIndex = {};
 
-        Q.async(function*() {
 
-            let scoreUnits = yield ScoreUnitsModel().getScoreUnits().$promise;
+        scope.levelActual = (su)=> {
+            let filter ={filter:{"where":{"customerId": ScoreUnitsModel.id, "scoreUnitId":su.id}, "include":["level", "scoreUnit"]}};
+            ScoreUnitsModel.getScoreUnitInstances(filter).$promise.then((item)=>{
+                $rootScope.$broadcast("$viewLevel", item);
+            });
+        };
+
+
+
+        //Get scoreUnits list
+        Q.async(function*() {
+            let scoreUnits = yield ScoreUnitsModel.getScoreUnits().$promise;
             scoreUnits.map((su)=> {
                 ScoreUnitsIndex[su.id] = {
                     id: su.id,

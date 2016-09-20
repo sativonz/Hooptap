@@ -16,12 +16,14 @@ var defaultLineLevel = require('./images/line-level-default.png');
  * @restrict E
  * @element ANY
  */
-export default(BaseModel, _hasScoreUnits) => ({
+export default($rootScope, BaseModel, _hasScoreUnits) => ({
     restrict: 'E',
     transclude: true,
     template,
     scope: {
-        item: '='
+        scores: '=',
+        customerId: '=',
+        scoreUnitId: '='
     },
     link: (scope, element, attrs)=> {
 
@@ -30,53 +32,69 @@ export default(BaseModel, _hasScoreUnits) => ({
         scope.defaultNextLevelImage = defaultNextLevelImage;
         scope.defaultLineLevelOff = defaultLineLevelOff;
         scope.defaultLineLevel = defaultLineLevel;
-
+        scope.item = {};
         //ScoreUnit Stampit model
         let ScoreUnitModel = stampit().compose(BaseModel, _hasScoreUnits);
 
-        //Get nextLevel
-        Q.async(function*(){
+
+        let filter ={filter:{"where":{"customerId": scope.customerId, "scoreUnitId":scope.scoreUnitId}, "include":["level", "scoreUnit"]}};
+        ScoreUnitModel().getScoreUnitInstances(filter).$promise.then((item)=>{
+            $rootScope.$broadcast("$viewLevel", item);
+        });
+
+
+        let viewLevelEvent = scope.$on('$viewLevel', (event, item)=> {
+            getCurrentLevel(item);
+        });
+
+        var getCurrentLevel= (item)=> {
+            scope.item = item;
+            console.log('OBJETO ENTERO => ', item);
+
+            scope.level = scope.item[0].level;
+            console.log("OBJETO LEVEL =>", scope.level);
+
 
             //NextLevel
-            let nextLevel = yield ScoreUnitModel().getLevelById(scope.item.levels[0].nextId);
-            //console.log("NEXT LEVEL !", nextLevel);
-            scope.nextLevel = nextLevel;
+            ScoreUnitModel().getLevelById(scope.level.nextId).then((response) => {
+                scope.nextLevel = response;
+                console.log("NEXT LEVEL !", scope.nextLevel);
+
+                //Score Unit asociado al nivel
+                ScoreUnitModel().getScoreUnitById(scope.nextLevel.scoreUnitId).then((response) => {
+                    scope.levelActualName = response;
+                    console.log("Nombre del su asociado al level =>", scope.levelActualName);
+                });
+
+                //Progressbar
+                let firstValue = scope.nextLevel.minimum;
+                let secondValue = scope.scores[scope.level.scoreUnitId];
+                scope.percentValue = (secondValue / firstValue) * 100;
+
+                //Search level by score unit
+                ScoreUnitModel().getLevelById(scope.level.id).then((response) => {
+                    scope.levelByScoreUnit = response;
+                    console.log("Level by Score Unit => ", scope.levelByScoreUnit);
+                });
 
 
-            //Su asociado al nivel
-            let levelActualName = yield ScoreUnitModel().getScoreUnitById(nextLevel.scoreUnitId);
-            console.log("Nombre del su asociado al level !", levelActualName);
-            scope.levelActualName = levelActualName;
+                //Index all levels
+                let LevelsIndex = {};
+                let allLevelsIndex = ScoreUnitModel().getLevels({filter: {where: {scoreUnitId: scope.level.scoreUnitId}}});
 
-            //Progressbar
-            let firstValue = scope.nextLevel.minimum;
-            let secondValue = scope.item.scores[ scope.item.levels[0].scoreUnitId ];
-            scope.percentValue = (secondValue /  firstValue) * 100 ;
-
-            //Search level by score unit
-            let levelByScoreUnit = yield ScoreUnitModel().getLevelById(scope.item.levels[0].id);
-            scope.levelByScoreUnit = levelByScoreUnit;
-            console.log("levelByScoreUnit", scope.levelByScoreUnit);
-
-
-
-
-            //Index all levels
-            let LevelsIndex = {};
-            let allLevelsIndex = ScoreUnitModel().getLevels( { filter: { where: { scoreUnitId:scope.item.levels[0].scoreUnitId } } } );
-
-            allLevelsIndex.$promise.then((response)=>{
-                response.map((level)=>LevelsIndex[level.id]=level);
-                scope.LevelsIndex = LevelsIndex;
-                console.log('LevelsIndex', LevelsIndex);
-
+                allLevelsIndex.$promise.then((response)=> {
+                    response.map((level)=>LevelsIndex[level.id] = level);
+                    scope.LevelsIndex = LevelsIndex;
+                    console.log('LevelsIndex', LevelsIndex);
+                });
             });
+        };
 
+        //Destroy events
+        scope.$on('$destroy', ()=> {
+            viewLevelEvent();
+        });
 
-
-
-
-        })();
 
     }
 

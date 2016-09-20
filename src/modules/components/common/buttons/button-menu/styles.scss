@@ -67,6 +67,7 @@ c-button-menu {
     display: none;
     ul.ht-menu_main {
       @extend %commonStyles;
+      overflow-x: hidden;
       padding-top: 10px;
       background: white;
       width: 240px;
