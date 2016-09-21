@@ -203,6 +203,9 @@ c-badges-grid {
       position: relative;
       margin-top: 2px;
       //margin-left: 10px;
+      >.tab-pane{
+        background: none;
+      }
       >.active {
         padding-left: 10px;
       }

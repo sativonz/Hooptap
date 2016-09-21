@@ -23,7 +23,7 @@ export default($rootScope, $translate, BaseModel, Customer, _hasScoreUnits) => (
         //Default values
         scope.defaultImage = require('./images/no-image.png');
         scope.emptyLevel = false;
-        scope.defaultLevelTitle = $translate.instant("LEVELS.title");
+        //scope.defaultLevelTitle = $translate.instant("LEVELS.title");
 
 
         let ScoreUnitsModel = stampit().compose(BaseModel, _hasScoreUnits)(scope.customer);
@@ -116,7 +116,6 @@ export default($rootScope, $translate, BaseModel, Customer, _hasScoreUnits) => (
 
 
             scope.scoreUnits = myScoreUnitsArray;
-            //console.log(myScoreUnitsArray);
             scope.$apply();
         })();
 

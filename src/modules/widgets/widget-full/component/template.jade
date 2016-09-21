@@ -1,5 +1,5 @@
--var allViewsFalse = "!$root.WPF.viewBadges && !$root.WPF.viewQuests && !$root.WPF.viewRanking && !$root.WPF.viewEditProfile && !$root.WPF.viewGameRoom && !$root.WPF.viewLevelList && !$root.WPF.viewLevelActual && !$root.WPF.viewGlobalFeed"
--var bodyStyle = "'viewStyle': $root.WPF.viewBadges || $root.WPF.viewQuests || $root.WPF.viewRanking || $root.WPF.viewEditProfile || $root.WPF.viewGameRoom || $root.WPF.viewLevelList || $root.WPF.viewLevelActual || $root.WPF.viewGlobalFeed"
+-var allViewsFalse = "!$root.WPF.viewBadges && !$root.WPF.viewQuests && !$root.WPF.viewRanking && !$root.WPF.viewEditProfile && !$root.WPF.viewGameRoom && !$root.WPF.viewLevelList && !$root.WPF.viewlevelActualHome && !$root.WPF.viewGlobalFeed"
+-var bodyStyle = "'viewStyle': $root.WPF.viewBadges || $root.WPF.viewQuests || $root.WPF.viewRanking || $root.WPF.viewEditProfile || $root.WPF.viewGameRoom || $root.WPF.viewLevelList || $root.WPF.viewlevelActualHome || $root.WPF.viewGlobalFeed"
 .widget-full(ng-if="$root.widgetOpened && $root.customer.logged")
     c-button-menu(ng-if="$root.customer.logged && #{allViewsFalse}" item="customer" title-game-room="menuOptions.titleGameRoom" show-quests="menuOptions.showQuests" show-badges="menuOptions.showBadges" show-rankings="menuOptions.showRankings" show-level="menuOptions.showLevel" show-level-list="menuOptions.showLevelList" show-global-feed="menuOptions.showGlobalFeed" show-marketplace="menuOptions.showMarketplace" show-edit-profile="menuOptions.showEditProfile" show-game-room="menuOptions.showGameRoom")
     c-button-close
@@ -42,8 +42,8 @@
                         c-widget-header(title="{{ 'CUSTOMER.update.title' | translate }}")
                         c-customer-update(value='customer')
 
-                    .wrapper__level-actual(ng-if="$root.WPF.viewLevelActual")
-                        c-button-back(ng-click="$root.WPF.viewLevelActual = !$root.WPF.viewLevelActual")
+                    .wrapper__level-actual(ng-if="$root.WPF.viewlevelActualHome")
+                        c-button-back(ng-click="$root.WPF.viewlevelActualHome = !$root.WPF.viewlevelActualHome")
                         c-widget-header(title="{{ 'LEVELS.actualLevel' | translate }}")
                         c-level-actual(customer-id="customer.id" score-unit-id="customer.scores[0].id" scores="customer.scores" customer="customer")
 
