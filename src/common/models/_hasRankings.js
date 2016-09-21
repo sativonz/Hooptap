@@ -18,15 +18,6 @@ export default (Customer) => {
         })
         .methods({
 
-            /*getRankingByScoreUnit(scoreUnit, order) {
-
-                let filter = {filter: { where : {}, order: "" }};
-                filter.filter.where = { scoreUnitId: scoreUnit.scoreUnitId };
-                filter.filter.order = 'quantity DESC';
-
-                return  ScoreUnitInstance.find(filter).$promise;
-            }*/
-
             getRankingByScoreUnit(scoreUnit, order) {
 
                 let filter = {filter: { where : {}, order: "" }};

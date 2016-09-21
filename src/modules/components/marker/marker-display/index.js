@@ -59,11 +59,11 @@ export default($timeout, $rootScope, BaseModel, _hasScoreUnits, _hasCustomer) =>
                    // console.log('LevelsIndex', LevelsIndex);
                 });
 
-
             })();
         }
-        //console.log(scope.item);
 
-
+        scope.viewLevelActual = (item)=> {
+            if(item.levels.length <= 0){}else {$root.WPF.viewLevelActual = !$root.WPF.viewLevelActual}
+        };
     }
 });
