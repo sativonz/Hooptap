@@ -14,8 +14,10 @@ import stampit from 'stampit';
 export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, Session, clientHelper) => ({
     restrict: 'E',
     scope: {
-        text: '@',
-        image: '@'
+        backColor: '@?',
+        textColor: '@?',
+        text: '@?',
+        image: '@?'
     },
     template,
     link: (scope, element, attrs)=> {
@@ -27,6 +29,8 @@ export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, Sess
 
         let defaults = {
             text: "GO !",
+            textColor: "white",
+            backColor: "#1fb570",
             image: require('./images/profile-default.svg')
         };
         clientHelper.setDefaultAttributes(defaults, scope, attrs);
@@ -52,7 +56,7 @@ export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, Sess
             LoopBackAuth.clearUser();
         }
 
-
+        //Logout
         $rootScope.$on('$logoutSuccess', ()=> {
             scope.customer = {};
         });

@@ -1,4 +1,4 @@
-div.button--init__container(ng-show="!$root.widgetOpened")
+div.button--init__container(ng-show="!$root.widgetOpened" style="background-color: {{ backColor }};")
     span.button--init__wrapper-icon
         img.button--init__icon(ng-src="{{ customer.image || image }}" ng-class="{ rounded : 'customer.image' }")
-    span.button--init__text {{customer.name  || text }}
+    span.button--init__text(style="color: {{ textColor }};") {{customer.name  || text }}
