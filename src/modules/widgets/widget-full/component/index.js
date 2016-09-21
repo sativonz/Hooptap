@@ -158,6 +158,7 @@ export default(
             scope.$on("$logoutSuccess", (event) => {
                 scope.customer = {};
             });
+
         }
     }
 

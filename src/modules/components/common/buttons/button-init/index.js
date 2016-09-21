@@ -11,7 +11,7 @@ import stampit from 'stampit';
  * @params {String} image Image of the button, positioned to the left
  * @element ANY
  */
-export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, Session) => ({
+export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, Session, clientHelper) => ({
     restrict: 'E',
     scope: {
         text: '@',
@@ -20,11 +20,25 @@ export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, Sess
     template,
     link: (scope, element, attrs)=> {
 
+        //Default values
+        scope.buttonDefaultImage = function () {
+            return require('./images/profile-default.svg')
+        };
+
+        let defaults = {
+            text: "GO !",
+            image: require('./images/profile-default.svg')
+        };
+        clientHelper.setDefaultAttributes(defaults, scope, attrs);
+
+
+        //Click to open button
         element.on('click', (event)=> {
             $rootScope.widgetOpened = true;
             $rootScope.$apply();
         });
 
+        //Stampit model
         let LoginModel = stampit().compose(BaseModel, _hasLogin);
 
         if (Session.isAuthenticated()) {
