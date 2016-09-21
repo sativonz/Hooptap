@@ -17,7 +17,7 @@ export default() => ({
     controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _hasLogin, $translate, Notifier)=> {
 
 
-        $scope.maskOn = false;
+        $scope.mask = false;
 
         //Models
         let LoginModel = stampit().compose(BaseModel, _hasLogin);
@@ -31,7 +31,7 @@ export default() => ({
         //Login function to View
         $scope.login = ()=> {
             //TODO ENCRIPTAR CREDENCIALES
-            $scope.maskOn = true;
+            $scope.mask = true;
             let credentials = {
                 email: $scope.email,
                 password: $scope.password,
@@ -39,9 +39,9 @@ export default() => ({
             };
             LoginModel().login(credentials, includeFilter).then((response)=> {
                 $rootScope.$broadcast('$loginSuccess', response);
-                $scope.maskOn = false;
+                $scope.mask = false;
             }).catch((error)=> {
-                $scope.maskOn = false;
+                $scope.mask = false;
                 //TODO NOTIFICADOR ERRORES
                 if (error.status == 401) {
                     let msg = $translate.instant("TOAST.incorrect");
