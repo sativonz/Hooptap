@@ -11,7 +11,7 @@ import Q from 'q';
  * @param {Object} item Object with full information of the customer
  * @element ANY
  */
-export default(BaseModel, _hasScoreUnits, $rootScope, Customer) => ({
+export default($rootScope, $translate, BaseModel, Customer, _hasScoreUnits) => ({
     restrict: 'E',
     scope: {
         customer: '='
@@ -23,6 +23,8 @@ export default(BaseModel, _hasScoreUnits, $rootScope, Customer) => ({
         //Default values
         scope.defaultImage = require('./images/no-image.png');
         scope.emptyLevel = false;
+        scope.defaultLevelTitle = $translate.instant("LEVELS.title");
+
 
         let ScoreUnitsModel = stampit().compose(BaseModel, _hasScoreUnits)(scope.customer);
 

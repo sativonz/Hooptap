@@ -62,13 +62,17 @@ export default(Customer, $rootScope, BaseModel, _isCustomer, _hasRankings) => ({
             let RankingModel = stampit().compose(BaseModel, _hasRankings);
             RankingModel().getRankingByScoreUnit(scoreUnit)
                 .then((response)=> {
-                    console.log(response);
+                    //console.log(response);
                     let ranking = { scoreUnit: scoreUnit, customers: response };
                     $rootScope.$broadcast('$rankingView', ranking);
                 })
                 .catch((error)=> {
                     console.log(error);
                 });
+        };
+
+        scope.checkLevelActual = (item) => {
+            if(item.levels.length <= 0){}else {$root.WPF.viewLevelActual = !$root.WPF.viewLevelActual}
         };
 
 

@@ -22,6 +22,7 @@ export default($rootScope, BaseModel, _hasScoreUnits) => ({
     template,
     scope: {
         scores: '=',
+        customer: '=',
         customerId: '=',
         scoreUnitId: '='
     },

@@ -1,11 +1,9 @@
 .level-home-widget-full__container
-    .wrapper__level-empty(ng-if="!level || level.length < 1")
+    .wrapper__level-empty(ng-if="customer.levels.length <= 0")
         img(ng-src=require("./images/no-data.svg"))
-        p {{::'CUSTOMER.common.empty' | translate}}
-
-    //.level-home-widget-full__wrapper(ng-repeat="level in item.levels | limitTo:1")
-    .wrapper__level-actual
-        c-loader-wrap(value="item")
+        p {{::'LEVELS.notLevels' | translate}}
+    c-loader-wrap(value="item")
+        .wrapper__level-actual(ng-if="customer.levels.length > 0")
             .section__level-nextLevel
                 .col-xs-3.not-padding
                     img.img-actual-level(ng-src="{{level.image || defaultLevelImage}}")

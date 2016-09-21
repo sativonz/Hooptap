@@ -14,11 +14,11 @@ c-loader-wrap(value="scoreUnits")
                     .marker-list-su__quantity {{su.quantity || 0}}
 
 
-    c-widget-header(title="{{ level.name }}" ng-if="$root.WPF.viewLevelList && $root.WPF.viewLevelSU")
+    c-widget-header(title="{{ level.name || defaultLevelTitle }}" ng-if="$root.WPF.viewLevelList && $root.WPF.viewLevelSU")
     .level-marker-list(ng-if="$root.WPF.viewLevelSU && item")
         .wrapper__level-empty(ng-if="emptyLevel")
             img(ng-src=require("./images/no-data.svg"))
-            p {{::'CUSTOMER.common.empty' | translate}}
+            p {{::'LEVELS.notLevels' | translate}}
         .wrapper__level-actual(ng-if="!emptyLevel")
             c-loader-wrap(value="item")
                 .section__level-nextLevel.animated.pulse

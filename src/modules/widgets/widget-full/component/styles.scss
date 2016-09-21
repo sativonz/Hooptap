@@ -79,9 +79,11 @@ widget-full {
             }
             .wrapper__level-empty-title {
               text-align: center;
-              font-size: 11pt;
+              font-size: 10pt;
               color: $_1_color-level-empty-text;
               padding-bottom: 20px;
+              p{font-size: 10pt;}
+              img{width:200px;}
             }
             .level-home-widget-full__wrapper {
               .img-actual-level {

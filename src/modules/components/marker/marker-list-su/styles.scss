@@ -75,13 +75,12 @@ c-marker-list-su {
     overflow-y: auto;
     .wrapper__level-empty {
       text-align: center;
-      font-size: 11pt;
+      font-size: 10pt;
       color: $_1_color-level-empty-text;
       padding-bottom: 20px;
       margin-top: 100px;
-      img {
-        width: 200px;
-      }
+      p{font-size: 10pt;}
+      img{width:200px;}
     }
     .wrapper__level-actual {
       .section__level-nextLevel {

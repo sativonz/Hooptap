@@ -6,11 +6,14 @@ c-level-actual {
   height: 440px;
   padding: 25px;
   overflow-y: auto;
-  .wrapper__level-empty-title {
+  .wrapper__level-empty {
     text-align: center;
-    font-size: 11pt;
-    color: $_1_color-level-empty-text;
+    color: #0089c0;
+    font-size: 10pt;
     padding-bottom: 20px;
+    margin-top: 100px;
+    p{font-size: 10pt;}
+    img{width:200px;}
   }
   .wrapper__level-actual {
     .section__level-nextLevel {
@@ -32,7 +35,7 @@ c-level-actual {
         margin-left: 15px;
       }
       .last-level {
-        @extend .wrapper__level-empty-title;
+        @extend .wrapper__level-empty;
         margin-top: 5px;
         font-weight: bold;
         line-height: 30px;
