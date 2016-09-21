@@ -145,10 +145,12 @@ import './common/services/angular-sdk';
             params.apiKey = params.apiKey || null;
             params.selector = params.selector || 'body';
             params.config = params.config || {};
+            params.url = params.url.replace(/\/$/, "") || "";
             if (params.apiKey && typeof params.apiKey == 'string') {
 
                 angular.module('GLOBAL_CONFIG', []).constant('GLOBAL_CONFIG',{
                     apiKey: params.apiKey,
+                    url: params.url,
                     selector: params.selector,
                     config: params.config
                 });

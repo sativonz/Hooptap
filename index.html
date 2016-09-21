@@ -26,7 +26,6 @@
 </div>
 
 
-
 <!--Widget badges grid
 <div><w-widget-badges-grid number-cols="3"></w-widget-badges-grid></div>-->
 
@@ -36,12 +35,23 @@
 
 <!--Bundle WIDGETS -->
 <script>
-    (function (f,u,n,b,o,un,d) { f['HooptapObjectClient'] = o;
-        f[o] = f[o] || function () { ( f[o].argum = f[o].argum || [] ).push(arguments) }; f[o].timestamp = 1 * new Date();
-        un = u.createElement(n); d = u.getElementsByTagName(n)[0]; un.async = 1; un.src = b; d.parentNode.insertBefore(un, d);
-    })( window, document, 'script', 'http://localhost:3030/bundle.js', 'Hooptap' );
+    (function (f, u, n, b, o, un, d) {
+        f['HooptapObjectClient'] = o;
+        f[o] = f[o] || function () {
+                    ( f[o].argum = f[o].argum || [] ).push(arguments)
+                };
+        f[o].timestamp = 1 * new Date();
+        un = u.createElement(n);
+        d = u.getElementsByTagName(n)[0];
+        un.async = 1;
+        un.src = b;
+        d.parentNode.insertBefore(un, d);
+    })(window, document, 'script', 'http://localhost:3030/bundle.js', 'Hooptap');
     window.addEventListener("load", function () {
-        Hooptap.start({ apiKey: "7RMGPQn5a5NAB8FXprD2UJvjhk11XZdg" });
+        //Ultima version
+        Hooptap.start({apiKey: "7RMGPQn5a5NAB8FXprD2UJvjhk11XZdg", url: "http://52.211.32.45:3000"});
+        //Antiguo API
+        //Hooptap.start({apiKey: "PCN5dmOY1S4ST0hr9Z0ScjcG3slbS1Gq", url: "http://52.209.100.27:8080"});
     });
 </script>
 <!--<script>

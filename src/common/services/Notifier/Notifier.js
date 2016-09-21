@@ -36,14 +36,18 @@ export default (Notification, $translate, $rootScope) => {
             $rootScope.$broadcast('$eventSuccess');
             return launcher('info', {templateUrl: 'eventBadge.html'}, parsedArgs)
         },
-        eventScoreUnitSeat (args) {
-            // let scoreUnit = $rootScope.availableScoreUnits[args.data.id];
-            // let parsedArgs = {
-            //     title: args.action + " " + args.data.model,
-            //     image: scoreUnit.image,
-            //     message: "Has ganado " + args.data.quantity + " " + scoreUnit.name
-            // };
+        eventBadgeSeat (args) {
+            let parsedArgs = {
+                title: args.data.action + " " + args.data.data.model,
+                image: "",
+                message: "Has ganado " + args.data.data.quantity + " de " + args.data.data.maxParts
+            };
             //Update current customer;
+            $rootScope.$broadcast('$eventSuccess');
+            return launcher('info', {templateUrl: 'eventBadge.html'}, parsedArgs)
+        },
+        eventScoreUnitSeat (args) {
+              //Update current customer;
             $rootScope.$broadcast('$eventSuccess');
             return launcher('info', {templateUrl: 'eventScoreUnit.html'}, args)
         },

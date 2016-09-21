@@ -3,9 +3,9 @@
  * @ngdoc service
  * @name base.httpInterceptor
  * @requires $injector
- * @description prueba prueba prueba
+ * @description TODO
  */
-export default ($injector, clientHelper)=> {
+export default ($q, $injector, $translate, clientHelper)=> {
     var Notificator = null;
 
     /**
@@ -21,6 +21,14 @@ export default ($injector, clientHelper)=> {
         }
         return Notifier;
     };
+    var getSession = ()=> {
+        if (!Session) {
+            var Session = $injector.get('Session');
+        }
+        return Session;
+    };
+
+
 
     /**
      * @ngdoc method
@@ -45,7 +53,8 @@ export default ($injector, clientHelper)=> {
             return response;
         },
         requestError(rejection){
-
+            console.log("getSession().isAuthenticated()", getSession().isAuthenticated());
+            debugger;
             // console.log("REJECTION: ", rejection);
             return rejection;
         },
@@ -62,18 +71,21 @@ export default ($injector, clientHelper)=> {
             return response;
         },
         responseError(error){
-            console.error('HTTP ERROR: ', error);
-            if (error.status !== -1) {
-                var errorToken = error.data.error.code;
-                var method = error.config.method;
-                var model = getModelName(error.config.url);
-                getNotifier().error([model, ': ', 'errors', errorToken].join('.')[method][error.status]);
-            }
+            // console.error('HTTP ERRORRR: ', error);
+            //  if (error.status !== -1) {
+            //      var errorToken = error.data.error.code;
+            //      var method = error.config.method;
+            //      var model = getModelName(error.config.url);
+            //      getNotifier().error([model, ': ', 'errors', errorToken].join('.')[method][error.status]);
+            //  }
+
             if (error.status === 401) {
                 let msg = $translate.instant("TOAST.incorrect");
                 getNotifier().error({title: msg, image: require('./images/error.png')});
+                // return getSession().isAuthenticated().then(function () {
+                // });
             }
-            return error;
+            return $q.reject(error);
         }
 
     };

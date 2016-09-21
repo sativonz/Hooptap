@@ -1,5 +1,5 @@
 import _ from 'lodash';
-export default function clientHelper($injector) {
+export default function clientHelper($injector, $rootScope) {
 
     let me = {
         //Sets default attributes for a widget
@@ -27,29 +27,62 @@ export default function clientHelper($injector) {
          */
         notifierEventParser(data) {
             if (data && data.hasOwnProperty("_triggered")) {
-
+                let queryTriggers = [];
                 data._triggered.forEach((trigger)=> {
                     if (trigger
                         && trigger.hasOwnProperty('model')
                         && _.isFunction(me.getNotifier()["event" + trigger.model])) {
-
-                        let parsedData = me.notifierDataParser(trigger);
-                        me.getNotifier()["event" + trigger.data.data.model](trigger.data);
+                        queryTriggers.push(trigger);
                     }
+
                 });
 
-                for (var trigger in data._triggered) {
 
-                    //         if(data._triggered[trigger].model === "ScoreUnitSeat"){
-                    //             let triggered = data._triggered[trigger].data;
-                    //             this.getNotifier()["event" + triggered.data.model](triggered);
-                    //         }
-                }
+                //Resolve query
+                let badgesFound = {};
+                let badgeSeatsFound = {};
+                let scoreUnitSeatsFound = {};
+                queryTriggers.forEach((trigger)=> {
+                    if (trigger.model === 'Badge') {
+                        badgesFound[trigger.data.id] = trigger;
+                    }
+                    if (trigger.model === 'BadgeSeat') {
+                        badgeSeatsFound[trigger.data.badgeId] = trigger;
+                    }
+                    if (trigger.model === 'ScoreUnitSeat') {
+                        scoreUnitSeatsFound[trigger.data.badgeId] = trigger;
+                    }
+                });
+                let hashNotifier = Object.assign({}, badgeSeatsFound, badgesFound, scoreUnitSeatsFound);
+                console.log(hashNotifier);
+                debugger;
+                // Object.keys(hashNotifier).map((key)=> {
+                //     let parsedData = me.notifierDataParser(hashNotifier[key].data);
+                //     me.getNotifier()["event" + trigger.model](parsedData);
+                // });
+
             }
         },
         notifierDataParser(data){
+            let model = {};
+            switch (data.model) {
+                case 'ScoreUnitSeat':
+                    let scoreUnit = $rootScope.availableScoreUnits[data.data.scoreUnitId];
+                    model = {
+                        title: data.model,
+                        image: scoreUnit.image,
+                        message: "Has ganado " + data.data.quantity + " " + scoreUnit.name
+                    };
+                    break;
+                case 'BadgeSeat':
+                    //TODO
 
-            debugger;
+                    break;
+                default:
+                    break;
+            }
+
+            return model;
         },
         isFunction(value){
             return typeof value === 'function';
