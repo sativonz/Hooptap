@@ -121,7 +121,6 @@ export default(
                 WidgetModel.getCurrent(includeFilter).then((response)=> {
                     let customerResponse = CustomerModel(response);
                     $rootScope.$broadcast('$loginSuccess', customerResponse);
-                    console.log(response)
                 }).catch(()=> {
                     LoopBackAuth.clearStorage();
                     LoopBackAuth.clearUser();
