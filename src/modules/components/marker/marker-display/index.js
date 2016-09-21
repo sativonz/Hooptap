@@ -62,8 +62,16 @@ export default($timeout, $rootScope, BaseModel, _hasScoreUnits, _hasCustomer) =>
             })();
         }
 
-        scope.viewLevelActual = (item)=> {
-            if(item.levels.length <= 0){}else {$root.WPF.viewLevelActual = !$root.WPF.viewLevelActual}
+        //Calcule level actual to show or disable click
+        scope.checkLevelActual = (item)=> {
+            debugger;
+            if(item.levels.length <= 0){}else {
+                if($rootScope.WPF){} else{
+                    $rootScope.WPF = {};
+                    $rootScope.WPF.viewLevelActual = !$rootScope.WPF.viewLevelActual
+                }
+
+            }
         };
     }
 });

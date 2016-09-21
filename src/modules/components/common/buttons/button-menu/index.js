@@ -72,7 +72,7 @@ export default(Customer, $rootScope, BaseModel, _isCustomer, _hasRankings) => ({
         };
 
         scope.checkLevelActual = (item) => {
-            if(item.levels.length <= 0){}else {$root.WPF.viewLevelActual = !$root.WPF.viewLevelActual}
+            if(item.levels.length <= 0){}else {$rootScope.WPF.viewLevelActual = !$rootScope.WPF.viewLevelActual}
         };
 
 
