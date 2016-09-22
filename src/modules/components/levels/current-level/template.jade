@@ -12,7 +12,7 @@
                 //.col-xs-9(ng-if="level.nextId == null")
                     p.last-level {{ 'LEVELS.lastLevelMsg' | translate }} {{customer.username}} !
                 //.next-level__wrapper.col-xs-9.not-padding(ng-if="level.nextId != null")
-                .next-level__wrapper.col-xs-9.not-padding
+                .next-level__wrapper.col-xs-9.not-padding(ng-if="nextLevel")
                     .level-separator
                     .col-xs-4.not-padding
                         img.img-next-level(ng-src="{{nextLevel.image || defaultNextLevelImage}}")
@@ -20,8 +20,12 @@
                         p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
                         p.name-next-level {{nextLevel.name}}
             .section__progressbar
+                code {{percentValue}}
                 .progressbar-actual(style="width:{{percentValue}}%")
-                    .score-bar.center {{scores[ item.level.scoreUnitId ]}} / {{nextLevel.minimum}} {{levelActualName.name}}
+                    .score-bar.center
+                        span {{scores[ item.level.scoreUnitId ]}}
+                        span(ng-if="nextLevel") / {{nextLevel.minimum}}
+                        span {{levelActualName.name}}
             .section__levels-timeline
                 section.comments(ng-repeat="levels in LevelsIndex track by $index" ng-class="{first:$first}")
                     .col-xs-2

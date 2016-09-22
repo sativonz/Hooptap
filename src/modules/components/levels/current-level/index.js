@@ -59,45 +59,43 @@ export default($rootScope, BaseModel, _hasScoreUnits) => ({
                     scope.item = item;
                 }
             });
-
-
-
-
-
-
+            
             //NextLevel
-            ScoreUnitModel().getLevelById(scope.item.level.nextId).then((response) => {
-                scope.nextLevel = response;
-                //console.log("NEXT LEVEL !", scope.nextLevel);
+            if(scope.item.level.nextId){
+                ScoreUnitModel().getLevelById(scope.item.level.nextId).then((response) => {
+                    scope.nextLevel = response;
+                    //console.log("NEXT LEVEL !", scope.nextLevel);
 
-                //Score Unit asociado al nivel
-                ScoreUnitModel().getScoreUnitById(scope.nextLevel.scoreUnitId).then((response) => {
-                    scope.levelActualName = response;
-                    //console.log("Nombre del su asociado al level =>", scope.levelActualName);
+                    //Score Unit asociado al nivel
+                    ScoreUnitModel().getScoreUnitById(scope.nextLevel.scoreUnitId).then((response) => {
+                        scope.levelActualName = response;
+                        //console.log("Nombre del su asociado al level =>", scope.levelActualName);
+                    });
+
+                    //Progressbar
+                    let firstValue = scope.nextLevel.minimum;
+                    let secondValue = scope.scores[scope.item.level.scoreUnitId];
+                    scope.percentValue = (secondValue / firstValue) * 100;
+
+                    //Search level by score unit
+                    ScoreUnitModel().getLevelById(scope.item.level.id).then((response) => {
+                        scope.levelByScoreUnit = response;
+                        //console.log("Level by Score Unit => ", scope.levelByScoreUnit);
+                    });
+
+
+                    //Index all levels
+                    let LevelsIndex = {};
+                    let allLevelsIndex = ScoreUnitModel().getLevels({filter: {where: {scoreUnitId: scope.item.level.scoreUnitId}}});
+
+                    allLevelsIndex.$promise.then((response)=> {
+                        response.map((level)=>LevelsIndex[level.id] = level);
+                        scope.LevelsIndex = LevelsIndex;
+                        //console.log('LevelsIndex', LevelsIndex);
+                    });
                 });
-
-                //Progressbar
-                let firstValue = scope.nextLevel.minimum;
-                let secondValue = scope.scores[scope.item.level.scoreUnitId];
-                scope.percentValue = (secondValue / firstValue) * 100;
-
-                //Search level by score unit
-                ScoreUnitModel().getLevelById(scope.item.level.id).then((response) => {
-                    scope.levelByScoreUnit = response;
-                    //console.log("Level by Score Unit => ", scope.levelByScoreUnit);
-                });
-
-
-                //Index all levels
-                let LevelsIndex = {};
-                let allLevelsIndex = ScoreUnitModel().getLevels({filter: {where: {scoreUnitId: scope.item.level.scoreUnitId}}});
-
-                allLevelsIndex.$promise.then((response)=> {
-                    response.map((level)=>LevelsIndex[level.id] = level);
-                    scope.LevelsIndex = LevelsIndex;
-                    //console.log('LevelsIndex', LevelsIndex);
-                });
-            });
+            }
+           
         };
 
         //Destroy events
