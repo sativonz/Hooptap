@@ -20,7 +20,7 @@ export default() => ({
         let CustomerModel = stampit().compose(BaseModel, _isCustomer);
         //Query filter
         let includeFilter = {filter: {include: [{badgeInstances: 'badge'}, {scoreUnitInstances: 'scoreUnit'}, 'levels']}};
-        
+
         //Check if rememberMe is  true , make login and get current.
 
 
@@ -35,14 +35,16 @@ export default() => ({
             };
             LoginModel().login(credentials, includeFilter).then((response)=> {
                 $rootScope.$broadcast('$loginSuccess', response);
-            }).catch((error)=> {
-                //TODO NOTIFICADOR ERRORES
-                if (error.status == 401) {
-                    let msg = $translate.instant("TOAST.incorrect");
-                    Notifier.error({title: msg, image: require('./images/error.png')});
-                }
-            });
-        };
+                })
+                //.catch((error)=> {
+                //     //TODO NOTIFICADOR ERRORES
+                //     if (error.status == 401) {
+                //         let msg = $translate.instant("TOAST.incorrect");
+                //         Notifier.error({title: msg, image: require('./images/error.png')});
+                //     }
+                // })
+                ;
+            };
 
-    }
-});
+        }
+    });

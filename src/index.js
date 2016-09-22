@@ -15,8 +15,6 @@ import modal from 'angular-ui-bootstrap/src/modal';
 
 //Import Loopback Angular SDK
 import './common/services/angular-sdk';
-
-
 (function () {
     angular.module('Hooptap-client',
         [
@@ -51,7 +49,7 @@ import './common/services/angular-sdk';
             require('./modules/widgets/widget-customer-access-popup').default,
             require('./modules/widgets/widget-customer-access-mini').default,
             require('./modules/widgets/widget-customer-access-modal').default,
-            require('./modules/widgets/widget-customer-access-inline').default,
+            require('./modules/widgets/widget-customer-access-inline').default
 
 
         ])
@@ -147,10 +145,12 @@ import './common/services/angular-sdk';
             params.apiKey = params.apiKey || null;
             params.selector = params.selector || 'body';
             params.config = params.config || {};
+            params.url = params.url.replace(/\/$/, "") || "";
             if (params.apiKey && typeof params.apiKey == 'string') {
 
                 angular.module('GLOBAL_CONFIG', []).constant('GLOBAL_CONFIG',{
                     apiKey: params.apiKey,
+                    url: params.url,
                     selector: params.selector,
                     config: params.config
                 });

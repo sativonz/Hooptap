@@ -16,7 +16,7 @@ import stampit from 'stampit';
  * @element ANY
  */
 
-export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseModel, _isWidget, _hasCustomer, _hasLogin, _isCustomer, $translate,  Session, Notifier) => ({
+export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseModel, _isWidget, _hasCustomer, _hasLogin, _isCustomer, $translate, Session, Notifier) => ({
     restrict: 'E',
     transclude: true,
     template,
@@ -133,7 +133,7 @@ export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseMod
                 LoopBackAuth.clearStorage();
                 LoopBackAuth.clearUser();
             }
-            scope.$on("$loginSuccess", (event, response)=> {
+            let eventLoginSuccess = scope.$on("$loginSuccess", (event, response)=> {
                 if (response.hasOwnProperty(('$promise'))) {
                     response.$promise.then((customer)=> {
                         scope.customer = customer;
@@ -149,17 +149,30 @@ export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseMod
                     });
                 }
             });
-            scope.$on("$eventSuccess", (event, triggered)=> {
-                WidgetModel().getCurrent().then(r => {
-                    scope.customer = r
+            let eventSuccess = scope.$on("$eventSuccess", (event, triggered)=> {
+                WidgetModel.getCurrent(includeFilter).then((response) => {
+                    if (response.hasOwnProperty(('$promise'))) {
+                        response.$promise.then((customer)=> {
+                            scope.customer = customer;
+                        });
+                    }
+
                 });
+
             });
 
-            scope.$on("$registerSuccess", (event, customer)=> {
+            let eventRegisterSuccess = scope.$on("$registerSuccess", (event, customer)=> {
                 scope.customer = customer;
             });
-            scope.$on("$logoutSuccess", (event) => {
+            let eventLogoutSuccess = scope.$on("$logoutSuccess", (event) => {
                 scope.customer = {};
+            });
+
+            scope.$on('$destroy', ()=> {
+                eventSuccess();
+                eventRegisterSuccess();
+                eventLoginSuccess();
+                eventLogoutSuccess();
             });
         }
     }

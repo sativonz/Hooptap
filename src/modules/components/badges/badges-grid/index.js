@@ -38,9 +38,9 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
             numberCols: 4
         };
 
-
         //Llamadas badges
-        Q.async(function*() {
+        let loadBadges = Q.async(function*() {
+            scope.badges = {};
             let allIndex, availableIndex, completedIndex = {};
             let all, available, completed = [];
             let availableResponse = yield BadgesModel().getAvailableBadges().$promise;
@@ -77,7 +77,7 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
 
             scope.badges = BadgesModel({all: all, available: availableIndex, completed: completed});
             scope.$apply();
-        })();
+        });
         //Set default values
         clientHelper.setDefaultAttributes(defaults, scope, attrs);
 
@@ -107,6 +107,13 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
         };
 
 
+        //init
+        loadBadges();
+
+        let eventSuccess = scope.$on('$eventSuccess', ()=> {
+            loadBadges();
+        });
+
         //Switch for cols
         switch (scope.numberCols) {
             case 2:
@@ -127,5 +134,9 @@ export default($rootScope, $timeout, $uibModal, $log, Customer, LoopBackAuth, cl
                 break;
         }
 
+
+        scope.$on('$destroy', ()=> {
+            eventSuccess();
+        })
     }
 });

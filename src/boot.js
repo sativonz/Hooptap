@@ -1,10 +1,25 @@
-export default ($q, $compile, $injector, Event, Customer, Admin, $rootScope, Session)=> {
+import stampit from 'stampit';
+export default ($q, $compile, $injector, Event, Customer, Admin, $rootScope, Session, BaseModel, _hasBadges, _hasScoreUnits)=> {
     $rootScope.customer = {};
-
+    $rootScope.availableBadges = {};
+    $rootScope.availableScoreUnits = {};
     Session.isAuthenticated();
-    
-    //Check if is authenticated
-    //Customer.isAuthenticated() ? :;
+    let WidgetModel = stampit().compose(BaseModel, _hasBadges, _hasScoreUnits);
+    $rootScope.$on('$loginSuccess', (event, response)=> {
+        // var badgesObj, scoreUnitsObj = {};
+        WidgetModel().getAvailableBadges().$promise.then((badges)=> {
+            badges.map((badge)=> {
+                $rootScope.availableBadges[badge.id] = badge;
+            });
+        });
+        WidgetModel().getScoreUnits().$promise.then((scoreUnits)=> {
+            scoreUnits.map((scoreUnit)=> {
+                $rootScope.availableScoreUnits[scoreUnit.id] = scoreUnit;
+            });
+        });
+
+        console.log($rootScope.availableBadges, $rootScope.availableScoreUnits);
+    });
     var TEST = false;
 
     let windowHooptap = function (a0, a1, a2, a3) {
@@ -99,7 +114,6 @@ export default ($q, $compile, $injector, Event, Customer, Admin, $rootScope, Ses
             params = {email: 'customer@customer.com', password: 'customer', productId: 'test'};
 
         if (arguments.length && typeof params == 'object' && Object.keys(params).length) {
-            debugger;
             var token = false;
 
             if (Customer.isAuthenticated())
@@ -138,20 +152,20 @@ export default ($q, $compile, $injector, Event, Customer, Admin, $rootScope, Ses
                     Admin.logout();
 
 
-                token = Customer.login( params )
+                token = Customer.login(params)
                     .$promise
-                    .then( ( response ) => {
+                    .then((response) => {
                         //console.log( 'response' , response );
-                    } )
-                    .catch( ( e ) => {
+                    })
+                    .catch((e) => {
                         let errors = {
-                            '-1': 'errors.sdk.noInternet' ,
-                            '401': 'errors.sdk.badLogin' ,
+                            '-1': 'errors.sdk.noInternet',
+                            '401': 'errors.sdk.badLogin',
                             '500': 'errors.sdk.noInternet'
                         };
-                        console.warn( 'Login error:' , e.status );
-                        console.warn( 'Login error:' , errors[ e.status ] );
-                    } );
+                        console.warn('Login error:', e.status);
+                        console.warn('Login error:', errors[e.status]);
+                    });
                 return token;
 
             }
