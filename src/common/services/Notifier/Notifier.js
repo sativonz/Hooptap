@@ -27,24 +27,14 @@ export default (Notification, $translate, $rootScope) => {
             )
         },
         eventBadge (args) {
-            let parsedArgs = {
-                title: args.data.action + " " + args.data.data.model,
-                image: "",
-                message: "Has ganado " + args.data.data.quantity + " de " + args.data.data.maxParts
-            };
             //Update current customer;
             $rootScope.$broadcast('$eventSuccess');
-            return launcher('info', {templateUrl: 'eventBadge.html'}, parsedArgs)
+            return launcher('info', {templateUrl: 'eventBadge.html'}, args)
         },
         eventBadgeSeat (args) {
-            let parsedArgs = {
-                title: args.data.action + " " + args.data.data.model,
-                image: "",
-                message: "Has ganado " + args.data.data.quantity + " de " + args.data.data.maxParts
-            };
-            //Update current customer;
+                 //Update current customer;
             $rootScope.$broadcast('$eventSuccess');
-            return launcher('info', {templateUrl: 'eventBadge.html'}, parsedArgs)
+            return launcher('info', {templateUrl: 'eventBadge.html'}, args)
         },
         eventScoreUnitSeat (args) {
               //Update current customer;

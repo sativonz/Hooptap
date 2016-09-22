@@ -114,7 +114,6 @@ export default ($q, $compile, $injector, Event, Customer, Admin, $rootScope, Ses
             params = {email: 'customer@customer.com', password: 'customer', productId: 'test'};
 
         if (arguments.length && typeof params == 'object' && Object.keys(params).length) {
-            debugger;
             var token = false;
 
             if (Customer.isAuthenticated())

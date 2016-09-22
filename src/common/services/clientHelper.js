@@ -43,40 +43,59 @@ export default function clientHelper($injector, $rootScope) {
                 let badgeSeatsFound = {};
                 let scoreUnitSeatsFound = {};
                 queryTriggers.forEach((trigger)=> {
-                    if (trigger.model === 'Badge') {
-                        badgesFound[trigger.data.id] = trigger;
-                    }
-                    if (trigger.model === 'BadgeSeat') {
-                        badgeSeatsFound[trigger.data.badgeId] = trigger;
-                    }
-                    if (trigger.model === 'ScoreUnitSeat') {
-                        scoreUnitSeatsFound[trigger.data.badgeId] = trigger;
+                    switch (trigger.model) {
+                        case 'Badge':
+                            badgesFound[trigger.data.id] = trigger;
+                            break;
+                        case 'BadgeSeat':
+                            badgeSeatsFound[trigger.data.badgeId] = trigger;
+                            break;
+                        case 'ScoreUnitSeat':
+                            scoreUnitSeatsFound[trigger.data.scoreUnitId] = trigger;
+                            break;
+                        default:
+                            break;
                     }
                 });
                 let hashNotifier = Object.assign({}, badgeSeatsFound, badgesFound, scoreUnitSeatsFound);
-                console.log(hashNotifier);
-                debugger;
-                // Object.keys(hashNotifier).map((key)=> {
-                //     let parsedData = me.notifierDataParser(hashNotifier[key].data);
-                //     me.getNotifier()["event" + trigger.model](parsedData);
-                // });
+                Object.keys(hashNotifier).map((key)=> {
+                    //TODO comprobar si viene notifier del back y si no, parsearlo aqui.
+                    let parsedData = me.notifierDataParser(hashNotifier[key]);
+                    me.getNotifier()["event" + hashNotifier[key].model](parsedData);
+                });
 
             }
         },
         notifierDataParser(data){
+            //Indexa badgeId
+
+
             let model = {};
             switch (data.model) {
                 case 'ScoreUnitSeat':
                     let scoreUnit = $rootScope.availableScoreUnits[data.data.scoreUnitId];
                     model = {
-                        title: data.model,
+                        title: scoreUnit.name,
                         image: scoreUnit.image,
-                        message: "Has ganado " + data.data.quantity + " " + scoreUnit.name
+                        message: "+ " + data.data.quantity
                     };
                     break;
                 case 'BadgeSeat':
+                    let badgeSeat = $rootScope.availableBadges[data.data.badgeId]
                     //TODO
-
+                    model = {
+                        title: data.model,
+                        image: BadgeSeat.image,
+                        message: "+ " + data.data.parts + " / " + BadgeSeat.parts
+                    };
+                    break;
+                case 'Badge':
+                    let badge = $rootScope.availableBadges[data.data.id];
+                    model = {
+                        title: data.model,
+                        image: badge.image,
+                        message: "+" + badge.name
+                    };
                     break;
                 default:
                     break;

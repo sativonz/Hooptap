@@ -154,7 +154,6 @@ export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseMod
                     if (response.hasOwnProperty(('$promise'))) {
                         response.$promise.then((customer)=> {
                             scope.customer = customer;
-                            console.log('Me he actualizado!!!');
                         });
                     }
 

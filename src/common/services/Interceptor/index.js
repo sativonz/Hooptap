@@ -29,7 +29,6 @@ export default ($q, $injector, $translate, clientHelper)=> {
     };
 
 
-
     /**
      * @ngdoc method
      * @name httpInterceptor:getModelName
@@ -53,8 +52,6 @@ export default ($q, $injector, $translate, clientHelper)=> {
             return response;
         },
         requestError(rejection){
-            console.log("getSession().isAuthenticated()", getSession().isAuthenticated());
-            debugger;
             // console.log("REJECTION: ", rejection);
             return rejection;
         },
