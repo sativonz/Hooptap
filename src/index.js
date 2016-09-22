@@ -51,7 +51,6 @@ import './common/services/angular-sdk';
             require('./modules/widgets/widget-customer-access-modal').default,
             require('./modules/widgets/widget-customer-access-inline').default
 
-
         ])
 
 

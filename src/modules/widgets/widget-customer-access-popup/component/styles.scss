@@ -53,8 +53,9 @@ widget-customer-access-popup {
       background-color: $_1_quest-title;
       border-top-left-radius: 10px;
       border-top-right-radius: 10px;
-      margin-top: 0px;
-      margin-bottom: 0;
+      float: none;
+      height: 43px;
+      margin: 0;
       padding-left: 0;
       > li {
         border-bottom: 4px solid transparent;
@@ -272,6 +273,7 @@ widget-customer-access-popup {
       a {
         color: black!important;
         letter-spacing: 0.2px;
+        text-decoration: underline;
       }
     }
 
@@ -350,9 +352,11 @@ widget-customer-access-popup {
     }
 
     .ht-form__group-button {
-      margin-left: -25px;
       width: 100%;
       text-align: center;
+      &.register {
+        margin-left: -25px;
+      }
     }
 
     /* active state */
@@ -377,5 +381,14 @@ widget-customer-access-popup {
     padding: 25px;
   }
   @include scrollbars(10px, $_1_light-grey-background, none, 0px solid $_1_soft-grey-background, 3px);
-
+  .ht-mask {
+    height: 480px;
+    width: 400px;
+    background: rgba(255, 255, 255, 0.22);
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border-radius: 15px;
+  }
 }

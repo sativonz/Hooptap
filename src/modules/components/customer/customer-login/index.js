@@ -14,10 +14,14 @@ export default() => ({
     restrict: 'E',
     scope: {},
     template,
-    controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _isCustomer, _hasLogin, $translate, Notifier, Session)=> {
+    controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _hasLogin, $translate, Notifier)=> {
+
+
+        $scope.mask = false;
+
         //Models
         let LoginModel = stampit().compose(BaseModel, _hasLogin);
-        let CustomerModel = stampit().compose(BaseModel, _isCustomer);
+
         //Query filter
         let includeFilter = {filter: {include: [{badgeInstances: 'badge'}, {scoreUnitInstances: 'scoreUnit'}, 'levels']}};
 
@@ -27,7 +31,7 @@ export default() => ({
         //Login function to View
         $scope.login = ()=> {
             //TODO ENCRIPTAR CREDENCIALES
-
+            $scope.mask = true;
             let credentials = {
                 email: $scope.email,
                 password: $scope.password,
@@ -35,16 +39,17 @@ export default() => ({
             };
             LoginModel().login(credentials, includeFilter).then((response)=> {
                 $rootScope.$broadcast('$loginSuccess', response);
-                })
-                //.catch((error)=> {
-                //     //TODO NOTIFICADOR ERRORES
-                //     if (error.status == 401) {
-                //         let msg = $translate.instant("TOAST.incorrect");
-                //         Notifier.error({title: msg, image: require('./images/error.png')});
-                //     }
-                // })
-                ;
-            };
+
+                $scope.mask = false;
+            }).catch((error)=> {
+                $scope.mask = false;
+                //TODO NOTIFICADOR ERRORES
+                if (error.status == 401) {
+                    let msg = $translate.instant("TOAST.incorrect");
+                    //Notifier.error({title: msg, image: require('./images/error.png')});
+                }
+            });
+        };
 
         }
     });

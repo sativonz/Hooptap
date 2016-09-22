@@ -50,6 +50,11 @@ export default (Customer, BaseModel, _hasCustomer, $rootScope, $q, GLOBAL_CONFIG
 
             create(model){
                 return Customer.create(model).$promise;
+            },
+            getEvents() {
+                debugger;
+                return false;
+                //return Event.find( { filter: { where: { customerId: Customer.id } }, limit: 20 } );
             }
 
 

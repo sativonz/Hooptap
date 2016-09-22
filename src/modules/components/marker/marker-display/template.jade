@@ -2,16 +2,13 @@
 .ht-marker-display__zoneRow.row(ng-repeat="zoneRow in options.zones" id="ht-marker-display__zoneRow-{{$index+1}}")
     .ht-marker-display__wrapper.center(ng-repeat="zoneCol in zoneRow" ng-class="{'col-xs-12': zoneRow.length == 1, 'col-xs-6': zoneRow.length == 2, 'col-xs-4': zoneRow.length == 3, 'col-xs-3': zoneRow.length == 4 }")
 
-        .ht-marker-display__su(ng-click="$root.WPF.viewLevelList = !$root.WPF.viewLevelList"   ng-if="zoneCol.model == 'ScoreUnit'" tooltip-placement="top" uib-tooltip="{{ suImage.name || 'SCOREUNITS.title' | translate }}")
+        .ht-marker-display__su(ng-click="$root.WPF.viewLevelList = !$root.WPF.viewLevelList"   ng-if="zoneCol.model == 'ScoreUnit'" tooltip-placement="top" uib-tooltip="{{ defaultScoreUnit.name || 'SCOREUNITS.title' | translate }}")
             .col-xs-6.not-padding.score
                 .title__score-units {{item.scoreUnitInstances[0].quantity || defaultValue}}
             .col-xs-6.not-padding
-                img.ht-marker-display__img(ng-src="{{ suImage.image || suDefaultImage() }}")
+                img.ht-marker-display__img(ng-src="{{ defaultScoreUnit.image || suDefaultImage() }}")
 
-        .ht-marker-display__level(ng-click="$root.WPF.viewLevelActual = !$root.WPF.viewLevelActual" ng-if="zoneCol.model == 'Level' &&  zoneRow.length !== 1" tooltip-placement="top" uib-tooltip="{{ actualLevel.name || 'LEVELS.title' | translate}}")
-            //.col-xs-6.not-padding
-                //TODO poner el numero del nivel 1, 2, 3
-                //.title__score-units {{defaultValue}}
+        .ht-marker-display__level(ng-click="checkLevelActual(item);"  ng-if="zoneCol.model == 'Level' &&  zoneRow.length !== 1" tooltip-placement="top" uib-tooltip="{{ actualLevel.name || 'LEVELS.title' | translate}}")
             .col-xs-12.not-padding
                 img.ht-marker-display__img(ng-src="{{ item.levels[0].image || levelDefaultImage() }}")
 

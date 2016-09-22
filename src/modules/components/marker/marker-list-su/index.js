@@ -11,21 +11,88 @@ import Q from 'q';
  * @param {Object} item Object with full information of the customer
  * @element ANY
  */
-export default($timeout, BaseModel, _hasScoreUnits) => ({
+export default($rootScope, $translate, BaseModel, Customer, _hasScoreUnits) => ({
     restrict: 'E',
     scope: {
-        item: '='
+        customer: '='
     },
     template,
     link: (scope, element, attrs)=> {
-        let ScoreUnitsModel = stampit().compose(BaseModel, _hasScoreUnits);
+
+
+        //Default values
+        scope.defaultImage = require('./images/no-image.png');
+        scope.emptyLevel = false;
+        //scope.defaultLevelTitle = $translate.instant("LEVELS.title");
+
+
+        let ScoreUnitsModel = stampit().compose(BaseModel, _hasScoreUnits)(scope.customer);
 
         //Index score units
         let ScoreUnitsIndex = {};
 
-        Q.async(function*() {
+        //Function on click in list score unit
+        scope.levelActual = (su)=> {
+            let filter = {
+                filter: {
+                    "where": {"customerId": ScoreUnitsModel.id, "scoreUnitId": su.id},
+                    "include": ["level", "scoreUnit"]
+                }
+            };
+            ScoreUnitsModel.getScoreUnitInstances(filter).$promise.then((item)=> {
+                scope.item = item;
+                //console.log('OBJETO ENTERO => ', item);
 
-            let scoreUnits = yield ScoreUnitsModel().getScoreUnits().$promise;
+                //NextLevel
+                if (scope.item.length) {
+                    scope.emptyLevel = false;
+                    scope.level = scope.item[0].level;
+                    if (scope.level.nextId) {
+                        ScoreUnitsModel.getLevelById(scope.level.nextId).then((response) => {
+                            scope.nextLevel = response;
+                            //console.log("NEXT LEVEL !", scope.nextLevel);
+
+                            //Progressbar
+                            let firstValue = scope.nextLevel.minimum;
+                            let secondValue = scope.customer.scores[scope.level.scoreUnitId];
+                            scope.percentValue = (secondValue / firstValue) * 100;
+
+                            //Search level by score unit
+                            ScoreUnitsModel.getLevelById(scope.level.id).then((response) => {
+                                scope.levelByScoreUnit = response;
+                                //console.log("Level by Score Unit => ", scope.levelByScoreUnit);
+                            });
+
+                        });
+                    }else {
+                        scope.percentValue = 100;
+                    }
+                    //Score Unit asociado al nivel
+                    ScoreUnitsModel.getScoreUnitById(scope.level.scoreUnitId).then((response) => {
+                        scope.levelActualName = response;
+                        //console.log("Nombre del su asociado al level =>", scope.levelActualName);
+                    });
+
+                    //Index all levels
+                    let LevelsIndex = {};
+                    let allLevelsIndex = ScoreUnitsModel.getLevels({filter: {where: {scoreUnitId: scope.level.scoreUnitId}}});
+
+                    allLevelsIndex.$promise.then((response)=> {
+                        //console.log('LevelsasdfdasdfasdfasIndex', response);
+                        response.map((level)=>LevelsIndex[level.id] = level);
+                        scope.LevelsIndex = LevelsIndex;
+                        //console.log('LevelsIndex', LevelsIndex);
+                    });
+                } else {
+                    scope.emptyLevel = true;
+                }
+            });
+        };
+
+
+        //Get scoreUnits list
+        Q.async(function*() {
+            let scoreUnits = yield ScoreUnitsModel.getScoreUnits().$promise;
             scoreUnits.map((su)=> {
                 ScoreUnitsIndex[su.id] = {
                     id: su.id,
@@ -33,8 +100,7 @@ export default($timeout, BaseModel, _hasScoreUnits) => ({
                     image: su.image
                 };
             });
-            
-            scope.item.scoreUnitInstances.map((su)=> {
+            scope.customer.scoreUnitInstances.map((su)=> {
                 if (ScoreUnitsIndex.hasOwnProperty(su.scoreUnit.id)) {
 
                     ScoreUnitsIndex[su.scoreUnit.id]['quantity'] = su.quantity || 0;
@@ -43,14 +109,23 @@ export default($timeout, BaseModel, _hasScoreUnits) => ({
                 }
             });
 
-   
-            scope.scoreUnits = ScoreUnitsIndex;
+            let myScoreUnitsArray = [];
+            for (let _scoreunit in ScoreUnitsIndex) {
+                let myScoreunit = ScoreUnitsIndex[_scoreunit];
+                myScoreUnitsArray.push(myScoreunit);
+            }
 
+            myScoreUnitsArray.sort((a, b) => {
+                a.quantity = a.quantity || 0;
+                b.quantity = b.quantity || 0;
+                return b.quantity - a.quantity;
+            });
+
+
+            scope.scoreUnits = myScoreUnitsArray;
             scope.$apply();
         })();
 
 
-        //Default image badge
-        scope.defaultImage = require('./images/no-image.png');
     }
 });

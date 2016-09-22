@@ -1,11 +1,35 @@
 import template from './template.jade';
+import stampit from 'stampit';
 import './styles.scss';
+var defaultImage =  require('./images/global.png');
+
 //TODO ngDocs
-export default($timeout) => ({
+
+export default(BaseModel, $rootScope, Customer, LoopBackAuth, _hasCustomer) => ({
     restrict: 'E',
     template,
-    scope: {},
+    scope: {
+        item: '=?'
+    },
     link: (scope, element, attrs)=> {
+
+        scope.defaultImage = defaultImage;
+
+        //Get events
+        let WidgetModel = stampit().compose(BaseModel, _hasCustomer);
+        let CustomerId = scope.item.id;
+
+        WidgetModel().getEvents(CustomerId).$promise.then((response)=> {
+            scope.item.events = response;
+        }).catch((error)=> {
+            console.log(error);
+        });
+
+
+
+
+
+
         scope.activity = {
             "global": {
                 "name": "Actividad global",

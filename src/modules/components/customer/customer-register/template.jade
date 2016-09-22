@@ -56,7 +56,7 @@
                 //TODO Descomentar cuando esté activo
                 //.ht-form__group-link
                     span.link-to-activate(ng-click='$root.goActivateForm = true;') {{ 'CUSTOMER.activate.linkTitle' | translate }}
-                .ht-form__group-button
+                .ht-form__group-button.register
                     //.ht-form__failed-create-user Ya existe un usuario con los mismos datos!
                     button.ht-form--button__register(type='submit' ng-disabled="!model.terms" ng-click='register()') {{ 'CUSTOMER.register.button' | translate }}
 .footer-shadow

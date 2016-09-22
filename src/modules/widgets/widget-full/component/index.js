@@ -16,16 +16,15 @@ import stampit from 'stampit';
  * @element ANY
  */
 
+
 export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseModel, _isWidget, _hasCustomer, _hasLogin, _isCustomer, $translate, Session, Notifier) => ({
+    
     restrict: 'E',
     transclude: true,
     template,
     scope: {
         //Button for edit profile in home
         editProfile: '=?',
-
-        //Global feed in home
-        showGlobalFeed: '=?',
 
         //Profile header in home
         showProfileHeader: '=?',
@@ -53,7 +52,6 @@ export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseMod
             let defaults = {
                 idWidget: "",
                 editProfile: true,
-                showGlobalFeed: false,
                 showMarker: true,
                 showProfileHeader: true,
                 badgeCols: 4,
@@ -67,8 +65,8 @@ export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseMod
                     showLevel: true,
                     showLevelList: true,
                     showBadges: true,
-                    showRankings: false,
-                    showGlobalFeed: false,
+                    showRankings: true,
+                    showGlobalFeed: true,
                     showEditProfile: false,
                     showMarketplace: false,
                     showGameRoom: false
@@ -145,7 +143,6 @@ export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseMod
                             title: message,
                             image: require('../images/default-img-popover.png')
                         });
-
                     });
                 }
             });
@@ -174,6 +171,7 @@ export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseMod
                 eventLoginSuccess();
                 eventLogoutSuccess();
             });
+
         }
     }
 

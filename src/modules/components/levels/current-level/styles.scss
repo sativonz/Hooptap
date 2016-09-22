@@ -1,16 +1,19 @@
 @import '../../../../common/stylesheets/common/colors.scss';
 @import '../../../../common/stylesheets/common/mixins.scss';
 
-c-level-actual {
+c-current-level {
   display: block;
   height: 440px;
   padding: 25px;
   overflow-y: auto;
-  .wrapper__level-empty-title {
+  .wrapper__level-empty {
     text-align: center;
-    font-size: 11pt;
-    color: $_1_color-level-empty-text;
+    color: #0089c0;
+    font-size: 10pt;
     padding-bottom: 20px;
+    margin-top: 100px;
+    p{font-size: 10pt;}
+    img{width:200px;}
   }
   .wrapper__level-actual {
     .section__level-nextLevel {
@@ -32,7 +35,7 @@ c-level-actual {
         margin-left: 15px;
       }
       .last-level {
-        @extend .wrapper__level-empty-title;
+        @extend .wrapper__level-empty;
         margin-top: 5px;
         font-weight: bold;
         line-height: 30px;
@@ -85,7 +88,7 @@ c-level-actual {
         }
       }
       .score-bar {
-        margin-top: -2px;
+        margin-top: -1px;
       }
       div {
         font-size: 15px;
@@ -123,6 +126,10 @@ c-level-actual {
         width: 35px;
         height: 35px;
         border-radius: 50%;
+        min-width: 35px;
+        min-height: 35px;
+        max-width: 35px;
+        max-height: 35px;
       }
 
       .circle {
@@ -149,6 +156,7 @@ c-level-actual {
 
       section {
         padding: 33px 0!important;
+        margin-top: 0;
       }
       .comments, .comment { position: relative }
       .comments.first:before { display: none; }

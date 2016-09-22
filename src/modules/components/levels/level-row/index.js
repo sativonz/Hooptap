@@ -26,6 +26,7 @@ export default(BaseModel, _hasScoreUnits) => ({
 
     link: (scope, element, attrs)=> {
 
+
         //Default level image
         scope.defaultLevelImage = defaultLevelImage;
         //Default next level image
@@ -44,6 +45,11 @@ export default(BaseModel, _hasScoreUnits) => ({
             let levelActualName = yield ScoreUnitModel().getScoreUnitById(nextLevel.scoreUnitId);
             //console.log("Nombre del su asociado al level !", levelActualName);
             scope.levelActualName = levelActualName;
+
+            //Progressbar value
+            let firstValue = scope.nextLevel.minimum;
+            let secondValue = scope.item.scores[ scope.item.levels[0].scoreUnitId ];
+            scope.percentValue = (secondValue /  firstValue) * 100 ;
 
         })();
 

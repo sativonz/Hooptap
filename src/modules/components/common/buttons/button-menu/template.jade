@@ -8,25 +8,25 @@ div#ht-menu
     ul.ht-menu_main
         li.animated.slideinTop.ht-menu__item-menu
             a {{'CUSTOMER.common.menu' | translate}}
-        li.animated.slideInLeft(ng-if="showQuests" ng-click="$root.WPF.viewQuests = !$root.WPF.viewQuests")
-            a {{ 'QUESTS.title' | translate }}
-        li.animated.slideInLeft(ng-if="showRankings")
-            a.ht-menu__item-ranking {{ 'RANKING.titleList' | translate }}
-            ul.ranking-menu
-                li.animated.slideInLeft(ng-repeat="su in item.levels" ng-click="$root.WPF.viewRanking = !$root.WPF.viewRanking")
-                    a {{ su.name }}
         li.animated.slideInLeft(ng-if="showLevelList" ng-click="$root.WPF.viewLevelList = !$root.WPF.viewLevelList")
             a {{ 'LEVELS.list' | translate }}
-        li.animated.slideInLeft(ng-if="showLevel" ng-click="$root.WPF.viewLevelActual = !$root.WPF.viewLevelActual")
+        li.animated.slideInLeft(ng-if="showLevel" ng-click="checkLevelActual(item)")
             a {{ 'LEVELS.actualLevel' | translate }}
+        li.animated.slideInLeft.ranking(ng-if="showRankings")
+            a.ht-menu__item-ranking {{ 'RANKING.titleList' | translate }}
+            ul.ranking-menu
+                li.animated.slideInLeft.ranking-items(ng-repeat="su in item.scoreUnitInstances" ng-click="$root.WPF.viewRanking = !$root.WPF.viewRanking")
+                    a(ng-click="viewRanking(su.scoreUnit)") {{ su.scoreUnit.name }}
         li.animated.slideInLeft(ng-if="showBadges" ng-click="$root.WPF.viewBadges = !$root.WPF.viewBadges")
             a {{ 'BADGES.title' | translate }}
-        li.animated.slideInLeft(ng-if="showGlobalFeed")
+        li.animated.slideInLeft(ng-if="showGlobalFeed" ng-click="$root.WPF.viewGlobalFeed = !$root.WPF.viewGlobalFeed")
             a {{ 'GLOBAL_FEED.title' | translate }}
         li.animated.slideInLeft(ng-if="showMarketplace")
             a {{ 'MARKETPLACE.title' | translate }}
         li.animated.slideInLeft(ng-if="showGameRoom" ng-click="$root.WPF.viewGameRoom = !$root.WPF.viewGameRoom")
             a {{titleGameRoom}}
+        li.animated.slideInLeft(ng-if="showQuests" ng-click="$root.WPF.viewQuests = !$root.WPF.viewQuests")
+            a {{ 'QUESTS.title' | translate }}
         li.animated.slideInLeft(ng-if="showEditProfile" ng-click="$root.WPF.viewEditProfile = !$root.WPF.viewEditProfile")
             a {{ 'CUSTOMER.update.title' | translate }}
         li.animated.slideInLeft

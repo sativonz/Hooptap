@@ -54,7 +54,7 @@ c-button-menu {
 
   #ht-menu {
     position: relative;
-    width: 400px;
+    width: 401px;
     height: 481px;
     margin: auto;
     font-family: $base-font-family;
@@ -67,23 +67,48 @@ c-button-menu {
     display: none;
     ul.ht-menu_main {
       @extend %commonStyles;
+      overflow-x: hidden;
       padding-top: 10px;
       background: white;
-      width:240px;
+      width: 240px;
       height: 100%;
       border-top-left-radius: 10px;
       border-bottom-left-radius: 10px;
       border-right: 1px solid $_1_color-border-bottom;
+      li.ranking {
+        font-weight: bold;
+        &:hover {
+          background: white;
+          a {
+            color: $_1_color-item-close-session;
+          }
+        }
+        li.ranking-items {
+          &:hover {
+            background-color: $_1_color-hover-li;
+            color: white!important;
+            font-weight: bold;
+            border-bottom: none!important;
+            a{
+              color: white!important;
+              font-weight: bold;
+              border-bottom: none!important;
+            }
+          }
+
+
+        }
+      }
       .ht-menu__item-menu {
         //padding-left:0!important;
         //padding-right:0!important;
 
           &:hover{
             background-color: white!important;
-            a {
+            a:hover {
               //border-bottom: 2px solid rgb(38, 101, 146)!important;
               color: $_1_color-item-menu;
-              border-bottom: 1px solid $_1_color-border-bottom;
+              border-bottom: none;
             }
           }
           a {
@@ -102,12 +127,13 @@ c-button-menu {
         padding-left: 20px;
         @extend %commonStyles;
         &:hover {
-          background-color: #00caff;
+          background-color: $_1_color-hover-li;
+          color: white!important;
+          font-weight: bold;
+          border-bottom: none!important;
           a {
-              ///border-bottom: none!important;
-              color: white;
               border-bottom:none!important;
-              font-weight: bold;
+              color: $white;
           }
           a.ht-menu__item-logout{
             color: red;
@@ -133,6 +159,9 @@ c-button-menu {
     ul.ranking-menu {
       padding-left: 20px;
       font-size: 11.5pt;
+      li{
+        font-weight: normal;
+      }
       li:last-child {
         border-bottom:none!important;
       }

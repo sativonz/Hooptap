@@ -23,6 +23,7 @@ widget-full {
     background: $white;
     position: fixed;
     right: 15px;
+    line-height: 17px;
     bottom: 15px;
     box-shadow: 0 0 5px $black;
     z-index: 999999999;
@@ -78,9 +79,11 @@ widget-full {
             }
             .wrapper__level-empty-title {
               text-align: center;
-              font-size: 11pt;
+              font-size: 10pt;
               color: $_1_color-level-empty-text;
               padding-bottom: 20px;
+              p{font-size: 10pt;}
+              img{width:200px;}
             }
             .level-home-widget-full__wrapper {
               .img-actual-level {
@@ -161,8 +164,8 @@ widget-full {
 
           //->Global feed block
           .wrapper__gf{
-            margin-left: 25px;
-            margin-right: 25px;
+            margin-left: 0px;
+            margin-right: 0px;
             .wrapper__gf-title {
               @extend %titleHomeStyleMix;
               padding: 36px 0 0;

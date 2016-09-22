@@ -1,18 +1,15 @@
 @import '../../../../common/stylesheets/common/base.scss';
 @import '../../../../common/stylesheets/common/colors.scss';
 
-c-ranking-list{
-  position: relative;
-  display: block;
-  height: 100%;
-  .ht-ranking-list  {
-    overflow: auto;
-    position: relative;
-    left: 0;
-    bottom: 0;
-    right: 0;
+c-ranking-list {
+  .ht-ranking-list {
+    overflow-y: auto;
+    height: 435px;
+    width: 400px;
+    overflow-x: hidden;
     font-family: $base-font-family;
     .ht-ranking-list__container {
+      overflow-x: hidden;
       .ht-ranking-list__wrapper {
         display: -webkit-box;
         display: box;
@@ -20,39 +17,21 @@ c-ranking-list{
         padding-left: 15px;
         padding-right: 15px;
         height: 70px;
-        &.mePosition {
-          background: $_1_mePosition-back;
-          margin-left: 0;
-          margin-right: 0;
-          padding: 0px 15px 0px 16px;
-          position: absolute;
-          border-bottom: none;
-          top: 0;
-          left: 0;
-          right: 0;
-          .ht-ranking-list__score-frame {
-            background-color: $_1_mePosition-score-back!important;
-          }
-        }
-        &:first-child {
-          margin-top: 70px;
-        }
-        .ht-ranking-list__user-img{
-          padding:5px;
+        .ht-ranking-list__user-img {
+          padding: 5px;
           > img {
             border: 3px solid $_1_header-color;
             border-radius: 50%;
             width: 50px;
-            height:50px;
+            height: 50px;
           }
-          .ht-ranking-list__position{
-            padding-top: 20px;
+          .ht-ranking-list__position {
             font-size: 10pt;
             font-weight: bold;
-            color: $white!important;
+            color: $white !important;
             height: 20px;
             background: $_1_header-color;
-            padding: 4px 5px 5px 5px;
+            padding: 2px 5px 5px 5px;
             border-radius: 5px;
             position: absolute;
             top: 40px;
@@ -70,25 +49,40 @@ c-ranking-list{
         .ht-ranking-list__wrapper-score {
           padding: 19px 0px 0px 0px;
           .ht-ranking-list__score-frame {
-            height: 21px;
-            background: $_1_ranking-box-score;
-            border-radius: 5px;
-            padding: 3px 3px 3px 7px;
-            float: right;
+            width: 100%;
             .ht-ranking-list__score-frame__img {
               float: right;
-              height: 100%;
+              width: 20px;
+              height: 20px;
+              max-width: 20px;
+              max-height: 20px;
+              min-width: 20px;
+              min-height: 20px;
+              position: relative;
+              top: -2.5px;
+              margin-left: 6px;
             }
             .ht-ranking-list__score-frame__mark {
               float: right;
-              padding: 0px 4px 2px 2px;
-              font-weight: bold;
-              color: white;
-              letter-spacing: 0.2px;
-              font-size: 11pt;
+              padding: 6px;
+              font-weight: 700;
+              color: $white;
+              font-size: 18px;
+              border-radius: 5px;
+              top: -2px;
+              position: relative;
+              background: $_1_ranking-box-score;
+              letter-spacing: .5px;
             }
           }
         }
+        &.current-customer {
+          background: $_1_mePosition-back;
+          .ht-ranking-list__score-frame__mark {
+            background-color: $_1_mePosition-score-back !important;
+          }
+        }
+
       }
     }
   }
