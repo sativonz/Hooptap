@@ -33,7 +33,7 @@ export default($rootScope, BaseModel, _hasScoreUnits) => ({
         scope.defaultNextLevelImage = defaultNextLevelImage;
         scope.defaultLineLevelOff = defaultLineLevelOff;
         scope.defaultLineLevel = defaultLineLevel;
-        scope.item = {};
+        scope.items = {};
 
         //ScoreUnit Stampit model
         let ScoreUnitModel = stampit().compose(BaseModel, _hasScoreUnits);
@@ -49,16 +49,24 @@ export default($rootScope, BaseModel, _hasScoreUnits) => ({
             getCurrentLevel(item);
         });
 
-        var getCurrentLevel= (item)=> {
-            scope.item = item;
-            //console.log('OBJETO ENTERO => ', item);
+        var getCurrentLevel= (items)=> {
+            scope.items = items;
+            // console.log('OBJE/TO ENTERO => ', items);
+            //console.log('OBJETO ENTERO  CUSTOMER => ', scope.customer);
 
-            scope.level = scope.item[0].level;
-            //console.log("OBJETO LEVEL =>", scope.level);
+            scope.items.forEach((item)=>{
+                if (item.levelId == scope.customer.levels[0].id){
+                    scope.item = item;
+                }
+            });
+
+
+
+
 
 
             //NextLevel
-            ScoreUnitModel().getLevelById(scope.level.nextId).then((response) => {
+            ScoreUnitModel().getLevelById(scope.item.level.nextId).then((response) => {
                 scope.nextLevel = response;
                 //console.log("NEXT LEVEL !", scope.nextLevel);
 
@@ -70,11 +78,11 @@ export default($rootScope, BaseModel, _hasScoreUnits) => ({
 
                 //Progressbar
                 let firstValue = scope.nextLevel.minimum;
-                let secondValue = scope.scores[scope.level.scoreUnitId];
+                let secondValue = scope.scores[scope.item.level.scoreUnitId];
                 scope.percentValue = (secondValue / firstValue) * 100;
 
                 //Search level by score unit
-                ScoreUnitModel().getLevelById(scope.level.id).then((response) => {
+                ScoreUnitModel().getLevelById(scope.item.level.id).then((response) => {
                     scope.levelByScoreUnit = response;
                     //console.log("Level by Score Unit => ", scope.levelByScoreUnit);
                 });
@@ -82,7 +90,7 @@ export default($rootScope, BaseModel, _hasScoreUnits) => ({
 
                 //Index all levels
                 let LevelsIndex = {};
-                let allLevelsIndex = ScoreUnitModel().getLevels({filter: {where: {scoreUnitId: scope.level.scoreUnitId}}});
+                let allLevelsIndex = ScoreUnitModel().getLevels({filter: {where: {scoreUnitId: scope.item.level.scoreUnitId}}});
 
                 allLevelsIndex.$promise.then((response)=> {
                     response.map((level)=>LevelsIndex[level.id] = level);

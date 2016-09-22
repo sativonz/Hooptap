@@ -45,7 +45,7 @@
                     .wrapper__level-actual(ng-if="$root.WPF.viewlevelActualHome")
                         c-button-back(ng-click="$root.WPF.viewlevelActualHome = !$root.WPF.viewlevelActualHome")
                         c-widget-header(title="{{ 'LEVELS.actualLevel' | translate }}")
-                        c-level-actual(customer-id="customer.id" score-unit-id="customer.scores[0].id" scores="customer.scores" customer="customer")
+                        c-current-level(customer-id="customer.id" score-unit-id="customer.scores[0].id" scores="customer.scores" customer="customer")
 
 
                     .wrapper__game-room(ng-if="$root.WPF.viewGameRoom")

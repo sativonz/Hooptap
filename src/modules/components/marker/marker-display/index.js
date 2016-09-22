@@ -44,8 +44,11 @@ export default($timeout, $rootScope, BaseModel, _hasScoreUnits, _hasCustomer) =>
                 //TODO Coge el primer level de la lista // Siguiente release => poner bien id
                 let nextLevel = yield ScoreUnitModel().getLevelById(scope.item.levels[0].nextId);
                 scope.nextLevel = nextLevel;
-                let suImage = yield ScoreUnitModel().getScoreUnitById(nextLevel.scoreUnitId);
-                scope.suImage = suImage;
+                let nextLevelImage = yield ScoreUnitModel().getScoreUnitById(nextLevel.scoreUnitId);
+                scope.nextLevelImage = nextLevelImage;
+                let defaultScoreUnit = yield ScoreUnitModel().getScoreUnitById(scope.item.scoreUnitInstances[0].scoreUnitId);
+                scope.defaultScoreUnit = defaultScoreUnit;
+
 
 
                 //Index levels
@@ -64,15 +67,16 @@ export default($timeout, $rootScope, BaseModel, _hasScoreUnits, _hasCustomer) =>
 
         //Calcule level actual to show or disable click
         scope.checkLevelActual = (item)=> {
-            if(item.levels.length <= 0){}else {
+            if(item.levels.length > 0){
                 if($rootScope.WPF){
                     $rootScope.WPF.viewlevelActualHome = !$rootScope.WPF.viewlevelActualHome;
                 } else{
                     $rootScope.WPF = {};
                     $rootScope.WPF.viewlevelActualHome = !$rootScope.WPF.viewlevelActualHome;
                 }
-
             }
         };
+
+        //console.log(scope.item);
     }
 });

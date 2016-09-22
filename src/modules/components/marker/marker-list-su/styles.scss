@@ -153,6 +153,9 @@ c-marker-list-su {
               display: none;
             }
           }
+          &.level-complete {
+            border-radius: 5px;
+          }
         }
         .score-bar {
           margin-top: -3px;
