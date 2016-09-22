@@ -20,10 +20,10 @@ module.exports = function makeWebpackConfig() {
     //Output
     config.output = isTest ? {} : {
         // Absolute output directory
-        path: __dirname + '/build/' + pkg.version.replace(/\./g, '-') + '/',
+        path: __dirname + '/build/',
         // Output path from the view of the page
         // Uses webpack-dev-server in development
-        publicPath: isProd ? 'http://sdk-client.hooptap.com/' + pkg.version.replace(/\./g, '-') + '/' : 'http://localhost:3030/',
+        publicPath: isProd ?  '/client/' : 'http://localhost:3030/',
 
         // Filename for entry points
         // filename: 'bundle.[name].[hash].js',
