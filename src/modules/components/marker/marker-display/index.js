@@ -65,7 +65,6 @@ export default($timeout, $rootScope, BaseModel, _hasScoreUnits, _hasCustomer) =>
         //Calcule level actual to show or disable click
         scope.checkLevelActual = (item)=> {
             if(item.levels.length <= 0){}else {
-                debugger;
                 if($rootScope.WPF){
                     $rootScope.WPF.viewlevelActualHome = !$rootScope.WPF.viewlevelActualHome;
                 } else{

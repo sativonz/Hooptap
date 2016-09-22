@@ -1,15 +1,14 @@
 c-widget-header(title="Ranking {{ scoreUnitName }}")
 .ht-ranking-list
-    .ht-ranking-list__container(ng-repeat="ranking in ranking" id="row-{{$index+1}}")
-        .ht-ranking-list__wrapper
+    .ht-ranking-list__container(ng-repeat="customer in ranking" id="row-{{$index+1}}")
+        .ht-ranking-list__wrapper.animated(ng-class="{'current-customer':customer.id === item.id, 'bounceInRight':customer.id === item.id}")
             .col-xs-8.not-padding
                 .ht-ranking-list__user-img.col-xs-3
-                    img(ng-if="!ranking.image" ng-src="{{defaultImage}}")
-                    img(ng-if="ranking.image" ng-src="{{ranking.image}}")
+                    img(ng-src="{{customer.image || defaultImage}}")
                     span.ht-ranking-list__position {{$index+1}}
                 .ht-ranking-list__username.col-xs-9
-                    p {{ranking.username}}
+                    p {{customer.username}}
             .ht-ranking-list__wrapper-score.col-xs-4
                 .ht-ranking-list__score-frame
-                    img.ht-ranking-list__score-frame__img(ng-src="{{ scoreUnitImage }}")
-                    .ht-ranking-list__score-frame__mark {{ranking.scores[scoreUnitId]}}
+                    .ht-ranking-list__score-frame__mark {{customer.scores[scoreUnitId]}}
+                            img.ht-ranking-list__score-frame__img(ng-src="{{ scoreUnitImage }}")

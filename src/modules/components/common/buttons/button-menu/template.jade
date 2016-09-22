@@ -10,7 +10,7 @@ div#ht-menu
             a {{'CUSTOMER.common.menu' | translate}}
         li.animated.slideInLeft(ng-if="showLevelList" ng-click="$root.WPF.viewLevelList = !$root.WPF.viewLevelList")
             a {{ 'LEVELS.list' | translate }}
-        li.animated.slideInLeft(ng-if="showLevel" ng-click="$root.WPF.viewLevelActual = !$root.WPF.viewLevelActual")
+        li.animated.slideInLeft(ng-if="showLevel" ng-click="checkLevelActual(item)")
             a {{ 'LEVELS.actualLevel' | translate }}
         li.animated.slideInLeft.ranking(ng-if="showRankings")
             a.ht-menu__item-ranking {{ 'RANKING.titleList' | translate }}

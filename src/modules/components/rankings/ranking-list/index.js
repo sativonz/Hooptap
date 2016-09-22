@@ -13,8 +13,8 @@ var defaultImage = require("./images/profile-default.svg");
  */
 export default($rootScope, BaseModel, _hasRankings) => ({
     restrict: 'E',
-    transclude: true,
     template,
+    transclude: true,
     scope: {
         item: '=?'
     },
@@ -29,8 +29,6 @@ export default($rootScope, BaseModel, _hasRankings) => ({
             scope.scoreUnitName =  ranking.scoreUnit.name;
             scope.scoreUnitImage =  ranking.scoreUnit.image;
             scope.scoreUnitId =  ranking.scoreUnit.id;
-            // console.log("Ranking", ranking);
-            // console.log("Ranking customers", ranking.customers);
         });
 
         scope.$on('$destroy',()=>{
