@@ -41,7 +41,6 @@ export default($timeout) => ({
 
         //TODO Fake response
         scope.customer = {
-            "productId": "string",
             "scoreUnit": {
 
                 "scoreUnitId1": {

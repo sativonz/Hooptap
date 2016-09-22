@@ -1,5 +1,6 @@
 import template from './template.jade';
 import './styles.scss';
+import stampit from 'stampit';
 /**
  * @ngdoc directive
  * @name Button init
@@ -10,17 +11,54 @@ import './styles.scss';
  * @params {String} image Image of the button, positioned to the left
  * @element ANY
  */
-export default() => ({
+export default($rootScope, LoopBackAuth, BaseModel, _hasLogin, _isCustomer, Session, clientHelper) => ({
     restrict: 'E',
     scope: {
-        text: '@',
-        image: '@'
+        backColor: '@?',
+        textColor: '@?',
+        text: '@?',
+        image: '@?'
     },
     template,
-    link: (scope, element, attrs)=>{
-        $('c-button-init').click(function(ev) {
-            $('#ht-widgets').fadeIn().css("display" , "block");
-            $('c-button-init').hide(100);
+    link: (scope, element, attrs)=> {
+
+        //Default values
+        scope.buttonDefaultImage = function () {
+            return require('./images/profile-default.svg')
+        };
+
+        let defaults = {
+            text: "GO !",
+            textColor: "white",
+            backColor: "#1fb570",
+            image: require('./images/profile-default.svg')
+        };
+        clientHelper.setDefaultAttributes(defaults, scope, attrs);
+
+
+        //Click to open button
+        element.on('click', (event)=> {
+            $rootScope.widgetOpened = true;
+            $rootScope.$apply();
+        });
+
+        //Stampit model
+        let LoginModel = stampit().compose(BaseModel, _hasLogin);
+
+        if (Session.isAuthenticated()) {
+            let filter = {fields: ["email", "image"]};
+            LoginModel().getCurrent(filter).then((response)=> {
+                scope.customer = response;
+            });
+        } else {
+            //Clear Storage, session and user if not rememberMe
+            LoopBackAuth.clearStorage();
+            LoopBackAuth.clearUser();
+        }
+
+        //Logout
+        $rootScope.$on('$logoutSuccess', ()=> {
+            scope.customer = {};
         });
 
     }

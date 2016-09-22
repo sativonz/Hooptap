@@ -2,26 +2,40 @@ import stampit from 'stampit';
 import _ from 'lodash';
 import Q from 'q';
 
-export default ($q, $state, $injector, BaseModel, _Savable,_Badge, _Quest, _ScoreUnit, Customer) => {
+export default (Level, ScoreUnit, ScoreUnitInstance) => {
 
     return stampit()
-        .compose(BaseModel, _Savable, _Badge, _Quest, _ScoreUnit)
-
-        /**
-         * @memberOf Rule.model:Rule
-         * @stampit init
-         */
+    /**
+     * @memberOf Rule.model:Rule
+     * @stampit init
+     */
         .init(function ({stamp}) {
-            this.setRemoteModel('Customer');
-            this._factory = Customer;
+            this.setRemoteModel('ScoreUnit');
+            this._factory = ScoreUnit;
         })
         .methods({
-            // getCurrent(){
-            //     Q.async(function*() {
-            //         let response = Customer.getCurrent().$promise;
-            //
-            //     })();
-            // }
+
+            getLevelById(id) {
+                if (!id)
+                    return;
+                return Level.findById({id: id}).$promise;
+            },
+
+            getLevels(filter) {
+                return Level.find(filter);
+            },
+
+            getScoreUnits(filter){
+                return ScoreUnit.find(filter);
+            },
+
+            getScoreUnitById(id){
+                return ScoreUnit.findById({id: id}).$promise;
+            },
+            getScoreUnitInstances(filter){
+                return ScoreUnitInstance.find(filter);
+            }
+
 
         })
         .refs({
@@ -30,11 +44,9 @@ export default ($q, $state, $injector, BaseModel, _Savable,_Badge, _Quest, _Scor
              * @memberOf Rule.model:Rule
              * @stampit refs
              */
-            _defaults: {
-                productId: "5784fda092cabc234005814b" //TODO change to actual product id
-            },
+            _defaults: {},
 
-            _model: 'CustomerModel'
+            _model: 'ScoreUnitModel'
         })
 
         .props({});

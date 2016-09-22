@@ -11,76 +11,76 @@ c-profile-header {
 
     .ht-profile-header__wrapper {
 
-        .ht-profile-header__images {
+      .ht-profile-header__images {
 
-          &:hover .ht-profile-header__img-upload {
-            display: block;
-            cursor: pointer;
-          }
-
-          .ht-profile-header__profile-photo {
-            border-radius: 50%;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            height: inherit;
-            padding: 0px;
-            position: relative;
-            top: -7px;
-            left:11px;
-            border: 2px solid $white;
-            width: 80px;
-            height: 80px;
-            box-sizing: content-box;
-          }
-
-          .ht-profile-header__img-upload {
-            display: none;
-            border-radius: 50%;
-            margin-left: auto;
-            margin-right: auto;
-            height: inherit;
-            padding: 0;
-            position: absolute;
-            top: -7px;
-            border: 2px solid $white;
-            width: 80px;
-            height: 80px;
-            left: 40px;
-            opacity: 0.5;
-            background: black;
-            box-sizing: content-box;
-          }
-
-
-        }
-        .ht-profile-header__edit {
-          width: 20px;
-          position: absolute;
-          top: 52px;
-          left: 103px;
+        &:hover .ht-profile-header__img-upload {
+          display: block;
           cursor: pointer;
         }
 
-
-        .ht-profile-header__title-name,
-        .ht-profile-header__title-email {
-          font-size: 11pt;
-          color: white;
-          font-weight: 200;
+        .ht-profile-header__profile-photo {
+          border-radius: 50%;
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          height: inherit;
+          padding: 0px;
+          position: relative;
+          top: -7px;
+          left:11px;
+          border: 2px solid $white;
+          width: 80px;
+          height: 80px;
+          box-sizing: content-box;
         }
 
-        .ht-profile-header__item-name,
-        .ht-profile-header__item-email{
-          font-size: 11pt;
-          font-weight: 400;
-          color: white;
-          margin: 5px 4px 4px -2px;
+        .ht-profile-header__img-upload {
+          display: none;
+          border-radius: 50%;
+          margin-left: auto;
+          margin-right: auto;
+          height: inherit;
+          padding: 0;
+          position: absolute;
+          top: -7px;
+          border: 2px solid $white;
+          width: 80px;
+          height: 80px;
+          left: 40px;
+          opacity: 0.5;
+          background: black;
+          box-sizing: content-box;
         }
 
-        .ht-profile-header__item-email {
-          padding-top: 4px;
-        }
+
+      }
+      .ht-profile-header__edit {
+        width: 20px;
+        position: absolute;
+        top: 52px;
+        left: 103px;
+        cursor: pointer;
+      }
+
+
+      .ht-profile-header__title-name,
+      .ht-profile-header__title-email {
+        font-size: 11pt;
+        color: white;
+        font-weight: 200;
+      }
+
+      .ht-profile-header__item-name{
+        font-size: 11pt;
+        font-weight: 400;
+        color: white;
+      }
+      .ht-profile-header__item-email{
+        font-size: 11pt;
+        font-weight: 400;
+        color: white;
+      }
+
 
     }
   }

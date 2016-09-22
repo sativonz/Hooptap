@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Widgets TEST</title>
+    <script></script>
+</head>
+<body>
+
+
+<!--BUTTON TO OPEN WIDGETS -->
+<div>
+    <c-button-init text="GOO!!"
+                   image="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-play-128.png"></c-button-init>
+</div>
+
+<!--Widget customer acces -->
+<div>
+    <widget-customer-access-popup show-mix-form="true"></widget-customer-access-popup>
+</div>
+
+
+<!--Widget full -->
+<div>
+    <widget-full></widget-full>
+</div>
+
+
+<!--Widget badges grid
+<div><w-widget-badges-grid number-cols="3"></w-widget-badges-grid></div>-->
+
+
+<!--Widget quests -->
+<!--<w-widget-quests></w-widget-quests>-->
+
+<!--Bundle WIDGETS -->
+<script>
+    (function (f, u, n, b, o, un, d) {
+        f['HooptapObjectClient'] = o;
+        f[o] = f[o] || function () {
+                    ( f[o].argum = f[o].argum || [] ).push(arguments)
+                };
+        f[o].timestamp = 1 * new Date();
+        un = u.createElement(n);
+        d = u.getElementsByTagName(n)[0];
+        un.async = 1;
+        un.src = b;
+        d.parentNode.insertBefore(un, d);
+    })(window, document, 'script', 'http://localhost:3030/bundle.js', 'Hooptap');
+    window.addEventListener("load", function () {
+        //Ultima version
+        Hooptap.start({apiKey: "7RMGPQn5a5NAB8FXprD2UJvjhk11XZdg", url: "http://52.211.32.45:3000"});
+        //Antiguo API
+        //Hooptap.start({apiKey: "PCN5dmOY1S4ST0hr9Z0ScjcG3slbS1Gq", url: "http://52.209.100.27:8080"});
+    });
+</script>
+
+</body>
+</html>
+
+

@@ -1,7 +1,7 @@
 module.exports = function (grunt) {
 
     let pkg = grunt.file.readJSON('package.json');
-
+    let regPkg =  pkg.version.replace(/\./g,'-');
     grunt.loadNpmTasks('grunt-docular');
 
 
@@ -12,38 +12,52 @@ module.exports = function (grunt) {
 
         docular: {
 
-            baseUrl: "/" + pkg.version + "/docs/",
-
+          //  baseHref: "",
+            //baseUrl:pkg.version + '/docs/',
+            //baseUrl:"/v" + pkg.version + '/docs/',
+            baseUrl: "/"+regPkg+"/docs/",
             useHtml5Mode: false,
 
-            docular_webapp_target: 'build/docs',
+            docular_webapp_target: 'build/' + regPkg + '/docs/',
 
             groups: [
-
-                {
-                    groupTitle: 'Panel V3 API',
-                    groupId: 'panelV3',
-
+              {
+                    groupTitle: 'Modules',
+                    groupId: 'modules',
                     groupIcon: 'icon-book',
-
                     sections: [
-
                         {
-
-                            id: 'htPanelV3',
-
-                            title: 'Hooptap Panel v3 API',
-
+                            id: 'components',
+                            title: 'Components for Widgets Construction',
                             scripts: [
-
-                                'src/**/*.js'
-
+                                'src/modules/components/**/*.js'
+                            ]
+                        },
+                        {
+                            id: 'widgets',
+                            title: 'Widgets',
+                            scripts: [
+                                'src/modules/widgets/**/*.js'
                             ]
                         }
                     ]
-                }
+                },
+                {
+                      groupTitle: 'Services',
+                      groupId: 'services',
+                      groupIcon: 'icon-book',
+                      sections: [
+                          {
+                              id: 'hooptap-api',
+                              title: 'Hooptap Api Service',
+                              scripts: [
+                                  'src/common/services/angular-sdk.js'
+                              ]
+                          }
+                      ]
+                  }
             ],
-            showDocularDocs: true,
+            showDocularDocs: false,
             showAngularDocs: false
         }
     });

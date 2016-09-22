@@ -1,22 +1,32 @@
 @import "../../../../common/stylesheets/common/colors";
 @import "../../../../common/stylesheets/common/base";
+@import "../../../../common/stylesheets/common/mixins";
 
-w-widget-quests {
+widget-quests {
+  .widget-quests__container {
+    display: block;
+    position: relative;
+    font-family: $base-font-family;
+    height: 480px;
+    min-height: 480px;
+    max-height: 480px;
+    width: 400px;
+    min-width: 400px;
+    max-width: 400px;
+    background: $white;
+    position: fixed;
+    right: 15px;
+    bottom: 15px;
+    box-shadow: 0 0 5px $black;
+    z-index: 999999999;
+    @include border-radius(14px);
+    padding-right: 0 !important;
 
-  //->Nav  ----> UNUSED, ONLY IF THE WIDGET NOT HAVE HEADER
-  //.nav-tabs>li.active:first-child{
-  //  border-top-left-radius: 15px;
-  //}
-  //
-  //.nav-tabs>li>a:hover {
-  //  border-color: transparent!important;
-  //}
-  //
-  //.nav>li>a:focus, .nav>li>a:hover {
-  //  background-color: transparent!important;
-  //}
-  //
-  //.nav-tabs>li.active:nth-child(3){
-  //  border-top-right-radius: 15px;
-  //}
+    .tab-content {
+      height: 370px!important;
+    }
+
+    @include scrollbars(10px, $_1_light-grey-background, none, $_1_soft-grey-background, 3px)
+
+  }
 }

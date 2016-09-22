@@ -21,7 +21,7 @@
 @import "_TODO/game-wrapper/styles";
 
 /// Levels
-@import "levels/level-actual/styles";
+@import "levels/current-level/styles";
 
 /// Marker
 @import "_TODO/marker-grid-su/styles";
@@ -32,7 +32,6 @@
 
 /// Notifications
 @import "_TODO/notifications-list/styles";
-@import "notifications/notifications-popup/styles";
 @import "_TODO/progressbar-old/styles";
 @import "notifications/progressbar/styles";
 

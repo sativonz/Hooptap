@@ -1,0 +1,49 @@
+@import '../../../../common/stylesheets/common/_base.scss';
+@import '../../../../common/stylesheets/common/colors.scss';
+@import '../../../../common/stylesheets/common/mixins.scss';
+
+widget-customer-access-mini {
+  display: block;
+  width: 100%;
+  height: 100%;
+  input,
+  select {
+    width: 100%;
+  }
+  .logout-text {
+    cursor: pointer;
+  }
+  .ht-go-register,
+  .ht-go-login {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  .close-modal.badge-detail__img-close {
+    cursor: pointer;
+    position: absolute;
+    right: 13px;
+  }
+
+  .modalRegister {
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    padding-top: 80px;
+  }
+
+  #checkbox_terms {
+    width: 15px;
+  }
+  .profile-img {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
+    max-width: 50px;
+    min-height: 50px;
+  }
+
+
+  @include scrollbars(10px, $_1_light-grey-background, none, 0px solid $_1_soft-grey-background, 3px);
+
+}
+

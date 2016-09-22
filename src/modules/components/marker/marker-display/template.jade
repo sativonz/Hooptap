@@ -1,22 +1,22 @@
-.wrapper__score-units-title {{ 'SCOREUNITS.title' | translate }}
-.row.zoneRow(ng-repeat="zoneRow in options.zones" id="zoneRow-{{$index+1}}")
-    .center.profile-widget-full-items(ng-repeat="zoneCol in zoneRow" ng-class="{'col-xs-12': zoneRow.length == 1, 'col-xs-6': zoneRow.length == 2, 'col-xs-4': zoneRow.length == 3, 'col-xs-3': zoneRow.length == 4 }")
-        .marker-display__su(ng-click="$root.WPF.viewLevelList = !$root.WPF.viewLevelList"   ng-if="zoneCol.model == 'ScoreUnit'" tooltip-placement="top" uib-tooltip="{{ zoneCol.name | translate }}")
+.ht-marker-display__title {{ 'SCOREUNITS.title' | translate }}
+.ht-marker-display__zoneRow.row(ng-repeat="zoneRow in options.zones" id="ht-marker-display__zoneRow-{{$index+1}}")
+    .ht-marker-display__wrapper.center(ng-repeat="zoneCol in zoneRow" ng-class="{'col-xs-12': zoneRow.length == 1, 'col-xs-6': zoneRow.length == 2, 'col-xs-4': zoneRow.length == 3, 'col-xs-3': zoneRow.length == 4 }")
+
+        .ht-marker-display__su(ng-click="$root.WPF.viewLevelList = !$root.WPF.viewLevelList"   ng-if="zoneCol.model == 'ScoreUnit'" tooltip-placement="top" uib-tooltip="{{ defaultScoreUnit.name || 'SCOREUNITS.title' | translate }}")
             .col-xs-6.not-padding.score
-                .title__score-units {{zoneCol.quantity}}
+                .title__score-units {{item.scoreUnitInstances[0].quantity || defaultValue}}
             .col-xs-6.not-padding
-                img.marker-display__img(ng-src="{{zoneCol.image}}")
-        .marker-display__level(ng-if="zoneCol.model == 'Level'" tooltip-placement="top" uib-tooltip="{{ zoneCol.name | translate }}")
+                img.ht-marker-display__img(ng-src="{{ defaultScoreUnit.image || suDefaultImage() }}")
+
+        .ht-marker-display__level(ng-click="checkLevelActual(item);"  ng-if="zoneCol.model == 'Level' &&  zoneRow.length !== 1" tooltip-placement="top" uib-tooltip="{{ actualLevel.name || 'LEVELS.title' | translate}}")
+            .col-xs-12.not-padding
+                img.ht-marker-display__img(ng-src="{{ item.levels[0].image || levelDefaultImage() }}")
+
+        .ht-marker-display__level(ng-if="zoneCol.model == 'Level' && zoneRow.length == 1")
+            c-level-row(item="item")
+
+        .ht-marker-display__badges(ng-click="$root.WPF.viewBadges = !$root.WPF.viewBadges" ng-if="zoneCol.model == 'Badge'" tooltip-placement="top" uib-tooltip="{{ 'BADGES.title' | translate }}")
             .col-xs-6.not-padding
-                .title__score-units >{{zoneCol.minimum}}
-            .col-xs-6.not-padding
-                img.marker-display__img(ng-src="{{zoneCol.image}}")
-        .marker-display__badges(ng-click="$root.WPF.viewBadges = !$root.WPF.viewBadges" ng-if="zoneCol.model == 'Badge'" tooltip-placement="top" uib-tooltip="{{ 'BADGES.title' | translate }}")
-           .col-xs-6.not-padding
-                .title__score-units {{zoneCol.count}}
-            .col-xs-6.marker-display-badges__img.not-padding
-                img.marker-display__img(ng-src="{{zoneCol.image}}")
-.wrapper__badges-component(ng-if="$root.WPF.viewBadges")
-    c-button-back(ng-click="$root.WPF.viewBadges = !$root.WPF.viewBadges")
-    c-widget-header(title="{{'BADGES.title' | translate}}")
-    c-badges-grid
+                .title__score-units {{item.badgeInstances.length || defaultValue}}
+            .col-xs-6.marker-display__badges-img.not-padding
+                img.ht-marker-display__img(ng-src="{{ zoneCol.image || badgeDefaultImage() }}")

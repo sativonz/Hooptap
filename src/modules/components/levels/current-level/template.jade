@@ -1,0 +1,41 @@
+.level-home-widget-full__container
+    .wrapper__level-empty(ng-if="customer.levels.length <= 0")
+        img(ng-src=require("./images/no-data.svg"))
+        p {{::'LEVELS.notLevels' | translate}}
+    c-loader-wrap(value="items")
+        .wrapper__level-actual(ng-if="customer.levels.length > 0")
+            .section__level-nextLevel
+                .col-xs-3.not-padding
+                    img.img-actual-level(ng-src="{{item.level.image || defaultLevelImage}}")
+                    p.name-actual-level {{item.level.name}}
+                //TODO mensaje cuando esta en el ultimo nivel
+                //.col-xs-9(ng-if="level.nextId == null")
+                    p.last-level {{ 'LEVELS.lastLevelMsg' | translate }} {{customer.username}} !
+                //.next-level__wrapper.col-xs-9.not-padding(ng-if="level.nextId != null")
+                .next-level__wrapper.col-xs-9.not-padding(ng-if="nextLevel")
+                    .level-separator
+                    .col-xs-4.not-padding
+                        img.img-next-level(ng-src="{{nextLevel.image || defaultNextLevelImage}}")
+                    .col-xs-8.not-padding.wrapper-next-level
+                        p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
+                        p.name-next-level {{nextLevel.name}}
+            .section__progressbar
+                code {{percentValue}}
+                .progressbar-actual(style="width:{{percentValue}}%")
+                    .score-bar.center
+                        span {{scores[ item.level.scoreUnitId ]}}
+                        span(ng-if="nextLevel") / {{nextLevel.minimum}}
+                        span {{levelActualName.name}}
+            .section__levels-timeline
+                section.comments(ng-repeat="levels in LevelsIndex track by $index" ng-class="{first:$first}")
+                    .col-xs-2
+                        div(ng-if="item.level.id == levels.id")
+                            .circle
+                                svg(version='1.1', viewbox='0 0 500 500', preserveaspectratio='xMinYMin meet')
+                                    circle(cx='250', cy='250', r='200')
+                        div
+                            img.line-img(ng-src="{{levels.image || defaultLineLevel}}" ng-class="{ 'current-level': item.level.id == levels.id, 'next-level': levels.minimum < item.level.minimum }")
+                    .col-xs-10
+                        span.level-name(ng-class="{ 'next-level-name': scope.level.id != scope.level.id }")  {{levels.name}}
+                        span.score {{levels.minimum}} {{levelActualName.name}}
+

@@ -2,6 +2,12 @@
 
 //////////////////--------GENERAL STYLES---------//////////////////////
 
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 .center{
   text-align: $center;
 }
@@ -26,25 +32,11 @@ input::-moz-focus-inner {
   padding: 0px!important;
 }
 
-//font widget
-div#ht-widget {
-  font-family: $base-font-family;
-  max-height: 480px;
-  min-height: 480px;
-}
 
 //////////////////--------WIDGET W&H---------//////////////////////
 //TODO Revisar tamaños del widget
 
 #ht-widget {
-  background: $white;
-  position: fixed;
-  right: 15px;
-  bottom: 15px;
-  box-shadow: 0 0 5px #000;
-  z-index: $z-index-9;
-  border-radius: 14px;
-  padding-right: 0!important;
   .modal{
     background-color: rgba(0, 0, 0, 0.75);
     width: 100%;
@@ -75,9 +67,4 @@ div#ht-widget {
     }
   }
 
-}
-
-#ht-widgets {
-  display: $hide;
-  @include border-radius(10px);
 }

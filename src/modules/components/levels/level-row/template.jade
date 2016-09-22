@@ -1,0 +1,22 @@
+.level-home-widget-full__container
+    .wrapper__levels-title
+        span {{ 'LEVELS.title' | translate }}
+    .wrapper__level-empty(ng-if="!item.levels || item.levels.length < 1")
+        p.wrapper__level-empty-title {{ 'LEVELS.notLevels' | translate }}
+    .level-home-widget-full__wrapper(ng-repeat="level in item.levels | limitTo:1")
+        .col-xs-3.not-padding
+            img.img-actual-level(ng-src="{{level.image || defaultLevelImage}}")
+            p.name-actual-level {{level.name}}
+        .col-xs-9(ng-if="level.nextId == null")
+            p.last-level {{ 'LEVELS.lastLevelMsg' | translate }} {{customer.username}} !
+        .next-level__wrapper.col-xs-9.not-padding(ng-if="level.nextId != null")
+            .col-xs-3.not-padding
+                img.img-next-level(ng-src="{{nextLevel.image || defaultNextLevelImage}}")
+            .col-xs-9.not-padding.wrapper-next-level
+                p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
+                p.name-next-level {{nextLevel.name}}
+
+            .col-xs-12
+                .progressbar(ng-if="showProgressBarLevel")
+                    .progressbar-actual(style="width:{{percentValue}}%")
+                        .score-bar.center(style="width:233px;") {{item.scores[ level.scoreUnitId ]}} / {{nextLevel.minimum}} {{levelActualName.name}}

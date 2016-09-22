@@ -8,13 +8,15 @@ import './styles.scss';
  * @restrict E
  * @element ANY
  */
-export default() => ({
+export default($rootScope) => ({
     restrict: 'E',
     template,
     link: (scope, element, attrs)=>{
-        $('c-button-close').click(function(ev) {
-            $('c-button-init').show("slow");
-            $('#ht-widgets').fadeOut().css("display" , "none");
+
+        element.on('click', (event)=>{
+            $rootScope.widgetOpened = false;
+            $rootScope.$apply();
+
         });
     }
 });

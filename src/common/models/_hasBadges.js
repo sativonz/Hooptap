@@ -1,11 +1,10 @@
 import stampit from 'stampit';
-import _ from 'lodash';
 import Q from 'q';
 
-export default ($q, $state, $injector, BaseModel, _Savable,_Badge, _Quest, _ScoreUnit, Badge) => {
+export default (Badge, Customer) => {
 
     return stampit()
-        .compose(BaseModel, _Savable)
+        .compose()
 
         /**
          * @memberOf Rule.model:Rule
@@ -13,20 +12,15 @@ export default ($q, $state, $injector, BaseModel, _Savable,_Badge, _Quest, _Scor
          */
         .init(function ({stamp}) {
             this.setRemoteModel('Badge');
-            this._factory = Badge;
         })
         .methods({
-            availableBadges(){
-                Q.async(function*(){
-                    let response = Badge;
-                })();
+            getAvailableBadges(){
+                return Badge.find();
+
             }
 
         })
-        .refs({
-
-            _model: 'BadgeModel'
-        })
+        .refs({})
 
         .props({});
 };

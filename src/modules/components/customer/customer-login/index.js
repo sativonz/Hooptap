@@ -14,35 +14,42 @@ export default() => ({
     restrict: 'E',
     scope: {},
     template,
-    controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _hasCustomer)=> {
-        //Stampit customer init
-        var CustomerModel = stampit().compose(BaseModel, _hasCustomer);
-        var includeFilter = {filter: {include: ['levels', 'badges']}};
-        if (LoopBackAuth.rememberMe === 'true') {
-            console.log(LoopBackAuth.rememberMe);
-            CustomerModel().getCurrent(includeFilter).then((response)=> {
-                CustomerModel().initialize(response);
-                $rootScope.$broadcast('$loginSuccess', CustomerModel());
+    controller: ($scope, $rootScope, LoopBackAuth, BaseModel, _hasLogin, $translate, Notifier)=> {
 
-            });
-        } else {
-            LoopBackAuth.clearStorage();
-            LoopBackAuth.clearUser();
-        }
+
+        $scope.mask = false;
+
+        //Models
+        let LoginModel = stampit().compose(BaseModel, _hasLogin);
+
+        //Query filter
+        let includeFilter = {filter: {include: [{badgeInstances: 'badge'}, {scoreUnitInstances: 'scoreUnit'}, 'levels']}};
+
+        //Check if rememberMe is  true , make login and get current.
+
+
+        //Login function to View
         $scope.login = ()=> {
             //TODO ENCRIPTAR CREDENCIALES
-            CustomerModel.login({
+            $scope.mask = true;
+            let credentials = {
                 email: $scope.email,
                 password: $scope.password,
-                rememberMe: $scope.rememberMe
-            }).then((response)=> {
-                CustomerModel().initialize(response);
-                $rootScope.$broadcast('$loginSuccess', CustomerModel());
+                rememberMe: $scope.rememberMe || false
+            };
+            LoginModel().login(credentials, includeFilter).then((response)=> {
+                $rootScope.$broadcast('$loginSuccess', response);
+
+                $scope.mask = false;
             }).catch((error)=> {
+                $scope.mask = false;
                 //TODO NOTIFICADOR ERRORES
-                console.log(error);
+                if (error.status == 401) {
+                    let msg = $translate.instant("TOAST.incorrect");
+                    //Notifier.error({title: msg, image: require('./images/error.png')});
+                }
             });
         };
 
-    }
-});
+        }
+    });

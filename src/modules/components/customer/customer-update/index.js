@@ -1,44 +1,32 @@
 import template from './template.jade';
+import stampit from 'stampit';
 /**
  * @ngdoc directive
  * @name Customer update
  * @module Components
  * @description Component for update instances of the model matched by where from the data source
  * @restrict E
- * @param {String} username  User name
- * @param {String} email  User email
- * @param {String} password  User password
+ * @param {Object} value  User object
  * @element ANY
  */
-export default($rootScope, Customer, LoopBackAuth) => ({
+export default($rootScope, Customer, BaseModel, _hasCustomer) => ({
     restrict: 'E',
-    scope: {},
+    scope: {model: '=value'},
     template,
     link: (scope, element, attrs) => {
-
-        scope.form = {
-            username : $rootScope.customer.username,
-            email : $rootScope.customer.email
-        };
-
-        let getDiffs = () => {
-            let diffs = Object.assign({}, scope.form);
-            diffs.id = $rootScope.customer.id;
-            delete diffs.email;
-            return diffs;
-        };
-
-
-        scope.uploadDataProfile = function () {
-            window.Customer = Customer;
-            Customer.save(getDiffs()).$promise
+        let CustomerModel = stampit().compose(BaseModel, _hasCustomer);
+        scope.model = CustomerModel(scope.model);
+        //TODO Por llegar la respuesta de producto ¿?¿?
+        scope.updateCustomer = function () {
+            let diffs = scope.model.getDiffs();
+            Customer.update().$promise
                 .then((response) => {
-                    console.log(response);
-                    debugger;
+                    //console.log("Save response", response);
                 })
                 .catch((err) => {
-                    console.log(err);
+                    //console.log(err);
                 });
+            
         };
     }
 

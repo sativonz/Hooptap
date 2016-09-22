@@ -1,266 +1,241 @@
 @import "../../../../common/stylesheets/common/colors";
 @import "../../../../common/stylesheets/common/base";
 
+%navTabsMix {
+  background-color: transparent!important;
+  border: 1px solid transparent!important;
+  padding-top: 5px;
+}
+
 c-quests-list {
   font-family: $base-font-family;
-  .quest--row {
-    padding: 5px 5px 30px 0px;
-    cursor: s-resize;
-    margin-left: -8px;
-  }
-
-  .quest--list__container {
-    position: relative;
+  .ht-quests-list {
     width: 400px;
-    height: 100%;
-    overflow-x: hidden;
-  }
-
-  .quest-row__img_wrapper.open {
-    cursor: n-resize;
-  }
-
-  img.quest--row--image.inactive {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-  }
-  .inactive .bullet-step,  .off-date .bullet-step  {
-    background: #d2d2d2;
-  }
-
-  .quest--row.lapsed .step-inner,
-  .quest--row.block .step-inner,
-  .quest--row.off-date .step-inner,
-  .quest--row.inactive .step-inner {
-    background: $_1_quest-title__inactive;
-  }
-
-  .quest--row.block .quest--row__title {
-    color: $_1_quest-steps-circle-color;
-  }
-
-  .quest--row.lapsed .quest--row__title,
-  .quest--row.off-date .quest--row__title,
-  .quest--row.inactive .quest--row__title {
-    color: $_1_quest-title__inactive;
-  }
-
-  .quest--row.off-date .quest--row__date > span {
-    color: $_1_quest-steps-circle-color;
-  }
-
-  .quest-step {
-    font-size: 12px;
-    font-weight: 800;
-    color: #90a4ae;
-    padding: 0px 0px 10px 0px;
-    .quest-step__name.c-red {
-      color: $_1_quest-steps-circle-color;
+    .ht-quest-list__container {
+      .nav-tabs{
+        width: 100%;
+        height:35px;
+        margin: 0 0;
+        padding-left: 0;
+        > li {
+          width:33.333333%;
+          border-bottom: 3px solid $_1_header-color!important;
+          height:35px;
+          &:hover {
+            border-bottom: 3px solid $_1_tab-active__color!important;
+          }
+          &.active {
+            border-bottom: 3px solid $_1_line-space-color!important;
+            background: $_1_tab-active__color!important;
+            > a {
+              background: none;
+              text-align: center;
+              font-size: 10pt;
+              font-weight: 400;
+              border: none;
+              color: white!important;
+              font-weight: bold;
+              @extend %navTabsMix;
+              &focus { @extend %navTabsMix; }
+              &hover { @extend %navTabsMix; }
+            }
+          }
+          > a {
+            text-align: center;
+            font-size: 10pt;
+            color: $_1_quest-title;
+            font-weight: 400;
+            padding: 5px 1px 1px 1px;
+            text-decoration: none;
+            &:hover {
+              background: transparent!important;
+              border-color: transparent!important;
+            }
+          }
+        }
+      }
+      .tab-content  {
+        height: 386px;
+        padding: 10px 15px 15px 23px;
+        overflow: auto;
+        position: relative;
+        margin-top: 2px;
+        overflow-x: hidden;
+        .ht-quest-list__wrapper {
+          .ht-quest-list__row {
+            padding: 5px 5px 30px 0px;
+            cursor: s-resize;
+            margin-left: -8px;
+            &.block{
+              cursor: not-allowed;
+              .ht-quest-list__title {
+                color: $_1_quest-steps-circle-color!important;
+              }
+            }
+            &.lapsed {
+              .step-inner  {
+                background: $_1_quest-title__inactive;
+              }
+              .ht-quest-list__title {
+                color: $_1_quest-title__inactive!important;
+              }
+            }
+            &.quest-close {
+              .step-inner {
+                background: $_1_quest-title__inactive;
+              }
+            }
+            &.completed {
+              .ht-quest-list__title {
+                color: $_1_progress-bar__active!important;
+              }
+            }
+            &.off-date {
+              .ht-quest-list__row__date > span {
+                color: $_1_quest-steps-circle-color;
+              }
+            }
+            .ht-quest-list__img-wrapper{
+              &.open { cursor: n-resize; }
+              .ht-quest-list__img-holder {
+                @extend .ht-quest-list__quest-image;
+                .ht-quest-list__default-image {
+                  background: $_1_quest-title;
+                  height: 50px;
+                  width: 50px;
+                  border-radius: 7px;
+                  .ht-quest-list__number-quests {
+                    text-align: center;
+                    width: 50px;
+                    top: 8px;
+                    position: relative;
+                    font-size: 24px;
+                    font-weight: 400;
+                    color: white;
+                  }
+                }
+                .ht-quest-list__quest-image {
+                  width: 50px;
+                  height: 50px;
+                  padding-left: 0;
+                  margin-left: -15px;
+                  .ht-quest-list__img-bloked,
+                  .ht-quest-list__img-disable,
+                  .ht-quest-list__img-completed {
+                    position: absolute;
+                    right: 14px!important;
+                    width: 24px;
+                    top: 37px;
+                  }
+                  .ht-quest-list__img {
+                    &.inactive {
+                        -webkit-filter: grayscale(100%);
+                        filter: grayscale(100%);
+                    }
+                    &.lapsed {
+                      -webkit-filter: grayscale(100%);
+                      filter: grayscale(100%);
+                    }
+                  }
+                }
+              }
+              .ht-quest-list__text-holder {
+                .ht-quest-list__title {
+                  font-weight: 700;
+                  font-size: 13pt;
+                  position: absolute;
+                  text-transform: uppercase;
+                  color: $_1_header-color;
+                }
+                .ht-quest-list__date {
+                  font-size: 9pt;
+                  position: absolute;
+                  right: 5px;
+                  top: 0;
+                  color: $_1_quest-steps-date-color;
+                }
+                .ht-quest-list__progressbar {
+                  width: 290px;
+                  display: block;
+                  position: absolute;
+                  top: 43px;
+                  left: 0px;
+                  c-progressbar {
+                    width: 290px;
+                    display: inline-flex;
+                    position: relative;
+                    top: -10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .ht-quest-list__actual-step {
+          font-size: 12px;
+          padding: 30px 15px 0px 21px;
+          margin-top: 5px;
+          width: 81%;
+          cursor: pointer;
+          .quest-step {
+            font-size: 12px;
+            font-weight: 800;
+            padding: 0px 0px 10px 0px;
+            .bullet{
+              padding:0;
+              .bullet-step-complete img{
+                width: 14px;
+                float: right;
+                margin-right: -3px;
+              }
+              .bullet-step {
+                float: right;
+              }
+              .bullet-step-disabled {
+                width: 7px;
+                height: 7px;
+                background-color: grey;
+                border-radius: 50%;
+                float: right;
+                margin-top: 4px;
+              }
+            }
+            .title-step {
+              margin-bottom: 5px;
+              white-space: nowrap;
+              position: relative;
+              left: 10px;
+              .quest-step__name {
+                color: $_1_quest-steps-title-color;
+                font-weight: 500;
+                letter-spacing: 0.5px;
+                font-size: 10pt;
+                position: relative;
+                top: -2px;
+                img {
+                  width: 11px;
+                  margin-left: 7px;
+                }
+              }
+            }
+            .quest-step__name.c-red {
+              color: $_1_quest-steps-circle-color;
+            }
+            .quest-step__name.c-green {
+              color: $_1_progress-bar__active;
+            }
+          }
+        }
+        .limit-quests {
+          border-bottom: 1px solid rgba(180, 180, 180, 0.75);
+          margin-top: 16px;
+          margin-bottom: -16px;
+          border-left: 100px solid white;
+          border-right: 100px solid white;
+          width: 145px!important;
+          float: left;
+        }
+      }
     }
-    .quest-step__name.c-green {
-      color: $_1_progress-bar__active;
-    }
   }
-
-  .quest--row__actual-step {
-    font-size: 12px;
-    cursor: pointer;
-  }
-
-  .quest--row__title {
-    font-weight: bold;
-    font-size: 13pt;
-    position: absolute;
-    top: 8px;
-    text-transform: uppercase;
-    color: $_1_header-color;
-  }
-
-  .quest--row__desc {
-    font-size: 12px;
-    max-width: 220px;
-  }
-
-  .quest--row__image-holder, .quest-row-image {
-    width: 50px;
-    height: 50px;
-    padding-left: 0;
-  }
-
-  .quest-row-default-image {
-    background: #006494;
-    height: 50px;
-    width: 50px;
-    border-radius: 7px;
-  }
-
-  .quest-row-default-image__number-quests {
-    text-align: center;
-    width: 50px;
-    top: 8px;
-    position: relative;
-    font-size: 24px;
-    font-weight: 400;
-    color: white;
-  }
-
-  .quest--row__status-label {
-    font-size: 9px;
-    padding: 0px 7px 1px 7px;
-    color: #fff;
-    position: absolute;
-    left: 35px;
-    top: 67px;
-    border-radius: 4px;
-    font-weight: 800;
-  }
-
-  .quest--row__progresbar {
-    width: 310px;
-    display: block;
-    position: absolute;
-    top: 43px;
-    left: 0px;
-  }
-
-  .bullet-step-disabled {
-    width: 7px;
-    height: 7px;
-    background-color: grey;
-    border-radius: 50%;
-    float: right;
-    margin-top: 4px;
-  }
-
-  .quest--row__date {
-    font-size: 9pt;
-    position: absolute;
-    right: -14px;
-    top: 0;
-    color: #888888;
-  }
-
-  .bg-yellow {
-    background: #FBCB32;
-  }
-
-  .quest--row__actual-step {
-    font-size: 12px;
-    padding: 30px 15px 0px 21px;
-    margin-top: 5px;
-    width: 81%;
-  }
-
-  span.quest-step__name {
-    color: #8c8a8a;
-    font-weight: 500;
-    letter-spacing: 0.5px;
-    font-size: 10pt;
-  }
-
-  img.quest--row--image.lapsed {
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-  }
-
-  .limit-quests {
-    border-bottom: 1px solid rgba(180, 180, 180, 0.75);
-    margin-top: 16px;
-    margin-bottom: -16px;
-    border-left: 100px solid white;
-    border-right: 100px solid white;
-  }
-
-  .bullet-step {
-    float: right;
-  }
-
-  .col-xs-2.bullet {
-    padding: 0;
-  }
-
-  .col-xs-10.title-step {
-    margin-bottom: 5px;
-    white-space: nowrap;
-  }
-
-  .bullet-step-complete img {
-    width: 14px;
-    float: right;
-    margin-right: -3px;
-  }
-
-  span.quest-step__name img {
-    width: 11px;
-    margin-left: 7px;
-  }
-
-  .blocked-quest-img,
-  .disable-quest-img,
-  .new-quest-img,
-  img.completed-quest-img {
-    position: absolute;
-    right: -6px!important;
-    width: 24px;
-    top: 37px;
-  }
-
-  .stepbar-step.active .step-inner {
-    background: $_1_progress-bar__active;
-  }
-
-  .col-xs-12.quest--row.block .quest-row__img_wrapper{
-    cursor: not-allowed;
-  }
-
-  //Tabs
-  .nav-tabs > li {
-    width:33.333333%;
-    border-bottom: 3px solid $_1_header-color;
-    height:35px;
-  }
-
-  .nav-tabs > li.active > a {
-
-    background: none;
-    text-align: center;
-    font-size: 10pt;
-    font-weight: 400;
-    border: none;
-    color: white!important;
-    font-weight: bold;
-  }
-
-  .nav-tabs > li > a {
-    text-align: center;
-    font-size: 10pt;
-    color: #006591!important;
-    font-weight: 400;
-    padding: 5px 1px 1px 1px;
-  }
-
-  .nav-tabs{
-    width: 100%;
-    height:35px;
-  }
-
-  .nav-tabs>li.active {
-    border-bottom: 3px solid $_1_line-space-color;
-    background: $_1_tab-active__color!important;
-  }
-
-  .tab-content {
-    width: 100%;
-    height: 399px;
-    padding: 15px;
-    overflow: auto;
-    position: relative;
-  }
-
-  .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
-    background-color: transparent!important;
-    border: 1px solid transparent!important;
-    padding-top: 5px;
-  }
-
 }

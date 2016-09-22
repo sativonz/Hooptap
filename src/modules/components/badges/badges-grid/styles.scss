@@ -12,25 +12,34 @@ c-badges-grid {
   display: block;
   position: absolute;
   width: 100%;
-  padding-right: 0!important;
+  padding-right: 0 !important;
   @include calc(height, '100% - 50px');
   .ht-badges-list__container {
     .nav.nav-tabs {
+      background: transparent;
       width: 100%;
       height: 35px;
+      padding-left: 0;
+      margin: 0;
       > li {
+        background: transparent;
         width: 33.333333%;
         border-bottom: 3px solid $_1_header-color;
         height: 35px;
+        &:hover {
+          border-bottom: 3px solid $_1_tab-active__color !important;
+        }
         > a {
+          background: transparent;
+          text-decoration: none;
           text-align: center;
           font-size: 10pt;
           color: $_1_header-color;
           font-weight: 400;
           padding: 5px 1px 1px 1px;
           &:hover {
-            border-color: $white!important;
-            background-color: $white!important;
+            border-color: $white !important;
+            background-color: $white !important;
           }
         }
       }
@@ -49,7 +58,7 @@ c-badges-grid {
           &:hover {
             @extend %navActiveMix;
           }
-          &:focus{
+          &:focus {
             @extend %navActiveMix;
           }
         }
@@ -57,89 +66,189 @@ c-badges-grid {
       }
     }
     .ht-badges-list__wrapper {
+      .ht-badges-list__badge-blank {
+        p {
+          text-align: center;
+          margin-top: 40%;
+          margin-left: -23px;
+          color: $_1_empty-message;
+        }
+
+        img{
+          margin-top: 15%;
+          width: 250px;
+          top: 10px;
+          position: absolute;
+          left: 66px;
+        }
+      }
+
       //-> 2 cols
-      .col-xs-6 .badge-item__img {
-        width: 155px;
-        height: 155px;
-      }
-
-      .badge-item.col-xs-6 {
-        height: 200px !important;
-      }
-
-      .col-xs-6 c-progressbar .stepbar {
-        width: 169px;
-        margin-left: -5.5%;
-      }
-
-      .col-xs-6 c-progressbar .step-inner {
-        height: 15px;
-      }
-
-      .col-xs-6 c-progressbar .step-inner.last {
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
+      .badge-item.ht-col-xs-6 {
+        height: 210px !important;
+        float: left;
+        width: 190px !important;
+        .badge-item__title {
+          position: relative;
+          font-size: 15px !important;
+          width: 200px !important;
+        }
+        .badge-item__img {
+          width: 155px !important;
+          height: 155px !important;
+          img {
+            width: 155px !important;
+            height: 155px !important;
+          }
+        }
+        c-progressbar {
+          width: 165px !important;
+          position: relative;
+          left: 9px;
+          top: 95px;
+          .stepbar__step {
+            .stepbar__step-inner {
+              height: 12px !important;
+              &.last {
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+              }
+            }
+          }
+        }
       }
 
       //-> 3 cols
-      .col-xs-4 .badge-item__img {
-        width: 100px;
-        height: 100px;
+      .badge-item.ht-col-xs-4 {
+        height: 150px !important;
+        width: 123px !important;
+        float: left;
+        .badge-item__title {
+          position: relative;
+          font-size: 14px !important;
+          width: 135px !important;
+        }
+        .badge-item__img {
+          width: 100px !important;
+          height: 100px !important;
+          img {
+            width: 100px !important;
+            height: 100px !important;
+          }
+        }
+        c-progressbar {
+          top: 40px !important;
+          position: relative;
+          height: 20px !important;
+          width: 100px !important;
+          left: 9px;
+          .stepbar__step {
+            width: 143px !important;
+            .stepbar__step-inner {
+              height: 11px !important;
+            }
+          }
+        }
       }
 
-      .badge-item.col-xs-4 {
-        height: 145px !important;
-        width: 128px !important;
-      }
-
-      .col-xs-4 c-progressbar .stepbar {
-        width: 143px;
-        margin-left: -24.5%;
-      }
-      .col-xs-4 c-progressbar .step-inner {
-        height: 10px;
-      }
       //-> 4 cols
-      .col-xs-3 .badge-item__img {
-        width: 100px;
-        height: 100px;
+      .badge-item.ht-col-xs-3 {
+        height: 115px !important;
+        width: 96px;
+        float: left;
+        .badge-item__img {
+          width: 100px;
+          height: 100px;
+          img {
+            width: 100px;
+            height: 100px;
+          }
+        }
+        c-progressbar {
+          width: 100px;
+          .stepbar__step {
+            width: 100px;
+            .stepbar__step-inner {
+              height: 10px;
+            }
+          }
+        }
       }
 
-      .badge-item.col-xs-3 {
-        height: 145px !important;
+      //-> 5 cols
+      .badge-item.ht-col-xs-5 {
+        width: 15% !important;
+        padding-right: 16px;
+        float: left;
+        .badge-item__img {
+          width: 55px;
+          height: 55px;
+          img {
+            width: 55px;
+            height: 55px;
+          }
+        }
+        c-progressbar {
+          width: 60px !important;
+          margin-left: -29px !important;
+        }
       }
 
-      .col-xs-3 c-progressbar .stepbar {
-        width: 143px;
-        margin-left: -24.5%;
-      }
-      .col-xs-3 c-progressbar .step-inner {
-        height: 10px;
-      }
     }
     .tab-content {
-      width: 100%;
-      height: 399px;
-      padding: 15px 15px 15px 20px;
+      height: 370px;
+      padding: 15px 0px 15px 20px;
       overflow: auto;
       overflow-x: hidden;
       position: relative;
+      margin-top: 2px;
+      //margin-left: 10px;
+      >.tab-pane{
+        background: none;
+      }
+      >.active {
+        padding-left: 10px;
+      }
+      &.active {
+        padding-left: 25px;
+      }
+      c-loader {
+        padding: 130px 10px 40px;
+        margin-left: -40px;
+        position: absolute;
+        z-index: 99999999999;
+        background: hsla(0, 0%, 100%, .68);
+        width: 400px;
+        height: 480px;
+        border-radius: 10px;
+      }
       .ht-badges-list__wrapper {
+        padding-left: 5px;
+        &.completed {
+          .badge-item__title {
+            padding-top: 8px !important;
+          }
+        }
         .badge-item {
           cursor: pointer;
           margin-bottom: 6px;
-          height: 105px !important;
+          height: 105px;
           .badge-item__img {
             height: 59px;
             width: 59px;
+            img {
+              width: 59px;
+              height: 59px;
+            }
           }
           .badge-item__title {
             font-size: 12px;
             text-align: center;
             color: $_1_header-color;
             font-weight: 400;
-            padding-top: 3px;
-            margin-left: -6px;
+            padding-top: 20px;
+            margin-left: -17px;
+            width: 97px;
           }
           .badge-item__progresbar {
             height: 10px;
@@ -147,25 +256,25 @@ c-badges-grid {
             transform: translate(-50%, -50%);
             position: absolute;
             margin: 10px;
-            top: 72px;
+            top: 55px;
             left: 64px;
+            width: 90px;
             c-progressbar {
-              asdfasdfds: asdfdasf;
-              .stepbar {
-                width: 102px;
-                margin-left: -29.5%;
-                .stepbar-step {
-                  padding: 0;
-                  height: 15px;
-                  top: 5px;
-                  .step-inner {
-                    height: 6px;
-                    margin-right: 2px;
-                  }
+              display: inline-flex;
+              width: 80px;
+              height: 15px;
+              margin-left: -38px;
+              .stepbar__step {
+                padding: 0;
+                height: 15px;
+                top: 5px;
+                .stepbar__step-inner {
+                  height: 6px;
+                  margin-right: 2px;
                 }
-                .stepbar-step.active .step-inner {
-                  background-color: greenyellow;
-                }
+              }
+              .stepbar__step.active .stepbar__step-inner {
+                background-color: $_1_progressbar-actual;
               }
             }
           }
@@ -182,12 +291,14 @@ c-badges-grid {
     .modal-sm {
       width: 255px !important;
       height: 255px !important;
+      min-height: 255px !important;
+      max-height: 255px !important;
       -webkit-transform: translate(0);
       transform: translate(-50%, -50%);
       position: absolute;
       margin: 10px;
-      top: 50%;
-      left: 50%;
+      top: 33%;
+      left: 40%;
       .modal-content {
         padding: 20px !important;
         .badge-detail__img-close {
@@ -202,11 +313,12 @@ c-badges-grid {
         .badge-detail__desc {
           color: $_1_light-grey-background;
           font-size: 14px;
-          margin-top: 19px;
         }
         .badge-detail__ttl {
           color: $_1_badge-detail_ttl;
           font-size: 14px;
+          margin-top: 35px;
+          margin-bottom: 5px;
         }
         .badge-detail__wrapper.badge-not-achieved {
           filter: grayscale(100%);
@@ -216,11 +328,13 @@ c-badges-grid {
           height: 10px;
           -webkit-transform: translate(0);
           transform: translate(-50%, -50%);
-          position: absolute;
-          margin: 10px;
-          top: 60%;
-          left: 62%;
+          margin: 20px 10px 10px;
+          top: 107px;
+          left: 46%;
+          position: fixed;
           c-progressbar {
+            width: 190px;
+            display: inline-flex;
             .stepbar {
               width: 130px;
               margin-left: -29.5%;

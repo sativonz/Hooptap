@@ -40,7 +40,7 @@ export default ($q, $injector, _Extendable) => {
                 Object.assign(this, this._defaults, this.parse(angular.copy(model)));
                 this._initialized = true;
             },
-            
+
             /**
              * Transforms the response of the api to a model more usable for the web. It's automatically called by
              * the function 'initialize', which should be called after calling the api. The opposite transformation of
@@ -55,8 +55,6 @@ export default ($q, $injector, _Extendable) => {
              * @returns {object} The modified model used to construct this instance.
              */
             parse (model) {
-
-                if (model.annotations === {}) model.annotations = "";
 
                 return model;
             },
@@ -356,14 +354,6 @@ export default ($q, $injector, _Extendable) => {
              REFS
              --------------------------------------------------------------------------------------------*/
 
-            /**
-             * Here a Model will save the defaults values. Will be used to fill the object if the data passed to
-             * construct the instance not have some attribute that is needed.
-             *
-             * @memberOf Common.model:BaseModel
-             * @stampit refs
-             */
-            _defaults: {annotations: ''},
             /**
              * This Whitelist enables managing underscored params.
              *

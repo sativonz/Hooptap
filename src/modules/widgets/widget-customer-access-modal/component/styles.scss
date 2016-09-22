@@ -1,0 +1,43 @@
+@import '../../../../common/stylesheets/common/colors.scss';
+@import '../../../../common/stylesheets/common/mixins.scss';
+
+widget-customer-access-modal {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: white;
+  padding: 20px;
+  color: black;
+  input,
+  select {
+    width: 100%;
+  }
+  #checkbox_terms {
+    width: 15px;
+  }
+  .logout-text {
+    cursor: pointer;
+  }
+
+  .modal-dialog {
+    width: 100%!important;
+    height: 100%!important;
+    margin: 0!important;
+    padding: 0!important;
+  }
+
+  .modal-content {
+    height: auto!important;
+    min-height: 100%!important;
+    border-radius: 0!important;
+  }
+  
+  .ht-go-register,
+  .ht-go-login {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  @include scrollbars(10px, $_1_light-grey-background, none, 0px solid $_1_soft-grey-background, 3px);
+
+}

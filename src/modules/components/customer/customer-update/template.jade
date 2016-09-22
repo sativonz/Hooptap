@@ -1,34 +1,31 @@
 .ht-wrapper--update__form
 	c-button-close
-	form.ht-form.ht-form--update(name="htFormUpdate")
+	//form.ht-form.ht-form--update(name="htFormUpdate")
 		.ht-form__group
-			input.ht-form__input(ng-model='form.username' type='text' name="username" required)
+			input.ht-form__input(ng-model='model.username' type='text' name="username" disabled)
 			span.ht-form__highlight
 			span.ht-form__bar
 			label.ht-form__label {{ 'CUSTOMER.common.username' | translate }}
 		.ht-form__group
-			input.ht-form__input(ng-model='form.email' type='text' name="email" required)
+			input.ht-form__input(ng-model='model.email' type='text' name="email" disabled)
 			span.ht-form__highlight
 			span.ht-form__bar
 			label.ht-form__label {{ 'CUSTOMER.common.email' | translate }}
 		.ht-form__group
-			input.ht-form__input(ng-model='actualPassword' type='password' name="actualPassword" required)
+			input.ht-form__input(ng-model='model.actualPassword' type='password' name="actualPassword" required)
 			span.ht-form__highlight
 			span.ht-form__bar
 			label.ht-form__label {{ 'CUSTOMER.update.actualPassword' | translate }}
 		.ht-form__group
-			input.ht-form__input(ng-model='newPassword1' type='password' name="password" required)
+			input.ht-form__input(ng-model='model.newPassword1' type='password' name="newPassword1" required)
 			span.ht-form__highlight
 			span.ht-form__bar
 			label.ht-form__label {{ 'CUSTOMER.update.newPassword1' | translate }}
 		.ht-form__group
-			input.ht-form__input(ng-model='newPassword2' type='password' name="password" required)
+			input.ht-form__input(ng-model='model.newPassword2' type='password' name="newPassword2" required)
 			span.ht-form__highlight
 			span.ht-form__bar
 			label.ht-form__label {{ 'CUSTOMER.update.newPassword2' | translate }}
 		.ht-form__group-button
-			button.ht-form--button__update(type='button' ng-click='uploadDataProfile()')
+			button.ht-form--button__update(type='button' ng-click='updateCustomer()')
 				| {{ 'CUSTOMER.common.update' | translate }}
-		p {{ $root.customer.id }}
-		p {{ form.username }}
-		p {{ form.email }}

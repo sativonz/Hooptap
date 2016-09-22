@@ -6,12 +6,20 @@ c-game-global-feed {
   height: 100%;
   margin-left: 10px;
   .ht-global-feed__container{
+    position: relative;
+    right: 0;
+    height: 432px;
+    overflow-y: auto;
+    overflow-x: hidden;
     .ht-global-feed__wrapper {
       display: -webkit-box;
       display: box;
       padding:6px;
       border-bottom: 1px solid $_1_dividing-line-color;
       height:60px;
+      &.last{
+        border-bottom: none!important;
+      }
       .ht-global-feed__title {
         color: grey;
         > p {
@@ -24,6 +32,15 @@ c-game-global-feed {
         padding: 7px!important;
         position: relative;
         bottom: 6px;
+        img {
+          width: 43px;
+          height: 43px;
+          min-width: 43px;
+          min-height: 43px;
+          max-width: 43px;
+          max-height: 43px;
+          margin-left: 5px;
+        }
       }
       .ht-global-feed__date > p {
         font-size: 7pt;

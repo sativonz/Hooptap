@@ -1,42 +1,41 @@
 -var questsClasses = "'active': quest.state === 'active', 'lapsed': quest.state === 'off-date', 'completed': quest.state === 'completed', 'block': quest.state == 'block', 'new': quest.state == 'new'"
-.ht-quests--list
-    .quest--list__container
+.ht-quests-list
+    .ht-quest-list__container
         uib-tabset(active="active")
             uib-tab(index="0" heading="{{::'QUESTS.tabs.all' | translate}}")
-                .quest--list__wrapper(ng-repeat="quest in quests track by $index")
-                    .col-xs-12.quest--row(ng-click="showDetailQuests = !showDetailQuests; isActive != isActive" ng-class="{'quest-active': isActive, 'close': !isActive, #{questsClasses}} ")
-                        .col-xs-12.quest-row__img_wrapper(ng-click="isOpen = !isOpen" ng-class="{'open': isOpen}")
-                            .col-xs-2.quest--row__image-holder
-                                .quest-row-default-image(ng-show="!quest.img")
-                                    p.quest-row-default-image__number-quests {{ $index+1 }}
-                                .quest-row-image
-                                    img.quest--row--image(ng-src="{{ quest.img }}" ng-class="{ #{questsClasses}}")
-                                    img.disable-quest-img(ng-show="quest.state == 'off-date'" ng-src=require("./images/simbol-offdate.svg"))
-                                    img.blocked-quest-img(ng-show="quest.state == 'block'" ng-src=require("./images/simbol-block.svg"))
-                                    img.completed-quest-img(ng-show="quest.state == 'completed'" ng-src=require("./images/simbol-check.svg"))
-                            .col-xs-10.quest--row__text-holder
-                                .quest--row__title(ng-class="{ #{questsClasses}}") {{ quest.name }}
-                                .quest--row__date
+                .ht-quest-list__wrapper(ng-repeat="quest in quests track by $index")
+                    .ht-quest-list__row.col-xs-12(ng-click="showDetailQuests = !showDetailQuests; isActive != isActive" ng-class="{'quest-active': isActive, 'quest-close': !isActive, #{questsClasses}} ")
+                        .ht-quest-list__img-wrapper.col-xs-12(ng-click="isOpen = !isOpen" ng-class="{'open': isOpen}")
+                            .ht-quest-list__img-holder.col-xs-2.not-padding
+                                .ht-quest-list__default-image(ng-show="!quest.img")
+                                    p.ht-quest-list__number-quests {{ $index+1 }}
+                                .ht-quest-list__quest-image
+                                    img.ht-quest-list__img(ng-src="{{ quest.img }}" ng-class="{ #{questsClasses}}")
+                                    img.ht-quest-list__img-disable(ng-show="quest.state == 'off-date'" ng-src=require("./images/simbol-offdate.svg"))
+                                    img.ht-quest-list__img-bloked(ng-show="quest.state == 'block'" ng-src=require("./images/simbol-block.svg"))
+                                    img.ht-quest-list__img-completed(ng-show="quest.state == 'completed'" ng-src=require("./images/simbol-check.svg"))
+                            .ht-quest-list__text-holder.col-xs-10.not-padding
+                                .ht-quest-list__title(ng-class="{ #{questsClasses}}") {{ quest.name }}
+                                .ht-quest-list__date
                                     span {{ quest.expires }}
-                                .quest--row__progresbar
-                                    ng-transclude
-                                        c-progressbar(steps="quest.steps" current-step="0")
-                        .col-xs-12.quest--row__actual-step(ng-show="showDetailQuests" ng-if="quest.state !== 'block'")
+                                .ht-quest-list__progressbar
+                                    c-progressbar(steps="quest.steps" current-step="0")
+                        .ht-quest-list__actual-step.col-xs-12(ng-show="showDetailQuests" ng-if="quest.state !== 'block'")
                             .quest-step.row(ng-repeat="step in quest.steps track by $index")
-                                .col-xs-2.bullet
+                                .col-xs-2.bullet.not-padding
                                     .bullet-step-complete(ng-show="step.complete && step.state != 'disabled'")
                                         img(ng-src=require("./images/simbol-check-quest.svg"))
                                     .bullet-step(ng-show="!step.complete && step.state != 'disabled'")
                                         img(ng-src=require("./images/simbol-point.svg"))
                                     .bullet-step-disabled(ng-if="step.state === 'disabled'")
-                                .col-xs-10.title-step
+                                .col-xs-10.title-step.not-padding
                                     //span.quest-step__name.animated.bounceIn(ng-class="{ 'c-red': !step.complete, 'c-green': step.complete }") {{step.title}}
                                     span.quest-step__name.animated.bounceIn {{step.title}}
                                         a(href="{{ step.url }}")
                                             img(ng-if="step.url" ng-show="quest.state == 'active' || quest.state == 'new'" ng-src=require("./images/simbol-link.svg"))
                                         a(href="{{ step.url }}")
                                             img(ng-if="step.url" ng-show="quest.state == 'off-date' || quest.state == 'completed'" ng-src="")
-                        .col-xs-12.limit-quests
+                        .limit-quests
             uib-tab(index="$index + 1" heading="{{::'QUESTS.tabs.inscription' | translate}}")
                 //TODO Por hacer la lógica cuando este la llamada
                 p Por hacer la lógica cuando este la llamada

@@ -1,14 +1,101 @@
+@import '../../../../common/stylesheets/common/colors.scss';
+
 c-marker-display {
   display: block;
   position: relative;
   height: 100%;
-
-  .zoneRow {
+  .ht-marker-display__title {
+    position: relative;
+    top: -16px;
+    font-size: 10pt;
+    color: $_1_quest-title;
+  }
+  .ht-marker-display__zoneRow {
     border-bottom: 1px solid #d2d2d2;
     padding: 20px 0 20px 0;
-  }
 
-  #zoneRow-1 {
+    .title__score-units {
+      font-size: 14pt;
+      font-weight: bold;
+      color: $_1_quest-title;
+      margin-top: 10px;
+      text-align: right;
+    }
+
+    //-> 1 COL
+    .col-xs-12 {
+      .ht-marker-display__badges-img {
+        text-align: left;
+        position: relative;
+        left: 14px;
+      }
+      .ht-marker-display__img {
+        margin-top: -4px!important;
+        height: 53px!important;
+        width: 30px!important;
+        min-width: 30px;
+        min-height: 30px;
+        max-height: 30px;
+        min-width: 30px;
+      }
+      .title__score-units {
+        margin-right: 20px!important;
+        font-size: 35pt!important;
+        margin-top: -3px!important;
+      }
+    }
+
+
+
+    //-> 3 COLS
+    .col-xs-4 {
+      .title__score-units {
+        font-size:11pt!important;
+        text-align:right!important;
+        margin-top: 16px!important;
+      }
+      .ht-marker-display__img {
+        margin-top: 10px!important;
+      }
+    }
+
+    //-> 4 COLS
+    .col-xs-3 {
+      padding: 0!important;
+      .title__score-units {
+        font-size:10pt!important;
+        text-align:right!important;
+        margin-top: 13px!important;
+      }
+      .ht-marker-display__img {
+        height: 26px!important;
+        margin-top: 5px!important;
+      }
+    }
+
+    .ht-marker-display__img {
+      height:30px!important;
+      margin-top: -2px!important;
+    }
+
+    .ht-marker-display__wrapper {
+      padding-right: 6px!important;
+      padding-left: 6px!important;
+      &.col-xs-4 {
+        //width: 105px!important;
+      }
+      &:not(:last-child) {
+        border-right: 1px solid $_1_quest-title__inactive;
+        cursor: pointer;
+      }
+    }
+    .ht-marker-display__badges,
+    .ht-marker-display__level,
+    .ht-marker-display__su {
+      cursor: pointer;
+    }
+  }
+  #ht-marker-display__zoneRow-1 {
     padding-top: 5px!important;
   }
 
@@ -16,53 +103,4 @@ c-marker-display {
     margin: 0 -5px 0 -5px!important;
   }
 
-  .marker-display__img {
-    height:40px!important;
-  }
-
-  .profile-widget-full-items {
-    padding-right: 6px!important;
-    padding-left: 6px!important;
-  }
-  .marker-display__badges,
-  .marker-display__level,
-  .marker-display__su {
-    cursor: pointer;
-  }
-
-  .zoneRow > div.col-xs-3 {
-    padding: 0!important;
-  }
-
-  .zoneRow > div.col-xs-3 .title__score-units {
-    font-size:10pt;
-    text-align:right;
-    margin-top: 13px;
-  }
-
-  .zoneRow > div.col-xs-4 .title__score-units {
-    font-size:11pt;
-    text-align:right;
-    margin-top: 16px;
-  }
-
-  .zoneRow > div.col-xs-3 .marker-display__img {
-    height: 26px!important;
-    margin-top: 4px;
-  }
-  .zoneRow > div.col-xs-12 .marker-display-badges__img {
-    text-align: left;
-    position: relative;
-    left: 14px;
-  }
-
-  .zoneRow > div.col-xs-12 .title__score-units {
-    margin-right: 20px;
-    font-size: 35pt;
-    margin-top: -3px;
-  }
-  
-  .deleteRow {
-    display: none;
-  }
 }

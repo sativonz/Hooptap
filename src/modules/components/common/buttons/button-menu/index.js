@@ -1,5 +1,6 @@
 import template from './template.jade';
 import './styles.scss';
+import stampit from 'stampit';
 /**
  * @ngdoc directive
  * @name Button menu
@@ -16,30 +17,30 @@ import './styles.scss';
  * @param {Boolean} titleGameRoom To put the title of the Game Room dinamically
  * @element ANY
  */
-export default(Customer, $rootScope, $parse) => ({
+export default(Customer, $rootScope, BaseModel, _isCustomer, _hasRankings) => ({
     restrict: 'E',
     scope: {
         showQuests: '=',
         showBadges: '=',
         showRankings: '=',
         showLevel: '=',
+        showLevelList: '=',
         showGlobalFeed: '=',
         showMarketplace: '=',
         showEditProfile: '=',
         showGameRoom: '=',
-        titleGameRoom: '='
+        titleGameRoom: '=',
+        item: '='
     },
     template,
     link: (scope, element, attrs)=> {
 
+
         //->Link to logout
-        scope.formLogout = () => {
-            Customer.logout().$promise
-                .then( (response) => {
-                    $rootScope.customer = {};
-                    scope.showDropdown = false;
-                    $rootScope.customer.logged = false;
-                } );
+        let CustomerModel = stampit().compose(BaseModel, _isCustomer);
+        scope.logout = () => {
+            scope.showDropdown = false;
+            CustomerModel().logout();
         };
 
 
@@ -56,14 +57,32 @@ export default(Customer, $rootScope, $parse) => ({
                 $mnu.toggle('slow');
             });
 
+        //->Ranking view
+        scope.viewRanking = (scoreUnit)=> {
+            let RankingModel = stampit().compose(BaseModel, _hasRankings);
+            RankingModel().getRankingByScoreUnit(scoreUnit)
+                .then((response)=> {
+                    //console.log(response);
+                    let ranking = { scoreUnit: scoreUnit, customers: response };
+                    $rootScope.$broadcast('$rankingView', ranking);
+                })
+                .catch((error)=> {
+                    console.log(error);
+                });
+        };
 
-        //TODO refactor
-        scope.showRankingDetail = (item) => {
-            $rootScope.customer.ranking = item;
+        scope.checkLevelActual = (item) => {
+            if(item.levels.length <= 0){}else {
+                if($rootScope.WPF){
+                    $rootScope.WPF.viewlevelActualHome = !$rootScope.WPF.viewlevelActualHome;
+                } else{
+                    $rootScope.WPF = {};
+                    $rootScope.WPF.viewlevelActualHome = !$rootScope.WPF.viewlevelActualHome;
+                }
 
-            $rootScope.customer.ranking.actualSu = item.name;
-            console.log("RANKING: ", $rootScope.customer.ranking);
-        }
+            }
+        };
+
 
     }
 });
