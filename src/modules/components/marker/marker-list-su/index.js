@@ -78,7 +78,6 @@ export default($rootScope, $translate, BaseModel, Customer, _hasScoreUnits) => (
                     let allLevelsIndex = ScoreUnitsModel.getLevels({filter: {where: {scoreUnitId: scope.level.scoreUnitId}}});
 
                     allLevelsIndex.$promise.then((response)=> {
-                        //console.log('LevelsasdfdasdfasdfasIndex', response);
                         response.map((level)=>LevelsIndex[level.id] = level);
                         scope.LevelsIndex = LevelsIndex;
                         //console.log('LevelsIndex', LevelsIndex);
