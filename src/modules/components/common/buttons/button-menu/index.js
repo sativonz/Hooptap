@@ -34,8 +34,6 @@ export default(Customer, $rootScope, BaseModel, _isCustomer, _hasRankings) => ({
     },
     template,
     link: (scope, element, attrs)=> {
-
-
         //->Link to logout
         let CustomerModel = stampit().compose(BaseModel, _isCustomer);
         scope.logout = () => {

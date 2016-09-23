@@ -39,7 +39,6 @@ export default() => ({
             };
             LoginModel().login(credentials, includeFilter).then((response)=> {
                 $rootScope.$broadcast('$loginSuccess', response);
-
                 $scope.mask = false;
             }).catch((error)=> {
                 $scope.mask = false;
