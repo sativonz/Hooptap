@@ -8,10 +8,8 @@
                 .col-xs-3.not-padding
                     img.img-actual-level(ng-src="{{item.level.image || defaultLevelImage}}")
                     p.name-actual-level {{item.level.name}}
-                //TODO mensaje cuando esta en el ultimo nivel
-                //.col-xs-9(ng-if="level.nextId == null")
+                .col-xs-9(ng-if="level.nextId == null")
                     p.last-level {{ 'LEVELS.lastLevelMsg' | translate }} {{customer.username}} !
-                //.next-level__wrapper.col-xs-9.not-padding(ng-if="level.nextId != null")
                 .next-level__wrapper.col-xs-9.not-padding(ng-if="nextLevel")
                     .level-separator
                     .col-xs-4.not-padding
@@ -20,12 +18,9 @@
                         p.title-next-level {{ 'LEVELS.nextLevel' | translate }}:
                         p.name-next-level {{nextLevel.name}}
             .section__progressbar
-                code {{percentValue}}
-                .progressbar-actual(style="width:{{percentValue}}%")
-                    .score-bar.center
-                        span {{scores[ item.level.scoreUnitId ]}}
-                        span(ng-if="nextLevel") / {{nextLevel.minimum}}
-                        span {{levelActualName.name}}
+                .progressbar-actual(style="width:{{percentValue}}%" ng-class="{'level-complete': level.nextId == null}")
+                    .score-bar.center(ng-if="level.nextId") {{scores[ item.level.scoreUnitId ]}} / {{nextLevel.minimum}} {{levelActualName.name}}
+                    .score-bar.center(ng-if="level.nextId == null ") {{scores[ item.level.scoreUnitId ]}} {{levelActualName.name}}
             .section__levels-timeline
                 section.comments(ng-repeat="levels in LevelsIndex track by $index" ng-class="{first:$first}")
                     .col-xs-2
@@ -38,4 +33,5 @@
                     .col-xs-10
                         span.level-name(ng-class="{ 'next-level-name': scope.level.id != scope.level.id }")  {{levels.name}}
                         span.score {{levels.minimum}} {{levelActualName.name}}
+
 

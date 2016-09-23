@@ -146,14 +146,13 @@ import './common/services/angular-sdk';
             params.config = params.config || {};
             params.url = params.url.replace(/\/$/, "") || "";
             if (params.apiKey && typeof params.apiKey == 'string') {
-
                 angular.module('GLOBAL_CONFIG', []).constant('GLOBAL_CONFIG',{
                     apiKey: params.apiKey,
                     url: params.url,
                     selector: params.selector,
                     config: params.config
                 });
-
+                
                 angular.bootstrap(document.querySelector(params.selector), ['Hooptap-client', 'GLOBAL_CONFIG']);
             }
             else

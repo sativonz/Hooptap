@@ -1,5 +1,15 @@
 import stampit from 'stampit';
-export default ($q, $compile, $injector, Event, Customer, Admin, $rootScope, Session, BaseModel, _hasBadges, _hasScoreUnits)=> {
+export default ($q, $compile, $injector, Event, Customer, Admin, $rootScope, Session, BaseModel, _hasBadges, _hasScoreUnits, WidgetEngine, GLOBAL_CONFIG)=> {
+    //TODO improve global config
+    if (!GLOBAL_CONFIG.config.length) {
+        let widgetFullConfig = {tag: 'widget-full'};
+        let widgetFull = WidgetEngine.createWidget(widgetFullConfig);
+        let cButtonInitConfig = {tag: 'c-button-init'};
+        let cButtonInit = WidgetEngine.createWidget(cButtonInitConfig);
+        let widgetCustomerAccessConfig = {tag: 'widget-customer-access-popup', attrs:{'show-mix-form': true}};
+        let widgetCustomerAccess = WidgetEngine.createWidget(widgetCustomerAccessConfig);
+        angular.element(document.querySelector('body')).append(widgetFull).append(cButtonInit).append(widgetCustomerAccess);
+    }
     $rootScope.customer = {};
     $rootScope.availableBadges = {};
     $rootScope.availableScoreUnits = {};

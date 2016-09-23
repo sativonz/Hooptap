@@ -4,57 +4,48 @@
 
 .ht-notifier.ui-notification {
   font-family: $base-font-family;
-  width: 400px;
-  padding: 10px 20px 10px 10px;
-  @include border-radius(10px!important);
-  border: 1px solid hsla(0,0%,100%,.29);
-  &.success{
-    background: white!important;
-    img {
-      position: relative;
-      top: 2px;
-    }
+  width: 20vw;
+  padding: 10px 5px;
+  @include border-radius(10px !important);
+  border: 1px solid hsla(0, 0%, 100%, .29);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, .1);
+  img {
+    position: relative;
+    top: 2px;
+    max-width: 50px;
+  }
+  .toast-title {
+    font-weight: bold;
+    font-size: 17px;
+    text-align: center;
+  }
+  .toast-desc {
+    text-align: center;
+    margin-top: 10px;
+  }
+  &.success {
+    background: white !important;
     .toast-title {
       color: $_1_popup-text-title;
-      font-weight: bold;
-      font-size: 17px;
     }
     .toast-desc {
       color: $_1_popup-text-desc;
     }
   }
   &.error {
-    background: red!important;
+    background: red !important;
     img {
       width: 75px;
-      position: relative;
-      top: 2px;
-    }
-    .toast-title {
-      font-weight: bold;
-      font-size: 17px;
-    }
-    .toast-desc {
     }
   }
   &.warning {
-    background: orange!important;
-    img {
-      width: 75px;
-      position: relative;
-      top: 2px;
-    }
-    .toast-title {
-      font-weight: bold;
-      font-size: 17px;
-    }
-    .toast-desc {
-    }
+    background: orange !important;
   }
 
-
+  &.event-badge-success {
+    background-color: $_1_header-color;
+  }
+  &.event-scoreunit-success {
+    background-color: $_1_header-color;
+  }
 }
-
-
-
-

@@ -18,7 +18,7 @@ import stampit from 'stampit';
 
 
 export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseModel, _isWidget, _hasCustomer, _hasLogin, _isCustomer, $translate, Session, Notifier) => ({
-    
+
     restrict: 'E',
     transclude: true,
     template,
@@ -135,12 +135,12 @@ export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseMod
                 if (response.hasOwnProperty(('$promise'))) {
                     response.$promise.then((customer)=> {
                         scope.customer = customer;
-
                         //Notifier
                         let msgWelcome = $translate.instant("CUSTOMER.common.welcome");
-                        let message = msgWelcome + (scope.customer.username || '') + " !";
+                        let message = msgWelcome + "!";
                         Notifier.loginRegisterSuccess({
                             title: message,
+                            message: customer.username,
                             image: require('../images/default-img-popover.png')
                         });
                     });

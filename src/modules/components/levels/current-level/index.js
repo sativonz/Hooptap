@@ -61,7 +61,7 @@ export default($rootScope, BaseModel, _hasScoreUnits) => ({
             });
             
             //NextLevel
-            if(scope.item.level.nextId){
+            if (scope.item.level.nextId) {
                 ScoreUnitModel().getLevelById(scope.item.level.nextId).then((response) => {
                     scope.nextLevel = response;
                     //console.log("NEXT LEVEL !", scope.nextLevel);
@@ -94,8 +94,9 @@ export default($rootScope, BaseModel, _hasScoreUnits) => ({
                         //console.log('LevelsIndex', LevelsIndex);
                     });
                 });
+            }else {
+                scope.percentValue = 100;
             }
-           
         };
 
         //Destroy events
