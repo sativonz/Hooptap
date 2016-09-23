@@ -20,8 +20,8 @@ export default (Customer, Event, $rootScope, $q) => {
              */
             getCurrent(filter){
                 return Customer.getCurrent(filter).$promise.then((response)=> {
-
                     this.setLoggedRoot(response);
+                    $rootScope.currentCustomer = response;
                     return $q.resolve(response);
                 }).catch((error)=> {
                     return $q.reject(error);

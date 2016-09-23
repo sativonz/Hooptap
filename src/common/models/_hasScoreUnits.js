@@ -5,7 +5,6 @@ import Q from 'q';
 export default (Level, ScoreUnit, ScoreUnitInstance) => {
 
     return stampit()
-
     /**
      * @memberOf Rule.model:Rule
      * @stampit init
@@ -17,20 +16,21 @@ export default (Level, ScoreUnit, ScoreUnitInstance) => {
         .methods({
 
             getLevelById(id) {
-                return Level.findById({id:id}).$promise;
+                if (!id)
+                    return;
+                return Level.findById({id: id}).$promise;
             },
 
             getLevels(filter) {
                 return Level.find(filter);
             },
 
-            getScoreUnits(){
-                return ScoreUnit.find();
+            getScoreUnits(filter){
+                return ScoreUnit.find(filter);
             },
 
             getScoreUnitById(id){
-
-                return ScoreUnit.findById({id:id}).$promise;
+                return ScoreUnit.findById({id: id}).$promise;
             },
             getScoreUnitInstances(filter){
                 return ScoreUnitInstance.find(filter);

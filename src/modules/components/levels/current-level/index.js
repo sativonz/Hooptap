@@ -59,12 +59,7 @@ export default($rootScope, BaseModel, _hasScoreUnits) => ({
                     scope.item = item;
                 }
             });
-
-
-
-
-
-
+            
             //NextLevel
             if (scope.item.level.nextId) {
                 ScoreUnitModel().getLevelById(scope.item.level.nextId).then((response) => {

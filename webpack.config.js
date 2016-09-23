@@ -10,6 +10,11 @@ var isTest = ENV === 'test' || ENV === 'test-watch' || ENV === 'test-coverage';
 var isProd = ENV === 'build' || ENV === '';
 var isWatching = ENV === 'test-watch' || ENV === 'serve';
 
+var publicPath = "/";
+if(process.env.publicPath){
+    publicPath = "/" + process.env.publicPath+ "/";
+}
+
 module.exports = function makeWebpackConfig() {
 
     var config = {};
@@ -20,10 +25,10 @@ module.exports = function makeWebpackConfig() {
     //Output
     config.output = isTest ? {} : {
         // Absolute output directory
-        path: __dirname + '/build/' + pkg.version.replace(/\./g, '-') + '/',
+        path: __dirname + '/build/',
         // Output path from the view of the page
         // Uses webpack-dev-server in development
-        publicPath: isProd ? 'http://sdk-client.hooptap.com/' + pkg.version.replace(/\./g, '-') + '/' : 'http://localhost:3030/',
+        publicPath: isProd ?  publicPath : 'http://localhost:3030/',
 
         // Filename for entry points
         // filename: 'bundle.[name].[hash].js',

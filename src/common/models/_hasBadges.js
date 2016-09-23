@@ -12,7 +12,6 @@ export default (Badge, Customer) => {
          */
         .init(function ({stamp}) {
             this.setRemoteModel('Badge');
-            this._factory = Badge;
         })
         .methods({
             getAvailableBadges(){

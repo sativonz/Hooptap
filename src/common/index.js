@@ -1,10 +1,12 @@
 let module = angular.module('common', [])
     //TODO Borrar o sustituir por el nuevo create-router .directive('viewHandler', require('./components/viewHandler').default)
-        //Session services
-        .factory('Session',         require('./services/Session').default)
+    //Session services
+        .factory('Session', require('./services/Session').default)
+        //Interceptor HTTP
+        .service('httpInterceptorService', require('./services/Interceptor').default)
         //Common Utils
-        .factory('clientHelper',    require('./services/clientHelper').default)
-        .factory('Notifier',		require('./services/Notifier/Notifier').default)
+        .factory('clientHelper', require('./services/clientHelper').default)
+        .factory('Notifier', require('./services/Notifier/Notifier').default)
 
 
         //Models
@@ -24,7 +26,7 @@ let module = angular.module('common', [])
         // .factory('_hasQuests',              require('./models/_hasQuests').default)
 
 
-    .run(require('./boot').default)
+        .run(require('./boot').default)
     ;
 export default module.name;
 

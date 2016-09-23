@@ -26,7 +26,6 @@
 </div>
 
 
-
 <!--Widget badges grid
 <div><w-widget-badges-grid number-cols="3"></w-widget-badges-grid></div>-->
 
@@ -36,47 +35,25 @@
 
 <!--Bundle WIDGETS -->
 <script>
-    (function (f,u,n,b,o,un,d) { f['HooptapObjectClient'] = o;
-        f[o] = f[o] || function () { ( f[o].argum = f[o].argum || [] ).push(arguments) }; f[o].timestamp = 1 * new Date();
-        un = u.createElement(n); d = u.getElementsByTagName(n)[0]; un.async = 1; un.src = b; d.parentNode.insertBefore(un, d);
-    })( window, document, 'script', 'http://localhost:3030/bundle.js', 'Hooptap' );
+    (function (f, u, n, b, o, un, d) {
+        f['HooptapObjectClient'] = o;
+        f[o] = f[o] || function () {
+                    ( f[o].argum = f[o].argum || [] ).push(arguments)
+                };
+        f[o].timestamp = 1 * new Date();
+        un = u.createElement(n);
+        d = u.getElementsByTagName(n)[0];
+        un.async = 1;
+        un.src = b;
+        d.parentNode.insertBefore(un, d);
+    })(window, document, 'script', 'http://localhost:3030/bundle.js', 'Hooptap');
     window.addEventListener("load", function () {
-        Hooptap.start({ apiKey: "PCN5dmOY1S4ST0hr9Z0ScjcG3slbS1Gq" });
+        //Ultima version
+        Hooptap.start({apiKey: "7RMGPQn5a5NAB8FXprD2UJvjhk11XZdg", url: "http://52.211.32.45:3000"});
+        //Antiguo API
+        //Hooptap.start({apiKey: "PCN5dmOY1S4ST0hr9Z0ScjcG3slbS1Gq", url: "http://52.209.100.27:8080"});
     });
 </script>
-<!--<script>
-    (function (_window, _document, _script_, _url_, _namespace_, _var1, _var2) {
-
-        // guarda el namespace en window
-        _window['HooptapObjectClient'] = _namespace_;
-
-
-        // crea la variable global, y hace backup de los argumentos
-        _window[_namespace_] = _window[_namespace_] || function () {
-                    ( _window[_namespace_].argum = _window[_namespace_].argum || [] ).push(arguments)
-                };
-
-        // guarda cuando se inició
-        _window[_namespace_].timestamp = 1 * new Date();
-
-
-        // carga el código en un script
-        _var1 = _document.createElement(_script_);
-        _var2 = _document.getElementsByTagName(_script_)[0];
-        _var1.async = 1;
-        _var1.src = _url_;
-        _var2.parentNode.insertBefore(_var1, _var2);
-    })(
-            window, //_window
-            document, //_document
-            'script', //_script_
-            'http://localhost:3030/bundle.js', //_url_
-            'Hooptap' //_namespace_
-    );
-    window.addEventListener("load", function () {
-        Hooptap.start({apiKey: "eqewq", selector: 'body', config: {}});
-    });
-</script>-->
 
 </body>
 </html>

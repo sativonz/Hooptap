@@ -39,16 +39,17 @@ export default() => ({
             };
             LoginModel().login(credentials, includeFilter).then((response)=> {
                 $rootScope.$broadcast('$loginSuccess', response);
+
                 $scope.mask = false;
             }).catch((error)=> {
                 $scope.mask = false;
                 //TODO NOTIFICADOR ERRORES
                 if (error.status == 401) {
                     let msg = $translate.instant("TOAST.incorrect");
-                    Notifier.error({title: msg, image: require('./images/error.png')});
+                    //Notifier.error({title: msg, image: require('./images/error.png')});
                 }
             });
         };
 
-    }
-});
+        }
+    });
