@@ -12,7 +12,7 @@ var isWatching = ENV === 'test-watch' || ENV === 'serve';
 
 var publicPath = "/";
 if(process.env.publicPath){
-    publicPath = "/" + process.env.publicPath+ "/";
+    publicPath = "//" + require("os").hostname() + process.env.publicPath;
 }
 
 module.exports = function makeWebpackConfig() {
