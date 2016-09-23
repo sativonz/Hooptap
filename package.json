@@ -13,7 +13,7 @@
     "serve-client": "./node_modules/.bin/webpack-dev-server --history-api-fallback --inline --progress --port 3030",
     "serve-test": "./node_modules/.bin/http-server ./ -p 3000 --cors",
     "serve-build": "./node_modules/.bin/http-server ./build",
-    "build": "./node_modules/.bin/rimraf build && ./node_modules/.bin/webpack --bail --progress --profile && ./node_modules/.bin/grunt api ",
+    "build": "rimraf build && webpack --bail --progress --profile && grunt api ",
     "build-sourcemap": "./node_modules/.bin/rimraf build && ./node_modules/.bin/webpack --bail --progress --profile",
     "full": "npm run test-coverage && npm run build && npm run serve-build"
   },
