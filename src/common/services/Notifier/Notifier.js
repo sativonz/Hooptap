@@ -42,8 +42,13 @@ export default (Notification, $translate, $rootScope) => {
             return launcher('info', {templateUrl: 'eventScoreUnit.html'}, args)
         },
         //default templates
-        primary () {
-            return launcher('primary', arguments)
+        primary (args) {
+            return launcher('success',
+                {
+                    templateUrl: 'success.html'
+                },
+                args
+            )
         },
         info () {
             return launcher('info', arguments)

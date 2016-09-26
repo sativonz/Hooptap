@@ -71,7 +71,7 @@ export default ($q, $compile, $injector, Event, Customer, Admin, $rootScope, Ses
     };
 
     windowHooptap.notifier  = (title, desc, img) => {
-        Notifier.loginRegisterSuccess({
+        Notifier.primary({
             title: title,
             message: desc,
             image: img
