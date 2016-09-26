@@ -11,7 +11,7 @@ import Q from 'q';
  * @param {Object} options The model to display de marker
  * @element ANY
  */
-export default($timeout, $rootScope, $filter, BaseModel, _hasScoreUnits, _hasCustomer) => ({
+export default($timeout, $filter, $rootScope, BaseModel, _hasScoreUnits, _hasCustomer) => ({
     restrict: 'E',
     scope: {
         options: '=',

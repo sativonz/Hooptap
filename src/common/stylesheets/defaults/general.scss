@@ -32,10 +32,23 @@ input::-moz-focus-inner {
   padding: 0px!important;
 }
 
+//VALDR STYLES
+.valdr-message {
+  color: $red;
+  margin: 0;
+  font-size: 14px;
+}
 
-//////////////////--------WIDGET W&H---------//////////////////////
-//TODO Revisar tamaños del widget
+.ng-valid span:after, .ng-valid span:before {
 
+  background-color: $_1_header-color;
+}
+
+.ng-invalid-valdr-required span:after, .ng-invalid-valdr-required span:before {
+  background-color: $_1_btn-error;
+}
+
+//MODAL WIDGET
 #ht-widget {
   .modal{
     background-color: rgba(0, 0, 0, 0.75);

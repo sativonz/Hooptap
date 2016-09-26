@@ -120,7 +120,7 @@ export default(Customer, LoopBackAuth, $rootScope, $parse, clientHelper, BaseMod
             if (Session.isAuthenticated()) {
                 WidgetModel.getCurrent(includeFilter).then((response)=> {
                     let customerResponse = CustomerModel(response);
-                    $rootScope.$broadcast('$loginSuccess', customerResponse);
+                    scope.customer = customerResponse;
                 }).catch(()=> {
                     LoopBackAuth.clearStorage();
                     LoopBackAuth.clearUser();
