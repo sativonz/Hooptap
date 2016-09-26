@@ -143,7 +143,6 @@ export default function () {
         }
 
         for (var key in viewBuilder) {
-            console.log(key);
             if (isFunction(viewBuilder[key])) view[key] = viewBuilder[key](view, viewBuilder.$delegates[key]);
         }
         views[name] = view;

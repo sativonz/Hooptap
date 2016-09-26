@@ -1,4 +1,4 @@
 .stepbar__step(id="stepbar__step-{{$index+1}}" ng-repeat="step in steps track by $index" style="width:{{stepWidth}}" ng-class="{'active': step.complete, 'disable': step.state === 'disabled'}" )
-    .stepbar__step-inner(ng-class="{'last':$last}")
+    .stepbar__step-inner(ng-class="{'last':$last, 'first':$first}")
 //span.stepbar__disabled
     .stepbar__new(ng-if="!step.parts")

@@ -19,4 +19,4 @@
             .col-xs-12
                 .progressbar(ng-if="showProgressBarLevel")
                     .progressbar-actual(style="width:{{percentValue}}%")
-                        .score-bar.center(style="width:233px;") {{item.scores[ level.scoreUnitId ]}} / {{nextLevel.minimum}} {{levelActualName.name}}
+                        .score-bar.center(style="width:233px;") {{item.scores[ level.scoreUnitId ] | numberFilter }} / {{nextLevel.minimum | numberFilter }}  {{levelActualName.name}}

@@ -28,7 +28,7 @@ export default ($q, $compile, $injector, Event, Customer, Admin, $rootScope, Ses
             });
         });
 
-        console.log($rootScope.availableBadges, $rootScope.availableScoreUnits);
+        //console.log($rootScope.availableBadges, $rootScope.availableScoreUnits);
     });
     var TEST = false;
 

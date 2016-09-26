@@ -197,7 +197,7 @@ c-badges-grid {
     }
     .tab-content {
       height: 370px;
-      padding: 15px 0px 15px 20px;
+      padding: 15px 0px 15px 10px;
       overflow: auto;
       overflow-x: hidden;
       position: relative;
@@ -207,7 +207,7 @@ c-badges-grid {
         background: none;
       }
       >.active {
-        padding-left: 10px;
+        padding-left: 20px;
       }
       &.active {
         padding-left: 25px;

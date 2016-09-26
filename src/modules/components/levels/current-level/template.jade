@@ -19,7 +19,7 @@
                         p.name-next-level {{nextLevel.name}}
             .section__progressbar
                 .progressbar-actual(style="width:{{percentValue}}%" ng-class="{'level-complete': level.nextId == null}")
-                    .score-bar.center(ng-if="level.nextId") {{scores[ item.level.scoreUnitId ]}} / {{nextLevel.minimum}} {{levelActualName.name}}
+                    .score-bar.center(ng-if="level.nextId") {{scores[ item.level.scoreUnitId ]| numberFilter }} / {{nextLevel.minimum| numberFilter }} {{levelActualName.name}}
                     .score-bar.center(ng-if="level.nextId == null ") {{ scores[ item.level.scoreUnitId ] | numberFilter }} {{levelActualName.name}}
             .section__levels-timeline
                 section.comments(ng-repeat="levels in LevelsIndex track by $index" ng-class="{first:$first}")

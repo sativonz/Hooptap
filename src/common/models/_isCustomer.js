@@ -24,7 +24,7 @@ export default ($rootScope, Customer, LoopBackAuth) => {
             prepare(model){
                 let id = model.id == 'new' || !model.id ? undefined : model.id;
                 let terms = undefined;
-                console.log(this.birthDate);
+                //console.log(this.birthDate);
                 
                 return {id, terms};
 

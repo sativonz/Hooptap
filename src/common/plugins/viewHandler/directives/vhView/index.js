@@ -6,7 +6,7 @@ export default($rootScope,viewHandlerService) => ({
 
         element.bind('click', function () {
             viewHandlerService.setCurrentView(attrs.vhRef);
-            console.log(viewHandlerService.getCurrentView());
+           //console.log(viewHandlerService.getCurrentView());
 
         });
 
