@@ -66,11 +66,7 @@ export default($rootScope, BaseModel, _hasScoreUnits) => ({
                     scope.nextLevel = response;
                     //console.log("NEXT LEVEL !", scope.nextLevel);
 
-                    //Score Unit asociado al nivel
-                    ScoreUnitModel().getScoreUnitById(scope.nextLevel.scoreUnitId).then((response) => {
-                        scope.levelActualName = response;
-                        //console.log("Nombre del su asociado al level =>", scope.levelActualName);
-                    });
+
 
                     //Progressbar
                     let firstValue = scope.nextLevel.minimum;
@@ -84,19 +80,26 @@ export default($rootScope, BaseModel, _hasScoreUnits) => ({
                     });
 
 
-                    //Index all levels
-                    let LevelsIndex = {};
-                    let allLevelsIndex = ScoreUnitModel().getLevels({filter: {where: {scoreUnitId: scope.item.level.scoreUnitId}}});
 
-                    allLevelsIndex.$promise.then((response)=> {
-                        response.map((level)=>LevelsIndex[level.id] = level);
-                        scope.LevelsIndex = LevelsIndex;
-                        //console.log('LevelsIndex', LevelsIndex);
-                    });
                 });
             }else {
                 scope.percentValue = 100;
             }
+            //Score Unit asociado al nivel
+            ScoreUnitModel().getScoreUnitById(scope.item.level.scoreUnitId).then((response) => {
+                scope.levelActualName = response;
+                console.log("Nombre del su asociado al level =>", scope.levelActualName);
+            });
+
+            //Index all levels
+            let LevelsIndex = {};
+            let allLevelsIndex = ScoreUnitModel().getLevels({filter: {where: {scoreUnitId: scope.item.level.scoreUnitId}}});
+
+            allLevelsIndex.$promise.then((response)=> {
+                response.map((level)=>LevelsIndex[level.id] = level);
+                scope.LevelsIndex = LevelsIndex;
+                //console.log('LevelsIndex', LevelsIndex);
+            });
         };
 
         //Destroy events

@@ -134,7 +134,7 @@ export default ($q, $compile, $injector, Event, Customer, Admin, $rootScope, Ses
             token = Customer.login(params)
                 .$promise
                 .then((response) => {
-                    console.log('response', response);
+                    //console.log('response', response);
                 })
                 .catch((e) => {
                     let errors = {
