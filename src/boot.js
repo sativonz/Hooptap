@@ -1,5 +1,5 @@
 import stampit from 'stampit';
-export default ($q, $compile, $injector, Event, Customer, Admin, $rootScope, Session, BaseModel, _hasBadges, _hasScoreUnits, WidgetEngine, GLOBAL_CONFIG)=> {
+export default ($q, $compile, $injector, Event, Customer, Admin, $rootScope, Session, BaseModel, _hasBadges, _hasScoreUnits, WidgetEngine, GLOBAL_CONFIG,Notifier)=> {
     //TODO improve global config
     if (!GLOBAL_CONFIG.config.length) {
         let widgetFullConfig = {tag: 'widget-full'};
@@ -70,6 +70,14 @@ export default ($q, $compile, $injector, Event, Customer, Admin, $rootScope, Ses
         return promise;
     };
 
+    windowHooptap.notifier  = (title, desc, img) => {
+        Notifier.loginRegisterSuccess({
+            title: title,
+            message: desc,
+            image: img
+        });
+    };
+
     windowHooptap.sendEvent = function (params) {
 
         var typeOf = {
@@ -80,8 +88,7 @@ export default ($q, $compile, $injector, Event, Customer, Admin, $rootScope, Ses
             //"customerId": "string"
         };
 
-        if ('object' !== typeof params || params == null || Array.isArray(params) || !Object.keys(params).length
-        )
+        if ('object' !== typeof params || params == null || Array.isArray(params) || !Object.keys(params).length)
             return false;
 
         var valid = {}, failed = {};
