@@ -4,7 +4,7 @@
 
         .ht-marker-display__su(ng-click="$root.WPF.viewLevelList = !$root.WPF.viewLevelList"   ng-if="zoneCol.model == 'ScoreUnit'" tooltip-placement="top" uib-tooltip="{{ defaultScoreUnit.name || 'SCOREUNITS.title' | translate }}")
             .col-xs-6.not-padding.score
-                .title__score-units {{item.scoreUnitInstances[0].quantity || defaultValue}}
+                .title__score-units {{ suQuantity || defaultValue }}
             .col-xs-6.not-padding
                 img.ht-marker-display__img(ng-src="{{ defaultScoreUnit.image || suDefaultImage() }}")
 

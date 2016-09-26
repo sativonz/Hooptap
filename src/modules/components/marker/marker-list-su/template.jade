@@ -11,7 +11,7 @@ c-loader-wrap(value="scoreUnits")
                         img(ng-src="{{su.image || defaultImage}}")
                 .col-xs-10.not-padding
                     span.marker-list-su__name {{su.name}}
-                    .marker-list-su__quantity {{su.quantity || 0}}
+                    .marker-list-su__quantity {{su.quantity | numberFilter}}
 
 
     c-widget-header(title="{{ level.name }}" ng-if="$root.WPF.viewLevelList && $root.WPF.viewLevelSU")
@@ -36,8 +36,8 @@ c-loader-wrap(value="scoreUnits")
                             p.name-next-level {{nextLevel.name}}
                 .section__progressbar.animated.bounceIn
                     .progressbar-actual(style="width:{{percentValue}}%" ng-class="{'level-complete': level.nextId == null}")
-                        .score-bar.center(ng-if="level.nextId") {{customer.scores[ level.scoreUnitId ]}} / {{nextLevel.minimum}} {{levelActualName.name}}
-                        .score-bar.center(ng-if="level.nextId == null ") {{customer.scores[ level.scoreUnitId ]}} {{levelActualName.name}}
+                        .score-bar.center(ng-if="level.nextId") {{customer.scores[ level.scoreUnitId ] | numberFilter }} / {{nextLevel.minimum | numberFilter }} {{levelActualName.name}}
+                        .score-bar.center(ng-if="level.nextId == null ") {{customer.scores[ level.scoreUnitId ] | numberFilter }} {{levelActualName.name}}
                 .section__levels-timeline.animated.pulse
                     section.comments(ng-repeat="levels in LevelsIndex track by $index" ng-class="{first:$first}")
                         .col-xs-2

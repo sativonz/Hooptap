@@ -37,6 +37,7 @@ import './common/services/angular-sdk';
     
             //Modules
             require('./common').default,
+            require('./modules/number-filter').default,
             require('./modules/translations').default,
             require('./modules/validations').default,
             require('./modules/components').default,

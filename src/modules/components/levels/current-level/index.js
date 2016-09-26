@@ -28,6 +28,7 @@ export default($rootScope, BaseModel, _hasScoreUnits) => ({
     },
     link: (scope, element, attrs)=> {
 
+
         //Default images
         scope.defaultLevelImage = defaultLevelImage;
         scope.defaultNextLevelImage = defaultNextLevelImage;
@@ -88,7 +89,7 @@ export default($rootScope, BaseModel, _hasScoreUnits) => ({
             //Score Unit asociado al nivel
             ScoreUnitModel().getScoreUnitById(scope.item.level.scoreUnitId).then((response) => {
                 scope.levelActualName = response;
-                console.log("Nombre del su asociado al level =>", scope.levelActualName);
+                //console.log("Nombre del su asociado al level =>", scope.levelActualName);
             });
 
             //Index all levels

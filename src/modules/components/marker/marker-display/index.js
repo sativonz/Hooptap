@@ -11,7 +11,7 @@ import Q from 'q';
  * @param {Object} options The model to display de marker
  * @element ANY
  */
-export default($timeout, $rootScope, BaseModel, _hasScoreUnits, _hasCustomer) => ({
+export default($timeout, $rootScope, $filter, BaseModel, _hasScoreUnits, _hasCustomer) => ({
     restrict: 'E',
     scope: {
         options: '=',
@@ -35,6 +35,9 @@ export default($timeout, $rootScope, BaseModel, _hasScoreUnits, _hasCustomer) =>
         scope.levelDefaultImage = function () {
             return require('./images/level-default.svg')
         };
+
+        //Filter su marker
+        scope.suQuantity = $filter('numberFilter')(scope.item.scoreUnitInstances[0].quantity);
 
         //Score unit image default => the same of the score unit associated at level row
         let ScoreUnitModel = stampit().compose(BaseModel, _hasScoreUnits);
