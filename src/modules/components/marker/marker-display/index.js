@@ -37,7 +37,9 @@ export default($timeout, $filter, $rootScope, BaseModel, _hasScoreUnits, _hasCus
         };
 
         //Filter su marker
-        scope.suQuantity = $filter('numberFilter')(scope.item.scoreUnitInstances[0].quantity);
+        $timeout(function() {
+            scope.suQuantity = $filter('numberFilter')(scope.item.scoreUnitInstances[0].quantity);
+        }, 500);
 
         //Score unit image default => the same of the score unit associated at level row
         let ScoreUnitModel = stampit().compose(BaseModel, _hasScoreUnits);
